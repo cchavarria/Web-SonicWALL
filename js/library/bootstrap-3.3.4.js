@@ -3,6 +3,10 @@
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+/*
+ *Updated by: Elnaz Doostdar 5/21/15
+ * Added bug fix for carousel transition in IE8/9
+ */
 
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
@@ -416,9 +420,11 @@ if (typeof jQuery === 'undefined') {
   }
 
   Carousel.prototype.slide = function (type, next) {
+    /*ie8/9 transition issue fix start*/
     if (!$.support.transition && this.$element.hasClass('slide')) {
       this.$element.find('.item').stop(true, true); //Finish animation and jump to end.
     }
+    /*ie8/9 transition issue fix end*/
     var $active = this.$element.find('.item.active')
     var $next = next || this.getItemForDirection(type, $active)
     var isCycling = this.interval
@@ -461,6 +467,7 @@ if (typeof jQuery === 'undefined') {
             }, 0)
           })
           .emulateTransitionEnd(Carousel.TRANSITION_DURATION)
+      /*IE8/9 transition issue fix start*/
     } else if (!$.support.transition && this.$element.hasClass('slide')) {
       this.$element.trigger(slidEvent)
       if (slidEvent.isDefaultPrevented()) return
@@ -474,6 +481,7 @@ if (typeof jQuery === 'undefined') {
       $next.addClass(type).css({left: (direction == 'right' ? '-100%' : '100%')}).animate({left: '0'}, 600, function () {
         $next.removeClass(type).addClass('active')
       })
+      /*IE8/9 transition issue fix end*/
     } else {
       $active.removeClass('active')
       $next.addClass('active')
