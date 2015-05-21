@@ -1,22 +1,45 @@
+/*Banner*/
 .slide-markers {
   text-align: center;
   margin-bottom: 27px;
+  li {
+    display: inline;
+    span {
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 3px;
+      height: 6px;
+      margin: 14px 14px 0 0;
+      width: 14px;
+      display: inline-block;
+    }
+    &.activeSlide span {
+      background-color: #444;
+    }
+  }
 }
 
-.slide-markers li {
-  display: inline;
+@media (max-width: 767px) {
+  //XS
+  .masthead {
+    margin-bottom: 0;
+  }
 }
 
-.slide-markers li span {
-  cursor: pointer;
-  background-color: #ccc;
-  border-radius: 3px;
-  height: 6px;
-  margin: 14px 14px 0 0;
-  width: 14px;
-  display: inline-block;
+@media (min-width: 768px) {
+  //SM
+
 }
 
-.slide-markers li.activeSlide span {
-  background-color: #444;
+@media (min-width: 768px) and (orientation: portrait) {
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
 }
