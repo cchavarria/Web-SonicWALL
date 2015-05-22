@@ -55,7 +55,6 @@
 
   @import "bootstrap/custom-dell-icons";
   @import "bootstrap/custom-header-footer-dsg-v2";
-  @import "bootstrap/custom-image";
 
   // Components w/ JavaScript
   /*@import "bootstrap/modals";*/
@@ -109,6 +108,7 @@
 }
 
 @import "bootstrap/custom-fancybox";
+@import "bootstrap/custom-image";
 
 @media (max-width: 767px) {
   //XS
