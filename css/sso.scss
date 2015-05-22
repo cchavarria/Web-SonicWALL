@@ -1,0 +1,214 @@
+
+button.btn.btn-lg {
+  font-size: 14px;
+  padding: 8px 16px;
+  margin-top: 35px;
+  margin-bottom: 44px;
+}
+
+.edit-account{
+  button.btn.btn-lg {
+    margin-bottom: 20px;
+  }
+}
+
+/* login Remember me checkbox */
+#lnkForgotPwd {
+  display: block;
+  margin-left: -20px;
+}
+
+/* login form has double button - fix extra padding */
+#sso{
+  .btn-primary {
+    margin-bottom: 10px !important;
+  }
+  .btn-default{
+    margin-top:0;
+    margin-bottom: 10px;
+  }
+}
+/* disabled buttons */
+button[disabled=disabled]{
+  color: #444;
+}
+/* My Account styles */
+
+.sso.my-account{
+  .row{
+    max-width: 100%;
+
+   > div{
+     padding-left: 0;
+     padding-right: 0;
+   }
+  }
+  .sso-links{
+    a{
+      display: block;
+      margin-bottom: 18px;
+    }
+    h3{
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+  .account-info > div {
+    margin-bottom: 28px;
+  }
+  span {
+    font-weight:bold;
+  }
+}
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+  .sso, .login {
+    .row {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    form {
+      label{
+        font-weight: normal;
+      }
+    }
+  }
+  .create-new-password #txtconfirmpwd,
+  .edit-password #chpwdConfirmNewPwd {
+      margin-bottom: 10px;
+  }
+  .my-account{
+    .sso-links {
+      a {
+        display: block;
+        margin-bottom: 0 !important;
+        box-sizing: border-box;
+        padding: 28px 0 28px 5px;
+        border-bottom: 1px #ccc solid;
+      }
+      a:first-of-type {
+        border-top: 1px #ccc solid;
+      }
+      :last-child{
+        margin-bottom:20px !important;
+      }
+    }
+    .account-info > div {
+      margin-bottom: 20px !important;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .sso{
+    .row{
+      max-width: 385px;
+    }
+    h1{
+      padding-top:3px;
+      margin-bottom:16px;
+    }
+    form {
+      display: table;
+
+      .form-group, .form-footer{
+        display: table-row
+      }
+      label, .form-footer > div:first-child {
+        font-weight: normal;
+        display:table-cell;
+        width:28%;
+        text-align: right;
+        padding-right: 10px;
+      }
+      .form-control,
+      .form-footer > div:last-child{
+        display: table-cell;
+        width:100%;
+        margin: 5px 0;
+      }
+    }
+    .legal {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  .casl,
+  .login {
+    .checkbox{
+      display: table-cell;
+      width:100%;
+      text-align: left;
+      margin:0;
+      padding-top: 15px;
+
+      label {
+        text-align: left;
+      }
+    }
+    button.btn.btn-lg {
+      margin-top: 25px;
+      margin-bottom: 32px;
+    }
+  }
+  .create-new-password,
+  .edit-password,
+  .reset-password,
+  .edit-email {
+    .row{
+      max-width: 454px;
+    }
+    form {
+      label,
+      .form-footer > div:first-child {
+        width:156px;
+      }
+      .form-control,
+      .form-footer > div:last-child,
+      #lblemailaccount {
+        width:295px;
+      }
+      #lblemailaccount {
+        padding-bottom: 10px;
+        padding-left: 5px;
+      }
+    }
+    button.btn.btn-lg {
+      margin-top: 25px;
+      margin-bottom: 14px;
+    }
+  }
+  .login{
+    .row{
+      max-width:320px;
+    }
+  }
+  #sso{
+    .form-group:first-child {
+      margin-bottom: 10px;
+    }
+    .checkbox {
+      padding-top: 0 !important;
+    }
+    label{
+      font-weight: normal;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+  }
+  .sso.my-account{
+    .account-info > div > span,
+    .account-info > div > div {
+      display: inline-block;
+    }
+    .account-info > div > span {
+      text-align: right;
+      min-width:120px;
+      padding-right: 10px;
+      font-weight: bold;
+    }
+  }
+}
