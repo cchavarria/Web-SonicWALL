@@ -98,7 +98,7 @@
   -ms-border-radius: 5px;
   border-radius: 5px;
   background: #fff;
-  background: rgba(600, 600, 600, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   right: auto;
   bottom: auto;
 }
@@ -189,6 +189,9 @@
     img {
       border: 1px solid #737373;
     }
+    .features-headline{
+      margin-bottom:8px;
+    }
   }
   .rr-pagination {
     margin-right: 2%;
@@ -276,6 +279,7 @@ a:hover .has-overlay h4 {
   padding: 0;
   height: 206px;
   .overlay {
+    background: #fff;
     background-color: rgba(255, 255, 255, 0.9);
     width: 100%;
     padding: 11px 15px;

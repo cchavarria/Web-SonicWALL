@@ -188,6 +188,7 @@
           top += prevHeight;
         }
 
+        console.log(liIndex);
         var thisli = $(this).find('> li:eq(' + liIndex + ')');
 
         thisli.css({

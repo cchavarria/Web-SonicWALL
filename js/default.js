@@ -154,6 +154,13 @@ $(document).ready(function () {
   });
 
   $(window).resize(resize);
+  if($(html).hasClass('ie8')){
+    $(html).find('img').each(function(){
+      if($(this).attr('src').index('.svg')){
+
+      }
+    });
+  }
 
   $('.screenshot-carousel .btn-default').on('click', function () {
     $('.screenshot-carousel ul li:nth-child(3) .polaris-divider').attr('style', 'display: block !important');

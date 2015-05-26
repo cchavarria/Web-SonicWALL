@@ -69,3 +69,13 @@
 }
 
 /*Elnaz adding fixes for DSG DP/Windows Soltuion Template vs. Dell STP Template A/B Test end*/
+/*Elnaz adding fixes for dsg home page start*/
+
+.hero-banner,
+.screenshot-carousel .pagination-type1{
+  width: 1170px;
+}
+.carousel-indicators {
+  bottom: -41px !important;
+}
+/*Elnaz adding fixes for dsg home page end*/
