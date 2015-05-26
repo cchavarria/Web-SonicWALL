@@ -1,45 +1,505 @@
+.grey-bg {
+  background-color: #f9f9f9;
+  padding: 30px 0;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0 !important;
+}
+
+.margin-right-0 {
+  margin-right: 0 !important;
+}
+
+.margin-left-0 {
+  margin-left: 0 !important;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-top-0 {
+  padding-top: 0;
+}
+
+.padding-bottom-0 {
+  padding-bottom: 0;
+}
+
+.padding-right-0 {
+  padding-right: 0;
+}
+
+.padding-left-0 {
+  padding-left: 0;
+}
+
 /*Banner*/
-.slide-markers {
-  text-align: center;
-  margin-bottom: 27px;
-  li {
-    display: inline;
-    span {
-      cursor: pointer;
-      background-color: #ccc;
-      border-radius: 3px;
-      height: 6px;
-      margin: 14px 14px 0 0;
-      width: 14px;
-      display: inline-block;
+
+.hero-banner {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  margin-bottom: 50px;
+  .carousel a {
+    &:hover h2, &:focus h2 {
+      text-decoration: none;
+      color: #007db8;
     }
-    &.activeSlide span {
-      background-color: #444;
+    h4 {
+      color: #444;
+      margin-bottom: 14px;
     }
   }
 }
 
+.carousel-indicators {
+  bottom: -41px;
+  li {
+    cursor: pointer;
+    background-color: #ccc;
+    height: 7px;
+    margin: 14px 14px 0 0;
+    width: 14px;
+    display: inline-block;
+    border: none;
+    border-radius: 2px;
+    padding: 0;
+  }
+  .active {
+    background-color: #444;
+    margin: 14px 14px 0 0;
+    width: 14px;
+    height: 7px;
+  }
+}
+
+.caption-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 14px;
+  /*background-color:;*/
+  width: 32%;
+  vertical-align: middle;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  background: rgba(600, 600, 600, 0.92);
+  right: auto;
+  bottom: auto;
+}
+
+/*intro*/
+
+.title-description {
+  margin-bottom: 24px;
+  p, a {
+    display: inline;
+    font-size: 16px;
+  }
+  h1 {
+    margin-bottom: 7px;
+    width: 86%;
+  }
+}
+
+/*solutions*/
+
+.icon-headline {
+  img {
+    width: 43px;
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+  }
+  > div > div {
+    margin-bottom: 27px;
+  }
+}
+
+/*features*/
+
+.polaris-divider {
+  border-top: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+  min-height: 20px;
+  margin: 17px 0 0 0;
+  &:before {
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    content: "";
+    height: 3px;
+    left: 5%;
+    position: absolute;
+    top: -3px;
+    width: 90%;
+  }
+}
+
+.screenshot-carousel .pagination-type1, .pagination-type1 li {
+  overflow: hidden;
+}
+
+.screenshot-carousel {
+  .pagination-container {
+    position: relative;
+    overflow: hidden;
+    > ul {
+      position: relative;
+      margin-left: -15px;
+    }
+  }
+  .pagination-type1 {
+    h3 {
+      margin-top: 4px;
+      margin-right: 5px;
+      /*font-size: 24px;*/
+      display: inline-block;
+    }
+    a {
+      display: inline-block;
+    }
+    li {
+      .product-text-wrapper {
+        max-width: 370px;
+        height: 83px;
+      }
+      .btn {
+        margin: 19px 0 30px 0;
+      }
+    }
+    p {
+      font-size: 16px;
+    }
+    img {
+      border: 1px solid #737373;
+    }
+  }
+  .rr-pagination {
+    margin-right: 2%;
+    float: right;
+    a {
+      width: 40px;
+      height: 33px;
+      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    > span {
+      border: none;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+    .prev {
+      background-position: 0 -204px;
+      margin-right: 20px;
+      &:hover, &.inactive:hover {
+        background-position: -41px -204px;
+      }
+    }
+    .next {
+      background-position: -127px -204px;
+      &:hover, &.inactive:hover {
+        background-position: -84px -204px;
+      }
+    }
+    .prev.inactive {
+      background-position: 0 -204px;
+    }
+    .next.inactive {
+      background-position: -127px -204px;
+    }
+  }
+}
+
+/*resources*/
+
+.resources {
+  float: left;
+  padding: 7px 0 5px 0;
+  .row > div {
+    margin-bottom: 14px;
+    > {
+      a {
+        display: inline-block;
+        margin-right: 0;
+        float: left;
+        margin-top: -16px;
+        margin-left: -14px;
+      }
+      div {
+        display: inline-block;
+        width: 80%;
+        float: left;
+        > a h4 {
+          margin-top: 0;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+.scale-32 {
+  width: 61px;
+  height: 61px;
+}
+
+/*support*/
+
+a:hover .has-overlay h4 {
+  text-decoration: none;
+  color: #007db8;
+}
+
+.has-overlay {
+  position: relative;
+  background-size: cover !important;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  padding: 0;
+  height: 206px;
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 11px 15px;
+    position: absolute;
+    bottom: 0;
+    height: 82px;
+    h4 {
+      margin-bottom: 2px;
+    }
+    p, &:hover p {
+      color: #333;
+    }
+  }
+}
+
+#tech-support {
+  background-image: url('http://stage-software-dell-com/images/home/dsg-home/tech-support.jpg');
+}
+
+#support-renewal {
+  background-image: url('http://stage-software-dell-com/images/home/dsg-home/support-renewals.jpg');
+}
+
+#tech-center {
+  background-image: url('http://stage-software-dell-com/images/home/dsg-home/dell-tech-center.jpg');
+}
+
+/*brand logos*/
+
+.logos {
+  display: block;
+  float: left;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  ul li {
+    display: block;
+    float: left;
+  }
+}
+
+.carousel-xs {
+  ul {
+    position: relative;
+  }
+  .pagination-container {
+    position: relative;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 5px;
+  }
+  .rr-pagination {
+    float: left;
+    margin-top: 10px;
+    > a {
+      background: url('http://stage-software-dell-com/images/shared/sprites.png') no-repeat -81px -165px;
+      width: 19px;
+      height: 35px;
+      display: block;
+      position: absolute;
+    }
+    .next {
+      background-position: -81px -165px;
+      right: -13px;
+    }
+    .prev {
+      background-position: 0 -165px;
+    }
+    .next.inactive {
+      background-position: -56px -165px;
+    }
+    .prev.inactive {
+      background-position: -25px -165px;
+    }
+    .next:hover {
+      background-position: -81px -165px;
+    }
+    .prev:hover {
+      background-position: 0 -165px;
+    }
+  }
+}
+
+/*media queries*/
+/*mobile*/
 @media (max-width: 767px) {
-  //XS
+  .xs-margin-right-0, .xs-margin-left-0 {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .masthead {
     margin-bottom: 0;
+  }
+  /*banner*/
+  .hero-banner {
+    width: 100%;
+    padding: 0 -15px;
+    .carousel a {
+      h4 {
+        font-size: 14px;
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+  .caption-wrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    background: #f5f5f5;
+    width: 100%;
+    span {
+      color: #007db8;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      &:hover {
+        background-color: transparent;
+        color: #007db8;
+      }
+    }
+  }
+  /*solutions*/
+  .icon-headline > div > div {
+    margin-bottom: 13px;
+  }
+  /*features*/
+  .grey-bg {
+    margin-top: 17px;
+  }
+  .screenshot-carousel {
+    ul {
+      padding: 0;
+      li {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .pagination-type1 li .product-text-wrapper {
+      height: auto;
+    }
+    ul li {
+      &:nth-child(3) .polaris-divider, &:nth-child(9) .polaris-divider {
+        display: none !important;
+      }
+    }
+    .btn-default {
+      margin-bottom: 20px;
+      margin-top: 9px;
+    }
+  }
+  .has-overlay {
+    margin-bottom: 20px;
+  }
+  .xs-negative-margin-left-15, .negative-margin-left-15 {
+    margin-left: -15px;
   }
 }
 
 @media (min-width: 768px) {
-  //SM
-
+  #hero-banner {
+    width: 100%;
+  }
+  .logos .col-lg-2 {
+    width: 11%;
+    padding: 0;
+    margin-right: 11px;
+  }
 }
 
-@media (min-width: 768px) and (orientation: portrait) {
+@media (min-width: 768px) and (orientation: portrait) {}
+
+/*tablet*/
+@media (max-width: 991px) and (min-width: 768px) {
+  /*banner*/
+  .hero-banner .carousel a {
+    h2 {
+      font-size: 26px;
+      line-height: 30px;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  .caption-wrapper {
+    width: 46%;
+  }
+  /*features*/
+  .rr-pagination {
+    margin-right: 3%;
+  }
+  .has-overlay {
+    margin-bottom: 20px;
+  }
+  .negative-margin-left-15 {
+    margin-left: -15px;
+  }
 }
 
 @media (min-width: 992px) {
-
+  .logos .col-lg-2 {
+    width: 101px;
+    padding: 0;
+    margin-right: 14px;
+  }
 }
 
+/*large screens*/
 @media (min-width: 1200px) {
+  .hero-banner {
+    width: 1170px;
+  }
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .logos .col-lg-2 {
+    width: 101px;
+    padding: 0;
+    margin-right: 43px;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-}
+@media (min-width: 768px) and (max-width: 991px) {}
