@@ -1,11 +1,11 @@
 button.btn.btn-lg {
   font-size: 14px;
   padding: 8px 16px;
-  margin-top: 35px;
-  margin-bottom: 44px; }
+  margin-top: 25px;
+  margin-bottom: 26px; }
 
 .edit-account button.btn.btn-lg {
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 /* login Remember me checkbox */
 #lnkForgotPwd {
@@ -24,11 +24,9 @@ button[disabled=disabled] {
   color: #444; }
 
 /* My Account styles */
-.sso.my-account .row {
-  max-width: 100%; }
-  .sso.my-account .row > div {
-    padding-left: 0;
-    padding-right: 0; }
+.sso.my-account > div {
+  padding-left: 0;
+  padding-right: 0; }
 .sso.my-account .sso-links a {
   display: block;
   margin-bottom: 18px; }
@@ -36,11 +34,10 @@ button[disabled=disabled] {
   font-size: 24px;
   line-height: 28px; }
 .sso.my-account .account-info > div {
-  margin-bottom: 28px; }
+  margin-bottom: 8px; }
 .sso.my-account span {
   font-weight: bold; }
 
-/* Media Queries */
 @media (max-width: 767px) {
   .sso .row, .login .row {
     margin-left: 5px;
@@ -65,8 +62,8 @@ button[disabled=disabled] {
   .my-account .account-info > div {
     margin-bottom: 20px !important; } }
 @media (min-width: 768px) {
-  .sso .row {
-    max-width: 385px; }
+  .sso .label-inline {
+    width: 454px; }
   .sso h1 {
     padding-top: 3px;
     margin-bottom: 16px; }
@@ -87,8 +84,23 @@ button[disabled=disabled] {
       margin: 5px 0; }
   .sso .legal {
     width: 100%;
-    margin-bottom: 10px; }
+    margin-bottom: 6px; }
 
+  .casl .label-top,
+  .login .label-top {
+    max-width: 320px; }
+    .casl .label-top .form-group:first-child,
+    .login .label-top .form-group:first-child {
+      margin-bottom: 10px; }
+    .casl .label-top .checkbox,
+    .login .label-top .checkbox {
+      padding-top: 0 !important; }
+    .casl .label-top label,
+    .login .label-top label {
+      font-weight: normal; }
+    .casl .label-top a:hover,
+    .login .label-top a:hover {
+      text-decoration: none; }
   .casl .checkbox,
   .login .checkbox {
     display: table-cell;
@@ -102,13 +114,11 @@ button[disabled=disabled] {
   .casl button.btn.btn-lg,
   .login button.btn.btn-lg {
     margin-top: 25px;
-    margin-bottom: 32px; }
+    margin-bottom: 25px; }
+  .casl .form-group:last-child,
+  .login .form-group:last-child {
+    margin-bottom: 10px; }
 
-  .create-new-password .row,
-  .edit-password .row,
-  .reset-password .row,
-  .edit-email .row {
-    max-width: 454px; }
   .create-new-password form label,
   .create-new-password form .form-footer > div:first-child,
   .edit-password form label,
@@ -142,19 +152,7 @@ button[disabled=disabled] {
   .reset-password button.btn.btn-lg,
   .edit-email button.btn.btn-lg {
     margin-top: 25px;
-    margin-bottom: 14px; }
-
-  .login .row {
-    max-width: 320px; }
-
-  #sso .form-group:first-child {
     margin-bottom: 10px; }
-  #sso .checkbox {
-    padding-top: 0 !important; }
-  #sso label {
-    font-weight: normal; }
-  #sso a:hover {
-    text-decoration: none; }
 
   .sso.my-account .account-info > div > span,
   .sso.my-account .account-info > div > div {
