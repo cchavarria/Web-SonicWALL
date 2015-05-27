@@ -6,66 +6,59 @@
 
 /*slide-pagination on DSG*/
 (function($) {
+	var methods = {
+		destroy: function() {
+			var options = $(this).data('options');
+
+			if(options === undefined) {
+				console.log('cannot destroy');
+				return this;
+			}
+
+			$(this).off('click', '.prev, .next');
+			$(this).find('.rr-pagination').remove();
+
+			$(this).find(options.list).parent().find('> div').remove();
+
+			if($(this).find(options.list).parent().hasClass('pagination-container')) {
+				$(this).find(options.list).unwrap();
+			}
+
+			$(this).find(options.list).css('display', '');
+
+			console.log('destroy');
+			console.log($(this));
+
+			return this;
+		},
+		randomize: randomize
+	};
+
   $.fn.slidePagination = function(options) {
     $(this).each(function() {
-      bind($(this).parent());
+			if(typeof options == 'string') {
+				return methods[options].call(this);
+			}
+			else {
+				methods.destroy.call(this);
+				bind.call(this, options);
 
-      var result = false, elem = this, imgs = null, imglen = 0, imgsloaded = 0;
+				$(this).data('options', options);
 
-      if($(this).data('random') != 'undefined' && $(this).data('random')) {
-        randomize.call(elem);
-      }
+				if(typeof options.random == 'boolean' && options.random) {
+					randomize.call($(this).find(options.list));
+				}
 
-      if($(this).is(':visible')) {
-        //Call "create" when all images are loaded. Doesn't hurt that "call" is called twice.
-        //This fixes the bug where the li's are stacked on top of each other to closely.
-        if($(this).hasClass('has-image')) {
-          imgs = $(this).find('img');
-          //imglen = imgs.length;
-
-          if($(elem).parent().data('row')) { options.row = $(elem).parent().data('row'); }
-
-          imgs.each(function() {
-            if($(this).width() == 0) { imglen++; }
-          });
-
-          if(imglen) {
-            imgs.load(function() {
-              imgsloaded++;
-              if(imgsloaded == imglen) { create.call(elem, options); }
-            });
-          }
-          else {
-            setTimeout(function() { create.call(elem, options); }, 100);
-          }
-        }
-        else {
-          setTimeout(function() { create.call(elem, options); }, 100);
-        }
-      }
-      else {
-        var lastHiddenElem = $(this), elem = this;
-
-        while(!lastHiddenElem.is(':visible')) { lastHiddenElem = lastHiddenElem.parent(); }
-
-        //lastHiddenElem is the top most tag that is invisible
-        lastHiddenElem.on('isVisible', function(e) {
-          if($(elem).is(':visible')) {
-            lastHiddenElem.off('isVisible');
-
-            if($(elem).parent().data('row')) { options.row = $(elem).parent().data('row'); }
-
-            create.call(elem, options);
-          }
-        });
-      }
+				console.log('create');
+				create.call(this, options);
+			}
     });
-  }
+  };
 
-  function randomize() {
+	function randomize() {
     var li = $(this).find('li');
 
-    li.sort(function(a,b){
+    li.sort(function(a, b){
       // Get a random number between 0 and 10
       var temp = parseInt( Math.random()*10 );
       // Get 1 or 0, whether temp is odd or even
@@ -79,199 +72,125 @@
         .appendTo($(this));
   }
 
-  function bind(elem) {
-    elem.on('click', '.prev, .next', function(e) {
+  function bind() {
+		var elem = this;
+
+    $(this).on('click', '.prev, .next', function(e) {
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      if($(this).hasClass('inactive')) { return false; }
+      if($(this).hasClass('inactive')) {
+				return false;
+			}
 
-      var p = $(this).parent().parent(),
-          total = p.data('total'),
-          page = p.data('page'),
-          ul = p.find('ul'),
-          interval = ul.data('interval');
+      var total = $(elem).data('total'),
+          page = $(elem).data('page'),
+          interval = $(elem).data('interval');
 
-      p.find('.next, .prev').removeClass('inactive');
+      $(elem).find('.next, .prev').removeClass('inactive');
 
       if($(this).hasClass('prev')) {
         if(--page == 0) {
-          p.find('.prev').addClass('inactive');
+					$(elem).find('.prev').addClass('inactive');
         }
       }
       else {
-        if(++page == p.data('totalpage') - 1) {
-          p.find('.next').addClass('inactive');
+        if(++page == $(elem).data('totalpage') - 1) {
+					$(elem).find('.next').addClass('inactive');
         }
       }
 
-      ul.animate({left: -1 * (page * p.data('width'))}, 500);
+			$(elem)
+				.data('page', page)
+				.find('.pagination-container').find('> div').animate({left: -1 * (page * $(elem).data('width'))}, 500);
 
       var start = page * interval, end = (page + 1) * interval;
 
-      p.data('page', page).find('.rr-pagination:eq(1)').find('> span').find('span:eq(0)').html(start+1).end().find('span:eq(1)').html(end > total ? total:end);
+			$(elem).find('.rr-pagination').each(function() {
+				if($(this).find('> span').length) {
+					$(this).find('> span').find('span:eq(0)').html(start+1).end()
+						.find('span:eq(1)').html(end > total ? total:end);
+				}
+			});
     });
 
     return true;
   }
 
   function create(options) {
-    if($(this).data('processed') != undefined) { return false; }
+    if($(this).data('processed') != undefined) {
+			return false;
+		}
 
-    var li = $(this).find('> li'); //Find all LI's
+    var elem = this,
+				interval = parseInt(options.column) * parseInt(options.row),
+				li = $(this).find(options.list).find('> li').clone().show(); //Find all LI's
 
     if(!options.force) {
-      if($(this).parents('#right-rail').attr('id') == 'right-rail') {
-        if(li.length <= options.interval) { return false; }
-      }
-      else {
-        if(li.length < options.interval) { return false; }
-      }
+      if(li.length < interval) {
+				return false;
+			}
     }
 
-    var parent = $(this).parent(),
-        total = li.length,
-        width = parent.width(),
+    var total = li.length,
         page = 0,
-        ulMarginLeft = parseInt($(this).css('margin-left')),
-        liPadding = parseInt($(this).find('> li:eq(0)').css('padding-left')) + parseInt($(this).find('> li:eq(0)').css('padding-right')),
-        totalRows = options.row ? options.row:options.interval / options.column,
+        totalRows = options.row,
         nextClass = (total <= (totalRows*options.column)) ? ' inactive':'',
         totalpage = Math.ceil(total/(totalRows*options.column));
 
-    options.interval = totalRows * options.column;
+    $(this).data('interval', interval);
 
-    $(this).data('interval', options.interval);
-    $(this).find('> li p').each(function() {
-      if($(this).outerHeight(true) > 150) { $(this).dotdotdot({height: 150}); }
+    $(this).find(options.list).find('> li p').each(function() {
+      if($(this).outerHeight(true) > 150) {
+				$(this).dotdotdot({height: 150});
+			}
     });
-    //$(this).find('> li').css('width', width/options.column - ulMarginLeft - liPadding);
-
-    parent.data('total', total);
-    parent.data('totalpage', totalpage);
-    parent.data('page', page);
-    parent.data('width', width);
 
     //Add pagination html fragment.
     if (totalpage > 1) {
-      if (options.show == 'top') {//show only top arrows
-        parent.prepend('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
-      }
-      else {
-        parent.prepend('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
-        parent.append('<div class="rr-pagination"><span>Viewing <span>1</span>-<span>' + ((total < options.interval) ? total : totalRows * options.column) + '</span> of ' + total + '</span><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
-      }
+			$.each(options.pagination, function() {
+				if(this.type == 'append') {
+					if(typeof this.displayTotal == 'boolean' && this.displayTotal) {
+						console.log('a');
+						console.log($(elem));
+						console.log(this.selector);
+						console.log($(elem).find(this.selector));
+						$(elem).find(this.selector).append('<div class="rr-pagination"><span>Viewing <span>1</span>-<span>' + ((total < options.interval) ? total : totalRows * options.column) + '</span> of ' + total + '</span><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+					}
+					else {
+						$(elem).find(this.selector).append('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+					}
+				}
+				else if(this.type == 'prepend') {
+					$(elem).find(this.selector).prepend('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+				}
+			});
     }
 
-    //$(this).css({width: totalpage * $(this).width()}).wrap('<div>').parent().addClass('pagination-container');
-    $(this).wrap('<div>').parent().addClass('pagination-container');
+    $(this).find(options.list).wrap('<div>').parent().addClass('pagination-container');
 
-    var maxHeight = maxIndividualHeight = 0;
+		var width = $(this).find('.pagination-container').width();
 
-    for(var page = 0; page < totalpage; page++) {
-      var top = prevHeight = 0, curColumn = -1;
+		$(this)
+			.data('total', total)
+			.data('totalpage', totalpage)
+			.data('page', page)
+			.data('width', width);
 
-      for(var liIndex = (page*options.interval); liIndex < (page + 1) * options.interval; liIndex++) {
-        if(liIndex > li.length) { break; }
+		var divContainer = $('<div>').css({width: width * totalpage}).appendTo($(this).find(options.list).parent());
 
-        if(options.column > 1) {
-          if(totalRows == 1) { curColumn++; top = 0; }
-          //else if(!(liIndex % options.column)) { curColumn++; top = 0; }
-          else if(!(liIndex % totalRows)) {
-            curColumn++;
-            top = 0;
-          }
-          else { top += prevHeight; }
-        }
-        else {
-          curColumn = 0;
-          top += prevHeight;
-        }
+		for (var p = 0; p < totalpage; p++) {
+			var ul = $('<ul>').css({width: width});
 
-        console.log(liIndex);
-        var thisli = $(this).find('> li:eq(' + liIndex + ')');
+			for (var indx2 = p * interval; indx2 < (p + 1) * interval; indx2++) {
+				ul.append(li.get(indx2));
+			}
 
-        thisli.css({
-          position: 'absolute',
-          top: top,
-          left: ((page*options.column) + curColumn) * (width/options.column)
-        });
+			ul.appendTo(divContainer);
+		}
 
-        //If field has image, move text to the right.
-        if($(this).hasClass('has-image')) {
-          if(thisli.children().length == 2 && (thisli.find('> img').width() / thisli.width()) < .75) {
-            thisli.find('> div').css('margin-left', thisli.find('> img').outerWidth(true));
-          }
-          else {
-            thisli.find('> div').css('margin-left', 0);
-          }
-        }
-
-        prevHeight = thisli.height();
-
-        //Find max height
-        if(prevHeight > maxIndividualHeight) { maxIndividualHeight = prevHeight; }
-
-        if(options.column == 1) {
-          if(liIndex == (page + 1) * options.interval - 1) { //last item on the page.
-            if((top + prevHeight) > maxHeight) { maxHeight = top + prevHeight; }
-          }
-        }
-      }
-    }
-
-    //Execute the following statement if there are more than 1 column
-    if(options.column > 1) {
-      for(var curpage = 0; curpage < totalpage; curpage++) {
-        var top = 0, row = 0, pageinit = true;
-
-        for(var indx = (curpage*options.interval); indx < (curpage + 1) * options.interval; indx++) {
-          if(totalRows == 1 || pageinit) { top = 0; }
-          else if(row == totalRows) { top = 0; row = 0; } //Reset top when starting on new column
-          else { top += maxIndividualHeight; }
-
-          $(this).find('> li:eq(' + indx + ')').css({top: top});
-
-          pageinit = false;
-          row++;
-        }
-      }
-
-      maxHeight = totalRows * maxIndividualHeight;
-
-      //Execute the following statement if slidePagination is used in the body and column is greater than 1
-      if($(this).parents('#right-rail').attr('id') != 'right-rail') {
-        maxHeight = 0; //Reset maxHeight
-
-        for(var col = 0; col <= (total / totalRows); col += totalRows) {
-          var h = 0;
-
-          for(var row = 0; row < totalRows; row++) {
-            var elem = $($(this).find('> li').get(col + row));
-
-            h += elem.height();
-
-            //Find margin between rows
-            if(row) {
-              var prevelem = $($(this).find('> li').get(col + row - 1));
-
-              h += parseInt(elem.css('top')) - (parseInt(prevelem.css('top')) + parseInt(prevelem.height()));
-            }
-          }
-
-          //h is the height of the column
-          if(h > maxHeight) { maxHeight = h; }
-        }
-      }
-    }
-
-    if(maxHeight == 0) {
-      $(this).css('height', 'auto');
-      li.each(function() { maxHeight += $(this).height(); });
-    }
-
-    $(this).css('height', maxHeight).data('processed', true);
-    $(this).find('li').animate({opacity: 1}, 1000);
+		//Hide UL
+		$(this).find(options.list).data('processed', true).hide();
 
     return true;
   }

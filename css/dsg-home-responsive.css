@@ -118,59 +118,58 @@
     top: -3px;
     width: 90%; }
 
-.screenshot-carousel .pagination-type1, .pagination-type1 li {
+.screenshot-carousel {
   overflow: hidden; }
-
-.screenshot-carousel .pagination-container {
-  position: relative;
-  overflow: hidden; }
-  .screenshot-carousel .pagination-container > ul {
+  .screenshot-carousel ul {
+    padding: 0; }
+  .screenshot-carousel li {
+    list-style: none outside none;
+    overflow: hidden; }
+    .screenshot-carousel li .product-text-wrapper {
+      max-width: 370px;
+      height: 83px; }
+    .screenshot-carousel li .btn {
+      margin: 19px 0 30px 0; }
+  .screenshot-carousel .screenshot-carousel-wrapper {
+    overflow: hidden; }
+  .screenshot-carousel .pagination-container {
     position: relative;
-    margin-left: -15px; }
-.screenshot-carousel .pagination-type1 h3 {
-  margin-top: 4px;
-  margin-right: 5px;
-  /*font-size: 24px;*/
-  display: inline-block; }
-.screenshot-carousel .pagination-type1 a {
-  display: inline-block; }
-.screenshot-carousel .pagination-type1 li .product-text-wrapper {
-  max-width: 370px;
-  height: 83px; }
-.screenshot-carousel .pagination-type1 li .btn {
-  margin: 19px 0 30px 0; }
-.screenshot-carousel .pagination-type1 p {
-  font-size: 16px; }
-.screenshot-carousel .pagination-type1 img {
-  border: 1px solid #737373; }
-.screenshot-carousel .pagination-type1 .features-headline {
-  margin-bottom: 8px; }
-.screenshot-carousel .rr-pagination {
-  margin-right: 2%;
-  float: right; }
-  .screenshot-carousel .rr-pagination a {
-    width: 40px;
-    height: 33px;
-    background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
-    display: inline-block;
-    vertical-align: middle; }
-  .screenshot-carousel .rr-pagination > span {
-    border: none;
-    font-size: 14px;
-    margin-right: 20px; }
-  .screenshot-carousel .rr-pagination .prev {
-    background-position: 0 -204px;
-    margin-right: 20px; }
-    .screenshot-carousel .rr-pagination .prev:hover, .screenshot-carousel .rr-pagination .prev.inactive:hover {
-      background-position: -41px -204px; }
-  .screenshot-carousel .rr-pagination .next {
-    background-position: -127px -204px; }
-    .screenshot-carousel .rr-pagination .next:hover, .screenshot-carousel .rr-pagination .next.inactive:hover {
-      background-position: -84px -204px; }
-  .screenshot-carousel .rr-pagination .prev.inactive {
-    background-position: 0 -204px; }
-  .screenshot-carousel .rr-pagination .next.inactive {
-    background-position: -127px -204px; }
+    overflow: hidden; }
+    .screenshot-carousel .pagination-container p {
+      font-size: 16px; }
+    .screenshot-carousel .pagination-container > div {
+      position: relative; }
+  .screenshot-carousel .features-headline {
+    margin-bottom: 8px; }
+    .screenshot-carousel .features-headline h3 {
+      margin: 4px 5px 20px 0;
+      display: inline-block; }
+  .screenshot-carousel .rr-pagination {
+    margin-right: 0;
+    float: right; }
+    .screenshot-carousel .rr-pagination a {
+      width: 40px;
+      height: 33px;
+      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
+      display: inline-block;
+      vertical-align: middle; }
+    .screenshot-carousel .rr-pagination > span {
+      border: none;
+      font-size: 14px;
+      margin-right: 20px; }
+    .screenshot-carousel .rr-pagination .prev {
+      background-position: 0 -204px;
+      margin-right: 20px; }
+      .screenshot-carousel .rr-pagination .prev:hover, .screenshot-carousel .rr-pagination .prev.inactive:hover {
+        background-position: -41px -204px; }
+    .screenshot-carousel .rr-pagination .next {
+      background-position: -127px -204px; }
+      .screenshot-carousel .rr-pagination .next:hover, .screenshot-carousel .rr-pagination .next.inactive:hover {
+        background-position: -84px -204px; }
+    .screenshot-carousel .rr-pagination .prev.inactive {
+      background-position: 0 -204px; }
+    .screenshot-carousel .rr-pagination .next.inactive {
+      background-position: -127px -204px; }
 
 /*resources*/
 .resources {
@@ -236,7 +235,8 @@ a:hover .has-overlay h4 {
   display: block;
   float: left;
   margin-top: 6px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  padding: 0; }
   .logos ul li {
     display: block;
     float: left; }
@@ -246,8 +246,7 @@ a:hover .has-overlay h4 {
 .carousel-xs .pagination-container {
   position: relative;
   overflow: hidden;
-  margin-left: 20px;
-  margin-right: 5px; }
+  margin: 0 20px; }
 .carousel-xs .rr-pagination {
   float: left;
   margin-top: 10px; }
@@ -257,19 +256,20 @@ a:hover .has-overlay h4 {
     height: 35px;
     display: block;
     position: absolute; }
-  .carousel-xs .rr-pagination .next {
-    background-position: -81px -165px;
-    right: -13px; }
-  .carousel-xs .rr-pagination .prev {
-    background-position: 0 -165px; }
-  .carousel-xs .rr-pagination .next.inactive {
-    background-position: -56px -165px; }
-  .carousel-xs .rr-pagination .prev.inactive {
-    background-position: -25px -165px; }
-  .carousel-xs .rr-pagination .next:hover {
-    background-position: -81px -165px; }
-  .carousel-xs .rr-pagination .prev:hover {
-    background-position: 0 -165px; }
+    .carousel-xs .rr-pagination > a.next {
+      background-position: -81px -165px;
+      right: 0; }
+      .carousel-xs .rr-pagination > a.next:hover {
+        background-position: -81px -165px; }
+      .carousel-xs .rr-pagination > a.next.inactive {
+        background-position: -56px -165px; }
+    .carousel-xs .rr-pagination > a.prev {
+      background-position: 0 -165px;
+      left: 0; }
+      .carousel-xs .rr-pagination > a.prev:hover {
+        background-position: 0 -165px; }
+      .carousel-xs .rr-pagination > a.prev.inactive {
+        background-position: -25px -165px; }
 
 /*media queries*/
 /*mobile*/
@@ -340,7 +340,12 @@ a:hover .has-overlay h4 {
   .logos .col-lg-2 {
     width: 11%;
     padding: 0;
-    margin-right: 11px; } }
+    margin-right: 11px; }
+
+  .screenshot-carousel ul {
+    display: inline-block; }
+  .screenshot-carousel .pagination-container {
+    margin: 0 -15px; } }
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
   /*banner*/
@@ -355,9 +360,6 @@ a:hover .has-overlay h4 {
     width: 46%; }
 
   /*features*/
-  .rr-pagination {
-    margin-right: 3%; }
-
   .has-overlay {
     margin-bottom: 20px; }
 

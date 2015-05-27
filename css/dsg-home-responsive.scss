@@ -151,50 +151,44 @@
   }
 }
 
-.screenshot-carousel .pagination-type1, .pagination-type1 li {
-  overflow: hidden;
-}
-
 .screenshot-carousel {
+  overflow: hidden;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none outside none;
+    overflow: hidden;
+    .product-text-wrapper {
+      max-width: 370px;
+      height: 83px;
+    }
+    .btn {
+      margin: 19px 0 30px 0;
+    }
+  }
+  .screenshot-carousel-wrapper {
+    overflow: hidden;
+  }
   .pagination-container {
     position: relative;
     overflow: hidden;
-    > ul {
-      position: relative;
-      margin-left: -15px;
-    }
-  }
-  .pagination-type1 {
-    h3 {
-      margin-top: 4px;
-      margin-right: 5px;
-      /*font-size: 24px;*/
-      display: inline-block;
-    }
-    a {
-      display: inline-block;
-    }
-    li {
-      .product-text-wrapper {
-        max-width: 370px;
-        height: 83px;
-      }
-      .btn {
-        margin: 19px 0 30px 0;
-      }
-    }
     p {
       font-size: 16px;
     }
-    img {
-      border: 1px solid #737373;
+    > div {
+      position: relative;
     }
-    .features-headline{
-      margin-bottom:8px;
+  }
+  .features-headline{
+    margin-bottom:8px;
+    h3 {
+      margin: 4px 5px 20px 0;
+      display: inline-block;
     }
   }
   .rr-pagination {
-    margin-right: 2%;
+    margin-right: 0;
     float: right;
     a {
       width: 40px;
@@ -314,6 +308,7 @@ a:hover .has-overlay h4 {
   float: left;
   margin-top: 6px;
   margin-bottom: 10px;
+  padding: 0;
   ul li {
     display: block;
     float: left;
@@ -327,8 +322,7 @@ a:hover .has-overlay h4 {
   .pagination-container {
     position: relative;
     overflow: hidden;
-    margin-left: 20px;
-    margin-right: 5px;
+    margin: 0 20px;
   }
   .rr-pagination {
     float: left;
@@ -339,25 +333,26 @@ a:hover .has-overlay h4 {
       height: 35px;
       display: block;
       position: absolute;
-    }
-    .next {
-      background-position: -81px -165px;
-      right: -13px;
-    }
-    .prev {
-      background-position: 0 -165px;
-    }
-    .next.inactive {
-      background-position: -56px -165px;
-    }
-    .prev.inactive {
-      background-position: -25px -165px;
-    }
-    .next:hover {
-      background-position: -81px -165px;
-    }
-    .prev:hover {
-      background-position: 0 -165px;
+      &.next {
+        background-position: -81px -165px;
+        right: 0;
+        &:hover {
+          background-position: -81px -165px;
+        }
+        &.inactive {
+          background-position: -56px -165px;
+        }
+      }
+      &.prev {
+        background-position: 0 -165px;
+        left: 0;
+        &:hover {
+          background-position: 0 -165px;
+        }
+        &.inactive {
+          background-position: -25px -165px;
+        }
+      }
     }
   }
 }
@@ -450,9 +445,15 @@ a:hover .has-overlay h4 {
     padding: 0;
     margin-right: 11px;
   }
+  .screenshot-carousel {
+    ul {
+      display: inline-block;
+    }
+    .pagination-container {
+      margin: 0 -15px;
+    }
+  }
 }
-
-@media (min-width: 768px) and (orientation: portrait) {}
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
@@ -471,9 +472,6 @@ a:hover .has-overlay h4 {
     width: 46%;
   }
   /*features*/
-  .rr-pagination {
-    margin-right: 3%;
-  }
   .has-overlay {
     margin-bottom: 20px;
   }
