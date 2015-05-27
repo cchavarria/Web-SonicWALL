@@ -6,15 +6,14 @@
 // Generic styles - all devices
 // --------------------------------------------------
 
-button.btn.btn-lg {
-  font-size: 14px;
+button.btn{
   padding: 8px 16px;
   margin-top: 25px;
   margin-bottom: 26px;
 }
 
 .edit-account {
-  button.btn.btn-lg {
+  button.btn {
     margin-bottom: 10px;
   }
 }
@@ -26,7 +25,7 @@ button.btn.btn-lg {
 }
 
 /* login form has double button - fix extra padding */
-#sso {
+.label-top {
   .btn-primary {
     margin-bottom: 10px !important;
   }
@@ -67,7 +66,7 @@ button[disabled=disabled] {
   }
 }
 
-// Mobile styles
+// Mobile styles - Media Query
 // --------------------------------------------------
 
 @media (max-width: 767px) {
@@ -82,11 +81,15 @@ button[disabled=disabled] {
       }
     }
   }
-  .create-new-password #txtconfirmpwd,
-  .edit-password #chpwdConfirmNewPwd {
+
+  .create-new-password button.btn,
+  .edit-password button.btn {
     margin-bottom: 10px;
   }
+
   .my-account {
+    margin: 0 15px;
+
     .sso-links {
       a {
         display: block;
@@ -108,7 +111,7 @@ button[disabled=disabled] {
   }
 }
 
-// Destop and Table styles
+// Destop and Table styles - Media Query
 // --------------------------------------------------
 
 @media (min-width: 768px) {
@@ -182,9 +185,9 @@ button[disabled=disabled] {
         text-align: left;
       }
     }
-    button.btn.btn-lg {
+    button.btn {
       margin-top: 25px;
-      margin-bottom: 25px;
+      margin-bottom: 10px;
     }
     .form-group:last-child {
       margin-bottom: 10px;
@@ -211,7 +214,7 @@ button[disabled=disabled] {
         padding-left: 5px;
       }
     }
-    button.btn.btn-lg {
+    button.btn {
       margin-top: 25px;
       margin-bottom: 10px;
     }

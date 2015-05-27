@@ -1,10 +1,9 @@
-button.btn.btn-lg {
-  font-size: 14px;
+button.btn {
   padding: 8px 16px;
   margin-top: 25px;
   margin-bottom: 26px; }
 
-.edit-account button.btn.btn-lg {
+.edit-account button.btn {
   margin-bottom: 10px; }
 
 /* login Remember me checkbox */
@@ -13,9 +12,9 @@ button.btn.btn-lg {
   margin-left: -20px; }
 
 /* login form has double button - fix extra padding */
-#sso .btn-primary {
+.label-top .btn-primary {
   margin-bottom: 10px !important; }
-#sso .btn-default {
+.label-top .btn-default {
   margin-top: 0;
   margin-bottom: 10px; }
 
@@ -45,22 +44,24 @@ button[disabled=disabled] {
   .sso form label, .login form label {
     font-weight: normal; }
 
-  .create-new-password #txtconfirmpwd,
-  .edit-password #chpwdConfirmNewPwd {
+  .create-new-password button.btn,
+  .edit-password button.btn {
     margin-bottom: 10px; }
 
-  .my-account .sso-links a {
-    display: block;
-    margin-bottom: 0 !important;
-    box-sizing: border-box;
-    padding: 28px 0 28px 5px;
-    border-bottom: 1px #ccc solid; }
-  .my-account .sso-links a:first-of-type {
-    border-top: 1px #ccc solid; }
-  .my-account .sso-links :last-child {
-    margin-bottom: 20px !important; }
-  .my-account .account-info > div {
-    margin-bottom: 20px !important; } }
+  .my-account {
+    margin: 0 15px; }
+    .my-account .sso-links a {
+      display: block;
+      margin-bottom: 0 !important;
+      box-sizing: border-box;
+      padding: 28px 0 28px 5px;
+      border-bottom: 1px #ccc solid; }
+    .my-account .sso-links a:first-of-type {
+      border-top: 1px #ccc solid; }
+    .my-account .sso-links :last-child {
+      margin-bottom: 20px !important; }
+    .my-account .account-info > div {
+      margin-bottom: 20px !important; } }
 @media (min-width: 768px) {
   .sso .label-inline {
     width: 454px; }
@@ -111,10 +112,10 @@ button[disabled=disabled] {
     .casl .checkbox label,
     .login .checkbox label {
       text-align: left; }
-  .casl button.btn.btn-lg,
-  .login button.btn.btn-lg {
+  .casl button.btn,
+  .login button.btn {
     margin-top: 25px;
-    margin-bottom: 25px; }
+    margin-bottom: 10px; }
   .casl .form-group:last-child,
   .login .form-group:last-child {
     margin-bottom: 10px; }
@@ -147,10 +148,10 @@ button[disabled=disabled] {
   .edit-email form #lblemailaccount {
     padding-bottom: 10px;
     padding-left: 5px; }
-  .create-new-password button.btn.btn-lg,
-  .edit-password button.btn.btn-lg,
-  .reset-password button.btn.btn-lg,
-  .edit-email button.btn.btn-lg {
+  .create-new-password button.btn,
+  .edit-password button.btn,
+  .reset-password button.btn,
+  .edit-email button.btn {
     margin-top: 25px;
     margin-bottom: 10px; }
 
