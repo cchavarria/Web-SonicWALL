@@ -434,9 +434,10 @@ h1 {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.16667;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 h3 {
@@ -752,10 +753,16 @@ table.columns {
 }
 
 .pad-vertical-20 {
-  padding: 20px 0;
+  padding: 20px 0 !important;
 }
 .pad-vertical-30 {
-  padding: 20px 0;
+  padding: 20px 0 !important;
+}
+.pad-bottom-20 {
+  padding-bottom: 20px !important;
+}
+.no-padding {
+  padding: 0 !important;
 }
 
 .text-sm {
