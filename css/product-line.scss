@@ -28,6 +28,10 @@
   margin-bottom: 20px;
 }
 
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+
 .margin-right-0 {
   margin-right: 0 !important;
 }
@@ -252,15 +256,15 @@ a:hover .has-overlay h4 {
 }
 
 #tech-support {
-  background-image: url('http://stage-software-dell-com/images/home/dsg-home/tech-support.jpg');
+  background-image: url("http://stage-software-dell-com/images/home/dsg-home/tech-support.jpg");
 }
 
 #support-renewal {
-  background-image: url('http://stage-software-dell-com/images/home/dsg-home/support-renewals.jpg');
+  background-image: url("http://stage-software-dell-com/images/home/dsg-home/support-renewals.jpg");
 }
 
 #tech-center {
-  background-image: url('http://stage-software-dell-com/images/home/dsg-home/dell-tech-center.jpg');
+  background-image: url("http://stage-software-dell-com/images/home/dsg-home/dell-tech-center.jpg");
 }
 
 /*brand logos*/
@@ -290,7 +294,7 @@ a:hover .has-overlay h4 {
     float: left;
     margin-top: 10px;
     > a {
-      background: url('http://stage-software-dell-com/images/shared/sprites.png') no-repeat -81px -165px;
+      background: url("http://stage-software-dell-com/images/shared/sprites.png") no-repeat -81px -165px;
       width: 19px;
       height: 35px;
       display: block;
@@ -389,8 +393,8 @@ a:hover .has-overlay h4 {
   .xs-margin-bottom-10 {
     margin-bottom: 10px;
   }
-  .xs-padding-left-30{
-    padding-left:30px;
+  .xs-padding-left-30 {
+    padding-left: 30px;
   }
 }
 
@@ -403,9 +407,6 @@ a:hover .has-overlay h4 {
     padding: 0;
     margin-right: 11px;
   }
-}
-
-@media (min-width: 768px) and (orientation: portrait) {
 }
 
 /*tablet*/
@@ -461,7 +462,4 @@ a:hover .has-overlay h4 {
   .lg-margin-bottom-10 {
     margin-bottom: 10px;
   }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
 }
