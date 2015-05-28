@@ -30,7 +30,6 @@
   }
 }
 
-
 .sso.edit-account {
   button.btn {
     margin-bottom: 10px;
@@ -38,13 +37,9 @@
 }
 
 /* login Remember me checkbox */
-.sso #lnkForgotPwd,
-.login #lnkForgotPwd {
+#lnkForgotPwd {
   display: block;
-  margin-left: -20px;
 }
-
-
 
 /* My Account styles */
 
@@ -88,9 +83,10 @@
     }
   }
 
-  .create-new-password button.btn,
-  .edit-password button.btn {
-    margin-bottom: 10px;
+  .create-new-password, .edit-password {
+    button.btn {
+      margin-bottom: 10px;
+    }
   }
 
   .my-account {
@@ -137,7 +133,7 @@
       display: table;
 
       .form-group, .form-footer {
-        display: table-row
+        display: table-row;
       }
       label, .form-footer > div:first-child {
         font-weight: normal;
@@ -175,9 +171,6 @@
 
       .form-group:first-child {
         margin-bottom: 10px;
-      }
-      .checkbox {
-        padding-top: 0 !important;
       }
       label {
         font-weight: normal;
@@ -220,8 +213,6 @@
       .form-footer > div:last-child,
       #lblemailaccount {
         width: 295px;
-      }
-      #lblemailaccount {
         padding-bottom: 10px;
         padding-left: 5px;
       }

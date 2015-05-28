@@ -17,10 +17,8 @@
   margin-bottom: 10px; }
 
 /* login Remember me checkbox */
-.sso #lnkForgotPwd,
-.login #lnkForgotPwd {
-  display: block;
-  margin-left: -20px; }
+#lnkForgotPwd {
+  display: block; }
 
 /* My Account styles */
 .sso.my-account > div {
@@ -44,8 +42,7 @@
   .sso form label, .login form label {
     font-weight: normal; }
 
-  .create-new-password button.btn,
-  .edit-password button.btn {
+  .create-new-password button.btn, .edit-password button.btn {
     margin-bottom: 10px; }
 
   .my-account {
@@ -96,9 +93,6 @@
     .casl .label-top .form-group:first-child,
     .login .label-top .form-group:first-child {
       margin-bottom: 10px; }
-    .casl .label-top .checkbox,
-    .login .label-top .checkbox {
-      padding-top: 0 !important; }
     .casl .label-top label,
     .login .label-top label {
       font-weight: normal; }
@@ -144,11 +138,7 @@
   .edit-email form .form-control,
   .edit-email form .form-footer > div:last-child,
   .edit-email form #lblemailaccount {
-    width: 295px; }
-  .create-new-password form #lblemailaccount,
-  .edit-password form #lblemailaccount,
-  .reset-password form #lblemailaccount,
-  .edit-email form #lblemailaccount {
+    width: 295px;
     padding-bottom: 10px;
     padding-left: 5px; }
   .create-new-password button.btn,
