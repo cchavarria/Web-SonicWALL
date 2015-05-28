@@ -142,7 +142,7 @@ $(document).ready(function () {
 		});
 
 	if ($('html').hasClass('ie')) {
-		$('input').placeholder();
+		//$('input').placeholder();
 	}
 
 	//randomize banner
@@ -152,8 +152,6 @@ $(document).ready(function () {
 	$('.hero-banner .carousel').find('.lazy').each(function () {
 		$(this).attr('src', $(this).data('original')).removeClass('lazy');
 	});
-
-	$(window).resize(resize);
 
 	if ($('html').hasClass('ie8')) {
 		$('.resources img, .icon-headline img').each(function () {
@@ -187,12 +185,29 @@ $(document).ready(function () {
 	});
 });
 
+$(window).resize(function() {
+	//Workaround for IE8 always firing this function when any element on the page has been modified by javascript.
+	if($('html').hasClass('ie8')) {
+		var w = $(window).width(), h = $(window).height();
+
+		if($('html').data('w') != w || $('html').data('h') != h) {
+			$('html').data('w', w).data('h', h);
+			resize();
+		}
+	}
+	else {
+		resize();
+	}
+});
+
 function resize() {
 	if(resizeTimer !== null) {
 		clearTimeout(resizeTimer);
 	}
 
 	resizeTimer = setTimeout(function() {
+		clearTimeout(resizeTimer);
+
 		pageWidth = $('html').width();
 
 		if (pageWidth >= 992) {//desktop
@@ -252,6 +267,8 @@ function resize() {
 					$(this).find('.screenshot-carousel-list').find('li:gt(2)').hide();
 				}
 			});
+
+			$('.btn-link').removeClass('btn-link').addClass('btn-default');
 		}
 	}, 500);
 }
