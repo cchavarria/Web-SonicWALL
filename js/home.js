@@ -1,3 +1,4 @@
+var resizeTimer = null;
 $(document).ready(function() {
 	//randomize banner
 	randomizeBanner();
@@ -132,7 +133,7 @@ function randomizeBanner() {
 	$('.hero-banner .carousel-indicators li').eq(randomNumber).addClass("active");
 }
 
-$.getScript('/js/library/jquery.lazyload.min.js', function () {
+$.getScript('/Static/Library/jQuery/jquery.lazyload.min.js', function () {
 	$(document).ready(function () {
 		$("img.lazy").lazyload();
 	});
