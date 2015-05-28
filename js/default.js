@@ -1,6 +1,6 @@
 /* Used on Responsive New Header/Footer */
 
-var burl = location.href;
+var burl = location.href, resizeTimer = null;
 
 $(document).ready(function () {
 	/*var pageWidth = $('html').width();
@@ -142,7 +142,7 @@ $(document).ready(function () {
 		});
 
 	if ($('html').hasClass('ie')) {
-		$('input').placeholder();
+		//$('input').placeholder();
 	}
 });
 
@@ -162,3 +162,4 @@ $(document).ready(function () {
  }
  });
  }*/
+
