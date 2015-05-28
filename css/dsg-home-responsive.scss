@@ -122,6 +122,7 @@
 .icon-headline {
   img {
     width: 43px;
+    height:43px;
     display: inline-block;
     float: left;
     margin-right: 15px;
@@ -206,13 +207,13 @@
       background-position: 0 -204px;
       margin-right: 20px;
       &:hover, &.inactive:hover {
-        background-position: -41px -204px;
+        background-position: 0 -165px;
       }
     }
     .next {
       background-position: -127px -204px;
       &:hover, &.inactive:hover {
-        background-position: -84px -204px;
+        background-position: -81px -165px;
       }
     }
     .prev.inactive {

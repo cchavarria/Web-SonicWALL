@@ -156,8 +156,12 @@ $(document).ready(function () {
 	$(window).resize(resize);
 
 	if ($('html').hasClass('ie8')) {
-		$('.icon-headline img').each(function () {
-			$(this).attr('src').replace('svg', 'png');
+		$('.resources img, .icon-headline img').each(function () {
+			if($(this).hasClass('scale-32')){
+				$(this).removeClass('scale-32').css('padding','17px 10px 0 0');
+			}
+			var newSource = $(this).attr('src').replace('svg', 'png');
+			$(this).attr('src', newSource);
 		});
 	}
 
@@ -176,6 +180,10 @@ $(document).ready(function () {
 	}, function () {
 		var srcOut = $(this).attr('src').replace(/-color.png/, '-gray.png');
 		$(this).attr('src', srcOut);
+	});
+	//read more in product line
+	$('.show-more').on('click',function(){
+		$(this).removeClass('visible-xs inline').addClass('hidden-xs').next().removeClass('hidden-xs');
 	});
 });
 
