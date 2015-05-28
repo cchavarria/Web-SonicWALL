@@ -553,6 +553,7 @@ table.columns .right-text-pad {
   background: #f9f9f9; }
 
 .pad-vertical-20 {
+<<<<<<< HEAD
   padding: 20px 0 !important; }
 
 .pad-vertical-30 {
@@ -563,6 +564,12 @@ table.columns .right-text-pad {
 
 .no-padding {
   padding: 0 !important; }
+=======
+  padding: 20px 0; }
+
+.pad-vertical-30 {
+  padding: 20px 0; }
+>>>>>>> origin/email
 
 .text-sm {
   font-size: 13px; }
