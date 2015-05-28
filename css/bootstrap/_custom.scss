@@ -30,6 +30,13 @@ li {
 .pb-20 {
   padding-bottom: 20px !important;
 }
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.mar-0 {
+  margin: 0 !important;
+}
 
 .mt-0 {
   margin-top: 0 !important;
@@ -57,6 +64,9 @@ li {
   margin-bottom: 30px !important;
 }
 
+.mr-0 {
+  margin-right: 0 !important;
+}
 .mr-10 {
   margin-right: 10px !important;
 }
@@ -148,6 +158,12 @@ ul {
   }
   .mt-0-xs {
     margin-top: 0 !important;
+  }
+  .mr-0-xs {
+    margin-right: 0 !important;
+  }
+  .ml-0-xs {
+    margin-left: 0 !important;
   }
   .btn-block-xs {
     display: block;
