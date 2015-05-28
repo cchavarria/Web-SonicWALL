@@ -38,7 +38,8 @@
 }
 
 /* login Remember me checkbox */
-.sso #lnkForgotPwd {
+.sso #lnkForgotPwd,
+.login #lnkForgotPwd {
   display: block;
   margin-left: -20px;
 }
