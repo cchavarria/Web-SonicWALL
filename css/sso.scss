@@ -6,39 +6,44 @@
 // Generic styles - all devices
 // --------------------------------------------------
 
-button.btn{
-  padding: 8px 16px;
-  margin-top: 25px;
-  margin-bottom: 26px;
+.sso, .login {
+
+  button.btn{
+    padding: 8px 16px;
+    margin-top: 25px;
+    margin-bottom: 26px;
+  }
+  /* login form has double button - fix extra padding */
+  .label-top {
+    .btn-primary {
+      margin-bottom: 10px !important;
+    }
+    .btn-default {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* disabled buttons */
+  button[disabled=disabled] {
+    color: #444;
+  }
 }
 
-.edit-account {
+
+.sso.edit-account {
   button.btn {
     margin-bottom: 10px;
   }
 }
 
 /* login Remember me checkbox */
-#lnkForgotPwd {
+.sso #lnkForgotPwd {
   display: block;
   margin-left: -20px;
 }
 
-/* login form has double button - fix extra padding */
-.label-top {
-  .btn-primary {
-    margin-bottom: 10px !important;
-  }
-  .btn-default {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-}
 
-/* disabled buttons */
-button[disabled=disabled] {
-  color: #444;
-}
 
 /* My Account styles */
 
@@ -150,6 +155,12 @@ button[disabled=disabled] {
     .legal {
       width: 100%;
       margin-bottom: 6px;
+    }
+  }
+  .casl {
+
+    .legal {
+      margin-top: 16px;
     }
   }
 

@@ -1,26 +1,25 @@
-button.btn {
-  padding: 8px 16px;
-  margin-top: 25px;
-  margin-bottom: 26px; }
+.sso, .login {
+  /* login form has double button - fix extra padding */
+  /* disabled buttons */ }
+  .sso button.btn, .login button.btn {
+    padding: 8px 16px;
+    margin-top: 25px;
+    margin-bottom: 26px; }
+  .sso .label-top .btn-primary, .login .label-top .btn-primary {
+    margin-bottom: 10px !important; }
+  .sso .label-top .btn-default, .login .label-top .btn-default {
+    margin-top: 0;
+    margin-bottom: 10px; }
+  .sso button[disabled=disabled], .login button[disabled=disabled] {
+    color: #444; }
 
-.edit-account button.btn {
+.sso.edit-account button.btn {
   margin-bottom: 10px; }
 
 /* login Remember me checkbox */
-#lnkForgotPwd {
+.sso #lnkForgotPwd {
   display: block;
   margin-left: -20px; }
-
-/* login form has double button - fix extra padding */
-.label-top .btn-primary {
-  margin-bottom: 10px !important; }
-.label-top .btn-default {
-  margin-top: 0;
-  margin-bottom: 10px; }
-
-/* disabled buttons */
-button[disabled=disabled] {
-  color: #444; }
 
 /* My Account styles */
 .sso.my-account > div {
@@ -86,6 +85,9 @@ button[disabled=disabled] {
   .sso .legal {
     width: 100%;
     margin-bottom: 6px; }
+
+  .casl .legal {
+    margin-top: 16px; }
 
   .casl .label-top,
   .login .label-top {
