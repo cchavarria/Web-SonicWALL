@@ -11,7 +11,6 @@
 			var options = $(this).data('options');
 
 			if(options === undefined) {
-				console.log('cannot destroy');
 				return this;
 			}
 
@@ -25,9 +24,6 @@
 			}
 
 			$(this).find(options.list).css('display', '');
-
-			console.log('destroy');
-			console.log($(this));
 
 			return this;
 		},
@@ -49,7 +45,6 @@
 					randomize.call($(this).find(options.list));
 				}
 
-				console.log('create');
 				create.call(this, options);
 			}
     });
@@ -151,10 +146,6 @@
 			$.each(options.pagination, function() {
 				if(this.type == 'append') {
 					if(typeof this.displayTotal == 'boolean' && this.displayTotal) {
-						console.log('a');
-						console.log($(elem));
-						console.log(this.selector);
-						console.log($(elem).find(this.selector));
 						$(elem).find(this.selector).append('<div class="rr-pagination"><span>Viewing <span>1</span>-<span>' + ((total < options.interval) ? total : totalRows * options.column) + '</span> of ' + total + '</span><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
 					}
 					else {

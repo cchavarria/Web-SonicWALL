@@ -155,11 +155,9 @@ $(document).ready(function () {
 
 	$(window).resize(resize);
 
-	if ($(html).hasClass('ie8')) {
-		$(html).find('img').each(function () {
-			if ($(this).attr('src').index('.svg')) {
-
-			}
+	if ($('html').hasClass('ie8')) {
+		$('.icon-headline img').each(function () {
+			$(this).attr('src').replace('svg', 'png');
 		});
 	}
 

@@ -13,6 +13,13 @@
   font-style: normal; }
 
 @font-face {
+  font-family: 'museo-sans-for-dell-700';
+  src: url("/fonts/museosansfordell-700-webfont.eot");
+  src: url("/fonts/museosansfordell-700-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-700-webfont.woff") format("woff"), url("/fonts/museosansfordell-700-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-700-webfont.svg#MuseoSansForDell700") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'icon-ui';
   src: url("/fonts/icon-ui.eot");
   src: url("/fonts/icon-ui.eot?#iefix") format("embedded-opentype"), url("/fonts/icon-ui.woff") format("woff"), url("/fonts/icon-ui.ttf") format("truetype"), url("/fonts/icon-ui.svg#icon-ui") format("svg");

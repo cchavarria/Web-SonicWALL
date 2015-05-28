@@ -11,11 +11,24 @@
 .margin-bottom-0 {
   margin-bottom: 0 !important; }
 
+.margin-top-10-bottom-20 {
+  margin-bottom: 20px;
+  margin-top: 10px; }
+
+.margin-top-20 {
+  margin-top: 20px; }
+
+.margin-bottom-20 {
+  margin-bottom: 20px; }
+
 .margin-right-0 {
   margin-right: 0 !important; }
 
 .margin-left-0 {
   margin-left: 0 !important; }
+
+.margin-left-10 {
+  margin-left: 10px; }
 
 .padding-0 {
   padding: 0; }
@@ -92,6 +105,14 @@
     margin-bottom: 7px;
     width: 86%; }
 
+.dark-grey-bg {
+  background-color: #eee;
+  padding: 20px;
+  display: inline-block; }
+  .dark-grey-bg h3 {
+    font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
+    font-weight: 400; }
+
 /*solutions*/
 .icon-headline img {
   width: 43px;
@@ -118,58 +139,11 @@
     top: -3px;
     width: 90%; }
 
-.screenshot-carousel {
-  overflow: hidden; }
-  .screenshot-carousel ul {
-    padding: 0; }
-  .screenshot-carousel li {
-    list-style: none outside none;
-    overflow: hidden; }
-    .screenshot-carousel li .product-text-wrapper {
-      max-width: 370px;
-      height: 83px; }
-    .screenshot-carousel li .btn {
-      margin: 19px 0 30px 0; }
-  .screenshot-carousel .screenshot-carousel-wrapper {
-    overflow: hidden; }
-  .screenshot-carousel .pagination-container {
-    position: relative;
-    overflow: hidden; }
-    .screenshot-carousel .pagination-container p {
-      font-size: 16px; }
-    .screenshot-carousel .pagination-container > div {
-      position: relative; }
-  .screenshot-carousel .features-headline {
-    margin-bottom: 8px; }
-    .screenshot-carousel .features-headline h3 {
-      margin: 4px 5px 20px 0;
-      display: inline-block; }
-  .screenshot-carousel .rr-pagination {
-    margin-right: 0;
-    float: right; }
-    .screenshot-carousel .rr-pagination a {
-      width: 40px;
-      height: 33px;
-      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
-      display: inline-block;
-      vertical-align: middle; }
-    .screenshot-carousel .rr-pagination > span {
-      border: none;
-      font-size: 14px;
-      margin-right: 20px; }
-    .screenshot-carousel .rr-pagination .prev {
-      background-position: 0 -204px;
-      margin-right: 20px; }
-      .screenshot-carousel .rr-pagination .prev:hover, .screenshot-carousel .rr-pagination .prev.inactive:hover {
-        background-position: -41px -204px; }
-    .screenshot-carousel .rr-pagination .next {
-      background-position: -127px -204px; }
-      .screenshot-carousel .rr-pagination .next:hover, .screenshot-carousel .rr-pagination .next.inactive:hover {
-        background-position: -84px -204px; }
-    .screenshot-carousel .rr-pagination .prev.inactive {
-      background-position: 0 -204px; }
-    .screenshot-carousel .rr-pagination .next.inactive {
-      background-position: -127px -204px; }
+.has-grey-border {
+  border: 1px solid #ddd; }
+
+.block {
+  display: block; }
 
 /*resources*/
 .resources {
@@ -235,8 +209,7 @@ a:hover .has-overlay h4 {
   display: block;
   float: left;
   margin-top: 6px;
-  margin-bottom: 10px;
-  padding: 0; }
+  margin-bottom: 10px; }
   .logos ul li {
     display: block;
     float: left; }
@@ -246,7 +219,8 @@ a:hover .has-overlay h4 {
 .carousel-xs .pagination-container {
   position: relative;
   overflow: hidden;
-  margin: 0 20px; }
+  margin-left: 20px;
+  margin-right: 5px; }
 .carousel-xs .rr-pagination {
   float: left;
   margin-top: 10px; }
@@ -256,20 +230,19 @@ a:hover .has-overlay h4 {
     height: 35px;
     display: block;
     position: absolute; }
-    .carousel-xs .rr-pagination > a.next {
-      background-position: -81px -165px;
-      right: 0; }
-      .carousel-xs .rr-pagination > a.next:hover {
-        background-position: -81px -165px; }
-      .carousel-xs .rr-pagination > a.next.inactive {
-        background-position: -56px -165px; }
-    .carousel-xs .rr-pagination > a.prev {
-      background-position: 0 -165px;
-      left: 0; }
-      .carousel-xs .rr-pagination > a.prev:hover {
-        background-position: 0 -165px; }
-      .carousel-xs .rr-pagination > a.prev.inactive {
-        background-position: -25px -165px; }
+  .carousel-xs .rr-pagination .next {
+    background-position: -81px -165px;
+    right: -13px; }
+  .carousel-xs .rr-pagination .prev {
+    background-position: 0 -165px; }
+  .carousel-xs .rr-pagination .next.inactive {
+    background-position: -56px -165px; }
+  .carousel-xs .rr-pagination .prev.inactive {
+    background-position: -25px -165px; }
+  .carousel-xs .rr-pagination .next:hover {
+    background-position: -81px -165px; }
+  .carousel-xs .rr-pagination .prev:hover {
+    background-position: 0 -165px; }
 
 /*media queries*/
 /*mobile*/
@@ -307,34 +280,37 @@ a:hover .has-overlay h4 {
         background-color: transparent;
         color: #007db8; }
 
+  /*intro*/
+  .inline {
+    display: inline !important; }
+
+  .title-description p {
+    line-height: 25px; }
+
+  /*claim boxes*/
+  .has-right-border {
+    border-right: 1px solid #e2e2e2; }
+
+  .dark-grey-bg {
+    padding: 17px 5px;
+    margin-bottom: 20px; }
+
   /*solutions*/
   .icon-headline > div > div {
     margin-bottom: 13px; }
-
-  /*features*/
-  .grey-bg {
-    margin-top: 17px; }
-
-  .screenshot-carousel ul {
-    padding: 0; }
-    .screenshot-carousel ul li {
-      padding-left: 0;
-      padding-right: 0; }
-  .screenshot-carousel .pagination-type1 li .product-text-wrapper {
-    height: auto; }
-  .screenshot-carousel ul li:nth-child(3) .polaris-divider, .screenshot-carousel ul li:nth-child(9) .polaris-divider {
-    display: none !important; }
-  .screenshot-carousel .btn-default {
-    margin-bottom: 20px;
-    margin-top: 9px; }
-  .screenshot-carousel.logos ul {
-    display: inline-block; }
 
   .has-overlay {
     margin-bottom: 20px; }
 
   .xs-negative-margin-left-15, .negative-margin-left-15 {
-    margin-left: -15px; } }
+    margin-left: -15px; }
+
+  /*features*/
+  .xs-margin-bottom-10 {
+    margin-bottom: 10px; }
+
+  .xs-padding-left-30 {
+    padding-left: 30px; } }
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%; }
@@ -342,13 +318,7 @@ a:hover .has-overlay h4 {
   .logos .col-lg-2 {
     width: 11%;
     padding: 0;
-    margin-right: 11px; }
-
-  .screenshot-carousel ul {
-    vertical-align: top;
-    display: inline-block; }
-  .screenshot-carousel .pagination-container {
-    margin: 0 -15px; } }
+    margin-right: 11px; } }
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
   /*banner*/
@@ -363,6 +333,9 @@ a:hover .has-overlay h4 {
     width: 46%; }
 
   /*features*/
+  .rr-pagination {
+    margin-right: 3%; }
+
   .has-overlay {
     margin-bottom: 20px; }
 
@@ -385,4 +358,7 @@ a:hover .has-overlay h4 {
   .logos .col-lg-2 {
     width: 101px;
     padding: 0;
-    margin-right: 43px; } }
+    margin-right: 43px; }
+
+  .lg-margin-bottom-10 {
+    margin-bottom: 10px; } }
