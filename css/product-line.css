@@ -348,7 +348,10 @@ a:hover .has-overlay h4 {
   .logos .col-lg-2 {
     width: 101px;
     padding: 0;
-    margin-right: 14px; } }
+    margin-right: 14px; }
+
+  .btn-link {
+    padding-left: 0; } }
 /*large screens*/
 @media (min-width: 1200px) {
   .hero-banner {
@@ -364,4 +367,7 @@ a:hover .has-overlay h4 {
     margin-right: 43px; }
 
   .lg-margin-bottom-10 {
-    margin-bottom: 10px; } }
+    margin-bottom: 10px; }
+
+  .btn-link {
+    padding-left: 0; } }

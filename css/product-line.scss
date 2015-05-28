@@ -443,6 +443,9 @@ a:hover .has-overlay h4 {
     padding: 0;
     margin-right: 14px;
   }
+  .btn-link{
+    padding-left:0;
+  }
 }
 
 /*large screens*/
@@ -461,5 +464,8 @@ a:hover .has-overlay h4 {
   }
   .lg-margin-bottom-10 {
     margin-bottom: 10px;
+  }
+  .btn-link{
+    padding-left:0;
   }
 }
