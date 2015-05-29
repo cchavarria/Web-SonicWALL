@@ -59,14 +59,6 @@ function resize() {
 
     if (pageWidth >= 992) {//desktop
       $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
-      $('.logos').slidePagination2({
-        list: '.logos-list',
-        column: 3,
-        row: 1,
-        pagination: [
-          {type: 'prepend', selector: '.carousel-xs'}
-        ]
-      });
     }
     else if (pageWidth >= 768 && pageWidth < 992) {//tablet
       $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
@@ -101,7 +93,7 @@ function randomizeBanner() {
   $('.hero-banner .carousel-indicators li').eq(randomNumber).addClass("active");
 }
 
-$.getScript('/Static/Library/jQuery/jquery.lazyload.min.js', function () {
+$.getScript('http://stage-software-dell-com/Static/Library/jQuery/jquery.lazyload.min.js', function () {
   $(document).ready(function () {
     $("img.lazy").lazyload();
   });

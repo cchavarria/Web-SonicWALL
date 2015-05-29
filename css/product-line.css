@@ -287,7 +287,7 @@ a:hover .has-overlay h4 {
   #hero-banner {
     width: 100%; }
 
-  .logos .col-md-2 {
+  .logos ul li {
     width: 11%;
     padding: 0;
     margin-right: 11px; } }
@@ -314,7 +314,7 @@ a:hover .has-overlay h4 {
   .ml-md-n-15 {
     margin-left: -15px; } }
 @media (min-width: 992px) {
-  .logos .col-md-2 {
+  .logos ul li {
     width: 126px;
     padding: 0;
     margin-right: 14px; }
@@ -330,7 +330,7 @@ a:hover .has-overlay h4 {
     padding-left: 0;
     padding-right: 0; }
 
-  .logos .col-md-2 {
+  .logos ul li {
     width: 126px;
     padding: 0;
     margin-right: 36px; }
