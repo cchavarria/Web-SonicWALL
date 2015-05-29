@@ -170,6 +170,13 @@
 		for (var p = 0; p < totalpage; p++) {
 			var ul = $('<ul>').css({width: width});
 
+			if($('html').hasClass('ie8')) {
+				ul.css({
+					display: 'inline-block',
+					verticalAlign: 'top'
+				});
+			}
+
 			for (var indx2 = p * interval; indx2 < (p + 1) * interval; indx2++) {
 				ul.append(li.get(indx2));
 			}

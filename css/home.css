@@ -8,7 +8,6 @@
   margin-left: auto;
   padding-right: 0;
   padding-left: 0;
-  width: 100%;
   margin-bottom: 50px; }
   .hero-banner .carousel a:hover h2, .hero-banner .carousel a:focus h2 {
     text-decoration: none;
@@ -18,7 +17,7 @@
     margin-bottom: 14px; }
 
 .carousel-indicators {
-  bottom: -41px; }
+  bottom: -41px !important; }
   .carousel-indicators li {
     cursor: pointer;
     background-color: #ccc;
@@ -218,7 +217,8 @@ a:hover .has-overlay h4 {
   padding: 0; }
   .logos ul li {
     display: block;
-    float: left; }
+    float: left;
+    margin-right: 43px; }
 
 .carousel-xs ul {
   position: relative; }
@@ -262,7 +262,6 @@ a:hover .has-overlay h4 {
 
   /*banner*/
   .hero-banner {
-    width: 100%;
     padding: 0 -15px; }
     .hero-banner .carousel a h4 {
       font-size: 14px; }
@@ -308,6 +307,8 @@ a:hover .has-overlay h4 {
     margin-top: 9px; }
   .screenshot-carousel.logos ul {
     display: inline-block; }
+  .screenshot-carousel.logos ul li {
+    width: 100%; }
 
   .has-overlay {
     margin-bottom: 20px; }
@@ -318,7 +319,7 @@ a:hover .has-overlay h4 {
   #hero-banner {
     width: 100%; }
 
-  .logos .col-lg-2 {
+  .logos li {
     width: 11%;
     padding: 0;
     margin-right: 11px; }
@@ -348,20 +349,17 @@ a:hover .has-overlay h4 {
   .negative-margin-left-15 {
     margin-left: -15px; } }
 @media (min-width: 992px) {
-  .logos .col-lg-2 {
+  .logos ul li {
     width: 101px;
     padding: 0;
     margin-right: 14px; } }
 /*large screens*/
 @media (min-width: 1200px) {
-  .hero-banner {
-    width: 1170px; }
-
   .container {
     padding-left: 0;
     padding-right: 0; }
 
-  .logos .col-lg-2 {
+  .logos ul li {
     width: 101px;
     padding: 0;
     margin-right: 43px; } }
