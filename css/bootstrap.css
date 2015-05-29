@@ -3832,7 +3832,7 @@ tbody.collapse.in {
 
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: auto;
   margin-bottom: 20px;
   border: 1px solid transparent; }
   .navbar:before, .navbar:after {
@@ -3934,10 +3934,10 @@ tbody.collapse.in {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: auto-20px/2 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 50px; }
+  height: auto; }
   .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
   .navbar-brand > img {
@@ -3951,8 +3951,8 @@ tbody.collapse.in {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: auto-34px/2;
+  margin-bottom: auto-34px/2;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
@@ -3971,7 +3971,7 @@ tbody.collapse.in {
       display: none; } }
 
 .navbar-nav {
-  margin: 7.5px -15px; }
+  margin: auto-20px/2/2 -15px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -3999,8 +3999,8 @@ tbody.collapse.in {
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {
-          padding-top: 15px;
-          padding-bottom: 15px; } }
+          padding-top: auto-20px/2;
+          padding-bottom: auto-20px/2; } }
 
 .navbar-form {
   margin-left: -15px;
@@ -4010,8 +4010,8 @@ tbody.collapse.in {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
-  margin-bottom: 8px; }
+  margin-top: auto-34px/2;
+  margin-bottom: auto-34px/2; }
   @media (min-width: 768px) {
     .navbar-form .form-group {
       display: inline-block;
@@ -4079,18 +4079,18 @@ tbody.collapse.in {
   border-bottom-left-radius: 0; }
 
 .navbar-btn {
-  margin-top: 8px;
-  margin-bottom: 8px; }
+  margin-top: auto-34px/2;
+  margin-bottom: auto-34px/2; }
   .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
-    margin-top: 10px;
-    margin-bottom: 10px; }
+    margin-top: auto-30px/2;
+    margin-bottom: auto-30px/2; }
   .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
-    margin-top: 14px;
-    margin-bottom: 14px; }
+    margin-top: auto-22/2;
+    margin-bottom: auto-22/2; }
 
 .navbar-text {
-  margin-top: 15px;
-  margin-bottom: 15px; }
+  margin-top: auto-20px/2;
+  margin-bottom: auto-20px/2; }
   @media (min-width: 768px) {
     .navbar-text {
       float: left;
@@ -4999,6 +4999,9 @@ li {
 .pad-25 {
   padding: 25px !important; }
 
+.pt-10 {
+  padding-top: 10px !important; }
+
 .pt-20 {
   padding-top: 20px !important; }
 
@@ -5463,10 +5466,15 @@ footer {
   font-size: 11px; }
   footer a {
     /*padding: 10px 0 9px 20px;*/
-    display: block; }
+    /*display: block;*/
+    color: #fff; }
+    footer a:hover, footer a:focus {
+      color: #fff; }
   footer li {
     list-style-type: none;
     padding: 0; }
+    footer li a {
+      display: block; }
     footer li > span {
       padding: 10px 0 9px 20px;
       display: block;

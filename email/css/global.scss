@@ -27,13 +27,6 @@ body {
   }
 }
 
-#backgroundTable {
-  margin: 0;
-  padding: 0;
-  width: 100% !important;
-  line-height: 100% !important;
-}
-
 img {
   outline: none;
   text-decoration: none;
@@ -106,14 +99,29 @@ table {
   }
 }
 
-td.wrapper {
-  padding: 10px 20px 0px 0px;
-  position: relative;
+td {
+  &.wrapper {
+    padding: 10px 20px 0px 0px;
+    position: relative;
+  }
+  &.sub-column, &.sub-columns {
+    min-width: 0px;
+  }
 }
 
 table {
   &.columns, &.column {
     margin: 0 auto;
+    .text-pad {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .left-text-pad {
+      padding-left: 10px;
+    }
+    .right-text-pad {
+      padding-right: 10px;
+    }
   }
   &.columns td, &.column td {
     padding: 0px 0px 10px;
@@ -121,15 +129,7 @@ table {
   &.columns td.sub-columns, &.column td.sub-columns, &.columns td.sub-column, &.column td.sub-column {
     padding-right: 10px;
   }
-}
 
-td {
-  &.sub-column, &.sub-columns {
-    min-width: 0px;
-  }
-}
-
-table {
   &.row td.last, &.container td.last {
     padding-right: 0px;
   }
@@ -360,31 +360,24 @@ table {
     padding: 10px;
   }
 }
-
 .two-up td {
   width: 270px;
 }
-
 .three-up td {
   width: 173px;
 }
-
 .four-up td {
   width: 125px;
 }
-
 .five-up td {
   width: 96px;
 }
-
 .six-up td {
   width: 76px;
 }
-
 .seven-up td {
   width: 62px;
 }
-
 .eight-up td {
   width: 52px;
 }
@@ -516,29 +509,30 @@ table {
     width: 100%;
     overflow: hidden;
     margin: 20px 0;
-  }
-  &.button td {
-    display: block;
-    width: auto !important;
-    text-align: center;
-    background: #005a85;
-    border: 1px solid #004261;
-    padding: 8px 0;
-    a, a:visited {
-      text-decoration: none;
-      font-family: Helvetica, Arial, sans-serif;
-      color: #ffffff !important;
-      font-size: 16px;
-    }
-    &.button-grey {
-      background: #eeeeee;
-      border: 1px solid #cccccc;
+    td {
+      display: block;
+      width: auto !important;
+      text-align: center;
+      background: #005a85;
+      border: 1px solid #004261;
+      padding: 0;
       a, a:visited {
-        color: #007db8 !important;
+        text-decoration: none;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff !important;
+        font-size: 16px;
+        white-space: nowrap;
+        display: block;
+        padding: 8px;
+      }
+      &.button-grey {
+        background: #eeeeee;
+        border: 1px solid #cccccc;
+        a, a:visited {
+          color: #007db8 !important;
+        }
       }
     }
-  }
-  &.button {
     &:hover td, &:visited td, &:active td {
       background: #005a85 !important;
       border: 1px solid #004261 !important;
@@ -724,30 +718,6 @@ body.outlook p {
   }
 }
 
-table.columns {
-  .text-pad {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .left-text-pad {
-    padding-left: 10px;
-  }
-  .right-text-pad {
-    padding-right: 10px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  table[class="body"] {
-    .right-text-pad {
-      padding-left: 10px !important;
-    }
-    .left-text-pad {
-      padding-right: 10px !important;
-    }
-  }
-}
-
 .bg-grey {
   background: #f9f9f9;
 }
@@ -766,7 +736,18 @@ table.columns {
 }
 
 .text-sm {
-  font-size: 13px;
+  font-size: 11px;
+  line-height: 1.3em;
 }
 
 @import "../../css/bootstrap/custom-image";
+
+#social-media {
+  padding-bottom: 20px;
+
+  a, span {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+  }
+}

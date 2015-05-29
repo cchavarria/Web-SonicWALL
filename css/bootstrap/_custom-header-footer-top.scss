@@ -344,12 +344,18 @@ footer {
   font-size: 11px;
   a {
     /*padding: 10px 0 9px 20px;*/
-    display: block;
+    /*display: block;*/
+    color: #fff;
+    &:hover, &:focus {
+      color: #fff;
+    }
   }
   li {
     list-style-type: none;
     padding: 0;
-
+    a {
+      display: block;
+    }
     >span {
       padding: 10px 0 9px 20px;
       display: block;
