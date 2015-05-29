@@ -11,6 +11,9 @@
 .mb-40 {
   margin-bottom: 40px; }
 
+.pr-0 {
+  padding-right: 0 !important; }
+
 /*Banner*/
 .hero-banner {
   margin-right: auto;
