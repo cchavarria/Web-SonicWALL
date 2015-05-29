@@ -1,52 +1,15 @@
-.grey-bg {
+.gray-bg {
   background-color: #f9f9f9;
   padding: 30px 0; }
 
-.margin-0 {
+.m-0 {
   margin: 0; }
 
-.margin-top-0 {
-  margin-top: 0; }
-
-.margin-bottom-0 {
-  margin-bottom: 0 !important; }
-
-.margin-top-10-bottom-20 {
-  margin-bottom: 20px;
-  margin-top: 10px; }
-
-.margin-top-20 {
-  margin-top: 20px; }
-
-.margin-bottom-20 {
-  margin-bottom: 20px; }
-
-.margin-bottom-40 {
-  margin-bottom: 40px; }
-
-.margin-right-0 {
+.mr-0 {
   margin-right: 0 !important; }
 
-.margin-left-0 {
-  margin-left: 0 !important; }
-
-.margin-left-10 {
-  margin-left: 10px; }
-
-.padding-0 {
-  padding: 0; }
-
-.padding-top-0 {
-  padding-top: 0; }
-
-.padding-bottom-0 {
-  padding-bottom: 0; }
-
-.padding-right-0 {
-  padding-right: 0; }
-
-.padding-left-0 {
-  padding-left: 0; }
+.mb-40 {
+  margin-bottom: 40px; }
 
 /*Banner*/
 .hero-banner {
@@ -108,11 +71,11 @@
     margin-bottom: 7px;
     width: 86%; }
 
-.dark-grey-bg {
+.dark-gray-bg {
   background-color: #eee;
   padding: 20px;
   display: inline-block; }
-  .dark-grey-bg h3 {
+  .dark-gray-bg h3 {
     font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
     font-weight: 400; }
 
@@ -142,7 +105,7 @@
     top: -3px;
     width: 90%; }
 
-.has-grey-border {
+.has-gray-border {
   border: 1px solid #ddd; }
 
 .block {
@@ -192,20 +155,20 @@ a:hover .has-overlay h4 {
     padding: 11px 15px;
     position: absolute;
     bottom: 0;
-    height: 82px; }
+    height: 118px; }
     .has-overlay .overlay h4 {
       margin-bottom: 2px; }
     .has-overlay .overlay p, .has-overlay .overlay:hover p {
       color: #333; }
 
+#conversation-with-kace {
+  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/conversations-with-kace.jpg"); }
+
 #tech-support {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/tech-support.jpg"); }
+  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/tech-support.jpg"); }
 
-#support-renewal {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/support-renewals.jpg"); }
-
-#tech-center {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/dell-tech-center.jpg"); }
+#it-ninja {
+  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/IT-Ninja.jpg"); }
 
 /*brand logos*/
 .logos {
@@ -294,7 +257,7 @@ a:hover .has-overlay h4 {
   .has-right-border {
     border-right: 1px solid #e2e2e2; }
 
-  .dark-grey-bg {
+  .dark-gray-bg {
     padding: 17px 5px;
     margin-bottom: 20px; }
 
@@ -305,20 +268,20 @@ a:hover .has-overlay h4 {
   .has-overlay {
     margin-bottom: 20px; }
 
-  .xs-negative-margin-left-15, .negative-margin-left-15 {
+  .ml-xs-n-15 {
     margin-left: -15px; }
 
   /*features*/
-  .xs-margin-bottom-10 {
+  .mb-xs-10 {
     margin-bottom: 10px; }
 
-  .xs-padding-left-30 {
+  .pl-xs-30 {
     padding-left: 30px; } }
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%; }
 
-  .logos .col-lg-2 {
+  .logos .col-md-2 {
     width: 11%;
     padding: 0;
     margin-right: 11px; } }
@@ -342,11 +305,11 @@ a:hover .has-overlay h4 {
   .has-overlay {
     margin-bottom: 20px; }
 
-  .negative-margin-left-15 {
+  .ml-md-n-15 {
     margin-left: -15px; } }
 @media (min-width: 992px) {
-  .logos .col-lg-2 {
-    width: 101px;
+  .logos .col-md-2 {
+    width: 126px;
     padding: 0;
     margin-right: 14px; }
 
@@ -361,10 +324,10 @@ a:hover .has-overlay h4 {
     padding-left: 0;
     padding-right: 0; }
 
-  .logos .col-lg-2 {
-    width: 101px;
+  .logos .col-md-2 {
+    width: 126px;
     padding: 0;
-    margin-right: 43px; }
+    margin-right: 36px; }
 
   .lg-margin-bottom-10 {
     margin-bottom: 10px; }
