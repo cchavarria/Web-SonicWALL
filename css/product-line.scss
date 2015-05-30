@@ -6,15 +6,17 @@
 .m-0 {
   margin: 0;
 }
-.mr-0{
-  margin-right:0 !important;
+
+.mr-0 {
+  margin-right: 0 !important;
 }
 
-.mb-40{
+.mb-40 {
   margin-bottom: 40px;
 }
-.pr-0{
-  padding-right:0 !important;
+
+.pr-0 {
+  padding-right: 0 !important;
 }
 
 /*Banner*/
@@ -175,6 +177,92 @@
   width: 61px;
   height: 61px;
 }
+/*carousel*/
+.screenshot-carousel {
+  overflow: hidden;
+  ul {
+    padding: 0;
+    float: left;
+  }
+  li {
+    list-style: none outside none;
+    overflow: hidden;
+    .product-text-wrapper {
+      max-width: 370px;
+      height: 83px;
+    }
+    .btn {
+      margin: 19px 0 30px 0;
+    }
+  }
+  .screenshot-carousel-wrapper {
+    overflow: hidden;
+  }
+  .pagination-container {
+    position: relative;
+    overflow: hidden;
+    p {
+      font-size: 16px;
+    }
+    > div {
+      position: relative;
+    }
+  }
+  .features-headline {
+    margin-bottom: 8px;
+    h3 {
+      margin: 4px 5px 20px 0;
+      display: inline-block;
+    }
+  }
+  .rr-pagination {
+    margin-right: 0;
+    float: right;
+    a {
+      width: 40px;
+      height: 33px;
+      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    > span {
+      border: none;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+    .prev {
+      background-position: 0 -204px;
+      margin-right: 20px;
+      &:hover {
+        background-position: -41px -204px;
+      }
+    }
+  }
+}
+
+.logos .rr-pagination .prev.inactive:hover {
+  background-position: 0 -165px;
+}
+
+.screenshot-carousel .rr-pagination .next {
+  background-position: -127px -204px;
+  &:hover {
+    background-position: -84px -204px;
+  }
+}
+
+.logos .rr-pagination .next.inactive:hover {
+  background-position: -81px -165px;
+}
+
+.screenshot-carousel .rr-pagination {
+  .prev.inactive {
+    background-position: 0 -204px;
+  }
+  .next.inactive {
+    background-position: -127px -204px;
+  }
+}
 
 /*support*/
 
@@ -221,18 +309,18 @@ a:hover .has-overlay h4 {
 }
 
 /*brand logos*/
-
 .logos {
   display: block;
   float: left;
   margin-top: 6px;
   margin-bottom: 10px;
+  padding: 0;
   ul li {
     display: block;
     float: left;
+    margin-right:43px;
   }
 }
-
 .carousel-xs {
   ul {
     position: relative;
@@ -240,8 +328,7 @@ a:hover .has-overlay h4 {
   .pagination-container {
     position: relative;
     overflow: hidden;
-    margin-left: 20px;
-    margin-right: 5px;
+    margin:0 20px;
   }
   .rr-pagination {
     float: left;
@@ -255,7 +342,7 @@ a:hover .has-overlay h4 {
     }
     .next {
       background-position: -81px -165px;
-      right: -13px;
+      right: 0;
     }
     .prev {
       background-position: 0 -165px;
@@ -282,7 +369,9 @@ a:hover .has-overlay h4 {
     margin-left: 0;
     margin-right: 0;
   }
-  .pad-xs-0{padding:0}
+  .pad-xs-0 {
+    padding: 0
+  }
   .masthead {
     margin-bottom: 0;
   }
@@ -343,12 +432,29 @@ a:hover .has-overlay h4 {
   .ml-xs-n-15 {
     margin-left: -15px;
   }
-  /*features*/
-  .mb-xs-10 {
-    margin-bottom: 10px;
-  }
-  .pl-xs-30 {
-    padding-left: 30px;
+  /*logos*/
+  .screenshot-carousel {
+    ul {
+      padding: 0;
+      li {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .pagination-type1 li .product-text-wrapper {
+      height: auto;
+    }
+    ul li {
+      &:nth-child(3) .polaris-divider, &:nth-child(9) .polaris-divider {
+        display: none !important;
+      }
+    }
+    &.logos ul {
+      display: inline-block;
+    }
+    &.logos ul li {
+      width: 100%;
+    }
   }
 }
 
@@ -397,8 +503,8 @@ a:hover .has-overlay h4 {
     padding: 0;
     margin-right: 14px;
   }
-  .btn-link{
-    padding-left:0;
+  .btn-link {
+    padding-left: 0;
   }
 }
 
@@ -419,7 +525,7 @@ a:hover .has-overlay h4 {
   .lg-margin-bottom-10 {
     margin-bottom: 10px;
   }
-  .btn-link{
-    padding-left:0;
+  .btn-link {
+    padding-left: 0;
   }
 }

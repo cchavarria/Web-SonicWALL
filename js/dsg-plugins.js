@@ -28,6 +28,18 @@
 			return this;
 		},
 		randomize: randomize
+	}, defaults = {
+		largeArrow: false
+	}, paginationDefault = {
+		prevArrow: true,
+		nextArrow: true,
+		displayTotal: false,
+		largeArrow: false,
+		align: 'right'
+	}, htmlFragment = {
+		prevArrow: '<a href="#" class="prev inactive"></a>',
+		nextArrow: '<a href="#" class="next[[className]]"></a>',
+		displayTotal: '<span>Viewing <span>1</span>-<span>[[end]]</span> of [[total]]</span>'
 	};
 
   $.fn.slidePagination2 = function(options) {
@@ -36,6 +48,8 @@
 				return methods[options].call(this);
 			}
 			else {
+				options = $.extend({}, defaults, options);
+
 				methods.destroy.call(this);
 				bind.call(this, options);
 
@@ -143,17 +157,61 @@
 
     //Add pagination html fragment.
     if (totalpage > 1) {
-			$.each(options.pagination, function() {
-				if(this.type == 'append') {
-					if(typeof this.displayTotal == 'boolean' && this.displayTotal) {
-						$(elem).find(this.selector).append('<div class="rr-pagination"><span>Viewing <span>1</span>-<span>' + ((total < options.interval) ? total : totalRows * options.column) + '</span> of ' + total + '</span><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+			$.each(options.pagination, function(indx, obj) {
+				obj = $.extend({}, paginationDefault, obj);
+				console.log(obj);
+				/**
+				 * {
+				 * 	type: append|prepend,
+				 * 	displayTotal: true|false,
+				 * 	prevArrow: true|false,
+				 * 	nextArrow: true|false
+				 * }
+				 */
+
+				var paginationClass = [];
+
+				if(obj.align == 'left') {
+					paginationClass.push('pull-left');
+				}
+
+				if(options.largeArrow) {
+					paginationClass.push('pagination-large');
+				}
+
+				var code = '<div class="rr-pagination ' + paginationClass.join(' ') + '">';
+
+				if(obj.displayTotal) {
+					code += htmlFragment.displayTotal
+							.replace('[[end]]', ((total < options.interval) ? total : totalRows * options.column))
+							.replace('[[total]]', total);
+				}
+
+				if(obj.prevArrow) {
+					code += htmlFragment.prevArrow;
+				}
+
+				if(obj.nextArrow) {
+					code += htmlFragment.nextArrow.replace('[[className]]', nextClass);
+				}
+
+				code += '</div>';
+
+				if(obj.type == 'append') {
+					if(typeof obj.selector == 'undefined') {
+						$(elem).append(code);
 					}
 					else {
-						$(elem).find(this.selector).append('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+						$(elem).find(obj.selector).append(code);
 					}
 				}
-				else if(this.type == 'prepend') {
-					$(elem).find(this.selector).prepend('<div class="rr-pagination"><a href="#" class="prev inactive"></a><a href="#" class="next' + nextClass + '"></a></div>');
+				else if(obj.type == 'prepend') {
+					if(typeof obj.selector == 'undefined') {
+						$(elem).prepend(code);
+					}
+					else {
+						$(elem).find(obj.selector).prepend(code);
+					}
 				}
 			});
     }
