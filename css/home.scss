@@ -333,9 +333,11 @@ a:hover .has-overlay h4 {
 /*media queries*/
 /*mobile*/
 @media (max-width: 767px) {
-  .xs-margin-right-0, .xs-margin-left-0 {
-    margin-left: 0;
-    margin-right: 0;
+  .pl-xs-0{
+    padding-left:0;
+  }
+  .pr-xs-0{
+    padding-right:0;
   }
   .masthead {
     margin-bottom: 0;
@@ -436,6 +438,12 @@ a:hover .has-overlay h4 {
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
+  .pl-sm-0{
+    padding-left:0;
+  }
+  .pr-sm-0{
+    padding-right:0;
+  }
   /*banner*/
   .hero-banner .carousel a {
     h2 {
@@ -454,8 +462,8 @@ a:hover .has-overlay h4 {
   .has-overlay {
     margin-bottom: 20px;
   }
-  .negative-margin-left-15 {
-    margin-left: -15px;
+  .logos ul li{
+    margin-right:12px;
   }
 }
 
