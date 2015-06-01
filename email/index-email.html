@@ -419,15 +419,14 @@
 			text-align: center;
 			background: #005a85;
 			border: 1px solid #004261;
-			padding: 0; }
+			padding: 8px; }
 		table.button td a, table.button td a:visited {
 			text-decoration: none;
 			font-family: Helvetica, Arial, sans-serif;
 			color: #ffffff !important;
 			font-size: 16px;
 			white-space: nowrap;
-			display: block;
-			padding: 8px; }
+			display: block; }
 		table.button td.button-grey {
 			background: #eeeeee;
 			border: 1px solid #cccccc; }
@@ -543,14 +542,16 @@
 				display: inherit !important; } }
 		.header, .footer {
 			background: #007cb8;
-			color: #fff; }
+			color: #ffffff; }
 		.header p, .footer p {
-			color: #fff; }
+			color: #ffffff; }
 		.header td, .footer td {
-			color: #fff; }
+			color: #ffffff; }
 		.header a, .footer a {
-			color: #fff !important;
+			color: #ffffff !important;
 			text-decoration: underline; }
+		.header a:link, .header a:focus, .header a:visited, .header a:active, .footer a:link, .footer a:focus, .footer a:visited, .footer a:active {
+			color: #ffffff !important; }
 
 		.bg-grey {
 			background: #f9f9f9; }
@@ -585,12 +586,11 @@
 </head>
 <body>
 
-<table class="body">
+<table class="header body">
 	<tr>
 		<td class="center" align="center" valign="top">
 			<center>
-
-				<div class="header">
+				<div>
 					<table class="container">
 						<tr>
 							<td>
@@ -631,8 +631,15 @@
 						</tr>
 					</table>
 				</div>
+			</center>
+		</td>
+	</tr>
+</table>
 
-				<!-- content start -->
+<table class="body">
+	<tr>
+		<td class="center" align="center" valign="top">
+			<center>
 
 				<table class="container">
 					<tr>
@@ -674,61 +681,86 @@
 							<div id="social-media">
 								<center>
 									<span>Share</span>
-									<a href="https://plus.google.com/share?url=[Landing Page URL]"><img src="http://software.dell.com/images/email/icons-google-plus.png"></a>
-									<a href="https://twitter.com/share?text=[Landing Page Title]%2C%20&url=[Bitly URL]&via=DellSoftware"><img src="http://software.dell.com/images/email/icons-twitter.png"></a>
-									<a href="https://www.linkedin.com/shareArticle?url=[Landing Page URL]"><img src="http://software.dell.com/images/email/icons-linkedin.png"></a>
-									<a href="https://www.facebook.com/sharer/sharer.php?u=[Landing Page URL]"><img src="http://software.dell.com/images/email/icons-facebook.png"></a>
+									<a href="https://plus.google.com/share?url=[Landing Page URL]"><img
+										src="http://software.dell.com/images/email/icons-google-plus.png"></a>
+									<a
+										href="https://twitter.com/share?text=[Landing Page Title]%2C%20&url=[Bitly URL]&via=DellSoftware"><img
+										src="http://software.dell.com/images/email/icons-twitter.png"></a>
+									<a href="https://www.linkedin.com/shareArticle?url=[Landing Page URL]"><img
+										src="http://software.dell.com/images/email/icons-linkedin.png"></a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=[Landing Page URL]"><img
+										src="http://software.dell.com/images/email/icons-facebook.png"></a>
 								</center>
 							</div>
 						</td>
 					</tr>
 				</table>
 
-				<div class="bg-grey">
-					<table class="container">
-						<tr>
-							<td class="pad-vertical-30">
-								<table class="row">
-									<tr>
-										<td class="wrapper">
-											<table class="five columns">
-												<tr>
-													<td class="center" align="center">
-														<center>
-															<img src="http://software.dell.com/documents/images/casino-new-brunswick-casino-enjoys-secure-reliable-data-protection-with-appassure-case-study-67539.jpg" class="img-border center">
-														</center>
-													</td>
-													<td class="expander"></td>
-												</tr>
-											</table>
-										</td>
-										<td class="wrapper last">
-											<table class="seven columns">
-												<tr>
-													<td>
-														<h2><strong>Next Step:</strong> Solving Data Growth Issues using Deduplication</h2>
+			</center>
+		</td>
+	</tr>
+</table>
 
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum erat eu
-															diam accumsan dictum. Ut sapien sapien, lobortis sagittis sem et, eleifend luctus ex.</p>
+<table class="bg-grey body">
+	<tr>
+		<td class="center" align="center" valign="top">
+			<center>
 
-														<table class="button">
-															<tr>
-																<td>
-																	<a href="#">Move Down The Path</a>
-																</td>
-															</tr>
-														</table>
-													</td>
-													<td class="expander"></td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</div>
+				<table class="container">
+					<tr>
+						<td class="pad-vertical-30">
+							<table class="row">
+								<tr>
+									<td class="wrapper">
+										<table class="five columns">
+											<tr>
+												<td class="center" align="center">
+													<center>
+														<img
+															src="http://software.dell.com/documents/images/casino-new-brunswick-casino-enjoys-secure-reliable-data-protection-with-appassure-case-study-67539.jpg"
+															class="img-border center">
+													</center>
+												</td>
+												<td class="expander"></td>
+											</tr>
+										</table>
+									</td>
+									<td class="wrapper last">
+										<table class="seven columns">
+											<tr>
+												<td>
+													<h2><strong>Next Step:</strong> Solving Data Growth Issues using Deduplication</h2>
+
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum erat eu
+														diam accumsan dictum. Ut sapien sapien, lobortis sagittis sem et, eleifend luctus ex.</p>
+
+													<table class="button">
+														<tr>
+															<td>
+																<a href="#">Move Down The Path</a>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td class="expander"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+			</center>
+		</td>
+	</tr>
+</table>
+
+<table class="body">
+	<tr>
+		<td class="center" align="center" valign="top">
+			<center>
 
 				<div class="pad-vertical-20">
 					<table class="container">
@@ -764,66 +796,73 @@
 					</table>
 				</div>
 
-				<!-- container end below -->
+			</center>
+		</td>
+	</tr>
+</table>
 
-				<div class="footer">
-					<table class="container">
-						<tr>
-							<td>
+<table class="footer body">
+	<tr>
+		<td class="center" align="center" valign="top">
+			<center>
 
-								<table class="row">
-									<tr>
-										<td class="wrapper hide-for-small">
+				<table class="container">
+					<tr>
+						<td>
 
-											<table class="five columns">
-												<tr>
-													<td style="padding-top: 10px;">
-														<img src="http://software.dell.com/images/email/logo-white-lg.png">
-													</td>
-													<td class="expander"></td>
-												</tr>
-											</table>
+							<table class="row">
+								<tr>
+									<td class="wrapper hide-for-small">
 
-										</td>
-										<td class="wrapper last">
+										<table class="five columns">
+											<tr>
+												<td style="padding-top: 10px;">
+													<img src="http://software.dell.com/images/email/logo-white-lg.png">
+												</td>
+												<td class="expander"></td>
+											</tr>
+										</table>
 
-											<table class="seven columns">
-												<tr>
-													<td class="text-sm">
-														Dell Software
-														<br>
-														5 Polaris Way, Aliso Viejo, CA 92656
-														<br><br>
-														Contact Us:
-														<br>
-														1-800-306-9329
-														<br>
-														<a href="mailto:info@software.dell.com">info@software.dell.com</a>
-													</td>
-													<td class="expander"></td>
-												</tr>
-											</table>
+									</td>
+									<td class="wrapper last">
 
-										</td>
-									</tr>
-								</table>
+										<table class="seven columns">
+											<tr>
+												<td class="text-sm">
+													Dell Software
+													<br>
+													5 Polaris Way, Aliso Viejo, CA 92656
+													<br><br>
+													Contact Us:
+													<br>
+													1-800-306-9329
+													<br>
+													<a href="mailto:info@software.dell.com">info@software.dell.com</a>
+												</td>
+												<td class="expander"></td>
+											</tr>
+										</table>
 
-								<table class="row">
-									<tr>
-										<td class="wrapper last text-sm">
-											<a href="http://software.dell.com">Software.Dell.com</a> | <a href="#">Privacy Statement</a> | <a
-											href="#">Unsubscribe from Dell</a> | <a href="#">Unsubscribe from Dell Software</a>
+									</td>
+								</tr>
+							</table>
 
-											<p class="text-sm">This email is an advertisement or solicitation from Dell Software. &copy; 2015 Dell
-												Inc. All rights reserved.</p>
-										</td>
-									</tr>
-								</table>
+							<table class="row">
+								<tr>
+									<td class="wrapper last text-sm">
+										<a href="http://software.dell.com">Software.Dell.com</a> | <a href="#">Privacy Statement</a> | <a
+										href="#">Unsubscribe from Dell</a> | <a href="#">Unsubscribe from Dell Software</a>
 
-							</td>
-						</tr>
-					</table>
-				</div>
+										<p class="text-sm">This email is an advertisement or solicitation from Dell Software. &copy; 2015
+											Dell
+											Inc. All rights reserved.</p>
+									</td>
+								</tr>
+							</table>
+
+						</td>
+					</tr>
+				</table>
 
 			</center>
 		</td>

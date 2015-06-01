@@ -515,7 +515,7 @@ table {
       text-align: center;
       background: #005a85;
       border: 1px solid #004261;
-      padding: 0;
+      padding: 8px;
       a, a:visited {
         text-decoration: none;
         font-family: Helvetica, Arial, sans-serif;
@@ -523,7 +523,6 @@ table {
         font-size: 16px;
         white-space: nowrap;
         display: block;
-        padding: 8px;
       }
       &.button-grey {
         background: #eeeeee;
@@ -705,16 +704,19 @@ body.outlook p {
 
 .header, .footer {
   background: #007cb8;
-  color: #fff;
+  color: #ffffff;
   p {
-    color: #fff;
+    color: #ffffff;
   }
   td {
-    color: #fff;
+    color: #ffffff;
   }
   a {
-    color: #fff !important;
+    color: #ffffff !important;
     text-decoration: underline;
+    &:link, &:focus, &:visited, &:active {
+      color: #ffffff !important;
+    }
   }
 }
 
