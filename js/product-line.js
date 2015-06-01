@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
   }
 
-  // case study section hover effect
+  // brand logos section hover effect
   $('.logos  a  img').hover(function () {
     var srcOver = $(this).attr('src').replace(/-gray.png/, '-color.png');
     $(this).attr('src', srcOver);
@@ -30,17 +30,12 @@ $(document).ready(function () {
   $('.show-more').on('click', function () {
     $(this).removeClass('visible-xs inline').addClass('hidden-xs').next().removeClass('hidden-xs');
   });
-
-  //solutions slider
-  $('.images-slider').slidePagination2({
-    list: '.images-slider-list',
-    column: 3,
-    row: 1,
-    largeArrow: true,
-    pagination: [
-      {type: 'prepend', nextArrow: false, align: 'left'},
-      {type: 'prepend', prevArrow: false}
-    ]
+  //Kace solutions blurb
+  $('.view-blurb').on('click', function () {
+    $('.expanded-blurb').toggle();
+  });
+  $('.expanded-blurb .close').on('click', function () {
+    $('.expanded-blurb').hide();
   });
 });
 
@@ -72,10 +67,34 @@ function resize() {
     if (pageWidth >= 992) {//desktop
       $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
       $('.logos').slidePagination2('destroy');
+
+      //solutions slider
+      $('.images-slider').slidePagination2({
+        list: '.images-slider-list',
+        column: 3,
+        row: 1,
+        largeArrow: true,
+        pagination: [
+          {type: 'prepend', nextArrow: false, align: 'left'},
+          {type: 'prepend', prevArrow: false}
+        ]
+      });
     }
     else if (pageWidth >= 768 && pageWidth < 992) {//tablet
       $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
       $('.logos').slidePagination2('destroy');
+
+      //solutions slider
+      $('.images-slider').slidePagination2({
+        list: '.images-slider-list',
+        column: 2,
+        row: 1,
+        largeArrow: true,
+        pagination: [
+          {type: 'prepend', nextArrow: false, align: 'left'},
+          {type: 'prepend', prevArrow: false}
+        ]
+      });
     }
     else if (pageWidth < 768) {//mobile
       $('.logos').slidePagination2({

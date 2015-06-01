@@ -159,7 +159,6 @@
     if (totalpage > 1) {
 			$.each(options.pagination, function(indx, obj) {
 				obj = $.extend({}, paginationDefault, obj);
-				console.log(obj);
 				/**
 				 * {
 				 * 	type: append|prepend,
