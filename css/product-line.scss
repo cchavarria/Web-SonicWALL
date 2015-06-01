@@ -18,6 +18,9 @@
 .pr-0 {
   padding-right: 0 !important;
 }
+.pl-0{
+  padding-left:0;
+}
 
 /*Banner*/
 
@@ -41,7 +44,7 @@
 }
 
 .carousel-indicators {
-  bottom: -41px;
+  bottom: -41px !important;
   li {
     cursor: pointer;
     background-color: #ccc;
@@ -107,13 +110,17 @@
 
 .icon-headline {
   img {
-    width: 43px;
     display: inline-block;
     float: left;
     margin-right: 15px;
+    margin-top:5px;
   }
   > div > div {
-    margin-bottom: 27px;
+    margin-bottom: 9px;
+    min-height:52px;
+    h4{
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -173,9 +180,8 @@
   }
 }
 
-.scale-32 {
-  width: 61px;
-  height: 61px;
+.ptb-14-plr-10 {
+  padding:14px 10px;
 }
 
 /*carousel*/
@@ -279,7 +285,7 @@
       background-position: 0 -165px;
       width: 25px;
       height: 39px;
-      margin-right: 0;
+      margin-right: 10px;
       &:hover {
         background-position: 0 -165px;
       }
@@ -331,8 +337,10 @@
     cursor: pointer;
     opacity: 1;
     text-shadow: none;
+    margin-right:22px;
+    filter:none;
     &:hover {
-      background-position: -166px -45px;;
+      background-position: -166px -45px;
     }
   }
 }
@@ -468,6 +476,9 @@ a:hover .has-overlay h4 {
   .pl-xs-30{
     padding-left: 30px;
   }
+  .pl-xs-0{
+    padding-left: 0;
+  }
 
   .masthead {
     margin-bottom: 0;
@@ -525,6 +536,9 @@ a:hover .has-overlay h4 {
   }
   .has-overlay {
     margin-bottom: 20px;
+    .overlay{
+      height:auto;
+    }
   }
   /*logos*/
   .screenshot-carousel {

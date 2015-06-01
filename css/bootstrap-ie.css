@@ -4,8 +4,6 @@
   background-image: url("/images/shared/formError.png");
   background-position: 95% 50%;
   background-repeat: no-repeat; }
-.ie .kace.expanded-blurb {
-  margin-top: -59px; }
 
 .ie9 #searchterm {
   padding-top: 4px;
@@ -17,3 +15,6 @@
   .ie9.openNav .site-canvas {
     position: relative;
     left: -276px; } }
+@media (min-width: 1200px) {
+  .ie .kace.expanded-blurb {
+    margin-top: -59px; } }
