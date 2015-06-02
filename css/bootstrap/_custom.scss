@@ -10,19 +10,25 @@ li {
 .border-grey {
   border: 1px solid #cbcbcb;
 }
+.grey-bg {
+  background-color: #f9f9f9;
+}
 
-.pad-0 {
+.pad-0,.p-0 {
   padding: 0 !important;
 }
-.pad-15 {
+.pad-15,.p-15 {
   padding: 15px !important;
 }
-.pad-25 {
+.pad-25,.p-25 {
   padding: 25px !important;
 }
 
 .pt-20 {
   padding-top: 20px !important;
+}
+.pt-30{
+  padding-top:30px !important;
 }
 .pb-10 {
   padding-bottom: 10px !important;
@@ -30,8 +36,14 @@ li {
 .pb-20 {
   padding-bottom: 20px !important;
 }
+.pb-30{
+  padding-bottom: 30px !important;
+}
 .pl-0 {
   padding-left: 0 !important;
+}
+.pr-0{
+  padding-right:0 !important;
 }
 
 .mar-0 {
@@ -62,6 +74,9 @@ li {
 }
 .mb-30 {
   margin-bottom: 30px !important;
+}
+.mb-50{
+  margin-bottom: 50px !important;
 }
 
 .mr-0 {

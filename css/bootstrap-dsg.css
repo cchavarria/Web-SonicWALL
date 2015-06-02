@@ -5782,20 +5782,28 @@
     color: #444; }
   .bootstrap .border-grey {
     border: 1px solid #cbcbcb; }
-  .bootstrap .pad-0 {
+  .bootstrap .grey-bg {
+    background-color: #f9f9f9; }
+  .bootstrap .pad-0, .bootstrap .p-0 {
     padding: 0 !important; }
-  .bootstrap .pad-15 {
+  .bootstrap .pad-15, .bootstrap .p-15 {
     padding: 15px !important; }
-  .bootstrap .pad-25 {
+  .bootstrap .pad-25, .bootstrap .p-25 {
     padding: 25px !important; }
   .bootstrap .pt-20 {
     padding-top: 20px !important; }
+  .bootstrap .pt-30 {
+    padding-top: 30px !important; }
   .bootstrap .pb-10 {
     padding-bottom: 10px !important; }
   .bootstrap .pb-20 {
     padding-bottom: 20px !important; }
+  .bootstrap .pb-30 {
+    padding-bottom: 30px !important; }
   .bootstrap .pl-0 {
     padding-left: 0 !important; }
+  .bootstrap .pr-0 {
+    padding-right: 0; }
   .bootstrap .mar-0 {
     margin: 0 !important; }
   .bootstrap .mt-0 {
@@ -5814,6 +5822,8 @@
     margin-bottom: 20px !important; }
   .bootstrap .mb-30 {
     margin-bottom: 30px !important; }
+  .bootstrap .mb-50 {
+    margin-bottom: 50px !important; }
   .bootstrap .mr-0 {
     margin-right: 0 !important; }
   .bootstrap .mr-10 {
