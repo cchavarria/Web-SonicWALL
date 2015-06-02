@@ -460,13 +460,6 @@ a:hover .has-overlay h4 {
 /*media queries*/
 /*mobile*/
 @media (max-width: 767px) {
-  .xs-margin-right-0, .xs-margin-left-0 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .ml-xs-n-15 {
-    margin-left: -15px;
-  }
   .mb-xs-10{
     margin-bottom: 10px;
   }
@@ -478,6 +471,9 @@ a:hover .has-overlay h4 {
   }
   .pl-xs-0{
     padding-left: 0;
+  }
+  .pr-xs-0{
+    padding-right:0;
   }
 
   .masthead {
@@ -527,7 +523,7 @@ a:hover .has-overlay h4 {
     border-right: 1px solid #e2e2e2;
   }
   .dark-gray-bg {
-    padding: 17px 5px;
+    padding: 17px 15px;
     margin-bottom: 20px;
   }
   /*solutions*/
@@ -578,6 +574,12 @@ a:hover .has-overlay h4 {
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
+  .pl-sm-0{
+    padding-left:0;
+  }
+  .pr-sm-0{
+    padding-right:0;
+  }
   /*banner*/
   .hero-banner .carousel a {
     h2 {

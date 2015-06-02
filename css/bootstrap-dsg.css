@@ -948,6 +948,9 @@
     font-size: 20px; }
   .bootstrap h3, .bootstrap .h3 {
     font-size: 17px; }
+    .bootstrap h3.feature, .bootstrap .h3.feature {
+      font-size: 18px;
+      line-height: 1.222222; }
   .bootstrap h4, .bootstrap .h4 {
     font-size: 18px; }
   .bootstrap h5, .bootstrap .h5 {
@@ -961,7 +964,9 @@
     .bootstrap h2, .bootstrap .h2 {
       font-size: 26px; }
     .bootstrap h3, .bootstrap .h3 {
-      font-size: 20.0px; } }
+      font-size: 20.0px; }
+      .bootstrap h3.feature, .bootstrap .h3.feature {
+        font-size: 23.99999px; } }
   @media (min-width: 992px) {
     .bootstrap h1, .bootstrap .h1 {
       font-size: 31.99999px; }

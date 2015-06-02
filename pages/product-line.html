@@ -944,7 +944,7 @@
       </nav>
     </header>
     <!-- header ends here -->
-    <section class="hero-banner">
+    <section class="hero-banner container">
       <div class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
           <div class="item">
@@ -1005,7 +1005,7 @@
           <div class="col-sm-5 col-xs-12 pull-right">
             <div class="dark-gray-bg col-xs-12">
               <div class="row">
-                <div class="col-sm-12 col-xs-6 has-right-border lg-margin-bottom-10 pl-xs-30">
+                <div class="col-sm-12 col-xs-6 has-right-border mb-10">
                   <h3 class="m-0">Deploy in weeks</h3>
 
                   <p>Deploy KACE products in fewer than two weeks.</p>
@@ -1087,7 +1087,7 @@
       </section>
       <div class="polaris-divider"></div>
       <section>
-        <h3 class="visible-xs">Featured Products</h3>
+        <h3 class="visible-xs feature">Featured Products</h3>
 
         <div class="row mt-20 mb-40">
           <div class="col-sm-5 col-xs-12 mb-20">
@@ -1097,7 +1097,7 @@
             </a>
           </div>
           <div class="col-sm-7 col-xs-12">
-            <h3 class="mt-0"><a href="/products/kace-k1000-systems-management-appliance/">KACE K1000 Systems
+            <h3 class="mt-0 feature"><a href="/products/kace-k1000-systems-management-appliance/">KACE K1000 Systems
               Management Appliance</a></h3>
 
             <p>
@@ -1165,7 +1165,7 @@
             </a>
           </div>
           <div class="col-sm-7 col-xs-12">
-            <h3 class="mt-0"><a href="/products/kace-k2000-systems-deployment-appliance/">KACE K2000 Systems
+            <h3 class="mt-0 feature"><a href="/products/kace-k2000-systems-deployment-appliance/">KACE K2000 Systems
               Deployment Appliance</a></h3>
 
             <p>
@@ -1238,7 +1238,7 @@
             </a>
           </div>
           <div class="col-sm-7 col-xs-12">
-            <h3 class="mt-0"><a href="/products/mobile-management/">Dell Enterprise Mobility Management</a></h3>
+            <h3 class="mt-0 feature"><a href="/products/mobile-management/">Dell Enterprise Mobility Management</a></h3>
 
             <p>
               <em>A "Best of Interop" award winner</em>, Dell Enterprise Mobility Management (EMM) supports your mobile
@@ -1296,7 +1296,7 @@
             </a>
           </div>
           <div class="col-sm-7 col-xs-12">
-            <h3 class="mt-0"><a href="/products/desktop-authority-management-suite/">Desktop Authority
+            <h3 class="mt-0 feature"><a href="/products/desktop-authority-management-suite/">Desktop Authority
               Management Suite</a></h3>
 
             <p>
@@ -1346,7 +1346,7 @@
     </div>
     <div class="gray-bg hidden-xs">
       <div class="container">
-        <h3 class="mt-0 mb-10">Solutions</h3>
+        <h3 class="mt-0 mb-10 feature">Solutions</h3>
 
         <div class="row col-sm-12 pr-0">
           <div class="row col-sm-3">
@@ -1409,7 +1409,7 @@
 
         <div class="row">
           <div class="col-sm-4">
-            <h3 class="mt-0">by Business Need</h3>
+            <h3 class="feature mt-0">by Business Need</h3>
             <ul class="list-unstyled mb-0">
               <li>
                 <p>
@@ -1424,7 +1424,7 @@
             </ul>
           </div>
           <div class="col-sm-4">
-            <h3 class="mt-0">by Industry</h3>
+            <h3 class="feature mt-0">by Industry</h3>
             <ul class="list-unstyled mb-0">
               <li>
                 <p>
@@ -1448,7 +1448,7 @@
     </div>
     <div class="container">
       <section class="resources">
-        <h3>Resources</h3>
+        <h3 class="feature">Resources</h3>
 
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12">
@@ -1511,11 +1511,10 @@
     <div class="gray-bg">
       <div class="container">
         <section>
-          <h3 class="mt-0">Support, Renewals & Communities</h3>
+          <h3 class="feature mt-0">Support, Renewals & Communities</h3>
 
-          <div class="xs-mr-0 xs-margin-left-0">
-            <a class="row col-md-6 col-sm-12 col-xs-12 mr-0"
-               href="http://en.community.dell.com/techcenter/endpoint-management/kace/" target="_blank">
+          <div class="col-md-6 col-xs-12 pl-0 pr-xs-0 pr-sm-0">
+            <a href="http://en.community.dell.com/techcenter/endpoint-management/kace/" target="_blank">
               <div id="conversation-with-kace" class="has-overlay margin-left-0">
                 <div class="overlay">
                   <h4 class="mt-0">Conversations with KACE</h4>
@@ -1526,9 +1525,10 @@
                 </div>
               </div>
             </a>
+          </div>
 
-            <a class="col-md-3 col-sm-6 col-xs-12 ml-xs-n-15 ml-md-n-15"
-               href="https://support.software.dell.com/essentials/kace-support">
+          <div class="col-md-3 col-sm-6 col-xs-12 pl-sm-0 pl-xs-0 pr-xs-0">
+            <a href="https://support.software.dell.com/essentials/kace-support">
               <div id="tech-support" class="has-overlay">
                 <div class="overlay">
                   <h4 class="mt-0">Technical Support</h4>
@@ -1538,8 +1538,9 @@
                 </div>
               </div>
             </a>
-            <a class="col-md-3 col-sm-6 col-xs-12 ml-xs-n-15"
-               href="http://www.itninja.com/">
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 pl-xs-0 pr-xs-0 pr-sm-0">
+            <a href="http://www.itninja.com/">
               <div id="it-ninja" class="has-overlay mr-0">
                 <div class="overlay">
                   <h4 class="mt-0">IT Ninja</h4>
@@ -1550,12 +1551,13 @@
               </div>
             </a>
           </div>
+
         </section>
       </div>
     </div>
     <div class="container">
       <section class="screenshot-carousel logos col-xs-12">
-        <h3>Trusted by leading brands - <a href="/documents/#case-studies" class="adjust-font-to-h3">The Success
+        <h3 class="feature">Trusted by leading brands - <a href="/documents/#case-studies" class="adjust-font-to-h3">The Success
           Stories</a></h3>
 
         <div class="carousel-xs">
