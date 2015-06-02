@@ -605,8 +605,13 @@ a:hover .has-overlay h4 {
     margin-left: -15px;
   }
   .images-slider {
-    .pagination-large a {
-      margin-top: 37px;
+    .pagination-large{
+      a{
+        margin-top: 37px;
+      }
+      .prev{
+        margin-right: 0;
+      }
     }
     li {
       width: 50%;
@@ -639,7 +644,7 @@ a:hover .has-overlay h4 {
   }
   .logos ul li {
     padding: 0;
-    margin-right: 75px;
+    margin-right: 88px;
   }
   .lg-margin-bottom-10 {
     margin-bottom: 10px;
