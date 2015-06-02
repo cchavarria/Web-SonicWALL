@@ -317,6 +317,14 @@ a:hover .has-overlay h4 {
 
   .xs-negative-margin-left-15, .negative-margin-left-15 {
     margin-left: -15px; } }
+/*mobile horizontal*/
+@media (max-width: 767px) and (min-width: 390px) {
+  .text-center-xs-h {
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center; }
+    .text-center-xs-h > div {
+      text-align: left; } }
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%; }

@@ -415,6 +415,17 @@ a:hover .has-overlay h4 {
     margin-left: -15px;
   }
 }
+/*mobile horizontal*/
+@media (max-width: 767px) and (min-width: 390px){
+  .text-center-xs-h{
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+    > div{
+      text-align: left;
+    }
+  }
+}
 
 @media (min-width: 768px) {
   #hero-banner {
