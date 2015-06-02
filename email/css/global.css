@@ -1,4 +1,7 @@
 @charset "IBM437";
+/*
+  - Use full 6 character hex value.
+*/
 @font-face {
   font-family: 'museo-sans-for-dell-100';
   src: url("/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-100-webfont.woff") format("woff"), url("/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
@@ -416,7 +419,7 @@ table.button {
     table.button td a, table.button td a:visited {
       text-decoration: none;
       font-family: Helvetica, Arial, sans-serif;
-      color: #ffffff !important;
+      color: #ffffff;
       font-size: 16px;
       white-space: nowrap;
       display: block; }
@@ -424,30 +427,30 @@ table.button {
       background: #eeeeee;
       border: 1px solid #cccccc; }
       table.button td.button-grey a, table.button td.button-grey a:visited {
-        color: #007db8 !important; }
+        color: #007db8; }
   table.button:hover td, table.button:visited td, table.button:active td {
-    background: #005a85 !important;
-    border: 1px solid #004261 !important; }
+    background: #005a85;
+    border: 1px solid #004261; }
     table.button:hover td a, table.button:hover td a:visited, table.button:visited td a, table.button:visited td a:visited, table.button:active td a, table.button:active td a:visited {
-      color: #fff !important; }
+      color: #ffffff; }
     table.button:hover td.button-grey, table.button:visited td.button-grey, table.button:active td.button-grey {
-      background: #d4d4d4 !important;
-      border: 1px solid #adadad !important; }
+      background: #d4d4d4;
+      border: 1px solid #adadad; }
       table.button:hover td.button-grey a, table.button:hover td.button-grey a:visited, table.button:visited td.button-grey a, table.button:visited td.button-grey a:visited, table.button:active td.button-grey a, table.button:active td.button-grey a:visited {
-        color: #007db8 !important; }
+        color: #007db8; }
 table.secondary td {
   background: #e9e9e9;
   border-color: #d0d0d0;
-  color: #555; }
+  color: #555555; }
   table.secondary td a {
-    color: #555; }
+    color: #555555; }
 table.secondary:hover td {
   background: #d0d0d0 !important;
-  color: #555; }
+  color: #555555; }
   table.secondary:hover td a {
-    color: #555 !important; }
+    color: #555555 !important; }
 table.secondary td a:visited, table.secondary:active td a {
-  color: #555 !important; }
+  color: #555555 !important; }
 table.success td {
   background: #5da423;
   border-color: #457a1a; }
@@ -534,6 +537,7 @@ body.outlook p {
   table[class="body"] .show-for-small, table[class="body"] .hide-for-desktop {
     display: inherit !important; } }
 .header, .footer {
+  width: 100%;
   background: #007cb8;
   color: #ffffff; }
   .header p, .footer p {
@@ -541,13 +545,16 @@ body.outlook p {
   .header td, .footer td {
     color: #ffffff; }
   .header a, .footer a {
-    color: #ffffff !important;
+    color: #ffffff;
     text-decoration: underline; }
+    .header a span, .footer a span {
+      color: #ffffff; }
     .header a:link, .header a:focus, .header a:visited, .header a:active, .footer a:link, .footer a:focus, .footer a:visited, .footer a:active {
-      color: #ffffff !important; }
+      color: #ffffff; }
 
 .bg-grey {
-  background: #f9f9f9; }
+  background: #f9f9f9;
+  width: 100%; }
 
 .pad-vertical-20 {
   padding: 20px 0 !important; }
@@ -569,8 +576,11 @@ body.outlook p {
   border: 1px solid #737373; }
 
 #social-media {
-  padding-bottom: 20px; }
-  #social-media a, #social-media span {
+  /*a, span {
     display: inline-block;
-    padding: 0 10px;
+  }*/ }
+  #social-media td {
+    padding: 20px 10px;
     vertical-align: top; }
+  #social-media img {
+    float: none; }

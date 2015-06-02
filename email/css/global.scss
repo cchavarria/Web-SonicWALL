@@ -1,3 +1,7 @@
+/*
+  - Use full 6 character hex value.
+*/
+
 @import "../../css/bootstrap/custom-font-face";
 
 /**********************************************
@@ -519,7 +523,7 @@ table {
       a, a:visited {
         text-decoration: none;
         font-family: Helvetica, Arial, sans-serif;
-        color: #ffffff !important;
+        color: #ffffff;
         font-size: 16px;
         white-space: nowrap;
         display: block;
@@ -528,21 +532,21 @@ table {
         background: #eeeeee;
         border: 1px solid #cccccc;
         a, a:visited {
-          color: #007db8 !important;
+          color: #007db8;
         }
       }
     }
     &:hover td, &:visited td, &:active td {
-      background: #005a85 !important;
-      border: 1px solid #004261 !important;
+      background: #005a85;
+      border: 1px solid #004261;
       a, a:visited {
-        color: #fff !important;
+        color: #ffffff;
       }
       &.button-grey {
-        background: #d4d4d4 !important;
-        border: 1px solid #adadad !important;
+        background: #d4d4d4;
+        border: 1px solid #adadad;
         a, a:visited {
-          color: #007db8 !important;
+          color: #007db8;
         }
       }
     }
@@ -551,20 +555,20 @@ table {
     td {
       background: #e9e9e9;
       border-color: #d0d0d0;
-      color: #555;
+      color: #555555;
       a {
-        color: #555;
+        color: #555555;
       }
     }
     &:hover td {
       background: #d0d0d0 !important;
-      color: #555;
+      color: #555555;
       a {
-        color: #555 !important;
+        color: #555555 !important;
       }
     }
     td a:visited, &:active td a {
-      color: #555 !important;
+      color: #555555 !important;
     }
   }
   &.success {
@@ -703,6 +707,7 @@ body.outlook p {
 }
 
 .header, .footer {
+  width: 100%;
   background: #007cb8;
   color: #ffffff;
   p {
@@ -712,16 +717,20 @@ body.outlook p {
     color: #ffffff;
   }
   a {
-    color: #ffffff !important;
+    color: #ffffff;
     text-decoration: underline;
+    span {
+      color: #ffffff;
+    }
     &:link, &:focus, &:visited, &:active {
-      color: #ffffff !important;
+      color: #ffffff;
     }
   }
 }
 
 .bg-grey {
   background: #f9f9f9;
+  width: 100%;
 }
 
 .pad-vertical-20 {
@@ -745,11 +754,14 @@ body.outlook p {
 @import "../../css/bootstrap/custom-image";
 
 #social-media {
-  padding-bottom: 20px;
-
-  a, span {
-    display: inline-block;
-    padding: 0 10px;
+  td {
+    padding: 20px 10px;
     vertical-align: top;
+  }
+  /*a, span {
+    display: inline-block;
+  }*/
+  img {
+    float: none;
   }
 }
