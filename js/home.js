@@ -38,19 +38,16 @@ $(document).ready(function() {
 	$('.show-more').on('click',function(){
 		$(this).removeClass('visible-xs inline').addClass('hidden-xs').next().removeClass('hidden-xs');
 	});
+
+	resize();
 });
 
 $(window).resize(function() {
-	//Workaround for IE8 always firing this function when any element on the page has been modified by javascript.
-	if($('html').hasClass('ie8')) {
-		var w = $(window).width(), h = $(window).height();
+	//Only resize when the width changes.
+	var w = $(window).width(), h = $(window).height();
 
-		if($('html').data('w') != w || $('html').data('h') != h) {
-			$('html').data('w', w).data('h', h);
-			resize();
-		}
-	}
-	else {
+	if($('html').data('w') != w || $('html').data('h') != h) {
+		$('html').data('w', w).data('h', h);
 		resize();
 	}
 });
@@ -104,6 +101,7 @@ function resize() {
 			});
 		}
 		else if (pageWidth < 768) {//mobile
+			$('.screenshot-carousel .btn-default').attr('style', 'display: block !important');
 			$('.screenshot-carousel').each(function () {
 				if($(this).hasClass('logos')) {
 					$(this).slidePagination2({
