@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 			if (/(.*)t/.test(pathnameArr[1])) {
 				pathnameArr[1] = pathnameArr[1].replace(/(.*)t/, '$1');
-				bitlyURL = url = 'http://' + location.host + pathnameArr.join('/');
+				bitlyURL = url = 'https://' + location.host + pathnameArr.join('/');
 			}
 		}
 
