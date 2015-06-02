@@ -2,27 +2,8 @@
   background-color: #f9f9f9;
   padding: 30px 0; }
 
-.m-0 {
-  margin: 0; }
-
-.mr-0 {
-  margin-right: 0 !important; }
-
-.mb-40 {
-  margin-bottom: 40px; }
-
-.pr-0 {
-  padding-right: 0 !important; }
-
-.pl-0 {
-  padding-left: 0; }
-
 /*Banner*/
 .hero-banner {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 0;
-  padding-left: 0;
   width: 100%;
   margin-bottom: 50px; }
   .hero-banner .carousel a:hover h2, .hero-banner .carousel a:focus h2 {
@@ -44,11 +25,11 @@
     border: none;
     border-radius: 2px;
     padding: 0; }
-  .carousel-indicators .active {
-    background-color: #444;
-    margin: 14px 14px 0 0;
-    width: 14px;
-    height: 7px; }
+    .carousel-indicators li.active {
+      background-color: #444;
+      margin: 14px 14px 0 0;
+      width: 14px;
+      height: 7px; }
 
 .caption-wrapper {
   position: absolute;

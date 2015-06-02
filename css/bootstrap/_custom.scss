@@ -11,18 +11,21 @@ li {
   border: 1px solid #cbcbcb;
 }
 
-.pad-0 {
+.pad-0, .p-0 {
   padding: 0 !important;
 }
-.pad-15 {
+.pad-15, .p-15 {
   padding: 15px !important;
 }
-.pad-25 {
+.pad-25, .p-25 {
   padding: 25px !important;
 }
 
 .pt-20 {
   padding-top: 20px !important;
+}
+.pr-0 {
+  padding-right: 0 !important;
 }
 .pb-10 {
   padding-bottom: 10px !important;
@@ -30,7 +33,13 @@ li {
 .pb-20 {
   padding-bottom: 20px !important;
 }
+.pl-0{
+  padding-left: 0 !important;
+}
 
+.m-0 {
+  margin: 0 !important;
+}
 .mt-0 {
   margin-top: 0 !important;
 }
@@ -56,14 +65,19 @@ li {
 .mb-30 {
   margin-bottom: 30px !important;
 }
+.mb-40 {
+  margin-bottom: 40px !important;
+}
 
+.mr-0 {
+  margin-right: 0 !important;
+}
 .mr-10 {
   margin-right: 10px !important;
 }
 .mr-20 {
   margin-right: 20px !important;
 }
-
 .ml-20 {
   margin-left: 20px !important;
 }
