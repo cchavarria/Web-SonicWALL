@@ -1268,6 +1268,9 @@ h2, .h2 {
 
 h3, .h3, #right-rail-form h4 {
   font-size: 17px; }
+  h3.feature, .h3.feature, #right-rail-form h4.feature {
+    font-size: 18px;
+    line-height: 1.222222; }
 
 h4, .h4 {
   font-size: 18px; }
@@ -1287,7 +1290,9 @@ h6, .h6 {
     font-size: 26px; }
 
   h3, .h3, #right-rail-form h4 {
-    font-size: 20.0px; } }
+    font-size: 20.0px; }
+    h3.feature, .h3.feature, #right-rail-form h4.feature {
+      font-size: 23.99999px; } }
 @media (min-width: 992px) {
   h1, .h1 {
     font-size: 31.99999px; }
