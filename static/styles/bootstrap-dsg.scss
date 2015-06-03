@@ -1,4 +1,4 @@
-@import "bootstrap/custom-font-face";
+@import "../css/bootstrap/_custom-font-face";
 
 @-ms-viewport {
   width: device-width;
@@ -11,63 +11,63 @@
   line-height: 1.42857;
 
   // Core variables and mixins
-  @import "bootstrap/variables-custom";
-  @import "bootstrap/mixins";
+  @import "../css/bootstrap/_variables-custom";
+  @import "../css/bootstrap/_mixins";
 
   // Reset and dependencies
-  @import "bootstrap/normalize-custom";
-  @import "bootstrap/print";
-  @import "bootstrap/glyphicons-custom";
+  @import "../css/bootstrap/_normalize-custom";
+  @import "../css/bootstrap/_print";
+  @import "../css/bootstrap/_glyphicons-custom";
 
   // Core CSS
-  @import "bootstrap/scaffolding";
-  @import "bootstrap/type-custom";
-  @import "bootstrap/code";
-  @import "bootstrap/grid-dsg";
+  @import "../css/bootstrap/_scaffolding";
+  @import "../css/bootstrap/_type-custom";
+  @import "../css/bootstrap/_code";
+  @import "../css/bootstrap/_grid-dsg";
   //@import "bootstrap/grid";
-  @import "bootstrap/custom-grid-ext";
-  @import "bootstrap/tables";
-  @import "bootstrap/forms-custom";
-  @import "bootstrap/buttons";
+  @import "../css/bootstrap/_custom-grid-ext";
+  @import "../css/bootstrap/_tables";
+  @import "../css/bootstrap/_forms-custom";
+  @import "../css/bootstrap/_buttons";
 
   // Components
-  @import "bootstrap/component-animations";
-  @import "bootstrap/dropdowns";
-  @import "bootstrap/button-groups";
-  @import "bootstrap/input-groups";
-  @import "bootstrap/navs";
-  @import "bootstrap/navbar";
-  @import "bootstrap/breadcrumbs";
-  @import "bootstrap/pagination";
-  @import "bootstrap/pager";
-  @import "bootstrap/labels";
-  @import "bootstrap/badges";
+  @import "../css/bootstrap/_component-animations";
+  @import "../css/bootstrap/_dropdowns";
+  @import "../css/bootstrap/_button-groups";
+  @import "../css/bootstrap/_input-groups";
+  @import "../css/bootstrap/_navs";
+  @import "../css/bootstrap/_navbar";
+  @import "../css/bootstrap/_breadcrumbs";
+  @import "../css/bootstrap/_pagination";
+  @import "../css/bootstrap/_pager";
+  @import "../css/bootstrap/_labels";
+  @import "../css/bootstrap/_badges";
   /*@import "bootstrap/jumbotron";*/
-  @import "bootstrap/thumbnails";
+  @import "../css/bootstrap/_thumbnails";
   /*@import "bootstrap/alerts";*/
   /*@import "bootstrap/progress-bars";*/
-  @import "bootstrap/media";
-  @import "bootstrap/list-group";
-  @import "bootstrap/panels";
-  @import "bootstrap/responsive-embed";
+  @import "../css/bootstrap/_media";
+  @import "../css/bootstrap/_list-group";
+  @import "../css/bootstrap/_panels";
+  @import "../css/bootstrap/_responsive-embed";
   /*@import "bootstrap/wells";*/
-  @import "bootstrap/close";
+  @import "../css/bootstrap/_close";
 
-  @import "bootstrap/custom-dell-icons";
-  @import "bootstrap/custom-header-footer-dsg-v2";
+  @import "../css/bootstrap/_custom-dell-icons";
+  @import "../css/bootstrap/_custom-header-footer-dsg-v2";
 
   // Components w/ JavaScript
   /*@import "bootstrap/modals";*/
   /*@import "bootstrap/tooltip";*/
   /*@import "bootstrap/popovers";*/
-  @import "bootstrap/carousel-custom";
+  @import "../css/bootstrap/_carousel-custom";
 
   // Utility classes
-  @import "bootstrap/utilities";
-  @import "bootstrap/responsive-utilities-dsg";
+  @import "../css/bootstrap/_utilities";
+  @import "../css/bootstrap/_responsive-utilities-dsg";
 
-  @import "bootstrap/custom";
-  @import "bootstrap/custom-affix-scroll-nav-top";
+  @import "../css/bootstrap/_custom";
+  @import "../css/bootstrap/_custom-affix-scroll-nav-top";
 
   &.not-responsive {
     .wrapper {
@@ -107,8 +107,8 @@
   }
 }
 
-@import "bootstrap/custom-fancybox";
-@import "bootstrap/custom-image";
+@import "../css/bootstrap/_custom-fancybox";
+@import "../css/bootstrap/_custom-image";
 
 @media (max-width: 767px) {
   //XS
