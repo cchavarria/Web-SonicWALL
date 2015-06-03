@@ -1,7 +1,7 @@
 //
 // Carousel
 // --------------------------------------------------
-
+//Modified by Elnaz Doostdar to replicate DSG style
 
 // Wrapper for the slide container and indicators
 .carousel {
@@ -23,6 +23,17 @@
     > a > img {
       @include img-responsive;
       line-height: 1;
+    }
+    //adding DSG style
+    > a {
+      &:hover, &:focus {
+        text-decoration: none;
+        color: #007db8;
+      }
+      h4 {
+        color: #444;
+        margin-bottom: 14px;
+      }
     }
 
     // WebKit CSS3 transforms for supported devices
@@ -106,12 +117,12 @@
 
   // Set gradients for backgrounds
   &.left {
-    @include gradient-horizontal($start-color: rgba(0,0,0,.5), $end-color: rgba(0,0,0,.0001));
+    @include gradient-horizontal($start-color: rgba(0, 0, 0, .5), $end-color: rgba(0, 0, 0, .0001));
   }
   &.right {
     left: auto;
     right: 0;
-    @include gradient-horizontal($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.5));
+    @include gradient-horizontal($start-color: rgba(0, 0, 0, .0001), $end-color: rgba(0, 0, 0, .5));
   }
 
   // Hover/focus state
@@ -145,22 +156,21 @@
   }
   .icon-prev,
   .icon-next {
-    width:  20px;
+    width: 20px;
     height: 20px;
     margin-top: -10px;
     line-height: 1;
     font-family: serif;
   }
 
-
   .icon-prev {
     &:before {
-      content: '\2039';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
+      content: '\2039'; // SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
     }
   }
   .icon-next {
     &:before {
-      content: '\203a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
+      content: '\203a'; // SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
     }
   }
 }
@@ -169,67 +179,57 @@
 //
 // Add an unordered list with the following class and add a list item for each
 // slide your carousel holds.
+// Adding DSG style
 
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
   left: 50%;
   z-index: 15;
-  width: 60%;
-  margin-left: -30%;
   padding-left: 0;
   list-style: none;
   text-align: center;
-
+  width: 60%;
+  margin-left: -30%;
   li {
-    display: inline-block;
-    width:  10px;
-    height: 10px;
-    margin: 1px;
-    text-indent: -999px;
-    border: 1px solid $carousel-indicator-border-color;
-    border-radius: 10px;
+    background-color: #ccc;
+    border: 0 none;
+    border-radius: 2px;
     cursor: pointer;
-
-    // IE8-9 hack for event handling
-    //
-    // Internet Explorer 8-9 does not support clicks on elements without a set
-    // `background-color`. We cannot use `filter` since that's not viewed as a
-    // background color by the browser. Thus, a hack is needed.
-    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
-    //
-    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
-    // set alpha transparency for the best results possible.
-    background-color: #000 \9; // IE8
-    background-color: rgba(0,0,0,0); // IE9
+    display: inline-block;
+    height: 7px;
+    margin: 14px 14px 0 0;
+    padding: 0;
+    width: 14px;
+    text-indent: -999px;
   }
   .active {
-    margin: 0;
-    width:  12px;
-    height: 12px;
-    background-color: $carousel-indicator-active-bg;
+    background-color: #444;
+    margin: 14px 14px 0 0;
+    width: 14px;
+    height: 7px;
   }
 }
 
 // Optional captions
 // -----------------------------
 // Hidden by default for smaller viewports
-.carousel-caption {
+// Adding DSG style
+.caption-wrapper {
   position: absolute;
-  left: 15%;
-  right: 15%;
-  bottom: 20px;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: $carousel-caption-color;
-  text-align: center;
-  text-shadow: $carousel-text-shadow;
-  & .btn {
-    text-shadow: none; // No shadow for button elements in carousel-caption
-  }
+  top: 20px;
+  left: 20px;
+  padding: 14px;
+  width: 32%;
+  vertical-align: middle;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.92);
+  right: auto;
+  bottom: auto;
 }
-
 
 // Scale up controls for tablets and up
 @media screen and (min-width: $screen-sm-min) {
@@ -254,16 +254,61 @@
       margin-right: -15px;
     }
   }
+}
 
-  // Show and left align the captions
-  .carousel-caption {
-    left: 20%;
-    right: 20%;
-    padding-bottom: 30px;
+//Adding DSG style
+/*mobile*/
+@media (max-width: 767px) {
+  .hero-banner {
+    padding: 0 -15px;
+    .carousel a {
+      h4 {
+        font-size: 14px;
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
   }
+  .caption-wrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    background: #f5f5f5;
+    width: 100%;
+    span {
+      color: #007db8;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      &:hover {
+        background-color: transparent;
+        color: #007db8;
+      }
+    }
+  }
+}
 
-  // Move up the indicators
-  .carousel-indicators {
-    bottom: 20px;
+@media (min-width: 768px) {
+  #hero-banner {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .hero-banner {
+    h2 {
+      font-size: 26px;
+      line-height: 30px;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  .caption-wrapper {
+    width: 46%;
   }
 }
