@@ -39,91 +39,75 @@ $(document).ready(function() {
 		$(this).removeClass('visible-xs inline').addClass('hidden-xs').next().removeClass('hidden-xs');
 	});
 
-	resize();
+	resizeHome();
 });
 
-$(window).resize(function() {
-	//Only resize when the width changes.
-	var w = $(window).width(), h = $(window).height();
+addResize('resizeHome');
 
-	if($('html').data('w') != w || $('html').data('h') != h) {
-		$('html').data('w', w).data('h', h);
-		resize();
+function resizeHome() {
+	pageWidth = $('html').width();
+
+	if (pageWidth >= 992) {//desktop
+		$('.screenshot-carousel').each(function () {
+			if ($(this).hasClass('logos')) {
+				$(this).slidePagination2('destroy');
+			}
+			else {
+				$(this).slidePagination2({
+					list: '.screenshot-carousel-list',
+					column: 3,
+					row: 2,
+					random: true,
+					pagination: [
+						{type: 'append', selector: '.features-headline'},
+						{type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
+					]
+				});
+			}
+		});
 	}
-});
-
-function resize() {
-	if(resizeTimer !== null) {
-		clearTimeout(resizeTimer);
+	else if (pageWidth >= 768 && pageWidth < 992) {//tablet
+		$('.screenshot-carousel').each(function () {
+			if ($(this).hasClass('logos')) {
+				$(this).slidePagination2('destroy');
+			}
+			else {
+				$(this).slidePagination2({
+					list: '.screenshot-carousel-list',
+					column: 2,
+					row: 2,
+					random: true,
+					pagination: [
+						{type: 'append', selector: '.features-headline'},
+						{type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
+					]
+				});
+			}
+		});
 	}
+	else if (pageWidth < 768) {//mobile
+		$('.screenshot-carousel .btn-default').attr('style', 'display: block !important');
+		$('.screenshot-carousel').each(function () {
+			if ($(this).hasClass('logos')) {
+				$(this).slidePagination2({
+					list: '.logos-list',
+					column: 1,
+					row: 1,
+					pagination: [
+						{type: 'prepend', selector: '.carousel-xs'}
+					]
+				});
 
-	resizeTimer = setTimeout(function() {
-		clearTimeout(resizeTimer);
+			}
+			else {
+				$(this).slidePagination2('destroy');
+				$(this).find('.screenshot-carousel-list').find('li').show();
+				$(this).find('.screenshot-carousel-list').find('li:gt(2)').hide();
+			}
+		});
 
-		pageWidth = $('html').width();
-
-		if (pageWidth >= 992) {//desktop
-			$('.screenshot-carousel').each(function () {
-				if($(this).hasClass('logos')) {
-					$(this).slidePagination2('destroy');
-				}
-				else {
-					$(this).slidePagination2({
-						list: '.screenshot-carousel-list',
-						column: 3,
-						row: 2,
-						random: true,
-						pagination: [
-							{type: 'append', selector: '.features-headline'},
-							{type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
-						]
-					});
-				}
-			});
-		}
-		else if (pageWidth >= 768 && pageWidth < 992) {//tablet
-			$('.screenshot-carousel').each(function () {
-				if($(this).hasClass('logos')) {
-					$(this).slidePagination2('destroy');
-				}
-				else {
-					$(this).slidePagination2({
-						list: '.screenshot-carousel-list',
-						column: 2,
-						row: 2,
-						random: true,
-						pagination: [
-							{type: 'append', selector: '.features-headline'},
-							{type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
-						]
-					});
-				}
-			});
-		}
-		else if (pageWidth < 768) {//mobile
-			$('.screenshot-carousel .btn-default').attr('style', 'display: block !important');
-			$('.screenshot-carousel').each(function () {
-				if($(this).hasClass('logos')) {
-					$(this).slidePagination2({
-						list: '.logos-list',
-						column: 1,
-						row: 1,
-						pagination: [
-							{type: 'prepend', selector: '.carousel-xs'}
-						]
-					});
-
-				}
-				else {
-					$(this).slidePagination2('destroy');
-					$(this).find('.screenshot-carousel-list').find('li').show();
-					$(this).find('.screenshot-carousel-list').find('li:gt(2)').hide();
-				}
-			});
-
-			$('.btn-link').removeClass('btn-link').addClass('btn-default');
-		}
-	}, 500);
+		$('.btn-link').removeClass('btn-link').addClass('btn-default');
+	}
 }
 function randomizeBanner() {
 	var randomNumber = Math.floor((Math.random() * $('.item').length));

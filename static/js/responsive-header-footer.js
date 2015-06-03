@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageWidth = $('html').width(), resizeFn = [];
+var pageWidth = $('html').width(), resizeFn = [], resizeTimer = null;
 
 $(document).ready(function () {
   resizeGlobal();
@@ -121,10 +121,18 @@ $(window).resize(function() {
 	if($('html').data('w') != w) {
 		$('html').data('w', w).data('h', h);
 
-    $.each(resizeFn, function(i, fn) {
-      if(typeof window[fn] == 'function') {
-        window[fn].call();
-      }
+    if(resizeTimer !== null) {
+      clearTimeout(resizeTimer);
+    }
+
+    resizeTimer = setTimeout(function() {
+      clearTimeout(resizeTimer);
+
+      $.each(resizeFn, function (i, fn) {
+        if (typeof window[fn] == 'function') {
+          window[fn].call();
+        }
+      });
     });
 	}
 });

@@ -1,4 +1,3 @@
-var resizeTimer = null;
 $(document).ready(function () {
   //randomize banner
   randomizeBanner();
@@ -34,47 +33,39 @@ $(document).ready(function () {
 addResize('resizeProductLine');
 
 function resizeProductLine() {
-  if (resizeTimer !== null) {
-    clearTimeout(resizeTimer);
+  pageWidth = $('html').width();
+
+  if (pageWidth >= 768) {//tablet
+    $('.logos').slidePagination2('destroy');
+
+    var sliderOptions = {
+      list: '.images-slider-list',
+      column: 3,
+      row: 1,
+      largeArrow: true,
+      pagination: [
+        {type: 'prepend', nextArrow: false, align: 'left'},
+        {type: 'prepend', prevArrow: false}
+      ]
+    };
+
+    if (pageWidth < 992) {
+      sliderOptions.column = 2;
+    }
+
+    //solutions slider
+    $('.images-slider').slidePagination2(sliderOptions);
   }
-
-  resizeTimer = setTimeout(function () {console.log('resize');
-    clearTimeout(resizeTimer);
-
-    pageWidth = $('html').width();
-
-    if (pageWidth >= 768) {//tablet
-      $('.logos').slidePagination2('destroy');
-
-      var sliderOptions = {
-        list: '.images-slider-list',
-        column: 3,
-        row: 1,
-        largeArrow: true,
-        pagination: [
-          {type: 'prepend', nextArrow: false, align: 'left'},
-          {type: 'prepend', prevArrow: false}
-        ]
-      };
-
-      if(pageWidth < 992) {
-        sliderOptions.column = 2;
-      }
-
-      //solutions slider
-      $('.images-slider').slidePagination2(sliderOptions);
-    }
-    else if (pageWidth < 768) {//mobile
-      $('.logos').slidePagination2({
-        list: '.logos-list',
-        column: 1,
-        row: 1,
-        pagination: [
-          {type: 'prepend', selector: '.carousel-xs'}
-        ]
-      });
-    }
-  }, 500);
+  else if (pageWidth < 768) {//mobile
+    $('.logos').slidePagination2({
+      list: '.logos-list',
+      column: 1,
+      row: 1,
+      pagination: [
+        {type: 'prepend', selector: '.carousel-xs'}
+      ]
+    });
+  }
 }
 function randomizeBanner() {
   var randomNumber = Math.floor((Math.random() * $('.item').length));
