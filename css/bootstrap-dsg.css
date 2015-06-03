@@ -5877,8 +5877,19 @@
     margin-right: 10px !important; }
   .bootstrap .mr-20 {
     margin-right: 20px !important; }
+  .bootstrap .ml-10 {
+    margin-left: 10px !important; }
   .bootstrap .ml-20 {
     margin-left: 20px !important; }
+  .bootstrap .bg-grey-social-media {
+    display: inline-block; }
+    .bootstrap .bg-grey-social-media li {
+      display: inline-block;
+      padding-bottom: 0; }
+      .bootstrap .bg-grey-social-media li a span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 20px; }
   .bootstrap .dsg-icon {
     background: url("/images/shared/sprites.png") 0 0 no-repeat;
     width: 20px;
@@ -5933,7 +5944,17 @@
       margin-left: 0 !important; }
     .bootstrap .btn-block-xs {
       display: block;
-      width: 100%; } }
+      width: 100%; }
+    .bootstrap .bg-grey-social-media {
+      display: inline-block; }
+      .bootstrap .bg-grey-social-media li {
+        display: block;
+        padding-bottom: 10px; }
+        .bootstrap .bg-grey-social-media li a {
+          margin-left: 0 !important; }
+          .bootstrap .bg-grey-social-media li a div {
+            float: left;
+            margin-bottom: 10px !important; } }
   @media (min-width: 768px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;

@@ -108,11 +108,27 @@ li {
 .mr-20 {
   margin-right: 20px !important;
 }
-
+.ml-10{
+  margin-left:10px !important;
+}
 .ml-20 {
   margin-left: 20px !important;
 }
 
+.bg-grey-social-media{
+  display: inline-block;
+  li{
+    display: inline-block;
+    padding-bottom: 0;
+    a {
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 20px;
+      }
+    }
+  }
+}
 .dsg-icon {
   background: url("/images/shared/sprites.png") 0 0 no-repeat;
   width: 20px;
@@ -203,6 +219,22 @@ ul {
   .btn-block-xs {
     display: block;
     width: 100%;
+  }
+
+  //social media bar with grey background
+  .bg-grey-social-media{
+    display: inline-block;
+    li{
+      display: block;
+      padding-bottom: 10px;
+      a {
+        margin-left:0 !important;
+        div{
+          float:left;
+          margin-bottom: 10px !important;
+        }
+      }
+    }
   }
 }
 

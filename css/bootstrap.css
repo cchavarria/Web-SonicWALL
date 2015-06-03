@@ -5079,8 +5079,21 @@ li {
 .mr-20 {
   margin-right: 20px !important; }
 
+.ml-10 {
+  margin-left: 10px !important; }
+
 .ml-20 {
   margin-left: 20px !important; }
+
+.bg-grey-social-media {
+  display: inline-block; }
+  .bg-grey-social-media li {
+    display: inline-block;
+    padding-bottom: 0; }
+    .bg-grey-social-media li a span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px; }
 
 .dsg-icon {
   background: url("/images/shared/sprites.png") 0 0 no-repeat;
@@ -5147,7 +5160,18 @@ ul.bullet-check-mark {
 
   .btn-block-xs {
     display: block;
-    width: 100%; } }
+    width: 100%; }
+
+  .bg-grey-social-media {
+    display: inline-block; }
+    .bg-grey-social-media li {
+      display: block;
+      padding-bottom: 10px; }
+      .bg-grey-social-media li a {
+        margin-left: 0 !important; }
+        .bg-grey-social-media li a div {
+          float: left;
+          margin-bottom: 10px !important; } }
 @media (min-width: 768px) {
   #right-rail-form label {
     padding-top: 8px;
