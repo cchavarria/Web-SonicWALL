@@ -5551,8 +5551,6 @@ footer {
   margin-top: 20px;
   font-size: 11px; }
   footer a {
-    /*padding: 10px 0 9px 20px;*/
-    /*display: block;*/
     color: #fff; }
     footer a:hover, footer a:focus {
       color: #fff; }
@@ -5634,8 +5632,7 @@ footer {
     z-index: 0; }
   footer .footer-bottom-section {
     padding: 10px 15px 0 15px;
-    font-size: 11px;
-    /*overflow: hidden;*/ }
+    font-size: 11px; }
     footer .footer-bottom-section a, footer .footer-bottom-section span {
       padding: 10px 0 9px 5px; }
     footer .footer-bottom-section .list-inline > li a {
@@ -5658,6 +5655,8 @@ footer {
     footer .footer-copyright-section li {
       border-top: 1px solid #aaa;
       display: block; }
+  footer .bg-light-grey a {
+    color: #007db8; }
 
 i.menu-indicator {
   font-family: icon-ui;

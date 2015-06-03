@@ -4642,8 +4642,6 @@
     margin-top: 20px;
     font-size: 11px; }
     .bootstrap footer a {
-      /*padding: 10px 0 9px 20px;*/
-      /*display: block;*/
       color: #fff; }
       .bootstrap footer a:hover, .bootstrap footer a:focus {
         color: #fff; }
@@ -4725,8 +4723,7 @@
       z-index: 0; }
     .bootstrap footer .footer-bottom-section {
       padding: 10px 15px 0 15px;
-      font-size: 11px;
-      /*overflow: hidden;*/ }
+      font-size: 11px; }
       .bootstrap footer .footer-bottom-section a, .bootstrap footer .footer-bottom-section span {
         padding: 10px 0 9px 5px; }
       .bootstrap footer .footer-bottom-section .list-inline > li a {
@@ -4749,6 +4746,8 @@
       .bootstrap footer .footer-copyright-section li {
         border-top: 1px solid #aaa;
         display: block; }
+    .bootstrap footer .bg-light-grey a {
+      color: #007db8; }
   .bootstrap i.menu-indicator {
     font-family: icon-ui;
     font-size: 12px;

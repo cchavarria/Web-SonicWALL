@@ -343,8 +343,6 @@ footer {
   margin-top: 20px;
   font-size: 11px;
   a {
-    /*padding: 10px 0 9px 20px;*/
-    /*display: block;*/
     color: #fff;
     &:hover, &:focus {
       color: #fff;
@@ -452,7 +450,6 @@ footer {
   .footer-bottom-section {
     padding: 10px 15px 0 15px;
     font-size: 11px;
-    /*overflow: hidden;*/
     a, span {
       padding: 10px 0 9px 5px;
     }
@@ -485,6 +482,11 @@ footer {
     li {
       border-top: 1px solid #aaa;
       display: block;
+    }
+  }
+  .bg-light-grey {
+    a {
+      color: #007db8;
     }
   }
 }
