@@ -8,16 +8,6 @@ $(document).ready(function () {
     $(this).attr('src', $(this).data('original')).removeClass('lazy');
   });
 
-  if ($('html').hasClass('ie8')) {
-    $('.resources img, .icon-headline img').each(function () {
-      if ($(this).hasClass('scale-32')) {
-        $(this).removeClass('scale-32').css('padding', '17px 10px 0 0');
-      }
-      var newSource = $(this).attr('src').replace('svg', 'png');
-      $(this).attr('src', newSource);
-    });
-  }
-
   // brand logos section hover effect
   $('.logos  a  img').hover(function () {
     var srcOver = $(this).attr('src').replace(/-gray.png/, '-color.png');
@@ -37,39 +27,26 @@ $(document).ready(function () {
   $('.expanded-blurb .close').on('click', function () {
     $('.expanded-blurb').hide();
   });
+
+  resizeProductLine();
 });
 
-$(window).resize(function () {
-  //Workaround for IE8 always firing this function when any element on the page has been modified by javascript.
-  if ($('html').hasClass('ie8')) {
-    var w = $(window).width(), h = $(window).height();
+addResize('resizeProductLine');
 
-    if ($('html').data('w') != w || $('html').data('h') != h) {
-      $('html').data('w', w).data('h', h);
-      resize();
-    }
-  }
-  else {
-    resize();
-  }
-});
-
-function resize() {
+function resizeProductLine() {
   if (resizeTimer !== null) {
     clearTimeout(resizeTimer);
   }
 
-  resizeTimer = setTimeout(function () {
+  resizeTimer = setTimeout(function () {console.log('resize');
     clearTimeout(resizeTimer);
 
     pageWidth = $('html').width();
 
-    if (pageWidth >= 992) {//desktop
-      $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
+    if (pageWidth >= 768) {//tablet
       $('.logos').slidePagination2('destroy');
 
-      //solutions slider
-      $('.images-slider').slidePagination2({
+      var sliderOptions = {
         list: '.images-slider-list',
         column: 3,
         row: 1,
@@ -78,23 +55,14 @@ function resize() {
           {type: 'prepend', nextArrow: false, align: 'left'},
           {type: 'prepend', prevArrow: false}
         ]
-      });
-    }
-    else if (pageWidth >= 768 && pageWidth < 992) {//tablet
-      $('.add-default-xs').addClass('btn-link').removeClass('btn-default');
-      $('.logos').slidePagination2('destroy');
+      };
+
+      if(pageWidth < 992) {
+        sliderOptions.column = 2;
+      }
 
       //solutions slider
-      $('.images-slider').slidePagination2({
-        list: '.images-slider-list',
-        column: 2,
-        row: 1,
-        largeArrow: true,
-        pagination: [
-          {type: 'prepend', nextArrow: false, align: 'left'},
-          {type: 'prepend', prevArrow: false}
-        ]
-      });
+      $('.images-slider').slidePagination2(sliderOptions);
     }
     else if (pageWidth < 768) {//mobile
       $('.logos').slidePagination2({
@@ -105,7 +73,6 @@ function resize() {
           {type: 'prepend', selector: '.carousel-xs'}
         ]
       });
-      $('.add-default-xs').removeClass('btn-link').addClass('btn-default');
     }
   }, 500);
 }
@@ -115,7 +82,7 @@ function randomizeBanner() {
   $('.hero-banner .carousel-indicators li').eq(randomNumber).addClass("active");
 }
 
-$.getScript('http://stage-software-dell-com/Static/Library/jQuery/jquery.lazyload.min.js', function () {
+$.getScript('/static/library/jQuery/jquery.lazyload.min.js', function () {
   $(document).ready(function () {
     $("img.lazy").lazyload();
   });

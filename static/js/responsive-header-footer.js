@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageWidth = $('html').width();
+var pageWidth = $('html').width(), resizeFn = [];
 
 $(document).ready(function () {
   resizeGlobal();
@@ -112,15 +112,26 @@ $(window).load(function() {
   });
 });
 
+addResize('resizeGlobal');
+
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
 	var w = $(window).width(), h = $(window).height();
 
 	if($('html').data('w') != w) {
 		$('html').data('w', w).data('h', h);
-		resizeGlobal();
+
+    $.each(resizeFn, function(i, fn) {
+      if(typeof window[fn] == 'function') {
+        window[fn].call();
+      }
+    });
 	}
 });
+
+function addResize(fn) {
+  resizeFn.push(fn);
+}
 
 function resizeGlobal() {
   pageWidth = $('html').width();

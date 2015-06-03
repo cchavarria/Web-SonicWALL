@@ -147,6 +147,10 @@ li {
   &.linkedin {
     background-position: -20px 0;
   }
+  &.googleshare {
+    background-position: -158px -131px;
+    width: 33px;
+  }
 }
 
 .social-media-toolbar {
@@ -218,10 +222,6 @@ ul {
   }
   .ml-0-xs {
     margin-left: 0 !important;
-  }
-  .btn-block-xs {
-    display: block;
-    width: 100%;
   }
 
   //social media bar with grey background
