@@ -29,22 +29,6 @@
     margin-bottom: 0; }
 
 /*features*/
-.polaris-divider {
-  border-top: 1px solid #eee;
-  position: relative;
-  overflow: hidden;
-  min-height: 20px;
-  margin: 17px 0 0 0; }
-  .polaris-divider:before {
-    border-radius: 50%;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
-    content: "";
-    height: 3px;
-    left: 5%;
-    position: absolute;
-    top: -3px;
-    width: 90%; }
-
 .has-gray-border {
   border: 1px solid #ddd; }
 

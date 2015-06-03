@@ -13,6 +13,23 @@ li {
 .bg-grey {
   background-color: #f9f9f9;
 }
+.polaris-divider {
+  border-top: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+  min-height: 20px;
+  margin: 17px 0 0 0;
+  &:before {
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    content: "";
+    height: 3px;
+    left: 5%;
+    position: absolute;
+    top: -3px;
+    width: 90%;
+  }
+}
 
 .pad-0,.p-0 {
   padding: 0 !important;
@@ -46,7 +63,7 @@ li {
   padding-right:0 !important;
 }
 
-.mar-0 {
+.mar-0,.m-0 {
   margin: 0 !important;
 }
 
@@ -74,6 +91,9 @@ li {
 }
 .mb-30 {
   margin-bottom: 30px !important;
+}
+.mb-40{
+  margin-bottom: 40px !important;
 }
 .mb-50{
   margin-bottom: 50px !important;
