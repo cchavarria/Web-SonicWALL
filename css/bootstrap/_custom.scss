@@ -13,6 +13,23 @@ li {
 .bg-grey {
   background-color: #f9f9f9;
 }
+.polaris-divider {
+  border-top: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+  min-height: 20px;
+  margin: 17px 0 0 0;
+  &:before {
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    content: "";
+    height: 3px;
+    left: 5%;
+    position: absolute;
+    top: -3px;
+    width: 90%;
+  }
+}
 
 .pad-0,.p-0 {
   padding: 0 !important;
@@ -49,7 +66,7 @@ li {
   padding-right:0 !important;
 }
 
-.mar-0 {
+.mar-0,.m-0 {
   margin: 0 !important;
 }
 
@@ -78,6 +95,9 @@ li {
 .mb-30 {
   margin-bottom: 30px !important;
 }
+.mb-40{
+  margin-bottom: 40px !important;
+}
 .mb-50{
   margin-bottom: 50px !important;
 }
@@ -91,11 +111,27 @@ li {
 .mr-20 {
   margin-right: 20px !important;
 }
-
+.ml-10{
+  margin-left:10px !important;
+}
 .ml-20 {
   margin-left: 20px !important;
 }
 
+.bg-grey-social-media{
+  display: inline-block;
+  li{
+    display: inline-block;
+    padding-bottom: 0;
+    a {
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 20px;
+      }
+    }
+  }
+}
 .dsg-icon {
   background: url("/images/shared/sprites.png") 0 0 no-repeat;
   width: 20px;
@@ -186,6 +222,22 @@ ul {
   .btn-block-xs {
     display: block;
     width: 100%;
+  }
+
+  //social media bar with grey background
+  .bg-grey-social-media{
+    display: inline-block;
+    li{
+      display: block;
+      padding-bottom: 10px;
+      a {
+        margin-left:0 !important;
+        div{
+          float:left;
+          margin-bottom: 10px !important;
+        }
+      }
+    }
   }
 }
 
