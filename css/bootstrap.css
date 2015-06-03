@@ -5922,6 +5922,13 @@ i.menu-indicator {
       top: 2px;
       right: 2px;
       padding: 2px 12px; }
+  .masthead ul.tier1 li:hover {
+    background: #fff;
+    color: #007db8; }
+    .masthead ul.tier1 li:hover a {
+      color: #007db8; }
+  .masthead ul.tier1 li:hover > ul {
+    display: block; }
   .masthead ul.tier3, .masthead ul.tier4 {
     border-left: 1px solid #cce7f3; }
 
@@ -5985,15 +5992,7 @@ i.menu-indicator {
     font-size: 1.3em; }
     footer .footer-copyright-section li {
       border: 0;
-      display: inline-block; }
-
-  .no-touch ul.tier1 li:hover {
-    background: #fff;
-    color: #007db8; }
-    .no-touch ul.tier1 li:hover a {
-      color: #007db8; }
-  .no-touch ul.tier1 li:hover > ul {
-    display: block; } }
+      display: inline-block; } }
 @media (min-width: 768px) and (orientation: portrait) {
   .masthead .utility-section {
     width: auto; }

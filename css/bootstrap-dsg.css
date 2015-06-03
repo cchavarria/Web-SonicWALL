@@ -5055,6 +5055,13 @@
         top: 2px;
         right: 2px;
         padding: 2px 12px; }
+    .bootstrap.is-responsive .masthead ul.tier1 li:hover {
+      background: #fff;
+      color: #007db8; }
+      .bootstrap.is-responsive .masthead ul.tier1 li:hover a {
+        color: #007db8; }
+    .bootstrap.is-responsive .masthead ul.tier1 li:hover > ul {
+      display: block; }
     .bootstrap.is-responsive .masthead ul.tier3, .bootstrap.is-responsive .masthead ul.tier4 {
       border-left: 1px solid #cce7f3; }
     .bootstrap.is-responsive .openNav .site-canvas {
@@ -5115,14 +5122,7 @@
       font-size: 1.3em; }
       .bootstrap.is-responsive footer .footer-copyright-section li {
         border: 0;
-        display: inline-block; }
-    .bootstrap.is-responsive .no-touch ul.tier1 li:hover {
-      background: #fff;
-      color: #007db8; }
-      .bootstrap.is-responsive .no-touch ul.tier1 li:hover a {
-        color: #007db8; }
-    .bootstrap.is-responsive .no-touch ul.tier1 li:hover > ul {
-      display: block; } }
+        display: inline-block; } }
   @media (min-width: 768px) and (orientation: portrait) {
     .bootstrap.is-responsive .masthead .utility-section {
       width: auto; }
@@ -5326,6 +5326,13 @@
       top: 2px;
       right: 2px;
       padding: 2px 12px; }
+  .bootstrap.not-responsive .masthead ul.tier1 li:hover {
+    background: #fff;
+    color: #007db8; }
+    .bootstrap.not-responsive .masthead ul.tier1 li:hover a {
+      color: #007db8; }
+  .bootstrap.not-responsive .masthead ul.tier1 li:hover > ul {
+    display: block; }
   .bootstrap.not-responsive .masthead ul.tier3, .bootstrap.not-responsive .masthead ul.tier4 {
     border-left: 1px solid #cce7f3; }
   .bootstrap.not-responsive .openNav .site-canvas {
@@ -5387,13 +5394,6 @@
     .bootstrap.not-responsive footer .footer-copyright-section li {
       border: 0;
       display: inline-block; }
-  .bootstrap.not-responsive .no-touch ul.tier1 li:hover {
-    background: #fff;
-    color: #007db8; }
-    .bootstrap.not-responsive .no-touch ul.tier1 li:hover a {
-      color: #007db8; }
-  .bootstrap.not-responsive .no-touch ul.tier1 li:hover > ul {
-    display: block; }
   .bootstrap.not-responsive .masthead .main-nav-section {
     width: 970px; }
   .bootstrap.not-responsive footer .footer-top-section ul.menu-links > li {

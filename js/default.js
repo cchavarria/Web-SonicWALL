@@ -3,21 +3,6 @@
 var burl = location.href, resizeTimer = null;
 
 $(document).ready(function () {
-	/*var pageWidth = $('html').width();
-
-	 if(pageWidth < 768) { //XS
-	 moveTo('.move-to-xs');
-	 }
-	 else if(pageWidth < 992) { //SM
-	 moveTo('.move-to-sm');
-	 }
-	 else if(pageWidth < 1200) { //MD
-	 moveTo('.move-to-md');
-	 }
-	 else { //LG
-	 moveTo('.move-to-lg');
-	 }*/
-
 	//Social media toolbar
 	if ($('.social-media-toolbar').length) {
 		var bitlyURL = url = location.href;
@@ -145,21 +130,4 @@ $(document).ready(function () {
 		//$('input').placeholder();
 	}
 });
-
-/*
- function moveTo(selector) {
- $(selector).each(function() {
- var target = $(this).data('target'), action = $(this).data('action');
- console.log(action);
- if(action === undefined) {
- $(target).replaceWith($(this));
- }
- else if(action == 'prepend') {
- $(target).prepend($(this));
- }
- else if(action == 'append') {
- $(target).append($(this));
- }
- });
- }*/
 

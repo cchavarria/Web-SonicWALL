@@ -1,26 +1,26 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
+//Initially store the width of the page.
 var pageWidth = $('html').width();
 
 $(document).ready(function () {
-  resize();
+  resizeGlobal();
 
-  $('.main-nav-section').find('>ul>li:lt(2)').addClass('subLinks');
-
+	//Prevent anchor tag from firing when href is set to #
   $('.main-nav-section').find('ul.tier2').on('click', 'a[href=#]', function (e) {
     if ($('html').width() >= 768) {
       e.preventDefault();
     }
   });
 
+	//only shown in mobile
   $('#mobile-search-button').on('click', function (e) {
-    if ($('html').width() < 768) {
-      $('#masthead-search').toggleClass('open');
-      $('.utility').find('> li').removeClass('open');
-      e.stopPropagation();
-    }
+		$('#masthead-search').toggleClass('open');
+		$('.utility').find('> li').removeClass('open');
+		e.stopPropagation();
   });
 
+	//Prevent anchor tag from firing when href is set to # on mobile
   $('.footer-top-section').on('click', 'a[href=#]', function (e) {
     if ($('html').width() < 768) {
       e.preventDefault();
@@ -28,52 +28,57 @@ $(document).ready(function () {
   });
 
   $('body')
-    .on('click', '.subLinks > a, .subLinks > span', function (e) {
-      if ($('html').hasClass('touch') || pageWidth < 768) {
-        e.preventDefault();
-        e.stopPropagation();
+		.on('touchstart', '.subLinks > a, .subLinks > span', function (e) {
+			//Add functionality for when user uses touch on navigation.
 
-        var elem = $(this).parent();
+			e.preventDefault();
+			e.stopPropagation();
 
-        if (elem.hasClass('open')) {
-          elem.siblings()
-            .find('.open').removeClass('open').end()
-            .removeClass('open');
+			var elem = $(this).parent();
 
-          elem.find('.open').removeClass('open').end().removeClass('open');
-        }
-        else {
-          elem.siblings()
-            .find('.open').removeClass('open').end()
-            .removeClass('open');
+			//Remove all "open" class that is a sibling to the currently touched element.
+			elem.siblings()
+				.find('.open').removeClass('open').end()
+				.removeClass('open');
 
-          elem.addClass('open');
+			if (elem.hasClass('open')) {
+				//Remove all "open" class inside of the currently touched element.
+				elem.find('.open').removeClass('open').end().removeClass('open');
+			}
+			else {
+				elem.addClass('open');
 
-          if (pageWidth < 768) {
-            var originalBG = $(this).css('background-color');
+				if (pageWidth < 768) { //Mobile
+					//Animate background color to notify user that they have touched that element.
+					var originalBG = $(this).css('background-color');
 
-            elem.css({backgroundColor: '#007db8'});
+					elem.css({backgroundColor: '#007db8'});
 
-            $('html, body').animate({scrollTop: $(this).offset().top}, function () {
-              elem.animate({backgroundColor: originalBG}, 500, function () {
-                elem.css('backgroundColor', '');
-              });
-            });
-          }
-        }
-      }
-    })
-    .on('click', '.dropdown', function () {
+					$('html, body').animate({scrollTop: $(this).offset().top}, function () {
+						elem.animate({backgroundColor: originalBG}, 500, function () {
+							elem.css('backgroundColor', '');
+						});
+					});
+				}
+			}
+		})
+		.on('click', '.dropdown', function () {
+			//Dropdown class is being used in the utility toolbar.
+			//Close all dropdown that is a sibling to the clicked element.
+
       $(this).siblings().removeClass('open');
       $('#masthead-search').removeClass('open');
       $(this).toggleClass('open');
     })
     .on('click', function () {
+			//Close country popup when user clicks any where on the page.
       if(pageWidth > 767) {
         $('#country-popup').css('display', '');
       }
     })
     .on('click', '.navbar-toggle', function (e) {
+    	//Hamburger - Mobile
+			//Open & Close slide out navigation.
       if ($('html').width() < 768) {
         e.preventDefault();
         $('html').toggleClass('openNav');
@@ -82,7 +87,7 @@ $(document).ready(function () {
       }
     });
 
-  /* Search */
+  // Search
   $('#search-form').on('click', 'button', function(e) {
 		e.preventDefault();
 		goAllSearch3();
@@ -97,24 +102,28 @@ $(document).ready(function () {
       $('#country-popup').toggle();
     }
   });
-
-  $('footer').css('margin', '');
 });
 
 $(window).load(function() {
+	//This is only used on the new header/footer not responsive.
   $('.bootstrap').each(function() {
     //copy modernizr classes from html tag to be copied over to where .bootstrap class is defined.
     $(this).get(0).className = $.trim($(this).get(0).className) + ' ' + $.trim($('html').get(0).className);
   });
 });
 
-$(window).resize(resize);
+$(window).resize(function() {
+	//Prevent resizing from firing when modifying dom structure.
+	var w = $(window).width(), h = $(window).height();
 
-function resize() {
+	if($('html').data('w') != w) {
+		$('html').data('w', w).data('h', h);
+		resizeGlobal();
+	}
+});
+
+function resizeGlobal() {
   pageWidth = $('html').width();
-
-  //Debug
-  //$('#search-input').val(pageWidth);
 
   var w = (pageWidth >= 768) ? '300':'auto';
 
@@ -128,6 +137,8 @@ function resize() {
   $('.open').removeClass('open');
   $('#country-popup').css('display', '');
 }
+
+//This is used to make a not responsive page responsive.
 function makeResponsive() {
   $('.not-responsive').removeClass('not-responsive').addClass('is-responsive');
   $('#wrapper').attr('id', '').addClass('site-wrapper').wrapInner('<div class="site-canvas">');
