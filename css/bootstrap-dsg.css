@@ -955,6 +955,9 @@
     font-size: 20px; }
   .bootstrap h3, .bootstrap .h3 {
     font-size: 17px; }
+    .bootstrap h3.feature, .bootstrap .h3.feature {
+      font-size: 18px;
+      line-height: 1.222222; }
   .bootstrap h4, .bootstrap .h4 {
     font-size: 18px; }
   .bootstrap h5, .bootstrap .h5 {
@@ -968,7 +971,9 @@
     .bootstrap h2, .bootstrap .h2 {
       font-size: 26px; }
     .bootstrap h3, .bootstrap .h3 {
-      font-size: 20.0px; } }
+      font-size: 20.0px; }
+      .bootstrap h3.feature, .bootstrap .h3.feature {
+        font-size: 23.99999px; } }
   @media (min-width: 992px) {
     .bootstrap h1, .bootstrap .h1 {
       font-size: 31.99999px; }
@@ -5782,22 +5787,30 @@
     color: #444; }
   .bootstrap .border-grey {
     border: 1px solid #cbcbcb; }
-  .bootstrap .pad-0 {
+  .bootstrap .bg-grey {
+    background-color: #f9f9f9; }
+  .bootstrap .pad-0, .bootstrap .p-0 {
     padding: 0 !important; }
-  .bootstrap .pad-15 {
+  .bootstrap .pad-15, .bootstrap .p-15 {
     padding: 15px !important; }
-  .bootstrap .pad-25 {
+  .bootstrap .pad-25, .bootstrap .p-25 {
     padding: 25px !important; }
   .bootstrap .pt-10 {
     padding-top: 10px !important; }
   .bootstrap .pt-20 {
     padding-top: 20px !important; }
+  .bootstrap .pt-30 {
+    padding-top: 30px !important; }
   .bootstrap .pb-10 {
     padding-bottom: 10px !important; }
   .bootstrap .pb-20 {
     padding-bottom: 20px !important; }
+  .bootstrap .pb-30 {
+    padding-bottom: 30px !important; }
   .bootstrap .pl-0 {
     padding-left: 0 !important; }
+  .bootstrap .pr-0 {
+    padding-right: 0 !important; }
   .bootstrap .mar-0 {
     margin: 0 !important; }
   .bootstrap .mt-0 {
@@ -5816,6 +5829,8 @@
     margin-bottom: 20px !important; }
   .bootstrap .mb-30 {
     margin-bottom: 30px !important; }
+  .bootstrap .mb-50 {
+    margin-bottom: 50px !important; }
   .bootstrap .mr-0 {
     margin-right: 0 !important; }
   .bootstrap .mr-10 {

@@ -1,70 +1,4 @@
-.grey-bg {
-  background-color: #f9f9f9;
-  padding: 30px 0;
-}
-
-/*Banner*/
-
-.hero-banner {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 0;
-  padding-left: 0;
-  width: 100%;
-  margin-bottom: 50px;
-  .carousel a {
-    &:hover h2, &:focus h2 {
-      text-decoration: none;
-      color: #007db8;
-    }
-    h4 {
-      color: #444;
-      margin-bottom: 14px;
-    }
-  }
-}
-
-.carousel-indicators {
-  bottom: -41px;
-  li {
-    cursor: pointer;
-    background-color: #ccc;
-    height: 7px;
-    margin: 14px 14px 0 0;
-    width: 14px;
-    display: inline-block;
-    border: none;
-    border-radius: 2px;
-    padding: 0;
-  }
-  .active {
-    background-color: #444;
-    margin: 14px 14px 0 0;
-    width: 14px;
-    height: 7px;
-  }
-}
-
-.caption-wrapper {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 14px;
-  /*background-color:;*/
-  width: 32%;
-  vertical-align: middle;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.92);
-  right: auto;
-  bottom: auto;
-}
-
 /*intro*/
-
 .title-description {
   margin-bottom: 24px;
   p, a {
@@ -285,6 +219,7 @@ a:hover .has-overlay h4 {
   ul li {
     display: block;
     float: left;
+    margin-right:43px;
   }
 }
 
@@ -333,44 +268,14 @@ a:hover .has-overlay h4 {
 /*media queries*/
 /*mobile*/
 @media (max-width: 767px) {
-  .xs-margin-right-0, .xs-margin-left-0 {
-    margin-left: 0;
-    margin-right: 0;
+  .pl-xs-0{
+    padding-left:0;
+  }
+  .pr-xs-0{
+    padding-right:0;
   }
   .masthead {
     margin-bottom: 0;
-  }
-  /*banner*/
-  .hero-banner {
-    width: 100%;
-    padding: 0 -15px;
-    .carousel a {
-      h4 {
-        font-size: 14px;
-      }
-      h2 {
-        font-size: 20px;
-        line-height: 24px;
-      }
-    }
-  }
-  .caption-wrapper {
-    position: relative;
-    left: 0;
-    top: 0;
-    border-radius: 0;
-    background: #f5f5f5;
-    width: 100%;
-    span {
-      color: #007db8;
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      &:hover {
-        background-color: transparent;
-        color: #007db8;
-      }
-    }
   }
   /*solutions*/
   .icon-headline > div > div {
@@ -403,6 +308,9 @@ a:hover .has-overlay h4 {
     &.logos ul {
       display: inline-block;
     }
+    &.logos ul li{
+      width:100%;
+    }
   }
   .has-overlay {
     margin-bottom: 20px;
@@ -411,12 +319,23 @@ a:hover .has-overlay h4 {
     margin-left: -15px;
   }
 }
+/*mobile horizontal*/
+@media (max-width: 767px) and (min-width: 390px){
+  .text-center-xs-h{
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+    > div{
+      text-align: left;
+    }
+  }
+}
 
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%;
   }
-  .logos .col-lg-2 {
+  .logos li {
     width: 11%;
     padding: 0;
     margin-right: 11px;
@@ -434,31 +353,23 @@ a:hover .has-overlay h4 {
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
-  /*banner*/
-  .hero-banner .carousel a {
-    h2 {
-      font-size: 26px;
-      line-height: 30px;
-    }
-    h4 {
-      font-size: 16px;
-      line-height: 20px;
-    }
+  .pl-sm-0{
+    padding-left:0;
   }
-  .caption-wrapper {
-    width: 46%;
+  .pr-sm-0{
+    padding-right:0;
   }
   /*features*/
   .has-overlay {
     margin-bottom: 20px;
   }
-  .negative-margin-left-15 {
-    margin-left: -15px;
+  .logos ul li{
+    margin-right:12px;
   }
 }
 
 @media (min-width: 992px) {
-  .logos .col-lg-2 {
+  .logos ul li {
     width: 101px;
     padding: 0;
     margin-right: 14px;
@@ -467,16 +378,13 @@ a:hover .has-overlay h4 {
 
 /*large screens*/
 @media (min-width: 1200px) {
-  .hero-banner {
-    width: 1170px;
-  }
   .container {
     padding-left: 0;
     padding-right: 0;
   }
-  .logos .col-lg-2 {
+  .logos ul li {
     width: 101px;
     padding: 0;
-    margin-right: 43px;
+    margin-right: 51px;
   }
 }
