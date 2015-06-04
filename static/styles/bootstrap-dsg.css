@@ -5918,11 +5918,24 @@
     display: inline-block; }
     .bootstrap .bg-grey-social-media li {
       display: inline-block;
-      padding-bottom: 0; }
+      padding-bottom: 0;
+      margin: 0; }
       .bootstrap .bg-grey-social-media li a span {
         display: inline-block;
         vertical-align: middle;
         line-height: 20px; }
+    .bootstrap .bg-grey-social-media .icons-social-media {
+      background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
+      width: 24px;
+      height: 24px; }
+      .bootstrap .bg-grey-social-media .icons-social-media.twitter {
+        background-position: -25px 0; }
+      .bootstrap .bg-grey-social-media .icons-social-media.facebook {
+        background-position: 0 0; }
+      .bootstrap .bg-grey-social-media .icons-social-media.linkedin {
+        background-position: -50px 0; }
+      .bootstrap .bg-grey-social-media .icons-social-media.googleshare {
+        background-position: -75px 0; }
   .bootstrap .dsg-icon {
     background: url("/images/shared/sprites.png") 0 0 no-repeat;
     width: 20px;
@@ -5977,17 +5990,7 @@
     .bootstrap .mr-0-xs {
       margin-right: 0 !important; }
     .bootstrap .ml-0-xs {
-      margin-left: 0 !important; }
-    .bootstrap .bg-grey-social-media {
-      display: inline-block; }
-      .bootstrap .bg-grey-social-media li {
-        display: block;
-        padding-bottom: 10px; }
-        .bootstrap .bg-grey-social-media li a {
-          margin-left: 0 !important; }
-          .bootstrap .bg-grey-social-media li a div {
-            float: left;
-            margin-bottom: 10px !important; } }
+      margin-left: 0 !important; } }
   @media (min-width: 768px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;

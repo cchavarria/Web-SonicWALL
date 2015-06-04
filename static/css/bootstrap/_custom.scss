@@ -123,12 +123,30 @@ li {
   li{
     display: inline-block;
     padding-bottom: 0;
+    margin:0;
     a {
       span {
         display: inline-block;
         vertical-align: middle;
         line-height: 20px;
       }
+    }
+  }
+  .icons-social-media{
+    background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
+    width:24px;
+    height:24px;
+    &.twitter {
+      background-position: -25px 0;
+    }
+    &.facebook {
+      background-position: 0 0;
+    }
+    &.linkedin {
+      background-position: -50px 0;
+    }
+    &.googleshare {
+      background-position: -75px 0;
     }
   }
 }
@@ -222,22 +240,6 @@ ul {
   }
   .ml-0-xs {
     margin-left: 0 !important;
-  }
-
-  //social media bar with grey background
-  .bg-grey-social-media{
-    display: inline-block;
-    li{
-      display: block;
-      padding-bottom: 10px;
-      a {
-        margin-left:0 !important;
-        div{
-          float:left;
-          margin-bottom: 10px !important;
-        }
-      }
-    }
   }
 }
 

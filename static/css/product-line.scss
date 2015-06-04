@@ -4,7 +4,7 @@
 /*intro*/
 .title-description {
   margin-bottom: 24px;
-  p, a {
+  a {
     display: inline;
     font-size: 16px;
   }
@@ -21,6 +21,10 @@
   h3 {
     font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
     font-weight: 400;
+  }
+  p{
+    font-family: 'Museo Sans 300', 'Trebuchet MS', Arial;
+    font-size: 16px;
   }
 }
 
@@ -72,7 +76,6 @@
         float: left;
         > a h4 {
           margin-top: 0;
-          line-height: 30px;
         }
       }
     }
@@ -128,7 +131,7 @@
     a {
       width: 40px;
       height: 33px;
-      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
+      background: url("/images/shared/sprites.png") 0 0 no-repeat;
       display: inline-block;
       vertical-align: middle;
     }
@@ -232,7 +235,7 @@
     float: right;
     width: 12px;
     height: 12px;
-    background: transparent url("http://software.dell.com/images/shared/sprites.png") -143px -45px;
+    background: transparent url("/images/shared/sprites.png") -143px -45px;
     cursor: pointer;
     opacity: 1;
     text-shadow: none;
@@ -248,7 +251,7 @@
   position: absolute;
   width: 24px;
   height: 10px;
-  background: transparent url("http://software.dell.com/images/shared/sprites.png") -134px -176px;
+  background: transparent url("/images/shared/sprites.png") -134px -176px;
   cursor: pointer;
   margin-top: -30px;
   left: 51px;
@@ -282,20 +285,21 @@ a:hover .has-overlay h4 {
     }
     p, &:hover p {
       color: #333;
+      height: 80px;
     }
   }
 }
 
 #conversation-with-kace {
-  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/conversations-with-kace.jpg");
+  background-image: url("/images/product-line/kace/communities/conversations-with-kace.jpg");
 }
 
 #tech-support {
-  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/tech-support.jpg");
+  background-image: url("/images/product-line/kace/communities/tech-support.jpg");
 }
 
 #it-ninja {
-  background-image: url("http://stage-software-dell-com/images/product-line/kace/communities/IT-Ninja.jpg");
+  background-image: url("/images/product-line/kace/communities/IT-Ninja.jpg");
 }
 
 /*brand logos*/
@@ -328,7 +332,7 @@ a:hover .has-overlay h4 {
     float: left;
     margin-top: 10px;
     > a {
-      background: url("http://stage-software-dell-com/images/shared/sprites.png") no-repeat -81px -165px;
+      background: url("/images/shared/sprites.png") no-repeat -81px -165px;
       width: 19px;
       height: 35px;
       display: block;
@@ -382,9 +386,6 @@ a:hover .has-overlay h4 {
   .inline {
     display: inline !important;
   }
-  .title-description p {
-    line-height: 25px;
-  }
   /*claim boxes*/
   .has-right-border {
     border-right: 1px solid #e2e2e2;
@@ -400,7 +401,7 @@ a:hover .has-overlay h4 {
   .has-overlay {
     margin-bottom: 20px;
     .overlay{
-      height:auto;
+      height:118px;
     }
   }
   /*logos*/
@@ -498,6 +499,9 @@ a:hover .has-overlay h4 {
   }
   .btn-link {
     padding-left: 0;
+  }
+  .min-height-95{
+    min-height:95px;
   }
   .kace.expanded-blurb {
     margin-top: -58px;

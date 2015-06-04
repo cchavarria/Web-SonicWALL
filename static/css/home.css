@@ -67,7 +67,7 @@
     .screenshot-carousel .rr-pagination a {
       width: 40px;
       height: 33px;
-      background: url("http://stage-software-dell-com/images/shared/sprites.png") 0 0 no-repeat;
+      background: url("/images/shared/sprites.png") 0 0 no-repeat;
       display: inline-block;
       vertical-align: middle; }
     .screenshot-carousel .rr-pagination > span {
@@ -147,13 +147,13 @@ a:hover .has-overlay h4 {
       color: #333; }
 
 #tech-support {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/tech-support.jpg"); }
+  background-image: url("/images/home/dsg-home/tech-support.jpg"); }
 
 #support-renewal {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/support-renewals.jpg"); }
+  background-image: url("/images/home/dsg-home/support-renewals.jpg"); }
 
 #tech-center {
-  background-image: url("http://stage-software-dell-com/images/home/dsg-home/dell-tech-center.jpg"); }
+  background-image: url("/images/home/dsg-home/dell-tech-center.jpg"); }
 
 /*brand logos*/
 .logos {
@@ -177,7 +177,7 @@ a:hover .has-overlay h4 {
   float: left;
   margin-top: 10px; }
   .carousel-xs .rr-pagination > a {
-    background: url("http://stage-software-dell-com/images/shared/sprites.png") no-repeat -81px -165px;
+    background: url("/images/shared/sprites.png") no-repeat -81px -165px;
     width: 19px;
     height: 35px;
     display: block;

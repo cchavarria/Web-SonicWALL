@@ -35,8 +35,13 @@ addResize('resizeProductLine');
 function resizeProductLine() {
   pageWidth = $('html').width();
 
+  var disableEllipsis = !($.inArray(RootPath, ['/jp-ja/', 'cn-zh']) > -1);
+
   if (pageWidth >= 768) {//tablet
     $('.logos').slidePagination2('destroy');
+    if(disableEllipsis) {
+      $('.has-overlay p').dotdotdot();
+    }
 
     var sliderOptions = {
       list: '.images-slider-list',
@@ -51,12 +56,18 @@ function resizeProductLine() {
 
     if (pageWidth < 992) {
       sliderOptions.column = 2;
+      if(disableEllipsis) {
+        $('.has-overlay p').trigger('destroy');
+      }
     }
 
     //solutions slider
     $('.images-slider').slidePagination2(sliderOptions);
   }
   else if (pageWidth < 768) {//mobile
+    if(disableEllipsis){
+      $('.has-overlay p').dotdotdot();
+    }
     $('.logos').slidePagination2({
       list: '.logos-list',
       column: 1,
