@@ -104,10 +104,6 @@ $(document).ready(function () {
 				e.preventDefault();
 				window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
 			}
-			else if(parent.hasClass('googleshare')) {
-				e.preventDefault();
-				window.open('https://plus.google.com/share?url=' + encodeURIComponent(url), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-			}
 		});
 	}
 
