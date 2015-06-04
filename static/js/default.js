@@ -1,5 +1,10 @@
 /* Used on Responsive New Header/Footer */
 
+/*
+* We are using .placeholder.js to support ie8 and ie9 placeholder - Jl 6/3/2015
+*
+* */
+
 var burl = location.href, resizeTimer = null;
 
 $(document).ready(function () {
@@ -106,32 +111,32 @@ $(document).ready(function () {
 		});
 	}
 
-	//Workaround for select tag not having a placeholder (visual)
-	$('body')
-		.on('process-placeholder', 'select', function () {
-			$(this).trigger('mouseenter').trigger('mouseout');
-		})
-		.on('change', 'select', function () {
-			var ph = $(this).attr('placeholder');
-
-			if (ph) {
-				if ($(this).find(':selected').text() == ph) {
-					$(this).css('color', '#999');
-				}
-				else {
-					$(this).css('color', '');
-				}
-			}
-		})
-		.on('mouseenter', 'select', function () {
-			$(this).css('color', '');
-		})
-		.on('mouseout', 'select', function () {
-			$(this).css('color', '#999');
-		});
-
 	if ($('html').hasClass('ie')) {
-		//$('input').placeholder();
+		$('input').placeholder();
 	}
+	//Workaround for select tag not having a placeholder (visual)
+	/*        $('body')
+	 .on('process-placeholder', 'select', function () {
+	 $(this).trigger('mouseenter').trigger('mouseout');
+	 })
+	 .on('change', 'select', function () {
+	 var ph = $(this).attr('placeholder');
+
+	 if (ph) {
+	 if ($(this).find(':selected').text() == ph) {
+	 $(this).css('color', '#999');
+	 }
+	 else {
+	 $(this).css('color', '');
+	 }
+	 }
+	 })
+	 .on('mouseenter', 'select', function () {
+	 $(this).css('color', '');
+	 })
+	 .on('mouseout', 'select', function () {
+	 $(this).css('color', '#999');
+	 });*/
+
 });
 
