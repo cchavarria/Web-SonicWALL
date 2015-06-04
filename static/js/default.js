@@ -1,7 +1,7 @@
 /* Used on Responsive New Header/Footer */
 
 /*
-* We are using .placeholder.js to support ie8 and ie9 placeholder - Jl 6/3/2015
+* We are using placeholder.js to support ie8 and ie9 placeholder - Jl 6/3/2015
 *
 * */
 
@@ -110,6 +110,7 @@ $(document).ready(function () {
 	if ($('html').hasClass('ie')) {
 		$('input').placeholder();
 	}
+
 	//Workaround for select tag not having a placeholder (visual)
 	/*        $('body')
 	 .on('process-placeholder', 'select', function () {
