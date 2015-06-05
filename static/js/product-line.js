@@ -33,8 +33,6 @@ $(document).ready(function () {
 addResize('resizeProductLine');
 
 function resizeProductLine() {
-  pageWidth = $('html').width();
-
   var disableEllipsis = !($.inArray(RootPath, ['/jp-ja/', 'cn-zh']) > -1);
 
   if (pageWidth >= 768) {//tablet

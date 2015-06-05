@@ -102,6 +102,15 @@ $(document).ready(function () {
       $('#country-popup').toggle();
     }
   });
+
+	//Issue with iPad Chrome where links couldn't be clicked.
+	//Reason was for SiteCatalyst injecting onclick attribute to all anchor tag.
+	$('footer').on('click', 'a', function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+
+		location.href = $(this).attr('href');
+	});
 });
 
 $(window).load(function() {
@@ -110,16 +119,20 @@ $(window).load(function() {
     //copy modernizr classes from html tag to be copied over to where .bootstrap class is defined.
     $(this).get(0).className = $.trim($(this).get(0).className) + ' ' + $.trim($('html').get(0).className);
   });
+
+	/*$('footer').find('a').each(function() {
+		$(this).removeAttr('onclick');
+	});*/
 });
 
 addResize('resizeGlobal');
 
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
-	var w = $(window).width(), h = $(window).height();
+	var w = $('html').width();
 
-	if($('html').data('w') != w) {
-		$('html').data('w', w).data('h', h);
+	if(pageWidth != w) {
+		pageWidth = $('html').width();
 
     if(resizeTimer !== null) {
       clearTimeout(resizeTimer);
@@ -142,9 +155,7 @@ function addResize(fn) {
 }
 
 function resizeGlobal() {
-  pageWidth = $('html').width();
-
-  var w = (pageWidth >= 768) ? '300':'auto';
+	var w = (pageWidth >= 768) ? '300':'auto';
 
   //Increase width of UL if its child doesn't have sublinks
   $('.main-nav-section').find('ul:gt(0)').each(function() {

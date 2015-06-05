@@ -45,8 +45,6 @@ $(document).ready(function() {
 addResize('resizeHome');
 
 function resizeHome() {
-	pageWidth = $('html').width();
-
 	if (pageWidth >= 992) {//desktop
 		$('.screenshot-carousel').each(function () {
 			if ($(this).hasClass('logos')) {
@@ -109,6 +107,7 @@ function resizeHome() {
 		$('.btn-link').removeClass('btn-link').addClass('btn-default');
 	}
 }
+
 function randomizeBanner() {
 	var randomNumber = Math.floor((Math.random() * $('.item').length));
 	$('.item').eq(randomNumber).addClass("active");
