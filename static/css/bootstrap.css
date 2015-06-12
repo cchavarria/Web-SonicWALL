@@ -4252,17 +4252,35 @@ tbody.collapse.in {
   padding: 8px 15px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: whitesmoke;
-  border-radius: 1px; }
+  background-color: transparent;
+  border-radius: 1px;
+  color: #737373; }
   .breadcrumb > li {
     display: inline-block; }
+    .breadcrumb > li:first-child a:before {
+      font-size: 14px;
+      content: "\e62b";
+      font-family: "icon-small"; }
     .breadcrumb > li + li:before {
       content: "/\00a0";
-      padding: 0 5px;
-      color: #cccccc; }
+      color: #737373;
+      font-size: 17px;
+      top: 2px;
+      padding-right: 4px;
+      padding-left: 4px; }
+    .breadcrumb > li a {
+      color: #737373;
+      font-size: 12px; }
   .breadcrumb > .active {
-    color: #777777; }
+    color: #aaaaaa; }
 
+@media (min-width: 768px) {
+  .breadcrumb > li:first-child:before {
+    font-size: 15px; }
+  .breadcrumb > li a {
+    font-size: 15px; }
+  .breadcrumb > .active {
+    font-size: 15px; } }
 .pagination {
   display: inline-block;
   padding-left: 0;
@@ -5275,16 +5293,16 @@ ul.bullet-check-mark {
   -moz-osx-font-smoothing: grayscale; }
 
 .icon-ui-dell:before {
-  content: ")"; }
+  content: "\e663"; }
 
 .icon-ui-menucollapsed:before {
   content: "\'"; }
 
 .icon-small-searchleft:before {
-  content: "="; }
+  content: "\e631"; }
 
 .icon-small-useraccount:before {
-  content: ")"; }
+  content: "\e663"; }
 
 .site-wrapper {
   overflow: hidden;
@@ -5539,8 +5557,10 @@ li.dropdown .dropdown-menu {
   color: #444;
   border-bottom: 4px solid #007db8; }
 
-#signin-container .dropdown-menu a {
+#signin-container .dropdown-menu a, #signin-container .dropdown-menu .btn {
   padding: 5px 0; }
+#signin-container .dropdown-menu .btn {
+  margin: 5px 0; }
 #signin-container .dropdown-menu hr {
   margin: 10px 0 5px; }
 

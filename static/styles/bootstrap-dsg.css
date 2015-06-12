@@ -3662,16 +3662,16 @@
     padding: 8px 15px;
     margin-bottom: 20px;
     list-style: none;
-    background-color: whitesmoke;
+    background-color: transparent;
     border-radius: 1px; }
     .bootstrap .breadcrumb > li {
       display: inline-block; }
       .bootstrap .breadcrumb > li + li:before {
         content: "/\00a0";
         padding: 0 5px;
-        color: #cccccc; }
+        color: #737373; }
     .bootstrap .breadcrumb > .active {
-      color: #777777; }
+      color: #aaaaaa; }
   .bootstrap .pagination {
     display: inline-block;
     padding-left: 0;
@@ -4374,13 +4374,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .bootstrap .icon-ui-dell:before {
-    content: ")"; }
+    content: "\e663"; }
   .bootstrap .icon-ui-menucollapsed:before {
     content: "\'"; }
   .bootstrap .icon-small-searchleft:before {
-    content: "="; }
+    content: "\e631"; }
   .bootstrap .icon-small-useraccount:before {
-    content: ")"; }
+    content: "\e663"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -4630,8 +4630,10 @@
     border: 0;
     color: #444;
     border-bottom: 4px solid #007db8; }
-  .bootstrap #signin-container .dropdown-menu a {
+  .bootstrap #signin-container .dropdown-menu a, .bootstrap #signin-container .dropdown-menu .btn {
     padding: 5px 0; }
+  .bootstrap #signin-container .dropdown-menu .btn {
+    margin: 5px 0; }
   .bootstrap #signin-container .dropdown-menu hr {
     margin: 10px 0 5px; }
   .bootstrap .is-logged-in {

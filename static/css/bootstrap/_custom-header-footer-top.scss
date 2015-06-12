@@ -324,8 +324,11 @@ li {
 
 #signin-container {
   .dropdown-menu {
-    a {
+    a, .btn {
       padding: 5px 0;
+    }
+    .btn {
+      margin: 5px 0;
     }
     hr {
       margin: 10px 0 5px;

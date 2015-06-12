@@ -68,7 +68,7 @@ $(document).ready(function () {
 
       $(this).siblings().removeClass('open');
       $('#masthead-search').removeClass('open');
-      $(this).toggleClass('open');
+      //$(this).toggleClass('open');
     })
     .on('click', function () {
 			//Close country popup when user clicks any where on the page.

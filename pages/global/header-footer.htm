@@ -54,43 +54,28 @@
                   <i class="icon-small-searchleft"></i>
                 </a>
               </li>
-              <!-- Sign In -->
               <li id="signin-container" class="dropdown">
-                <a id="signin-link">
+                <a id="signin-link" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="icon-small-useraccount"></i>
                   <span class="hidden-xs hidden-sm" id="sign-in"><span id="signin-button">Sign In</span></span>
                 </a>
 
-                <div role="menu" class="dropdown-menu">
+                <div role="menu" aria-labelledby="signin-link" class="dropdown-menu">
                   <div class="col-xs-12">
                     <h5 class="text-gray-dark not-logged-in">Dell Software Sign In</h5>
 
                     <div class="row">
                       <div class="col-xs-12 not-logged-in">
-                        <a id="lnkmainloggin" class="flyout-btn">
-                          <button role="button" class="btn btn-primary btn-block bottom-offset-mini top-offset-small">Sign
-                            In
-                          </button>
-                        </a>
+                        <button role="button" class="btn btn-primary btn-block bottom-offset-mini top-offset-small lnk-sign-in">Sign In</button>
                       </div>
                       <div class="col-xs-12 is-logged-in">
-                        <a id="lnkMyAccount" class="flyout-btn">
-                          <button role="button" class="btn btn-primary btn-block bottom-offset-mini top-offset-small">My
-                            Account
-                          </button>
-                        </a>
+                        <button id="lnkMyAccount" role="button" class="btn btn-primary btn-block bottom-offset-mini top-offset-small">My Account</button>
                       </div>
                       <div class="col-xs-12 is-logged-in">
-                        <a id="lnkmainloggOut" class="flyout-btn">
-                          <button role="button" class="btn btn-default btn-block bottom-offset-mini top-offset-small">Sign
-                            Out
-                          </button>
-                        </a>
+                        <button id="lnkmainloggOut" role="button" class="btn btn-default btn-block bottom-offset-mini top-offset-small">Sign Out</button>
                       </div>
                       <div class="col-xs-12 not-logged-in">
-                        <a href="/account/createaccount/" class="flyout-btn">
-                          <button role="button" class="btn btn-block btn-default">Create an account</button>
-                        </a>
+                        <button role="button" class="btn btn-block btn-default lnk-create-account">Create an account</button>
                       </div>
                     </div>
                     <hr>
@@ -100,7 +85,6 @@
                   </div>
                 </div>
               </li>
-              <!-- Hamburger Menu (for tablets and phones)-->
               <li class="visible-xs">
                 <a href="#" class="navbar-toggle" data-toggle="site-menu">
                   <i class="icon-ui-menucollapsed"></i>
