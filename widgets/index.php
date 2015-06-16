@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="/static/css/bootstrap-ie.css">
     <![endif]-->
 
+    <?php
+    $info = pathinfo($_GET['page']);
+
+    if(file_exists($info['dirname'] . '/' . $info['filename'] . '.css')) {
+        echo '<link rel="stylesheet" href="' . $info['filename'] . '.css">';
+    }
+    ?>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -1008,6 +1016,12 @@
 <script src="/static/library/bootstrap-3.3.4.min.js"></script>
 <script src="/static/js/responsive-header-footer.js"></script>
 <script src="/static/js/default.js"></script>
+
+<?php
+if(file_exists($info['dirname'] . '/' . $info['filename'] . '.js')) {
+    echo '<script src="' . $info['filename'] . '.js"></script>';
+}
+?>
 
 </body>
 </html>
