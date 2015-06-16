@@ -15,9 +15,10 @@ $(document).ready(function () {
 
 	//only shown in mobile
   $('#mobile-search-button').on('click', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 		$('#masthead-search').toggleClass('open');
 		$('.utility').find('> li').removeClass('open');
-		e.stopPropagation();
   });
 
 	//Prevent anchor tag from firing when href is set to # on mobile
@@ -62,13 +63,19 @@ $(document).ready(function () {
 				}
 			}
 		})
-		.on('click', '.dropdown', function () {
-			//Dropdown class is being used in the utility toolbar.
-			//Close all dropdown that is a sibling to the clicked element.
+		.on('click', '.dropdown', function (e) {
+			//Prevent dropdown from hiding when clicking on a non-link area.
+			if($(e.target).parents('.dropdown-menu').length) {
+				e.stopPropagation();
+			}
+			else {
+				//Dropdown class is being used in the utility toolbar.
+				//Close all dropdown that is a sibling to the clicked element.
 
-      $(this).siblings().removeClass('open');
-      $('#masthead-search').removeClass('open');
-      //$(this).toggleClass('open');
+				$(this).siblings().removeClass('open');
+				$('#masthead-search').removeClass('open');
+				//$(this).toggleClass('open');
+			}
     })
     .on('click', function () {
 			//Close country popup when user clicks any where on the page.

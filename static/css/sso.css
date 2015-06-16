@@ -10,6 +10,13 @@
   .sso .label-top .btn-default, .login .label-top .btn-default {
     margin-top: 0;
     margin-bottom: 10px; }
+  .sso #error-container, .login #error-container {
+    background: url("/images/shared/formError.png") 10px 10px no-repeat #ffffc9;
+    padding: 10px 10px 10px 50px;
+    display: inline-block;
+    width: 455px; }
+    .sso #error-container > li, .login #error-container > li {
+      padding: 0 0 5px 0; }
   .sso button[disabled=disabled], .login button[disabled=disabled] {
     color: #444; }
 

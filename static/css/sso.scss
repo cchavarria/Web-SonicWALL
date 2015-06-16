@@ -24,6 +24,15 @@
     }
   }
 
+  #error-container {
+    background: url("/images/shared/formError.png") 10px 10px no-repeat #ffffc9;
+    padding: 10px 10px 10px 50px;
+    display: inline-block;
+    width: 455px;
+    > li {
+      padding: 0 0 5px 0;
+    }
+  }
   /* disabled buttons */
   button[disabled=disabled] {
     color: #444;

@@ -752,11 +752,17 @@ $.extend( $.validator, {
 				elementID = this.idOrName( element ),
 				describedBy = $( element ).attr( "aria-describedby" );
 			if ( error.length ) {
+				//Modified by Edward to hide the label container if there are no errors.
+				if ( this.labelContainer.length ) {
+					$(this.labelContainer).hide();
+				}
+
 				// refresh error/success class
 				error.removeClass( this.settings.validClass ).addClass( this.settings.errorClass );
 				// replace message on existing label
 				error.html( message );
-			} else {
+			}
+			else {
 				// create error element
 				error = $( "<" + this.settings.errorElement + ">" )
 					.attr( "id", elementID + "-error" )
@@ -808,6 +814,7 @@ $.extend( $.validator, {
 					}
 				}
 			}
+
 			if ( !message && this.settings.success ) {
 				error.text( "" );
 				if ( typeof this.settings.success === "string" ) {
