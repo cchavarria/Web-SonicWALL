@@ -16,6 +16,18 @@
 
     <?php
     $info = pathinfo($_GET['page']);
+    $json = array(
+        'css' => array(),
+        'js' => array()
+    );
+
+    if(file_exists($info['dirname'] . '/config.json')) {
+        $json = json_decode(file_get_contents($info['dirname'] . '/config.json'), true);
+    }
+
+    foreach($json['css'] as $n => $v) {
+        echo '<link rel="stylesheet" href="' . $v . '">';
+    }
 
     if(file_exists($info['dirname'] . '/' . $info['filename'] . '.css')) {
         echo '<link rel="stylesheet" href="' . $info['filename'] . '.css">';
@@ -1018,6 +1030,9 @@
 <script src="/static/js/default.js"></script>
 
 <?php
+foreach($json['js'] as $n => $v) {
+    echo '<script src="' . $v . '"></script>';
+}
 if(file_exists($info['dirname'] . '/' . $info['filename'] . '.js')) {
     echo '<script src="' . $info['filename'] . '.js"></script>';
 }
