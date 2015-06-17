@@ -4401,7 +4401,7 @@
       margin-bottom: 0;
       border-bottom: none;
       border-radius: 0;
-      z-index: 4050; }
+      z-index: 1000; }
     .bootstrap .masthead .navbar-inverse, .bootstrap .masthead .navbar-toggle {
       /*border-color: transparent;*/
       text-shadow: none;
