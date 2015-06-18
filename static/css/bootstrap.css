@@ -4249,7 +4249,7 @@ tbody.collapse.in {
       color: #444444; }
 
 .breadcrumb {
-  padding: 8px 15px;
+  padding: 0px 0px;
   margin-bottom: 20px;
   list-style: none;
   background-color: transparent;

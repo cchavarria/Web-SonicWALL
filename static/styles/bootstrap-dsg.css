@@ -3659,7 +3659,7 @@
       .bootstrap .navbar-inverse .btn-link[disabled]:hover, .bootstrap .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:hover, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:focus {
         color: #444444; }
   .bootstrap .breadcrumb {
-    padding: 8px 15px;
+    padding: 0px 0px;
     margin-bottom: 20px;
     list-style: none;
     background-color: transparent;

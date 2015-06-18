@@ -803,8 +803,8 @@ $badge-border-radius:         10px !default;
 //
 //##
 
-$breadcrumb-padding-vertical:   8px !default;
-$breadcrumb-padding-horizontal: 15px !default;
+$breadcrumb-padding-vertical:   0px !default; //8px !default;
+$breadcrumb-padding-horizontal: 0px !default; //15px !default;
 //** Breadcrumb background color
 $breadcrumb-bg:                 transparent !default; //#f5f5f5
 //** Breadcrumb text color
