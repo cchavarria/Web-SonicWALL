@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php require 'widget.class.php'; $widget = new Widget(); ?><!DOCTYPE html>
 <!--[if IE 8]><html class="ie ie8" prefix="og: http://ogp.me/ns#"><![endif]-->
 <!--[if IE 9]><html class="ie ie9" prefix="og: http://ogp.me/ns#"><![endif]-->
 <!--[if !IE]> --><html prefix="og: http://ogp.me/ns#"><!-- <![endif]-->
@@ -15,23 +15,7 @@
     <![endif]-->
 
     <?php
-    $info = pathinfo($_GET['page']);
-    $json = array(
-        'css' => array(),
-        'js' => array()
-    );
-
-    if(file_exists($info['dirname'] . '/config.json')) {
-        $json = json_decode(file_get_contents($info['dirname'] . '/config.json'), true);
-    }
-
-    foreach($json['css'] as $n => $v) {
-        echo '<link rel="stylesheet" href="' . $v . '">';
-    }
-
-    if(file_exists($info['dirname'] . '/' . $info['filename'] . '.css')) {
-        echo '<link rel="stylesheet" href="' . $info['filename'] . '.css">';
-    }
+        echo $widget->css();
     ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -895,7 +879,7 @@
         <!-- header ends here -->
 
         <?php
-            include($_GET['page']);
+            echo $widget->content();
         ?>
 
         <!-- footer starts here -->
@@ -1030,12 +1014,7 @@
 <script src="/static/js/default.js"></script>
 
 <?php
-foreach($json['js'] as $n => $v) {
-    echo '<script src="' . $v . '"></script>';
-}
-if(file_exists($info['dirname'] . '/' . $info['filename'] . '.js')) {
-    echo '<script src="' . $info['filename'] . '.js"></script>';
-}
+    echo $widget->js();
 ?>
 
 </body>
