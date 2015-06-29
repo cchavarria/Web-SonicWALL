@@ -107,9 +107,14 @@ $(document).ready(function () {
 		});
 	}
 
-	if ($('html').hasClass('ie')) {
-		$('input').placeholder();
-	}
+	//Workaround for placeholder on unsupported browser
+	(function() {
+		var test = document.createElement('input');
+		if('placeholder' in test) {
+			$('input').placeholder();
+		}
+	})();
+
 
 	//Workaround for select tag not having a placeholder (visual)
 	/*        $('body')
