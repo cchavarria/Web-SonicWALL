@@ -6216,6 +6216,30 @@ i.menu-indicator {
 .img-border {
   border: 1px solid #737373; }
 
+/*off canvas*/
+#off-canvas {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%; }
+  #off-canvas .off-canvas-content {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+
+.off-canvas-mode {
+  position: absolute;
+  width: 100%; }
+  .off-canvas-mode #off-canvas {
+    display: block; }
+
+.off-canvas-back > span {
+  margin-left: 5px;
+  font-size: 15px; }
+.off-canvas-back:hover {
+  text-decoration: none;
+  cursor: pointer; }
+
 .modal-open {
   overflow: hidden; }
 

@@ -1,0 +1,354 @@
+<div class="container">
+
+
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 col-xs-12 pl-0">
+        <h1>
+          NetVault and DR Series Technology Overview
+        </h1>
+        When my father-in-law died there were murmurs about whether my husband would keep his dress shoes. Thats when I
+        learned that some Jews believe you shouldnt wear the shoes of a dead person its an interpretation of a small
+        section in the Sefer Hasidim. The sweat in the shoes might carry diseases. The wearer might dream of the
+        deceased taking the shoes back a bad omen. His familys consensus was, Do whatever you want. Its just
+        superstition. My husband didnt keep the shoes. His fathers chefs coat hangs in our kitchen, an outline of the
+        man whod filled it. When I put on my mothers shoes and again heard, Its just superstition, I was furious. There
+        was a point in my grief when reassurances felt like slaps. More than memories, her shoes were real, useful. I
+        calmed down, because it is superstition. And because I decided those shoes were mine.
+      </div>
+      <div id="view-events" class="col-md-5 col-sm-6 col-xs-12 pr-0 pr-15-xs mt-20-xs hidden-xs">
+        <div id="right-form" class="recurring-event">
+          <div id="form-step-0">
+            <h3 class="mt-0">
+              Select Dates to Register
+            </h3>
+            <table id="event-container" class="table table-striped">
+              <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr>
+                <td><input type="checkbox" name="events[]" value="75709"></td>
+                <td>Jun. 23, 2015</td>
+                <td>9:00 AM EST</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="events[]" value="75710"></td>
+                <td>Jul. 2, 2015</td>
+                <td>3:00 PM EST</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="events[]" value="75715"></td>
+                <td>Jul. 7, 2015</td>
+                <td>9:00 AM EST</td>
+                <td>Online</td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="button-container  text-center">
+              <input type="button" class="btn btn-large btn-block btn-inactive grey" value="Next" data-page="1">
+            </div>
+          </div>
+
+
+          <div id="form-step-1">
+            <form id="frmRegister">
+              <input type="hidden" id="dumbEmail" value="user@mail.com"/>
+              <input type="hidden" id="DB_Latitude" value=""/>
+              <input type="hidden" id="DB_Longitude" value=""/>
+              <input type="hidden" id="DB_Industry" value=""/>
+              <input type="hidden" id="DB_SubIndustry" value=""/>
+              <input type="hidden" id="isdirty" name="isdirty" value="0"/>
+
+              <p>
+                <!--You have selected the following events-->
+                You have selected the following events:
+              </p>
+              <table id="event-container-selected">
+                <thead>
+                <tr>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Time
+                  </th>
+                  <th>
+                    Location
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <h4>
+                Attend Your Free Event
+              </h4>
+              Register or
+              <a href="#" id="lnkSignInNowII">
+                Sign In
+              </a>
+              <table class="no-style form width-auto">
+                <tbody>
+                <tr id="tr_FirstName" firstscreen="1">
+                  <td>
+            <span id="lbl_FirstName">
+              First Name
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="First Name" name="FirstName" id="FirstName" maxlength="50"
+                           class="fieldrequired">
+
+                    <div id="err_FirstName">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_LastName" firstscreen="1">
+                  <td>
+            <span id="lbl_LastName">
+              Last Name
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="Last Name" name="LastName" id="LastName" maxlength="50"
+                           class="fieldrequired">
+
+                    <div id="err_LastName">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_Email" firstscreen="1">
+                  <td>
+            <span id="lbl_Email">
+              Business Email
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="Business Email" name="Email" id="Email" maxlength="50"
+                           class="fieldrequired">
+
+                    <div id="err_Email">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_Company" firstscreen="1">
+                  <td>
+            <span id="lbl_Company">
+              Company
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="Company" name="Company" id="Company" maxlength="50" class="fieldrequired">
+
+                    <div id="err_Company">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_CountryCode" style="display:none" firstscreen="0">
+                  <td>
+            <span id="lbl_CountryCode">
+              Country
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <select name="CountryCode" title="Country" id="CountryCode" class="fieldrequired"
+                            onchange="validother(this);">
+                    </select>
+
+                    <div id="err_CountryCode">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_State_Province" style="display:none" firstscreen="0">
+                  <td>
+            <span id="lbl_State_Province">
+              State
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <select name="State_Province" title="State" id="State_Province" class="fieldrequired"
+                            onchange="validother(this);">
+                    </select>
+
+                    <div id="err_State_Province">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_PostalCode" style="display:none" firstscreen="0">
+                  <td>
+            <span id="lbl_PostalCode">
+              Postal Code
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="Postal Code" name="PostalCode" id="PostalCode" maxlength="30"
+                           class="fieldrequired">
+
+                    <div id="err_PostalCode">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_Phone" style="display:none" firstscreen="0">
+                  <td>
+            <span id="lbl_Phone">
+              Phone
+            </span>
+                  </td>
+                  <td>
+            <span class="required">
+              *
+            </span>
+                  </td>
+                  <td>
+                    <input type="text" title="Phone" name="Phone" id="Phone" maxlength="50" class="fieldrequired">
+
+                    <div id="err_Phone">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_PublicSector" style="display:none" firstscreen="0">
+                  <td>
+            <span id="lbl_PublicSector">
+              Public Sector
+            </span>
+                  </td>
+                  <td>
+            <span>
+            </span>
+                  </td>
+                  <td>
+                    <select name="PublicSector" title="Public Sector" id="PublicSector" class=""
+                            onchange="validother(this);">
+                      <option
+                          value="Commercial" selected="selected">
+                        Not Applicable
+                      </option>
+                      <option
+                          value="Federal/Central Government">
+                        Government - Federal / Central
+                      </option>
+                      <option
+                          value="State/Local Government">
+                        Government - State/Local
+                      </option>
+                      <option
+                          value="Government – Contractor">
+                        Government – Contractor
+                      </option>
+                      <option
+                          value="College/University">
+                        Government – Education
+                      </option>
+                    </select>
+
+                    <div id="err_PublicSector">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_OptInAccept" style="display:none">
+                  <td colspan="3">
+                    <label>
+                      <input type="checkbox" name="chkOptIn" id="chkOptIn" class="left">
+                      Yes, I agree to receive electronic messages from Dell Software including information about
+                      products, services, solutions, offers and deals.
+                    </label>
+                  </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <td>
+                    <div class="button-container">
+                      <input type="button" class="btn btn-lrg btn-inactive" data-page="0" value="Back">
+                    </div>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    <div class="button-container">
+                      <input id="registersubmit" type="button" value="Attend Event" class="btn btn-lrg btn-active">
+                    </div>
+                  </td>
+                </tr>
+                <tr id="tr_OptInPrivacy" style="display:none">
+                  <td colspan="3">
+                    You may withdraw your consent at any time. Please visit our
+                    <a href="/legal/privacy.aspx" target="blank">
+                      Privacy Statement
+                    </a>
+                    for additional information or
+                    <a href="/company/contact-us.aspx" target="blank">
+                      Contact Us
+                    </a>
+                    for further inquiries.
+                  </td>
+                </tr>
+                </tfoot>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="visible-xs">
+
+        <div class="button-container  text-center mt-20">
+          <input type="button" class="btn btn-large btn-block btn-active" value="Attend Event" data-toggle="offcanvas"
+                 data-target="#view-events">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+
+
+  </script>
+
+</div>

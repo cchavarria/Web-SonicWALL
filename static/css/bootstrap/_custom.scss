@@ -1,18 +1,35 @@
-li {
-  padding-bottom: .6em;
-}
+/* Background Color */
 
 .bg-light-grey {
   background-color: #f9f9f9;
   color: #444;
 }
 
-.border-grey {
-  border: 1px solid #cbcbcb;
-}
 .bg-grey {
   background-color: #f9f9f9;
 }
+
+.border-grey {
+  border: 1px solid #cbcbcb;
+}
+
+.border-t-grey {
+  border-top: 1px solid #ccc;
+}
+
+.border-b-gray {
+  border-bottom: 1px solid #aaa;
+}
+
+.border-tb-grey {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.img-border-grey {
+  border: 1px solid #ddd;
+}
+
 .polaris-divider {
   border-top: 1px solid #eee;
   position: relative;
@@ -31,170 +48,159 @@ li {
   }
 }
 
-.pad-0,.p-0 {
+/* Padding */
+
+.pad-0, .p-0 {
   padding: 0 !important;
 }
-.pad-15,.p-15 {
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.pad-15, .p-15 {
   padding: 15px !important;
 }
-.pad-25,.p-25 {
+
+.pad-25, .p-25 {
   padding: 25px !important;
 }
 
 .pt-10 {
   padding-top: 10px !important;
 }
+
 .pt-20 {
   padding-top: 20px !important;
 }
-.pt-30{
-  padding-top:30px !important;
+
+.pt-30 {
+  padding-top: 30px !important;
 }
+
 .pb-10 {
   padding-bottom: 10px !important;
 }
+
 .pb-20 {
   padding-bottom: 20px !important;
 }
-.pb-30{
+
+.pb-30 {
   padding-bottom: 30px !important;
 }
+
 .pl-0 {
   padding-left: 0 !important;
 }
-.pr-0{
-  padding-right:0 !important;
+
+.pr-0 {
+  padding-right: 0 !important;
 }
 
-.mar-0,.m-0 {
+/* Margin */
+
+.mar-0, .m-0 {
   margin: 0 !important;
 }
 
 .mt-0 {
   margin-top: 0 !important;
 }
+
+.mt-7 {
+  margin-top: 7px !important;
+}
+
+.mt-12 {
+  margin-top: 12px !important;
+}
+
+.mt-15 {
+  margin-top: 15px !important;
+}
+
 .mt-10 {
   margin-top: 10px !important;
 }
+
 .mt-20 {
   margin-top: 20px !important;
+}
+
+.mt-30 {
+  margin-top: 30px !important;
 }
 
 .mb-0 {
   margin-bottom: 0 !important;
 }
+
+.mb-7 {
+  margin-bottom: 7px !important;
+}
+
 .mb-10 {
   margin-bottom: 10px !important;
 }
+
 .mb-15 {
   margin-bottom: 15px !important;
 }
+
 .mb-20 {
   margin-bottom: 20px !important;
 }
+
+.mb-n-20 {
+  margin-bottom: -20px !important;
+}
+
 .mb-30 {
   margin-bottom: 30px !important;
 }
-.mb-40{
+
+.mb-40 {
   margin-bottom: 40px !important;
 }
-.mb-50{
+
+.mb-50 {
   margin-bottom: 50px !important;
 }
 
 .mr-0 {
   margin-right: 0 !important;
 }
+
 .mr-10 {
   margin-right: 10px !important;
 }
+
 .mr-20 {
   margin-right: 20px !important;
 }
-.ml-10{
-  margin-left:10px !important;
+
+.ml-0 {
+  margin-left: 0 !important;
 }
+
+.ml-15 {
+  margin-left: 15px !important;
+}
+
+.ml-10 {
+  margin-left: 10px !important;
+}
+
 .ml-20 {
   margin-left: 20px !important;
 }
 
-.bg-grey-social-media{
-  display: inline-block;
-  li{
-    display: inline-block;
-    padding-bottom: 0;
-    margin:0;
-    a {
-      span {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 20px;
-      }
-    }
-  }
-  .icons-social-media{
-    background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
-    width:24px;
-    height:24px;
-    &.twitter {
-      background-position: -25px 0;
-    }
-    &.facebook {
-      background-position: 0 0;
-    }
-    &.linkedin {
-      background-position: -50px 0;
-    }
-    &.googleshare {
-      background-position: -75px 0;
-    }
-  }
-}
-.dsg-icon {
-  background: url("/images/shared/sprites.png") 0 0 no-repeat;
-  width: 20px;
-  height: 20px;
-  display: block;
-
-  &.twitter {
-
-  }
-  &.facebook {
-    background-position: -40px 0;
-  }
-  &.linkedin {
-    background-position: -20px 0;
-  }
-  &.googleshare {
-    background-position: -158px -131px;
-    width: 33px;
-  }
+.ml-30 {
+  margin-left: 30px !important;
 }
 
-.social-media-toolbar {
-  margin-top: 20px;
-
-  ul {
-    display: inline;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    list-style: none outside none;
-    display: inline-block;
-    margin: 0 10px;
-    padding: 0;
-  }
-  .dsg-icon-title {
-    display: none;
-  }
-  >span {
-    display: inline-block;
-    margin-top: -2px;
-    vertical-align: top;
-  }
-}
-
+/* TODO: Need to find where this is being used */
 ul {
   &.bullet-check-mark {
     padding-left: 2em;
@@ -205,6 +211,12 @@ ul {
   }
 }
 
+li {
+  padding-bottom: .6em;
+}
+
+/* Text */
+
 .text-sm {
   font-size: 11px;
   line-height: 15px;
@@ -212,17 +224,34 @@ ul {
     @extend .text-sm;
   }
 }
+
 .text-md {
   font-size: 16px;
   line-height: 24px;
 }
 
-@media (max-width: 767px) { //XS
+/*display*/
+.block {
+  display: block !important;
+}
+
+.inline {
+  display: inline !important;
+}
+
+@media (max-width: 767px) {
+  //XS
   #right-rail-form {
     label {
       padding-top: 8px;
       padding-bottom: 0;
     }
+  }
+  .border-t-gray-xs {
+    border-top: 1px solid #aaa;
+  }
+  .border-b-gray-xs {
+    border-bottom: 1px solid #aaa;
   }
   .center-block-xs {
     display: block;
@@ -235,15 +264,55 @@ ul {
   .mt-0-xs {
     margin-top: 0 !important;
   }
+  .mt-20-xs {
+    margin-top: 20px !important;
+  }
+  .mb-0-xs {
+    margin-bottom: 0 !important;
+  }
   .mr-0-xs {
     margin-right: 0 !important;
   }
   .ml-0-xs {
     margin-left: 0 !important;
   }
+  .mb-10-xs {
+    margin-bottom: 10px !important;
+  }
+  .mb-15-xs {
+    margin-bottom: 15px !important;
+  }
+  .mb-20-xs {
+    margin-bottom: 20px !important;
+  }
+  .p-0-xs {
+    padding: 0 !important;
+  }
+  .p-10-xs {
+    padding: 10px !important;
+  }
+  .pt-10-xs {
+    padding-top: 10px !important;
+  }
+  .pl-0-xs {
+    padding-left: 0 !important;
+  }
+  .pr-0-xs {
+    padding-right: 0 !important;
+  }
+  .pr-15-xs {
+    padding-right: 15px !important;
+  }
+  .pl-15-xs {
+    padding-left: 15px !important;
+  }
+  .pl-30-xs {
+    padding-left: 30px !important;
+  }
 }
 
-@media (min-width: 768px) { //SM
+@media (min-width: 768px) {
+  //SM
   #right-rail-form {
     label {
       padding-top: 8px;
@@ -273,7 +342,17 @@ ul {
   }
 }
 
-@media (min-width: 992px) { //MD
+@media (max-width: 991px) and (min-width: 768px) {
+  .pr-0-sm {
+    padding-right: 0 !important;
+  }
+  .pl-0-sm {
+    padding-left: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  //MD
   #right-rail-form {
     label {
       padding-top: 8px;

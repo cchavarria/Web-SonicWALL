@@ -1,0 +1,40 @@
+.icons-social-media {
+  background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
+  width: 24px;
+  height: 24px; }
+  .icons-social-media.twitter {
+    background-position: -25px 0; }
+  .icons-social-media.facebook {
+    background-position: 0 0; }
+  .icons-social-media.linkedin {
+    background-position: -50px 0; }
+  .icons-social-media.googleshare {
+    background-position: -75px 0; }
+
+.social-media-toolbar {
+  margin-bottom: -20px; }
+  .social-media-toolbar ul {
+    display: inline;
+    padding: 0;
+    margin: 0; }
+  .social-media-toolbar li {
+    list-style: none outside none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0; }
+  .social-media-toolbar .dsg-icon-title {
+    display: none; }
+  .social-media-toolbar > span {
+    display: inline-block;
+    margin-top: -2px;
+    vertical-align: top; }
+  .social-media-toolbar.sm-lg > span {
+    margin-top: 2px; }
+  .social-media-toolbar.sm-lg .icons-social-media {
+    display: inline-block;
+    vertical-align: middle; }
+
+/*mobile*/
+@media (max-width: 767px) {
+  .social-media-toolbar {
+    background-color: #fff; } }

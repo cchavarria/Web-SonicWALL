@@ -103,13 +103,57 @@ $(document).ready(function () {
 
 				e.preventDefault();
 				window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
+			} else if(parent.hasClass('googleshare')){
+				e.preventDefault();
+				window.open('https://plus.google.com/share?url=' + encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 			}
 		});
 	}
 
-	if ($('html').hasClass('ie')) {
-		$('input').placeholder();
-	}
+	//append off canvas content
+	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
+
+	//off canvas back button
+	$('body').on('click', '.off-canvas-back', function (e) {
+		e.preventDefault();
+
+		$('.site-wrapper').show();
+
+		$('body').animate({left: 0}, 500, function() {
+			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+			$('body').removeClass('off-canvas-mode');
+			$(document).scrollTop($('#off-canvas').data('top'));
+		});
+	});
+
+	//perform off canvas
+	$('body').on('click', '[data-toggle=offcanvas]', function (e) {
+		//Off canvas is only availabe on mobile device
+		if(pageWidth >= 768) {
+			return false;
+		}
+
+		e.preventDefault();
+
+		var target = ($(this).data('target') === undefined) ? $(this).attr('href'):$(this).data('target'),
+			top = $(document).scrollTop();
+
+		$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
+
+		$('body').addClass('off-canvas-mode').animate({left: -1 * pageWidth}, 500, function() {
+			$('.site-wrapper').hide();
+			$('#off-canvas').css('top', 0);
+		});
+	});
+
+	//Workaround for placeholder on unsupported browser
+	/*(function() {
+		var test = document.createElement('input');
+		if('placeholder' in test) {
+			$('input').placeholder();
+		}
+	})();*/
+
 
 	//Workaround for select tag not having a placeholder (visual)
 	/*        $('body')
@@ -135,5 +179,51 @@ $(document).ready(function () {
 	 $(this).css('color', '#999');
 	 });*/
 
+	//Ooyala player popup
+	$('body').on('click', '.ooplaylist', function (e) {
+		e.preventDefault();
+
+		var width = 642,
+				title = '',
+				config = $.parseJSON($(this).data('config').replace(/'/g, '"')),
+				content = '';
+
+		if (typeof config.title != 'undefined') {
+			title = config.title;
+		}
+		else {
+			title = $(this).text();
+		}
+
+		if (typeof config.description == 'undefined') {
+			config.description = '';
+		}
+
+		title = encodeURIComponent(title);
+
+		if (typeof config.playlist == 'string') {
+			width = 861;
+
+			content = '<iframe id="oo-popup-content" src="/hidden/ooyala-iframe.htm?playlist=' + config.playlist + '" width="' + width + '" height="407" frameborder="0" scrolling="no"></iframe>';
+		}
+		else {
+			content = '<iframe id="oo-popup-content" src="/hidden/ooyala-iframe.htm?ooyala=' + config.ooyala + '&autoplay=' + config['autoplay'] + '&3Play=' + config['3Play'] + '&title=' + title + '&desc=' + encodeURIComponent(config.description) + '&url=' + config.url + '" width="' + width + '" height="407" frameborder="0" scrolling="no"></iframe>';
+		}
+
+		$.fancybox({
+			'autoDimensions': false,
+			'autoScale': false,
+			'width': width,
+			'height': 'auto',
+			'content': content,
+			autoSize: true,
+			iframe: {
+				preload: false // fixes issue with iframe and IE
+			},
+			'onStart': function () {
+				$.fancybox.center();
+			}
+		});
+	});
 });
 
