@@ -845,7 +845,7 @@ extend(SVGWeb, {
   appendChild: function(node, parent) {
     //console.log('appendChild, node='+node+', parent='+parent);
     if (node.nodeName.toLowerCase() == 'object'
-        && node.getAttribute('type') == 'image/svg+xml') {
+        && node.getAttribute('type') == 'images/svg+xml') {
       // dynamically created OBJECT tag for an SVG file
       this.totalSVG++;
       this._svgObjects.push(node);
@@ -917,7 +917,7 @@ extend(SVGWeb, {
       // so that we hit the same code path for dynamic SVG roots as you would
       // get if the SCRIPT + SVG were already in the page on page load
       var svgScript = document.createElement('script');
-      svgScript.type = 'image/svg+xml';
+      svgScript.type = 'images/svg+xml';
       if (!isXHTML) { 
         try {
           svgScript.appendChild(document.createTextNode(svgStr));
@@ -1477,7 +1477,7 @@ extend(SVGWeb, {
     var scripts = document.getElementsByTagName('script');
     var results = [];
     for (var i = 0; i < scripts.length; i++) {
-      if (scripts[i].type == 'image/svg+xml') {
+      if (scripts[i].type == 'images/svg+xml') {
         results.push(scripts[i]);
       }
     }
@@ -1495,15 +1495,15 @@ extend(SVGWeb, {
     // @type attribute is set to an unknown MIME type; this makes it 
     // impossible for us to then get the OBJECT from the DOM below. If we 
     // don't have a @classid this will also happen, so we just set it to 
-    // the string 'image/svg+xml' which is arbitrary. If both @type and 
+    // the string 'images/svg+xml' which is arbitrary. If both @type and
     // @classid are present, IE will still look at the type first and 
     // repeat the same incorrect fallback behavior for our purposes.
     var objs = document.getElementsByTagName('object');
     var results = [];
     for (var i = 0; i < objs.length; i++) {
-      if (objs[i].getAttribute('classid') == 'image/svg+xml') {
+      if (objs[i].getAttribute('classid') == 'images/svg+xml') {
         results.push(objs[i]);
-      } else if (objs[i].getAttribute('type') == 'image/svg+xml') {
+      } else if (objs[i].getAttribute('type') == 'images/svg+xml') {
         results.push(objs[i]);
       }
     }
@@ -8329,7 +8329,7 @@ extend(FlashInserter, {
     // We should use aspect ratio for sizing the object height.
     // Subsequent resizing of the object may result in a valid
     // parent height, but in this case, we should stick to our earlier
-    // determination that the image should rely on aspect ratio to size
+    // determination that the images should rely on aspect ratio to size
     // the object height.
     if (parentHeight == 0) {
       this.invalidParentHeight = true;
@@ -8358,7 +8358,7 @@ extend(FlashInserter, {
     var pixelsWidth, pixelsHeight;
 
     /** In the case of script or where an svg object has a height percent
-        and the svg image has a height percent, then the height of the parent
+        and the svg images has a height percent, then the height of the parent
         is not used and the viewBox aspect resolution is used.
         However, in certain circumstances, the % of the parent height
         is used. That circumstance is when the embed type is script
