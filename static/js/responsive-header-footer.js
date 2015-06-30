@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageWidth = $('html').width(), resizeFn = [], resizeTimer = null;
+var pageWidth = getPageWidth(), resizeFn = [], resizeTimer = null;
 
 $(document).ready(function () {
   resizeGlobal();
@@ -136,10 +136,11 @@ addResize('resizeGlobal');
 
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
-	var w = $('html').width();
+
+	var w = getPageWidth();
 
 	if(pageWidth != w) {
-		pageWidth = $('html').width();
+		pageWidth = w;
 
     if(resizeTimer !== null) {
       clearTimeout(resizeTimer);
@@ -156,6 +157,15 @@ $(window).resize(function() {
     });
 	}
 });
+
+function getPageWidth() {
+	//Workaround for Google Chrome. The vertical scrollbar is not included in determining the width of the device.
+	$('body').css('overflow', 'hidden');
+	var w = $('html').width();
+	$('body').css('overflow', '');
+
+	return w;
+}
 
 function addResize(fn) {
   resizeFn.push(fn);
