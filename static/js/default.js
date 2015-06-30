@@ -144,12 +144,12 @@ $(document).ready(function () {
 	});
 
 	//Workaround for placeholder on unsupported browser
-	(function() {
+	/*(function() {
 		var test = document.createElement('input');
 		if('placeholder' in test) {
 			$('input').placeholder();
 		}
-	})();
+	})();*/
 
 
 	//Workaround for select tag not having a placeholder (visual)
