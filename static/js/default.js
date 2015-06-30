@@ -107,6 +107,42 @@ $(document).ready(function () {
 		});
 	}
 
+	//append off canvas content
+	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
+
+	//off canvas back button
+	$('body').on('click', '.off-canvas-back', function (e) {
+		e.preventDefault();
+
+		$('.site-wrapper').show();
+
+		$('body').animate({left: 0}, 500, function() {
+			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+			$('body').removeClass('off-canvas-mode');
+			$(document).scrollTop($('#off-canvas').data('top'));
+		});
+	});
+
+	//perform off canvas
+	$('body').on('click', '[data-toggle=offcanvas]', function (e) {
+		//Off canvas is only availabe on mobile device
+		if(pageWidth >= 768) {
+			return false;
+		}
+
+		e.preventDefault();
+
+		var target = ($(this).data('target') === undefined) ? $(this).attr('href'):$(this).data('target'),
+			top = $(document).scrollTop();
+
+		$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
+
+		$('body').addClass('off-canvas-mode').animate({left: -1 * pageWidth}, 500, function() {
+			$('.site-wrapper').hide();
+			$('#off-canvas').css('top', 0);
+		});
+	});
+
 	//Workaround for placeholder on unsupported browser
 	(function() {
 		var test = document.createElement('input');
