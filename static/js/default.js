@@ -184,16 +184,9 @@ $(document).ready(function () {
 		e.preventDefault();
 
 		var width = 642,
-				title = '',
 				config = $.parseJSON($(this).data('config').replace(/'/g, '"')),
+				title = (typeof config.title != 'undefined') ? config.title:$(this).text(),
 				content = '';
-
-		if (typeof config.title != 'undefined') {
-			title = config.title;
-		}
-		else {
-			title = $(this).text();
-		}
 
 		if (typeof config.description == 'undefined') {
 			config.description = '';

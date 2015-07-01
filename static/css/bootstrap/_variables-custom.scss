@@ -28,6 +28,18 @@ $dell-gray-hover:                         #F3F3F3;
 $black:                                   #000000;
 $white:                                   #ffffff;
 
+$dell-blue:                               #007db8;
+$dell-dark-blue:                          #00447c;
+$dell-light-green:                        #c1d82f;
+$dell-green:                              #6ea204;
+$dell-yellow:                             #f2af00;
+$dell-orange:                             #ee6411;
+$dell-red:                                #d74324;
+$dell-dark-red:                           #c31126;
+$dell-berry:                              #b7295a;
+$dell-purple:                             #6e2585;
+$dell-teal:                               #42aeaf;
+
 $brand-primary:         #007db8 !default; //darken(#428bca, 6.5%) !default; // #337ab7
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
@@ -872,7 +884,7 @@ $headings-small-color:        $gray-light !default;
 //** Blockquote small color
 $blockquote-small-color:      $gray-light !default;
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-font-size:        ($font-size-base * 2) !default; //($font-size-base * 1.25) !default;
 //** Blockquote border color
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color

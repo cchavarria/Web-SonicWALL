@@ -1,5 +1,4 @@
 .screenshot-carousel li .product-text-wrapper {
-  max-width: 370px;
   height: 83px; }
 .screenshot-carousel li .btn {
   margin: 19px 0 30px 0; }
@@ -11,10 +10,11 @@
 
 /*mobile*/
 @media (max-width: 767px) {
-  .screenshot-carousel .pagination-type1 li .product-text-wrapper {
-    height: auto; }
   .screenshot-carousel ul li:nth-child(3) .polaris-divider, .screenshot-carousel ul li:nth-child(9) .polaris-divider {
     display: none !important; }
   .screenshot-carousel .btn-default {
     margin-bottom: 20px;
     margin-top: 9px; } }
+@media (min-width: 768px) {
+  .screenshot-carousel .pagination-container {
+    margin: 0 -15px; } }

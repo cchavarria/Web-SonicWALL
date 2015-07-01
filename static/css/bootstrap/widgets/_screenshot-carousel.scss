@@ -16,8 +16,10 @@
     position: relative;
     overflow: hidden;
     p {
-      font-size: 16px;
-      padding-top: 4px;
+      /*font-size: 16px;
+      line-height: 1em;*/
+      padding-bottom: 4px;
+      /*padding-top: 4px;*/
     }
     > div {
       position: relative;
@@ -96,34 +98,11 @@
   }
 }
 
-.images-slider{
-  .pagination-container{
-    padding:0 9px;
-  }
-  ul li{
-    padding-bottom:0;
-    p{
-      margin-bottom: 0;
-    }
-  }
-}
 /*mobile*/
 @media (max-width: 767px) {
   .screenshot-carousel {
     ul {
       padding: 0;
-      li {
-        //padding-left: 0;
-        //padding-right: 0;
-      }
-    }
-  }
-  .images-slider {
-    p {
-      width: 224px;
-    }
-    .pagination-container{
-      //padding:0;
     }
   }
 }
@@ -134,7 +113,7 @@
       display: inline-block;
     }
     .pagination-container {
-      margin: 0 -15px;
+      //margin: 0 -15px;
     }
   }
 }
@@ -143,25 +122,5 @@
 @media (max-width: 991px) and (min-width: 768px) {
   .rr-pagination {
     margin-right: 3%;
-  }
-  .images-slider {
-    .pagination-container{
-      padding:0;
-    }
-    .rr-pagination.pagination-large {
-      a {
-        margin-top: 40px;
-      }
-      .prev {
-        margin-right: 0;
-      }
-    }
-  }
-}
-
-/*large screens*/
-@media (min-width: 1200px) {
-  .images-slider p{
-    width: 100%;
   }
 }

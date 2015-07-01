@@ -283,9 +283,30 @@ abbr[data-original-title] {
 // Blockquotes
 blockquote {
   padding: ($line-height-computed / 2) $line-height-computed;
-  margin: 0 0 $line-height-computed;
-  font-size: $blockquote-font-size;
-  border-left: 5px solid $blockquote-border-color;
+  margin: $line-height-computed 0;
+  font-size: $blockquote-font-size * 0.7142857142857143;
+  line-height: 1.2em;
+
+  //border-left: 5px solid $blockquote-border-color;
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    font-size: 40px;
+    top: 14px;
+    margin-left: -23px;
+  }
+
+  p {
+    display: inline;
+
+    &::after {
+      content: "\201D";
+      font-size: 40px;
+      position: absolute;
+      padding-top: 3px;
+    }
+  }
 
   p,
   ul,
@@ -297,16 +318,38 @@ blockquote {
 
   // Note: Deprecated small and .small as of v3.1.0
   // Context: https://github.com/twbs/bootstrap/issues/11660
-  footer,
-  small,
-  .small {
+  footer {
+    margin-top: 10px;
     display: block;
-    font-size: 80%; // back to default font-size
+    //font-size: 80%; // back to default font-size
+    font-size: 70%;
     line-height: $line-height-base;
     color: $blockquote-small-color;
 
-    &:before {
+    /*&:before {
       content: '\2014 \00A0'; // em dash, nbsp
+    }*/
+  }
+}
+
+@media (min-width: 768px) {
+  blockquote {
+    font-size: $blockquote-font-size;
+    margin: 0 0 $line-height-computed;
+
+    &::before {
+      top: 10px;
+      margin-left: -24px;
+    }
+
+    p {
+      &::after {
+        padding-top: 0;
+      }
+    }
+
+    footer {
+      font-size: 50%;
     }
   }
 }

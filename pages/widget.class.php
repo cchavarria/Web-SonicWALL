@@ -24,7 +24,7 @@ class Widget {
             $hasVars = true;
 
             foreach($m[1] as $indx => $widgetName) {
-                $this->html = str_replace($m[0][$indx], file_get_contents($widgetName . '/index.htm'), $this->html);
+                $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/index.htm'), $this->html);
                 $this->loadDependencies($widgetName);
             }
         }
@@ -40,8 +40,8 @@ class Widget {
     }
 
     function loadDependencies($widgetName) {
-        if(file_exists($widgetName . '/config.json')) {
-            $tmpJSON = json_decode(file_get_contents($widgetName . '/config.json'), true);
+        if(file_exists('../widgets/' . $widgetName . '/config.json')) {
+            $tmpJSON = json_decode(file_get_contents('../widgets/' . $widgetName . '/config.json'), true);
 
             if(isset($tmpJSON['css'])) {
                 $this->css = array_merge($tmpJSON['css'], $this->css);
@@ -52,12 +52,12 @@ class Widget {
             }
         }
 
-        if(file_exists($widgetName . '/index.css')) {
-            $this->css[] = '../' . $widgetName . '/index.css';
+        if(file_exists('../widgets/' . $widgetName . '/index.css')) {
+            $this->css[] = '../../widgets/' . $widgetName . '/index.css';
         }
 
-        if(file_exists($widgetName . '/index.js')) {
-            $this->js[] = '../' . $widgetName . '/index.js';
+        if(file_exists('../widgets/' . $widgetName . '/index.js')) {
+            $this->js[] = '../../widgets/' . $widgetName . '/index.js';
         }
     }
 

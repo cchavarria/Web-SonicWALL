@@ -54,7 +54,7 @@
                 <h2 class="mar-0">Better. Faster. More affordable.</h2>
                 <h4>
                   Dell&#39;s SonicWALL TZ firewall appliance keeps your critical data safe from malware, viruses and
-                  other threats – without breaking your budget.
+                  other threats ï¿½ without breaking your budget.
                 </h4>
                 <span class="btn btn-primary">Learn More</span>
               </div>
@@ -85,7 +85,6 @@
       </div>
     </div>
 */
-
 
 // Wrapper for the slide container and indicators
 .carousel {
@@ -343,6 +342,11 @@
 //Adding DSG style
 /*mobile*/
 @media (max-width: 767px) {
+  // Add margin top if hero banner is next to #masthead.
+  #masthead + .hero-banner {
+    margin-top: -20px;
+  }
+
   .hero-banner {
     .carousel a {
       h4 {

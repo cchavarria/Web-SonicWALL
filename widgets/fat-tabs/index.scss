@@ -5,7 +5,6 @@
 .fat-tabs {
   > ul {
     display: inline-block;
-    //border-bottom: 1px solid #ccc;
     > li {
       padding: 0;
       /* Old browsers */
@@ -24,8 +23,28 @@
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
       box-sizing: border-box;
       border-bottom: 1px solid #ccc;
-      &.IM a > div {
-        height: 103px;
+      &.NS, &.IAM, &.DP {
+        img {
+          height: 55px;
+        }
+      }
+      &.WSM, &.EM {
+        img {
+          height: 56px;
+        }
+      }
+      &.IM {
+        a > div {
+          height: 103px;
+        }
+        img {
+          height: 47px;
+        }
+      }
+      &.PM {
+        img {
+          height: 35px;
+        }
       }
       a {
         display: block;
@@ -79,20 +98,18 @@
 .fat-tabs > ul > li.ui-tabs-active {
   border-top: none;
   border-top: 1px solid #ccc;
-  //height: 155px;
   border-bottom: none;
   background: none;
-  a > div {
-    margin-top: -5px;
-  }
-}
-
-.fat-tabs > ul > li.ui-tabs-active a {
-  //height: 156px !important;
-  padding-bottom: 15px;
-  &:hover {
-    background-color: transparent;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  a {
     padding-bottom: 15px;
+    &:hover {
+      background-color: transparent;
+      padding-bottom: 15px;
+    }
+    > div {
+      margin-top: -5px;
+    }
   }
 }
 
@@ -107,33 +124,30 @@
 
 /*border color setting to match icons*/
 
-.fat-tabs > ul > .NS.ui-tabs-active a {
-  border-top: 5px solid #6ea204;
+.fat-tabs > ul {
+  > .NS.ui-tabs-active a {
+    border-top: 5px solid #6ea204;
+  }
+  > .IAM.ui-tabs-active a {
+    border-top: 5px solid #b7295a;
+  }
+  > .DP.ui-tabs-active a {
+    border-top: 5px solid #ee6411;
+  }
+  > .IM.ui-tabs-active a {
+    border-top: 5px solid #d74324;
+  }
+  > .WSM.ui-tabs-active a {
+    border-top: 5px solid #6e2585;
+  }
+  > .EM.ui-tabs-active a {
+    border-top: 5px solid #00447c;
+  }
+  > .PM.ui-tabs-active a {
+    border-top: 5px solid #0087cc;
+  }
 }
 
-.fat-tabs > ul > .IAM.ui-tabs-active a {
-  border-top: 5px solid #b7295a;
-}
-
-.fat-tabs > ul > .DP.ui-tabs-active a {
-  border-top: 5px solid #ee6411;
-}
-
-.fat-tabs > ul > .IM.ui-tabs-active a {
-  border-top: 5px solid #d74324;
-}
-
-.fat-tabs > ul > .WSM.ui-tabs-active a {
-  border-top: 5px solid #6e2585;
-}
-
-.fat-tabs > ul > .EM.ui-tabs-active a {
-  border-top: 5px solid #00447c;
-}
-
-.fat-tabs > ul > .PM.ui-tabs-active a {
-  border-top: 5px solid #0087cc;
-}
 
 /*mobile*/
 @media (max-width: 767px) {
@@ -145,7 +159,7 @@
     > ul {
       display: inline-block;
       > li {
-        padding: 0;
+        padding: 15px 0 15px 10px;
         background: none;
         box-sizing: border-box;
         border-bottom: 1px solid #ccc;
@@ -156,37 +170,36 @@
         }
         &.PM {
           h4 {
-            line-height: 38px;
+            padding-top: 8px;
           }
           span {
             top: 25px;
           }
-          img{
-            margin-right:15px;
+          img {
+            margin-right: 15px;
           }
         }
         &.IM {
           a > div {
             height: auto;
-            > span{
+            > span {
               top: 32px;
             }
           }
           img {
             margin-top: 0;
           }
-          h4{
-            line-height:47px;
+          h4 {
+            padding-top: 17px;
           }
         }
-        &.WSM{
-          img{
+        &.WSM {
+          img {
             margin-right: 28px
           }
         }
         a {
-          display: block;
-          padding: 15px 0 15px 10px;
+          padding: 0;
           &:hover, &:focus {
             text-decoration: none;
           }
@@ -203,15 +216,14 @@
             }
             h4 {
               text-align: left;
-              font-size: 16px;
-              line-height: 55px;
-              vertical-align: middle;
-              margin: 0;
-              display: inline;
+              padding-top: 19px;
+              margin-bottom: 0;
+              margin-top: 0;
+              display: block;
             }
             > span {
               position: absolute;
-              right:0;
+              right: 0;
               top: 35px;
               font-size: 18px;
               display: inline !important;
@@ -222,6 +234,14 @@
     }
     .ui-tabs-panel {
       padding: 26px 0 0 0;
+    }
+  }
+  .off-canvas-content{
+    .container {
+      > div:first-child{
+        padding-bottom: 13px;
+        border-bottom: 1px solid #ccc;
+      }
     }
   }
 }
@@ -252,7 +272,7 @@
     }
     ul li {
       width: 102.8px;
-      a{
+      a {
         padding: 25px 0 15px 0;
       }
       h4 {
@@ -262,12 +282,12 @@
   }
 }
 
-@media (min-width: 992px) {
-
-}
-
 @media (min-width: 1200px) {
   .fat-tabs ul li {
     width: 167px;
+  }
+  .container{
+    padding-left:0;
+    padding-right:0;
   }
 }

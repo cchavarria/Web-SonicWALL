@@ -21,8 +21,16 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
     box-sizing: border-box;
     border-bottom: 1px solid #ccc; }
+    .fat-tabs > ul > li.NS img, .fat-tabs > ul > li.IAM img, .fat-tabs > ul > li.DP img {
+      height: 55px; }
+    .fat-tabs > ul > li.WSM img, .fat-tabs > ul > li.EM img {
+      height: 56px; }
     .fat-tabs > ul > li.IM a > div {
       height: 103px; }
+    .fat-tabs > ul > li.IM img {
+      height: 47px; }
+    .fat-tabs > ul > li.PM img {
+      height: 35px; }
     .fat-tabs > ul > li a {
       display: block;
       padding: 25px 15px 15px 15px; }
@@ -60,15 +68,15 @@
   border-top: none;
   border-top: 1px solid #ccc;
   border-bottom: none;
-  background: none; }
-  .fat-tabs > ul > li.ui-tabs-active a > div {
-    margin-top: -5px; }
-
-.fat-tabs > ul > li.ui-tabs-active a {
-  padding-bottom: 15px; }
-  .fat-tabs > ul > li.ui-tabs-active a:hover {
-    background-color: transparent;
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
+  .fat-tabs > ul > li.ui-tabs-active a {
     padding-bottom: 15px; }
+    .fat-tabs > ul > li.ui-tabs-active a:hover {
+      background-color: transparent;
+      padding-bottom: 15px; }
+    .fat-tabs > ul > li.ui-tabs-active a > div {
+      margin-top: -5px; }
 
 /*align all h4s*/
 .IM img {
@@ -80,22 +88,16 @@
 /*border color setting to match icons*/
 .fat-tabs > ul > .NS.ui-tabs-active a {
   border-top: 5px solid #6ea204; }
-
 .fat-tabs > ul > .IAM.ui-tabs-active a {
   border-top: 5px solid #b7295a; }
-
 .fat-tabs > ul > .DP.ui-tabs-active a {
   border-top: 5px solid #ee6411; }
-
 .fat-tabs > ul > .IM.ui-tabs-active a {
   border-top: 5px solid #d74324; }
-
 .fat-tabs > ul > .WSM.ui-tabs-active a {
   border-top: 5px solid #6e2585; }
-
 .fat-tabs > ul > .EM.ui-tabs-active a {
   border-top: 5px solid #00447c; }
-
 .fat-tabs > ul > .PM.ui-tabs-active a {
   border-top: 5px solid #0087cc; }
 
@@ -107,7 +109,7 @@
   .fat-tabs > ul {
     display: inline-block; }
     .fat-tabs > ul > li {
-      padding: 0;
+      padding: 15px 0 15px 10px;
       background: none;
       box-sizing: border-box;
       border-bottom: 1px solid #ccc;
@@ -116,7 +118,7 @@
       .fat-tabs > ul > li.NS {
         border-top: 1px solid #ccc; }
       .fat-tabs > ul > li.PM h4 {
-        line-height: 38px; }
+        padding-top: 8px; }
       .fat-tabs > ul > li.PM span {
         top: 25px; }
       .fat-tabs > ul > li.PM img {
@@ -128,12 +130,11 @@
       .fat-tabs > ul > li.IM img {
         margin-top: 0; }
       .fat-tabs > ul > li.IM h4 {
-        line-height: 47px; }
+        padding-top: 17px; }
       .fat-tabs > ul > li.WSM img {
         margin-right: 28px; }
       .fat-tabs > ul > li a {
-        display: block;
-        padding: 15px 0 15px 10px; }
+        padding: 0; }
         .fat-tabs > ul > li a:hover, .fat-tabs > ul > li a:focus {
           text-decoration: none; }
         .fat-tabs > ul > li a:hover {
@@ -147,11 +148,10 @@
             margin-right: 24px; }
           .fat-tabs > ul > li a > div h4 {
             text-align: left;
-            font-size: 16px;
-            line-height: 55px;
-            vertical-align: middle;
-            margin: 0;
-            display: inline; }
+            padding-top: 19px;
+            margin-bottom: 0;
+            margin-top: 0;
+            display: block; }
           .fat-tabs > ul > li a > div > span {
             position: absolute;
             right: 0;
@@ -159,7 +159,11 @@
             font-size: 18px;
             display: inline !important; }
   .fat-tabs .ui-tabs-panel {
-    padding: 26px 0 0 0; } }
+    padding: 26px 0 0 0; }
+
+  .off-canvas-content .container > div:first-child {
+    padding-bottom: 13px;
+    border-bottom: 1px solid #ccc; } }
 @media (min-width: 768px) {
   .fat-tabs > ul > li {
     width: 134px; }
@@ -182,4 +186,8 @@
       font-size: 14px; } }
 @media (min-width: 1200px) {
   .fat-tabs ul li {
-    width: 167px; } }
+    width: 167px; }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0; } }

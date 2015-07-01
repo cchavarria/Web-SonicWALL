@@ -28,10 +28,13 @@
     width: 33px;
   }
 }
+
 .icons-social-media {
   background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
   width: 24px;
   height: 24px;
+  display: inline-block;
+  vertical-align: middle;
   &.twitter {
     background-position: -25px 0;
   }
@@ -76,17 +79,17 @@
 */
 
 .social-media-toolbar {
-  margin-top: 20px;
+  /*margin-bottom: -20px;*/
 
   ul {
-    display: inline;
+    display: inline-block;
     padding: 0;
     margin: 0;
   }
   li {
     list-style: none outside none;
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 8px;
     padding: 0;
   }
   .dsg-icon-title {
@@ -94,51 +97,14 @@
   }
   > span {
     display: inline-block;
-    margin-top: -2px;
+    margin-top: 2px;
     vertical-align: top;
   }
+}
 
-  /*Example URL: http://software.dell.com/kace
-    Modification: included titles
-    Example HTML:
-    <div class="bg-grey pt-20 pb-20 social-media-toolbar sm-lg text-center">
-      <span>Share</span>
-      <ul class="bg-grey-social-media">
-        <li class="googleshare">
-          <a href="#">
-            <span class="googleshare icons-social-media"></span>
-            <span class="dsg-icon-title">Google+</span>
-          </a>
-        </li>
-        <li class="twitter">
-          <a href="#">
-            <span class="twitter icons-social-media"></span>
-            <span class="dsg-icon-title">Twitter</span>
-          </a>
-        </li>
-        <li class="linkedin">
-          <a href="#">
-            <span class="linkedin icons-social-media"></span>
-            <span class="dsg-icon-title">LinkedIn</span>
-          </a>
-        </li>
-        <li class="facebook">
-          <a href="#">
-            <span class="facebook icons-social-media"></span>
-            <span class="dsg-icon-title">Facebook</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  */
-
-  &.sm-lg {
-    > span {
-      margin-top: 2px;
-    }
-    .icons-social-media {
-      display: inline-block;
-      vertical-align: middle;
-    }
+/*mobile*/
+@media (max-width: 767px) {
+  .social-media-toolbar{
+    background-color: #fff;
   }
 }

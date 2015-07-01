@@ -1479,25 +1479,47 @@ abbr[data-original-title] {
 
 blockquote {
   padding: 10px 20px;
-  margin: 0 0 20px;
-  font-size: 17.5px;
-  border-left: 5px solid #eeeeee; }
+  margin: 20px 0;
+  font-size: 20px;
+  line-height: 1.2em; }
+  blockquote::before {
+    content: "\201C";
+    position: absolute;
+    font-size: 40px;
+    top: 14px;
+    margin-left: -23px; }
+  blockquote p {
+    display: inline; }
+    blockquote p::after {
+      content: "\201D";
+      font-size: 40px;
+      position: absolute;
+      padding-top: 3px; }
   blockquote p:last-child,
   blockquote ul:last-child,
   blockquote ol:last-child {
     margin-bottom: 0; }
-  blockquote footer,
-  blockquote small,
-  blockquote .small {
+  blockquote footer {
+    margin-top: 10px;
     display: block;
-    font-size: 80%;
+    font-size: 70%;
     line-height: 1.42857;
-    color: #777777; }
-    blockquote footer:before,
-    blockquote small:before,
-    blockquote .small:before {
-      content: '\2014 \00A0'; }
+    color: #777777;
+    /*&:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }*/ }
 
+@media (min-width: 768px) {
+  blockquote {
+    font-size: 28px;
+    margin: 0 0 20px; }
+    blockquote::before {
+      top: 10px;
+      margin-left: -24px; }
+    blockquote p::after {
+      padding-top: 0; }
+    blockquote footer {
+      font-size: 50%; } }
 .blockquote-reverse,
 blockquote.pull-right {
   padding-right: 15px;
@@ -5619,65 +5641,65 @@ li.dropdown .dropdown-menu {
 .is-logged-in {
   display: none; }
 
-footer {
+#footer {
   background-color: #0085c3;
   color: #fff;
   margin-top: 20px;
   font-size: 11px; }
-  footer a {
+  #footer a {
     color: #fff; }
-    footer a:hover, footer a:focus {
+    #footer a:hover, #footer a:focus {
       color: #fff; }
-  footer li {
+  #footer li {
     list-style-type: none;
     padding: 0; }
-    footer li a {
+    #footer li a {
       display: block; }
-    footer li > span {
+    #footer li > span {
       padding: 10px 0 9px 20px;
       display: block;
       cursor: pointer; }
-    footer li > ul {
+    #footer li > ul {
       display: none; }
-    footer li.open > ul {
+    #footer li.open > ul {
       border-top: 1px solid #aaa;
       background-color: #fff; }
-  footer.well {
+  #footer.well {
     padding: 0px; }
-  footer .menu-container {
+  #footer .menu-container {
     position: relative; }
-  footer .footer-top-section {
+  #footer .footer-top-section {
     position: relative;
     z-index: 0;
     background-color: #eee;
     color: #444;
     font-size: 14px; }
-    footer .footer-top-section a {
+    #footer .footer-top-section a {
       color: #444;
       text-decoration: none;
       padding: 10px 0 9px 20px; }
-      footer .footer-top-section a:hover {
+      #footer .footer-top-section a:hover {
         color: #00447c;
         text-decoration: none; }
-    footer .footer-top-section .container {
+    #footer .footer-top-section .container {
       padding-left: 15px;
       padding-right: 15px; }
-    footer .footer-top-section ul.menu-links {
+    #footer .footer-top-section ul.menu-links {
       list-style: none;
       margin-bottom: 0;
       padding: 0; }
-      footer .footer-top-section ul.menu-links li {
+      #footer .footer-top-section ul.menu-links li {
         margin: 0; }
-      footer .footer-top-section ul.menu-links li:last-child {
+      #footer .footer-top-section ul.menu-links li:last-child {
         border-bottom: none; }
-      footer .footer-top-section ul.menu-links ul {
+      #footer .footer-top-section ul.menu-links ul {
         padding: 0;
         font-size: 12px; }
-  footer .footer-bottom-section ul.menu-links {
+  #footer .footer-bottom-section ul.menu-links {
     list-style: none;
     margin: 0;
     padding: 0; }
-    footer .footer-bottom-section ul.menu-links .disclaimer {
+    #footer .footer-bottom-section ul.menu-links .disclaimer {
       padding-top: 25px;
       padding-bottom: 20px;
       font-size: 11px;
@@ -5686,7 +5708,7 @@ footer {
       font-weight: 200;
       color: #cce7f3;
       opacity: 0.6; }
-  footer .footer-top-shadow {
+  #footer .footer-top-shadow {
     content: "";
     width: 80%;
     height: 10px;
@@ -5695,7 +5717,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     margin: -10px auto 0;
     z-index: 0; }
-  footer .footer-shadow-section {
+  #footer .footer-shadow-section {
     content: "";
     width: 80%;
     height: 10px;
@@ -5704,32 +5726,32 @@ footer {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     margin: -10px auto 0;
     z-index: 0; }
-  footer .footer-bottom-section {
+  #footer .footer-bottom-section {
     padding: 10px 15px 0 15px;
     font-size: 11px; }
-    footer .footer-bottom-section a, footer .footer-bottom-section span {
+    #footer .footer-bottom-section a, #footer .footer-bottom-section span {
       padding: 10px 0 9px 5px; }
-    footer .footer-bottom-section .list-inline > li a {
+    #footer .footer-bottom-section .list-inline > li a {
       color: white; }
-    footer .footer-bottom-section span {
+    #footer .footer-bottom-section span {
       display: block; }
-  footer .dropdown-toggle:after {
+  #footer .dropdown-toggle:after {
     padding-left: 5px; }
-  footer .menu-links {
+  #footer .menu-links {
     list-style: none; }
-  footer .footer-copyright-section {
+  #footer .footer-copyright-section {
     background-color: #fff;
     color: #444; }
-    footer .footer-copyright-section a, footer .footer-copyright-section span {
+    #footer .footer-copyright-section a, #footer .footer-copyright-section span {
       padding: 10px 10px 10px 15px; }
-    footer .footer-copyright-section a {
+    #footer .footer-copyright-section a {
       color: #0085c3; }
-    footer .footer-copyright-section ul {
+    #footer .footer-copyright-section ul {
       margin: 0; }
-    footer .footer-copyright-section li {
+    #footer .footer-copyright-section li {
       border-top: 1px solid #aaa;
       display: block; }
-  footer .bg-light-grey a {
+  #footer .bg-light-grey a {
     color: #007db8; }
 
 i.menu-indicator {
@@ -5906,14 +5928,14 @@ i.menu-indicator {
   i.menu-indicator {
     position: relative; }
 
-  footer .footer-top-section li {
+  #footer .footer-top-section li {
     padding: 0;
     border-bottom: 1px solid #aaa; }
-  footer .footer-bottom-section ul.menu-links li {
+  #footer .footer-bottom-section ul.menu-links li {
     border-bottom: 1px solid #5eb0d7; }
-    footer .footer-bottom-section ul.menu-links li:last-child {
+    #footer .footer-bottom-section ul.menu-links li:last-child {
       border-bottom: 1px solid transparent; }
-  footer .footer-bottom-section ul.menu-links.list-inline li {
+  #footer .footer-bottom-section ul.menu-links.list-inline li {
     display: block; }
 
   .openNav .site-canvas {
@@ -6110,51 +6132,51 @@ i.menu-indicator {
   .shadow-overlay-left {
     display: none; }
 
-  footer .menu-container {
+  #footer .menu-container {
     margin: 0 auto; }
-  footer .footer-shadow-section {
+  #footer .footer-shadow-section {
     margin: -14px auto 0; }
-  footer .footer-top-section {
+  #footer .footer-top-section {
     background-color: #0085c3;
     padding: 20px 0; }
-    footer .footer-top-section ul.menu-links {
+    #footer .footer-top-section ul.menu-links {
       padding: 0 15px;
       color: #fff; }
-      footer .footer-top-section ul.menu-links li {
+      #footer .footer-top-section ul.menu-links li {
         border-bottom: 0; }
-        footer .footer-top-section ul.menu-links li > ul {
+        #footer .footer-top-section ul.menu-links li > ul {
           display: block; }
-      footer .footer-top-section ul.menu-links > li {
+      #footer .footer-top-section ul.menu-links > li {
         /*width: 20%;*/
         padding-right: 6%;
         display: inline-block;
         vertical-align: top;
         float: left; }
-        footer .footer-top-section ul.menu-links > li > a, footer .footer-top-section ul.menu-links > li > span {
+        #footer .footer-top-section ul.menu-links > li > a, #footer .footer-top-section ul.menu-links > li > span {
           /*color: #fff;*/
           font-weight: 700;
           /*padding: 0 0 5px 0;*/ }
-      footer .footer-top-section ul.menu-links > li:last-child {
+      #footer .footer-top-section ul.menu-links > li:last-child {
         padding-right: 0; }
-      footer .footer-top-section ul.menu-links a, footer .footer-top-section ul.menu-links span {
+      #footer .footer-top-section ul.menu-links a, #footer .footer-top-section ul.menu-links span {
         color: #fff;
         padding: 0 0 5px 0; }
-    footer .footer-top-section a {
+    #footer .footer-top-section a {
       color: #fff;
       padding: 0 0 5px 0; }
-      footer .footer-top-section a:hover {
+      #footer .footer-top-section a:hover {
         color: #fff;
         text-decoration: underline; }
-  footer .footer-bottom-section {
+  #footer .footer-bottom-section {
     text-align: center; }
-    footer .footer-bottom-section .menu-links {
+    #footer .footer-bottom-section .menu-links {
       margin: 10px 0; }
-  footer .menu-indicator {
+  #footer .menu-indicator {
     display: none; }
-  footer .footer-copyright-section {
+  #footer .footer-copyright-section {
     text-align: center;
     font-size: 1.3em; }
-    footer .footer-copyright-section li {
+    #footer .footer-copyright-section li {
       border: 0;
       display: inline-block; } }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -6182,9 +6204,9 @@ i.menu-indicator {
     .masthead .utility [class^=icon] {
       font-size: 20px; }
 
-  footer .footer-top-section ul.menu-links {
+  #footer .footer-top-section ul.menu-links {
     padding: 0; }
-    footer .footer-top-section ul.menu-links > li {
+    #footer .footer-top-section ul.menu-links > li {
       padding-left: 15px;
       padding-right: 7%; } }
 @media (min-width: 1200px) {
@@ -6195,9 +6217,9 @@ i.menu-indicator {
   .masthead .search-container {
     width: 68%; }
 
-  footer .menu-container {
+  #footer .menu-container {
     width: 1170px; }
-  footer .footer-top-section ul.menu-links > li {
+  #footer .footer-top-section ul.menu-links > li {
     padding-right: 9%; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .masthead .container {
@@ -6368,6 +6390,525 @@ i.menu-indicator {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important; }
 
+.text-blue {
+  color: #007db8; }
+
+.text-dark-blue {
+  color: #00447c; }
+
+.text-light-green {
+  color: #c1d82f; }
+
+.text-green {
+  color: #6ea204; }
+
+.text-yellow {
+  color: #f2af00; }
+
+.text-orange {
+  color: #ee6411; }
+
+.text-red {
+  color: #d74324; }
+
+.text-dark-red {
+  color: #c31126; }
+
+.text-berry {
+  color: #b7295a; }
+
+.text-purple {
+  color: #6e2585; }
+
+.text-teal {
+  color: #42aeaf; }
+
+/*
+  Description: Hero banner
+  Author: Elnaz Doostdar
+  Modification: Customized to replicate DSG style
+  Dependency: bootstrap-3.3.4.js
+  Example URL: http://software.dell.com/
+  Example HTML:
+    <div class="hero-banner container mb-50 pl-0 pr-0">
+      <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item">
+            <a href="/FY2015_Q2_All_HPG_ExpectMoreWindows">
+              <img class="img-responsive" src="http://software.dell.com/images/banner/1170-395/expect-more-awareness-windows.jpg"/>
+              <div class="caption-wrapper">
+                <h2 class="mar-0">Expect More</h2>
+                <h4>
+                  Simplify Microsoft management tasks with our Windows server solutions for Active Directory, Exchange
+                  and SharePoint.
+                </h4>
+                <span class="btn btn-primary">Learn More</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/FY2015_Q2_All_HPG_DL1000_DSG">
+              <img class="lazy img-responsive" data-original="http://software.dell.com/images/banner/1170-395/critical-data.jpg"/>
+              <div class="caption-wrapper">
+                <h2 class="mar-0">Protect your mission-critical data.</h2>
+                <h4>
+                  Discover high power, low cost data protection with the Dell DL1000 Backup and Recovery Appliance.
+                </h4>
+                <span class="btn btn-primary">Learn More</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/FY2015_Q2_All_HPG_DSG_MigrationManager">
+              <img class="lazy img-responsive"
+                   data-original="http://software.dell.com/images/banner/1170-395/migration-manager-for-enterprise-social.jpg"/>
+              <div class="caption-wrapper">
+                <h2 class="mar-0">Consolidate social networks</h2>
+                <h4>
+                  Migrate enterprise social content from multiple networks with maximum efficiency, minimal downtime and
+                  ZeroIMPACT.
+                </h4>
+                <span class="btn btn-primary">Watch Video</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/2015_Q1_All_HPG_TZ_SW">
+              <img class="lazy img-responsive" data-original="http://software.dell.com/images/banner/1170-395/sonicwall-tz-appliance.jpg"/>
+              <div class="caption-wrapper">
+                <h2 class="mar-0">Better. Faster. More affordable.</h2>
+                <h4>
+                  Dell&#39;s SonicWALL TZ firewall appliance keeps your critical data safe from malware, viruses and
+                  other threats � without breaking your budget.
+                </h4>
+                <span class="btn btn-primary">Learn More</span>
+              </div>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/FY2015_Q2_All_HPG_SQL_PI">
+              <img class="lazy img-responsive"
+                   data-original="http://software.dell.com/images/banner/1170-395/sql-performance-investigator.jpg"/>
+              <div class="caption-wrapper">
+                <h2 class="mar-0">Is your SQL performance criminal?</h2>
+                <h4>
+                  Don&#39;t let SQL issues rob your productivity. Get SQL Performance Investigator on the case and solve
+                  SQL infractions for good.
+                </h4>
+                <span class="btn btn-primary">Learn More</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <ol class="carousel-indicators mt-10">
+          <li data-target=".carousel" data-slide-to="0"></li>
+          <li data-target=".carousel" data-slide-to="1"></li>
+          <li data-target=".carousel" data-slide-to="2"></li>
+          <li data-target=".carousel" data-slide-to="3"></li>
+          <li data-target=".carousel" data-slide-to="4"></li>
+        </ol>
+      </div>
+    </div>
+*/
+.carousel {
+  position: relative; }
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+  .carousel-inner > .item {
+    display: none;
+    position: relative;
+    -webkit-transition: 0.6s ease-in-out left;
+    -o-transition: 0.6s ease-in-out left;
+    transition: 0.6s ease-in-out left; }
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      line-height: 1; }
+    .carousel-inner > .item > a:hover, .carousel-inner > .item > a:focus {
+      text-decoration: none;
+      color: #007db8; }
+    .carousel-inner > .item > a h4 {
+      color: #444;
+      margin-bottom: 14px; }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      .carousel-inner > .item {
+        -webkit-transition: -webkit-transform 0.6s ease-in-out;
+        -moz-transition: -moz-transform 0.6s ease-in-out;
+        -o-transition: -o-transform 0.6s ease-in-out;
+        transition: transform 0.6s ease-in-out;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -moz-perspective: 1000;
+        perspective: 1000; }
+        .carousel-inner > .item.next, .carousel-inner > .item.active.right {
+          -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+          left: 0; }
+        .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
+          -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+          left: 0; }
+        .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+          left: 0; } }
+  .carousel-inner > .active,
+  .carousel-inner > .next,
+  .carousel-inner > .prev {
+    display: block; }
+  .carousel-inner > .active {
+    left: 0; }
+  .carousel-inner > .next,
+  .carousel-inner > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .carousel-inner > .next {
+    left: 100%; }
+  .carousel-inner > .prev {
+    left: -100%; }
+  .carousel-inner > .next.left,
+  .carousel-inner > .prev.right {
+    left: 0; }
+  .carousel-inner > .active.left {
+    left: -100%; }
+  .carousel-inner > .active.right {
+    left: 100%; }
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+  .carousel-control.left {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1); }
+  .carousel-control.right {
+    left: auto;
+    right: 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1); }
+  .carousel-control:hover, .carousel-control:focus {
+    outline: 0;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    filter: alpha(opacity=90); }
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next,
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block; }
+  .carousel-control .icon-prev,
+  .carousel-control .glyphicon-chevron-left {
+    left: 50%;
+    margin-left: -10px; }
+  .carousel-control .icon-next,
+  .carousel-control .glyphicon-chevron-right {
+    right: 50%;
+    margin-right: -10px; }
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    line-height: 1;
+    font-family: serif; }
+  .carousel-control .icon-prev:before {
+    content: '\2039'; }
+  .carousel-control .icon-next:before {
+    content: '\203a'; }
+
+.carousel-indicators {
+  position: absolute;
+  left: 50%;
+  z-index: 15;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  width: 60%;
+  margin-left: -30%; }
+  .carousel-indicators li {
+    background-color: #ccc;
+    border: 0 none;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    height: 7px;
+    margin: 14px 14px 0 0;
+    padding: 0;
+    width: 14px;
+    text-indent: -999px; }
+  .carousel-indicators .active {
+    background-color: #444;
+    margin: 14px 14px 0 0;
+    width: 14px;
+    height: 7px; }
+
+.caption-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 14px;
+  width: 32%;
+  vertical-align: middle;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.92);
+  right: auto;
+  bottom: auto; }
+
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    font-size: 30px; }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -15px; }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -15px; } }
+/*mobile*/
+@media (max-width: 767px) {
+  #masthead + .hero-banner {
+    margin-top: -20px; }
+
+  .hero-banner .carousel a h4 {
+    font-size: 14px; }
+  .hero-banner .carousel a h2 {
+    font-size: 20px;
+    line-height: 24px; }
+
+  .caption-wrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    background: #f5f5f5;
+    width: 100%; }
+    .caption-wrapper span {
+      color: #007db8;
+      background-color: transparent;
+      border: none;
+      padding: 0; }
+      .caption-wrapper span:hover {
+        background-color: transparent;
+        color: #007db8; } }
+@media (min-width: 768px) {
+  #hero-banner {
+    width: 100%; } }
+@media (max-width: 991px) and (min-width: 768px) {
+  .hero-banner h2 {
+    font-size: 26px;
+    line-height: 30px; }
+  .hero-banner h4 {
+    font-size: 16px;
+    line-height: 20px; }
+
+  .caption-wrapper {
+    width: 46%; } }
+.screenshot-carousel {
+  overflow: hidden; }
+  .screenshot-carousel ul {
+    padding: 0;
+    float: left;
+    margin-bottom: 0; }
+  .screenshot-carousel li {
+    list-style: none outside none;
+    overflow: hidden; }
+  .screenshot-carousel .screenshot-carousel-wrapper {
+    overflow: hidden; }
+  .screenshot-carousel .pagination-container {
+    position: relative;
+    overflow: hidden; }
+    .screenshot-carousel .pagination-container p {
+      /*font-size: 16px;
+      line-height: 1em;*/
+      padding-bottom: 4px;
+      /*padding-top: 4px;*/ }
+    .screenshot-carousel .pagination-container > div {
+      position: relative; }
+  .screenshot-carousel .rr-pagination {
+    margin-right: 0;
+    float: right; }
+    .screenshot-carousel .rr-pagination a {
+      width: 40px;
+      height: 33px;
+      background: url("/images/shared/sprites.png") 0 0 no-repeat;
+      display: inline-block;
+      vertical-align: middle; }
+    .screenshot-carousel .rr-pagination > span {
+      border: none;
+      font-size: 14px;
+      margin-right: 20px; }
+    .screenshot-carousel .rr-pagination .prev {
+      background-position: 0 -204px;
+      margin-right: 20px; }
+      .screenshot-carousel .rr-pagination .prev:hover {
+        background-position: -41px -204px; }
+    .screenshot-carousel .rr-pagination .next {
+      background-position: -127px -204px; }
+      .screenshot-carousel .rr-pagination .next:hover {
+        background-position: -84px -204px; }
+    .screenshot-carousel .rr-pagination .prev.inactive {
+      background-position: 0 -204px; }
+    .screenshot-carousel .rr-pagination .next.inactive {
+      background-position: -127px -204px; }
+
+.screenshot-carousel .rr-pagination.pagination-large a {
+  margin-top: 48px; }
+.screenshot-carousel .rr-pagination.pagination-large .prev {
+  background-position: 0 -165px;
+  width: 25px;
+  height: 39px;
+  margin-right: 0; }
+  .screenshot-carousel .rr-pagination.pagination-large .prev:hover {
+    background-position: 0 -165px; }
+  .screenshot-carousel .rr-pagination.pagination-large .prev.inactive {
+    background-position: -25px -165px; }
+    .screenshot-carousel .rr-pagination.pagination-large .prev.inactive:hover {
+      background-position: 0 -165px; }
+.screenshot-carousel .rr-pagination.pagination-large .next {
+  background-position: -76px -165px;
+  width: 25px;
+  height: 39px; }
+  .screenshot-carousel .rr-pagination.pagination-large .next:hover {
+    background-position: -76px -165px; }
+  .screenshot-carousel .rr-pagination.pagination-large .next.inactive {
+    background-position: -51px -165px; }
+    .screenshot-carousel .rr-pagination.pagination-large .next.inactive:hover {
+      background-position: -76px -165px; }
+
+/*mobile*/
+@media (max-width: 767px) {
+  .screenshot-carousel ul {
+    padding: 0; } }
+@media (min-width: 768px) {
+  .screenshot-carousel ul {
+    vertical-align: top;
+    display: inline-block; } }
+/*tablet*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .rr-pagination {
+    margin-right: 3%; } }
+/*
+  Description: Social media icons
+  Author: Edward Chong & Elnaz Doostdar
+  Modification: Extended to include social media with gray background
+  Dependency: default.js
+  Example URL:
+    - http://software.dell.com/kace/
+    - http://o2.prod.quest.corp/LandingPages/default.aspx look for LPG_Inbound template
+*/
+.dsg-icon {
+  background: url("/images/shared/sprites.png") 0 0 no-repeat;
+  width: 20px;
+  height: 20px;
+  display: block; }
+  .dsg-icon.facebook {
+    background-position: -40px 0; }
+  .dsg-icon.linkedin {
+    background-position: -20px 0; }
+  .dsg-icon.googleshare {
+    background-position: -158px -131px;
+    width: 33px; }
+
+.icons-social-media {
+  background: url("/images/email/icons-social-media.png") 0 0 no-repeat;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle; }
+  .icons-social-media.twitter {
+    background-position: -25px 0; }
+  .icons-social-media.facebook {
+    background-position: 0 0; }
+  .icons-social-media.linkedin {
+    background-position: -50px 0; }
+  .icons-social-media.googleshare {
+    background-position: -75px 0; }
+
+/*  Description: Used on inbound landing page.
+    Dependency: default.js
+    Example HTML:
+    <div class="social-media-toolbar">
+      <span>Share</span>
+      <ul>
+        <li class="googleplusone">
+          <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+          <span class="dsg-icon-title">Google+</span>
+        </li>
+        <li class="twitter">
+          <a href="#"><span class="dsg-icon twitter"></span><span class="dsg-icon-title">Twitter</span></a>
+        </li>
+        <li class="linkedin">
+          <a href="#">
+            <span class="dsg-icon linkedin"></span>
+            <span class="dsg-icon-title">LinkedIn</span>
+          </a>
+        </li>
+        <li class="facebook">
+          <a href="#">
+            <span class="dsg-icon facebook"></span>
+            <span class="dsg-icon-title">Facebook</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+*/
+.social-media-toolbar {
+  /*margin-bottom: -20px;*/ }
+  .social-media-toolbar ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  .social-media-toolbar li {
+    list-style: none outside none;
+    display: inline-block;
+    margin: 0 8px;
+    padding: 0; }
+  .social-media-toolbar .dsg-icon-title {
+    display: none; }
+  .social-media-toolbar > span {
+    display: inline-block;
+    margin-top: 2px;
+    vertical-align: top; }
+
+/*mobile*/
+@media (max-width: 767px) {
+  .social-media-toolbar {
+    background-color: #fff; } }
 .modal-open {
   overflow: hidden; }
 
