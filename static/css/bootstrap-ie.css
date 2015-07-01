@@ -5,6 +5,11 @@
   background-position: 95% 50%;
   background-repeat: no-repeat; }
 
+.ie8 {
+  /* events w inline form */ }
+  .ie8 .event-form .form-control {
+    min-width: 280px; }
+
 .ie9 #searchterm {
   padding-top: 4px;
   padding-bottom: 4px; }

@@ -50,12 +50,13 @@
 @import "bootstrap/_custom-image";
 
 @import "bootstrap/custom/off-canvas";
+@import "bootstrap/widgets/date";
 
 // Components w/ JavaScript
 @import "bootstrap/modals";
 @import "bootstrap/tooltip";
 /*@import "bootstrap/popovers";*/
-@import "bootstrap/_carousel-custom";
+/*@import "bootstrap/_carousel-custom"; */
 
 // Utility classes
 @import "bootstrap/_utilities";

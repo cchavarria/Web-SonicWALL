@@ -11,6 +11,17 @@
   }
 }
 
+.ie8 {
+
+  /* events w inline form */
+  .event-form{
+
+    .form-control{
+      min-width: 280px;
+    }
+  }
+}
+
 .ie9 {
   #searchterm {
     padding-top: 4px;
