@@ -1,192 +1,186 @@
 /* Used on Responsive New Header/Footer */
 
-/*
-* We are using placeholder.js to support ie8 and ie9 placeholder - Jl 6/3/2015
-*
-* */
-
 var burl = location.href, resizeTimer = null;
 
 $(document).ready(function () {
-	//Social media toolbar
+//Social media toolbar
 	if ($('.social-media-toolbar').length) {
-		var bitlyURL = url = location.href;
+		socialMediaToolbar();
+	}
 
-		//If protocol is https find previous page.
-		if (location.protocol == 'https:') {
-			var pathnameArr = location.pathname.split('/');
+//Off Canvas
+	offCanvas();
 
-			if (/(.*)t/.test(pathnameArr[1])) {
-				pathnameArr[1] = pathnameArr[1].replace(/(.*)t/, '$1');
-				bitlyURL = url = 'https://' + location.host + pathnameArr.join('/');
+//Toggle Show/Hide
+	$('body').on('click', '[data-toggle=show]', function () {
+		var target = $($(this).data('target'));
+
+		if (target.is(':visible')) {
+			if (target.data('hidden-class')) {
+				target.addClass(target.data('hidden-class'));
+			}
+			else {
+				target.hide();
+			}
+		}
+		else {
+			if (target.hasClass('hidden')) {
+				target.data('hidden-class', 'hidden');
+				target.removeClass('hidden');
+			}
+			else {
+				target.show();
+			}
+
+			var callback = $(this).data('callback');
+
+			if(callback) {
+				if(typeof window[callback] == 'function') {
+					window[callback].call(this, $(this).data('target'));
+				}
+			}
+		}
+	});
+
+//Workaround for placeholder on unsupported browser
+	(function () {
+		var test = document.createElement('input');
+		if (!('placeholder' in test)) {
+			if($.fn.placeholder) {
+				$('input').placeholder();
+			}
+			else {
+				$.getScript('/static/library/jQuery/jquery.placeholder.min.js', function () {
+					$('input').placeholder();
+				});
+			}
+		}
+	})();
+
+	if($('form').filter('.has-slide').length) {
+		eventForm();
+	}
+
+//Dotdotdot
+	(function() {
+		if($('.dotdotdot').length) {
+			if($.fn.dotdotdot) {
+				init();
+			}
+			else {
+				$.getScript('/static/library/jQuery/jquery.dotdotdot.min.js', function() {
+					init();
+				});
 			}
 		}
 
-		if ($('.g-plusone').length) {
-			$('.g-plusone').attr('data-href', url);
+		function init() {
+			$('.dotdotdot').each(function() {
+				var oneLineHeight = 0, options = {}, content = '', proceed = false;
 
-			//Google+
-			(function () {
-				var po = document.createElement('script');
-				po.type = 'text/javascript';
-				po.async = true;
-				po.src = '//apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(po, s);
-			})();
-		}
+				//Remove empty paragraph tags.
+				$(this).find('p').each(function() {
+					if($(this).html() == '') {
+						$(this).remove();
+					}
+				});
 
-		//Retrieve bit.ly url
-		if (window.XMLHttpRequest && !(/\-/.test(location.host))) {
-			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "/hidden/bitly.asmx/get?URI=" + encodeURIComponent(url));
-			xhr.onreadystatechange = function () {
-				if (xhr.readyState == 4) {
-					if (xhr.status == 200) {
-						xml = $($.parseXML(xhr.responseText));
-						var obj = jQuery.parseJSON(xml.find("string").text());
+				if($(this).css('max-height') == 'none') {
+					content = $(this).html();
 
-						if (typeof obj.data != 'undefined') {
-							bitlyURL = obj.data.url;
-						}
+					//Find height of one line.
+					$(this).html('<p>.</p>');
+					oneLineHeight = parseInt($(this).outerHeight());
+
+					//options.tolerance = Math.ceil(oneLineHeight/4);
+
+					//Restore original content.
+					$(this).html(content);
+
+					if($(this).data('max-line')) { //Used for all breakpoints.
+						options.height = $(this).data('max-line') * oneLineHeight;
+						proceed = true;
+					}
+
+					if(pageWidth >= 1200 && $(this).data('max-line-lg')) {
+						options.height = $(this).data('max-line-lg') * oneLineHeight;
+						proceed = true;
+					}
+					else if(pageWidth >= 992 && $(this).data('max-line-md')) {
+						options.height = $(this).data('max-line-md') * oneLineHeight;
+						proceed = true;
+					}
+					else if(pageWidth >= 768 && $(this).data('max-line-sm')) {
+						options.height = $(this).data('max-line-sm') * oneLineHeight;
+						proceed = true;
+					}
+					else if(pageWidth < 768 && $(this).data('max-line-xs')) {
+						options.height = $(this).data('max-line-xs') * oneLineHeight;
+						proceed = true;
 					}
 				}
-			}
-			xhr.send();
+
+				if(proceed) {
+					if($(this).data('read-more')) {
+						$(this).append('<a class="dotdotdot-read-more" href="javascript:void(0)">Read More <span aria-hidden="true" class="glyphicon glyphicon-triangle-bottom"></span></a>');
+						options.after = '.dotdotdot-read-more';
+					}
+
+					$(this).dotdotdot(options);
+
+					if($(this).triggerHandler('isTruncated')) {
+						$(this).on('click', '.dotdotdot-read-more', function(e) {
+							var p = $(this).parents('.dotdotdot');
+							e.preventDefault();
+							p.dotdotdot('destroy');
+							p.find('.dotdotdot-read-more').remove();
+						});
+					}
+					else {
+						$(this).find('.dotdotdot-read-more').remove();
+					}
+				}
+			});
 		}
+	})();
 
-		//Interaction when clicking on facebook, twitter and linkedin
-		$('.social-media-toolbar').on('click', 'a', function (e) {
-			var parent = $(this).parent(), title = document.title;
-
-			if (parent.hasClass('facebook')) {
-				if (typeof s == 'object') {
-					//s.tl(this, 'o', 'Share-Facebook');
-					s.events = "event13";
-					s.eVar18 = "Facebook";
-					s.linkTrackVars = "events,eVar18";
-					s.linkTrackEvents = "event13";
-					s.tl(true, 'o', 'Social Media');
-				}
-
-				//_gaq.push(['_trackSocial', 'Facebook', 'Share']);
-
-				e.preventDefault();
-				window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(title), 'facebook', 'width=480,height=240,toolbar=0,status=0,resizable=1');
-			}
-			else if (parent.hasClass('twitter')) {
-				if (typeof s == 'object') {
-					//s.tl(this, 'o', 'Share-Twitter');
-					s.events = "event13";
-					s.eVar18 = "Twitter";
-					s.linkTrackVars = "events,eVar18";
-					s.linkTrackEvents = "event13";
-					s.tl(true, 'o', 'Social Media');
-				}
-				//_gaq.push(['_trackSocial', 'Twitter', 'Tweet']);
-				console.log(bitlyURL);
-				console.log(url);
-
-				e.preventDefault();
-				window.open('http://twitter.com/share?via=DellSoftware&url=' + encodeURIComponent(bitlyURL) + '&text=' + encodeURIComponent(title) + ',%20&counturl=' + encodeURIComponent(url), 'twitter', 'width=480,height=380,toolbar=0,status=0,resizable=1');
-			}
-			else if (parent.hasClass('linkedin')) {
-				if (typeof s == 'object') {
-					//s.tl(this, 'o', 'Share-LinkedIn');
-					s.events = "event13";
-					s.eVar18 = "LinkedIn";
-					s.linkTrackVars = "events,eVar18";
-					s.linkTrackEvents = "event13";
-					s.tl(true, 'o', 'Social Media');
-				}
-				//_gaq.push(['_trackSocial', 'LinkedIn', 'Share']);
-
-				e.preventDefault();
-				window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
-			} else if(parent.hasClass('googleshare')){
-				e.preventDefault();
-				window.open('https://plus.google.com/share?url=' + encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-			}
+//LazyLoad
+	if($.fn.lazyload) {
+		$('img.lazy').lazyload();
+	}
+	else {
+		$.getScript('/static/library/jQuery/jquery.lazyload.min.js', function() {
+			$('img.lazy').lazyload();
 		});
 	}
 
-	//append off canvas content
-	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
+//Hero Banner
+	if($('.hero-banner').length) {
+		//Randomize banner
+		var randomNumber = Math.floor((Math.random() * $('.item').length));
+		$('.item').eq(randomNumber).addClass("active");
+		$('.hero-banner .carousel-indicators li').eq(randomNumber).addClass("active");
 
-	//off canvas back button
-	$('body').on('click', '.off-canvas-back', function (e) {
-		e.preventDefault();
-
-		$('.site-wrapper').show();
-
-		$('body').animate({left: 0}, 500, function() {
-			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
-			$('body').removeClass('off-canvas-mode');
-			$(document).scrollTop($('#off-canvas').data('top'));
+		$('.hero-banner .carousel').find('.lazy').each(function () {
+			$(this).attr('src', $(this).data('original')).removeClass('lazy');
 		});
-	});
+	}
 
-	//perform off canvas
-	$('body').on('click', '[data-toggle=offcanvas]', function (e) {
-		//Off canvas is only availabe on mobile device
-		if(pageWidth >= 768) {
-			return false;
-		}
-
-		e.preventDefault();
-
-		var target = ($(this).data('target') === undefined) ? $(this).attr('href'):$(this).data('target'),
-			top = $(document).scrollTop();
-
-		$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
-
-		$('body').addClass('off-canvas-mode').animate({left: -1 * pageWidth}, 500, function() {
-			$('.site-wrapper').hide();
-			$('#off-canvas').css('top', 0);
-		});
-	});
-
-	//Workaround for placeholder on unsupported browser
-	/*(function() {
-		var test = document.createElement('input');
-		if('placeholder' in test) {
-			$('input').placeholder();
-		}
-	})();*/
-
-
-	//Workaround for select tag not having a placeholder (visual)
-	/*        $('body')
-	 .on('process-placeholder', 'select', function () {
-	 $(this).trigger('mouseenter').trigger('mouseout');
-	 })
-	 .on('change', 'select', function () {
-	 var ph = $(this).attr('placeholder');
-
-	 if (ph) {
-	 if ($(this).find(':selected').text() == ph) {
-	 $(this).css('color', '#999');
-	 }
-	 else {
-	 $(this).css('color', '');
-	 }
-	 }
-	 })
-	 .on('mouseenter', 'select', function () {
-	 $(this).css('color', '');
-	 })
-	 .on('mouseout', 'select', function () {
-	 $(this).css('color', '#999');
-	 });*/
-
-	//Ooyala player popup
+//Ooyala player popup
 	$('body').on('click', '.ooplaylist', function (e) {
 		e.preventDefault();
 
 		var width = 642,
+				title = '',
 				config = $.parseJSON($(this).data('config').replace(/'/g, '"')),
-				title = (typeof config.title != 'undefined') ? config.title:$(this).text(),
 				content = '';
+
+		if (typeof config.title != 'undefined') {
+			title = config.title;
+		}
+		else {
+			title = $(this).text();
+		}
 
 		if (typeof config.description == 'undefined') {
 			config.description = '';
@@ -203,20 +197,366 @@ $(document).ready(function () {
 			content = '<iframe id="oo-popup-content" src="/hidden/ooyala-iframe.htm?ooyala=' + config.ooyala + '&autoplay=' + config['autoplay'] + '&3Play=' + config['3Play'] + '&title=' + title + '&desc=' + encodeURIComponent(config.description) + '&url=' + config.url + '" width="' + width + '" height="407" frameborder="0" scrolling="no"></iframe>';
 		}
 
-		$.fancybox({
-			'autoDimensions': false,
-			'autoScale': false,
-			'width': width,
-			'height': 'auto',
-			'content': content,
-			autoSize: true,
-			iframe: {
-				preload: false // fixes issue with iframe and IE
-			},
-			'onStart': function () {
-				$.fancybox.center();
+		if ($('body').data('modal-appended') == false || $('body').data('modal-appended') == undefined) {
+			var modalContent =
+					'<div class="modal fade" id="oomodal" tabindex="-1" role="dialog">' +
+					'<div class="modal-dialog" role="document">' +
+					'<div class="modal-content">' +
+					'<div class="modal-header">' +
+					'<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+					'<div>' +
+					'<div class="modal-body">' +
+					content +
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'</div>';
+			$('body').append(modalContent);
+			$('body').data('modal-appended', 'true');
+		}
+		$('.ooplaylist').modal();
+	});
+
+	resizeFourColumnFilmstripCarousel();
+});
+
+addResize('offCanvasResize');
+addResize('resizeFourColumnFilmstripCarousel');
+addResize('toggleResize');
+
+function resizeFourColumnFilmstripCarousel() {
+	(function() {
+		if ($('.screenshot-carousel').length && !$('html').hasClass('home')) {
+			if($.fn.slidePagination2) {
+				init();
 			}
+			else {
+				$.getScript('/static/library/jQuery/jquery.slidepagination.min.js', function() {
+					init();
+				});
+			}
+		}
+
+		function init() {
+			if ($('.screenshot-carousel').length) {
+				var sliderOptions = {
+					list: '> ul',
+					column: 4,
+					row: 1,
+					largeArrow: true,
+					pagination: [
+						{type: 'prepend', nextArrow: false, align: 'left'},
+						{type: 'prepend', prevArrow: false}
+					]
+				};
+
+				$('.screenshot-carousel').each(function () {
+					var options = sliderOptions;
+
+					if ($(this).data('large-arrows') == 'true') {
+						options.largeArrow = true;
+						options.pagination = [
+							{type: 'prepend', nextArrow: false, align: 'left'},
+							{type: 'prepend', prevArrow: false}
+						];
+					}
+
+					if($(this).data('row')) {
+						options.row = $(this).data('row');
+					}
+
+					if (pageWidth >= 992) {
+						options.column = $(this).data('col') ? $(this).data('col') : 4;
+					}
+					else if (pageWidth >= 768) { //tablet
+						options.column = $(this).data('col-sm') ? $(this).data('col-sm') : 3;
+					}
+					else if (pageWidth < 768) { //mobile
+						options.column = $(this).data('col-xs') ? $(this).data('col-xs') : 1;
+					}
+
+					$(this).slidePagination2('destroy');
+					$(this).slidePagination2(options);
+				});
+			}
+		}
+
+	})();
+}
+
+function offCanvasResize() {
+	if ($('#off-canvas').is(':visible')) {
+		$('.site-wrapper').show();
+
+		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+		$('body').removeClass('off-canvas-mode');
+	}
+}
+
+function socialMediaToolbar() {
+	var bitlyURL = url = location.href;
+
+//If protocol is https find previous page.
+	if (location.protocol == 'https:') {
+		var pathnameArr = location.pathname.split('/');
+
+		if (/(.*)t/.test(pathnameArr[1])) {
+			pathnameArr[1] = pathnameArr[1].replace(/(.*)t/, '$1');
+			bitlyURL = url = 'https://' + location.host + pathnameArr.join('/');
+		}
+	}
+
+	if ($('.g-plusone').length) {
+		$('.g-plusone').attr('data-href', url);
+
+		//Google+
+		(function () {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = '//apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	}
+
+//Retrieve bit.ly url
+	if (window.XMLHttpRequest && !(/\-/.test(location.host))) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "/hidden/bitly.asmx/get?URI=" + encodeURIComponent(url));
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					xml = $($.parseXML(xhr.responseText));
+					var obj = jQuery.parseJSON(xml.find("string").text());
+
+					if (typeof obj.data != 'undefined') {
+						bitlyURL = obj.data.url;
+					}
+				}
+			}
+		}
+		xhr.send();
+	}
+
+//Interaction when clicking on facebook, twitter and linkedin
+	$('.social-media-toolbar').on('click', 'a', function (e) {
+		var parent = $(this).parent(), title = document.title;
+
+		if (parent.hasClass('facebook')) {
+			if (typeof s == 'object') {
+				//s.tl(this, 'o', 'Share-Facebook');
+				s.events = "event13";
+				s.eVar18 = "Facebook";
+				s.linkTrackVars = "events,eVar18";
+				s.linkTrackEvents = "event13";
+				s.tl(true, 'o', 'Social Media');
+			}
+
+			//_gaq.push(['_trackSocial', 'Facebook', 'Share']);
+
+			e.preventDefault();
+			window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(title), 'facebook', 'width=480,height=240,toolbar=0,status=0,resizable=1');
+		}
+		else if (parent.hasClass('twitter')) {
+			if (typeof s == 'object') {
+				//s.tl(this, 'o', 'Share-Twitter');
+				s.events = "event13";
+				s.eVar18 = "Twitter";
+				s.linkTrackVars = "events,eVar18";
+				s.linkTrackEvents = "event13";
+				s.tl(true, 'o', 'Social Media');
+			}
+			//_gaq.push(['_trackSocial', 'Twitter', 'Tweet']);
+			console.log(bitlyURL);
+			console.log(url);
+
+			e.preventDefault();
+			window.open('http://twitter.com/share?via=DellSoftware&url=' + encodeURIComponent(bitlyURL) + '&text=' + encodeURIComponent(title) + ',%20&counturl=' + encodeURIComponent(url), 'twitter', 'width=480,height=380,toolbar=0,status=0,resizable=1');
+		}
+		else if (parent.hasClass('linkedin')) {
+			if (typeof s == 'object') {
+				//s.tl(this, 'o', 'Share-LinkedIn');
+				s.events = "event13";
+				s.eVar18 = "LinkedIn";
+				s.linkTrackVars = "events,eVar18";
+				s.linkTrackEvents = "event13";
+				s.tl(true, 'o', 'Social Media');
+			}
+			//_gaq.push(['_trackSocial', 'LinkedIn', 'Share']);
+
+			e.preventDefault();
+			window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
+		} else if (parent.hasClass('googleshare')) {
+			e.preventDefault();
+			window.open('https://plus.google.com/share?url=' + encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+			return false;
+		}
+	});
+}
+
+function offCanvas() {
+//append off canvas content
+	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
+
+//off canvas back button
+	$('#off-canvas').on('click', '.off-canvas-back', function (e) {
+		e.preventDefault();
+
+		$('body').css('left', -1 * pageWidth);
+		$('#off-canvas').css('left', '100%');
+
+		$('.site-wrapper').show();
+
+		$('body').animate({left: 0}, 500, function () {
+			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+			$('body').removeClass('off-canvas-mode');
+			$(document).scrollTop($('#off-canvas').data('top'));
 		});
 	});
-});
+
+//perform off canvas
+	$('body').on('click', '[data-toggle=offcanvas]', function (e) {
+		//Off canvas is only availabe on mobile device
+		if (pageWidth >= 768) {
+			return false;
+		}
+
+		e.preventDefault();
+
+		var target = ($(this).data('target') === undefined) ? $(this).attr('href') : $(this).data('target'),
+				top = $(document).scrollTop();
+
+		$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
+
+		if($(target).data('no-border') && $(target).data('no-border') === true) {
+			$('#off-canvas').find('.off-canvas-content').addClass('p-0');
+		}
+		else {
+			$('#off-canvas').find('.off-canvas-content').removeClass('p-0');
+		}
+
+		$('body').addClass('off-canvas-mode').animate({left: -1 * pageWidth}, 500, function () {
+			$('.site-wrapper').hide();
+			$('#off-canvas').css('top', 0);
+			$(document).scrollTop(0);
+
+			$('body').css('left', 0);
+			$('#off-canvas').css('left', 0);
+
+			$(target).trigger('offcanvas-show');
+		});
+	});
+}
+
+function toggleResize() {
+	$('body').find('[data-toggle=show]').each(function () {
+		var target = $($(this).data('target'));
+
+		if (target.is(':visible')) {
+			if (target.data('hidden-class')) {
+				target.addClass(target.data('hidden-class'));
+			}
+			else {
+				target.hide();
+			}
+		}
+	});
+}
+
+function eventForm() {
+	$('.has-slide').each(function() {
+		var wrapper = $(this).find('> div'), len = wrapper.children().length;
+
+		if($('html').hasClass('ie9') && false) {
+			$(this).css({width: $(this).width()});
+			wrapper.css('width', $(this).width());
+			wrapper.children().css('width', $(this).width()).filter(':gt(0)').hide();
+		}
+		else {
+			wrapper.css({width: len * 100 + '%'}).find('> div').css('width', 100/len + '%');
+		}
+
+		if(!wrapper.find('> div:eq(0)').is(':visible')) {
+			//TODO: Need to find a way to detect if form is in view.
+		}
+		else {
+			//Set height to the wrapper to prevent extra white space below if other pages are not the same height;
+			wrapper.css({minHeight: wrapper.find('> div:eq(0)').outerHeight(true)});
+		}
+
+		//Bind event
+		$(this).on('click', '.goto', function(e) {
+			e.preventDefault();
+
+			var parent = $(this).parents('.has-slide'), newPage = $(this).data('page');
+
+			if($('html').hasClass('ie9') && false) {
+				wrapper.children().hide().filter(':eq(' + newPage + ')').show();
+			}
+			else {
+				parent.find('> div').animate({
+					left: -1 * (newPage * 100) + '%',
+					minHeight: wrapper.find('> div:eq(' + newPage + ')').outerHeight(true)
+				}, 500);
+			}
+		});
+
+		$(this).css('visibility', 'visible');
+	});
+
+	$('#event-container')
+			.on('click', 'tbody > tr', function(e) {
+				if(!(e.target.nodeName == 'INPUT' && e.target.type == 'checkbox')) {
+					$(this).find(':input[type=checkbox]').trigger('click');
+				}
+			})
+			.on('change', ':input[type=checkbox]', function (e) {
+				var checked = 0, map = ['', 'date', 'time', 'location', 'type', 'duration'], classMap = {
+					'online': 'event-online',
+					'on-demand': 'event-on-demand',
+					'in-person': 'event-in-person'
+				}, months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+				//Clear out display detail
+				$('.event-detail-container').empty();
+
+				$('#event-container').find(':input[type=checkbox]').each(function () {
+					if ($(this).is(':checked')) {
+						checked++;
+
+						var eventType = $(this).parents('tr').data('event-type'),
+								code = (eventType == 'on-demand') ? $('#date-widget-on-demand-tpl').html():$('#date-widget-tpl').html(),
+								date = null;
+
+						$(this).parents('tr').find('> td').each(function(indx, elem) {
+							if(map[indx] != '') {
+								code = code.replace(new RegExp('\\[\\[' + map[indx] + '\\]\\]', 'g'), elem.innerHTML);
+							}
+
+							if(map[indx] == 'date') {
+								date = new Date(elem.innerHTML.replace('.', ''));
+							}
+
+							if(map[indx] == 'type') {
+								type = elem.innerHTML;
+							}
+						});
+
+						//Apply date
+						code = code.replace('[[month]]', months[date.getMonth()]);
+						code = code.replace('[[day]]', date.getDate());
+
+						//Apply date widget header color
+						code = code.replace('[[headerclass]]', classMap[eventType]);
+
+						$('.event-detail-container').append(code);
+					}
+				});
+
+
+
+				$('#event-next-button').prop('disabled', checked ? false:true);
+			});
+}
 

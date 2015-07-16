@@ -30,7 +30,11 @@ $(document).ready(function () {
 
   $('body')
 		.on('touchstart', '.subLinks > a, .subLinks > span', function (e) {
-			//Add functionality for when user uses touch on navigation.
+			//Add functionality for when user uses touch on navigation/footer.
+
+			if($(this).parents('#footer').length && pageWidth >= 768) {
+				return false;
+			}
 
 			e.preventDefault();
 			e.stopPropagation();
@@ -51,6 +55,7 @@ $(document).ready(function () {
 
 				if (pageWidth < 768) { //Mobile
 					//Animate background color to notify user that they have touched that element.
+					//Require: jQuery Color v2.1.2 plugin
 					var originalBG = $(this).css('background-color');
 
 					elem.css({backgroundColor: '#007db8'});
@@ -95,10 +100,22 @@ $(document).ready(function () {
     });
 
   // Search
-  $('#search-form').on('click', 'button', function(e) {
-		e.preventDefault();
-		goAllSearch3();
-	});
+	if($('#search-form').length) {
+		$('#search-form').on('submit', function(e) {
+			e.preventDefault();
+			document.location.href = "/search/results/?q=" + encodeURIComponent(Encoder.htmlEncode($('#searchterm').val()));
+			return false;
+		});
+
+		if(!$.fn.autocomplete) {
+			$.getScript('/Static/Scripts/jquery.autocomplete.min.js', function() {
+				initAdobeSearch();
+			});
+		}
+		else {
+			initAdobeSearch();
+		}
+	}
 
   /* Country Dropdown */
 
@@ -130,6 +147,10 @@ $(window).load(function() {
 	/*$('footer').find('a').each(function() {
 		$(this).removeAttr('onclick');
 	});*/
+
+	if(pageWidth < 992) {
+		$.getScript('/static/library/jQuery/jquery.color-2.1.2.min.js');
+	}
 });
 
 addResize('resizeGlobal');
@@ -189,4 +210,32 @@ function resizeGlobal() {
 function makeResponsive() {
   $('.not-responsive').removeClass('not-responsive').addClass('is-responsive');
   $('#wrapper').attr('id', '').addClass('site-wrapper').wrapInner('<div class="site-canvas">');
+}
+
+function initAdobeSearch() {
+	var config = {
+		account : "sp10050c33",
+		searchDomain : "http://sp10050c33.guided.ss-omtrdc.net",
+		inputElement : "#searchterm",
+		inputFormElement : "#search-form",
+		delay : 300,
+		minLength : 2,
+		maxResults : 10,
+		browserAutocomplete : false,
+		queryCaseSensitive : false,
+		startsWith : false,
+		searchOnSelect : true,
+		submitOnSelect: true,
+		highlightWords: false,
+		highlightWordsBegin: false
+	};
+
+	if($.fn.AdobeAutocomplete) {
+		$('#searchterm').AdobeAutocomplete(config);
+	}
+	else {
+		$.getScript('//content.atomz.com/content/pb00003799/publish/build/search/jquery/autocomplete/1.4/jquery.adobe.autocomplete.min.js', function() {
+			$('#searchterm').AdobeAutocomplete(config);
+		});
+	}
 }

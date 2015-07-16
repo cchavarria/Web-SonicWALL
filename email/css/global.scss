@@ -2,7 +2,7 @@
   - Use full 6 character hex value.
 */
 
-@import "../../static/css/bootstrap/custom-font-face";
+@import "../../static/bootstrap/custom/_font-face";
 
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
@@ -16,7 +16,8 @@
 
 body {
   width: 100% !important;
-  min-width: 100%;
+  //min-width: 100%;
+  min-width: 580px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0;
@@ -751,7 +752,7 @@ body.outlook p {
   line-height: 1.3em;
 }
 
-@import "../../static/css/bootstrap/custom-image";
+@import "../../static/bootstrap/custom/_image";
 
 #social-media {
   td {

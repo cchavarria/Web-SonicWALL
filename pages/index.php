@@ -9,6 +9,8 @@
     <title></title>
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/library/jQueryUI/jquery-ui-1.11.4-structure.css">
+    <link rel="stylesheet" href="/static/library/jQueryUI/jquery-ui-1.11.4-theme.css">
 
     <!--[if IE]>
     <link rel="stylesheet" href="/static/css/bootstrap-ie.css">
@@ -1007,8 +1009,13 @@
 </div>
 
 <script src="/static/library/modernizr.min.js"></script>
-<script src="/static/library/jquery-1.9.1.min.js"></script>
-<script src="/static/library/jquery.color-2.1.2.min.js"></script>
+<script src="/static/library/jQuery/jquery-1.9.1.min.js"></script>
+<script src="/static/library/jQueryUI/jquery-ui-1.11.4.min.js"></script>
+<script src="/static/library/jQuery/jquery.cookie.js"></script>
+<script src="/static/library/jQuery/jquery.dotdotdot.js"></script>
+<script src="/static/library/jQuery/jquery.placeholder.js"></script>
+<script src="/static/library/jQuery/jquery.color-2.1.2.min.js"></script>
+<script src="/static/library/jQuery/jquery.slidepagination.js"></script>
 <script src="/static/library/bootstrap-3.3.4.min.js"></script>
 <script src="/static/js/responsive-header-footer.js"></script>
 <script src="/static/js/default.js"></script>

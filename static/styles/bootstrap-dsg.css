@@ -1,4 +1,5 @@
 @charset "IBM437";
+/*$headings-font-family:    inherit !default;*/
 @font-face {
   font-family: 'museo-sans-for-dell-100';
   src: url("/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-100-webfont.woff") format("woff"), url("/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
@@ -53,7 +54,6 @@
   font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  /*$headings-font-family:    inherit !default;*/
   /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
   /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
   /*@font-face {
@@ -171,11 +171,11 @@
     width: device-width;
   }*/
   /* Background Color */
-  /* Padding */
-  /* Margin */
   /* TODO: Need to find where this is being used */
   /* Text */
-  /*display*/ }
+  /*display*/
+  /* Padding */
+  /* Margin */ }
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -1158,6 +1158,9 @@
   .bootstrap ol {
     margin-top: 0;
     margin-bottom: 10px; }
+    .bootstrap ul.slim,
+    .bootstrap ol.slim {
+      padding-left: 1em; }
     .bootstrap ul ul,
     .bootstrap ul ol,
     .bootstrap ol ul,
@@ -1210,7 +1213,8 @@
     padding: 10px 20px;
     margin: 20px 0;
     font-size: 20px;
-    line-height: 1.2em; }
+    line-height: 1.2em;
+    position: relative; }
     .bootstrap blockquote::before {
       content: "\201C";
       position: absolute;
@@ -2407,7 +2411,8 @@
       .bootstrap input[type="month"] {
         line-height: 46px; } }
   .bootstrap .form-group {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    position: relative; }
   .bootstrap .radio,
   .bootstrap .checkbox {
     position: relative;
@@ -2646,11 +2651,9 @@
     background-position: 95% 50%; }
   .bootstrap .form-control.error {
     background-color: #ffffc9;
-    background-image: url("/images/shared/formError.png");
-    background-position: 100% 50%;
-    background-repeat: no-repeat; }
-  .bootstrap select.form-control.error {
-    background-position: 95% 50%; }
+    border: 1px solid #ce1126; }
+    .bootstrap .form-control.error:active, .bootstrap .form-control.error:focus {
+      background-color: white; }
   .bootstrap .has-feedback label ~ .form-control-feedback {
     top: 25px; }
   .bootstrap .has-feedback label.sr-only ~ .form-control-feedback {
@@ -2729,6 +2732,31 @@
   @media (min-width: 768px) {
     .bootstrap .form-horizontal .form-group-sm .control-label {
       padding-top: 6px; } }
+  .bootstrap .form-horizontal-2 .form-group {
+    margin: 0; }
+  .bootstrap .form-horizontal-2 label {
+    font-weight: 400;
+    padding-top: 5px;
+    font-size: 14px; }
+  @media (min-width: 768px) {
+    .bootstrap .form-horizontal-2 {
+      display: table;
+      width: 100%; }
+      .bootstrap .form-horizontal-2 .form-group {
+        display: table-row; }
+        .bootstrap .form-horizontal-2 .form-group > div, .bootstrap .form-horizontal-2 .form-group > span {
+          display: table-cell;
+          vertical-align: top; }
+          .bootstrap .form-horizontal-2 .form-group > div:first-child, .bootstrap .form-horizontal-2 .form-group > span:first-child {
+            width: 0; }
+          .bootstrap .form-horizontal-2 .form-group > div > input, .bootstrap .form-horizontal-2 .form-group > div > select, .bootstrap .form-horizontal-2 .form-group > span > input, .bootstrap .form-horizontal-2 .form-group > span > select {
+            margin-bottom: 15px; }
+          .bootstrap .form-horizontal-2 .form-group > div > label, .bootstrap .form-horizontal-2 .form-group > span > label {
+            margin-bottom: 15px;
+            min-width: 115px;
+            text-align: right;
+            padding-right: 10px;
+            display: block; } }
   .bootstrap .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -2766,7 +2794,22 @@
       opacity: 0.65;
       filter: alpha(opacity=65);
       -webkit-box-shadow: none;
-      box-shadow: none; }
+      box-shadow: none;
+      color: #aaaaaa;
+      background-color: #eeeeee;
+      border-color: #cccccc; }
+      .bootstrap .btn.disabled:hover, .bootstrap .btn.disabled:focus, .bootstrap .btn.disabled.focus, .bootstrap .btn.disabled:active, .bootstrap .btn.disabled.active, .open > .bootstrap .btn.disabled.dropdown-toggle, .bootstrap .btn[disabled]:hover, .bootstrap .btn[disabled]:focus, .bootstrap .btn[disabled].focus, .bootstrap .btn[disabled]:active, .bootstrap .btn[disabled].active, .open > .bootstrap .btn[disabled].dropdown-toggle, fieldset[disabled] .bootstrap .btn:hover, fieldset[disabled] .bootstrap .btn:focus, fieldset[disabled] .bootstrap .btn.focus, fieldset[disabled] .bootstrap .btn:active, fieldset[disabled] .bootstrap .btn.active, .open > fieldset[disabled] .bootstrap .btn.dropdown-toggle {
+        color: #aaaaaa;
+        background-color: #d4d4d4;
+        border-color: #adadad; }
+      .bootstrap .btn.disabled:active, .bootstrap .btn.disabled.active, .open > .bootstrap .btn.disabled.dropdown-toggle, .bootstrap .btn[disabled]:active, .bootstrap .btn[disabled].active, .open > .bootstrap .btn[disabled].dropdown-toggle, fieldset[disabled] .bootstrap .btn:active, fieldset[disabled] .bootstrap .btn.active, .open > fieldset[disabled] .bootstrap .btn.dropdown-toggle {
+        background-image: none; }
+      .bootstrap .btn.disabled.disabled, .bootstrap .btn.disabled.disabled:hover, .bootstrap .btn.disabled.disabled:focus, .bootstrap .btn.disabled.disabled.focus, .bootstrap .btn.disabled.disabled:active, .bootstrap .btn.disabled.disabled.active, .bootstrap .btn.disabled[disabled], .bootstrap .btn.disabled[disabled]:hover, .bootstrap .btn.disabled[disabled]:focus, .bootstrap .btn.disabled[disabled].focus, .bootstrap .btn.disabled[disabled]:active, .bootstrap .btn.disabled[disabled].active, fieldset[disabled] .bootstrap .btn.disabled, fieldset[disabled] .bootstrap .btn.disabled:hover, fieldset[disabled] .bootstrap .btn.disabled:focus, fieldset[disabled] .bootstrap .btn.disabled.focus, fieldset[disabled] .bootstrap .btn.disabled:active, fieldset[disabled] .bootstrap .btn.disabled.active, .bootstrap .btn[disabled].disabled, .bootstrap .btn[disabled].disabled:hover, .bootstrap .btn[disabled].disabled:focus, .bootstrap .btn[disabled].disabled.focus, .bootstrap .btn[disabled].disabled:active, .bootstrap .btn[disabled].disabled.active, .bootstrap .btn[disabled][disabled], .bootstrap .btn[disabled][disabled]:hover, .bootstrap .btn[disabled][disabled]:focus, .bootstrap .btn[disabled][disabled].focus, .bootstrap .btn[disabled][disabled]:active, .bootstrap .btn[disabled][disabled].active, fieldset[disabled] .bootstrap .btn[disabled], fieldset[disabled] .bootstrap .btn[disabled]:hover, fieldset[disabled] .bootstrap .btn[disabled]:focus, fieldset[disabled] .bootstrap .btn[disabled].focus, fieldset[disabled] .bootstrap .btn[disabled]:active, fieldset[disabled] .bootstrap .btn[disabled].active, fieldset[disabled] .bootstrap .btn.disabled, fieldset[disabled] .bootstrap .btn.disabled:hover, fieldset[disabled] .bootstrap .btn.disabled:focus, fieldset[disabled] .bootstrap .btn.disabled.focus, fieldset[disabled] .bootstrap .btn.disabled:active, fieldset[disabled] .bootstrap .btn.disabled.active, fieldset[disabled] .bootstrap .btn[disabled], fieldset[disabled] .bootstrap .btn[disabled]:hover, fieldset[disabled] .bootstrap .btn[disabled]:focus, fieldset[disabled] .bootstrap .btn[disabled].focus, fieldset[disabled] .bootstrap .btn[disabled]:active, fieldset[disabled] .bootstrap .btn[disabled].active, fieldset[disabled] fieldset[disabled] .bootstrap .btn, fieldset[disabled] fieldset[disabled] .bootstrap .btn:hover, fieldset[disabled] fieldset[disabled] .bootstrap .btn:focus, fieldset[disabled] fieldset[disabled] .bootstrap .btn.focus, fieldset[disabled] fieldset[disabled] .bootstrap .btn:active, fieldset[disabled] fieldset[disabled] .bootstrap .btn.active {
+        background-color: #eeeeee;
+        border-color: #cccccc; }
+      .bootstrap .btn.disabled .badge, .bootstrap .btn[disabled] .badge, fieldset[disabled] .bootstrap .btn .badge {
+        color: #eeeeee;
+        background-color: #aaaaaa; }
   .bootstrap .btn-default {
     color: #007db8;
     background-color: #eeeeee;
@@ -4496,6 +4539,8 @@
     content: "\e631"; }
   .bootstrap .icon-small-useraccount:before {
     content: "\e663"; }
+  .bootstrap .icon-small-checkmark:before {
+    content: "\e611"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -4564,7 +4609,8 @@
         border-left: 1px solid transparent;
         color: #fff;
         display: block;
-        cursor: pointer; }
+        cursor: pointer;
+        position: relative; }
         .bootstrap .masthead .utility a:link, .bootstrap .masthead .utility a:visited {
           margin: 0;
           padding: 22px 10px;
@@ -4744,14 +4790,20 @@
     width: 320px;
     border: 0;
     color: #444;
-    border-bottom: 4px solid #007db8; }
-  .bootstrap #signin-container .dropdown-menu a, .bootstrap #signin-container .dropdown-menu .btn {
-    padding: 5px 0; }
+    border-bottom: 4px solid #007db8;
+    padding: 0; }
+  .bootstrap #signin-container .dropdown-menu h5 {
+    margin: 10px 0; }
+    .bootstrap #signin-container .dropdown-menu h5 a {
+      padding: 0; }
   .bootstrap #signin-container .dropdown-menu .btn {
-    margin: 5px 0; }
+    padding: 5px 0;
+    margin: 10px 0; }
   .bootstrap #signin-container .dropdown-menu hr {
     margin: 10px 0 5px; }
   .bootstrap .is-logged-in {
+    display: none; }
+  .bootstrap .masthead .utility .badge.is-logged-in {
     display: none; }
   .bootstrap #footer {
     background-color: #0085c3;
@@ -4769,8 +4821,7 @@
         display: block; }
       .bootstrap #footer li > span {
         padding: 10px 0 9px 20px;
-        display: block;
-        cursor: pointer; }
+        display: block; }
       .bootstrap #footer li > ul {
         display: none; }
       .bootstrap #footer li.open > ul {
@@ -4880,94 +4931,6 @@
     font-size: 18px; }
   .bootstrap .ie-mobile-7 .icon-small-searchleft:before {
     content: "Search"; }
-  .bootstrap .flag-us {
-    background: url("/images/shared/us.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-br {
-    background: url("/images/shared/flags/br.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-de {
-    background: url("/images/shared/flags/de.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-cn {
-    background: url("/images/shared/flags/cn.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-fr {
-    background: url("/images/shared/flags/fr.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-jp {
-    background: url("/images/shared/flags/jp.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  .bootstrap .flag-mx {
-    background: url("/images/shared/flags/mx.gif") 0 3px no-repeat;
-    padding-left: 20px !important; }
-  @media (max-width: 767px) {
-    .bootstrap #country-selector > div {
-      display: none;
-      border-top: 1px solid #aaa; }
-    .bootstrap #country-selector.open > div {
-      display: block; }
-    .bootstrap #country-popup {
-      background-color: #fff; } }
-  @media (min-width: 768px) {
-    .bootstrap #country-selector {
-      position: relative; }
-    .bootstrap #current-country > span {
-      background: url("/images/shared/sprites.png") -104px -128px no-repeat;
-      display: inline-block;
-      width: 12px;
-      height: 6px;
-      vertical-align: bottom;
-      padding-top: 8px !important;
-      margin-left: 5px; }
-    .bootstrap #country-popup {
-      display: none;
-      position: absolute;
-      right: -61px;
-      bottom: 26px;
-      padding: 0;
-      overflow: visible;
-      -moz-box-shadow: 1px 1px 5px #000;
-      -webkit-box-shadow: 1px 1px 5px #000;
-      box-shadow: 1px 1px 5px #000;
-      border-radius: 10px;
-      -moz-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      z-index: 9999; }
-      .bootstrap #country-popup > div:before, .bootstrap #country-popup > div:after {
-        position: absolute;
-        bottom: -10px;
-        right: 57px;
-        content: "";
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        width: 20px;
-        height: 20px;
-        background: #fff;
-        z-index: 1; }
-      .bootstrap #country-popup > div:after {
-        box-shadow: 1px 1px 5px #000; }
-      .bootstrap #country-popup > div > div {
-        position: relative;
-        background: #fff;
-        border-radius: 10px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        padding: 20px;
-        z-index: 2; }
-      .bootstrap #country-popup ul {
-        min-width: 100px; }
-      .bootstrap #country-popup a {
-        color: #0085c3;
-        font-size: 13px;
-        line-height: 16px;
-        display: block;
-        padding: 2px 5px;
-        white-space: nowrap; }
-      .bootstrap #country-popup a.active {
-        color: #fff;
-        background-color: #0085c3; } }
   @media (max-width: 767px) {
     .bootstrap.is-responsive .shadow-overlay-left {
       width: 10px;
@@ -5023,15 +4986,17 @@
       height: auto !important; }
     .bootstrap.is-responsive i.menu-indicator {
       position: relative; }
-    .bootstrap.is-responsive #footer .footer-top-section li {
-      padding: 0;
-      border-bottom: 1px solid #aaa; }
-    .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li {
-      border-bottom: 1px solid #5eb0d7; }
-      .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li:last-child {
-        border-bottom: 1px solid transparent; }
-    .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links.list-inline li {
-      display: block; }
+    .bootstrap.is-responsive #footer {
+      margin-top: 30px; }
+      .bootstrap.is-responsive #footer .footer-top-section li {
+        padding: 0;
+        border-bottom: 1px solid #aaa; }
+      .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li {
+        border-bottom: 1px solid #5eb0d7; }
+        .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li:last-child {
+          border-bottom: 1px solid transparent; }
+      .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links.list-inline li {
+        display: block; }
     .bootstrap.is-responsive .openNav .site-canvas {
       -webkit-transform: translate3d(-276px, 0, 0);
       -moz-transform: translate3d(-276px, 0, 0);
@@ -5960,6 +5925,8 @@
     background-color: #f9f9f9; }
   .bootstrap .border-grey {
     border: 1px solid #cbcbcb; }
+  .bootstrap .border-grey-2 {
+    border: 1px solid #ddd; }
   .bootstrap .border-t-grey {
     border-top: 1px solid #ccc; }
   .bootstrap .border-b-gray {
@@ -5967,8 +5934,6 @@
   .bootstrap .border-tb-grey {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee; }
-  .bootstrap .img-border-grey {
-    border: 1px solid #ddd; }
   .bootstrap .polaris-divider {
     border-top: 1px solid #eee;
     position: relative;
@@ -5984,10 +5949,74 @@
       position: absolute;
       top: -3px;
       width: 90%; }
+  .bootstrap ul.bullet-check-mark {
+    padding-left: 2em; }
+    .bootstrap ul.bullet-check-mark li {
+      list-style-image: url("/images/shared/bullet-check-mark.png"); }
+  .bootstrap li {
+    padding-bottom: .6em; }
+  .bootstrap .text-sm, .bootstrap .text-sm p {
+    font-size: 11px;
+    line-height: 15px; }
+  .bootstrap .text-md {
+    font-size: 16px;
+    line-height: 24px; }
+  .bootstrap .nowrap {
+    white-space: nowrap; }
+  .bootstrap .block {
+    display: block !important; }
+  .bootstrap .inline {
+    display: inline !important; }
+  @media (max-width: 767px) {
+    .bootstrap #right-rail-form label {
+      padding-top: 8px;
+      padding-bottom: 0; }
+    .bootstrap .no-border-xs {
+      border: none !important; }
+    .bootstrap .border-t-gray-xs {
+      border-top: 1px solid #aaa; }
+    .bootstrap .border-b-gray-xs {
+      border-bottom: 1px solid #aaa; }
+    .bootstrap .center-block-xs {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+    .bootstrap .text-center-xs {
+      text-align: center; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .bootstrap #right-rail-form label {
+      padding-top: 8px;
+      padding-bottom: 0; }
+    .bootstrap #right-rail-form .row {
+      margin-bottom: 15px; }
+    .bootstrap .center-block-sm {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+    .bootstrap .text-right-sm {
+      text-align: right; }
+    .bootstrap .pull-right-sm {
+      float: right !important; }
+    .bootstrap .pull-left-sm {
+      float: left; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .bootstrap #right-rail-form label {
+      padding-top: 8px;
+      padding-bottom: 0;
+      padding-left: 0; }
+    .bootstrap .pull-left-md {
+      float: left; }
+    .bootstrap .text-left-md {
+      text-align: left; } }
+  @media (min-width: 1200px) {
+    .bootstrap .pull-left-lg {
+      float: left; } }
   .bootstrap .pad-0, .bootstrap .p-0 {
     padding: 0 !important; }
   .bootstrap .p-10 {
     padding: 10px !important; }
+  .bootstrap .p-20 {
+    padding: 20px !important; }
   .bootstrap .pad-15, .bootstrap .p-15 {
     padding: 15px !important; }
   .bootstrap .pad-25, .bootstrap .p-25 {
@@ -5998,6 +6027,8 @@
     padding-top: 20px !important; }
   .bootstrap .pt-30 {
     padding-top: 30px !important; }
+  .bootstrap .pb-0 {
+    padding-bottom: 0 !important; }
   .bootstrap .pb-10 {
     padding-bottom: 10px !important; }
   .bootstrap .pb-20 {
@@ -6008,10 +6039,17 @@
     padding-left: 0 !important; }
   .bootstrap .pr-0 {
     padding-right: 0 !important; }
+  .bootstrap .ph-15 {
+    padding-left: 15px !important;
+    padding-right: 15px !important; }
   .bootstrap .mar-0, .bootstrap .m-0 {
     margin: 0 !important; }
+  .bootstrap .mr-15 {
+    margin-right: 15px !important; }
   .bootstrap .mt-0 {
     margin-top: 0 !important; }
+  .bootstrap .mt-5 {
+    margin-top: 5px !important; }
   .bootstrap .mt-7 {
     margin-top: 7px !important; }
   .bootstrap .mt-12 {
@@ -6024,6 +6062,8 @@
     margin-top: 20px !important; }
   .bootstrap .mt-30 {
     margin-top: 30px !important; }
+  .bootstrap .mt-40 {
+    margin-top: 40px !important; }
   .bootstrap .mb-0 {
     margin-bottom: 0 !important; }
   .bootstrap .mb-7 {
@@ -6058,26 +6098,12 @@
     margin-left: 20px !important; }
   .bootstrap .ml-30 {
     margin-left: 30px !important; }
-  .bootstrap ul.bullet-check-mark {
-    padding-left: 2em; }
-    .bootstrap ul.bullet-check-mark li {
-      list-style-image: url("/images/shared/bullet-check-mark.png"); }
-  .bootstrap li {
-    padding-bottom: .6em; }
-  .bootstrap .text-sm, .bootstrap .text-sm p {
-    font-size: 11px;
-    line-height: 15px; }
-  .bootstrap .text-md {
-    font-size: 16px;
-    line-height: 24px; }
-  .bootstrap .block {
-    display: block !important; }
-  .bootstrap .inline {
-    display: inline !important; }
   @media (max-width: 767px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;
       padding-bottom: 0; }
+    .bootstrap .no-border-xs {
+      border: none !important; }
     .bootstrap .border-t-gray-xs {
       border-top: 1px solid #aaa; }
     .bootstrap .border-b-gray-xs {
@@ -6092,6 +6118,8 @@
       margin-top: 0 !important; }
     .bootstrap .mt-20-xs {
       margin-top: 20px !important; }
+    .bootstrap .mt-40-xs {
+      margin-top: 40px !important; }
     .bootstrap .mb-0-xs {
       margin-bottom: 0 !important; }
     .bootstrap .mr-0-xs {
@@ -6114,44 +6142,57 @@
       padding-left: 0 !important; }
     .bootstrap .pr-0-xs {
       padding-right: 0 !important; }
+    .bootstrap .pr-30-xs {
+      padding-right: 30px !important; }
     .bootstrap .pr-15-xs {
       padding-right: 15px !important; }
     .bootstrap .pl-15-xs {
       padding-left: 15px !important; }
     .bootstrap .pl-30-xs {
-      padding-left: 30px !important; } }
-  @media (min-width: 768px) {
-    .bootstrap #right-rail-form label {
-      padding-top: 8px;
-      padding-bottom: 0; }
-    .bootstrap #right-rail-form .row {
-      margin-bottom: 15px; }
-    .bootstrap .text-right-sm {
-      text-align: right; }
-    .bootstrap .pull-right-sm {
-      float: right !important; }
-    .bootstrap .pull-left-sm {
-      float: left; }
+      padding-left: 30px !important; }
+    .bootstrap .ph-0-xs {
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
+    .bootstrap .ph-15-xs {
+      padding-left: 15px !important;
+      padding-right: 15px !important; }
+    .bootstrap .ph-30-xs {
+      padding-left: 30px !important;
+      padding-right: 30px !important; } }
+  @media (min-width: 768px) and (max-width: 991px) {
     .bootstrap .mt-0-sm {
       margin-top: 0 !important; }
+    .bootstrap .mt-20-sm {
+      margin-top: 20px !important; }
     .bootstrap .ml-20-sm {
       margin-left: 20px !important; }
     .bootstrap .mr-20-sm {
-      margin-right: 20px !important; } }
-  @media (max-width: 991px) and (min-width: 768px) {
+      margin-right: 20px !important; }
+    .bootstrap .mh-0-sm {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+    .bootstrap .p-0-sm {
+      padding: 0 !important; }
     .bootstrap .pr-0-sm {
       padding-right: 0 !important; }
+    .bootstrap .pr-30-sm {
+      padding-right: 30px !important; }
     .bootstrap .pl-0-sm {
-      padding-left: 0 !important; } }
-  @media (min-width: 992px) {
-    .bootstrap #right-rail-form label {
-      padding-top: 8px;
-      padding-bottom: 0;
-      padding-left: 0; }
-    .bootstrap .pull-left-md {
-      float: left; }
-    .bootstrap .text-left-md {
-      text-align: left; }
+      padding-left: 0 !important; }
+    .bootstrap .pl-30-sm {
+      padding-left: 30px !important; }
+    .bootstrap .ph-0-sm {
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
+    .bootstrap .ph-15-sm {
+      padding-left: 15px !important;
+      padding-right: 15px !important; }
+    .bootstrap .ph-30-sm {
+      padding-left: 30px !important;
+      padding-right: 30px !important; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .bootstrap .mt-0-md {
+      margin-top: 0 !important; }
     .bootstrap .mr-10-md {
       margin-right: 10px !important; }
     .bootstrap .mr-20-md {
@@ -6206,6 +6247,11 @@
     margin-bottom: 0; }
   .bootstrap .btn {
     line-height: 1.42857 !important; }
+  .bootstrap .icon-small-checkmark::before {
+    font-size: 7px;
+    left: 4px;
+    position: absolute;
+    top: 3px; }
 
 #fancybox-overlay {
   z-index: 4051; }
@@ -6216,6 +6262,112 @@
 .img-border {
   border: 1px solid #737373; }
 
+/* http://software.dell.com/kace/ */
+.img-border-grey {
+  border: 1px solid #ddd; }
+
+.flag-us {
+  background: url("/images/shared/us.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-br {
+  background: url("/images/shared/flags/br.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-de {
+  background: url("/images/shared/flags/de.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-cn {
+  background: url("/images/shared/flags/cn.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-fr {
+  background: url("/images/shared/flags/fr.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-jp {
+  background: url("/images/shared/flags/jp.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+.flag-mx {
+  background: url("/images/shared/flags/mx.gif") 0 3px no-repeat;
+  padding-left: 20px !important; }
+
+@media (max-width: 767px) {
+  #country-selector > div {
+    display: none;
+    border-top: 1px solid #aaa; }
+  #country-selector.open > div {
+    display: block; }
+
+  #country-popup {
+    background-color: #fff; }
+    #country-popup a {
+      color: #007db8 !important; } }
+@media (min-width: 768px) {
+  #country-selector {
+    position: relative; }
+
+  #current-country {
+    cursor: pointer; }
+    #current-country > span {
+      background: url("/images/shared/sprites.png") -104px -128px no-repeat;
+      display: inline-block;
+      width: 12px;
+      height: 6px;
+      vertical-align: bottom;
+      padding-top: 8px !important;
+      margin-left: 5px; }
+
+  #country-popup {
+    display: none;
+    position: absolute;
+    right: -61px;
+    bottom: 26px;
+    padding: 0;
+    overflow: visible;
+    -moz-box-shadow: 1px 1px 5px #000;
+    -webkit-box-shadow: 1px 1px 5px #000;
+    box-shadow: 1px 1px 5px #000;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    z-index: 9999; }
+    #country-popup > div:before, #country-popup > div:after {
+      position: absolute;
+      bottom: -10px;
+      right: 57px;
+      content: "";
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      z-index: 1; }
+    #country-popup > div:after {
+      box-shadow: 1px 1px 5px #000; }
+    #country-popup > div > div {
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      padding: 20px;
+      z-index: 2; }
+    #country-popup ul {
+      min-width: 100px; }
+    #country-popup a {
+      color: #0085c3 !important;
+      font-size: 13px;
+      line-height: 16px;
+      display: block;
+      padding: 2px 5px !important;
+      white-space: nowrap; }
+      #country-popup a.active {
+        color: #fff !important;
+        background-color: #0085c3; } }
 @media (max-width: 767px) {
   .site-canvas {
     -webkit-transform: translate3d(0, 0, 0);

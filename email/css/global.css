@@ -57,7 +57,7 @@
 
 body {
   width: 100% !important;
-  min-width: 100%;
+  min-width: 580px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0;
@@ -574,6 +574,10 @@ body.outlook p {
 
 .img-border {
   border: 1px solid #737373; }
+
+/* http://software.dell.com/kace/ */
+.img-border-grey {
+  border: 1px solid #ddd; }
 
 #social-media {
   /*a, span {

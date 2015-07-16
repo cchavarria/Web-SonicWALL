@@ -1,6 +1,6 @@
-@import "bootstrap/_variables-custom";
+@import "../bootstrap/custom/_variables";
 
-.ie {
+/*.ie {
   select.form-control {
     &.error {
       background-color: $state-danger-bg;
@@ -9,10 +9,9 @@
       background-repeat: no-repeat;
     }
   }
-}
+}*/
 
 .ie8 {
-
   /* events w inline form */
   .event-form{
 
@@ -30,6 +29,22 @@
   select.form-control {
     &.error {
       background-position: 91% 50%;
+    }
+  }
+  .form-horizontal-2 {
+    width: 100%;
+    .form-group {
+      >label {
+        height: 49px;
+      }
+      /*>label, >input, >select {
+        &::before {
+          content: "";
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+          display: inline-block;
+        }
+      }*/
     }
   }
 }

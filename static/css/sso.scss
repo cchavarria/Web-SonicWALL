@@ -9,9 +9,9 @@
 .sso, .login {
 
   button.btn{
-    padding: 8px 16px;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 26px;
+    font-size: 16px;
   }
   /* login form has double button - fix extra padding */
   .label-top {
@@ -24,27 +24,81 @@
     }
   }
 
-  #error-container {
-    background: url("/images/shared/formError.png") 10px 10px no-repeat #ffffc9;
-    padding: 10px 10px 10px 50px;
-    display: inline-block;
-    width: 455px;
-    > li {
-      padding: 0 0 5px 0;
-    }
-  }
   /* disabled buttons */
   button[disabled=disabled] {
     color: #444;
   }
 }
 
+.sso {
+  .account-benefits {
+    h3{
+      margin-top: 11px;
+      margin-bottom: 10px !important;
+    }
+    ul{
+      list-style-type: none;
+      padding-left: 0;
+
+    }
+    li{
+      font-size: 16px;
+      line-height: 30px;
+      color:#444;
+      padding-bottom: 0;
+    }
+    span{
+      display: inline-block;
+      margin-right:10px;
+    }
+    .icon-small-whitepaper:before {
+      content: "\e669";
+    }
+    .icon-small-download:before {
+      content: "\e61f";
+    }
+    .icon-small-calendar:before {
+      content: "\e60d";
+    }
+    .icon-small-support:before {
+      content: "\e65a";
+    }
+  }
+}
+
 .sso.edit-account {
+  h1{
+    margin-bottom: 17px;
+  }
   button.btn {
     margin-bottom: 10px;
   }
 }
 
+.sso.edit-email {
+
+  h1{
+    margin-bottom: 17px;
+  }
+  .email-instructions {
+    margin-bottom: 13px;
+  }
+  .form-footer {
+    >div:last-child{
+      padding-left:0;
+      padding-bottom: 0;
+    }
+  }
+  button.btn {
+    margin-top: 15px;
+  }
+}
+
+.sso.create-account {
+  h1 {
+    margin-bottom: 16px;
+  }
+}
 /* login Remember me checkbox */
 #lnkForgotPwd {
   display: block;
@@ -53,23 +107,24 @@
 /* My Account styles */
 
 .sso.my-account {
-  > div {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
   .sso-links {
     a {
       display: block;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
     h3 {
       font-size: 24px;
       line-height: 28px;
+      margin-top: 14px;
+      margin-bottom: 24px;
     }
   }
   .account-info > div {
-    margin-bottom: 8px;
+    margin-bottom: 14px;
+  }
+  .account-info > div:last-child {
+    margin-bottom: 6px;
   }
   span {
     font-weight: bold;
@@ -132,11 +187,11 @@
   .sso {
 
     .label-inline{
-      width: 454px;
+      max-width: 454px;
     }
     h1 {
-      padding-top: 3px;
-      margin-bottom: 16px;
+      padding-top: 4px;
+      margin-bottom: 24px;
     }
     form {
       display: table;
@@ -150,6 +205,7 @@
         width: 28%;
         text-align: right;
         padding-right: 10px;
+        vertical-align: middle;
       }
       .form-control,
       .form-footer > div:last-child {
@@ -159,8 +215,10 @@
       }
     }
     .legal {
-      width: 100%;
       margin-bottom: 6px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #444;
     }
   }
   .casl {
@@ -200,7 +258,7 @@
       }
     }
     button.btn {
-      margin-top: 25px;
+      margin-top: 15px;
       margin-bottom: 10px;
     }
     .form-group:last-child {
@@ -216,7 +274,7 @@
     form {
       label,
       .form-footer > div:first-child {
-        width: 156px;
+        width: 156px !important;
       }
       .form-control,
       .form-footer > div:last-child,
@@ -245,4 +303,87 @@
     }
   }
 
+}
+
+// IE8 specific
+//--------------------------------------------------------
+
+.ie8 {
+  .sso {
+    form,
+    .form-group,
+    .form-control {
+      box-sizing: border-box !important;
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .form-control.last-input {
+      margin-bottom: 0;
+    }
+    form {
+      label {
+        vertical-align: inherit !important;
+      }
+      button.btn {
+        margin-top: 5px !important;
+        margin-bottom: 16px !important;
+      }
+    }
+    .tooltip{
+      filter: alpha(opacity=10000);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+  }
+}
+.ie9 {
+  form {
+    border-collapse: separate; /* Or do nothing, this is default */
+    border-spacing: 10px; /* Only works if border-collapse is separate */
+  }
+  .sso{
+    button.btn{
+      margin-top: 10px !important;
+      margin-bottom: 12px !important;
+    }
+    .label-inline {
+      width: 520px !important;
+    }
+    .form-footer {
+      > div:last-child{
+        margin:0px !important;
+
+      }
+    }
+    .form-control{
+      display: inline-block; /* display table-cell prevents dropdown arrow to show on ie9*/
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .form-group{
+      margin-bottom: 0 !important;
+    }
+  }
+  .edit-account{
+    margin-bottom: -11px;
+
+    h1{
+      margin-bottom:12px !important;
+    }
+  }
+  .edit-email {
+
+    .btn-block{
+      width: 294px;
+    }
+    button.btn{
+      margin-bottom: 0 !important;
+    }
+  }
+  .create-account{
+    .legal { // without edits div gets pushed right: only ie9
+      margin-left: 21.66% !important;
+      width: 59.33% !important;
+    }
+  }
 }

@@ -2,43 +2,75 @@
   /* login form has double button - fix extra padding */
   /* disabled buttons */ }
   .sso button.btn, .login button.btn {
-    padding: 8px 16px;
-    margin-top: 25px;
-    margin-bottom: 26px; }
+    margin-top: 15px;
+    margin-bottom: 26px;
+    font-size: 16px; }
   .sso .label-top .btn-primary, .login .label-top .btn-primary {
     margin-bottom: 10px !important; }
   .sso .label-top .btn-default, .login .label-top .btn-default {
     margin-top: 0;
     margin-bottom: 10px; }
-  .sso #error-container, .login #error-container {
-    background: url("/images/shared/formError.png") 10px 10px no-repeat #ffffc9;
-    padding: 10px 10px 10px 50px;
-    display: inline-block;
-    width: 455px; }
-    .sso #error-container > li, .login #error-container > li {
-      padding: 0 0 5px 0; }
   .sso button[disabled=disabled], .login button[disabled=disabled] {
     color: #444; }
 
+.sso .account-benefits h3 {
+  margin-top: 11px;
+  margin-bottom: 10px !important; }
+.sso .account-benefits ul {
+  list-style-type: none;
+  padding-left: 0; }
+.sso .account-benefits li {
+  font-size: 16px;
+  line-height: 30px;
+  color: #444;
+  padding-bottom: 0; }
+.sso .account-benefits span {
+  display: inline-block;
+  margin-right: 10px; }
+.sso .account-benefits .icon-small-whitepaper:before {
+  content: "\e669"; }
+.sso .account-benefits .icon-small-download:before {
+  content: "\e61f"; }
+.sso .account-benefits .icon-small-calendar:before {
+  content: "\e60d"; }
+.sso .account-benefits .icon-small-support:before {
+  content: "\e65a"; }
+
+.sso.edit-account h1 {
+  margin-bottom: 17px; }
 .sso.edit-account button.btn {
   margin-bottom: 10px; }
+
+.sso.edit-email h1 {
+  margin-bottom: 17px; }
+.sso.edit-email .email-instructions {
+  margin-bottom: 13px; }
+.sso.edit-email .form-footer > div:last-child {
+  padding-left: 0;
+  padding-bottom: 0; }
+.sso.edit-email button.btn {
+  margin-top: 15px; }
+
+.sso.create-account h1 {
+  margin-bottom: 16px; }
 
 /* login Remember me checkbox */
 #lnkForgotPwd {
   display: block; }
 
 /* My Account styles */
-.sso.my-account > div {
-  padding-left: 0;
-  padding-right: 0; }
 .sso.my-account .sso-links a {
   display: block;
-  margin-bottom: 18px; }
+  margin-bottom: 12px; }
 .sso.my-account .sso-links h3 {
   font-size: 24px;
-  line-height: 28px; }
+  line-height: 28px;
+  margin-top: 14px;
+  margin-bottom: 24px; }
 .sso.my-account .account-info > div {
-  margin-bottom: 8px; }
+  margin-bottom: 14px; }
+.sso.my-account .account-info > div:last-child {
+  margin-bottom: 6px; }
 .sso.my-account span {
   font-weight: bold; }
 
@@ -68,10 +100,10 @@
       margin-bottom: 20px !important; } }
 @media (min-width: 768px) {
   .sso .label-inline {
-    width: 454px; }
+    max-width: 454px; }
   .sso h1 {
-    padding-top: 3px;
-    margin-bottom: 16px; }
+    padding-top: 4px;
+    margin-bottom: 24px; }
   .sso form {
     display: table; }
     .sso form .form-group, .sso form .form-footer {
@@ -81,15 +113,18 @@
       display: table-cell;
       width: 28%;
       text-align: right;
-      padding-right: 10px; }
+      padding-right: 10px;
+      vertical-align: middle; }
     .sso form .form-control,
     .sso form .form-footer > div:last-child {
       display: table-cell;
       width: 100%;
       margin: 5px 0; }
   .sso .legal {
-    width: 100%;
-    margin-bottom: 6px; }
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #444; }
 
   .casl .legal {
     margin-top: 16px; }
@@ -118,7 +153,7 @@
       text-align: left; }
   .casl button.btn,
   .login button.btn {
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 10px; }
   .casl .form-group:last-child,
   .login .form-group:last-child {
@@ -132,7 +167,7 @@
   .reset-password form .form-footer > div:first-child,
   .edit-email form label,
   .edit-email form .form-footer > div:first-child {
-    width: 156px; }
+    width: 156px !important; }
   .create-new-password form .form-control,
   .create-new-password form .form-footer > div:last-child,
   .create-new-password form #lblemailaccount,
@@ -163,3 +198,50 @@
     min-width: 120px;
     padding-right: 10px;
     font-weight: bold; } }
+.ie8 .sso form,
+.ie8 .sso .form-group,
+.ie8 .sso .form-control {
+  box-sizing: border-box !important; }
+.ie8 .sso .form-control {
+  margin-bottom: 15px; }
+.ie8 .sso .form-control.last-input {
+  margin-bottom: 0; }
+.ie8 .sso form label {
+  vertical-align: inherit !important; }
+.ie8 .sso form button.btn {
+  margin-top: 5px !important;
+  margin-bottom: 16px !important; }
+.ie8 .sso .tooltip {
+  filter: alpha(opacity=10000);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+
+.ie9 form {
+  border-collapse: separate;
+  /* Or do nothing, this is default */
+  border-spacing: 10px;
+  /* Only works if border-collapse is separate */ }
+.ie9 .sso button.btn {
+  margin-top: 10px !important;
+  margin-bottom: 12px !important; }
+.ie9 .sso .label-inline {
+  width: 520px !important; }
+.ie9 .sso .form-footer > div:last-child {
+  margin: 0px !important; }
+.ie9 .sso .form-control {
+  display: inline-block;
+  /* display table-cell prevents dropdown arrow to show on ie9*/
+  margin-top: 0;
+  margin-bottom: 0; }
+.ie9 .sso .form-group {
+  margin-bottom: 0 !important; }
+.ie9 .edit-account {
+  margin-bottom: -11px; }
+  .ie9 .edit-account h1 {
+    margin-bottom: 12px !important; }
+.ie9 .edit-email .btn-block {
+  width: 294px; }
+.ie9 .edit-email button.btn {
+  margin-bottom: 0 !important; }
+.ie9 .create-account .legal {
+  margin-left: 21.66% !important;
+  width: 59.33% !important; }

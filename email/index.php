@@ -1,0 +1,1 @@
+<?php require 'widget.class.php'; $widget = new Widget(); echo $widget->content(); ?>

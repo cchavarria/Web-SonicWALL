@@ -14,7 +14,7 @@ class Widget {
 
         $info = pathinfo($_GET['page']);
 
-        $this->loadDependencies($info['dirname']);
+        $this->loadDependencies($info['dirname'], $info['filename'] ? $info['filename']:'index');
     }
 
     function parseSubWidget() {
@@ -24,8 +24,17 @@ class Widget {
             $hasVars = true;
 
             foreach($m[1] as $indx => $widgetName) {
-                $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/index.htm'), $this->html);
-                $this->loadDependencies($widgetName);
+                $arr = explode('/', $widgetName);
+                $filename = 'index';
+
+                if(count($arr) == 2) {
+                    $filename = $arr[1];
+                }
+
+                $widgetName = $arr[0];
+
+                $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
+                $this->loadDependencies($widgetName, $filename);
             }
         }
 
@@ -39,7 +48,7 @@ class Widget {
         }
     }
 
-    function loadDependencies($widgetName) {
+    function loadDependencies($widgetName, $filename) {
         if(file_exists('../widgets/' . $widgetName . '/config.json')) {
             $tmpJSON = json_decode(file_get_contents('../widgets/' . $widgetName . '/config.json'), true);
 
@@ -52,12 +61,12 @@ class Widget {
             }
         }
 
-        if(file_exists('../widgets/' . $widgetName . '/index.css')) {
-            $this->css[] = '../../widgets/' . $widgetName . '/index.css';
+        if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.css')) {
+            $this->css[] = '../../widgets/' . $widgetName . '/' . $filename . '.css';
         }
 
-        if(file_exists('../widgets/' . $widgetName . '/index.js')) {
-            $this->js[] = '../../widgets/' . $widgetName . '/index.js';
+        if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.js')) {
+            $this->js[] = '../../widgets/' . $widgetName . '/' . $filename . '.js';
         }
     }
 

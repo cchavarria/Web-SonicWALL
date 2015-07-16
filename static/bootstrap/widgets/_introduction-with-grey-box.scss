@@ -1,0 +1,35 @@
+.title-description {
+  margin-bottom: 24px;
+  a,p {
+    font-size: 16px;
+  }
+  h1 {
+    margin-bottom: 7px;
+    width: 86%;
+  }
+}
+/*claim box*/
+.grey-box{
+  background-color: #eee;
+  padding: 20px;
+  display: inline-block;
+  h3 {
+    font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
+    font-weight: 400;
+  }
+  p {
+    font-family: 'Museo Sans 300', 'Trebuchet MS', Arial;
+    font-size: 16px;
+  }
+}
+
+/*mobile*/
+@media (max-width: 767px) {
+  .border-right-grey-xs {
+    border-right: 1px solid #e2e2e2;
+  }
+  .grey-box {
+    padding: 17px 15px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,13 +1,6 @@
 {
-  "css": [
-    "/static/library/css/fancybox.css",
-    "/static/library/css/video-player.css",
-    "/static/library/css/responsive-player.css"
-  ],
+  "css": ["/static/library/css/video-player.css"],
   "js": [
-    "/static/library/jQuery/jquery.fancybox.min.js",
-    "/static/library/jQuery/jquery.dotdotdot.min.js",
-    "/static/library/jQuery/video-player.js",
-    "/static/library/jQuery/jquery.ui.min.js"
+    "/static/library/jQuery/video-player.js"
   ]
 }

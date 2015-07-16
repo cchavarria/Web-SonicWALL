@@ -1,14 +1,4 @@
 $(function() {
-  $("img.lazy").lazyload();
-
-  //randomize banner
-  randomizeBanner();
-
-  //lazy load banner images
-  $('.hero-banner').find('.carousel').find('.lazy').each(function () {
-    $(this).attr('src', $(this).data('original')).removeClass('lazy');
-  });
-
   resizeHome();
 });
 
@@ -41,10 +31,4 @@ function resizeHome() { // I have questions regarding this one
 	}
 
 	$('.hero-banner').find('.caption-wrapper').css('height', captionHeight);
-}
-
-function randomizeBanner() {
-  var randomNumber = Math.floor((Math.random() * $('.item').length));
-  $('.item').eq(randomNumber).addClass("active");
-  $('.hero-banner .carousel-indicators li').eq(randomNumber).addClass("active");
 }

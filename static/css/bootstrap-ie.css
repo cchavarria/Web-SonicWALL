@@ -1,10 +1,14 @@
 /*$headings-font-family:    inherit !default;*/
-.ie select.form-control.error {
-  background-color: #ffffc9;
-  background-image: url("/images/shared/formError.png");
-  background-position: 95% 50%;
-  background-repeat: no-repeat; }
-
+/*.ie {
+  select.form-control {
+    &.error {
+      background-color: $state-danger-bg;
+      background-image: url("/images/shared/formError.png");
+      background-position: 95% 50%;
+      background-repeat: no-repeat;
+    }
+  }
+}*/
 .ie8 {
   /* events w inline form */ }
   .ie8 .event-form .form-control {
@@ -15,6 +19,19 @@
   padding-bottom: 4px; }
 .ie9 select.form-control.error {
   background-position: 91% 50%; }
+.ie9 .form-horizontal-2 {
+  width: 100%; }
+  .ie9 .form-horizontal-2 .form-group {
+    /*>label, >input, >select {
+      &::before {
+        content: "";
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        display: inline-block;
+      }
+    }*/ }
+    .ie9 .form-horizontal-2 .form-group > label {
+      height: 49px; }
 
 @media (max-width: 767px) {
   .ie9.openNav .site-canvas {
