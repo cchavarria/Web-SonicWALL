@@ -414,10 +414,23 @@
 				this.checkForm();
 				$.extend( this.submitted, this.errorMap );
 				this.invalid = $.extend({}, this.errorMap );
+
+				var t = this;
+
 				if ( !this.valid() ) {
-					$( this.currentForm ).triggerHandler( "invalid-form", [ this ]);
+					//Modified by Edward Chong - added delay so that demandbase has a chance to perfor its action.
+					setTimeout(function() {
+						$( t.currentForm ).triggerHandler( "invalid-form", [ t ]);
+					}, 100);
+					//Original - $( this.currentForm ).triggerHandler( "invalid-form", [ this ]);
 				}
-				this.showErrors();
+
+				//Modified by Edward Chong - added delay so that demandbase has a chance to perfor its action.
+				setTimeout(function() {
+					t.showErrors();
+				}, 100);
+
+				//Original - this.showErrors();
 				return this.valid();
 			},
 

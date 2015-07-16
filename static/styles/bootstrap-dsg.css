@@ -5030,6 +5030,8 @@
         display: inline !important; }
       .bootstrap.is-responsive .masthead .utility li h5 {
         font-size: 14px; }
+      .bootstrap.is-responsive .masthead .utility .icon-small-useraccount {
+        margin-right: 5px; }
     .bootstrap.is-responsive .masthead .container {
       margin-left: auto;
       margin-right: auto;
@@ -5301,6 +5303,8 @@
       display: inline !important; }
     .bootstrap.not-responsive .masthead .utility li h5 {
       font-size: 14px; }
+    .bootstrap.not-responsive .masthead .utility .icon-small-useraccount {
+      margin-right: 5px; }
   .bootstrap.not-responsive .masthead .container {
     margin-left: auto;
     margin-right: auto;
