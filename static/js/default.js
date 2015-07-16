@@ -58,7 +58,8 @@ $(document).ready(function () {
 	})();
 
 	if($('form').filter('.has-slide').length) {
-		eventForm();
+		$.getScript('/static/js/events.min.js');
+		//eventForm();
 	}
 
 //Dotdotdot
@@ -464,11 +465,11 @@ function toggleResize() {
 	});
 }
 
-function eventForm() {
+/*function eventForm() {
 	$('.has-slide').each(function() {
 		var wrapper = $(this).find('> div'), len = wrapper.children().length;
 
-		if($('html').hasClass('ie9') && false) {
+		if($('html').hasClass('ie9')) {
 			$(this).css({width: $(this).width()});
 			wrapper.css('width', $(this).width());
 			wrapper.children().css('width', $(this).width()).filter(':gt(0)').hide();
@@ -482,23 +483,34 @@ function eventForm() {
 		}
 		else {
 			//Set height to the wrapper to prevent extra white space below if other pages are not the same height;
-			wrapper.css({minHeight: wrapper.find('> div:eq(0)').outerHeight(true)});
+			//wrapper.css({minHeight: wrapper.find('> div:eq(0)').outerHeight(true)});
 		}
+
+		//Only make first page visible.
+		wrapper.find('> div:gt(0)').hide();
 
 		//Bind event
 		$(this).on('click', '.goto', function(e) {
 			e.preventDefault();
 
-			var parent = $(this).parents('.has-slide'), newPage = $(this).data('page');
+			var newPage = $(this).data('page'),
+					slidePages = $(this).parents('.slide-page').parent().find('.slide-page'),
+					curPage = slidePages.index($(this).parents('.slide-page'));
 
-			if($('html').hasClass('ie9') && false) {
-				wrapper.children().hide().filter(':eq(' + newPage + ')').show();
+			if($('html').hasClass('ie9')) {
+				wrapper.children().hide().stop().filter(':eq(' + newPage + ')').show();
 			}
 			else {
-				parent.find('> div').animate({
-					left: -1 * (newPage * 100) + '%',
-					minHeight: wrapper.find('> div:eq(' + newPage + ')').outerHeight(true)
-				}, 500);
+				//Show all pages
+				slidePages.show();
+				wrapper.css('left', -1 * (curPage * 100) + '%');
+
+				wrapper.animate({
+					left: -1 * (newPage * 100) + '%'
+				}, 500, function() {
+					slidePages.hide().stop().filter(':eq(' + newPage + ')').show();
+					wrapper.css('left', 0);
+				});
 			}
 		});
 
@@ -558,5 +570,5 @@ function eventForm() {
 
 				$('#event-next-button').prop('disabled', checked ? false:true);
 			});
-}
+}*/
 
