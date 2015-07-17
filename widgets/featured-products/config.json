@@ -1,4 +1,4 @@
 {
   "css": [],
-  "js": ["/static/library/jQuery/jquery.slidepagination.js"]
+  "js": ["/static/library/jQuery/jquery.slidepagination.js","/static/js/home.js"]
 }

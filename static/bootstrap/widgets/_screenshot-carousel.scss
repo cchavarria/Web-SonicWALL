@@ -125,9 +125,9 @@
       }
       &.inactive {
         background-position: -51px -165px;
-        /*&:hover {
+        &:hover {
           background-position: -76px -165px;
-        }*/
+        }
       }
     }
   }
@@ -139,6 +139,18 @@
     ul {
       padding: 0;
     }
+    .rr-pagination.pagination-large {
+      .prev {
+        &.inactive:hover {
+          background-position: -25px -165px;
+        }
+      }
+      .next{
+        &.inactive:hover {
+          background-position: -51px -165px;
+        }
+      }
+    }
   }
 }
 
@@ -148,14 +160,12 @@
       vertical-align: top;
       display: inline-block;
     }
-    .pagination-container {
-      //margin: 0 -15px;
-    }
   }
 }
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
+  //Note: Find out what this does.
   .rr-pagination {
     margin-right: 3%;
   }

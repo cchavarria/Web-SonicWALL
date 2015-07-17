@@ -28,7 +28,7 @@ addResize('resizeProductLine');
 function resizeProductLine() {
   pageWidth = $('html').width();
 
-	if(RootPath === undefined) {
+	if(typeof RootPath == 'undefined') {
 		RootPath = '/';
 	}
 
