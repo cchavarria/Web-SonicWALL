@@ -1,6 +1,6 @@
 {
-  "css": ["/static/library/css/video-player.css"],
+  "css": ["/static/css/video-player.css"],
   "js": [
-    "/static/library/jQuery/video-player.js"
+    "/static/js/video-player.js"
   ]
 }
