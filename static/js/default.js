@@ -438,6 +438,8 @@ function offCanvas() {
 			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
 			$('body').removeClass('off-canvas-mode');
 			$(document).scrollTop($('#off-canvas').data('top'));
+
+			$('body').trigger('offcanvas.hidden');
 		});
 	});
 
@@ -449,6 +451,8 @@ function offCanvas() {
 		}
 
 		e.preventDefault();
+
+		$('body').trigger('offcanvas.visible');
 
 		var target = ($(this).data('target') === undefined) ? $(this).attr('href') : $(this).data('target'),
 				top = $(document).scrollTop();
