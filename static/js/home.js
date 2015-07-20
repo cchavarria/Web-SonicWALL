@@ -33,16 +33,6 @@ function resizeHome() {
         {type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
       ]
     });
-    // case study section hover effect
-    $('.logos  a  img').hover(function () {
-      var srcOver = $(this).attr('src').replace(/-gray.png/, '-color.png');
-      $(this).attr('src', srcOver);
-    }, function () {
-      var srcOut = $(this).attr('src').replace(/-color.png/, '-gray.png');
-      $(this).attr('src', srcOut);
-    });
-    //show color logos in mobile
-    setLogosColor('desktop');
   }
   else if (pageWidth >= 768 && pageWidth < 992) {//tablet
     $('.featured-products').slidePagination2({
@@ -55,8 +45,6 @@ function resizeHome() {
         {type: 'append', selector: '.screenshot-carousel-wrapper', displayTotal: true}
       ]
     });
-    //show color logos in mobile
-    setLogosColor('tablet');
   }
   else if (pageWidth < 768) {//mobile
 		var featuredProduct = $('.featured-products');
@@ -67,21 +55,5 @@ function resizeHome() {
 		featuredProduct.find('.screenshot-carousel-list').find('li:gt(2)').hide();
 
     $('.btn-link').removeClass('btn-link').addClass('btn-default');
-
-    //show color logos in mobile
-    setLogosColor('mobile');
   }
-}
-
-function setLogosColor(device) {
-  var outputSrc = '';
-
-	$('.logos').find('img').each(function () {
-    if (device == 'mobile' || device == 'tablet') {
-      outputSrc = $(this).attr('src').replace(/-gray.png/, '-color.png');
-    } else {
-      outputSrc = $(this).attr('src').replace(/-color.png/, '-gray.png');
-    }
-    $(this).attr('src', outputSrc);
-  });
 }

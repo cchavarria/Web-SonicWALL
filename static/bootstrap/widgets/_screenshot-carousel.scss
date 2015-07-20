@@ -6,7 +6,7 @@
       .image-crop {
         display: block;
         height: 167px;
-        width: 231px;
+        max-width: 231px;
         margin: 0 auto;
         overflow: hidden;
         position: relative;
@@ -20,7 +20,7 @@
         }
       }
       > div {
-        width: 231px;
+        max-width: 231px;
         margin: 0 auto;
       }
     }

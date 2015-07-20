@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageWidth = getPageWidth(), resizeFn = [], resizeTimer = null;
+var pageType = '', pageWidth = getPageWidth(), resizeFn = [], resizeTimer = null;
 
 $(document).ready(function () {
   resizeGlobal();
@@ -53,7 +53,7 @@ $(document).ready(function () {
 			else {
 				elem.addClass('open');
 
-				if (pageWidth < 768) { //Mobile
+				if (pageType == 'xs') { //Mobile
 					//Animate background color to notify user that they have touched that element.
 					//Require: jQuery Color v2.1.2 plugin
 					var originalBG = $(this).css('background-color');
@@ -163,10 +163,6 @@ $(window).resize(function() {
 	if(pageWidth != w) {
 		pageWidth = w;
 
-    if(resizeTimer !== null) {
-      clearTimeout(resizeTimer);
-    }
-
     resizeTimer = setTimeout(function() {
       clearTimeout(resizeTimer);
 
@@ -175,7 +171,7 @@ $(window).resize(function() {
           window[fn].call();
         }
       });
-    });
+    }, 100);
 	}
 });
 
@@ -184,6 +180,20 @@ function getPageWidth() {
 	$('body').css('overflow', 'hidden');
 	var w = $('html').width();
 	$('body').css('overflow', '');
+
+	//Define pageType
+	if(w >= 1200) {
+		pageType = 'lg';
+	}
+	else if(w >= 992) {
+		pageType = 'md';
+	}
+	else if(w >= 768) {
+		pageType = 'sm';
+	}
+	else {
+		pageType = 'xs'
+	}
 
 	return w;
 }

@@ -1,6 +1,6 @@
 /* Used on Responsive New Header/Footer */
 
-var burl = location.href, resizeTimer = null;
+var burl = location.href;
 
 $(document).ready(function () {
 //Social media toolbar
@@ -219,11 +219,13 @@ $(document).ready(function () {
 	});
 
 	resizeFourColumnFilmstripCarousel();
+	grayscaleImage();
 });
 
 addResize('offCanvasResize');
 addResize('resizeFourColumnFilmstripCarousel');
 addResize('toggleResize');
+addResize('grayscaleImage');
 
 function resizeFourColumnFilmstripCarousel() {
 	(function() {
@@ -463,6 +465,52 @@ function toggleResize() {
 			}
 		}
 	});
+}
+
+function grayscaleImage() {
+	if($('.grayscale').length) {
+		init('.grayscale');
+	}
+	if(pageWidth >= 1200 && $('.grayscale-lg').length) {
+		init('.grayscale-lg');
+	}
+	if(pageWidth >= 992 && $('.grayscale-md').length) {
+		init('.grayscale-md');
+	}
+	if(pageWidth >= 768 && $('.grayscale-sm').length) {
+		init('.grayscale-sm');
+	}
+	if($('.grayscale-xs').length) {
+		init('.grayscale-xs');
+	}
+
+	function init(className) {
+		if(document.readyState == 'complete') {
+			execute(className);
+		}
+		else {
+			$(window).load(function() {
+				execute(className);
+			});
+		}
+	}
+
+	function execute(className) {
+		if($.fn.gray) {
+			setTimeout(function() {
+				$(className + ':not(.grayscale-replaced)').gray();
+			}, 200);
+		}
+		else {
+			$('head').append('<link rel="stylesheet" href="/static/css/grayscale-image.min.css">');
+
+			$.getScript('/static/library/jQuery/jquery.gray.min.js', function() {
+				setTimeout(function() {
+					$(className + ':not(.grayscale-replaced)').gray();
+				}, 200);
+			});
+		}
+	}
 }
 
 /*function eventForm() {

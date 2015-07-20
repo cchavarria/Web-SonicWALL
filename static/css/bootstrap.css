@@ -6548,46 +6548,6 @@ i.menu-indicator {
       box-sizing: border-box;
       font-weight: 400; }
 
-#demandbase-autocomplete a {
-  line-height: 1.3em !important; }
-#demandbase-autocomplete .ui-widget {
-  font-family: "Trebuchet MS", ​Arial, ​ Helvetica, ​sans-serif;
-  overflow-y: auto; }
-#demandbase-autocomplete .ui-menu {
-  border: 1px solid #CCCCCC;
-  border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  -webkit-border-radius: 0 !important;
-  overflow-x: hidden;
-  padding-right: 20px; }
-  #demandbase-autocomplete .ui-menu .ui-menu-item a {
-    font-size: 13px;
-    padding: 5px 5px 7px 5px !important;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0; }
-    #demandbase-autocomplete .ui-menu .ui-menu-item a.ui-state-hover, #demandbase-autocomplete .ui-menu .ui-menu-item a #demandbase-autocomplete .ui-menu .ui-menu-item a.ui-state-active {
-      background: #007db8;
-      color: white; }
-
-.demandbase-company-autocomplete {
-  overflow-y: auto; }
-
-.ui-autocomplete-loading {
-  background: url("/images/shared/jqueryui/ui-anim_basic_16x16.gif") no-repeat scroll 98% center white; }
-
-@media (max-width: 768px) {
-  #demandbase-autocomplete a {
-    padding: 10px 5px !important;
-    font-size: 1em !important; } }
-/*
-@media (min-width: 768px) {
-  #demandbase-autocomplete {
-    a {
-      white-space: nowrap;
-    }
-  }
-}*/
 #right-rail-form h4 {
   font-weight: 700;
   margin-top: 0;
@@ -7068,7 +7028,7 @@ i.menu-indicator {
   .screenshot-carousel.next-step li .image-crop {
     display: block;
     height: 167px;
-    width: 231px;
+    max-width: 231px;
     margin: 0 auto;
     overflow: hidden;
     position: relative; }
@@ -7079,7 +7039,7 @@ i.menu-indicator {
       height: 100%;
       border: 1px solid #737373; }
   .screenshot-carousel.next-step li > div {
-    width: 231px;
+    max-width: 231px;
     margin: 0 auto; }
   .screenshot-carousel ul {
     padding: 0;
@@ -8087,7 +8047,7 @@ a:hover .has-overlay h4 {
   color: inherit; }
 
 /*@import "bootstrap/popovers";*/
-/*@import "bootstrap/_carousel-custom"; */
+/*@import "bootstrap/carousel-custom"; */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
