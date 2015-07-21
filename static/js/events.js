@@ -98,7 +98,13 @@ $('#event-container')
 			}
 		});
 
-
+		$('.event-detail-container').find('.details-list').each(function() {
+			$(this).find('li').each(function() {
+				if(!$(this).find('span:eq(1)').text().length) {
+					$(this).remove();
+				}
+			});
+		});
 
 		$('#event-next-button').prop('disabled', checked ? false:true);
 	});
