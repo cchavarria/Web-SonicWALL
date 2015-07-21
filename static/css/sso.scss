@@ -77,9 +77,9 @@
 
 .sso.edit-email {
 
-  h1{
-    margin-bottom: 17px;
-  }
+   h1{
+     margin-bottom: 17px;
+   }
   .email-instructions {
     margin-bottom: 13px;
   }
@@ -129,6 +129,307 @@
   span {
     font-weight: bold;
   }
+}
+
+/* tooltip Styles brought from Dell Library */
+.sso {
+  .tooltip.in {
+    opacity: 100;
+    filter: alpha(opacity=10000);
+  }
+  .tooltip-inner {
+    background: #ffffff;
+    color: #aaaaaa;
+  }
+  .tooltip .arrow {
+    border-width: 11px;
+  }
+  .tooltip {
+    position: absolute;
+    z-index: 1030;
+    display: block;
+    visibility: visible;
+    background-color: #ffffff;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    font-size: 12px;
+    line-height: 1.4;
+    border: 1px solid #aaaaaa;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    white-space: normal;
+  }
+  .tooltip.in {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+  .tooltip.top {
+    margin-top: -3px;
+    padding: 5px 10px;
+  }
+  .tooltip.right {
+    margin-left: 12px;
+    padding: 5px 10px;
+  }
+  .tooltip.bottom {
+    margin-top: 12px;
+    padding: 5px 10px;
+  }
+  .tooltip.left {
+    margin-left: -5px;
+    padding: 5px 10px;
+  }
+  .tooltip-inner {
+    max-width: 250px;
+    min-height: 20px;
+    padding: 3px 8px;
+    color: #444444;
+    text-align: left;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: 1px;
+  }
+  .tooltip-inner:empty {
+    display: none;
+  }
+  .tooltip .tooltip-arrow,
+  .tooltip .tooltip-arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+  .tooltip .tooltip-arrow {
+    border-width: 11px;
+  }
+  .tooltip .tooltip-arrow:after {
+    border-width: 10px;
+    content: "";
+  }
+  .tooltip.top .tooltip-arrow {
+    left: 50%;
+    margin-left: -11px;
+    border-bottom-width: 0;
+    border-top-color: #444;
+    border-top-color: rgba(0, 0, 0, 0.25);
+    bottom: -11px;
+  }
+  .tooltip.top .tooltip-arrow:after {
+    bottom: 1px;
+    margin-left: -10px;
+    border-bottom-width: 0;
+    border-top-color: #ffffff;
+  }
+  .tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: -10px;
+    margin-top: -10px;
+    border-left-width: 1;
+    border-right-color: #444;
+    border-right-color: rgba(0, 0, 0, 0.25);
+  }
+  .tooltip.right .tooltip-arrow:after {
+    left: 2px;
+    bottom: -10px;
+    border-left-width: 0;
+    border-right-color: #ffffff;
+  }
+  .tooltip.bottom .tooltip-arrow {
+    left: 50%;
+    margin-right: -10px;
+    border-top-width: 0;
+    border-bottom-color: #444;
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+    top: -11px;
+  }
+  .tooltip.bottom .tooltip-arrow:after {
+    top: 2px;
+    margin-left: -10px;
+    border-top-width: 0px;
+    border-bottom-color: #ffffff;
+  }
+  .tooltip.left .tooltip-arrow {
+    top: 50%;
+    right: -10px;
+    margin-top: -10px;
+    border-right-width: 1;
+    border-left-color: #444;
+    border-left-color: rgba(0, 0, 0, 0.25);
+  }
+  .tooltip.left .tooltip-arrow:after {
+    right: 2px;
+    bottom: -10px;
+    border-right-width: 0;
+    border-left-color: #ffffff;
+  }
+  .tooltip {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .tooltip.in {
+    opacity: 100;
+    filter: alpha(opacity=10000);
+  }
+  .tooltip.left {
+    margin-left: -10px;
+  }
+  .popup-alert {
+    background-image: url("/images/shared/popup-alert.png");
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin-right: 5px;
+  }
+  [data-toggle=tooltip] {
+    color: inherit;
+    border-bottom: 1px dashed #aaaaaa;
+  }
+  [data-toggle=tooltip]:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  .form-group .alert {
+    margin-bottom: 5px;
+    text-shadow: none;
+    background: #ffffc9;
+    border: 1px solid #ce1126;
+    position: relative;
+  }
+  .form-group .alert:active,
+  .form-group .alert:focus {
+    background: #ffffff;
+  }
+
+  /* Form Error Alert styles from dell ui library */
+  .alert {
+    color: #444;
+    padding: 10px 35px 0 40px;
+    margin-bottom: 20px;
+    text-shadow: none;
+    background: #ffffc9;
+    border: 1px solid #eee;
+    position: relative
+  }
+
+  .alert h4 {
+    margin-bottom: 0;
+    color: #444
+  }
+
+  .alert p:last-child {
+    margin-bottom: 0
+  }
+
+  .alert :last-child {
+    // margin-bottom: 8px
+  }
+
+  .alert>.alert-danger,.alert>.alert-error,.alert>.alert-info,.alert>.alert-success,.alert>.alert-warning {
+    background: 0 0;
+    color: #444;
+    margin-bottom: 20px
+  }
+
+  .alert-dismissable,.alert-dismissible {
+    padding-right: 35px
+  }
+
+  .alert-danger:before,.alert-error:before {
+    content: "\e603";
+    font-family: icon-small;
+    float: left;
+    color: #ce1126;
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: -5px
+  }
+
+  .alert-info:before {
+    content: "\e604";
+    font-family: icon-small;
+    float: left;
+    color: #007db8;
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: -5px
+  }
+
+  .alert-success:before {
+    content: "\e611";
+    font-family: icon-small;
+    float: left;
+    color: #6ea204;
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: -5px
+  }
+
+  .alert-warning:before {
+    content: "\e605";
+    font-family: icon-small;
+    float: left;
+    color: #d74324;
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: -5px
+  }
+
+  .alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px
+  }
+
+  .alert-block>p,.alert-block>ul {
+    margin-bottom: 0
+  }
+
+  .alert-block p+p {
+    margin-top: 0
+  }
+  .alert-warning {
+    background-color: #ee6411;
+    border-color: #d6390f;
+    color: #ee6411
+  }
+
+  .alert-warning hr {
+    border-top-color: #be330e
+  }
+
+  .alert-warning .alert-link {
+    color: #be500e
+  }
+
+  .valid-error{
+    display:inline-block;
+    padding: 5px;
+    border-left: 1px solid #444;
+    margin-bottom: 0;
+  }
+  .label-error-wrapper label:first-child {
+    border-left: none;
+  }
+
 }
 
 // Mobile styles - Media Query
@@ -187,7 +488,7 @@
   .sso {
 
     .label-inline{
-      max-width: 454px;
+      width: 454px;
     }
     h1 {
       padding-top: 4px;
@@ -308,82 +609,84 @@
 // IE8 specific
 //--------------------------------------------------------
 
-.ie8 {
-  .sso {
-    form,
-    .form-group,
-    .form-control {
-      box-sizing: border-box !important;
-    }
-    .form-control {
-      margin-bottom: 15px;
-    }
-    .form-control.last-input {
-      margin-bottom: 0;
-    }
-    form {
-      label {
-        vertical-align: inherit !important;
-      }
-      button.btn {
-        margin-top: 5px !important;
-        margin-bottom: 16px !important;
-      }
-    }
-    .tooltip{
-      filter: alpha(opacity=10000);
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    }
-  }
-}
-.ie9 {
-  form {
-    border-collapse: separate; /* Or do nothing, this is default */
-    border-spacing: 10px; /* Only works if border-collapse is separate */
-  }
-  .sso{
-    button.btn{
-      margin-top: 10px !important;
-      margin-bottom: 12px !important;
-    }
-    .label-inline {
-      width: 520px !important;
-    }
-    .form-footer {
-      > div:last-child{
-        margin:0px !important;
+ .ie8 {
+   .sso {
+     form,
+     .form-group,
+     .form-control {
+       box-sizing: border-box !important;
+     }
+     .form-control {
+       margin-bottom: 15px;
+     }
+     .form-control.last-input {
+       margin-bottom: 0;
+     }
+     form {
+       label {
+         vertical-align: inherit !important;
+       }
+       button.btn {
+         margin-top: 5px !important;
+         margin-bottom: 16px !important;
+       }
+     }
+     .tooltip{
+       filter: alpha(opacity=10000);
+       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+     }
+   }
+ }
+ .ie9 {
+   form {
+     border-collapse: separate; /* Or do nothing, this is default */
+     border-spacing: 10px; /* Only works if border-collapse is separate */
+   }
+   .sso{
+     button.btn{
+       margin-top: 10px !important;
+       margin-bottom: 12px !important;
+     }
+     .label-inline {
+       width: 520px !important;
+     }
+     .form-footer {
+       > div:last-child{
+         margin:0px !important;
 
-      }
-    }
-    .form-control{
-      display: inline-block; /* display table-cell prevents dropdown arrow to show on ie9*/
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .form-group{
-      margin-bottom: 0 !important;
-    }
-  }
-  .edit-account{
-    margin-bottom: -11px;
+       }
+     }
+     .form-control{
+       display: inline-block; /* display table-cell prevents dropdown arrow to show on ie9*/
+       margin-top: 0;
+       margin-bottom: 0;
+     }
+     .form-group{
+       margin-bottom: 0 !important;
+     }
+   }
+   .edit-account{
+     margin-bottom: -11px;
 
-    h1{
-      margin-bottom:12px !important;
-    }
-  }
-  .edit-email {
+     h1{
+       margin-bottom:12px !important;
+     }
+   }
+   .edit-email {
 
-    .btn-block{
-      width: 294px;
-    }
-    button.btn{
-      margin-bottom: 0 !important;
-    }
-  }
-  .create-account{
-    .legal { // without edits div gets pushed right: only ie9
-      margin-left: 21.66% !important;
-      width: 59.33% !important;
-    }
-  }
-}
+     .btn-block{
+       width: 294px;
+     }
+     button.btn{
+       margin-bottom: 0 !important;
+     }
+   }
+   .create-account{
+     .legal { // without edits div gets pushed right: only ie9
+       margin-left: 21.66% !important;
+       width: 59.33% !important;
+     }
+   }
+ }
+
+
