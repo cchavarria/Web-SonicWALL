@@ -5358,6 +5358,9 @@ li {
 .pad-25, .p-25 {
   padding: 25px !important; }
 
+.pt-5 {
+  padding-top: 5px !important; }
+
 .pt-10 {
   padding-top: 10px !important; }
 
@@ -7093,6 +7096,8 @@ i.menu-indicator {
     margin: 0 auto;
     overflow: hidden;
     position: relative; }
+    .screenshot-carousel.next-step li .image-crop.image-crop-140 {
+      height: 140px; }
     .screenshot-carousel.next-step li .image-crop .image-crop-border {
       display: block;
       position: absolute;
@@ -7192,8 +7197,8 @@ i.menu-indicator {
     display: inline-block; } }
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
-  .rr-pagination {
-    margin-right: 3%; } }
+  .screenshot-carousel.next-step li .image-crop-140, .screenshot-carousel.next-step li > div {
+    width: 200px; } }
 /*
   Description: Social media icons
   Author: Edward Chong & Elnaz Doostdar
@@ -7424,6 +7429,8 @@ i.menu-indicator {
 .fat-tabs.ui-widget-content {
   background: none;
   border: 0; }
+  .fat-tabs.ui-widget-content a {
+    color: #007db8; }
 .fat-tabs .ui-tabs-nav .ui-tabs-anchor {
   float: none !important; }
 .fat-tabs .ui-tabs-nav li, .fat-tabs .ui-tabs-nav .ui-state-active {
@@ -7515,7 +7522,7 @@ i.menu-indicator {
     .fat-tabs > ul > li.active-button {
       border-bottom: 1px solid #ccc !important; }
 .fat-tabs .ui-tabs-panel {
-  padding: 26px 0 0 0 !important; }
+  padding: 35px 0 0 0 !important; }
 .fat-tabs ul li.hide-pipe, .fat-tabs > ul > li {
   border-left: 1px solid #ccc;
   border-right: none; }
@@ -7622,7 +7629,7 @@ i.menu-indicator {
   .fat-tabs > ul > li {
     width: 102.8px; }
     .fat-tabs > ul > li a {
-      padding: 25px 0 15px 0; }
+      padding: 25px 0 15px 0 !important; }
     .fat-tabs > ul > li h4 {
       font-size: 14px; } }
 @media (min-width: 1200px) {

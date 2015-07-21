@@ -220,6 +220,19 @@ $(document).ready(function () {
 		$('.ooplaylist').modal();
 	});
 
+	$('body').on('offcanvas.visible', function() {
+		var ooyalaplayer = $('.off-canvas-content').find('.ooyalaplayer');
+		if(ooyalaplayer.length && !ooyalaplayer.data('loaded')){
+			OO.Player.create(ooyalaplayer.attr('id') ,ooyalaplayer.data('videoid') , {
+				onCreate: OOCreate,
+				autoplay: false,
+				wmode: 'transparent'
+			});
+			ooyalaplayer.data('loaded',true);
+		}
+	});
+
+
 	resizeFourColumnFilmstripCarousel();
 	grayscaleImage();
 });
@@ -458,6 +471,8 @@ function offCanvas() {
 				top = $(document).scrollTop();
 
 		$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
+
+		$('body').trigger('offcanvas.visible');
 
 		if($(target).data('no-border') && $(target).data('no-border') === true) {
 			$('#off-canvas').find('.off-canvas-content').addClass('p-0');

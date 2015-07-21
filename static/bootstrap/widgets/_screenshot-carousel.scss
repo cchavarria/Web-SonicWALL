@@ -10,6 +10,9 @@
         margin: 0 auto;
         overflow: hidden;
         position: relative;
+        &.image-crop-140{
+          height: 140px;
+        }
 
         .image-crop-border {
           display: block;
@@ -87,13 +90,13 @@
     }
   }
 
-  &.logos.home .rr-pagination.pagination-large a{
+  &.logos.home .rr-pagination.pagination-large a {
     margin-top: 15px;
   }
-  &.logos.kace .rr-pagination.pagination-large a{
+  &.logos.kace .rr-pagination.pagination-large a {
     margin-top: 4px;
   }
-  &.logos.sonicwall .rr-pagination.pagination-large a{
+  &.logos.sonicwall .rr-pagination.pagination-large a {
     margin-top: 0;
   }
   .rr-pagination.pagination-large {
@@ -145,7 +148,7 @@
           background-position: -25px -165px;
         }
       }
-      .next{
+      .next {
         &.inactive:hover {
           background-position: -51px -165px;
         }
@@ -165,8 +168,9 @@
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
-  //Note: Find out what this does.
-  .rr-pagination {
-    margin-right: 3%;
+  .screenshot-carousel.next-step li{
+    .image-crop-140, > div{
+      width: 200px;
+    }
   }
 }
