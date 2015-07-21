@@ -465,8 +465,6 @@ function offCanvas() {
 
 		e.preventDefault();
 
-		$('body').trigger('offcanvas.visible');
-
 		var target = ($(this).data('target') === undefined) ? $(this).attr('href') : $(this).data('target'),
 				top = $(document).scrollTop();
 
