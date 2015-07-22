@@ -243,10 +243,14 @@ addResize('resizeFourColumnFilmstripCarousel');
 addResize('toggleResize');
 addResize('grayscaleImage');
 
-function loadOoyala() {
-	var watchList = [];
+function loadOoyala(parentSelector) {
+	if (typeof parentSelector == 'undefined') {
+		parentSelector = 'body';
+	}
 
-	if ($('.ooyalaplayer').length) {
+	//var watchList = [];
+
+	if ($(parentSelector).find('.ooyalaplayer').length) {
 		if (typeof OO == 'object') {
 			init();
 		}
@@ -266,23 +270,32 @@ function loadOoyala() {
 
 	function init() {
 		OO.ready(function () {
-			$('.ooyalaplayer').each(function () {
+			$(parentSelector).find('.ooyalaplayer').each(function () {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
 
+				if(id === undefined) {
+					id = getRandomString(8);
+					$(this).attr('id', id);
+				}
+
 				if ($(this).is(':visible')) {
-					OO.Player.create(id, videoId, {
-						onCreate: OOCreate,
-						autoplay: false,
-						wmode: 'transparent'
-					});
+					if(!$('#' + id).data('loaded')) {
+						OO.Player.create(id, videoId, {
+							onCreate: OOCreate,
+							autoplay: false,
+							wmode: 'transparent'
+						});
+
+						$('#' + id).data('loaded', true);
+					}
 				}
 				else {
-					watchList.push([id, videoId]);
+					//watchList.push([id, videoId]);
 				}
 			});
 
-			if (watchList.length) {
+			/*if (watchList.length) {
 				if ($.fn.watch) {
 					loadWatch();
 				}
@@ -291,11 +304,11 @@ function loadOoyala() {
 						loadWatch();
 					});
 				}
-			}
+			}*/
 		});
 	}
 
-	function loadWatch() {
+	/*function loadWatch() {
 		$.each(watchList, function (indx, arr) {
 			var elem = prevElem = $('#' + arr[0]);
 
@@ -316,7 +329,7 @@ function loadOoyala() {
 				}
 			});
 		});
-	}
+	}*/
 }
 
 function fatTabsResize() {
@@ -335,6 +348,7 @@ function fatTabsResize() {
 				ui.oldPanel.trigger('tab.hidden');
 
 				resizeFourColumnFilmstripCarousel(ui.newPanel);
+				loadOoyala(ui.newPanel);
 			}
 		});
 	}
@@ -377,6 +391,10 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 			};
 
 			$(parentSelector).find('.screenshot-carousel').each(function () {
+				if(!$(this).is(':visible')) {
+					return true;
+				}
+
 				var options = sliderOptions;
 
 				if ($(this).data('large-arrows') == 'true') {
@@ -483,8 +501,8 @@ function socialMediaToolbar() {
 				s.tl(true, 'o', 'Social Media');
 			}
 			//_gaq.push(['_trackSocial', 'Twitter', 'Tweet']);
-			console.log(bitlyURL);
-			console.log(url);
+			//console.log(bitlyURL);
+			//console.log(url);
 
 			e.preventDefault();
 			window.open('http://twitter.com/share?via=DellSoftware&url=' + encodeURIComponent(bitlyURL) + '&text=' + encodeURIComponent(title) + ',%20&counturl=' + encodeURIComponent(url), 'twitter', 'width=480,height=380,toolbar=0,status=0,resizable=1');
@@ -637,4 +655,31 @@ function grayscaleImage() {
 			});
 		}
 	}
+}
+
+function getRandomString(len) {
+	var ranString = '',
+		alphaLower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+		alphaUpper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+		digits = ['0','1','2','3','4','5','6','7','8','9'],
+		r, n, ranString;
+
+	for(i = 0; i < len; i++) {
+		r = Math.random() * 8;
+
+		if(r >= 0 && r <= 2) {
+			n = Math.floor(Math.random() * 25);
+			ranString += alphaLower[n];
+		}
+		else if(r >= 3 && r <= 5) {
+			n = Math.floor(Math.random() * 25);
+			ranString += alphaUpper[n];
+		}
+		else if(r >= 6) {
+			n = Math.floor(Math.random() * 9);
+			ranString += digits[n];
+		}
+	}
+
+	return ranString;
 }

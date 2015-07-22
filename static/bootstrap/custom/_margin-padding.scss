@@ -29,7 +29,9 @@
 .pt-20 {
   padding-top: 20px !important;
 }
-
+.pt-25 {
+  padding-top: 25px !important;
+}
 .pt-30 {
   padding-top: 30px !important;
 }
@@ -105,6 +107,10 @@
   margin-top: 40px !important;
 }
 
+.mt-50 {
+  margin-top: 50px !important;
+}
+
 .mb-0 {
   margin-bottom: 0 !important;
 }
@@ -123,6 +129,10 @@
 
 .mb-20 {
   margin-bottom: 20px !important;
+}
+
+.mb-25 {
+  margin-bottom: 25px !important;
 }
 
 .mb-n-20 {
@@ -201,6 +211,9 @@
   .mt-0-xs {
     margin-top: 0 !important;
   }
+  .mt-10-xs {
+    margin-top: 10px !important;
+  }
   .mt-20-xs {
     margin-top: 20px !important;
   }
@@ -225,11 +238,17 @@
   .mb-20-xs {
     margin-bottom: 20px !important;
   }
+  .mb-30-xs{
+    margin-bottom: 30px !important;
+  }
   .p-0-xs {
     padding: 0 !important;
   }
   .p-10-xs {
     padding: 10px !important;
+  }
+  .pt-0-xs {
+    padding-top: 0 !important;
   }
   .pt-10-xs {
     padding-top: 10px !important;

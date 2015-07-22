@@ -113,10 +113,10 @@
         text-decoration: none;
         color: #007db8;
       }
-      h4 {
-        color: #444;
-        margin-bottom: 14px;
-      }
+    }
+    h4 {
+      color: #444;
+      margin-bottom: 14px;
     }
 
     // WebKit CSS3 transforms for supported devices
@@ -348,7 +348,7 @@
   }
 
   .hero-banner {
-    .carousel a {
+    .carousel {
       h4 {
         font-size: 14px;
       }

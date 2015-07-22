@@ -2,19 +2,19 @@
   outline: 0 !important;
 }
 
-.fat-tabs {
+.fat-tabs, .fat-buttons {
   &.ui-widget-content {
     background: none;
     border: 0;
-    a{
-      color:#007db8;
+    a {
+      color: #007db8;
     }
   }
   .ui-tabs-nav {
     .ui-tabs-anchor {
       float: none !important;
     }
-    li, .ui-state-active{
+    li, .ui-state-active {
       border-left: 1px solid #ccc;
       border-right: none;
       border-top: 1px solid #ccc;
@@ -24,25 +24,25 @@
     display: inline-block;
     background: none;
     border: 0;
-    > .NS.ui-tabs-active a,>.NS.active-button a {
+    > .NS.ui-tabs-active a, > .NS.active-button a {
       border-top: 5px solid #6ea204;
     }
-    > .IAM.ui-tabs-active a,.IAM.active-button a {
+    > .IAM.ui-tabs-active a, .IAM.active-button a {
       border-top: 5px solid #b7295a;
     }
-    > .DP.ui-tabs-active a,.DP.active-button a {
+    > .DP.ui-tabs-active a, .DP.active-button a {
       border-top: 5px solid #ee6411;
     }
-    > .IM.ui-tabs-active a,.IM.active-button a {
+    > .IM.ui-tabs-active a, .IM.active-button a {
       border-top: 5px solid #d74324;
     }
-    > .WSM.ui-tabs-active a,.WSM.active-button a {
+    > .WSM.ui-tabs-active a, .WSM.active-button a {
       border-top: 5px solid #6e2585;
     }
-    > .EM.ui-tabs-active a,.EM.active-button a {
+    > .EM.ui-tabs-active a, .EM.active-button a {
       border-top: 5px solid #00447c;
     }
-    > .PM.ui-tabs-active a,.PM.active-button a {
+    > .PM.ui-tabs-active a, .PM.active-button a {
       border-top: 5px solid #0087cc;
     }
     > li {
@@ -84,7 +84,7 @@
           height: 47px;
         }
       }
-      &.PM,&.ui-tabs-active.PM {
+      &.PM, &.ui-tabs-active.PM {
         img {
           height: 35px;
         }
@@ -112,7 +112,7 @@
           }
         }
       }
-      &.ui-tabs-active,&.active-button {
+      &.ui-tabs-active, &.active-button {
         border-bottom: none !important;
         background: none !important;
         filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
@@ -124,7 +124,7 @@
             padding-bottom: 15px;
             color: #444;
           }
-          &:visited{
+          &:visited {
             color: #444;
           }
           > div {
@@ -132,8 +132,9 @@
           }
         }
       }
-      &.active-button{
+      &.active-button {
         border-bottom: 1px solid #ccc !important;
+        padding-bottom: 0 !important;
       }
     }
   }
@@ -157,10 +158,10 @@
 
 /*mobile*/
 @media (max-width: 767px) {
-  .br-0-xs{
-    border-right:0 !important;
+  .br-0-xs {
+    border-right: 0 !important;
   }
-  .fat-tabs {
+  .fat-tabs, .fat-buttons {
     .container {
       padding-left: 0;
       padding-right: 0;
@@ -178,7 +179,7 @@
           border-top: 1px solid #ccc;
         }
         &.PM {
-          border-right:0;
+          border-right: 0;
           h4 {
             padding-top: 8px;
           }
@@ -240,12 +241,12 @@
             }
           }
         }
-        &.active-button{
-          border-bottom:0 !important;
-          a{
-            border-top:0 !important;
+        &.active-button {
+          border-bottom: 0 !important;
+          a {
+            border-top: 0 !important;
             color: #007db8;
-            &:hover , &:visited{
+            &:hover, &:visited {
               color: #007db8;
             }
           }
@@ -271,25 +272,27 @@
 }
 
 @media (min-width: 768px) {
-  .fat-tabs > ul > li {
-    width: 134px;
-    > a > div {
-      > img {
-        margin-bottom: 7px;
+  .fat-tabs, .fat-buttons {
+    > ul > li {
+      width: 134px;
+      > a > div {
+        > img {
+          margin-bottom: 7px;
+        }
+        h4 {
+          margin-top: 0;
+        }
       }
-      h4 {
-        margin-top: 0;
+      &.PM img {
+        margin-bottom: 28px;
       }
-    }
-    &.PM img {
-      margin-bottom: 28px;
     }
   }
 }
 
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
-  .fat-tabs {
+  .fat-tabs, .fat-buttons {
     .container {
       padding-left: 0;
       padding-right: 30px;
@@ -307,8 +310,10 @@
 }
 
 @media (min-width: 1200px) {
-  .fat-tabs > ul > li {
-    width: 167px;
+  .fat-tabs, .fat-buttons {
+    > ul > li {
+      width: 167px;
+    }
   }
   .container {
     padding-left: 0;
