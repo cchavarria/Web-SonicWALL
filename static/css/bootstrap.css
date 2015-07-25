@@ -5315,20 +5315,6 @@ li {
   .bg-white-xs {
     background-color: #fff; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .center-block-sm-only {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .text-right-sm-only {
-    text-align: right; }
-
-  .pull-right-sm-only {
-    float: right !important; }
-
-  .pull-left-sm-only {
-    float: left; } }
-@media (min-width: 768px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0; }
@@ -5349,12 +5335,6 @@ li {
   .pull-left-sm {
     float: left; } }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .pull-left-md-only {
-    float: left; }
-
-  .text-left-md-only {
-    text-align: left; } }
-@media (min-width: 992px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0;
@@ -5655,48 +5635,6 @@ li {
     padding-left: 30px !important;
     padding-right: 30px !important; } }
 @media (min-width: 768px) {
-  .mt-0-sm {
-    margin-top: 0 !important; }
-
-  .mt-20-sm {
-    margin-top: 20px !important; }
-
-  .mb-27-sm {
-    margin-bottom: 27px !important; }
-
-  .ml-20-sm {
-    margin-left: 20px !important; }
-
-  .mr-20-sm {
-    margin-right: 20px !important; }
-
-  .mh-0-sm {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
-  .p-0-sm {
-    padding: 0 !important; }
-
-  .pr-0-sm {
-    padding-right: 0 !important; }
-
-  .pr-30-sm {
-    padding-right: 30px !important; }
-
-  .pl-0-sm {
-    padding-left: 0 !important; }
-
-  .pl-30-sm {
-    padding-left: 30px !important; }
-
-  .ph-0-sm {
-    padding-left: 0 !important;
-    padding-right: 0 !important; }
-
-  .ph-15-sm {
-    padding-left: 15px !important;
-    padding-right: 15px !important; }
-
   .mh-0-sm {
     margin-left: 0 !important;
     margin-right: 0 !important; }
@@ -7663,8 +7601,8 @@ i.menu-indicator {
   .fat-tabs .ui-tabs-panel, .fat-buttons .ui-tabs-panel {
     padding: 26px 0 0 0; }
 
-  .fat-buttons > ul > li.active-button {
-    padding-bottom: 15px !important; }
+  .fat-buttons > ul > li.IM {
+    margin-top: 13px !important; }
 
   .off-canvas-content .container > div:first-child {
     padding-bottom: 13px;
