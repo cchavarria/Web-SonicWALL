@@ -1,52 +1,49 @@
 @charset "IBM437";
-/*
-  - Use full 6 character hex value.
-*/
 @font-face {
   font-family: 'museo-sans-for-dell-100';
-  src: url("/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-100-webfont.woff") format("woff"), url("/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
+  src: url("http://software.dell.com/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/museosansfordell-100-webfont.woff") format("woff"), url("http://software.dell.com/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("http://software.dell.com/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'museo-sans-for-dell-300';
-  src: url("/fonts/museosansfordell-300-webfont.eot");
-  src: url("/fonts/museosansfordell-300-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-300-webfont.woff") format("woff"), url("/fonts/museosansfordell-300-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-300-webfont.svg#MuseoSansForDell300") format("svg");
+  src: url("http://software.dell.com/fonts/museosansfordell-300-webfont.eot");
+  src: url("http://software.dell.com/fonts/museosansfordell-300-webfont.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/museosansfordell-300-webfont.woff") format("woff"), url("http://software.dell.com/fonts/museosansfordell-300-webfont.ttf") format("truetype"), url("http://software.dell.com/fonts/museosansfordell-300-webfont.svg#MuseoSansForDell300") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'museo-sans-for-dell-700';
-  src: url("/fonts/museosansfordell-700-webfont.eot");
-  src: url("/fonts/museosansfordell-700-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/museosansfordell-700-webfont.woff") format("woff"), url("/fonts/museosansfordell-700-webfont.ttf") format("truetype"), url("/fonts/museosansfordell-700-webfont.svg#MuseoSansForDell700") format("svg");
+  src: url("http://software.dell.com/fonts/museosansfordell-700-webfont.eot");
+  src: url("http://software.dell.com/fonts/museosansfordell-700-webfont.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/museosansfordell-700-webfont.woff") format("woff"), url("http://software.dell.com/fonts/museosansfordell-700-webfont.ttf") format("truetype"), url("http://software.dell.com/fonts/museosansfordell-700-webfont.svg#MuseoSansForDell700") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-ui';
-  src: url("/fonts/icon-ui.eot");
-  src: url("/fonts/icon-ui.eot?#iefix") format("embedded-opentype"), url("/fonts/icon-ui.woff") format("woff"), url("/fonts/icon-ui.ttf") format("truetype"), url("/fonts/icon-ui.svg#icon-ui") format("svg");
+  src: url("http://software.dell.com/fonts/icon-ui.eot");
+  src: url("http://software.dell.com/fonts/icon-ui.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/icon-ui.woff") format("woff"), url("http://software.dell.com/fonts/icon-ui.ttf") format("truetype"), url("http://software.dell.com/fonts/icon-ui.svg#icon-ui") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-small';
-  src: url("/fonts/icon-small.eot");
-  src: url("/fonts/icon-small.eot?#iefix") format("embedded-opentype"), url("/fonts/icon-small.woff") format("woff"), url("/fonts/icon-small.ttf") format("truetype"), url("/fonts/icon-small.svg#icon-small") format("svg");
+  src: url("http://software.dell.com/fonts/icon-small.eot");
+  src: url("http://software.dell.com/fonts/icon-small.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/icon-small.woff") format("woff"), url("http://software.dell.com/fonts/icon-small.ttf") format("truetype"), url("http://software.dell.com/fonts/icon-small.svg#icon-small") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-large';
-  src: url("/fonts/icon-large.eot");
-  src: url("/fonts/icon-large.eot?#iefix") format("embedded-opentype"), url("/fonts/icon-large.woff") format("woff"), url("/fonts/icon-large.ttf") format("truetype"), url("/fonts/icon-large.svg#icon-large") format("svg");
+  src: url("http://software.dell.com/fonts/icon-large.eot");
+  src: url("http://software.dell.com/fonts/icon-large.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/icon-large.woff") format("woff"), url("http://software.dell.com/fonts/icon-large.ttf") format("truetype"), url("http://software.dell.com/fonts/icon-large.svg#icon-large") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("/fonts/glyphicons-halflings-regular.eot");
-  src: url("/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("http://software.dell.com/fonts/glyphicons-halflings-regular.eot");
+  src: url("http://software.dell.com/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("http://software.dell.com/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("http://software.dell.com/fonts/glyphicons-halflings-regular.woff") format("woff"), url("http://software.dell.com/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("http://software.dell.com/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
@@ -57,7 +54,7 @@
 
 body {
   width: 100% !important;
-  min-width: 580px;
+  min-width: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0;
@@ -119,12 +116,12 @@ table.container {
   width: 580px;
   margin: 0 auto;
   text-align: inherit; }
+  table.container table.row {
+    display: block; }
 table.row {
   padding: 0px;
   width: 100%;
   position: relative; }
-table.container table.row {
-  display: block; }
 
 td.wrapper {
   padding: 10px 20px 0px 0px;
@@ -536,55 +533,490 @@ body.outlook p {
     display: none !important; }
   table[class="body"] .show-for-small, table[class="body"] .hide-for-desktop {
     display: inherit !important; } }
-.header, .footer {
-  width: 100%;
-  background: #007cb8;
-  color: #ffffff; }
-  .header p, .footer p {
-    color: #ffffff; }
-  .header td, .footer td {
-    color: #ffffff; }
-  .header a, .footer a {
-    color: #ffffff;
-    text-decoration: underline; }
-    .header a span, .footer a span {
-      color: #ffffff; }
-    .header a:link, .header a:focus, .header a:visited, .header a:active, .footer a:link, .footer a:focus, .footer a:visited, .footer a:active {
-      color: #ffffff; }
+a.text-underline {
+  text-decoration: underline; }
 
-.bg-grey {
-  background: #f9f9f9;
-  width: 100%; }
+.inline-block {
+  display: inline-block; }
 
-.pad-vertical-20 {
-  padding: 20px 0 !important; }
-
-.pad-vertical-30 {
-  padding: 20px 0 !important; }
-
-.pad-bottom-20 {
-  padding-bottom: 20px !important; }
-
-.no-padding {
+.p-0 {
   padding: 0 !important; }
 
-.text-sm {
-  font-size: 11px;
-  line-height: 1.3em; }
+.p-15 {
+  padding: 15px !important; }
 
-.img-border {
-  border: 1px solid #737373; }
+.p-25 {
+  padding: 25px !important; }
 
-/* http://software.dell.com/kace/ */
-.img-border-grey {
-  border: 1px solid #ddd; }
+.pt-0 {
+  padding-top: 0 !important; }
 
-#social-media {
-  /*a, span {
-    display: inline-block;
-  }*/ }
-  #social-media td {
-    padding: 20px 10px;
-    vertical-align: top; }
-  #social-media img {
-    float: none; }
+.pt-5 {
+  padding-top: 5px !important; }
+
+.pt-10 {
+  padding-top: 10px !important; }
+
+.pt-20 {
+  padding-top: 20px !important; }
+
+.pt-30 {
+  padding-top: 30px !important; }
+
+.pb-0 {
+  padding-bottom: 0 !important; }
+
+.pb-10 {
+  padding-bottom: 10px !important; }
+
+.pb-15 {
+  padding-bottom: 15px !important; }
+
+.pb-20 {
+  padding-bottom: 20px !important; }
+
+.pb-30 {
+  padding-bottom: 30px !important; }
+
+.pl-0 {
+  padding-left: 0 !important; }
+
+.pl-10 {
+  padding-left: 10px !important; }
+
+.pl-25 {
+  padding-left: 25px !important; }
+
+.pl-28 {
+  padding-left: 28px !important; }
+
+.pr-0 {
+  padding-right: 0 !important; }
+
+.pv-20 {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important; }
+
+.pv-30 {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important; }
+
+.m-0 {
+  margin: 0 !important; }
+
+.mt-0 {
+  margin-top: 0 !important; }
+
+.mt-5 {
+  margin-top: 5px !important; }
+
+.mt-10 {
+  margin-top: 10px !important; }
+
+.mt-20 {
+  margin-top: 20px !important; }
+
+.mb-0 {
+  margin-bottom: 0 !important; }
+
+.mb-5 {
+  margin-bottom: 5px !important; }
+
+.mb-10 {
+  margin-bottom: 10px !important; }
+
+.mb-15 {
+  margin-bottom: 15px !important; }
+
+.mb-20 {
+  margin-bottom: 20px !important; }
+
+.mb-30 {
+  margin-bottom: 30px !important; }
+
+.mb-40 {
+  margin-bottom: 40px !important; }
+
+.mb-50 {
+  margin-bottom: 50px !important; }
+
+.mr-0 {
+  margin-right: 0 !important; }
+
+.mr-10 {
+  margin-right: 10px !important; }
+
+.mr-20 {
+  margin-right: 20px !important; }
+
+.ml-10 {
+  margin-left: 10px !important; }
+
+.ml-20 {
+  margin-left: 20px !important; }
+
+.mv-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+@media only screen and (min-width: 601px) {
+  .p-0-md {
+    padding: 0 !important; }
+
+  .p-15-md {
+    padding: 15px !important; }
+
+  .p-25-md {
+    padding: 25px !important; }
+
+  .pt-0-md {
+    padding-top: 0 !important; }
+
+  .pt-10-md {
+    padding-top: 10px !important; }
+
+  .pt-20-md {
+    padding-top: 20px !important; }
+
+  .pt-30-md {
+    padding-top: 30px !important; }
+
+  .pb-0-md {
+    padding-bottom: 0 !important; }
+
+  .pb-10-md {
+    padding-bottom: 10px !important; }
+
+  .pb-20-md {
+    padding-bottom: 20px !important; }
+
+  .pb-30-md {
+    padding-bottom: 30px !important; }
+
+  .pl-0-md {
+    padding-left: 0 !important; }
+
+  .pl-10-md {
+    padding-left: 10px !important; }
+
+  .pl-25-md {
+    padding-left: 25px !important; }
+
+  .pl-28-md {
+    padding-left: 28px !important; }
+
+  .pr-0-md {
+    padding-right: 0 !important; }
+
+  .m-0-md {
+    margin: 0 !important; }
+
+  .mt-0-md {
+    margin-top: 0 !important; }
+
+  .mt-10-md {
+    margin-top: 10px !important; }
+
+  .mt-20-md {
+    margin-top: 20px !important; }
+
+  .mb-0-md {
+    margin-bottom: 0 !important; }
+
+  .mb-10-md {
+    margin-bottom: 10px !important; }
+
+  .mb-15-md {
+    margin-bottom: 15px !important; }
+
+  .mb-20-md {
+    margin-bottom: 20px !important; }
+
+  .mb-30-md {
+    margin-bottom: 30px !important; }
+
+  .mb-40-md {
+    margin-bottom: 40px !important; }
+
+  .mb-50-md {
+    margin-bottom: 50px !important; }
+
+  .mr-0-md {
+    margin-right: 0 !important; }
+
+  .mr-10-md {
+    margin-right: 10px !important; }
+
+  .mr-20-md {
+    margin-right: 20px !important; }
+
+  .ml-10-md {
+    margin-left: 10px !important; }
+
+  .ml-20-md {
+    margin-left: 20px !important; } }
+.bg-light-gray {
+  background: #eeeeee; }
+
+.bg-white {
+  background: #fff; }
+
+.bg-dark-orange {
+  background: #ff6633; }
+
+.bg-dark-blue {
+  background: #00618F; }
+
+.bg-dark-gray {
+  background: #333333; }
+
+.row-purple {
+  background: #6e2585; }
+
+.row-blue {
+  line-height: 30px;
+  background-color: #007db8; }
+
+.row-orange {
+  line-height: 30px;
+  background-color: #ff6633; }
+
+.text-white {
+  color: #ffffff; }
+  .text-white > span {
+    color: #ffffff; }
+
+.text-blue {
+  color: #007db8; }
+  .text-blue > span {
+    color: #007db8; }
+
+.text-dark-blue {
+  color: #00618F; }
+  .text-dark-blue > span {
+    color: #00618F; }
+
+.text-orange {
+  color: #ff6633; }
+
+.text-purple {
+  color: #6e2585; }
+
+.text-center {
+  text-align: center; }
+
+.underline-orange {
+  background-color: #ff6633;
+  border: 1px solid #ff6633;
+  color: #ffffff; }
+  .underline-orange a {
+    color: #ffffff; }
+    .underline-orange a > span {
+      color: #ffffff; }
+    .underline-orange a > p {
+      color: #ffffff; }
+
+table.watch-video td {
+  color: #ffffff; }
+  table.watch-video td a {
+    color: #ffffff;
+    text-decoration: underline !important; }
+    table.watch-video td a > span {
+      color: #ffffff; }
+table.watch-video:hover td {
+  color: #ffffff; }
+  table.watch-video:hover td a {
+    color: #ffffff !important; }
+table.watch-video td a:visited, table.watch-video:active td a {
+  color: #ffffff !important; }
+  table.watch-video td a:visited > span, table.watch-video:active td a > span {
+    color: #ffffff !important; }
+
+.text-size-17 {
+  font-size: 17px; }
+  .text-size-17 td {
+    font-size: 17px; }
+  .text-size-17 p {
+    font-size: 17px; }
+  .text-size-17 span {
+    font-size: 17px; }
+
+.text-size-16 {
+  font-size: 16px; }
+  .text-size-16 td {
+    font-size: 16px; }
+  .text-size-16 p {
+    font-size: 16px; }
+  .text-size-16 span {
+    font-size: 16px; }
+
+.text-size-15 {
+  font-size: 15px; }
+  .text-size-15 td {
+    font-size: 15px; }
+  .text-size-15 p {
+    font-size: 15px; }
+  .text-size-15 span {
+    font-size: 15px; }
+
+.text-size-14 {
+  font-size: 14px; }
+  .text-size-14 td {
+    font-size: 14px; }
+  .text-size-14 p {
+    font-size: 14px; }
+  .text-size-14 span {
+    font-size: 14px; }
+
+.text-size-13 {
+  font-size: 13px; }
+  .text-size-13 td {
+    font-size: 13px; }
+  .text-size-13 p {
+    font-size: 13px; }
+  .text-size-13 span {
+    font-size: 13px; }
+
+@media all and (max-width: 480px) {
+  .text-size-17 {
+    font-size: 19px; }
+    .text-size-17 td {
+      font-size: 19px; }
+    .text-size-17 p {
+      font-size: 19px; }
+    .text-size-17 span {
+      font-size: 19px; }
+
+  .text-size-16 {
+    font-size: 18px; }
+    .text-size-16 td {
+      font-size: 18px; }
+    .text-size-16 p {
+      font-size: 18px; }
+    .text-size-16 span {
+      font-size: 18px; }
+
+  .text-size-15 {
+    font-size: 17px; }
+    .text-size-15 td {
+      font-size: 17px; }
+    .text-size-15 p {
+      font-size: 17px; }
+    .text-size-15 span {
+      font-size: 17px; }
+
+  .text-size-14 {
+    font-size: 16px; }
+    .text-size-14 td {
+      font-size: 16px; }
+    .text-size-14 p {
+      font-size: 16px; }
+    .text-size-14 span {
+      font-size: 16px; }
+
+  .text-size-13 {
+    font-size: 15px; }
+    .text-size-13 td {
+      font-size: 15px; }
+    .text-size-13 p {
+      font-size: 15px; }
+    .text-size-13 span {
+      font-size: 15px; } }
+table.button.button-width-auto {
+  width: auto;
+  display: inline-block; }
+table.button.button-underline a {
+  text-decoration: underline; }
+table.button td {
+  padding: 6px 15px; }
+  table.button td a {
+    font-size: 19px; }
+table.button-blue td {
+  background-color: #007db8;
+  border: 1px solid #007db8;
+  color: #ffffff; }
+  table.button-blue td a {
+    color: #ffffff; }
+    table.button-blue td a > span {
+      color: #ffffff; }
+table.button-blue:hover td {
+  background: #007db8 !important;
+  border: 1px solid #007db8;
+  color: #ffffff; }
+  table.button-blue:hover td a {
+    color: #ffffff !important; }
+table.button-blue td a:visited, table.button-blue:active td a {
+  color: #ffffff !important; }
+  table.button-blue td a:visited > span, table.button-blue:active td a > span {
+    color: #ffffff !important; }
+table.button-purple td {
+  background-color: #6e2585;
+  border: 1px solid #6e2585;
+  color: #ffffff; }
+  table.button-purple td a {
+    color: #ffffff; }
+    table.button-purple td a > span {
+      color: #ffffff; }
+table.button-purple:hover td {
+  background: #6e2585 !important;
+  border: 1px solid #6e2585;
+  color: #ffffff; }
+  table.button-purple:hover td a {
+    color: #ffffff !important; }
+table.button-purple td a:visited, table.button-purple:active td a {
+  color: #ffffff !important; }
+  table.button-purple td a:visited > span, table.button-purple:active td a > span {
+    color: #ffffff !important; }
+table.button-orange td {
+  background-color: #ff6633;
+  border: 1px solid #ff6633;
+  color: #ffffff; }
+  table.button-orange td a {
+    color: #ffffff; }
+    table.button-orange td a > span {
+      color: #ffffff; }
+table.button-orange:hover td {
+  background: #ff6633 !important;
+  border: 1px solid #ff6633;
+  color: #ffffff; }
+  table.button-orange:hover td a {
+    color: #ffffff !important; }
+table.button-orange td a:visited, table.button-orange:active td a {
+  color: #ffffff !important; }
+  table.button-orange td a:visited > span, table.button-orange:active td a > span {
+    color: #ffffff !important; }
+table.button-dark-blue td {
+  background-color: #00618F;
+  border: 1px solid #00618F;
+  color: #ffffff; }
+  table.button-dark-blue td a {
+    color: #ffffff; }
+    table.button-dark-blue td a > span {
+      color: #ffffff; }
+table.button-dark-blue:hover td {
+  background: #00618F !important;
+  border: 1px solid #00618F;
+  color: #ffffff; }
+  table.button-dark-blue:hover td a {
+    color: #ffffff !important; }
+table.button-dark-blue td a:visited, table.button-dark-blue:active td a {
+  color: #ffffff !important; }
+  table.button-dark-blue td a:visited > span, table.button-dark-blue:active td a > span {
+    color: #ffffff !important; }
+
+/*@media only screen and (min-width: 601px) {
+  table {
+    &.button {
+      &.button-width-auto {
+        width: auto;
+        display: inline-block;
+      }
+    }
+  }
+}*/
+@media only screen and (max-width: 600px) {
+  table.button.button-width-auto {
+    width: 100% !important;
+    display: table !important; } }
+.img-responsive {
+  width: 100% !important; }

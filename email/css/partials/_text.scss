@@ -1,0 +1,225 @@
+.text-white {
+  color: #ffffff;
+  > span {
+    color: #ffffff;
+  }
+}
+
+.text-blue {
+  color: #007db8;
+  > span {
+    color: #007db8;
+  }
+}
+
+.text-dark-blue {
+  color: #00618F;
+  > span {
+    color: #00618F;
+  }
+}
+
+.text-orange {
+  color: #ff6633;
+}
+
+.text-purple {
+  color: #6e2585;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.underline-orange {
+    background-color: #ff6633;
+    border: 1px solid #ff6633;
+    color: #ffffff;
+    a {
+      color: #ffffff;
+      > span {
+        color: #ffffff;
+      }
+      > p {
+        color: #ffffff;
+      }
+    }
+  }
+
+table {
+
+  &.watch-video {
+    td {
+      color: #ffffff;
+      a {
+        color: #ffffff;
+        text-decoration: underline !important;
+        >span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:hover td {
+      color: #ffffff;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    td a:visited, &:active td a {
+      color: #ffffff !important;
+      >span {
+        color: #ffffff !important;
+      }
+    }
+  }
+}
+
+.text-size-17 {
+  font-size: 17px;
+
+  td {
+    font-size: 17px;
+  }
+  p {
+    font-size: 17px;
+  }
+  span {
+    font-size: 17px;
+  }
+}
+
+.text-size-16 {
+  font-size: 16px;
+
+  td {
+    font-size: 16px;
+  }
+  p {
+    font-size: 16px;
+  }
+  span {
+    font-size: 16px;
+  }
+}
+
+.text-size-15 {
+  font-size: 15px;
+
+  td {
+    font-size: 15px;
+  }
+  p {
+    font-size: 15px;
+  }
+  span {
+    font-size: 15px;
+  }
+}
+
+.text-size-14 {
+  font-size: 14px;
+
+  td {
+    font-size: 14px;
+  }
+  p {
+    font-size: 14px;
+  }
+  span {
+    font-size: 14px;
+  }
+}
+
+.text-size-13 {
+  font-size: 13px;
+
+  td {
+    font-size: 13px;
+  }
+  p {
+    font-size: 13px;
+  }
+  span {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 480px) {
+
+  .text-size-17 {
+    font-size: 19px;
+
+    td {
+      font-size: 19px;
+    }
+    p {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
+
+
+  .text-size-16 {
+    font-size: 18px;
+
+    td {
+      font-size: 18px;
+    }
+    p {
+      font-size: 18px;
+    }
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .text-size-15 {
+    font-size: 17px;
+
+    td {
+      font-size: 17px;
+    }
+    p {
+      font-size: 17px;
+    }
+    span {
+      font-size: 17px;
+    }
+  }
+
+
+  .text-size-14 {
+    font-size: 16px;
+
+    td {
+      font-size: 16px;
+    }
+    p {
+      font-size: 16px;
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+
+
+
+  .text-size-13 {
+    font-size: 15px;
+
+    td {
+      font-size: 15px;
+    }
+    p {
+      font-size: 15px;
+    }
+    span {
+      font-size: 15px;
+    }
+  }
+
+
+}

@@ -1,8 +1,4 @@
-/*
-  - Use full 6 character hex value.
-*/
-
-@import "../../static/bootstrap/custom/_font-face";
+@import 'partials/fonts';
 
 /**********************************************
 * Ink v1.0.5 - Copyright 2013 ZURB Inc        *
@@ -16,8 +12,7 @@
 
 body {
   width: 100% !important;
-  //min-width: 100%;
-  min-width: 580px;
+  min-width: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   margin: 0;
@@ -93,14 +88,14 @@ table {
     width: 580px;
     margin: 0 auto;
     text-align: inherit;
+    table.row {
+      display: block;
+    }
   }
   &.row {
     padding: 0px;
     width: 100%;
     position: relative;
-  }
-  &.container table.row {
-    display: block;
   }
 }
 
@@ -707,62 +702,9 @@ body.outlook p {
   }
 }
 
-.header, .footer {
-  width: 100%;
-  background: #007cb8;
-  color: #ffffff;
-  p {
-    color: #ffffff;
-  }
-  td {
-    color: #ffffff;
-  }
-  a {
-    color: #ffffff;
-    text-decoration: underline;
-    span {
-      color: #ffffff;
-    }
-    &:link, &:focus, &:visited, &:active {
-      color: #ffffff;
-    }
-  }
-}
-
-.bg-grey {
-  background: #f9f9f9;
-  width: 100%;
-}
-
-.pad-vertical-20 {
-  padding: 20px 0 !important;
-}
-.pad-vertical-30 {
-  padding: 20px 0 !important;
-}
-.pad-bottom-20 {
-  padding-bottom: 20px !important;
-}
-.no-padding {
-  padding: 0 !important;
-}
-
-.text-sm {
-  font-size: 11px;
-  line-height: 1.3em;
-}
-
-@import "../../static/bootstrap/custom/_image";
-
-#social-media {
-  td {
-    padding: 20px 10px;
-    vertical-align: top;
-  }
-  /*a, span {
-    display: inline-block;
-  }*/
-  img {
-    float: none;
-  }
-}
+@import 'partials/general';
+@import 'partials/margin-padding';
+@import 'partials/background';
+@import 'partials/text';
+@import 'partials/buttons';
+@import 'partials/images';

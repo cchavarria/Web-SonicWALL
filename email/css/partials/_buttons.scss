@@ -1,0 +1,154 @@
+table {
+  &.button {
+    &.button-width-auto {
+      width: auto;
+      display: inline-block;
+    }
+    &.button-underline {
+      a {
+        text-decoration: underline;
+      }
+    }
+    td {
+      padding: 6px 15px;
+      a {
+        font-size: 19px;
+      }
+    }
+  }
+  &.button-blue {
+    td {
+      background-color: #007db8;
+      border: 1px solid #007db8;
+      color: #ffffff;
+      a {
+        color: #ffffff;
+        > span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:hover td {
+      background: #007db8 !important;
+      border: 1px solid #007db8;
+      color: #ffffff;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    td a:visited, &:active td a {
+      color: #ffffff !important;
+      > span {
+        color: #ffffff !important;
+      }
+    }
+  }
+  &.button-purple {
+    td {
+      background-color: #6e2585;
+      border: 1px solid #6e2585;
+      color: #ffffff;
+      a {
+        color: #ffffff;
+        > span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:hover td {
+      background: #6e2585 !important;
+      border: 1px solid #6e2585;
+      color: #ffffff;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    td a:visited, &:active td a {
+      color: #ffffff !important;
+      > span {
+        color: #ffffff !important;
+      }
+    }
+  }
+  &.button-orange {
+    td {
+      background-color: #ff6633;
+      border: 1px solid #ff6633;
+      color: #ffffff;
+      a {
+        color: #ffffff;
+        > span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:hover td {
+      background: #ff6633 !important;
+      border: 1px solid #ff6633;
+      color: #ffffff;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    td a:visited, &:active td a {
+      color: #ffffff !important;
+      > span {
+        color: #ffffff !important;
+      }
+    }
+  }
+  &.button-dark-blue {
+    td {
+      background-color: #00618F;
+      border: 1px solid #00618F;
+      color: #ffffff;
+      a {
+        color: #ffffff;
+        > span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &:hover td {
+      background: #00618F !important;
+      border: 1px solid #00618F;
+      color: #ffffff;
+      a {
+        color: #ffffff !important;
+      }
+    }
+    td a:visited, &:active td a {
+      color: #ffffff !important;
+      > span {
+        color: #ffffff !important;
+      }
+    }
+  }
+}
+
+/*@media only screen and (min-width: 601px) {
+  table {
+    &.button {
+      &.button-width-auto {
+        width: auto;
+        display: inline-block;
+      }
+    }
+  }
+}*/
+
+@media only screen and (max-width: 600px) {
+  table {
+    &.button {
+      &.button-width-auto {
+        width: 100% !important;
+        display: table !important;
+      }
+    }
+  }
+}
+
