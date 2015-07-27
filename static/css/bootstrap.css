@@ -6828,6 +6828,39 @@ i.menu-indicator {
 .text-teal {
   color: #42aeaf; }
 
+.bg-blue {
+  background-color: #007db8; }
+
+.bg-dark-blue {
+  background-color: #00447c; }
+
+.bg-light-green {
+  background-color: #c1d82f; }
+
+.bg-green {
+  background-color: #6ea204; }
+
+.bg-yellow {
+  background-color: #f2af00; }
+
+.bg-orange {
+  background-color: #ee6411; }
+
+.bg-red {
+  background-color: #d74324; }
+
+.bg-dark-red {
+  background-color: #c31126; }
+
+.bg-berry {
+  background-color: #b7295a; }
+
+.bg-purple {
+  background-color: #6e2585; }
+
+.bg-teal {
+  background-color: #42aeaf; }
+
 /*
   Description: Hero banner
   Author: Elnaz Doostdar
@@ -7919,6 +7952,20 @@ a:hover .has-overlay h4 {
 @media (min-width: 768px) {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
+.listing-entries {
+  color: #444; }
+  .listing-entries a {
+    color: #444;
+    text-decoration: none;
+    display: block;
+    margin: 40px 0; }
+  .listing-entries .listing-header {
+    color: #fff;
+    padding: 0 0 0 10px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 700; }
+
 .modal-open {
   overflow: hidden; }
 
