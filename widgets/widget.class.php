@@ -13,7 +13,7 @@ class Widget {
         $this->parseSubWidget();
 
         $info = pathinfo($_GET['page']);
-        
+
         $this->loadDependencies($info['dirname'], $info['filename'] ? $info['filename']:'index');
     }
 
