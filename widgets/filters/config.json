@@ -1,0 +1,4 @@
+{
+  "css": ["/static/library/css/multiple-select.css"],
+  "js": ["/static/library/jQuery/jquery.multiple.select.js"]
+}
