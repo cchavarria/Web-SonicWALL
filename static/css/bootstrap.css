@@ -5315,6 +5315,20 @@ li {
   .bg-white-xs {
     background-color: #fff; } }
 @media (min-width: 768px) and (max-width: 991px) {
+  .center-block-sm-only {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .text-right-sm-only {
+    text-align: right; }
+
+  .pull-right-sm-only {
+    float: right !important; }
+
+  .pull-left-sm-only {
+    float: left; } }
+@media (min-width: 768px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0; }
@@ -5335,6 +5349,12 @@ li {
   .pull-left-sm {
     float: left; } }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .pull-left-md-only {
+    float: left; }
+
+  .text-left-md-only {
+    text-align: left; } }
+@media (min-width: 992px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0;
@@ -5668,6 +5688,18 @@ li {
 
   .pl-30-sm {
     padding-left: 30px !important; }
+
+  .ph-0-sm {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+
+  .ph-15-sm {
+    padding-left: 15px !important;
+    padding-right: 15px !important; }
+
+  .mh-0-sm {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
 
   .ph-0-sm {
     padding-left: 0 !important;
@@ -6796,6 +6828,39 @@ i.menu-indicator {
 .text-teal {
   color: #42aeaf; }
 
+.bg-blue {
+  background-color: #007db8; }
+
+.bg-dark-blue {
+  background-color: #00447c; }
+
+.bg-light-green {
+  background-color: #c1d82f; }
+
+.bg-green {
+  background-color: #6ea204; }
+
+.bg-yellow {
+  background-color: #f2af00; }
+
+.bg-orange {
+  background-color: #ee6411; }
+
+.bg-red {
+  background-color: #d74324; }
+
+.bg-dark-red {
+  background-color: #c31126; }
+
+.bg-berry {
+  background-color: #b7295a; }
+
+.bg-purple {
+  background-color: #6e2585; }
+
+.bg-teal {
+  background-color: #42aeaf; }
+
 /*
   Description: Hero banner
   Author: Elnaz Doostdar
@@ -7631,6 +7696,9 @@ i.menu-indicator {
   .fat-tabs .ui-tabs-panel, .fat-buttons .ui-tabs-panel {
     padding: 26px 0 0 0; }
 
+  .fat-buttons > ul > li.active-button {
+    padding-bottom: 15px !important; }
+
   .off-canvas-content .container > div:first-child {
     padding-bottom: 13px;
     border-bottom: 1px solid #ccc; }
@@ -7884,6 +7952,20 @@ a:hover .has-overlay h4 {
 @media (min-width: 768px) {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
+.listing-entries {
+  color: #444; }
+  .listing-entries a {
+    color: #444;
+    text-decoration: none;
+    display: block;
+    margin: 40px 0; }
+  .listing-entries .listing-header {
+    color: #fff;
+    padding: 0 0 0 10px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 700; }
+
 .filters select {
   width: 100%; }
   .filters select#event-type {
