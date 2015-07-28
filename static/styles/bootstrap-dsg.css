@@ -5992,6 +5992,17 @@
     .bootstrap .bg-white-xs {
       background-color: #fff; } }
   @media (min-width: 768px) and (max-width: 991px) {
+    .bootstrap .center-block-sm-only {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+    .bootstrap .text-right-sm-only {
+      text-align: right; }
+    .bootstrap .pull-right-sm-only {
+      float: right !important; }
+    .bootstrap .pull-left-sm-only {
+      float: left; } }
+  @media (min-width: 768px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;
       padding-bottom: 0; }
@@ -6008,6 +6019,11 @@
     .bootstrap .pull-left-sm {
       float: left; } }
   @media (min-width: 992px) and (max-width: 1199px) {
+    .bootstrap .pull-left-md-only {
+      float: left; }
+    .bootstrap .text-left-md-only {
+      text-align: left; } }
+  @media (min-width: 992px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;
       padding-bottom: 0;

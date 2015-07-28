@@ -125,6 +125,23 @@ li {
 }
 
 @media (min-width: 768px) and (max-width: 991px) { //Tablet - SM
+  .center-block-sm-only {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-right-sm-only {
+    text-align: right;
+  }
+  .pull-right-sm-only {
+    float: right !important;
+  }
+  .pull-left-sm-only {
+    float: left;
+  }
+}
+
+@media (min-width: 768px) { //Tablet - SM
   #right-rail-form {
     label {
       padding-top: 8px;
@@ -151,6 +168,15 @@ li {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) { //Desktop - MD
+  .pull-left-md-only {
+    float: left;
+  }
+  .text-left-md-only {
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) { //Desktop - MD
   #right-rail-form {
     label {
       padding-top: 8px;

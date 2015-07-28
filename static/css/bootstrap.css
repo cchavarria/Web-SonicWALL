@@ -5315,6 +5315,20 @@ li {
   .bg-white-xs {
     background-color: #fff; } }
 @media (min-width: 768px) and (max-width: 991px) {
+  .center-block-sm-only {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .text-right-sm-only {
+    text-align: right; }
+
+  .pull-right-sm-only {
+    float: right !important; }
+
+  .pull-left-sm-only {
+    float: left; } }
+@media (min-width: 768px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0; }
@@ -5335,6 +5349,12 @@ li {
   .pull-left-sm {
     float: left; } }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .pull-left-md-only {
+    float: left; }
+
+  .text-left-md-only {
+    text-align: left; } }
+@media (min-width: 992px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0;
