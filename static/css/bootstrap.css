@@ -5315,20 +5315,6 @@ li {
   .bg-white-xs {
     background-color: #fff; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .center-block-sm-only {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .text-right-sm-only {
-    text-align: right; }
-
-  .pull-right-sm-only {
-    float: right !important; }
-
-  .pull-left-sm-only {
-    float: left; } }
-@media (min-width: 768px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0; }
@@ -5349,12 +5335,6 @@ li {
   .pull-left-sm {
     float: left; } }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .pull-left-md-only {
-    float: left; }
-
-  .text-left-md-only {
-    text-align: left; } }
-@media (min-width: 992px) {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0;
@@ -5688,18 +5668,6 @@ li {
 
   .pl-30-sm {
     padding-left: 30px !important; }
-
-  .ph-0-sm {
-    padding-left: 0 !important;
-    padding-right: 0 !important; }
-
-  .ph-15-sm {
-    padding-left: 15px !important;
-    padding-right: 15px !important; }
-
-  .mh-0-sm {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
 
   .ph-0-sm {
     padding-left: 0 !important;
@@ -7663,9 +7631,6 @@ i.menu-indicator {
   .fat-tabs .ui-tabs-panel, .fat-buttons .ui-tabs-panel {
     padding: 26px 0 0 0; }
 
-  .fat-buttons > ul > li.IM {
-    margin-top: 13px !important; }
-
   .off-canvas-content .container > div:first-child {
     padding-bottom: 13px;
     border-bottom: 1px solid #ccc; }
@@ -7919,24 +7884,35 @@ a:hover .has-overlay h4 {
 @media (min-width: 768px) {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
-.filters select {
-  width: 100%; }
-  .filters select#event-type {
-    display: none; }
-.filters .remove {
-  font-size: 19px;
-  margin-left: 5px; }
-  .filters .remove:hover {
-    cursor: pointer; }
-.filters .collapse {
-  display: block; }
+.online-event-info,
+.inperson-event-info,
+.webcast-info {
+  color: #444; }
+  .online-event-info a,
+  .inperson-event-info a,
+  .webcast-info a {
+    color: #444;
+    text-decoration: none; }
+  .online-event-info .border-grey p,
+  .inperson-event-info .border-grey p,
+  .webcast-info .border-grey p {
+    background-color: #6ea204;
+    color: #fff;
+    padding: 0 0 0 10px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 700; }
+  .online-event-info .border-grey img,
+  .inperson-event-info .border-grey img,
+  .webcast-info .border-grey img {
+    width: 100%; }
 
-/*mobile*/
-@media (max-width: 767px) {
-  .filters .collapse {
-    display: none; }
-  .filters .collapse.in {
-    display: block; } }
+.inperson-event-info .border-grey p {
+  background-color: #6e2585; }
+
+.webcast-info .border-grey p {
+  background-color: #ee6411; }
+
 .modal-open {
   overflow: hidden; }
 
