@@ -129,6 +129,16 @@ mark,
   padding: .2em;
 }
 
+//Size
+.text-inherit {
+  font-size: inherit;
+  line-height: inherit;
+}
+.text-normal {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
 // Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
@@ -298,7 +308,21 @@ blockquote {
     position: absolute;
     font-size: 40px;
     top: 14px;
-    margin-left: -23px;
+    margin-left: -15px;
+  }
+
+  &.no-quote {
+    padding: 0;
+
+    &::before {
+      content: "";
+    }
+
+    p {
+      &::after {
+        content: "";
+      }
+    }
   }
 
   p {
@@ -326,7 +350,9 @@ blockquote {
     margin-top: 10px;
     display: block;
     //font-size: 80%; // back to default font-size
-    font-size: 70%;
+    //font-size: 70%;
+    font-size: $font-size-base;
+
     line-height: $line-height-base;
     color: $blockquote-small-color;
 
@@ -336,14 +362,13 @@ blockquote {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { //Tablet & Desktop (sm, md, lg)
   blockquote {
     font-size: $blockquote-font-size;
     margin: 0 0 $line-height-computed;
 
     &::before {
       top: 10px;
-      margin-left: -24px;
     }
 
     p {
@@ -353,7 +378,7 @@ blockquote {
     }
 
     footer {
-      font-size: 50%;
+      font-size: $font-size-base;
     }
   }
 }

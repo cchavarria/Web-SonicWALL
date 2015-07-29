@@ -243,6 +243,7 @@ addResize('resizeFourColumnFilmstripCarousel');
 addResize('toggleResize');
 addResize('grayscaleImage');
 
+
 function loadOoyala(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
 		parentSelector = 'body';
@@ -274,13 +275,13 @@ function loadOoyala(parentSelector) {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
 
-				if(id === undefined) {
+				if (id === undefined) {
 					id = getRandomString(8);
 					$(this).attr('id', id);
 				}
 
 				if ($(this).is(':visible')) {
-					if(!$('#' + id).data('loaded')) {
+					if (!$('#' + id).data('loaded')) {
 						OO.Player.create(id, videoId, {
 							onCreate: OOCreate,
 							autoplay: false,
@@ -296,40 +297,40 @@ function loadOoyala(parentSelector) {
 			});
 
 			/*if (watchList.length) {
-				if ($.fn.watch) {
-					loadWatch();
-				}
-				else {
-					$.getScript('/static/library/jQuery/jquery.watch.min.js', function () {
-						loadWatch();
-					});
-				}
-			}*/
+			 if ($.fn.watch) {
+			 loadWatch();
+			 }
+			 else {
+			 $.getScript('/static/library/jQuery/jquery.watch.min.js', function () {
+			 loadWatch();
+			 });
+			 }
+			 }*/
 		});
 	}
 
 	/*function loadWatch() {
-		$.each(watchList, function (indx, arr) {
-			var elem = prevElem = $('#' + arr[0]);
+	 $.each(watchList, function (indx, arr) {
+	 var elem = prevElem = $('#' + arr[0]);
 
-			while (!elem.is(':visible')) {
-				prevElem = elem;
-				elem = elem.parent();
-			}
+	 while (!elem.is(':visible')) {
+	 prevElem = elem;
+	 elem = elem.parent();
+	 }
 
-			prevElem.watch('display', function () {
-				if ($(this).is(':visible') && !$('#' + arr[0]).data('loaded')) {
-					OO.Player.create(arr[0], arr[1], {
-						onCreate: OOCreate,
-						autoplay: false,
-						wmode: 'transparent'
-					});
+	 prevElem.watch('display', function () {
+	 if ($(this).is(':visible') && !$('#' + arr[0]).data('loaded')) {
+	 OO.Player.create(arr[0], arr[1], {
+	 onCreate: OOCreate,
+	 autoplay: false,
+	 wmode: 'transparent'
+	 });
 
-					$('#' + arr[0]).data('loaded', true);
-				}
-			});
-		});
-	}*/
+	 $('#' + arr[0]).data('loaded', true);
+	 }
+	 });
+	 });
+	 }*/
 }
 
 function fatTabsResize() {
@@ -353,9 +354,9 @@ function fatTabsResize() {
 		});
 	}
 
-	$(window).load(function() {
+	$(window).load(function () {
 		//Remove site catalyst on click attribute on achor tag.
-		$('.fat-tabs').find('> ul').find('a').each(function() {
+		$('.fat-tabs').find('> ul').find('a').each(function () {
 			$(this).prop('onclick', null);
 		});
 	});
@@ -391,11 +392,14 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 			};
 
 			$(parentSelector).find('.screenshot-carousel').each(function () {
-				if(!$(this).is(':visible')) {
+				if (!$(this).is(':visible')) {
 					return true;
 				}
 
 				var options = sliderOptions;
+
+				//Only destroy slide pagination if it has already been generated.
+				$(this).slidePagination2('destroy');
 
 				if ($(this).data('large-arrows') == 'true') {
 					options.largeArrow = true;
@@ -410,16 +414,23 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 				}
 
 				if (pageWidth >= 992) {
+					if ($(this).data('carousel') === 'xs-only') {
+						return true;
+					}
+
 					options.column = $(this).data('col') ? $(this).data('col') : 4;
 				}
 				else if (pageWidth >= 768) { //tablet
+					if ($(this).data('carousel') === 'xs-only') {
+						return true;
+					}
+
 					options.column = $(this).data('col-sm') ? $(this).data('col-sm') : 3;
 				}
 				else if (pageWidth < 768) { //mobile
 					options.column = $(this).data('col-xs') ? $(this).data('col-xs') : 1;
 				}
 
-				$(this).slidePagination2('destroy');
 				$(this).slidePagination2(options);
 			});
 		}
@@ -659,23 +670,23 @@ function grayscaleImage() {
 
 function getRandomString(len) {
 	var ranString = '',
-		alphaLower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
-		alphaUpper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-		digits = ['0','1','2','3','4','5','6','7','8','9'],
+		alphaLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+		alphaUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+		digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
 		r, n, ranString;
 
-	for(i = 0; i < len; i++) {
+	for (i = 0; i < len; i++) {
 		r = Math.random() * 8;
 
-		if(r >= 0 && r <= 2) {
+		if (r >= 0 && r <= 2) {
 			n = Math.floor(Math.random() * 25);
 			ranString += alphaLower[n];
 		}
-		else if(r >= 3 && r <= 5) {
+		else if (r >= 3 && r <= 5) {
 			n = Math.floor(Math.random() * 25);
 			ranString += alphaUpper[n];
 		}
-		else if(r >= 6) {
+		else if (r >= 6) {
 			n = Math.floor(Math.random() * 9);
 			ranString += digits[n];
 		}
@@ -683,3 +694,4 @@ function getRandomString(len) {
 
 	return ranString;
 }
+

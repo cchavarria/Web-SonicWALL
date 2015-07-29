@@ -1090,6 +1090,12 @@
   .bootstrap .mark {
     background-color: #fcf8e3;
     padding: .2em; }
+  .bootstrap .text-inherit {
+    font-size: inherit;
+    line-height: inherit; }
+  .bootstrap .text-normal {
+    font-size: 14px;
+    line-height: 1.42857; }
   .bootstrap .text-left {
     text-align: left; }
   .bootstrap .text-right {
@@ -1220,7 +1226,13 @@
       position: absolute;
       font-size: 40px;
       top: 14px;
-      margin-left: -23px; }
+      margin-left: -15px; }
+    .bootstrap blockquote.no-quote {
+      padding: 0; }
+      .bootstrap blockquote.no-quote::before {
+        content: ""; }
+      .bootstrap blockquote.no-quote p::after {
+        content: ""; }
     .bootstrap blockquote p {
       display: inline; }
       .bootstrap blockquote p::after {
@@ -1235,7 +1247,7 @@
     .bootstrap blockquote footer {
       margin-top: 10px;
       display: block;
-      font-size: 70%;
+      font-size: 14px;
       line-height: 1.42857;
       color: #777777;
       /*&:before {
@@ -1246,12 +1258,11 @@
       font-size: 28px;
       margin: 0 0 20px; }
       .bootstrap blockquote::before {
-        top: 10px;
-        margin-left: -24px; }
+        top: 10px; }
       .bootstrap blockquote p::after {
         padding-top: 0; }
       .bootstrap blockquote footer {
-        font-size: 50%; } }
+        font-size: 14px; } }
   .bootstrap .blockquote-reverse,
   .bootstrap blockquote.pull-right {
     padding-right: 15px;

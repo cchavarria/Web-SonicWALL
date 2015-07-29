@@ -128,7 +128,7 @@
 		var elem = this,
 			interval = parseInt(options.column) * parseInt(options.row),
 			target = options.target,
-			li = target.find('> li').clone().show(); //Find all LI's
+			li = target.find('> li:visible').clone().show(); //Find all LI's
 
 		if (!options.force) {
 			if (li.length < interval) {
