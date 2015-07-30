@@ -5916,10 +5916,12 @@ li {
     padding-right: 0;
     background-color: #eee;
     color: #444; }
-    .masthead .main-nav-section ul a {
+    .masthead .main-nav-section a {
       display: block;
       padding: 10px 0 9px 20px;
       text-decoration: none; }
+      .masthead .main-nav-section a:hover {
+        text-decoration: none; }
     .masthead .main-nav-section li {
       list-style-type: none; }
   .masthead .search-container {

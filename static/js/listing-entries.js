@@ -13,7 +13,7 @@ function dynamicClearfix() {
 		$rowContainer = $('.listing-entries .row');
 
 	// check for desktop and Large devices
-	if (pageType === 'md' || pageType === 'lg'){
+	if (pageType > 1){
 		$rowContainer.find(divider).remove();
 
 		$rowContainer	.find('> div').each(function() {
@@ -22,7 +22,7 @@ function dynamicClearfix() {
 				$(this).after('<div class="clearfix"></div>');
 			}
 		})
-	}else if (pageType === 'sm') { // check for tablet
+	}else if (pageType == 1) { // check for tablet
 		$rowContainer.find(divider).remove();
 
 		$rowContainer.find('> div').each(function () {

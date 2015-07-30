@@ -29,7 +29,12 @@ $(document).ready(function () {
   });
 
   $('body')
-		.on('touchstart', '.subLinks > a, .subLinks > span', function (e) {
+		/*.on('click', '.site-canvas', function() {
+			if($('html').hasClass('openNav')) {
+				$('.navbar-toggle').trigger('click');
+			}
+		})*/
+		.on('click', '.subLinks > a, .subLinks > span', function (e) {
 			//Add functionality for when user uses touch on navigation/footer.
 
 			if($(this).parents('#footer').length && pageWidth >= 768) {
@@ -53,7 +58,7 @@ $(document).ready(function () {
 			else {
 				elem.addClass('open');
 
-				if (pageType == 'xs') { //Mobile
+				if (pageType == 0) { //Mobile
 					//Animate background color to notify user that they have touched that element.
 					//Require: jQuery Color v2.1.2 plugin
 					var originalBG = $(this).css('background-color');
@@ -89,6 +94,8 @@ $(document).ready(function () {
       }
     })
     .on('click', '.navbar-toggle', function (e) {
+			e.stopPropagation();
+
     	//Hamburger - Mobile
 			//Open & Close slide out navigation.
       if ($('html').width() < 768) {
@@ -151,6 +158,10 @@ $(window).load(function() {
 		$(this).removeAttr('onclick');
 	});*/
 
+	if($('html').hasClass('touch')) {
+		$.getScript('/static/library/jQueryMobile/jquery.mobile.custom.min.js');
+	}
+
 	if(pageWidth < 992) {
 		$.getScript('/static/library/jQuery/jquery.color-2.1.2.min.js');
 	}
@@ -187,16 +198,16 @@ function getPageWidth() {
 
 	//Define pageType
 	if(w >= 1200) {
-		pageType = 'lg';
+		pageType = 3;
 	}
 	else if(w >= 992) {
-		pageType = 'md';
+		pageType = 2;
 	}
 	else if(w >= 768) {
-		pageType = 'sm';
+		pageType = 1;
 	}
 	else {
-		pageType = 'xs'
+		pageType = 0;
 	}
 
 	return w;
