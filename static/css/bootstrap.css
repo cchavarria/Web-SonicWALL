@@ -7663,8 +7663,8 @@ i.menu-indicator {
   .fat-tabs .ui-tabs-panel, .fat-buttons .ui-tabs-panel {
     padding: 26px 0 0 0; }
 
-  .fat-buttons > ul > li.IM {
-    margin-top: 13px !important; }
+  .fat-buttons > ul > li.active-button {
+    padding-bottom: 15px !important; }
 
   .off-canvas-content .container > div:first-child {
     padding-bottom: 13px;
