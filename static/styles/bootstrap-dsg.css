@@ -4673,10 +4673,12 @@
       padding-right: 0;
       background-color: #eee;
       color: #444; }
-      .bootstrap .masthead .main-nav-section ul a {
+      .bootstrap .masthead .main-nav-section a {
         display: block;
         padding: 10px 0 9px 20px;
         text-decoration: none; }
+        .bootstrap .masthead .main-nav-section a:hover {
+          text-decoration: none; }
       .bootstrap .masthead .main-nav-section li {
         list-style-type: none; }
     .bootstrap .masthead .search-container {
