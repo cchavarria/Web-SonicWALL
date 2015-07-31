@@ -237,12 +237,27 @@ $(document).ready(function () {
 	loadOoyala();
 });
 
+$(window).load(function() {
+	processFlexBox();
+});
+
 addResize('fatTabsResize');
 addResize('offCanvasResize');
 addResize('resizeFourColumnFilmstripCarousel');
 addResize('toggleResize');
 addResize('grayscaleImage');
+addResize('processFlexBox');
 
+function processFlexBox() {
+	//Flex
+	if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
+		$('.vertical-center').each(function() {
+			var height = $(this).height(), child = $(this).find('> div'), childHeight = child.height();
+
+			child.css('paddingTop', Math.floor((height - childHeight) / 2));
+		});
+	}
+}
 
 function loadOoyala(parentSelector) {
 	if (typeof parentSelector == 'undefined') {

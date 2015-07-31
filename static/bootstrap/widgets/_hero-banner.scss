@@ -312,6 +312,15 @@
   background: rgba(255, 255, 255, 0.92);
   right: auto;
   bottom: auto;
+
+  &.caption-wrapper-v2 {
+    top:0;
+    left:0;
+    bottom:0;
+    border-radius: 0;
+    width: 49%;
+    padding:0 20px;
+  }
 }
 
 // Scale up controls for tablets and up
@@ -375,11 +384,15 @@
         color: #007db8;
       }
     }
+    &.caption-wrapper-v2 {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
 @media (min-width: 768px) {
-  #hero-banner {
+  #hero-banner{
     width: 100%;
   }
 }
@@ -397,5 +410,9 @@
   }
   .caption-wrapper {
     width: 46%;
+    &.caption-wrapper-v2 {
+      width: 45%;
+    }
   }
 }
+

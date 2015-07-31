@@ -94,6 +94,11 @@ li {
   display: inline !important;
 }
 
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 767px) { //Mobile - XS
   //XS
   #right-rail-form {

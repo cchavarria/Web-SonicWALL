@@ -5303,6 +5303,10 @@ li {
 .inline {
   display: inline !important; }
 
+.vertical-center {
+  display: flex;
+  align-items: center; }
+
 @media (max-width: 767px) {
   #right-rail-form label {
     padding-top: 8px;
@@ -5620,7 +5624,11 @@ li {
 
   .ph-30-xs {
     padding-left: 30px !important;
-    padding-right: 30px !important; } }
+    padding-right: 30px !important; }
+
+  .pv-20-xs {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .mt-0-sm-only {
     margin-top: 0 !important; }
@@ -6843,8 +6851,44 @@ i.menu-indicator {
 .text-teal {
   color: #42aeaf; }
 
+.text-white {
+  color: white !important; }
+
 .color-inherit {
   color: inherit; }
+
+.bg-blue {
+  background-color: #007db8 !important; }
+
+.bg-dark-blue {
+  background-color: #00447c; }
+
+.bg-light-green {
+  background-color: #c1d82f; }
+
+.bg-green {
+  background-color: #6ea204; }
+
+.bg-yellow {
+  background-color: #f2af00; }
+
+.bg-orange {
+  background-color: #ee6411; }
+
+.bg-red {
+  background-color: #d74324; }
+
+.bg-dark-red {
+  background-color: #c31126; }
+
+.bg-berry {
+  background-color: #b7295a; }
+
+.bg-purple {
+  background-color: #6e2585; }
+
+.bg-teal {
+  background-color: #42aeaf; }
 
 /*
   Description: Hero banner
@@ -7106,6 +7150,13 @@ i.menu-indicator {
   background: rgba(255, 255, 255, 0.92);
   right: auto;
   bottom: auto; }
+  .caption-wrapper.caption-wrapper-v2 {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+    width: 49%;
+    padding: 0 20px; }
 
 @media screen and (min-width: 768px) {
   .carousel-control .glyphicon-chevron-left,
@@ -7147,7 +7198,10 @@ i.menu-indicator {
       padding: 0; }
       .caption-wrapper span:hover {
         background-color: transparent;
-        color: #007db8; } }
+        color: #007db8; }
+    .caption-wrapper.caption-wrapper-v2 {
+      width: 100%;
+      height: auto; } }
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%; } }
@@ -7160,7 +7214,9 @@ i.menu-indicator {
     line-height: 20px; }
 
   .caption-wrapper {
-    width: 46%; } }
+    width: 46%; }
+    .caption-wrapper.caption-wrapper-v2 {
+      width: 45%; } }
 .screenshot-carousel {
   overflow: hidden; }
   .screenshot-carousel.next-step li .image-crop {
@@ -7681,8 +7737,8 @@ i.menu-indicator {
   .fat-tabs .ui-tabs-panel, .fat-buttons .ui-tabs-panel {
     padding: 26px 0 0 0; }
 
-  .fat-buttons > ul > li.IM {
-    margin-top: 13px !important; }
+  .fat-buttons > ul > li.active-button {
+    padding-bottom: 15px !important; }
 
   .off-canvas-content .container > div:first-child {
     padding-bottom: 13px;

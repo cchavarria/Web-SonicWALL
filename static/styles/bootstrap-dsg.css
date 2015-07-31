@@ -5703,6 +5703,13 @@
     background: rgba(255, 255, 255, 0.92);
     right: auto;
     bottom: auto; }
+    .bootstrap .caption-wrapper.caption-wrapper-v2 {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 0;
+      width: 49%;
+      padding: 0 20px; }
   @media screen and (min-width: 768px) {
     .bootstrap .carousel-control .glyphicon-chevron-left,
     .bootstrap .carousel-control .glyphicon-chevron-right,
@@ -5740,7 +5747,10 @@
         padding: 0; }
         .bootstrap .caption-wrapper span:hover {
           background-color: transparent;
-          color: #007db8; } }
+          color: #007db8; }
+      .bootstrap .caption-wrapper.caption-wrapper-v2 {
+        width: 100%;
+        height: auto; } }
   @media (min-width: 768px) {
     .bootstrap #hero-banner {
       width: 100%; } }
@@ -5752,7 +5762,9 @@
       font-size: 16px;
       line-height: 20px; }
     .bootstrap .caption-wrapper {
-      width: 46%; } }
+      width: 46%; }
+      .bootstrap .caption-wrapper.caption-wrapper-v2 {
+        width: 45%; } }
   .bootstrap .clearfix:before, .bootstrap .clearfix:after {
     content: " ";
     display: table; }
@@ -5986,6 +5998,9 @@
     display: block !important; }
   .bootstrap .inline {
     display: inline !important; }
+  .bootstrap .vertical-center {
+    display: flex;
+    align-items: center; }
   @media (max-width: 767px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;
@@ -6209,7 +6224,10 @@
       padding-right: 15px !important; }
     .bootstrap .ph-30-xs {
       padding-left: 30px !important;
-      padding-right: 30px !important; } }
+      padding-right: 30px !important; }
+    .bootstrap .pv-20-xs {
+      padding-top: 20px !important;
+      padding-bottom: 20px !important; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .bootstrap .mt-0-sm-only {
       margin-top: 0 !important; }
