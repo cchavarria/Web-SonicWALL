@@ -7209,12 +7209,6 @@ i.menu-indicator {
       background-position: 0 -204px; }
     .screenshot-carousel .rr-pagination .next.inactive {
       background-position: -127px -204px; }
-  .screenshot-carousel.logos.home .rr-pagination.pagination-large a {
-    margin-top: 15px; }
-  .screenshot-carousel.logos.kace .rr-pagination.pagination-large a {
-    margin-top: 4px; }
-  .screenshot-carousel.logos.sonicwall .rr-pagination.pagination-large a {
-    margin-top: 0; }
   .screenshot-carousel .rr-pagination.pagination-large a {
     margin-top: 48px; }
   .screenshot-carousel .rr-pagination.pagination-large .prev {
@@ -7780,68 +7774,6 @@ a:hover .has-overlay h4 {
 @media (max-width: 991px) and (min-width: 768px) {
   .has-overlay {
     margin-bottom: 20px; } }
-.logos {
-  display: block;
-  float: left;
-  margin-top: 6px;
-  margin-bottom: 10px;
-  padding: 0; }
-  .logos ul li {
-    display: block;
-    float: left; }
-
-.logos.home ul li {
-  margin-right: 51px; }
-
-/*mobile*/
-@media (max-width: 767px) {
-  .screenshot-carousel.logos ul {
-    display: inline-block; }
-    .screenshot-carousel.logos ul li {
-      width: 100%; } }
-@media (min-width: 768px) {
-  .logos.kace ul li {
-    padding: 0;
-    margin-right: 11px; }
-
-  .logos.sonicwall ul li {
-    margin-right: 58px; }
-
-  .logos.home li {
-    width: 92px;
-    padding: 0;
-    margin-right: 11px; } }
-/*tablet*/
-@media (max-width: 991px) and (min-width: 768px) {
-  /*home*/
-  .logos.home ul li {
-    margin-right: 12px; } }
-@media (min-width: 992px) {
-  /*home*/
-  .logos.home ul li {
-    width: 122px;
-    padding: 0;
-    margin-right: 14px; }
-
-  .logos.kace ul li {
-    padding: 0;
-    margin-right: 42px; }
-
-  .logos.sonicwall ul li {
-    margin-right: 113px; } }
-@media (min-width: 1200px) {
-  /*home*/
-  .logos.home ul li {
-    width: 122px;
-    padding: 0;
-    margin-right: 51px; }
-
-  .logos.kace ul li {
-    padding: 0;
-    margin-right: 88px; }
-
-  .logos.sonicwall ul li {
-    margin-right: 171px; } }
 .optional-dropdown {
   position: relative; }
   .optional-dropdown .grey-caret:before {
