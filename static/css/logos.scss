@@ -1,0 +1,131 @@
+.logos {
+  display: block;
+  float: left;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  padding: 0;
+  ul li {
+    display: block;
+    float: left;
+  }
+  &.home {
+    .pagination-container {
+      margin-top: 10px;
+    }
+  }
+}
+
+.logos.home, .logos.awareness {
+  ul li {
+    margin-right: 51px;
+  }
+}
+
+.screenshot-carousel {
+  &.logos.home .rr-pagination.pagination-large a,
+  &.logos.awareness .rr-pagination.pagination-large a{
+    margin-top: 15px;
+  }
+  &.logos.kace .rr-pagination.pagination-large a {
+    margin-top: 4px;
+  }
+  &.logos.sonicwall .rr-pagination.pagination-large a {
+    margin-top: 0;
+  }
+}
+
+/*mobile*/
+@media (max-width: 767px) {
+  .screenshot-carousel {
+    &.logos {
+      ul {
+        display: inline-block;
+        li {
+          width: 100%;
+        }
+      }
+    }
+    &.home .pagination-container {
+      margin-top: 6px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .logos.kace ul li {
+    padding: 0;
+    margin-right: 11px;
+  }
+  .logos.sonicwall ul li {
+    margin-right: 58px;
+  }
+  .logos.home, .logos.awareness {
+    li {
+      width: 92px;
+      padding: 0;
+      margin-right: 11px;
+    }
+  }
+}
+
+/*tablet*/
+@media (max-width: 991px) and (min-width: 768px) {
+  /*home*/
+  .logos.home {
+    ul {
+      li {
+        margin-right: 50px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .pagination-container {
+      margin-left: 30px;
+    }
+  }
+
+  .logos.awareness ul li {
+    margin-right: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  /*home*/
+  .logos.home ul li {
+    padding: 0;
+    margin-right: 29px;
+  }
+  .logos.kace ul li {
+    padding: 0;
+    margin-right: 42px;
+  }
+  .logos.sonicwall ul li {
+    margin-right: 113px;
+  }
+  .logos.awareness ul li {
+    width: 122px;
+    padding: 0;
+    margin-right: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /*home*/
+  .logos.home ul li {
+    padding: 0;
+    margin-right: 62px;
+  }
+  .logos.kace ul li {
+    padding: 0;
+    margin-right: 88px;
+  }
+  .logos.sonicwall ul li {
+    margin-right: 171px;
+  }
+  .logos.awareness ul li {
+    width: 122px;
+    padding: 0;
+    margin-right: 51px;
+  }
+}
