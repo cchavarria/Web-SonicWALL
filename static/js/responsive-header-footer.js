@@ -142,9 +142,6 @@ $(document).ready(function () {
 
 		location.href = $(this).attr('href');
 	});
-
-	// Add clearfix divider to listing entries
-	dynamicClearfix();
 });
 
 $(window).load(function() {
