@@ -19,60 +19,71 @@
   }
 }
 
+.text-light-green {
+  color: #C1D82F;
+  > span {
+    color: #C1D82F;
+  }
+}
+
+.text-green {
+  color: #6EA204;
+  > span {
+    color: #6EA204;
+  }
+}
+
+.text-yellow {
+  color: #F2AF00;
+  > span {
+    color: #F2AF00;
+  }
+}
+
 .text-orange {
-  color: #ff6633;
+  color: #EE6411;
+  > span {
+    color: #EE6411;
+  }
+}
+
+.text-red {
+  color: #D74324;
+  > span {
+    color: #D74324;
+  }
+}
+
+.text-dark-red {
+  color: #C31126;
+  > span {
+    color: #C31126;
+  }
+}
+
+.text-berry {
+  color: #B7295A;
+  > span {
+    color: #B7295A;
+  }
 }
 
 .text-purple {
-  color: #6e2585;
+  color: #6E2585;
+  > span {
+    color: #6E2585;
+  }
+}
+
+.text-teal {
+  color: #42AEAF;
+  > span {
+    color: #42AEAF;
+  }
 }
 
 .text-center {
   text-align: center;
-}
-
-.underline-orange {
-    background-color: #ff6633;
-    border: 1px solid #ff6633;
-    color: #ffffff;
-    a {
-      color: #ffffff;
-      > span {
-        color: #ffffff;
-      }
-      > p {
-        color: #ffffff;
-      }
-    }
-  }
-
-table {
-
-  &.watch-video {
-    td {
-      color: #ffffff;
-      a {
-        color: #ffffff;
-        text-decoration: underline !important;
-        >span {
-          color: #ffffff;
-        }
-      }
-    }
-
-    &:hover td {
-      color: #ffffff;
-      a {
-        color: #ffffff !important;
-      }
-    }
-    td a:visited, &:active td a {
-      color: #ffffff !important;
-      >span {
-        color: #ffffff !important;
-      }
-    }
-  }
 }
 
 .text-size-17 {
@@ -88,7 +99,6 @@ table {
     font-size: 17px;
   }
 }
-
 .text-size-16 {
   font-size: 16px;
 
@@ -102,7 +112,6 @@ table {
     font-size: 16px;
   }
 }
-
 .text-size-15 {
   font-size: 15px;
 
@@ -116,7 +125,6 @@ table {
     font-size: 15px;
   }
 }
-
 .text-size-14 {
   font-size: 14px;
 
@@ -130,7 +138,6 @@ table {
     font-size: 14px;
   }
 }
-
 .text-size-13 {
   font-size: 13px;
 
@@ -146,7 +153,6 @@ table {
 }
 
 @media all and (max-width: 480px) {
-
   .text-size-17 {
     font-size: 19px;
 
@@ -160,8 +166,6 @@ table {
       font-size: 19px;
     }
   }
-
-
   .text-size-16 {
     font-size: 18px;
 
@@ -175,7 +179,6 @@ table {
       font-size: 18px;
     }
   }
-
   .text-size-15 {
     font-size: 17px;
 
@@ -189,8 +192,6 @@ table {
       font-size: 17px;
     }
   }
-
-
   .text-size-14 {
     font-size: 16px;
 
@@ -204,9 +205,6 @@ table {
       font-size: 16px;
     }
   }
-
-
-
   .text-size-13 {
     font-size: 15px;
 
@@ -220,6 +218,4 @@ table {
       font-size: 15px;
     }
   }
-
-
 }

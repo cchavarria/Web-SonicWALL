@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageType = '', pageWidth = getPageWidth(), resizeFn = [], resizeTimer = null;
+var pageType = '', pageWidth = getPageProperties(), resizeFn = [];
 
 $(document).ready(function () {
   resizeGlobal();
@@ -168,32 +168,36 @@ $(window).load(function() {
 });
 
 addResize('resizeGlobal');
-addResize('dynamicClearfix');
 
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
 
-	var w = getPageWidth();
+	var prevPageType = pageType;
 
-	if(pageWidth != w) {
-		pageWidth = w;
+	pageWidth = getPageProperties();
 
-    resizeTimer = setTimeout(function() {
-      clearTimeout(resizeTimer);
-
-      $.each(resizeFn, function (i, fn) {
-        if (typeof window[fn] == 'function') {
-          window[fn].call();
-        }
-      });
-    }, 100);
+	//Execute only when page type has changed.
+	if(prevPageType != pageType) {
+		$.each(resizeFn, function (i, obj) {
+			if(typeof obj.fn == 'function') {
+				if(obj.type === undefined || obj.type == pageType) {
+					obj.fn.call();
+				}
+			}
+			else if (typeof window[obj.fn] == 'function') {
+				if(obj.type === undefined || obj.type == pageType) {
+					window[obj.fn].call();
+				}
+			}
+		});
 	}
 });
 
-function getPageWidth() {
+function getPageProperties() {
 	//Workaround for Google Chrome. The vertical scrollbar is not included in determining the width of the device.
 	$('body').css('overflow', 'hidden');
 	var w = $('html').width();
+
 	$('body').css('overflow', '');
 
 	//Define pageType
@@ -213,8 +217,8 @@ function getPageWidth() {
 	return w;
 }
 
-function addResize(fn) {
-  resizeFn.push(fn);
+function addResize(fn, type) {
+  resizeFn.push({fn: fn, type: type});
 }
 
 function resizeGlobal() {
@@ -231,39 +235,7 @@ function resizeGlobal() {
   $('#country-popup').css('display', '');
 }
 
-//Function fix Event listing rows with diff heights issue.
-
-function dynamicClearfix() {
-
-  var counter = 0,
-	divider = $('.clearfix'),
-	$rowContainer = $('.listing-entries .row');
-
-	// check for desktop and Large devices
-	if (pageType === 'md' || pageType === 'lg'){
-		$rowContainer.find(divider).remove();
-
-		$rowContainer	.find('> div').each(function() {
-				counter++;
-			  if ((counter%4) == 0) {
-					$(this).after('<div class="clearfix"></div>');
-				}
-			})
-	}else if (pageType === 'sm') { // check for tablet
-		$rowContainer.find(divider).remove();
-
-		$rowContainer.find('> div').each(function () {
-			counter++;
-			if ((counter%3) == 0) {
-				$(this).after('<div class="clearfix"></div>');
-			}
-		})
-	}else { // mobile
-		$rowContainer.find(divider).remove(); // clear previous dividers
-	}
-}
-
-//This is used to make a not responsive page responsive.
+//This is used to make a not responsive page responsive. This will be removed when all pages converts to be responsive.
 function makeResponsive() {
   $('.not-responsive').removeClass('not-responsive').addClass('is-responsive');
   $('#wrapper').attr('id', '').addClass('site-wrapper').wrapInner('<div class="site-canvas">');
