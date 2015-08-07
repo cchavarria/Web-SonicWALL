@@ -5283,6 +5283,10 @@ li {
 .nowrap {
   white-space: nowrap; }
 
+/* iframe */
+iframe {
+  border: 0; }
+
 /*display*/
 .block {
   display: block !important; }
