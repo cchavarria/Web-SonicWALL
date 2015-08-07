@@ -1,31 +1,67 @@
-#affix-scroll-nav-top {
+.affix-scroll-nav-top {
   top: 0;
   z-index: 999;
+  display:block;
   ul {
-    background: linear-gradient(#fff, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    background: linear-gradient($white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 8%, #efefef 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, #ffffff), color-stop(100%, #efefef));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 8%, #efefef 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 8%, #efefef 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 8%, #efefef 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 8%, #efefef 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
+    border-bottom: 1px solid $pre-border-color;
+    border-right: 1px solid $pre-border-color;
+    border-top: 1px solid $pre-border-color;
     li {
       float: left;
       padding: 0;
+      &:first-child {
+        border-left: $pre-border-color solid 1px;
+      }
       &.active {
         background: none repeat scroll 0 0 white !important;
+        border-bottom: none;
         a {
-          border-color: #007db8;
+          border-color: $dell-blue;
           border-style: solid;
-          border-width: 2px 0 0;
-          padding-top: 6px;
+          border-width: 4px 0 0;
+          padding: 6px 0 10px 0;
+          color: $tooltip-color;
+          &:last-child {
+            padding-left: 1px;
+          }
         }
       }
       a {
-        display: inline-table;
         height: 100%;
         text-align: center;
         width: 100%;
+        padding: 10px 0;
+        box-sizing: content-box;
+        font-weight: bold;
+        &:last-child {
+          padding-left: 1px;
+        }
         &:hover {
           border-top: 4px solid #0085c3;
-          padding-top: 6px;
+          padding: 6px 0 10px 0;
+          background-color: #cce7f3;
+          color: $dell-blue;
+          &:last-child {
+            padding-left: 1px;
+          }
+        }
+        &:focus {
+          background-color: transparent;
         }
       }
     }
