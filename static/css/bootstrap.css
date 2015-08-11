@@ -4343,10 +4343,12 @@ tbody.collapse.in {
       content: "\e62b";
       font-family: "icon-small"; }
     .breadcrumb > li + li:before {
-      content: "/\00a0";
+      content: "\002D";
       color: #737373;
-      font-size: 17px;
-      top: 2px;
+      font-family: "icon-ui";
+      font-size: 10px;
+      position: relative;
+      top: -2px;
       padding-right: 4px;
       padding-left: 4px; }
     .breadcrumb > li a {

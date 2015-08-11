@@ -26,10 +26,12 @@
       }
     }
     +li:before {
-      content: "#{$breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      content: "#{$breadcrumb-separator}"; // Unicode space added since inline-block means non-collapsing white-space [\00a0]
       color: $breadcrumb-color;
-      font-size: 17px;
-      top: 2px;
+      font-family: "icon-ui";
+      font-size: 10px;
+      position: relative;
+      top: -2px;
       padding-right: 4px;
       padding-left: 4px;
     }
