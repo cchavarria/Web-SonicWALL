@@ -3830,18 +3830,36 @@
         color: #444444; }
   .bootstrap .breadcrumb {
     padding: 0px 0px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     list-style: none;
     background-color: transparent;
-    border-radius: 1px; }
+    border-radius: 1px;
+    color: #737373; }
     .bootstrap .breadcrumb > li {
       display: inline-block; }
+      .bootstrap .breadcrumb > li:first-child a:before {
+        font-size: 14px;
+        content: "\e62b";
+        font-family: "icon-small"; }
       .bootstrap .breadcrumb > li + li:before {
         content: "/\00a0";
-        padding: 0 5px;
-        color: #737373; }
+        color: #737373;
+        font-size: 17px;
+        top: 2px;
+        padding-right: 4px;
+        padding-left: 4px; }
+      .bootstrap .breadcrumb > li a {
+        color: #737373;
+        font-size: 12px; }
     .bootstrap .breadcrumb > .active {
       color: #aaaaaa; }
+  @media (min-width: 768px) {
+    .bootstrap .breadcrumb > li:first-child:before {
+      font-size: 15px; }
+    .bootstrap .breadcrumb > li a {
+      font-size: 15px; }
+    .bootstrap .breadcrumb > .active {
+      font-size: 15px; } }
   .bootstrap .pagination {
     display: inline-block;
     padding-left: 0;
@@ -6411,6 +6429,9 @@
     left: 4px;
     position: absolute;
     top: 3px; }
+  .bootstrap .breadcrumb-container {
+    margin-top: 0;
+    padding-top: 10px; }
 
 #fancybox-overlay {
   z-index: 4051; }
