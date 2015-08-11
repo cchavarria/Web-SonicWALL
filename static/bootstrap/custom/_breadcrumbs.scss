@@ -48,6 +48,7 @@
 @media (min-width: 768px) {
   .breadcrumb {
     > li {
+      font-size: 15px;
       &:first-child:before {
         font-size: 15px;
       }

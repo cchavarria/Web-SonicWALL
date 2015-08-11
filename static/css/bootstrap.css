@@ -4356,10 +4356,12 @@ tbody.collapse.in {
     color: #aaaaaa; }
 
 @media (min-width: 768px) {
-  .breadcrumb > li:first-child:before {
+  .breadcrumb > li {
     font-size: 15px; }
-  .breadcrumb > li a {
-    font-size: 15px; }
+    .breadcrumb > li:first-child:before {
+      font-size: 15px; }
+    .breadcrumb > li a {
+      font-size: 15px; }
   .breadcrumb > .active {
     font-size: 15px; } }
 .pagination {
