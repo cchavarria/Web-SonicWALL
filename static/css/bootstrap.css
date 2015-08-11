@@ -7385,6 +7385,8 @@ i.menu-indicator {
       background-position: -51px -165px; }
       .screenshot-carousel .rr-pagination.pagination-large .next.inactive:hover {
         background-position: -76px -165px; }
+  .screenshot-carousel .img-crop {
+    height: 166px; }
 
 /*mobile*/
 @media (max-width: 767px) {
@@ -7399,9 +7401,14 @@ i.menu-indicator {
     vertical-align: top;
     display: inline-block; } }
 /*tablet*/
-@media (max-width: 991px) and (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .screenshot-carousel.next-step li .image-crop-140, .screenshot-carousel.next-step li > div {
-    width: 200px; } }
+    width: 200px; }
+  .screenshot-carousel .img-crop {
+    height: 161px; } }
+@media (min-width: 1200px) {
+  .screenshot-carousel .img-crop {
+    height: 197px; } }
 /*
   Description: Social media icons
   Author: Edward Chong & Elnaz Doostdar
