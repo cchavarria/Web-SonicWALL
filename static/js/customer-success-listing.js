@@ -61,14 +61,7 @@ function init() {
                         placeholder: title,
                         multiple: false,
                         selectAll: false,
-                        single: true,
-                        onClick: function (view) {
-                            if (view.value != '') {
-                                populateDropdowns(filterMap[7].targetID, $.extend({}, filterMap[7].data, {country: view.value}), filterMap[7].callback).done(function() {
-                                    $('#state_province').next().removeClass('hidden');
-                                });
-                            }
-                        }
+                        single: true
                     });
                     $(this).multipleSelect("uncheckAll");
                 }
@@ -85,16 +78,7 @@ function init() {
                         minimumCountSelected: 0,
                         countSelected: getLocalizedContent('DocumentLabelContentType') + '&nbsp;(#)',
                         selectAllText: getLocalizedContent('LabelAllEventsSelected'),
-                        allSelected: getLocalizedContent('LabelSelectAllEvents'),
-                        onClose: function() {
-                            // minimum one event should be selected
-                            if (!$("#content_type").multipleSelect("getSelects").length) {
-                                $("#content_type").multipleSelect("setSelects", [1]);
-                            }
-                            else {
-                                caseStudyFilter();
-                            }
-                        }
+                        allSelected: getLocalizedContent('LabelSelectAllEvents')
                     });
                     $(this).multipleSelect("checkAll");
                 }
@@ -184,6 +168,7 @@ function init() {
                 init: true,
                 callback: function (title) {
                     $(this).prev().text(title);
+                    $(this).next().find('ul').remove();
                     $(this).parent().removeClass('hidden');
                     $(this).multipleSelect({
                         placeholder: title,
@@ -259,9 +244,6 @@ function init() {
                     }
                 });
 
-                //Unhide main content area after all filter values have been loaded.
-                //$('#mainer').removeClass('hidden');
-
                 ajaxArr = [];
 
                 populateListing();
@@ -293,15 +275,20 @@ function init() {
             location.hash = "";
         });
 
-        $('#view-more').on('click', function (e) {
+        $('#view-more').on('click', function (e){
             e.preventDefault();
 
-            var top = $('html').scrollTop();
+            $(this).addClass('hidden');
+
+            var top = window.scrollY || $('html').scrollTop();
 
             populateListing(false).done(function() {
-                $('html').scrollTop(top);
+                window.scrollTo(0, top);
             });
+
+            window.scrollTo(0, top);
         });
+
     });
 
     function parseHashTag() {
@@ -341,8 +328,6 @@ function init() {
                 });
             }
         });
-
-        caseStudyFilter();
 
         function setFilterValue(elem, val) {
             if (elem.multipleSelect('getSelects') != elem.val()) {
@@ -594,6 +579,12 @@ function getDataSet(incrementPage) {
         var val = $('#' + id).val();
 
         if(id == 'content_type') {
+            if(val === null) {
+                hasError = true;
+                return false;
+            }
+
+            // case studies only
             dataset[key] = 167;
         }
         else {
@@ -602,16 +593,4 @@ function getDataSet(incrementPage) {
     });
 
     return hasError ? false:dataset;
-}
-
-function caseStudyFilter() {
-    if($.inArray('167', $('#content_type').multipleSelect('getSelects')) > -1) {
-        //One of the value is for case study
-        $('#country').parent().show();
-        $('#industry').parent().show();
-    }
-    else {
-        $('#country').parent().hide();
-        $('#industry').parent().hide();
-    }
 }
