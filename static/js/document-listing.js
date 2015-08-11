@@ -296,11 +296,15 @@ function init() {
 		$('#view-more').on('click', function (e) {
 			e.preventDefault();
 
-			var top = $('html').scrollTop();
+			$(this).addClass('hidden');
+
+			var top = window.scrollY || $('html').scrollTop();
 
 			populateListing(false).done(function() {
-				$('html').scrollTop(top);
+				window.scrollTo(0, top);
 			});
+
+			window.scrollTo(0, top);
 		});
 	});
 
