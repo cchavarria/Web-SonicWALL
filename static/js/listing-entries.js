@@ -1,3 +1,5 @@
+//
+
 $(document).ready(function() {
 	// Add clearfix divider to listing entries
 	dynamicClearfix();
@@ -6,7 +8,6 @@ $(document).ready(function() {
 addResize('dynamicClearfix');
 
 //Function fix Event listing rows with diff heights issue.
-
 function dynamicClearfix() {
 	var counter = 0,
 		divider = $('.clearfix'),

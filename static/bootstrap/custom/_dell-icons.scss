@@ -45,3 +45,19 @@
 .icon-small-checkmark:before {
   content: "\e611";
 }
+
+.icon-small-calendar:before {
+  content: "\e60d";
+}
+
+.icon-small-document:before {
+  content: "\e669";
+}
+
+.icon-ui-loading {
+  display: block;
+  background: url("/images/shared/loading-animation-square.gif") no-repeat center;
+  margin: 0 auto;
+  height: 21px;
+  width: 21px;
+}

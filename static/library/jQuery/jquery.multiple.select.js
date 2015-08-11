@@ -296,7 +296,9 @@
                 this.$searchInput.focus();
                 this.filter();
             }
-            this.options.onOpen();
+
+						//Modified by Edward Chong to pass in the original select element.
+            this.options.onOpen(this.$choice);
         },
 
         close: function () {

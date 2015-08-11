@@ -3,15 +3,15 @@
 var burl = location.href;
 
 $(document).ready(function () {
-//Social media toolbar
+	//Social media toolbar
 	if ($('.social-media-toolbar').length) {
 		socialMediaToolbar();
 	}
 
-//Off Canvas
+	//Off Canvas
 	offCanvas();
 
-//Toggle Show/Hide
+	//Toggle Show/Hide
 	$('body').on('click', '[data-toggle=show]', function () {
 		var target = $($(this).data('target'));
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
 		}
 	});
 
-//Workaround for placeholder on unsupported browser
+	//Workaround for placeholder on unsupported browser
 	(function () {
 		var test = document.createElement('input');
 		if (!('placeholder' in test)) {
@@ -61,7 +61,7 @@ $(document).ready(function () {
 		$.getScript('/static/js/events.min.js');
 	}
 
-//Dotdotdot
+	//Dotdotdot
 	(function () {
 		if ($('.dotdotdot').length) {
 			if ($.fn.dotdotdot) {
@@ -144,7 +144,7 @@ $(document).ready(function () {
 		}
 	})();
 
-//LazyLoad
+	//LazyLoad
 	if ($.fn.lazyload) {
 		$('img.lazy').lazyload();
 	}
@@ -154,7 +154,7 @@ $(document).ready(function () {
 		});
 	}
 
-//Hero Banner
+	//Hero Banner
 	if ($('.hero-banner').length) {
 		//Randomize banner
 		var randomNumber = Math.floor((Math.random() * $('.item').length));
@@ -166,10 +166,37 @@ $(document).ready(function () {
 		});
 	}
 
-	//Tabs
-	fatTabsResize();
+	//Resizing Fat Tabs
+	addResize(function() {
+		if (pageWidth < 768) {//mobile
+			try {
+				$('.fat-tabs').tabs('destroy');
+			}
+			catch (e) {
 
-//Ooyala player popup
+			}
+		}
+		else {
+			$('.fat-tabs').tabs({
+				activate: function (event, ui) {
+					ui.newPanel.trigger('tab.visible');
+					ui.oldPanel.trigger('tab.hidden');
+
+					resizeFourColumnFilmstripCarousel(ui.newPanel);
+					loadOoyala(ui.newPanel);
+				}
+			});
+		}
+
+		$(window).load(function () {
+			//Remove site catalyst on click attribute on achor tag.
+			$('.fat-tabs').find('> ul').find('a').each(function () {
+				$(this).prop('onclick', null);
+			});
+		});
+	}, true);
+
+	//Ooyala player popup
 	$('body').on('click', '.ooplaylist', function (e) {
 		e.preventDefault();
 
@@ -232,32 +259,67 @@ $(document).ready(function () {
 		}
 	});
 
-	resizeFourColumnFilmstripCarousel();
-	grayscaleImage();
+	//Toggle
+	$('body').find('[data-toggle=show]').each(function () {
+		var target = $($(this).data('target'));
+
+		if (target.is(':visible')) {
+			if (target.data('hidden-class')) {
+				target.addClass(target.data('hidden-class'));
+			}
+			else {
+				target.hide();
+			}
+		}
+	});
+
+	addResize('resizeFourColumnFilmstripCarousel', true);
+	addResize('grayscaleImage', true);
 	loadOoyala();
+
+	addResize(function() {
+		$('img').each(function(i) {
+			if($(this).data('src-' + pageTypeLabel)) {
+				$(this).data('src', $(this).attr('src')).attr('src', $(this).data('src-' + pageTypeLabel));
+			}
+			else if($(this).data('src')) {
+				$(this).attr('src', $(this).data('src'));
+			}
+		});
+	}, true);
 });
 
-$(window).load(function() {
-	processFlexBox();
+//Off canvas resize
+addResize(function() {
+	if ($('#off-canvas').is(':visible')) {
+		$('.site-wrapper').show();
+
+		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+		$('body').removeClass('off-canvas-mode');
+	}
 });
 
-addResize('fatTabsResize');
-addResize('offCanvasResize');
-addResize('resizeFourColumnFilmstripCarousel');
-addResize('toggleResize');
-addResize('grayscaleImage');
-addResize('processFlexBox');
-
-function processFlexBox() {
-	//Flex
-	if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
-		$('.vertical-center').each(function() {
-			var height = $(this).height(), child = $(this).find('> div'), childHeight = child.height();
-
-			child.css('paddingTop', Math.floor((height - childHeight) / 2));
+//Flex box degradation
+addResize(function() {
+	if(document.readyState == 'complete') {
+		init();
+	}
+	else {
+		$(window).load(function() {
+			init();
 		});
 	}
-}
+
+	function init() {
+		if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
+			$('.vertical-center').each(function() {
+				var height = $(this).height(), child = $(this).find('> div'), childHeight = child.height();
+
+				child.css('paddingTop', Math.floor((height - childHeight) / 2));
+			});
+		}
+	}
+}, true);
 
 function loadOoyala(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
@@ -346,35 +408,6 @@ function loadOoyala(parentSelector) {
 	 });
 	 });
 	 }*/
-}
-
-function fatTabsResize() {
-	if (pageWidth < 768) {//mobile
-		try {
-			$('.fat-tabs').tabs('destroy');
-		}
-		catch (e) {
-
-		}
-	}
-	else {
-		$('.fat-tabs').tabs({
-			activate: function (event, ui) {
-				ui.newPanel.trigger('tab.visible');
-				ui.oldPanel.trigger('tab.hidden');
-
-				resizeFourColumnFilmstripCarousel(ui.newPanel);
-				loadOoyala(ui.newPanel);
-			}
-		});
-	}
-
-	$(window).load(function () {
-		//Remove site catalyst on click attribute on achor tag.
-		$('.fat-tabs').find('> ul').find('a').each(function () {
-			$(this).prop('onclick', null);
-		});
-	});
 }
 
 function resizeFourColumnFilmstripCarousel(parentSelector) {
@@ -554,15 +587,6 @@ function socialMediaToolbar() {
 	});
 }
 
-function offCanvasResize() {
-	if ($('#off-canvas').is(':visible')) {
-		$('.site-wrapper').show();
-
-		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
-		$('body').removeClass('off-canvas-mode');
-	}
-}
-
 function offCanvas() {
 //append off canvas content
 	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
@@ -619,21 +643,6 @@ function offCanvas() {
 				resizeFourColumnFilmstripCarousel('#off-canvas');
 			}, 100);
 		});
-	});
-}
-
-function toggleResize() {
-	$('body').find('[data-toggle=show]').each(function () {
-		var target = $($(this).data('target'));
-
-		if (target.is(':visible')) {
-			if (target.data('hidden-class')) {
-				target.addClass(target.data('hidden-class'));
-			}
-			else {
-				target.hide();
-			}
-		}
 	});
 }
 

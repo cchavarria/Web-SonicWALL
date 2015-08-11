@@ -2,6 +2,9 @@
 // Breadcrumbs
 // --------------------------------------------------
 
+.breadcrumb-container {
+  margin-top: -10px;
+}
 
 .breadcrumb {
   padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;

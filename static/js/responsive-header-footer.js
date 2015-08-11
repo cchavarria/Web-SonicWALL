@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageType = '', pageWidth = getPageProperties(), resizeFn = [];
+var pageType = pageTypeLabel = '', pageWidth = getPageProperties(), resizeFn = [], localizedContent = [], resizeInterval = null;
 
 $(document).ready(function () {
   resizeGlobal();
@@ -175,18 +175,27 @@ $(window).resize(function() {
 
 	//Execute only when page type has changed.
 	if(prevPageType != pageType) {
-		$.each(resizeFn, function (i, obj) {
-			if(typeof obj.fn == 'function') {
-				if(obj.type === undefined || obj.type == pageType) {
-					obj.fn.call();
+		if(resizeInterval !== null) {
+			clearInterval(resizeInterval);
+		}
+
+		resizeInterval = setInterval(function() {
+			clearInterval(resizeInterval);
+			resizeInterval = null;
+
+			$.each(resizeFn, function (i, obj) {
+				if(typeof obj.fn == 'function') {
+					if(obj.type === undefined || obj.type == pageType) {
+						obj.fn.call();
+					}
 				}
-			}
-			else if (typeof window[obj.fn] == 'function') {
-				if(obj.type === undefined || obj.type == pageType) {
-					window[obj.fn].call();
+				else if (typeof window[obj.fn] == 'function') {
+					if(obj.type === undefined || obj.type == pageType) {
+						window[obj.fn].call();
+					}
 				}
-			}
-		});
+			});
+		}, 100);
 	}
 });
 
@@ -200,21 +209,34 @@ function getPageProperties() {
 	//Define pageType
 	if(w >= 1200) {
 		pageType = 3;
+		pageTypeLabel = 'lg';
 	}
 	else if(w >= 992) {
 		pageType = 2;
+		pageTypeLabel = 'md';
 	}
 	else if(w >= 768) {
 		pageType = 1;
+		pageTypeLabel = 'sm';
 	}
 	else {
 		pageType = 0;
+		pageTypeLabel = 'xs';
 	}
 
 	return w;
 }
 
-function addResize(fn, type) {
+function addResize(fn, runImmediately, type) {
+	if(runImmediately) {
+		if(typeof fn == 'string' && typeof window[fn] == 'function') {
+			window[fn].call();
+		}
+		else if(typeof fn == 'function') {
+			fn.call();
+		}
+	}
+
   resizeFn.push({fn: fn, type: type});
 }
 
@@ -266,3 +288,50 @@ function initAdobeSearch() {
 	}
 }
 
+function getLocalizedContent(tags) {
+	//How to call: getLocalizedContent('RegWarningMessageEmailRequired').done(function(data) { console.log(data); });
+	var returnValue = {}, newTags = [], deferred = $.Deferred();
+
+	if(typeof tags == 'string') {
+		if(localizedContent[tags]) {
+			return localizedContent[tags];
+		}
+		else {
+			newTags.push(tags);
+		}
+	}
+	else {
+		$.each(tags, function(i, tag) {
+			if(localizedContent[tag]) {
+				returnValue[tag] = localizedContent[tag];
+			}
+			else {
+				newTags.push(tag);
+			}
+		});
+	}
+
+	if(newTags.length) {
+		$.ajax({
+			url: (((typeof RootPath == 'undefined' || RootPath == '/') ? '':RootPath) + '/jsonreq/event/').replace('//', '/'),
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				type: 'localized tags',
+				tags: newTags.join(',')
+			}
+		}).done(function(data) {
+			$.each(data.data, function(i, obj) {
+				returnValue[obj.id] = obj.value;
+				localizedContent[obj.id] = obj.value;
+			});
+
+			deferred.resolve(returnValue);
+		});
+	}
+	else {
+		deferred.resolve(returnValue);
+	}
+
+	return deferred;
+}
