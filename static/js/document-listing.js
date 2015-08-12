@@ -237,8 +237,10 @@ function init() {
 					parseHashTag();
 				}
 
+				$(this).data('continue', true);
+
 				$('.filters').on('change', 'select', function () {
-					if (filterInterval === null) {
+					if ($(this).data('continue') && filterInterval === null) {
 						filterInterval = setInterval(function () {
 							clearInterval(filterInterval);
 
@@ -274,23 +276,27 @@ function init() {
 		$('body').on('click', '.resetfilter', function (e) {
 			e.preventDefault();
 
-			if ($('.filters').hasClass('disabled')) {
-				return false;
-			}
+			var filterElem = $('.filters');
 
-			location.hash = '';
+			filterElem.data('continue', false);
 
 			// multiselect uncheckall
-			$("select").multipleSelect("uncheckAll");
+			filterElem.find('select').each(function() {
+				if($(this).next().is(':visible')) {
+					if($(this).attr('id') == 'content_type') {
+						$(this).multipleSelect('checkAll');
+					}
+					else if($(this).attr('id') == 'language') {
+						$(this).multipleSelect("setSelects", [getLanguageCode()]);
+					}
+					else {
+						$(this).multipleSelect('uncheckAll');
+					}
+				}
+			});
 
-			// multiselect checkall default
-			$('#content_type').multipleSelect('checkAll');
-
-			// language reset
-			$('#language').multipleSelect("setSelects", [getLanguageCode()]);
-
-			// clear location hash
-			location.hash = "";
+			filterElem.data('continue', true);
+			populateListing(true);
 		});
 
 		$('#view-more').on('click', function (e) {
