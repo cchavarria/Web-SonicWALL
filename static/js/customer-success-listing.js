@@ -7,7 +7,14 @@ var populateListingPending = false, //prevent populate listing to load more than
 	},
 	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/document/').replace('//', '/'),
 	page = 1,
-	rowContainer = $('.listing-entries').find('.row');
+	rowContainer = $('.listing-entries').find('.row'),
+	hashMap = {
+		content_type: '',
+		product: 'byproduct',
+		solution: 'bysolution',
+		brand: 'bybrand',
+		language: 'bylang'
+	};
 
 if ($.fn.multipleSelect) {
 	init();
@@ -49,9 +56,8 @@ if (typeof RootPath == 'undefined') {
 function init() {
 	// Local variable value
 	var ajaxArr = [],
-		filterMap = [
-			{
-				targetID: 'country',
+		filterMap = {
+			country: {
 				data: {"type": "document country"},
 				init: true,
 				callback: function (title) {
@@ -66,8 +72,7 @@ function init() {
 					$(this).multipleSelect("uncheckAll");
 				}
 			},
-			{
-				targetID: 'content_type',
+			content_type: {
 				data: {"type": "document type"},
 				init: true,
 				callback: function (title) {
@@ -77,14 +82,13 @@ function init() {
 						placeholder: getLocalizedContent('DocumentLabelContentType'),
 						minimumCountSelected: 0,
 						countSelected: getLocalizedContent('DocumentLabelContentType') + '&nbsp;(#)',
-						selectAllText: getLocalizedContent('LabelAllEventsSelected'),
-						allSelected: getLocalizedContent('LabelSelectAllEvents')
+						selectAllText: getLocalizedContent('LabelAllDocumentTypes'),
+						allSelected: getLocalizedContent('LabelAllDocumentTypes')
 					});
 					$(this).multipleSelect("checkAll");
 				}
 			},
-			{
-				targetID: 'brand',
+			brand: {
 				data: {"type": "document product line"},
 				init: true,
 				callback: function (title) {
@@ -98,20 +102,19 @@ function init() {
 						onClick: function (view) {
 							var obj = {brand: view.value};
 
-							$.each([4, 5], function (i, j) {
-								ajaxArr.push(populateDropdowns(filterMap[j].targetID, $.extend({}, filterMap[j].data, obj), filterMap[j].callback));
+							$.each(['product', 'solution'], function (i, j) {
+								ajaxArr.push(populateDropdowns(j, $.extend({}, filterMap[j].data, obj), filterMap[j].callback));
 							});
 						}
 					});
 					$(this).multipleSelect("uncheckAll");
 				}
 			},
-			{
-				targetID: 'product',
+			product: {
 				data: {"type": "document product"},
 				init: true,
 				callback: function (title, prevValue) {
-					if (this.data('multipleSelect')) {
+					if (typeof $(this).data('multipleSelect') == 'object') {
 						$(this).next().find('ul').remove();
 						$(this).multipleSelect('refresh');
 						$(this).multipleSelect('setSelects', [prevValue]);
@@ -134,12 +137,11 @@ function init() {
 					}
 				}
 			},
-			{
-				targetID: 'solution',
+			solution: {
 				data: {"type": "document solution"},
 				init: true,
 				callback: function (title, prevValue) {
-					if ($(this).data('multipleSelect')) {
+					if (typeof $(this).data('multipleSelect') == 'object') {
 						$(this).next().find('ul').remove();
 						$(this).multipleSelect('refresh');
 						$(this).multipleSelect('setSelects', [prevValue]);
@@ -162,8 +164,7 @@ function init() {
 					}
 				}
 			},
-			{
-				targetID: 'language',
+			language: {
 				data: {"type": "document language"},
 				init: true,
 				callback: function (title) {
@@ -179,12 +180,11 @@ function init() {
 					$(this).multipleSelect('setSelects', [getLanguageCode()]);
 				}
 			},
-			{
-				targetID: 'industry',
+			industry: {
 				data: {"type": "document industry"},
 				init: true,
 				callback: function (title) {
-					if (this.data('multipleSelect')) {
+					if (typeof $(this).data('multipleSelect') == 'object') {
 						$(this).next().find('ul').remove();
 						$(this).multipleSelect('refresh');
 						//$(this).multipleSelect('setSelects', [prevValue]);
@@ -202,19 +202,28 @@ function init() {
 					}
 				}
 			}
-		];
+		}, allDropdownLabel = {};
 
 	$(document).ready(function () {
 		// filters event handler
-		var filterInterval = null;
+		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['DocumentLabelContentType', 'LabelAllEventsSelected', 'LabelSelectAllEvents', 'DocumentLabelUpdated']).done(function () {
-			$.each(filterMap, function (i, entry) {
+		getLocalizedContent(['DocumentLabelContentType', 'DocumentLabelUpdated', 'LabelCaseStudy', 'LabelAllDocumentTypes', 'LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelAllLanguages', 'LabelAllCountries', 'LabelAllIndustries']).done(function () {
+			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
-					ajaxArr.push(populateDropdowns(entry.targetID, entry.data, entry.callback));
+					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
 				}
 			});
+
+			allDropdownLabel = {
+				product: getLocalizedContent('LabelAllProducts'),
+				brand: getLocalizedContent('LabelAllProductLines'),
+				solution: getLocalizedContent('LabelAllSolutions'),
+				language: getLocalizedContent('LabelAllLanguages'),
+				country: getLocalizedContent('LabelAllCountries'),
+				industry: getLocalizedContent('LabelAllIndustries')
+			};
 
 			//When filters are loaded, execute function 'hashchange'
 			$.when.apply(this, ajaxArr).done(function () {
@@ -222,10 +231,8 @@ function init() {
 					parseHashTag();
 				}
 
-				$(this).data('continue', true);
-
-				$('.filters').on('change', 'select', function () {
-					if ($(this).data('continue') && filterInterval === null) {
+				filterElem.data('continue', true).on('change', 'select', function () {
+					if (filterElem.data('continue') && filterInterval === null) {
 						filterInterval = setInterval(function () {
 							clearInterval(filterInterval);
 
@@ -244,10 +251,13 @@ function init() {
 							}
 						}, 100);
 					}
+
+					setFilterNum();
 				});
 
 				ajaxArr = [];
 
+				setFilterNum();
 				populateListing();
 			}).fail(function () {
 				alert('Failed');
@@ -258,17 +268,15 @@ function init() {
 		$('body').on('click', '.resetfilter', function (e) {
 			e.preventDefault();
 
-			var filterElem = $('.filters');
-
 			filterElem.data('continue', false);
 
 			// multiselect uncheckall
-			filterElem.find('select').each(function() {
-				if($(this).next().is(':visible')) {
-					if($(this).attr('id') == 'content_type') {
+			filterElem.find('select').each(function () {
+				if ($(this).next().is(':visible')) {
+					if ($(this).attr('id') == 'content_type') {
 						$(this).multipleSelect('checkAll');
 					}
-					else if($(this).attr('id') == 'language') {
+					else if ($(this).attr('id') == 'language') {
 						$(this).multipleSelect("setSelects", [getLanguageCode()]);
 					}
 					else {
@@ -277,8 +285,15 @@ function init() {
 				}
 			});
 
-			filterElem.data('continue', true);
-			populateListing(true);
+			$.each(['product', 'solution'], function (i, j) {
+				ajaxArr.push(populateDropdowns(j, filterMap[j].data, filterMap[j].callback));
+			});
+
+			$.when(ajaxArr).done(function() {
+				ajaxArr = [];
+				filterElem.data('continue', true);
+				populateListing(true);
+			});
 		});
 
 		$('#view-more').on('click', function (e) {
@@ -300,50 +315,40 @@ function init() {
 	function parseHashTag() {
 		//Note: This should only be called once if hash tag exist on page load.
 		var hash = location.hash.substr(1),
-			hashArr = hash.split('_'),
-			map = {
-				content_type: '',
-				brand: 'bybrand',
-				product: 'byproduct',
-				solution: 'bysolution',
-				language: 'bylang'
-			},
-			hashObj = {};
+			hashArr = hash.split('_');
 
-		$.each(map, function (filterName, filterMapTo) {
+		$.each(hashMap, function (filterName, filterMapTo) {
 			var regexp = new RegExp('^' + filterMapTo, 'i');
 
-			if (hashObj[filterMapTo]) {
-				setFilterValue($('#' + filterName), hashObj[filterMapTo]);
+			$.each(hashArr, function (indx, name) {
+				if (regexp.test(name)) {
+					var elem = $('#' + filterName), selectFilterValue = name.replace(regexp, '');
 
-				return false;
-			}
-			else {
-				$.each(hashArr, function (indx, name) {
-					if (regexp.test(name)) {
-						var elem = $('#' + filterName), selectFilterValue = name.replace(regexp, '');
+					setFilterValue(elem, selectFilterValue);
 
-						if (filterName != 'content_type') {
-							hashObj[filterMapTo] = selectFilterValue;
-						}
-
-						setFilterValue(elem, selectFilterValue);
-
-						return false;
-					}
-				});
-			}
+					return false;
+				}
+			});
 		});
 
 		function setFilterValue(elem, val) {
 			if (elem.multipleSelect('getSelects') != elem.val()) {
+				var value = '';
+
 				elem.find('option').each(function () {
 					if ($(this).text().replace(/[\s\W]/g, '').toLowerCase() == val) {
 						elem.multipleSelect('setSelects', [$(this).val()]);
+						value = $(this).val();
 
 						return false;
 					}
 				});
+
+				if(elem.attr('id') == 'brand' && value != '') {
+					$.each(['product', 'solution'], function (i, j) {
+						populateDropdowns(j, $.extend({}, filterMap[j].data, {brand: value}), filterMap[j].callback);
+					});
+				}
 			}
 		}
 	}
@@ -360,12 +365,21 @@ function init() {
 			dataType: 'JSON',
 			data: data
 		}).done(function (dataopt) {
-			if (dataopt.title) {
+			if(dropdown != 'content_type') {
+				dataopt.title = allDropdownLabel[dropdown];
 				elem.append('<option value="">' + dataopt.title + '</option>');
 			}
 
 			$.each(dataopt.data, function (key, val) {
-				elem.append('<option value="' + val.id + '">' + val.value + '</option>');
+				if(val.englishname) {
+					elem.append('<option value="' + val.id + '" data-name="' + val.englishname + '">' + val.value + '</option>');
+				}
+				else if(val.englishvalue) {
+					elem.append('<option value="' + val.id + '" data-name="' + val.englishvalue + '">' + val.value + '</option>');
+				}
+				else {
+					elem.append('<option value="' + val.id + '">' + val.value + '</option>');
+				}
 			});
 
 			if (typeof callback == 'function') {
@@ -392,9 +406,13 @@ function populateListing(clear) {
 
 	buildAHashTag();
 
-	var dataset = getDataSet(!clear);
+	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');;
 
 	if (dataset === false) {
+		rowContainer.empty();
+		$('#no-results').removeClass('hidden');
+		viewMoreButton.addClass('hidden');
+
 		return false;
 	}
 
@@ -423,10 +441,10 @@ function populateListing(clear) {
 				'  <div class="border-grey img-crop">' +
 				'    <img class="img-responsive center-block" src="' + val.imageurl + '" alt=""> ' +
 				'  </div> ' +
-				'  <h4 class="text-blue">' + 'Case Study: ' + val.title + ' </h4> ';
+				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.title + '</h4> ';
 
 			if (val.description != null) {
-				htmlFragment += '<p class="teaser"> ' + val.description + ' </p>';
+				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
 			}
 
 			if (val.date != '') {
@@ -441,8 +459,6 @@ function populateListing(clear) {
 				rowContainer.append('<div class="clearfix">');
 			}
 		});
-
-		var viewMoreButton = $('#view-more');
 
 		//TODO: total record counts < pages x 16 or 12 hide View More button
 		if (dataopt.total) {
@@ -464,47 +480,49 @@ function populateListing(clear) {
 		$('.total_results').html(dataopt.total);
 
 		setTimeout(function () {
-			rowContainer.find('> div').filter(':not(:visible)').show().css('opacity', 0).animate({'opacity': 1}, 500);
+			rowContainer.find('> div').filter(':not(:visible)').show().css('opacity', 0).animate({'opacity': 1}, 500, function () {
+				processEllipsis(this);
+			});
 		}, 100);
 	});
 }
 
 // Generates hash from selected filters and tabs
 function buildAHashTag() {
-	var hashArr = [], map = {
-		content_type: '',
-		product: 'byproduct',
-		solution: 'bysolution',
-		productline: 'byproductline',
-		brand: 'bybrand',
-		language: 'bylang'
-	};
+	var hashArr = [];
 
-	$.each(map, function (id, prefix) {
+	$.each(hashMap, function (id, prefix) {
 		var elem = $('#' + id), val = elem.multipleSelect('getSelects');
 
 		if (id == 'content_type') {
 			if (val.length == 1) {
-				hashArr.push($.trim(elem.multipleSelect('getSelects', 'text')).toLowerCase().replace(/[\s\W]/g, ''));
+				elem.find('option').each(function() {
+					if($(this).attr('value') == val[0]) {
+						hashArr.push($.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
+
+						return false;
+					}
+				});
 			}
 		}
-		else {
-			if (id == 'language') {
-				if (parseInt(elem.val()) == getLanguageCode()) {
-					return true;
+		else if (id != 'language' || (id == 'language' && parseInt(val[0]) != getLanguageCode())) {
+			elem.find('option').each(function() {
+				if($(this).attr('value') == val[0]) {
+					hashArr.push(prefix + $.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
+
+					return false;
 				}
-			}
-
-			var filterValue = $.trim(elem.multipleSelect('getSelects', 'text')[0]).toLowerCase().replace(/[\s\W]/g, '');
-
-			if (filterValue != '') {
-				hashArr.push(prefix + filterValue);
-			}
+			});
 		}
 	});
 
-	var newHash = hashArr.join('_');
-	location.hash = (newHash == '') ? ' ' : newHash;
+	if(hashArr.length) {
+		var newHash = hashArr.join('_');
+		location.hash = (newHash == '') ? ' ' : newHash;
+	}
+	else {
+		location.hash = ' ';
+	}
 }
 
 function getLanguageCode() {
@@ -567,9 +585,11 @@ function getLanguageCode() {
 function getDataSet(incrementPage) {
 	//incrementPage - We assume that if the list is not cleared that we are going to load the next page.
 
+	page = incrementPage ? ++page : 1;
+
 	var dataset = {
 			"type": "document list",
-			"page": incrementPage ? ++page : 1,
+			"page": page,
 			"pagesize": entriesPerType[pageType]
 		},
 		mapping = {
@@ -579,7 +599,8 @@ function getDataSet(incrementPage) {
 			brand: 'brand',
 			language: 'language',
 			country: 'country',
-			state: 'state_province'
+			state: 'state_province',
+			industry: 'industry'
 		},
 		hasError = false;
 
@@ -587,7 +608,7 @@ function getDataSet(incrementPage) {
 		var val = $('#' + id).val();
 
 		if (id == 'content_type') {
-			if (val === null) {
+			if (val === null || val === undefined) {
 				hasError = true;
 				return false;
 			}
@@ -601,4 +622,25 @@ function getDataSet(incrementPage) {
 	});
 
 	return hasError ? false : dataset;
+}
+
+function setFilterNum() {
+	var counter = 0;
+
+	$('.filters').find('select').each(function() {
+		if($(this).is(':visible')) {
+			var selects = $(this).multipleSelect('getSelects');
+
+			if(selects.length == 1) {
+				if(selects[0] != '') {
+					counter++;
+				}
+			}
+			else {
+				counter += selects.length;
+			}
+		}
+	});
+
+	$('.filter-num').text(counter);
 }

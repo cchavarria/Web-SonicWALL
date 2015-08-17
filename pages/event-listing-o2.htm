@@ -1,11 +1,11 @@
 <div class="container breadcrumb-container hidden-xs">
 	<ul class="breadcrumb">
 		<li><a href="/"></a><span class="divider"></span></li>
-		<li class="active">Events</li>
+		<li class="active">{{LabelEvents}}</li>
 	</ul>
 </div>
 <div class="container">
-	<h1>Events</h1>
+	<h1>{{LabelEvents}}</h1>
 </div>
 <div class="container text-md">
 	<span class="icon-large-calendar text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;"></span>
@@ -17,10 +17,10 @@
 	<div class="container visible-xs">
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
-				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> results</p>
+				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
 				<div class="nowrap pull-right">
-					<span class="mr-10 mb-0">Search by:</span>
-					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">Filters (<span
+					<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
+					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
 						class="filter-num"></span>)</a>
 				</div>
 			</div>
@@ -30,16 +30,16 @@
 	<div id="view-filters" class="container mt-20 hidden-xs">
 		<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
 			<p class="pull-left mt-7 mb-0">
-				<span class="total_results">0</span> results:
+				<span class="total_results">0</span> {{LabelResults}}:
 			</p>
 
 			<div class="text-right">
-				<a href="#" class="resetfilter mr-10">Clear all</a>
-				<a href="#" class="btn btn-primary off-canvas-back">Close</a>
+				<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+				<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
 			</div>
 		</div>
 		<p class="text-md hidden-xs">
-			<span class="total_results">0</span> results:
+			<span class="total_results">0</span> {{LabelResults}}:
 		</p>
 		<section class="filters">
 			<div class="row mb-15 mb-0-xs">
@@ -90,16 +90,16 @@
 			</div>
 		</section>
 		<div class="mt-15 hidden-xs">
-			<a href="#" class="resetfilter">Clear all</a>
+			<a href="#" class="resetfilter">{{LabelClearAll}}</a>
 		</div>
 		<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
 			<p class="pull-left mt-7 mb-0">
-				<span class="total_results">0 &nbsp;</span> results
+				<span class="total_results">0 &nbsp;</span> {{LabelResults}}
 			</p>
 
 			<div class="text-right">
-				<a href="#" class="resetfilter mr-10">Clear all</a>
-				<a href="#" class="btn btn-primary off-canvas-back">Close</a>
+				<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+				<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
 			</div>
 		</div>
 	</div>
@@ -110,7 +110,7 @@
 			</div>
 		</section>
 
-		<button id="view-more" class="btn btn-default btn-block hidden mt-20">Load More Results</button>
+		<button id="view-more" class="btn btn-default btn-block hidden mt-20">{{LabelLoadMoreResults}}</button>
 	</div>
 
 	<div class="container">
@@ -118,7 +118,7 @@
 
 			<div id="no-results" class="alert hidden">
 				<div class="alert-warning mb-0">
-					<h4>No result: Please try another search.</h4>
+					<h4>{{LabelListingNoResult}}</h4>
 
 					<div class="label-error-wrapper"></div>
 				</div>
@@ -130,7 +130,7 @@
 <i id="ui-loader" class="icon-ui-loading"></i>
 
 <div class="container mt-20">
-	<h3 class="feature border-t-grey pt-20 mt-0">Related Items</h3>
+	<h3 class="feature border-t-grey pt-20 mt-0">{{LabelRelatedItems}}</h3>
 
 	<div class="row slick">
 		<div class="col-md-3 col-sm-4 col-xs-12">
@@ -141,7 +141,7 @@
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../documents/"><h5 class="text-md">Document Library</h5></a>
+				<a href="../documents/"><h5 class="text-md">{{LabelDocumentLibrary}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Find the information that you need on the subjects important to you.</p>
@@ -156,7 +156,7 @@
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../video-gallery/"><h5 class="text-md">Video Gallery</h5></a>
+				<a href="../video-gallery/"><h5 class="text-md">{{LabelVideoGallery}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Access unique insights.</p>
@@ -171,7 +171,7 @@
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../customer-success/"><h5 class="text-md">Customer Success</h5></a>
+				<a href="../customer-success/"><h5 class="text-md">{{LabelCustomerSuccess}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Customers share their experience with Dell Software and how they brought value to their company.</p>
@@ -179,14 +179,14 @@
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-4 col-xs-12">
-			<a href="/trials/">
+			<a href="../trials/">
 				<div class="img-crop img-border vertical-center">
 					<img src="/images/shared/icon-trial.png" alt="Trial Download">
 				</div>
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="/trials/"><h5 class="text-md">Free Trial Downloads</h5></a>
+				<a href="../trials/"><h5 class="text-md">{{LabelFreeTrialDownloads}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Get freeware and trials.</p>
@@ -196,8 +196,24 @@
 	</div>
 </div>
 
+<script id="tpl-entry" type="text/template">
+	<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;">
+		<a href="[[url]]">
+			<div class="border-grey">
+				<p class="listing-header [[classname]]">[[eventtype]]</p>
+				<img class="img-responsive" src="[[image]]" alt="">
+			</div>
+			<h4 class="text-blue dotdotdot" data-max-line="3">[[title]]</h4>
+			<p class="teaser dotdotdot" data-max-line="5">[[description]]</p>
+			[[if date]]<p class="dates">{{EventLabelDate}}: [[date]]</p>[[/if]]
+			[[if recordeddate]]<p>{{EventLabelRecordedDate}}: [[recordeddate]]</p>[[/if]]
+			[[if location]]<p>{{EventLabelLocation}}: [[location]]</p>[[/if]]
+		</a>
+	</div>
+</script>
+
 <div class="bg-grey mt-20 pt-20 pb-20 social-media-toolbar text-center">
-	<span>Share</span>
+	<span>{{LabelShareThisPage}}</span>
 	<ul>
 		<li class="facebook">
 			<a href="#">

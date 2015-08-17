@@ -4555,6 +4555,18 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .bootstrap [class^="icon-large-"], .bootstrap [class*=" icon-large-"] {
+    font-family: "icon-large";
+    speak: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
   .bootstrap .icon-ui-arrowleft, .bootstrap .icon-ui-arrowright, .bootstrap .icon-ui-close, .bootstrap .icon-ui-closecircle, .bootstrap .icon-ui-collapse, .bootstrap .icon-ui-dell, .bootstrap .icon-ui-expand, .bootstrap .icon-ui-grid-view, .bootstrap .icon-ui-list-view, .bootstrap .icon-ui-menucollapsed, .bootstrap .icon-ui-minus, .bootstrap .icon-ui-pause, .bootstrap .icon-ui-play, .bootstrap .icon-ui-plus, .bootstrap .icon-ui-triangledown, .bootstrap .icon-ui-triangleleft, .bootstrap .icon-ui-triangleright, .bootstrap .icon-ui-triangleup {
     font-family: "icon-ui";
     font-size: 16px;
@@ -4577,9 +4589,9 @@
     content: "\e663"; }
   .bootstrap .icon-small-checkmark:before {
     content: "\e611"; }
-  .bootstrap .icon-small-calendar:before {
+  .bootstrap .icon-small-calendar:before, .bootstrap .icon-large-calendar:before {
     content: "\e60d"; }
-  .bootstrap .icon-small-document:before {
+  .bootstrap .icon-small-document:before, .bootstrap .icon-large-document:before {
     content: "\e669"; }
   .bootstrap .icon-ui-loading {
     display: block;
@@ -6029,6 +6041,8 @@
     line-height: 24px; }
   .bootstrap .nowrap {
     white-space: nowrap; }
+  .bootstrap .full-width {
+    width: 100% !important; }
   .bootstrap iframe {
     border: 0; }
   .bootstrap .block {
@@ -6036,8 +6050,20 @@
   .bootstrap .inline {
     display: inline !important; }
   .bootstrap .vertical-center {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
     display: flex;
-    align-items: center; }
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
   @media (max-width: 767px) {
     .bootstrap #right-rail-form label {
       padding-top: 8px;
@@ -6219,6 +6245,8 @@
       margin-top: 10px !important; }
     .bootstrap .mt-20-xs {
       margin-top: 20px !important; }
+    .bootstrap .mt-30-xs {
+      margin-top: 30px !important; }
     .bootstrap .mt-40-xs {
       margin-top: 40px !important; }
     .bootstrap .mb-0-xs {
@@ -6276,6 +6304,8 @@
       margin-left: 20px !important; }
     .bootstrap .mr-20-sm-only {
       margin-right: 20px !important; }
+    .bootstrap .mb-20-sm-only {
+      margin-bottom: 20px !important; }
     .bootstrap .mh-0-sm-only {
       margin-left: 0 !important;
       margin-right: 0 !important; }

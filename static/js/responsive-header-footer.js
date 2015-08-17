@@ -106,24 +106,6 @@ $(document).ready(function () {
       }
     });
 
-  // Search
-	if($('#search-form').length) {
-		$('#search-form').on('submit', function(e) {
-			e.preventDefault();
-			document.location.href = "/search/results/?q=" + encodeURIComponent(Encoder.htmlEncode($('#searchterm').val()));
-			return false;
-		});
-
-		if(!$.fn.autocomplete) {
-			$.getScript('/Static/Scripts/jquery.autocomplete.min.js', function() {
-				initAdobeSearch();
-			});
-		}
-		else {
-			initAdobeSearch();
-		}
-	}
-
   /* Country Dropdown */
 
   $('#current-country').on('click', function (e) {
@@ -258,34 +240,6 @@ function resizeGlobal() {
 function makeResponsive() {
   $('.not-responsive').removeClass('not-responsive').addClass('is-responsive');
   $('#wrapper').attr('id', '').addClass('site-wrapper').wrapInner('<div class="site-canvas">');
-}
-
-function initAdobeSearch() {
-	var config = {
-		account : "sp10050c33",
-		searchDomain : "http://sp10050c33.guided.ss-omtrdc.net",
-		inputElement : "#searchterm",
-		inputFormElement : "#search-form",
-		delay : 300,
-		minLength : 2,
-		maxResults : 10,
-		browserAutocomplete : false,
-		queryCaseSensitive : false,
-		startsWith : false,
-		searchOnSelect : true,
-		submitOnSelect: true,
-		highlightWords: false,
-		highlightWordsBegin: false
-	};
-
-	if($.fn.AdobeAutocomplete) {
-		$('#searchterm').AdobeAutocomplete(config);
-	}
-	else {
-		$.getScript('//content.atomz.com/content/pb00003799/publish/build/search/jquery/autocomplete/1.4/jquery.adobe.autocomplete.min.js', function() {
-			$('#searchterm').AdobeAutocomplete(config);
-		});
-	}
 }
 
 function getLocalizedContent(tags) {

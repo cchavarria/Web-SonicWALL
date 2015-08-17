@@ -89,9 +89,9 @@ $slick-opacity-not-active: 0.25 !default;
   float: left;
   height: 100%;
   min-height: 1px;
-  [dir="rtl"] & {
+  /*[dir="rtl"] & {
     float: right;
-  }
+  }*/
   img {
     display: block;
   }
@@ -172,8 +172,9 @@ $slick-opacity-not-active: 0.25 !default;
   background: transparent;
   color: transparent;
   //top: 50%;
-  top: 44px;
-  margin-top: -10px;
+  //top: 44px;
+  top: 53px;
+  //margin-top: -10px;
   padding: 0;
   border: none;
   outline: none;
@@ -191,7 +192,7 @@ $slick-opacity-not-active: 0.25 !default;
   }
   &:before {
     font-family: $slick-font-family;
-    font-size: 60px;
+    font-size: 28px;
     line-height: 1;
     //color: $slick-arrow-color;
     color: $dell-blue;
@@ -202,30 +203,60 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-  left: -25px;
-  [dir="rtl"] & {
+  left: -7px;
+  /*[dir="rtl"] & {
     left: auto;
     right: -25px;
-  }
+  }*/
   &:before {
     content: $slick-prev-character;
-    [dir="rtl"] & {
+    /*[dir="rtl"] & {
       content: $slick-next-character;
-    }
+    }*/
   }
 }
 
 .slick-next {
-  right: 0;
-  [dir="rtl"] & {
+  right: -7px;
+  /*[dir="rtl"] & {
     left: -25px;
     right: auto;
-  }
+  }*/
   &:before {
     content: $slick-next-character;
-    [dir="rtl"] & {
+    /*[dir="rtl"] & {
       content: $slick-prev-character;
+    }*/
+  }
+}
+
+@media (min-width: 768px) {
+  .slick-prev, .slick-next {
+    top: 55px;
+    &:before {
+      font-size: 32px;
     }
+  }
+  .slick-prev {
+    left: -8px;
+  }
+  .slick-next {
+    right: -8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slick-prev, .slick-next {
+    top: 69px;
+    &:before {
+      font-size: 40px;
+    }
+  }
+  .slick-prev {
+    left: -10px;
+  }
+  .slick-next {
+    right: -10px;
   }
 }
 
@@ -289,6 +320,30 @@ $slick-opacity-not-active: 0.25 !default;
     &.slick-active button:before {
       color: $slick-dot-color-active;
       opacity: $slick-opacity-default;
+    }
+  }
+}
+
+/* Image Cropping */
+
+.slick {
+  .img-crop {
+    height: 166px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) { //MD
+  .slick {
+    .img-crop {
+      height: 161px;
+    }
+  }
+}
+
+@media (min-width: 1200px) { //LG
+  .slick {
+    .img-crop {
+      height: 197px;
     }
   }
 }

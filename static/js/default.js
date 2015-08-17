@@ -62,87 +62,7 @@ $(document).ready(function () {
 	}
 
 	//Dotdotdot
-	(function () {
-		if ($('.dotdotdot').length) {
-			if ($.fn.dotdotdot) {
-				init();
-			}
-			else {
-				$.getScript('/static/library/jQuery/jquery.dotdotdot.min.js', function () {
-					init();
-				});
-			}
-		}
-
-		function init() {
-			$('.dotdotdot').each(function () {
-				var oneLineHeight = 0, options = {}, content = '', proceed = false;
-
-				//Remove empty paragraph tags.
-				$(this).find('p').each(function () {
-					if ($(this).html() == '') {
-						$(this).remove();
-					}
-				});
-
-				if ($(this).css('max-height') == 'none') {
-					content = $(this).html();
-
-					//Find height of one line.
-					$(this).html('<p>.</p>');
-					oneLineHeight = parseInt($(this).outerHeight());
-
-					//options.tolerance = Math.ceil(oneLineHeight/4);
-
-					//Restore original content.
-					$(this).html(content);
-
-					if ($(this).data('max-line')) { //Used for all breakpoints.
-						options.height = $(this).data('max-line') * oneLineHeight;
-						proceed = true;
-					}
-
-					if (pageWidth >= 1200 && $(this).data('max-line-lg')) {
-						options.height = $(this).data('max-line-lg') * oneLineHeight;
-						proceed = true;
-					}
-					else if (pageWidth >= 992 && $(this).data('max-line-md')) {
-						options.height = $(this).data('max-line-md') * oneLineHeight;
-						proceed = true;
-					}
-					else if (pageWidth >= 768 && $(this).data('max-line-sm')) {
-						options.height = $(this).data('max-line-sm') * oneLineHeight;
-						proceed = true;
-					}
-					else if (pageWidth < 768 && $(this).data('max-line-xs')) {
-						options.height = $(this).data('max-line-xs') * oneLineHeight;
-						proceed = true;
-					}
-				}
-
-				if (proceed) {
-					if ($(this).data('read-more')) {
-						$(this).append('<a class="dotdotdot-read-more" href="javascript:void(0)">Read More <span aria-hidden="true" class="glyphicon glyphicon-triangle-bottom"></span></a>');
-						options.after = '.dotdotdot-read-more';
-					}
-
-					$(this).dotdotdot(options);
-
-					if ($(this).triggerHandler('isTruncated')) {
-						$(this).on('click', '.dotdotdot-read-more', function (e) {
-							var p = $(this).parents('.dotdotdot');
-							e.preventDefault();
-							p.dotdotdot('destroy');
-							p.find('.dotdotdot-read-more').remove();
-						});
-					}
-					else {
-						$(this).find('.dotdotdot-read-more').remove();
-					}
-				}
-			});
-		}
-	})();
+	processEllipsis();
 
 	//LazyLoad
 	if ($.fn.lazyload) {
@@ -277,7 +197,7 @@ $(document).ready(function () {
 	addResize('grayscaleImage', true);
 	loadOoyala();
 
-	addResize(function() {
+	/*addResize(function() {
 		$('img').each(function(i) {
 			if($(this).data('src-' + pageTypeLabel)) {
 				$(this).data('src', $(this).attr('src')).attr('src', $(this).data('src-' + pageTypeLabel));
@@ -286,6 +206,59 @@ $(document).ready(function () {
 				$(this).attr('src', $(this).data('src'));
 			}
 		});
+	}, true);*/
+
+	//Slick Plugin
+	addResize(function() {
+		if($('.slick').length) {
+			if($.fn.slick) {
+				init();
+			}
+			else {
+				$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css">');
+				$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
+			}
+		}
+
+		function init() {
+			var defaults = {
+				arrows: true,
+				infinite: false,
+				slidesToShow: 4,
+				slidesToScroll: 1
+			};
+
+			$('.slick').each(function() {
+				var cfg = defaults;
+
+				if($(this).data('active') == 'xs-only' && pageType != 0) {
+					if($(this).hasClass('slick-initialized')) {
+						$(this).slick('destroy');
+					}
+
+					return true;
+				}
+
+				if(pageType == 0) {
+					cfg.slidesToShow = 1;
+				}
+				else if(pageType == 1) {
+					cfg.slidesToShow = 2;
+				}
+				else if(pageType == 2) {
+					cfg.slidesToShow = 3;
+				}
+				else if(pageType == 3) {
+					cfg.slidesToShow = 4;
+				}
+
+				if($(this).hasClass('slick-initialized')) {
+					$(this).slick('destroy');
+				}
+
+				$(this).slick(cfg);
+			});
+		}
 	}, true);
 });
 
@@ -313,13 +286,106 @@ addResize(function() {
 	function init() {
 		if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
 			$('.vertical-center').each(function() {
-				var height = $(this).height(), child = $(this).find('> div'), childHeight = child.height();
+				var height = $(this).height(), width = $(this).width(), child = $(this).children();
 
-				child.css('paddingTop', Math.floor((height - childHeight) / 2));
+				//Should only have 1 children. Multiple children might not work.
+				child.each(function() {
+					$(this).css({
+						paddingTop: Math.floor((height - $(this).height()) / 2),
+						paddingLeft: Math.floor((width - $(this).width()) / 2)
+					});
+				});
 			});
 		}
 	}
 }, true);
+
+function processEllipsis(parentSelector) {
+	if (typeof parentSelector == 'undefined') {
+		parentSelector = 'body';
+	}
+
+	//Dotdotdot
+	if ($('.dotdotdot').length) {
+		if ($.fn.dotdotdot) {
+			init();
+		}
+		else {
+			$.getScript('/static/library/jQuery/jquery.dotdotdot.min.js', function () {
+				init();
+			});
+		}
+	}
+
+	function init() {
+		$(parentSelector).find('.dotdotdot').each(function () {
+			var oneLineHeight = 0, options = {}, content = '', proceed = false;
+
+			//Remove empty paragraph tags.
+			$(this).find('p').each(function () {
+				if ($(this).html() == '') {
+					$(this).remove();
+				}
+			});
+
+			if ($(this).css('max-height') == 'none') {
+				content = $(this).html();
+
+				//Find height of one line.
+				$(this).html('<p>.</p>');
+				oneLineHeight = parseInt($(this).outerHeight());
+
+				//options.tolerance = Math.ceil(oneLineHeight/4);
+
+				//Restore original content.
+				$(this).html(content);
+
+				if ($(this).data('max-line')) { //Used for all breakpoints.
+					options.height = $(this).data('max-line') * oneLineHeight;
+					proceed = true;
+				}
+
+				if (pageWidth >= 1200 && $(this).data('max-line-lg')) {
+					options.height = $(this).data('max-line-lg') * oneLineHeight;
+					proceed = true;
+				}
+				else if (pageWidth >= 992 && $(this).data('max-line-md')) {
+					options.height = $(this).data('max-line-md') * oneLineHeight;
+					proceed = true;
+				}
+				else if (pageWidth >= 768 && $(this).data('max-line-sm')) {
+					options.height = $(this).data('max-line-sm') * oneLineHeight;
+					proceed = true;
+				}
+				else if (pageWidth < 768 && $(this).data('max-line-xs')) {
+					options.height = $(this).data('max-line-xs') * oneLineHeight;
+					proceed = true;
+				}
+			}
+
+			if (proceed) {
+				if ($(this).data('read-more')) {
+					$(this).append('<a class="dotdotdot-read-more" href="javascript:void(0)">Read More <span aria-hidden="true" class="glyphicon glyphicon-triangle-bottom"></span></a>');
+					options.after = '.dotdotdot-read-more';
+				}
+
+				$(this).dotdotdot(options);
+
+				if ($(this).triggerHandler('isTruncated')) {
+					$(this).on('click', '.dotdotdot-read-more', function (e) {
+						var p = $(this).parents('.dotdotdot');
+						e.preventDefault();
+						p.dotdotdot('destroy');
+						p.find('.dotdotdot-read-more').remove();
+					});
+				}
+				else {
+					$(this).find('.dotdotdot-read-more').remove();
+				}
+			}
+		});
+	}
+}
 
 function loadOoyala(parentSelector) {
 	if (typeof parentSelector == 'undefined') {

@@ -1,126 +1,116 @@
 <div class="container breadcrumb-container hidden-xs">
 	<ul class="breadcrumb">
 		<li><a href="/"></a><span class="divider"></span></li>
-		<li class="active">Events</li>
+		<li class="active">{{LabelDocumentLibrary}}</li>
 	</ul>
 </div>
-<div class="container">
-	<h1>Events</h1>
-</div>
-<div class="container text-md">
-	<span class="icon-large-calendar text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;"></span>
 
-	<p>Find the information you need on the subjects important to you.<br>Use the filters to browse our global in person,
-		online and on-demand webcasts covering a wide range of product and industry related topics.</p>
+<div class="container">
+	<h1>{{LabelDocumentLibrary}}</h1>
 </div>
+
+<div class="container text-md">
+	<span class="icon-large-document text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;"></span>
+
+	<p>Find the information you need on the subjects important to you.<br/>
+		Use the filters to narrow down your search or browse our curated categories to discover the right resources for you.
+	</p>
+</div>
+
 <div id="mainer">
 	<div class="container visible-xs">
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
-				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> results</p>
+				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
 				<div class="nowrap pull-right">
-					<span class="mr-10 mb-0">Search by:</span>
-					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">Filters (<span
+					<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
+					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
 						class="filter-num"></span>)</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="view-filters" class="container mt-20 hidden-xs">
+
+	<div id="view-filters" class="container mt-40 hidden-xs">
 		<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
-			<p class="pull-left mt-7 mb-0">
-				<span class="total_results">0</span> results:
-			</p>
+			<p class="pull-left mt-7 mb-0"><span class="total_results">0</span> {{LabelResults}}:</p>
 
 			<div class="text-right">
-				<a href="#" class="resetfilter mr-10">Clear all</a>
-				<a href="#" class="btn btn-primary off-canvas-back">Close</a>
+				<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+				<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
 			</div>
 		</div>
-		<p class="text-md hidden-xs">
-			<span class="total_results">0</span> results:
-		</p>
+
+		<p class="text-md hidden-xs"><span class="total_results">0</span> {{LabelResults}}:</p>
+
 		<section class="filters">
 			<div class="row mb-15 mb-0-xs">
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="event_type" name="event_type" multiple="multiple" class="ms mb-15-xs"
-									data-selected="Event Type">
-					</select>
+					<select class="ms mb-15-xs" id="content_type" multiple="multiple" name="content_type"></select>
 				</div>
+
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="event_date" class="mb-15-xs">
-					</select>
+					<select class="mb-15-xs" id="product" name="product"> </select>
 				</div>
+
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="product" name="product" class="mb-15-xs">
-					</select>
+					<select class="mb-15-xs" id="brand" name="brand"></select>
 				</div>
+
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="brand" name="brand" class="mb-15-xs">
-					</select>
+					<select class="mb-15-xs" id="solution" name="solution"></select>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="solution" name="solution" class="mb-15-xs">
-					</select>
+					<select class="mb-15-xs" id="language" name="language"></select>
 				</div>
+
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="language" name="language" class="mb-15-xs">
-					</select>
-					</select>
+					<select class="mb-15-xs" id="country" name="country"></select>
 				</div>
+
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
 					<span class="visible-xs pl-10"></span>
-					<select id="country" name="country" class="mb-15-xs">
-					</select>
-				</div>
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
-					<select id="state_province" name="state_province" class="mb-15-xs hidden">
-					</select>
+					<select class="mb-15-xs" id="industry" name="industry"></select>
 				</div>
 			</div>
 		</section>
-		<div class="mt-15 hidden-xs">
-			<a href="#" class="resetfilter">Clear all</a>
-		</div>
+
+		<div class="mt-15 hidden-xs"><a class="resetfilter" href="#">{{LabelClearAll}}</a></div>
+
 		<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
-			<p class="pull-left mt-7 mb-0">
-				<span class="total_results">0 &nbsp;</span> results
-			</p>
+			<p class="pull-left mt-7 mb-0"><span class="total_results">0 &nbsp;</span> {{LabelResults}}</p>
 
 			<div class="text-right">
-				<a href="#" class="resetfilter mr-10">Clear all</a>
-				<a href="#" class="btn btn-primary off-canvas-back">Close</a>
+				<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+				<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="container mt-40">
+	<div class="container mt-40 mt-30-xs">
 		<section class="listing-entries">
-			<div class="row">
-			</div>
+			<div class="row">&nbsp;</div>
 		</section>
-
-		<button id="view-more" class="btn btn-default btn-block hidden mt-20">Load More Results</button>
+		<button class="btn btn-default btn-block hidden mt-20" id="view-more">{{LabelLoadMoreResults}}</button>
 	</div>
 
 	<div class="container">
 		<div class="row">
-
-			<div id="no-results" class="alert hidden">
+			<div class="alert hidden" id="no-results">
 				<div class="alert-warning mb-0">
-					<h4>No result: Please try another search.</h4>
+					<h4>{{LabelListingNoResult}}</h4>
 
-					<div class="label-error-wrapper"></div>
+					<div class="label-error-wrapper">&nbsp;</div>
 				</div>
 			</div>
 		</div>
@@ -130,21 +120,21 @@
 <i id="ui-loader" class="icon-ui-loading"></i>
 
 <div class="container mt-20">
-	<h3 class="feature border-t-grey pt-20 mt-0">Related Items</h3>
+	<h3 class="feature border-t-grey pt-20 mt-0">{{LabelRelatedItems}}</h3>
 
 	<div class="row slick">
 		<div class="col-md-3 col-sm-4 col-xs-12">
-			<a href="../documents/">
+			<a href="../events/">
 				<div class="img-crop img-border vertical-center">
-					<img src="/images/shared/icon-document.png" alt="Document">
+					<img src="/images/shared/icon-calendar.png" alt="Events">
 				</div>
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../documents/"><h5 class="text-md">Document Library</h5></a>
+				<a href="../events/"><h5 class="text-md">{{LabelViewUpcomingEvents}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
-					<p>Find the information that you need on the subjects important to you.</p>
+					<p>Connect with IT experts.</p>
 				</div>
 			</div>
 		</div>
@@ -156,7 +146,7 @@
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../video-gallery/"><h5 class="text-md">Video Gallery</h5></a>
+				<a href="../video-gallery/"><h5 class="text-md">{{LabelVideoGallery}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Access unique insights.</p>
@@ -171,7 +161,7 @@
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../customer-success/"><h5 class="text-md">Customer Success</h5></a>
+				<a href="../customer-success/"><h5 class="text-md">{{LabelCustomerSuccess}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Customers share their experience with Dell Software and how they brought value to their company.</p>
@@ -179,14 +169,14 @@
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-4 col-xs-12">
-			<a href="/trials/">
+			<a href="../trials/">
 				<div class="img-crop img-border vertical-center">
 					<img src="/images/shared/icon-trial.png" alt="Trial Download">
 				</div>
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="/trials/"><h5 class="text-md">Free Trial Downloads</h5></a>
+				<a href="../trials/"><h5 class="text-md">{{LabelFreeTrialDownloads}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
 					<p>Get freeware and trials.</p>
@@ -196,8 +186,22 @@
 	</div>
 </div>
 
+<script id="tpl-entry" type="text/template">
+	<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;">
+		<a href="[[url]]">
+			<div class="border-grey img-crop">
+				<img class="img-responsive center-block" src="[[image]]" alt="">
+			</div>
+			<h4 class="text-blue dotdotdot" data-max-line="3">[[title]]</h4>
+
+			<p class="teaser dotdotdot" data-max-line="5">[[description]]</p>
+			[[if date]]<p>{{DocumentLabelUpdated}}: [[date]]</p>[[/if]]
+		</a>
+	</div>
+</script>
+
 <div class="bg-grey mt-20 pt-20 pb-20 social-media-toolbar text-center">
-	<span>Share</span>
+	<span>{{LabelShareThisPage}}</span>
 	<ul>
 		<li class="facebook">
 			<a href="#">
