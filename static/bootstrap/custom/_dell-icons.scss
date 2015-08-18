@@ -44,6 +44,10 @@
   content: "\e663";
 }
 
+.icon-ui-play:before {
+  content: "\e60C";
+}
+
 .icon-ui-menucollapsed:before {
   content: "\e609";
 }
@@ -66,6 +70,10 @@
 
 .icon-small-document:before, .icon-large-document:before {
   content: "\e669";
+}
+
+.icon-small-trials:before {
+  content: "\e61f";
 }
 
 .icon-ui-loading {

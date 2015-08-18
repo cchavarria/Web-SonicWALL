@@ -3042,7 +3042,7 @@
       right: 0;
       left: auto; }
     .bootstrap .dropdown-menu .divider {
-      height: 1px;
+      height: 2px;
       margin: 9px 0;
       overflow: hidden;
       background-color: #e5e5e5; }
@@ -3057,7 +3057,7 @@
   .bootstrap .dropdown-menu > li > a:hover, .bootstrap .dropdown-menu > li > a:focus {
     text-decoration: none;
     color: #373737;
-    background-color: whitesmoke; }
+    background-color: #cce5f1; }
   .bootstrap .dropdown-menu > .active > a, .bootstrap .dropdown-menu > .active > a:hover, .bootstrap .dropdown-menu > .active > a:focus {
     color: white;
     text-decoration: none;
@@ -3373,7 +3373,7 @@
       background-color: #eeeeee;
       border-color: #007db8; }
     .bootstrap .nav .nav-divider {
-      height: 1px;
+      height: 2px;
       margin: 9px 0;
       overflow: hidden;
       background-color: #e5e5e5; }
@@ -4581,6 +4581,8 @@
     -moz-osx-font-smoothing: grayscale; }
   .bootstrap .icon-ui-dell:before {
     content: "\e663"; }
+  .bootstrap .icon-ui-play:before {
+    content: "\e60C"; }
   .bootstrap .icon-ui-menucollapsed:before {
     content: "\e609"; }
   .bootstrap .icon-small-searchleft:before {
@@ -4593,6 +4595,8 @@
     content: "\e60d"; }
   .bootstrap .icon-small-document:before, .bootstrap .icon-large-document:before {
     content: "\e669"; }
+  .bootstrap .icon-small-trials:before {
+    content: "\e61f"; }
   .bootstrap .icon-ui-loading {
     display: block;
     background: url("/images/shared/loading-animation-square.gif") no-repeat center;

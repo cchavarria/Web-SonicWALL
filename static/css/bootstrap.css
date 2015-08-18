@@ -3468,10 +3468,11 @@ tbody.collapse.in {
     right: 0;
     left: auto; }
   .dropdown-menu .divider {
-    height: 1px;
+    height: 2px;
     margin: 9px 0;
     overflow: hidden;
-    background-color: #e5e5e5; }
+    background-color: #e5e5e5;
+    padding: 0; }
   .dropdown-menu > li > a {
     display: block;
     padding: 3px 20px;
@@ -3484,7 +3485,7 @@ tbody.collapse.in {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #373737;
-  background-color: whitesmoke; }
+  background-color: #cce5f1; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: white;
@@ -3552,6 +3553,21 @@ tbody.collapse.in {
   .navbar-right .dropdown-menu-left {
     left: 0;
     right: auto; } }
+.dropdown-menu li a {
+  line-height: 20px; }
+  .dropdown-menu li a > span:first-child {
+    vertical-align: text-top; }
+
+.btn-group .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 6px solid;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent; }
+
 .btn-group,
 .btn-group-vertical {
   position: relative;
@@ -3843,7 +3859,7 @@ tbody.collapse.in {
     background-color: #eeeeee;
     border-color: #007db8; }
   .nav .nav-divider {
-    height: 1px;
+    height: 2px;
     margin: 9px 0;
     overflow: hidden;
     background-color: #e5e5e5; }
@@ -5834,6 +5850,9 @@ iframe {
 .icon-ui-dell:before {
   content: "\e663"; }
 
+.icon-ui-play:before {
+  content: "\e60C"; }
+
 .icon-ui-menucollapsed:before {
   content: "\e609"; }
 
@@ -5851,6 +5870,9 @@ iframe {
 
 .icon-small-document:before, .icon-large-document:before {
   content: "\e669"; }
+
+.icon-small-trials:before {
+  content: "\e61f"; }
 
 .icon-ui-loading {
   display: block;
