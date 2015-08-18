@@ -3844,7 +3844,7 @@
         content: "\e62b";
         font-family: "icon-small"; }
       .bootstrap .breadcrumb > li + li:before {
-        content: "\002D";
+        content: "\e601";
         color: #737373;
         font-family: "icon-ui";
         font-size: 10px;
@@ -4582,7 +4582,7 @@
   .bootstrap .icon-ui-dell:before {
     content: "\e663"; }
   .bootstrap .icon-ui-menucollapsed:before {
-    content: "\'"; }
+    content: "\e609"; }
   .bootstrap .icon-small-searchleft:before {
     content: "\e631"; }
   .bootstrap .icon-small-useraccount:before {
@@ -4838,11 +4838,11 @@
       border-left: 4px solid #007db8;
       padding: 0 0 0 15px; }
   .bootstrap li > a > i.menu-indicator:before, .bootstrap li > span > i.menu-indicator:before {
-    content: "$"; }
+    content: "\e60e"; }
   .bootstrap li.open > ul {
     display: block !important; }
   .bootstrap li.open > a > i.menu-indicator:before, .bootstrap li.open > span > i.menu-indicator:before {
-    content: "!"; }
+    content: "\e611"; }
   .bootstrap li.dropdown .dropdown-menu {
     margin-top: 0;
     right: 0;
@@ -5142,7 +5142,7 @@
         .bootstrap.is-responsive .masthead .main-nav-section ul.tier2 i.menu-indicator {
           display: block; }
           .bootstrap.is-responsive .masthead .main-nav-section ul.tier2 i.menu-indicator:before {
-            content: "-"; }
+            content: "\e601"; }
         .bootstrap.is-responsive .masthead .main-nav-section ul.tier2 a {
           text-decoration: none;
           padding: 7px 0 8px 20px;
@@ -5415,7 +5415,7 @@
       .bootstrap.not-responsive .masthead .main-nav-section ul.tier2 i.menu-indicator {
         display: block; }
         .bootstrap.not-responsive .masthead .main-nav-section ul.tier2 i.menu-indicator:before {
-          content: "-"; }
+          content: "\e601"; }
       .bootstrap.not-responsive .masthead .main-nav-section ul.tier2 a {
         text-decoration: none;
         padding: 7px 0 8px 20px;

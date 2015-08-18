@@ -303,14 +303,14 @@
 
 li {
   > a > i.menu-indicator:before, > span > i.menu-indicator:before {
-    content: "$";
+    content: "\e60e";
   }
   &.open {
     > ul {
       display: block !important;
     }
     > a > i.menu-indicator:before, > span > i.menu-indicator:before {
-      content: "!";
+      content: "\e611";
     }
   }
   &.dropdown {

@@ -4343,7 +4343,7 @@ tbody.collapse.in {
       content: "\e62b";
       font-family: "icon-small"; }
     .breadcrumb > li + li:before {
-      content: "\002D";
+      content: "\e601";
       color: #737373;
       font-family: "icon-ui";
       font-size: 10px;
@@ -5835,7 +5835,7 @@ iframe {
   content: "\e663"; }
 
 .icon-ui-menucollapsed:before {
-  content: "\'"; }
+  content: "\e609"; }
 
 .icon-small-searchleft:before {
   content: "\e631"; }
@@ -6101,11 +6101,11 @@ iframe {
     padding: 0 0 0 15px; }
 
 li > a > i.menu-indicator:before, li > span > i.menu-indicator:before {
-  content: "$"; }
+  content: "\e60e"; }
 li.open > ul {
   display: block !important; }
 li.open > a > i.menu-indicator:before, li.open > span > i.menu-indicator:before {
-  content: "!"; }
+  content: "\e611"; }
 li.dropdown .dropdown-menu {
   margin-top: 0;
   right: 0;
@@ -6519,7 +6519,7 @@ i.menu-indicator {
       .masthead .main-nav-section ul.tier2 i.menu-indicator {
         display: block; }
         .masthead .main-nav-section ul.tier2 i.menu-indicator:before {
-          content: "-"; }
+          content: "\e601"; }
       .masthead .main-nav-section ul.tier2 a {
         text-decoration: none;
         padding: 7px 0 8px 20px;

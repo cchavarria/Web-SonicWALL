@@ -121,7 +121,7 @@
     right: -25px;
   }*/ }
   .slick-prev:before {
-    content: "\002E";
+    content: "\e600";
     /*[dir="rtl"] & {
       content: $slick-next-character;
     }*/ }
@@ -133,7 +133,7 @@
     right: auto;
   }*/ }
   .slick-next:before {
-    content: "\002D";
+    content: "\e601";
     /*[dir="rtl"] & {
       content: $slick-prev-character;
     }*/ }
