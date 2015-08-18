@@ -5260,8 +5260,8 @@ button.close {
   border-bottom: 1px solid #aaa; }
 
 .border-tb-grey {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee; }
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd; }
 
 .anchor-blue {
   color: #007db8; }
@@ -5582,6 +5582,9 @@ iframe {
 
   .mt-0-xs {
     margin-top: 0 !important; }
+
+  .mt-5-xs {
+    margin-top: 5px !important; }
 
   .mt-10-xs {
     margin-top: 10px !important; }
@@ -6761,7 +6764,9 @@ i.menu-indicator {
 .affix-scroll-nav-top {
   top: 0;
   z-index: 999;
-  display: block; }
+  display: block;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc; }
   .affix-scroll-nav-top ul {
     background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
     /* Old browsers */
@@ -6777,44 +6782,33 @@ i.menu-indicator {
     /* IE10+ */
     background: linear-gradient(to bottom, white 8%, #efefef 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
-    border-bottom: 1px solid #cccccc;
-    border-right: 1px solid #cccccc;
-    border-top: 1px solid #cccccc; }
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
     .affix-scroll-nav-top ul li {
-      float: left;
       padding: 0; }
-      .affix-scroll-nav-top ul li:first-child {
+      .affix-scroll-nav-top ul li:first-child a {
         border-left: #cccccc solid 1px; }
       .affix-scroll-nav-top ul li.active {
-        background: none repeat scroll 0 0 white !important;
-        border-bottom: none; }
+        background: none repeat scroll 0 0 white;
+        border-bottom: none;
+        border-color: #007db8;
+        border-style: solid;
+        border-width: 4px 0 0;
+        color: #444444; }
         .affix-scroll-nav-top ul li.active a {
-          border-color: #007db8;
-          border-style: solid;
-          border-width: 4px 0 0;
-          padding: 6px 0 10px 0;
-          color: #444444; }
-          .affix-scroll-nav-top ul li.active a:last-child {
-            padding-left: 1px; }
+          padding: 6px 15px 10px 15px; }
+        .affix-scroll-nav-top ul li.active:hover a {
+          padding: 6px 15px 10px 15px; }
       .affix-scroll-nav-top ul li a {
-        height: 100%;
         text-align: center;
-        width: 100%;
-        padding: 10px 0;
-        box-sizing: content-box;
-        font-weight: bold; }
-        .affix-scroll-nav-top ul li a:last-child {
-          padding-left: 1px; }
-        .affix-scroll-nav-top ul li a:hover {
-          border-top: 4px solid #0085c3;
-          padding: 6px 0 10px 0;
-          background-color: #cce7f3;
-          color: #007db8; }
-          .affix-scroll-nav-top ul li a:hover:last-child {
-            padding-left: 1px; }
+        font-weight: bold;
+        border-right: 1px solid #cccccc;
+        border-left: #cccccc solid 1px; }
         .affix-scroll-nav-top ul li a:focus {
           background-color: transparent; }
+        .affix-scroll-nav-top ul li a:hover {
+          padding: 10px 15px;
+          background-color: #cce7f3;
+          color: #007db8; }
 
 /*off canvas*/
 #off-canvas {
@@ -7969,13 +7963,17 @@ a:hover .has-overlay h4 {
     margin-bottom: 20px; } }
 .optional-dropdown {
   position: relative; }
-  .optional-dropdown .grey-caret:before {
-    background: url("/images/shared/sprites.png") -134px -176px no-repeat;
-    height: 10px;
-    left: 54px;
-    position: relative;
-    top: -10px;
-    width: 24px; }
+  .optional-dropdown .triangle-top {
+    content: "";
+    transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    background: #f9f9f9;
+    height: 16px;
+    position: absolute;
+    top: -8px;
+    width: 16px;
+    box-shadow: 1px 1px 0 #cdcdcd;
+    display: block; }
 
 .has-collapsibles:before {
   font-family: 'Glyphicons Halflings';
@@ -7983,7 +7981,7 @@ a:hover .has-overlay h4 {
   -webkit-font-smoothing: antialiased;
   content: "\e114";
   color: #007db8;
-  position: relative;
+  position: absolute;
   vertical-align: -2px;
   padding-right: 2px; }
 .has-collapsibles.collapsed:before {
@@ -7995,7 +7993,7 @@ a:hover .has-overlay h4 {
 @media (max-width: 767px) {
   .off-canvas-content .panel-wrapper {
     margin: 0 15px;
-    border-bottom: 1px solid #aaa; } }
+    border-bottom: 1px solid #aaaaaa; } }
 .title-description {
   margin-bottom: 24px; }
   .title-description a, .title-description p {

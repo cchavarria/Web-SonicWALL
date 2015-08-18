@@ -8,9 +8,18 @@ $(function ($) {
 function resizeAffix() {
   var affix = $('.affix-scroll-nav-top'),
       siteWrapper = $('.site-wrapper'),
-      body = $('body');
+      body = $('body'),
+      affixHeight = affix.height();
 
   if (pageType > 0) {
+    //fix for adjusting height of all tabs if we have multiple lines
+    affix.find('a').each(function(){
+      if($(this).parent().outerHeight() < affixHeight){
+        var heightDiff = affixHeight - $(this).parent().outerHeight()+ parseInt($(this).css('padding-top'));
+        $(this).css('padding-bottom', heightDiff + 'px');
+      }
+    });
+
     //fix to keep first affix item active when on top of the page
     if (!siteWrapper.attr('id')) {
 			var id = affix.find('a:first-child').attr('href').substr(1);
@@ -51,7 +60,7 @@ function resizeAffix() {
 					top = 0;
 				}
 
-				$('html').scrollTop(Math.ceil(top));
+				$('html,body').scrollTop(Math.ceil(top));
 				//body.scrollspy('refresh');
 			});
     }

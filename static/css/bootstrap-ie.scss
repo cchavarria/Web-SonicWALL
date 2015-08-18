@@ -13,11 +13,17 @@
 
 .ie8 {
   /* events w inline form */
-  .event-form{
+  .event-form {
 
-    .form-control{
+    .form-control {
       min-width: 280px;
     }
+  }
+  .optional-dropdown .triangle-top{
+    background: url("/images/shared/sprites.png") -134px -176px no-repeat;
+    height: 10px;
+    top: -10px;
+    width: 24px;
   }
 }
 
@@ -34,7 +40,7 @@
   .form-horizontal-2 {
     width: 100%;
     .form-group {
-      >label {
+      > label {
         height: 49px;
       }
       /*>label, >input, >select {

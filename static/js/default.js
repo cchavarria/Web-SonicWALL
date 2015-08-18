@@ -11,36 +11,47 @@ $(document).ready(function () {
 	//Off Canvas
 	offCanvas();
 
-	//Toggle Show/Hide
-	$('body').on('click', '[data-toggle=show]', function () {
-		var target = $($(this).data('target'));
+  //Toggle Show/Hide
+  $('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function () {
+    var target = $($(this).data('target'));
 
-		if (target.is(':visible')) {
-			if (target.data('hidden-class')) {
-				target.addClass(target.data('hidden-class'));
-			}
-			else {
-				target.hide();
-			}
-		}
-		else {
-			if (target.hasClass('hidden')) {
-				target.data('hidden-class', 'hidden');
-				target.removeClass('hidden');
-			}
-			else {
-				target.show();
-			}
+    if(pageWidth < 768){
+      return false;
+    }
+    //close all open dropdowns
+    $('.optional-dropdown').each(function(){
+      if($(this).is(':visible') && !target.is(':visible')){
+        $(this).hide().data('hidden-class', 'hidden');
+      }
+    });
 
-			var callback = $(this).data('callback');
+    if (target.is(':visible')) {
+      if (target.data('hidden-class')) {
+        target.addClass(target.data('hidden-class'));
+      }
+      else {
+        target.hide();
+      }
+    }
+    else {
+      if (target.hasClass('hidden')) {
+        target.data('hidden-class', 'hidden');
+        target.removeClass('hidden');
+      }
+      else {
+        target.show();
+      }
 
-			if (callback) {
-				if (typeof window[callback] == 'function') {
-					window[callback].call(this, $(this).data('target'));
-				}
-			}
-		}
-	});
+      //adjust triangle position based on source element
+      if($('.triangle-top').length){
+        if($(this).data('toggle') == 'show-offcanvas'){
+          $(target).css('marginTop', 0)//reset margin
+            .css('marginTop', -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11))
+            .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
+        }
+      }
+    }
+  });
 
 	//Workaround for placeholder on unsupported browser
 	(function () {
@@ -179,23 +190,24 @@ $(document).ready(function () {
 		}
 	});
 
-	//Toggle
-	$('body').find('[data-toggle=show]').each(function () {
-		var target = $($(this).data('target'));
+  //Toggle
+  $('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
+    var target = $($(this).data('target'));
 
-		if (target.is(':visible')) {
-			if (target.data('hidden-class')) {
-				target.addClass(target.data('hidden-class'));
-			}
-			else {
-				target.hide();
-			}
-		}
-	});
+    if (target.is(':visible')) {
+      if (target.data('hidden-class')) {
+        target.addClass(target.data('hidden-class'));
+      }
+      else {
+        target.hide();
+      }
+    }
+  });
 
-	addResize('resizeFourColumnFilmstripCarousel', true);
-	addResize('grayscaleImage', true);
-	loadOoyala();
+  //close button in optional dropdown
+  $('.optional-dropdown').on('click','.close', function(){
+    $(this).parents('.optional-dropdown').addClass('hidden');
+  });
 
 	/*addResize(function() {
 		$('img').each(function(i) {
@@ -260,6 +272,11 @@ $(document).ready(function () {
 			});
 		}
 	}, true);
+
+	if ($('.affix-scroll-nav-top').length) {
+		resizeAffix();
+		addResize('resizeAffix');
+	}
 });
 
 //Off canvas resize
@@ -267,9 +284,14 @@ addResize(function() {
 	if ($('#off-canvas').is(':visible')) {
 		$('.site-wrapper').show();
 
-		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
-		$('body').removeClass('off-canvas-mode');
-	}
+    $($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+    $('body').removeClass('off-canvas-mode');
+  }else{
+    $('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
+      var target = $($(this).data('target'));
+      target.addClass(target.data('hidden-class'));
+    });
+  }
 });
 
 //Flex box degradation
@@ -674,10 +696,10 @@ function offCanvas() {
 		});
 	});
 
-	$('body').on('click', '[data-toggle=offcanvas]', function (e) { //perform off canvas, Off canvas is only availabe on mobile device
-		if (pageWidth >= 768) {
-			return false;
-		}
+  $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', function (e) { //perform off canvas, Off canvas is only available on mobile device
+    if (pageWidth >= 768) {
+      return false;
+    }
 
 		e.preventDefault();
 
@@ -784,4 +806,86 @@ function getRandomString(len) {
 
 	return ranString;
 }
+function resizeAffix() {
+	var affix = $('.affix-scroll-nav-top'),
+			siteWrapper = $('.site-wrapper'),
+			body = $('body'),
+			affixHeight = affix.height();
 
+	if (pageType > 0) {
+		//fix for adjusting height of all tabs if we have multiple lines
+		affix.find('a').each(function(){
+			if($(this).parent().outerHeight() < affixHeight){
+				var heightDiff = affixHeight - $(this).parent().outerHeight()+ parseInt($(this).css('padding-top'));
+				$(this).css('padding-bottom', heightDiff + 'px');
+			}
+		});
+
+		//fix to keep first affix item active when on top of the page
+		if (!siteWrapper.attr('id')) {
+			var id = affix.find('a:first-child').attr('href').substr(1);
+
+			$('#' + id).attr('id', id + '_old');
+
+			siteWrapper.attr('id', affix.find('a:first-child').attr('href').substr(1));
+		}
+
+		//fix for affix width changing when floating on the page
+		affix.css("width", affix.parents('.container').width());
+
+		//prepend div to fix affix position on bookmarked section
+		if (!$('.affix-fix').length && false) {
+			affix.find('a:gt(0)').each(function () {
+				body.find($(this).attr('href'))
+						.prepend('<div class="affix-fix" style="padding-top:' + affix.height() + 'px; margin-top:'
+						+ -affix.height() + 'px">');
+			});
+		}
+
+		//trigger scrollspy if it hasn't been triggered already
+		if (!body.data('bs.scrollspy')) {
+			/*set offset to activate tab based on position*/
+			body.scrollspy({target: '.affix-scroll-nav-top', offset: affix.outerHeight(true) + 10});
+
+			affix.on('click', 'a', function(e) {
+				e.preventDefault();
+				var targetTop = $($(this).attr('href')).offset().top, navTop = affix.outerHeight(true);
+
+				if(affix.hasClass('affix-top')) {
+					navTop *= 2;
+				}
+
+				var top = targetTop - navTop;
+
+				if(top < 0) {
+					top = 0;
+				}
+
+				$('html,body').scrollTop(Math.ceil(top));
+				//body.scrollspy('refresh');
+			});
+		}
+
+		//trigger affix if it hasn't been triggered already
+		if (!body.data('bs.affix')) {
+			$('body').css('position', 'relative');
+
+			affix.affix({
+				offset: {
+					top: affix.offset().top
+				}
+			});
+		}
+	}
+	else {
+		$('.affix-fix').remove();
+
+		//destroy scrollspy
+		body.scrollspy({target: ''});
+		affix.removeData('bs.scrollspy');
+
+		//destroy affix
+		$(window).off('.affix');
+		affix.removeData('bs.affix');
+	}
+}
