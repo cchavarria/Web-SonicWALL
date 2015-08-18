@@ -258,10 +258,10 @@ $(document).ready(function () {
 					cfg.slidesToShow = 2;
 				}
 				else if(pageType == 2) {
-					cfg.slidesToShow = 3;
+					cfg.slidesToShow = $(this).data('slide-md') || 4;
 				}
 				else if(pageType == 3) {
-					cfg.slidesToShow = 4;
+					cfg.slidesToShow = $(this).data('slide-lg') || 4;
 				}
 
 				if($(this).hasClass('slick-initialized')) {
