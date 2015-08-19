@@ -351,7 +351,7 @@ function processEllipsis(parentSelector) {
 	}
 
 	function init() {
-		$(parentSelector).find('.dotdotdot').each(function () {
+		$(parentSelector).find('.dotdotdot').filter(':visible').each(function () {
 			var oneLineHeight = 0, options = {}, content = '', proceed = false;
 
 			//Remove empty paragraph tags.
@@ -840,9 +840,11 @@ function resizeAffix() {
 
 	if (pageType > 0) {
 		//fix for adjusting height of all tabs if we have multiple lines
-		affixElem.find('a').each(function(){
-			if($(this).parent().outerHeight() < affixHeight) {
-				$(this).css('padding-bottom', (affixHeight - $(this).parent().outerHeight()+ parseInt($(this).css('padding-top'))) + 'px');
+		affixElem.find('a').each(function() {
+			var parentHeight = $(this).parent().outerHeight();
+
+			if(parentHeight < affixHeight) {
+				$(this).css('padding-bottom', (affixHeight - parentHeight + parseInt($(this).css('padding-top'))));
 			}
 		});
 
