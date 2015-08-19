@@ -6789,7 +6789,7 @@ i.menu-indicator {
 
 .affix-scroll-nav-top {
   top: 0;
-  z-index: 999;
+  z-index: 99999;
   display: block;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc; }

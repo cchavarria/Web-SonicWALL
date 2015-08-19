@@ -204,6 +204,14 @@ $(document).ready(function () {
     }
   });
 
+	//close button in optional dropdown
+	$('body').on('click','.close', function(){
+		var closeTarget = $(this).parents('#' + $(this).data('target'));
+		if(closeTarget.length && closeTarget != undefined){
+			closeTarget.addClass('hidden');
+		}
+	});
+
 	addResize('resizeFourColumnFilmstripCarousel', true);
 	addResize('grayscaleImage', true);
 	loadOoyala();
@@ -263,11 +271,13 @@ $(document).ready(function () {
 					cfg.slidesToShow = $(this).data('slide-lg') || 4;
 				}
 
+
 				if($(this).hasClass('slick-initialized')) {
 					$(this).slick('destroy');
 				}
 
 				$(this).slick(cfg);
+
 			});
 		}
 	}, true);
