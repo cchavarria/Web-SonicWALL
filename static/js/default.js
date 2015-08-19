@@ -276,8 +276,9 @@ $(document).ready(function () {
 					$(this).slick('destroy');
 				}
 
-				$(this).slick(cfg);
-
+				if($(this).find('> div').length > cfg.slidesToShow) {
+					$(this).slick(cfg);
+				}
 			});
 		}
 	}, true);
