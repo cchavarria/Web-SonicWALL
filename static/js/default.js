@@ -875,8 +875,6 @@ function resizeAffix() {
 
 		//trigger affix if it hasn't been triggered already
 		if (!affixElem.data('bs.affix')) {
-			$('body').css('position', 'relative');
-
 			affixElem.affix({
 				offset: {
 					top: affixElem.offset().top
@@ -901,5 +899,7 @@ function resizeAffix() {
 		//destroy affix
 		$(window).off('.affix');
 		affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
+
+		affixElem.removeClass('affix').removeClass('affix-top');
 	}
 }
