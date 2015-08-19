@@ -6069,7 +6069,8 @@
     display: flex;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
     -webkit-align-items: center;
-    align-items: center;
+    align-items: center; }
+  .bootstrap .horizontal-center {
     -webkit-justify-content: center;
     justify-content: center; }
   @media (max-width: 767px) {
