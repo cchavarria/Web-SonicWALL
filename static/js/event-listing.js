@@ -649,7 +649,7 @@ function getDataSet(incrementPage) {
 		},
 		mapping = {
 			eventtypes: 'event_type',
-			date: 'event_date',
+			daterange: 'event_date',
 			product: 'product',
 			solution: 'solution',
 			brand: 'brand',
