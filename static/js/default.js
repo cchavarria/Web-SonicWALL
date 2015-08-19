@@ -204,10 +204,9 @@ $(document).ready(function () {
     }
   });
 
-  //close button in optional dropdown
-  $('.optional-dropdown').on('click','.close', function(){
-    $(this).parents('.optional-dropdown').addClass('hidden');
-  });
+	addResize('resizeFourColumnFilmstripCarousel', true);
+	addResize('grayscaleImage', true);
+	loadOoyala();
 
 	/*addResize(function() {
 		$('img').each(function(i) {
