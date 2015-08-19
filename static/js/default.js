@@ -50,6 +50,8 @@ $(document).ready(function () {
             .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
         }
       }
+
+			processEllipsis(target);
     }
   });
 
