@@ -430,17 +430,28 @@ function loadOoyala(parentSelector) {
 			init();
 		}
 		else {
-			$.getScript('/static/js/video-player.min.js', function() {
-				if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
-					$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
-						init();
-					});
-				}
-				else {
-					$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
-						init();
-					});
-				}
+			if(typeof window['OOCreate'] == 'function') {
+				loadJS();
+			}
+			else {
+				$.getScript('/static/js/video-player.min.js', function() {
+					$('head').append('<link rel="stylesheet" href="/static/css/video-player.min.css">');
+
+					loadJS();
+				});
+			}
+		}
+	}
+
+	function loadJS() {
+		if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
+				init();
+			});
+		}
+		else {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
+				init();
 			});
 		}
 	}
