@@ -52,7 +52,7 @@
 <script src="/static/library/jQuery/jquery-1.9.1.min.js"></script>
 <script src="/static/library/jQueryUI/jquery-ui-1.11.4.min.js"></script>
 <script src="/static/library/jQuery/jquery.cookie.js"></script>
-<script src="/static/library/jQuery/jquery.dotdotdot.js"></script>
+<!--<script src="/static/library/jQuery/jquery.dotdotdot.js"></script>-->
 <script src="/static/library/jQuery/jquery.placeholder.js"></script>
 <script src="/static/library/jQuery/jquery.color-2.1.2.min.js"></script>
 <script src="/static/library/jQuery/jquery.slidepagination.js"></script>
