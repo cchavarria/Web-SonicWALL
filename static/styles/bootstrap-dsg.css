@@ -6049,6 +6049,8 @@
     white-space: nowrap; }
   .bootstrap .full-width {
     width: 100% !important; }
+  .bootstrap .full-height {
+    height: 100%; }
   .bootstrap iframe {
     border: 0; }
   .bootstrap .block {
