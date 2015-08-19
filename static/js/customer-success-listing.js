@@ -489,7 +489,7 @@ function populateListing(clear) {
 
 // Generates hash from selected filters and tabs
 function buildAHashTag() {
-	var hashArr = [];
+	var hashArr = [], top = window.scrollY || $('html').scrollTop();
 
 	$.each(hashMap, function (id, prefix) {
 		var elem = $('#' + id), val = elem.multipleSelect('getSelects');
@@ -523,6 +523,8 @@ function buildAHashTag() {
 	else {
 		location.hash = ' ';
 	}
+
+	window.scrollTo(0, top);
 }
 
 function getLanguageCode() {
