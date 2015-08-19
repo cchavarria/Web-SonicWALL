@@ -17,7 +17,7 @@
     <![endif]-->
 
     <?php
-        echo $widget->css();
+    echo $widget->css();
     ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,17 +32,17 @@
     <div class="site-canvas">
         <!-- header starts here -->
         <?php
-            echo file_get_contents('templates/header.tpl');
+        echo file_get_contents('templates/header-sonicwall.tpl');
         ?>
         <!-- header ends here -->
 
         <?php
-            echo $widget->content();
+        echo $widget->content();
         ?>
 
         <!-- footer starts here -->
         <?php
-        echo file_get_contents('templates/footer.tpl');
+        echo file_get_contents('templates/footer-sonicwall.tpl');
         ?>
         <!-- footer ends here -->
     </div>
@@ -61,7 +61,7 @@
 <script src="/static/js/default.js"></script>
 
 <?php
-    echo $widget->js();
+echo $widget->js();
 ?>
 
 </body>

@@ -223,14 +223,14 @@ function addResize(fn, runImmediately, type) {
 }
 
 function resizeGlobal() {
-	var w = (pageWidth >= 768) ? '300':'auto';
+	/*var w = (pageWidth >= 768) ? '300':'auto';
 
   //Increase width of UL if its child doesn't have sublinks
   $('.main-nav-section').find('ul:gt(0)').each(function() {
     if(!$(this).find('> li.subLinks').length) {
       $(this).css('width', w);
     }
-  });
+  });*/
 
   $('.open').removeClass('open');
   $('#country-popup').css('display', '');

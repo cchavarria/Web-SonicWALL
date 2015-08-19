@@ -5217,7 +5217,8 @@
       .bootstrap.is-responsive .masthead .main-nav-section ul.tier3, .bootstrap.is-responsive .masthead .main-nav-section ul.tier4 {
         display: none;
         float: right;
-        min-height: 100%; }
+        min-height: 100%;
+        width: 300px; }
       .bootstrap.is-responsive .masthead .main-nav-section ul li {
         cursor: pointer; }
     .bootstrap.is-responsive .masthead .search-container {
@@ -5490,7 +5491,8 @@
     .bootstrap.not-responsive .masthead .main-nav-section ul.tier3, .bootstrap.not-responsive .masthead .main-nav-section ul.tier4 {
       display: none;
       float: right;
-      min-height: 100%; }
+      min-height: 100%;
+      width: 300px; }
     .bootstrap.not-responsive .masthead .main-nav-section ul li {
       cursor: pointer; }
   .bootstrap.not-responsive .masthead .search-container {

@@ -685,7 +685,7 @@ function setFilterNum() {
 	var counter = 0;
 
 	$('.filters').find('select').each(function() {
-		if($(this).is(':visible')) {
+		if(($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
 			var selects = $(this).multipleSelect('getSelects');
 
 			if(selects.length == 1) {

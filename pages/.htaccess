@@ -1,4 +1,9 @@
 RewriteCond %{SCRIPT_FILENAME} -f
 RewriteCond %{SCRIPT_FILENAME} (.*?).html?$
 RewriteCond %{SCRIPT_FILENAME} !index.php
+RewriteRule ^sonicwall\/(.*?)$ /pages/sonicwall.php?page=sonicwall/$1 [QSA,NC,L]
+
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteCond %{SCRIPT_FILENAME} (.*?).html?$
+RewriteCond %{SCRIPT_FILENAME} !index.php
 RewriteRule (.*)$ /pages/index.php?page=$1 [QSA,NC,L]

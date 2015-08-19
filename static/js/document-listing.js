@@ -79,7 +79,7 @@ function init() {
 					$(this).prev().text(getLocalizedContent('LabelDocumentType'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
-						placeholder: getLocalizedContent('DocumentLabelContentType'),
+						placeholder: getLocalizedContent('LabelDocumentType'),
 						minimumCountSelected: 0,
 						countSelected: getLocalizedContent('LabelDocumentType') + '&nbsp;(#)',
 						selectAllText: getLocalizedContent('LabelAllDocumentTypes'),
@@ -218,7 +218,7 @@ function init() {
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['DocumentLabelContentType', 'DocumentLabelUpdated', 'EventLabelAllDates', 'LabelAllIndustries', 'LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelAllLanguages', 'LabelAllCountries', 'LabelDocumentType', 'LabelAllDocumentTypes']).done(function () {
+		getLocalizedContent(['DocumentLabelUpdated', 'EventLabelAllDates', 'LabelAllIndustries', 'LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelAllLanguages', 'LabelAllCountries', 'LabelDocumentType', 'LabelAllDocumentTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -655,7 +655,7 @@ function setFilterNum() {
 	var counter = 0;
 
 	$('.filters').find('select').each(function() {
-		if($(this).is(':visible')) {
+		if(($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
 			var selects = $(this).multipleSelect('getSelects');
 
 			if(selects.length == 1) {
