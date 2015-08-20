@@ -32,6 +32,8 @@ $(document).ready(function () {
       else {
         target.hide();
       }
+
+			target.css({position: '', top: ''});
     }
     else {
       if (target.hasClass('hidden')) {
@@ -46,7 +48,10 @@ $(document).ready(function () {
       if($('.triangle-top').length){
         if($(this).data('toggle') == 'show-offcanvas'){
           $(target).css('marginTop', 0)//reset margin
-            .css('marginTop', -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11))
+            .css({
+							'top': -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11),
+							'position': 'relative'
+						})
             .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
         }
       }
