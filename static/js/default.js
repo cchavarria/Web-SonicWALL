@@ -50,6 +50,8 @@ $(document).ready(function () {
             .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
         }
       }
+
+			processEllipsis(target);
     }
   });
 
@@ -204,6 +206,14 @@ $(document).ready(function () {
     }
   });
 
+	//close button in optional dropdown
+	$('body').on('click','.close', function(){
+		var closeTarget = $(this).parents('#' + $(this).data('target'));
+		if(closeTarget.length && closeTarget != undefined){
+			closeTarget.addClass('hidden');
+		}
+	});
+
 	addResize('resizeFourColumnFilmstripCarousel', true);
 	addResize('grayscaleImage', true);
 	loadOoyala();
@@ -263,18 +273,20 @@ $(document).ready(function () {
 					cfg.slidesToShow = $(this).data('slide-lg') || 4;
 				}
 
+
 				if($(this).hasClass('slick-initialized')) {
 					$(this).slick('destroy');
 				}
 
-				$(this).slick(cfg);
+				if($(this).find('> div').length > cfg.slidesToShow) {
+					$(this).slick(cfg);
+				}
 			});
 		}
 	}, true);
 
-	if ($('.affix-scroll-nav-top').length) {
-		resizeAffix();
-		addResize('resizeAffix');
+	if ($('#affix-nav').length) {
+		addResize('resizeAffix', true);
 	}
 });
 
@@ -339,7 +351,7 @@ function processEllipsis(parentSelector) {
 	}
 
 	function init() {
-		$(parentSelector).find('.dotdotdot').each(function () {
+		$(parentSelector).find('.dotdotdot').filter(':visible').each(function () {
 			var oneLineHeight = 0, options = {}, content = '', proceed = false;
 
 			//Remove empty paragraph tags.
@@ -420,16 +432,29 @@ function loadOoyala(parentSelector) {
 			init();
 		}
 		else {
-			if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
-				$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
-					init();
-				});
+			if(typeof window['OOCreate'] == 'function') {
+				loadJS();
 			}
 			else {
-				$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
-					init();
+				$.getScript('/static/js/video-player.min.js', function() {
+					$('head').append('<link rel="stylesheet" href="/static/css/video-player.min.css">');
+
+					loadJS();
 				});
 			}
+		}
+	}
+
+	function loadJS() {
+		if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
+				init();
+			});
+		}
+		else {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
+				init();
+			});
 		}
 	}
 
@@ -805,74 +830,64 @@ function getRandomString(len) {
 
 	return ranString;
 }
+
 function resizeAffix() {
-	var affix = $('.affix-scroll-nav-top'),
+	var affixID = '#affix-nav',
+			affixElem = $(affixID),
 			siteWrapper = $('.site-wrapper'),
 			body = $('body'),
-			affixHeight = affix.height();
+			affixHeight = affixElem.height();
 
 	if (pageType > 0) {
 		//fix for adjusting height of all tabs if we have multiple lines
-		affix.find('a').each(function(){
-			if($(this).parent().outerHeight() < affixHeight){
-				var heightDiff = affixHeight - $(this).parent().outerHeight()+ parseInt($(this).css('padding-top'));
-				$(this).css('padding-bottom', heightDiff + 'px');
+		affixElem.find('a').each(function() {
+			var parentHeight = $(this).parent().outerHeight();
+
+			if(parentHeight < affixHeight) {
+				$(this).css('padding-bottom', (affixHeight - parentHeight + parseInt($(this).css('padding-top'))));
 			}
 		});
 
 		//fix to keep first affix item active when on top of the page
 		if (!siteWrapper.attr('id')) {
-			var id = affix.find('a:first-child').attr('href').substr(1);
+			var id = affixElem.find('a:first-child').attr('href').substr(1);
 
 			$('#' + id).attr('id', id + '_old');
 
-			siteWrapper.attr('id', affix.find('a:first-child').attr('href').substr(1));
+			siteWrapper.attr('id', affixElem.find('a:first-child').attr('href').substr(1));
 		}
 
 		//fix for affix width changing when floating on the page
-		affix.css("width", affix.parents('.container').width());
+		affixElem.css("width", affixElem.parents('.container').width());
 
 		//prepend div to fix affix position on bookmarked section
-		if (!$('.affix-fix').length && false) {
-			affix.find('a:gt(0)').each(function () {
+		if (!$('.affix-fix').length) {
+			affixElem.find('a:gt(0)').each(function () {
 				body.find($(this).attr('href'))
-						.prepend('<div class="affix-fix" style="padding-top:' + affix.height() + 'px; margin-top:'
-						+ -affix.height() + 'px">');
+						.prepend('<div class="affix-fix" style="padding-top:' + (affixElem.height() + 10) + 'px; margin-top:'
+						+ -(affixElem.height() + 10) + 'px">');
 			});
 		}
 
 		//trigger scrollspy if it hasn't been triggered already
 		if (!body.data('bs.scrollspy')) {
 			/*set offset to activate tab based on position*/
-			body.scrollspy({target: '.affix-scroll-nav-top', offset: affix.outerHeight(true) + 10});
-
-			affix.on('click', 'a', function(e) {
-				e.preventDefault();
-				var targetTop = $($(this).attr('href')).offset().top, navTop = affix.outerHeight(true);
-
-				if(affix.hasClass('affix-top')) {
-					navTop *= 2;
-				}
-
-				var top = targetTop - navTop;
-
-				if(top < 0) {
-					top = 0;
-				}
-
-				$('html,body').scrollTop(Math.ceil(top));
-				//body.scrollspy('refresh');
-			});
+			body.scrollspy({target: affixID, offset: affixElem.outerHeight(true) + 10});
 		}
 
 		//trigger affix if it hasn't been triggered already
-		if (!body.data('bs.affix')) {
-			$('body').css('position', 'relative');
-
-			affix.affix({
+		if (!affixElem.data('bs.affix')) {
+			affixElem.affix({
 				offset: {
-					top: affix.offset().top
+					top: affixElem.offset().top
 				}
+			});
+
+			//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
+			affixElem.on('affixed.bs.affix', function() {
+				$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
+			}).on('affixed-top.bs.affix', function() {
+				$(this).next().remove();
 			});
 		}
 	}
@@ -881,10 +896,12 @@ function resizeAffix() {
 
 		//destroy scrollspy
 		body.scrollspy({target: ''});
-		affix.removeData('bs.scrollspy');
+		affixElem.removeData('bs.scrollspy');
 
 		//destroy affix
 		$(window).off('.affix');
-		affix.removeData('bs.affix');
+		affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
+
+		affixElem.removeClass('affix').removeClass('affix-top');
 	}
 }

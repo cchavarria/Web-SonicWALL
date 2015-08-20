@@ -1,3 +1,4 @@
+/*
 $(function ($) {
   if ($('.affix-scroll-nav-top').length) {
     resizeAffix();
@@ -43,7 +44,7 @@ function resizeAffix() {
 
     //trigger scrollspy if it hasn't been triggered already
     if (!body.data('bs.scrollspy')) {
-      /*set offset to activate tab based on position*/
+      /!*set offset to activate tab based on position*!/
       body.scrollspy({target: '.affix-scroll-nav-top', offset: affix.outerHeight(true) + 10});
 
 			affix.on('click', 'a', function(e) {
@@ -89,3 +90,4 @@ function resizeAffix() {
   }
 }
 
+*/

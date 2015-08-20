@@ -6789,13 +6789,13 @@ i.menu-indicator {
 .img-border-grey {
   border: 1px solid #ddd; }
 
-.affix-scroll-nav-top {
+#affix-nav {
   top: 0;
-  z-index: 999;
+  z-index: 99999;
   display: block;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc; }
-  .affix-scroll-nav-top ul {
+  #affix-nav ul {
     background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
     /* Old browsers */
     background: -moz-linear-gradient(top, white 8%, #efefef 100%);
@@ -6811,29 +6811,29 @@ i.menu-indicator {
     background: linear-gradient(to bottom, white 8%, #efefef 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
-    .affix-scroll-nav-top ul li {
+    #affix-nav ul li {
       padding: 0; }
-      .affix-scroll-nav-top ul li:first-child a {
+      #affix-nav ul li:first-child a {
         border-left: #cccccc solid 1px; }
-      .affix-scroll-nav-top ul li.active {
+      #affix-nav ul li.active {
         background: none repeat scroll 0 0 white;
         border-bottom: none;
         border-color: #007db8;
         border-style: solid;
         border-width: 4px 0 0;
         color: #444444; }
-        .affix-scroll-nav-top ul li.active a {
+        #affix-nav ul li.active a {
           padding: 6px 15px 10px 15px; }
-        .affix-scroll-nav-top ul li.active:hover a {
+        #affix-nav ul li.active:hover a {
           padding: 6px 15px 10px 15px; }
-      .affix-scroll-nav-top ul li a {
+      #affix-nav ul li a {
         text-align: center;
         font-weight: bold;
         border-right: 1px solid #cccccc;
         border-left: #cccccc solid 1px; }
-        .affix-scroll-nav-top ul li a:focus {
+        #affix-nav ul li a:focus {
           background-color: transparent; }
-        .affix-scroll-nav-top ul li a:hover {
+        #affix-nav ul li a:hover {
           padding: 10px 15px;
           background-color: #cce7f3;
           color: #007db8; }
