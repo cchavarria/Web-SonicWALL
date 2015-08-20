@@ -604,7 +604,7 @@ function socialMediaToolbar() {
 	if (location.protocol == 'https:') {
 		var pathnameArr = location.pathname.split('/');
 
-		if (/(.*)t$/.test(pathnameArr[1])) {
+		if (/(.^)?param=$/.test(location.search)) {
 			pathnameArr[1] = pathnameArr[1].replace(/(.*)t$/, '$1');
 			bitlyURL = url = 'https://' + location.host + pathnameArr.join('/');
 		}
