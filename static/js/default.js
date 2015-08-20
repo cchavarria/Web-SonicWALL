@@ -45,15 +45,13 @@ $(document).ready(function () {
       }
 
       //adjust triangle position based on source element
-      if($('.triangle-top').length){
-        if($(this).data('toggle') == 'show-offcanvas'){
-          $(target).css('marginTop', 0)//reset margin
-            .css({
-							'top': -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11),
-							'position': 'relative'
-						})
-            .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
-        }
+      if($(target).find('.triangle-top').length){
+				$(target)
+					.css({
+						'top': -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11),
+						'position': 'relative'
+					})
+					.find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
       }
 
 			processEllipsis(target);
