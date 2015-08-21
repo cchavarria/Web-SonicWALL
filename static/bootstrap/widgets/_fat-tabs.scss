@@ -260,19 +260,6 @@
   .fat-buttons > ul > li.active-button{
     padding-bottom: 15px !important;
   }
-
-  .off-canvas-content {
-    .container {
-      > div:first-child {
-        padding-bottom: 13px;
-        border-bottom: 1px solid #ccc;
-      }
-    }
-    .col-sm-6:last-child {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
 }
 
 @media (min-width: 768px) {
