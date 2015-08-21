@@ -221,6 +221,10 @@
   display: block;
   overflow: hidden;
   position: relative; }
+.slick.slick-initialized .img-crop {
+  height: 249px; }
+.slick.slick-initialized.col-sm-9 .img-crop, .slick.slick-initialized.col-md-9 .img-crop, .slick.slick-initialized.col-lg-9 .img-crop {
+  height: 166px; }
 .slick .img-crop-border {
   display: block;
   position: absolute;
