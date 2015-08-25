@@ -1,0 +1,50 @@
+.button-flyout {
+  //display:none;
+  position: fixed;
+  //right: -260px;
+  right: 0;
+  top:225px;
+  font-family: Trebuchet MS;
+  z-index: 4000;
+  width: 260px;
+  height: 119px;
+  background: #fff;
+  border-left: 3px solid #007db8;
+  border-top: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a9a9a9;
+  border-right: 1px solid #a9a9a9;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  font-size: 14px;
+  line-height: 20px;
+}
+.button-flyout, .button-flyout > * {
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.button-flyout > span {
+  cursor: pointer;
+  background: #007db8;
+  color: #fff;
+  width: auto;
+  padding: 4px 15px;
+  position: absolute;
+  top: 35px;
+  left: -90px;
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
+  -moz-box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
+  box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
+}
+
+.button-flyout > div{
+  display: block;
+  padding: 20px;
+  background: #fff;
+}

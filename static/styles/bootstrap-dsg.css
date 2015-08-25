@@ -6013,6 +6013,8 @@
     border-top: 1px solid #ccc; }
   .bootstrap .border-b-gray {
     border-bottom: 1px solid #aaa; }
+  .bootstrap .border-t-gray {
+    border-top: 1px solid #aaa; }
   .bootstrap .border-tb-grey {
     border-top: 1px solid #cdcdcd;
     border-bottom: 1px solid #cdcdcd; }
