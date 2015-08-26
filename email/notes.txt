@@ -17,3 +17,7 @@ Microsoft Specifics:
 <!--[if !mso]><!-->
  // This will be ignored by all Microsoft Outlook
 <!--<![endif]-->
+
+References:
+- http://templates.mailchimp.com/development/css/outlook-conditional-css/
+- http://stackoverflow.com/questions/16861336/outlook-2007-to-2013-displaying-device-media-queries

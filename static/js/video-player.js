@@ -1,6 +1,5 @@
 /*updated send button #433*/
-var languageList = [];
-var videoList = [];
+var languageList = [], videoList = [];
 
 function OOCreate(player) {
   videoList.push({

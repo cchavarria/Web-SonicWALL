@@ -9,6 +9,8 @@ class Widget
         $this->css = '';
         $this->html = file_get_contents($_GET['page']);
 
+        $this->parseSubWidget();
+
         if (preg_match_all('/\<link(.*?)href="(.*?)"\>/', $this->html, $m)) {
             foreach ($m[2] as $indx => $link) {
                 if (substr($link, 0, 1) == '/') {
@@ -19,6 +21,30 @@ class Widget
                 //$this->html = str_replace($m[0][$indx], '', $this->html);
                 //$this->css .= file_get_contents($link);
             }
+        }
+    }
+
+    function parseSubWidget() {
+        $hasVars = false;
+
+        if(preg_match_all("/\[\[widget:(.+)\]\]/", $this->html, $m)) {
+            $hasVars = true;
+
+            foreach($m[1] as $indx => $widgetName) {
+                if(file_exists(__DIR__ . '/widgets/' . $widgetName . '.htm')) {
+                    $this->html = str_replace($m[0][$indx], file_get_contents(__DIR__ . '/widgets/' . $widgetName . '.htm'), $this->html);
+                }
+                else if(file_exists(__DIR__ . '/widgets/' . $widgetName . '.html')) {
+                    $this->html = str_replace($m[0][$indx], file_get_contents(__DIR__ . '/widgets/' . $widgetName . '.html'), $this->html);
+                }
+                else {
+                    $this->html = str_replace($m[0][$indx], '', $this->html);
+                }
+            }
+        }
+
+        if($hasVars) {
+            $this->parseSubWidget();
         }
     }
 

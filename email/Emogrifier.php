@@ -144,7 +144,7 @@ class Emogrifier {
 	 *
 	 * @var bool
 	 */
-	private $shouldKeepInvisibleNodes = true;
+	private $shouldKeepInvisibleNodes = false;
 
 	/**
 	 * The constructor.

@@ -124,10 +124,13 @@
       }
     }
   }
+  .img-crop {
+    height: 166px;
+  }
 }
 
 /*mobile*/
-@media (max-width: 767px) {
+@media (max-width: 767px) { //XS
   .screenshot-carousel {
     ul {
       padding: 0;
@@ -147,7 +150,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { //SM
   .screenshot-carousel {
     ul {
       vertical-align: top;
@@ -157,10 +160,23 @@
 }
 
 /*tablet*/
-@media (max-width: 991px) and (min-width: 768px) {
-  .screenshot-carousel.next-step li{
-    .image-crop-140, > div{
-      width: 200px;
+@media (min-width: 768px) and (max-width: 991px) { //MD
+  .screenshot-carousel {
+    &.next-step li{
+      .image-crop-140, > div{
+        width: 200px;
+      }
+    }
+    .img-crop {
+      height: 161px;
+    }
+  }
+}
+
+@media (min-width: 1200px) { //LG
+  .screenshot-carousel {
+    .img-crop {
+      height: 197px;
     }
   }
 }

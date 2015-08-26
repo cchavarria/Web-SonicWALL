@@ -2,6 +2,9 @@
 // Breadcrumbs
 // --------------------------------------------------
 
+.breadcrumb-container {
+  margin-top: -10px;
+}
 
 .breadcrumb {
   padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
@@ -23,10 +26,12 @@
       }
     }
     +li:before {
-      content: "#{$breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      content: "#{$breadcrumb-separator}"; // Unicode space added since inline-block means non-collapsing white-space [\00a0]
       color: $breadcrumb-color;
-      font-size: 17px;
-      top: 2px;
+      font-family: "icon-ui";
+      font-size: 10px;
+      position: relative;
+      top: -2px;
       padding-right: 4px;
       padding-left: 4px;
     }
@@ -45,6 +50,7 @@
 @media (min-width: 768px) {
   .breadcrumb {
     > li {
+      font-size: 15px;
       &:first-child:before {
         font-size: 15px;
       }

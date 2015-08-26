@@ -12,6 +12,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[class^="icon-large-"], [class*=" icon-large-"] {
+  font-family: "icon-large";
+  speak: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .icon-ui-arrowleft, .icon-ui-arrowright, .icon-ui-close, .icon-ui-closecircle, .icon-ui-collapse, .icon-ui-dell, .icon-ui-expand, .icon-ui-grid-view, .icon-ui-list-view, .icon-ui-menucollapsed, .icon-ui-minus, .icon-ui-pause, .icon-ui-play, .icon-ui-plus, .icon-ui-triangledown, .icon-ui-triangleleft, .icon-ui-triangleright, .icon-ui-triangleup {
   font-family: "icon-ui";
   font-size: 16px;
@@ -30,8 +44,12 @@
   content: "\e663";
 }
 
+.icon-ui-play:before {
+  content: "\e60C";
+}
+
 .icon-ui-menucollapsed:before {
-  content: "\'";
+  content: "\e609";
 }
 
 .icon-small-searchleft:before {
@@ -44,4 +62,24 @@
 
 .icon-small-checkmark:before {
   content: "\e611";
+}
+
+.icon-small-calendar:before, .icon-large-calendar:before {
+  content: "\e60d";
+}
+
+.icon-small-document:before, .icon-large-document:before {
+  content: "\e669";
+}
+
+.icon-small-trials:before {
+  content: "\e61f";
+}
+
+.icon-ui-loading {
+  display: block;
+  background: url("/images/shared/loading-animation-square.gif") no-repeat center;
+  margin: 0 auto;
+  height: 21px;
+  width: 21px;
 }

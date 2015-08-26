@@ -1,13 +1,17 @@
 .optional-dropdown {
   position: relative;
 
-  .grey-caret:before {
-    background: url("/images/shared/sprites.png") -134px -176px no-repeat;
-    height: 10px;
-    left: 54px;
-    position: relative;
-    top: -10px;
-    width: 24px;
+  .triangle-top{
+    content: "";
+    transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    background: $dell-gray-very-light;
+    height: 16px;
+    position: absolute;
+    top: -8px;
+    width: 16px;
+    box-shadow: 1px 1px 0 #cdcdcd;
+    display: block;
   }
 }
 
@@ -18,7 +22,7 @@
     -webkit-font-smoothing: antialiased;
     content: "\e114";
     color: #007db8;
-    position: relative;
+    position: absolute;
     vertical-align: -2px;
     padding-right: 2px;
   }
@@ -31,8 +35,8 @@
 
 /*mobile*/
 @media (max-width: 767px) {
-  .off-canvas-content .panel-wrapper{
-    margin:0 15px;
-    border-bottom: 1px solid #aaa;
+  .off-canvas-content .panel-wrapper {
+    margin: 0 15px;
+    border-bottom: 1px solid $dell-gray;
   }
 }

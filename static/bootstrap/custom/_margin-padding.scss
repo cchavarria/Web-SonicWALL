@@ -7,48 +7,69 @@
 .p-10 {
   padding: 10px !important;
 }
+
 .p-20 {
   padding: 20px !important;
 }
+
 .pad-15, .p-15 {
   padding: 15px !important;
 }
+
 .pad-25, .p-25 {
   padding: 25px !important;
 }
-.pt-5{
-  padding-top:5px !important;
+
+.pt-5 {
+  padding-top: 5px !important;
 }
+
 .pt-10 {
   padding-top: 10px !important;
 }
+
 .pt-20 {
   padding-top: 20px !important;
 }
+
 .pt-25 {
   padding-top: 25px !important;
 }
+
 .pt-30 {
   padding-top: 30px !important;
 }
+
 .pb-0 {
   padding-bottom: 0 !important;
 }
+
 .pb-10 {
   padding-bottom: 10px !important;
+}
+.pb-13 {
+  padding-bottom: 13px !important;
 }
 .pb-20 {
   padding-bottom: 20px !important;
 }
+
 .pb-30 {
   padding-bottom: 30px !important;
 }
+
 .pl-0 {
   padding-left: 0 !important;
 }
+
+.pl-10 {
+  padding-left: 10px !important;
+}
+
 .pr-0 {
   padding-right: 0 !important;
 }
+
 .ph-15 {
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -59,95 +80,125 @@
 .mar-0, .m-0 {
   margin: 0 !important;
 }
-.mr-15{
-  margin-right:15px !important;
+
+.mr-15 {
+  margin-right: 15px !important;
 }
+
 .mt-0 {
   margin-top: 0 !important;
 }
-.mt-5{
-  margin-top:5px !important;
+
+.mt-5 {
+  margin-top: 5px !important;
 }
+
 .mt-7 {
   margin-top: 7px !important;
 }
+
 .mt-12 {
   margin-top: 12px !important;
 }
+
 .mt-15 {
   margin-top: 15px !important;
 }
+
 .mt-10 {
   margin-top: 10px !important;
 }
+
 .mt-20 {
   margin-top: 20px !important;
 }
+
 .mt-30 {
   margin-top: 30px !important;
 }
+
 .mt-40 {
   margin-top: 40px !important;
 }
+
 .mt-50 {
   margin-top: 50px !important;
 }
+
 .mb-0 {
   margin-bottom: 0 !important;
 }
+
 .mb-7 {
   margin-bottom: 7px !important;
 }
+
 .mb-10 {
   margin-bottom: 10px !important;
 }
+
 .mb-15 {
   margin-bottom: 15px !important;
 }
+
 .mb-20 {
   margin-bottom: 20px !important;
 }
+
 .mb-25 {
   margin-bottom: 25px !important;
 }
+
 .mb-n-20 {
   margin-bottom: -20px !important;
 }
+
 .mb-30 {
   margin-bottom: 30px !important;
 }
+
 .mb-40 {
   margin-bottom: 40px !important;
 }
+
 .mb-50 {
   margin-bottom: 50px !important;
 }
+
 .mr-0 {
   margin-right: 0 !important;
 }
+
 .mr-10 {
   margin-right: 10px !important;
 }
+
 .mr-20 {
   margin-right: 20px !important;
 }
+
 .ml-0 {
   margin-left: 0 !important;
 }
+
 .ml-15 {
   margin-left: 15px !important;
 }
+
 .ml-10 {
   margin-left: 10px !important;
 }
+
 .ml-20 {
   margin-left: 20px !important;
 }
+
 .ml-30 {
   margin-left: 30px !important;
 }
 
-@media (max-width: 767px) { //Mobile - XS
+@media (max-width: 767px) {
+  //Mobile - XS
   //XS
   #right-rail-form {
     label {
@@ -175,11 +226,17 @@
   .mt-0-xs {
     margin-top: 0 !important;
   }
+  .mt-5-xs {
+    margin-top: 5px !important;
+  }
   .mt-10-xs {
     margin-top: 10px !important;
   }
   .mt-20-xs {
     margin-top: 20px !important;
+  }
+  .mt-30-xs {
+    margin-top: 30px !important;
   }
   .mt-40-xs {
     margin-top: 40px !important;
@@ -202,7 +259,7 @@
   .mb-20-xs {
     margin-bottom: 20px !important;
   }
-  .mb-30-xs{
+  .mb-30-xs {
     margin-bottom: 30px !important;
   }
   .p-0-xs {
@@ -248,17 +305,19 @@
     padding-left: 30px !important;
     padding-right: 30px !important;
   }
+  .pv-20-xs {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 991px) { //Tablet - SM
+@media (min-width: 768px) and (max-width: 991px) {
+  //Tablet - SM
   .mt-0-sm-only {
     margin-top: 0 !important;
   }
   .mt-20-sm-only {
     margin-top: 20px !important;
-  }
-  .mb-27-sm-only {
-    margin-bottom: 27px !important;
   }
   .ml-20-sm-only {
     margin-left: 20px !important;
@@ -266,7 +325,9 @@
   .mr-20-sm-only {
     margin-right: 20px !important;
   }
-
+  .mb-20-sm-only {
+    margin-bottom: 20px !important;
+  }
   .mh-0-sm-only {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -302,15 +363,13 @@
   }
 }
 
-@media (min-width: 768px) { //Tablet - SM
+@media (min-width: 768px) {
+  //Tablet - SM
   .mt-0-sm {
     margin-top: 0 !important;
   }
   .mt-20-sm {
     margin-top: 20px !important;
-  }
-  .mb-27-sm {
-    margin-bottom: 27px !important;
   }
   .ml-20-sm {
     margin-left: 20px !important;
@@ -363,7 +422,8 @@
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) { //Desktop - MD
+@media (min-width: 992px) and (max-width: 1199px) {
+  //Desktop - MD
   .mt-0-md-only {
     margin-top: 0 !important;
   }
@@ -378,7 +438,8 @@
   }
 }
 
-@media (min-width: 992px) { //Desktop - MD
+@media (min-width: 992px) {
+  //Desktop - MD
   .mt-0-md {
     margin-top: 0 !important;
   }

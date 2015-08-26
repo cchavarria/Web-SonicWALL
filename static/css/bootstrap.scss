@@ -21,7 +21,7 @@
 
 // Components
 @import "../bootstrap/partials/component-animations";
-@import "../bootstrap/partials/dropdowns";
+@import "../bootstrap/custom/dropdowns";
 @import "../bootstrap/partials/button-groups";
 @import "../bootstrap/partials/input-groups";
 @import "../bootstrap/partials/navs";
@@ -49,10 +49,12 @@
 @import "../bootstrap/custom/demandbase";
 @import "../bootstrap/custom/right-rail-form";
 @import "../bootstrap/custom/image";
+@import "../bootstrap/custom/custom-affix-scroll-nav-top";
 
 @import "../bootstrap/custom/off-canvas";
 @import "../bootstrap/widgets/date";
-@import "../bootstrap/custom/dell-text-color";
+@import "../bootstrap/custom/_text";
+@import "../bootstrap/custom/dell-background-color";
 
 @import "../bootstrap/widgets/hero-banner";
 @import "../bootstrap/widgets/screenshot-carousel";
@@ -66,6 +68,9 @@
 @import "../bootstrap/widgets/optional-dropdown";
 @import "../bootstrap/widgets/introduction-with-grey-box";
 @import "../bootstrap/widgets/featured-products";
+@import "../bootstrap/widgets/listing-entries";
+@import "../bootstrap/widgets/filters";
+@import "../bootstrap/widgets/multiple-select";
 
 // Components w/ JavaScript
 @import "../bootstrap/partials/modals";

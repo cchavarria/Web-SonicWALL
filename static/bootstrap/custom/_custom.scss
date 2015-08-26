@@ -26,8 +26,8 @@
 }
 
 .border-tb-grey {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
 }
 
 .anchor-blue{
@@ -85,6 +85,13 @@ li {
   white-space: nowrap;
 }
 
+.full-width {
+  width: 100% !important;
+}
+.full-height {
+  height: 100%;
+}
+
 /* iframe */
 
 iframe {
@@ -98,6 +105,21 @@ iframe {
 
 .inline {
   display: inline !important;
+}
+
+.vertical-center {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex !important;  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.horizontal-center {
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 @media (max-width: 767px) { //Mobile - XS

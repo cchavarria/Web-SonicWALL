@@ -33,7 +33,13 @@ class Widget {
 
                 $widgetName = $arr[0];
 
-                $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
+                if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.htm')) {
+                    $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
+                }
+                else if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.html')) {
+                    $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.html'), $this->html);
+                }
+
                 $this->loadDependencies($widgetName, $filename);
             }
         }

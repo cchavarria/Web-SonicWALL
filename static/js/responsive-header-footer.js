@@ -1,7 +1,7 @@
 /* Used on Responsive/Non-Responsive New Header/Footer (push to /static/js only) */
 
 //Initially store the width of the page.
-var pageType = '', pageWidth = getPageWidth(), resizeFn = [], resizeTimer = null;
+var pageType = pageTypeLabel = '', pageWidth = getPageProperties(), resizeFn = [], localizedContent = [], resizeInterval = null;
 
 $(document).ready(function () {
   resizeGlobal();
@@ -29,7 +29,12 @@ $(document).ready(function () {
   });
 
   $('body')
-		.on('touchstart', '.subLinks > a, .subLinks > span', function (e) {
+		/*.on('click', '.site-canvas', function() {
+			if($('html').hasClass('openNav')) {
+				$('.navbar-toggle').trigger('click');
+			}
+		})*/
+		.on('click', '.subLinks > a, .subLinks > span', function (e) {
 			//Add functionality for when user uses touch on navigation/footer.
 
 			if($(this).parents('#footer').length && pageWidth >= 768) {
@@ -53,7 +58,7 @@ $(document).ready(function () {
 			else {
 				elem.addClass('open');
 
-				if (pageType == 'xs') { //Mobile
+				if (pageType == 0) { //Mobile
 					//Animate background color to notify user that they have touched that element.
 					//Require: jQuery Color v2.1.2 plugin
 					var originalBG = $(this).css('background-color');
@@ -89,6 +94,8 @@ $(document).ready(function () {
       }
     })
     .on('click', '.navbar-toggle', function (e) {
+			e.stopPropagation();
+
     	//Hamburger - Mobile
 			//Open & Close slide out navigation.
       if ($('html').width() < 768) {
@@ -98,24 +105,6 @@ $(document).ready(function () {
         $('#masthead-search').removeClass('open');
       }
     });
-
-  // Search
-	if($('#search-form').length) {
-		$('#search-form').on('submit', function(e) {
-			e.preventDefault();
-			document.location.href = "/search/results/?q=" + encodeURIComponent(Encoder.htmlEncode($('#searchterm').val()));
-			return false;
-		});
-
-		if(!$.fn.autocomplete) {
-			$.getScript('/Static/Scripts/jquery.autocomplete.min.js', function() {
-				initAdobeSearch();
-			});
-		}
-		else {
-			initAdobeSearch();
-		}
-	}
 
   /* Country Dropdown */
 
@@ -148,6 +137,10 @@ $(window).load(function() {
 		$(this).removeAttr('onclick');
 	});*/
 
+	if($('html').hasClass('touch')) {
+		$.getScript('/static/library/jQueryMobile/jquery.mobile.custom.min.js');
+	}
+
 	if(pageWidth < 992) {
 		$.getScript('/static/library/jQuery/jquery.color-2.1.2.min.js');
 	}
@@ -158,94 +151,141 @@ addResize('resizeGlobal');
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
 
-	var w = getPageWidth();
+	var prevPageType = pageType;
 
-	if(pageWidth != w) {
-		pageWidth = w;
+	pageWidth = getPageProperties();
 
-    resizeTimer = setTimeout(function() {
-      clearTimeout(resizeTimer);
+	//Execute only when page type has changed.
+	if(prevPageType != pageType) {
+		if(resizeInterval !== null) {
+			clearInterval(resizeInterval);
+		}
 
-      $.each(resizeFn, function (i, fn) {
-        if (typeof window[fn] == 'function') {
-          window[fn].call();
-        }
-      });
-    }, 100);
+		resizeInterval = setInterval(function() {
+			clearInterval(resizeInterval);
+			resizeInterval = null;
+
+			$.each(resizeFn, function (i, obj) {
+				if(typeof obj.fn == 'function') {
+					if(obj.type === undefined || obj.type == pageType) {
+						obj.fn.call();
+					}
+				}
+				else if (typeof window[obj.fn] == 'function') {
+					if(obj.type === undefined || obj.type == pageType) {
+						window[obj.fn].call();
+					}
+				}
+			});
+		}, 100);
 	}
 });
 
-function getPageWidth() {
+function getPageProperties() {
 	//Workaround for Google Chrome. The vertical scrollbar is not included in determining the width of the device.
 	$('body').css('overflow', 'hidden');
 	var w = $('html').width();
+
 	$('body').css('overflow', '');
 
 	//Define pageType
 	if(w >= 1200) {
-		pageType = 'lg';
+		pageType = 3;
+		pageTypeLabel = 'lg';
 	}
 	else if(w >= 992) {
-		pageType = 'md';
+		pageType = 2;
+		pageTypeLabel = 'md';
 	}
 	else if(w >= 768) {
-		pageType = 'sm';
+		pageType = 1;
+		pageTypeLabel = 'sm';
 	}
 	else {
-		pageType = 'xs'
+		pageType = 0;
+		pageTypeLabel = 'xs';
 	}
 
 	return w;
 }
 
-function addResize(fn) {
-  resizeFn.push(fn);
+function addResize(fn, runImmediately, type) {
+	if(runImmediately) {
+		if(typeof fn == 'string' && typeof window[fn] == 'function') {
+			window[fn].call();
+		}
+		else if(typeof fn == 'function') {
+			fn.call();
+		}
+	}
+
+  resizeFn.push({fn: fn, type: type});
 }
 
 function resizeGlobal() {
-	var w = (pageWidth >= 768) ? '300':'auto';
+	/*var w = (pageWidth >= 768) ? '300':'auto';
 
   //Increase width of UL if its child doesn't have sublinks
   $('.main-nav-section').find('ul:gt(0)').each(function() {
     if(!$(this).find('> li.subLinks').length) {
       $(this).css('width', w);
     }
-  });
+  });*/
 
   $('.open').removeClass('open');
   $('#country-popup').css('display', '');
 }
 
-//This is used to make a not responsive page responsive.
+//This is used to make a not responsive page responsive. This will be removed when all pages converts to be responsive.
 function makeResponsive() {
   $('.not-responsive').removeClass('not-responsive').addClass('is-responsive');
   $('#wrapper').attr('id', '').addClass('site-wrapper').wrapInner('<div class="site-canvas">');
 }
 
-function initAdobeSearch() {
-	var config = {
-		account : "sp10050c33",
-		searchDomain : "http://sp10050c33.guided.ss-omtrdc.net",
-		inputElement : "#searchterm",
-		inputFormElement : "#search-form",
-		delay : 300,
-		minLength : 2,
-		maxResults : 10,
-		browserAutocomplete : false,
-		queryCaseSensitive : false,
-		startsWith : false,
-		searchOnSelect : true,
-		submitOnSelect: true,
-		highlightWords: false,
-		highlightWordsBegin: false
-	};
+function getLocalizedContent(tags) {
+	//How to call: getLocalizedContent('RegWarningMessageEmailRequired').done(function(data) { console.log(data); });
+	var returnValue = {}, newTags = [], deferred = $.Deferred();
 
-	if($.fn.AdobeAutocomplete) {
-		$('#searchterm').AdobeAutocomplete(config);
+	if(typeof tags == 'string') {
+		if(localizedContent[tags]) {
+			return localizedContent[tags];
+		}
+		else {
+			newTags.push(tags);
+		}
 	}
 	else {
-		$.getScript('//content.atomz.com/content/pb00003799/publish/build/search/jquery/autocomplete/1.4/jquery.adobe.autocomplete.min.js', function() {
-			$('#searchterm').AdobeAutocomplete(config);
+		$.each(tags, function(i, tag) {
+			if(localizedContent[tag]) {
+				returnValue[tag] = localizedContent[tag];
+			}
+			else {
+				newTags.push(tag);
+			}
 		});
 	}
+
+	if(newTags.length) {
+		$.ajax({
+			url: (((typeof RootPath == 'undefined' || RootPath == '/') ? '':RootPath) + '/jsonreq/event/').replace('//', '/'),
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				type: 'localized tags',
+				tags: newTags.join(',')
+			}
+		}).done(function(data) {
+			$.each(data.data, function(i, obj) {
+				returnValue[obj.id] = obj.value;
+				localizedContent[obj.id] = obj.value;
+			});
+
+			deferred.resolve(returnValue);
+		});
+	}
+	else {
+		deferred.resolve(returnValue);
+	}
+
+	return deferred;
 }
