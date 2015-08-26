@@ -4603,6 +4603,10 @@
     margin: 0 auto;
     height: 21px;
     width: 21px; }
+  .bootstrap .icon-small-mail:before {
+    content: "\e632"; }
+  .bootstrap .icon-small-chat:before {
+    content: "\e610"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;

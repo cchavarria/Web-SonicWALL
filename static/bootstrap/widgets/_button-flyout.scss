@@ -1,50 +1,114 @@
 .button-flyout {
   //display:none;
+  display: block;
   position: fixed;
-  //right: -260px;
-  right: 0;
-  top:225px;
-  font-family: Trebuchet MS;
-  z-index: 4000;
-  width: 260px;
-  height: 119px;
-  background: #fff;
-  border-left: 3px solid #007db8;
+  right: -252px;
+  width: 252px;
+  //right: 0;
+  //z-index: 4000;
+  background-color: white;
+  border-left: 3px solid $dell-blue;
   border-top: 1px solid #a9a9a9;
   border-bottom: 1px solid #a9a9a9;
   border-right: 1px solid #a9a9a9;
-  -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-  -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-  box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-  font-size: 14px;
-  line-height: 20px;
-}
-.button-flyout, .button-flyout > * {
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.button-flyout > span {
-  cursor: pointer;
-  background: #007db8;
-  color: #fff;
-  width: auto;
-  padding: 4px 15px;
-  position: absolute;
-  top: 35px;
-  left: -90px;
-  -ms-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  -webkit-box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
-  -moz-box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
-  box-shadow: -2px 0 4px 0 rgba(0,0,0,.3);
+  //-webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  //-moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  //box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  > a {
+    cursor: pointer;
+    background: $dell-blue;
+    color: white;
+    padding: 4px 15px;
+    position: absolute;
+    top: 58px;
+    //left: -88px;
+    left:-90px;
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  > div > div {
+    padding: 25px 20px 20px 20px;
+    > div {
+      i {
+        font-size: 19px;
+        margin-right: 10px;
+        vertical-align: sub;
+      }
+      > a {
+        display: block;
+        margin-bottom: 15px;
+        &:last-child {
+          margin-bottom: 20px;
+        }
+        &:hover {
+          text-decoration: none;
+          color: $dell-blue;
+          span {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .close {
+    opacity: 1;
+    color: $dell-gray-medium;
+    padding: 10px 10px 0 0;
+    font-size: 17px;
+  }
 }
 
-.button-flyout > div{
-  display: block;
-  padding: 20px;
-  background: #fff;
+.button-flyout-small{
+  display: none;
 }
+@media (max-width: 991px){
+  .button-flyout {
+    border-left: 1px solid #a9a9a9;
+    border-top: 3px solid $dell-blue;
+    border-bottom: 1px solid #a9a9a9;
+    border-right: 1px solid #a9a9a9;
+    -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
+    left:0;
+    bottom: -252px;
+    z-index: 9999;
+    > a {
+      display: none;
+    }
+  }
+  .button-flyout-small {
+    display: block;
+    background: $dell-blue;
+    color: white;
+    z-index: 4000;
+    left: 10px;
+    bottom: 10px;
+    position: absolute;
+    padding:10px;
+    border: 1px solid white;
+    line-height: 0;
+    -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
+    box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
+    &:hover{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+@media(min-width: 992px) {
+  .button-flyout {
+    top: 225px;
+  }
+}
+
