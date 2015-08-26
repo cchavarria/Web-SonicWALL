@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  //lazy load banner images
-  $('.hero-banner .carousel').find('.lazy').each(function () {
-    $(this).attr('src', $(this).data('original')).removeClass('lazy');
-  });
-
 	if($.fn.slidePagination2) {
 		resizeProductLine();
 	}
