@@ -5,15 +5,16 @@ table {
       display: inline-block;
     }
     &.button-underline {
-      a {
+      a, a:visited {
         text-decoration: underline;
       }
     }
     td {
-      padding: 6px 15px;
+      padding: 3px 15px;
       color: #ffffff;
-      a {
+      a, a:visited {
         font-size: 19px;
+        line-height: 1.3em;
         color: #ffffff;
         > span {
           color: #ffffff;
@@ -162,6 +163,11 @@ table {
       &.button-width-auto {
         width: 100% !important;
         display: table !important;
+      }
+      td {
+        a, a:visited {
+          white-space: normal !important;
+        }
       }
     }
   }

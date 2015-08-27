@@ -407,7 +407,7 @@ img.center {
 
 body, table.body, h1, h2, h3, h4, h5, h6, p, td {
   color: #444444;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Trebuchet MS","Helvetica", "Arial", sans-serif;
   font-weight: normal;
   padding: 0;
   margin: 0;
@@ -418,6 +418,10 @@ body, table.body, h1, h2, h3, h4, h5, h6, p, td {
 h1, h2, h3, h4, h5, h6 {
   font-family: "museo-sans-for-dell-300","Trebuchet MS","Roboto","Segoe UI","Helvetica Neue","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic",Gulim,Tahoma,"Arial Unicode",sans-serif;
   word-break: normal;
+}
+
+h3, h4, h5 {
+  font-family: "Trebuchet MS","Roboto","Segoe UI","Helvetica Neue","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic",Gulim,Tahoma,"Arial Unicode",sans-serif;
 }
 
 h1 {
@@ -518,7 +522,7 @@ table {
       padding: 8px;
       a, a:visited {
         text-decoration: none;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
         color: #ffffff;
         font-size: 16px;
         white-space: nowrap;
@@ -708,3 +712,4 @@ body.outlook p {
 @import 'partials/text';
 @import 'partials/buttons';
 @import 'partials/images';
+@import 'partials/mso';
