@@ -8325,13 +8325,16 @@ a:hover .has-overlay h4 {
 .button-flyout {
   display: block;
   position: fixed;
-  right: -252px;
-  width: 252px;
+  right: -256px;
+  z-index: 1;
   background-color: white;
-  border-left: 3px solid #007db8;
+  border-left: 1px solid #007db8;
   border-top: 1px solid #a9a9a9;
   border-bottom: 1px solid #a9a9a9;
-  border-right: 1px solid #a9a9a9; }
+  border-right: 1px solid #a9a9a9;
+  -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26); }
   .button-flyout > a {
     cursor: pointer;
     background: #007db8;
@@ -8339,7 +8342,7 @@ a:hover .has-overlay h4 {
     padding: 4px 15px;
     position: absolute;
     top: 58px;
-    left: -90px;
+    left: -92px;
     -ms-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
@@ -8347,7 +8350,7 @@ a:hover .has-overlay h4 {
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26); }
-    .button-flyout > a:hover {
+    .button-flyout > a:hover, .button-flyout > a:focus {
       text-decoration: none; }
   .button-flyout > div > div {
     padding: 25px 20px 20px 20px; }
@@ -8360,10 +8363,10 @@ a:hover .has-overlay h4 {
       margin-bottom: 15px; }
       .button-flyout > div > div > div > a:last-child {
         margin-bottom: 20px; }
-      .button-flyout > div > div > div > a:hover {
+      .button-flyout > div > div > div > a:hover, .button-flyout > div > div > div > a:focus {
         text-decoration: none;
         color: #007db8; }
-        .button-flyout > div > div > div > a:hover span {
+        .button-flyout > div > div > div > a:hover span, .button-flyout > div > div > div > a:focus span {
           text-decoration: underline; }
   .button-flyout .close {
     opacity: 1;
@@ -8377,14 +8380,15 @@ a:hover .has-overlay h4 {
 @media (max-width: 991px) {
   .button-flyout {
     border-left: 1px solid #a9a9a9;
-    border-top: 3px solid #007db8;
+    border-top: 1px solid #007db8;
     border-bottom: 1px solid #a9a9a9;
     border-right: 1px solid #a9a9a9;
     -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
     left: 0;
-    bottom: -252px;
+    width: 254px;
+    bottom: -230px;
     z-index: 9999; }
     .button-flyout > a {
       display: none; }
@@ -8393,7 +8397,7 @@ a:hover .has-overlay h4 {
     display: block;
     background: #007db8;
     color: white;
-    z-index: 4000;
+    z-index: 1;
     left: 10px;
     bottom: 10px;
     position: absolute;
@@ -8404,7 +8408,7 @@ a:hover .has-overlay h4 {
     -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
     -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
     box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26); }
-    .button-flyout-small:hover {
+    .button-flyout-small:hover, .button-flyout-small:focus {
       text-decoration: none;
       color: white; } }
 @media (min-width: 992px) {

@@ -1,19 +1,16 @@
 .button-flyout {
-  //display:none;
   display: block;
   position: fixed;
-  right: -252px;
-  width: 252px;
-  //right: 0;
-  //z-index: 4000;
+  right: -256px;
+  z-index: 1;
   background-color: white;
-  border-left: 3px solid $dell-blue;
+  border-left: 1px solid $dell-blue;
   border-top: 1px solid #a9a9a9;
   border-bottom: 1px solid #a9a9a9;
   border-right: 1px solid #a9a9a9;
-  //-webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  //-moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  //box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
   > a {
     cursor: pointer;
     background: $dell-blue;
@@ -21,8 +18,7 @@
     padding: 4px 15px;
     position: absolute;
     top: 58px;
-    //left: -88px;
-    left:-90px;
+    left: -92px;
     -ms-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
@@ -30,7 +26,7 @@
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    &:hover{
+    &:hover, &:focus {
       text-decoration: none;
     }
   }
@@ -48,7 +44,7 @@
         &:last-child {
           margin-bottom: 20px;
         }
-        &:hover {
+        &:hover, &:focus {
           text-decoration: none;
           color: $dell-blue;
           span {
@@ -66,20 +62,22 @@
   }
 }
 
-.button-flyout-small{
+.button-flyout-small {
   display: none;
 }
-@media (max-width: 991px){
+
+@media (max-width: 991px) {
   .button-flyout {
     border-left: 1px solid #a9a9a9;
-    border-top: 3px solid $dell-blue;
+    border-top: 1px solid $dell-blue;
     border-bottom: 1px solid #a9a9a9;
     border-right: 1px solid #a9a9a9;
     -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    left:0;
-    bottom: -252px;
+    left: 0;
+    width:254px;
+    bottom: -230px;
     z-index: 9999;
     > a {
       display: none;
@@ -89,23 +87,24 @@
     display: block;
     background: $dell-blue;
     color: white;
-    z-index: 4000;
+    z-index: 1;
     left: 10px;
     bottom: 10px;
     position: absolute;
-    padding:10px;
+    padding: 10px;
     border: 1px solid white;
     line-height: 0;
     -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
     -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
     -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
     box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
-    &:hover{
+    &:hover , &:focus {
       text-decoration: none;
       color: white;
     }
   }
 }
+
 @media(min-width: 992px) {
   .button-flyout {
     top: 225px;
