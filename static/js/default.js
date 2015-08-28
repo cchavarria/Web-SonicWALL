@@ -469,6 +469,10 @@ function loadOoyala(parentSelector) {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
 
+				//TODO: discuss with Ed how to add
+				// play3Id to OO.player.create
+				var play3Id = $(this).data('3playid');
+
 				if (id === undefined) {
 					id = getRandomString(8);
 					$(this).attr('id', id);
