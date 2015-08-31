@@ -1,31 +1,28 @@
 $(function () {
   if ($('.button-flyout').length) {
-    var buttonFlyout = $('.button-flyout'),
-        flyoutWidth = buttonFlyout.width() + parseInt(buttonFlyout.css('border-left'))
-            + parseInt(buttonFlyout.css('border-right')) + 4;//4 is the box shadow
+    var buttonFlyout = $('.button-flyout');
 
-    buttonFlyout.data('width', flyoutWidth);
+		buttonFlyout.find('> div').css({height: 'auto', width: 'auto'});
+		buttonFlyout.find('> div').data('width', buttonFlyout.find('> div').outerWidth(true));
+		buttonFlyout.find('> div').css('height', buttonFlyout.find('> div').outerHeight(true));
+		buttonFlyout.find('> div').css({width: 0});
 
-    $('body').on('click', '.button-flyout > a ,.button-flyout-small', function (e) {
+    $('.button-flyout').on('click', '> a', function (e) {
       e.preventDefault();
 
-      var buttonFlyout = $('.button-flyout');
+      var bodyContent = $(this).parent().find('> div');
 
-      if (!buttonFlyout.data('visible')) {
-        //to attach button to the flyout box(bypassing the box shadow)
-        buttonFlyout.find('> a').css('left','-87px');
-        showButtonFlyoutContent();
-      } else {
-        hideButtonFlyoutContent(buttonFlyout.data('width'));
-        //reset button position
-        buttonFlyout.css('right', - buttonFlyout.data('width') + 'px').find('> a').css('left','-92px');
+      if (bodyContent.is(':visible')) {
+				bodyContent.css({width: 0});
       }
-
-      $('body').on('click', '.button-flyout .close', function () {
-        hideButtonFlyoutContent(buttonFlyout.data('width'));
-        buttonFlyout.css('right', - buttonFlyout.data('width') + 'px').find('> a').css('left','-92px');
-      });
+			else {
+				bodyContent.css({width: bodyContent.data('width')});
+      }
     });
+
+		$('.button-flyout').on('click', '.close', function () {
+			$(this).parent().parent().css({height: 0, width: 0});
+		});
   }
 });
 
@@ -34,16 +31,19 @@ function hideButtonFlyoutContent(w) {
     $('.button-flyout').animate({
       right: -w
     }, 500);
-  } else {
+  }
+	else {
     $('.button-flyout').animate({bottom: - $('.button-flyout').outerHeight()}, 500);
   }
+
   $('.button-flyout').data('visible', false);
 }
 
 function showButtonFlyoutContent() {
   if (pageType > 1) {
     $('.button-flyout').animate({right: 0}, 500);
-  }else{
+  }
+	else{
     $('.button-flyout').animate({bottom: 0}, 500);
   }
   $('.button-flyout').data('visible', true);
