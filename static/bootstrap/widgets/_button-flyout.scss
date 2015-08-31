@@ -1,114 +1,124 @@
 #button-flyout {
   display: block;
   position: fixed;
-  right: 0;
   z-index: 1;
   background-color: white;
-  -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  > a {
-    background: $dell-blue;
-    color: #fff;
-    padding: 4px 15px;
-    position: absolute;
-    top: 58px;
-    left: -86px;
-    -ms-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    white-space: nowrap;
-    &:hover, &:focus {
-      text-decoration: none;
-    }
-  }
+  width: 255px;
+  @include transition(all .5s ease-out);
+
   > div {
-    //height: 0;
-    width: 0;
-    @include transition(width .5s ease-out);
+    border: 1px solid #a9a9a9;
+    padding: 25px 20px 20px 20px;
     > div {
-      border: 1px solid #a9a9a9;
-      padding: 25px 20px 20px 20px;
-      > div {
-        i {
-          font-size: 19px;
-          margin-right: 10px;
-          vertical-align: sub;
+      i {
+        font-size: 19px;
+        margin-right: 10px;
+        vertical-align: sub;
+      }
+      > a {
+        display: block;
+        margin-bottom: 15px;
+        &:last-child {
+          margin-bottom: 20px;
         }
-        > a {
-          display: block;
-          margin-bottom: 15px;
-          &:last-child {
-            margin-bottom: 20px;
-          }
-          &:hover, &:focus {
-            text-decoration: none;
-            color: $dell-blue;
-            span {
-              text-decoration: underline;
-            }
+        &:hover, &:focus {
+          text-decoration: none;
+          color: $dell-blue;
+          span {
+            text-decoration: underline;
           }
         }
       }
     }
   }
+  &.open {
+    > div {
+      -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    }
+  }
   .close {
-    opacity: 1;
+    cursor: pointer;
     color: $dell-gray-medium;
-    padding: 10px 10px 0 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 17px;
   }
 }
 
-@media (max-width: 767px) { //XS
-
-}
-
 @media (max-width: 991px) { //SM
   #button-flyout {
-    border-left: 1px solid #a9a9a9;
-    border-top: 1px solid $dell-blue;
-    border-bottom: 1px solid #a9a9a9;
-    border-right: 1px solid #a9a9a9;
-    -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    left: 0;
-    width: 254px;
-    bottom: -230px;
+    left: -999px;
     z-index: 9999;
-    a {
-      display: none;
+    &.init {
+      left: 0;
     }
-  }
-  .button-flyout-small {
-    display: block;
-    background: $dell-blue;
-    color: white;
-    z-index: 1;
-    left: 10px;
-    bottom: 10px;
-    position: absolute;
-    padding: 10px;
-    border: 1px solid white;
-    line-height: 0;
-    -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
-    box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
-    &:hover, &:focus {
-      text-decoration: none;
+    &.open {
+      bottom: 0 !important;
+      > a {
+        display: none !important;
+      }
+    }
+    > a {
+      display: block;
+      background: $dell-blue;
       color: white;
+      z-index: 1;
+      left: 10px;
+      top: -50px;
+      position: absolute;
+      padding: 10px;
+      border: 1px solid white;
+      line-height: 0;
+      width: 38px;
+      height: 38px;
+      -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
+      box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
+      &:hover, &:focus {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    > div {
+      border-top: 3px solid $dell-blue;
     }
   }
 }
 
-@media(min-width: 992px) { //MD
+@media (min-width: 992px) { //MD
   #button-flyout {
+    right: -999px;
     top: 225px;
+    &.init {
+      right: -255px;
+    }
+    &.open {
+      right: 0;
+    }
+    > a {
+      background: $dell-blue;
+      color: #fff;
+      padding: 4px 15px;
+      position: absolute;
+      -ms-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      white-space: nowrap;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+    > div {
+      border-left: 3px solid $dell-blue;
+    }
   }
 }
 

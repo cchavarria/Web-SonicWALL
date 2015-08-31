@@ -8325,93 +8325,98 @@ a:hover .has-overlay h4 {
 #button-flyout {
   display: block;
   position: fixed;
-  right: 0;
   z-index: 1;
   background-color: white;
-  -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
-  box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26); }
-  #button-flyout > a {
-    background: #007db8;
-    color: #fff;
-    padding: 4px 15px;
-    position: absolute;
-    top: 58px;
-    left: -86px;
-    -ms-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-    white-space: nowrap; }
-    #button-flyout > a:hover, #button-flyout > a:focus {
-      text-decoration: none; }
+  width: 255px;
+  -webkit-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
   #button-flyout > div {
-    width: 0;
-    -webkit-transition: width 0.5s ease-out;
-    -o-transition: width 0.5s ease-out;
-    transition: width 0.5s ease-out; }
-    #button-flyout > div > div {
-      border: 1px solid #a9a9a9;
-      padding: 25px 20px 20px 20px; }
-      #button-flyout > div > div > div i {
-        font-size: 19px;
-        margin-right: 10px;
-        vertical-align: sub; }
-      #button-flyout > div > div > div > a {
-        display: block;
-        margin-bottom: 15px; }
-        #button-flyout > div > div > div > a:last-child {
-          margin-bottom: 20px; }
-        #button-flyout > div > div > div > a:hover, #button-flyout > div > div > div > a:focus {
-          text-decoration: none;
-          color: #007db8; }
-          #button-flyout > div > div > div > a:hover span, #button-flyout > div > div > div > a:focus span {
-            text-decoration: underline; }
+    border: 1px solid #a9a9a9;
+    padding: 25px 20px 20px 20px; }
+    #button-flyout > div > div i {
+      font-size: 19px;
+      margin-right: 10px;
+      vertical-align: sub; }
+    #button-flyout > div > div > a {
+      display: block;
+      margin-bottom: 15px; }
+      #button-flyout > div > div > a:last-child {
+        margin-bottom: 20px; }
+      #button-flyout > div > div > a:hover, #button-flyout > div > div > a:focus {
+        text-decoration: none;
+        color: #007db8; }
+        #button-flyout > div > div > a:hover span, #button-flyout > div > div > a:focus span {
+          text-decoration: underline; }
+  #button-flyout.open > div {
+    -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26); }
   #button-flyout .close {
-    opacity: 1;
+    cursor: pointer;
     color: #737373;
-    padding: 10px 10px 0 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 17px; }
 
 @media (max-width: 991px) {
   #button-flyout {
-    border-left: 1px solid #a9a9a9;
-    border-top: 1px solid #007db8;
-    border-bottom: 1px solid #a9a9a9;
-    border-right: 1px solid #a9a9a9;
-    -webkit-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.26);
-    left: 0;
-    width: 254px;
-    bottom: -230px;
+    left: -999px;
     z-index: 9999; }
-    #button-flyout a {
-      display: none; }
-
-  .button-flyout-small {
-    display: block;
-    background: #007db8;
-    color: white;
-    z-index: 1;
-    left: 10px;
-    bottom: 10px;
-    position: absolute;
-    padding: 10px;
-    border: 1px solid white;
-    line-height: 0;
-    -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
-    box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26); }
-    .button-flyout-small:hover, .button-flyout-small:focus {
-      text-decoration: none;
-      color: white; } }
+    #button-flyout.init {
+      left: 0; }
+    #button-flyout.open {
+      bottom: 0 !important; }
+      #button-flyout.open > a {
+        display: none !important; }
+    #button-flyout > a {
+      display: block;
+      background: #007db8;
+      color: white;
+      z-index: 1;
+      left: 10px;
+      top: -50px;
+      position: absolute;
+      padding: 10px;
+      border: 1px solid white;
+      line-height: 0;
+      width: 38px;
+      height: 38px;
+      -webkit-box-shadow: -2px 4px 4px 3px rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26);
+      box-shadow: -2px 0 4px 3px rgba(0, 0, 0, 0.26); }
+      #button-flyout > a:hover, #button-flyout > a:focus {
+        text-decoration: none;
+        color: white; }
+    #button-flyout > div {
+      border-top: 3px solid #007db8; } }
 @media (min-width: 992px) {
   #button-flyout {
-    top: 225px; } }
+    right: -999px;
+    top: 225px; }
+    #button-flyout.init {
+      right: -255px; }
+    #button-flyout.open {
+      right: 0; }
+    #button-flyout > a {
+      background: #007db8;
+      color: #fff;
+      padding: 4px 15px;
+      position: absolute;
+      -ms-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      white-space: nowrap; }
+      #button-flyout > a:hover, #button-flyout > a:focus {
+        text-decoration: none; }
+    #button-flyout > div {
+      border-left: 3px solid #007db8; } }
 .modal-open {
   overflow: hidden; }
 

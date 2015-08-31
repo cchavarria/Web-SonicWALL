@@ -1,49 +1,42 @@
 $(function () {
   if ($('#button-flyout').length) {
-    var buttonFlyout = $('#button-flyout');
+		var flyout = $('#button-flyout');
 
-		buttonFlyout.find('> div').css({height: 'auto', width: 'auto'});
-		buttonFlyout.data('width', buttonFlyout.find('> div').outerWidth(true));
-		//buttonFlyout.find('> div').css('height', buttonFlyout.find('> div').outerHeight(true));
-		buttonFlyout.css({'right': -1 * buttonFlyout.find('> div').outerWidth(true)});
+		flyout.prependTo('body');
 
-    buttonFlyout.on('click', '> a', function (e) {
+		addResize(function() {
+			flyout.removeClass('init');
+
+			if(flyout.find('> a.visible-md').is(':visible')) {
+				flyout.css({
+					bottom: 'auto'
+				}).find('> a.visible-md').css({
+					top: flyout.offset().top - flyout.find('> a:visible').offset().top,
+					left: -1 * flyout.find('> a:visible').outerHeight()
+				});
+			}
+			else {
+				flyout.css({
+					bottom: -1 * flyout.outerHeight()
+				});
+			}
+
+			flyout.addClass('init');
+		}, true);
+		
+    flyout.on('click', '> a', function (e) {
       e.preventDefault();
 
       if (parseInt($('#button-flyout').css('right')) != 0) {
-				$('#button-flyout').css('right', 0);
+				$('#button-flyout').addClass('open');
       }
 			else {
-				//bodyContent.css({width: bodyContent.data('width')});
-				$('#button-flyout').css('right', -1 * $('#button-flyout').data('width'));
+				$('#button-flyout').removeClass('open');
       }
     });
 
 		$('#button-flyout').on('click', '.close', function () {
-			$('#button-flyout').css('right', -1 * $('#button-flyout').data('width'));
+			$('#button-flyout').removeClass('open');
 		});
   }
 });
-
-function hideButtonFlyoutContent(w) {
-  if (pageType > 1) {
-    $('#button-flyout').animate({
-      right: -w
-    }, 500);
-  }
-	else {
-    $('#button-flyout').animate({bottom: - $('#button-flyout').outerHeight()}, 500);
-  }
-
-  $('#button-flyout').data('visible', false);
-}
-
-function showButtonFlyoutContent() {
-  if (pageType > 1) {
-    $('#button-flyout').animate({right: 0}, 500);
-  }
-	else{
-    $('#button-flyout').animate({bottom: 0}, 500);
-  }
-  $('#button-flyout').data('visible', true);
-}
