@@ -7,10 +7,10 @@ $(function () {
 		addResize(function() {
 			flyout.removeClass('init');
 
-			if(flyout.find('> a.visible-md').is(':visible')) {
+			if(flyout.find('> a.visible-sm').is(':visible')) {
 				flyout.css({
 					bottom: 'auto'
-				}).find('> a.visible-md').css({
+				}).find('> a.visible-sm').css({
 					top: flyout.offset().top - flyout.find('> a:visible').offset().top,
 					left: -1 * flyout.find('> a:visible').outerHeight()
 				});

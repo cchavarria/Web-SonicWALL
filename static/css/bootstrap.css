@@ -8360,7 +8360,7 @@ a:hover .has-overlay h4 {
     right: 10px;
     font-size: 17px; }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   #button-flyout {
     left: -999px;
     z-index: 9999; }
@@ -8391,7 +8391,7 @@ a:hover .has-overlay h4 {
         color: white; }
     #button-flyout > div {
       border-top: 3px solid #007db8; } }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #button-flyout {
     right: -999px;
     top: 225px; }

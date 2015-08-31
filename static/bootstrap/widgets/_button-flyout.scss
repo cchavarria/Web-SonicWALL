@@ -48,7 +48,7 @@
   }
 }
 
-@media (max-width: 991px) { //SM
+@media (max-width: 767px) { //XS
   #button-flyout {
     left: -999px;
     z-index: 9999;
@@ -88,7 +88,7 @@
   }
 }
 
-@media (min-width: 992px) { //MD
+@media (min-width: 768px) { //MD
   #button-flyout {
     right: -999px;
     top: 225px;
