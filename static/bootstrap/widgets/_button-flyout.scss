@@ -1,4 +1,4 @@
-.button-flyout {
+#button-flyout {
   display: block;
   position: fixed;
   right: 0;
@@ -27,7 +27,7 @@
     }
   }
   > div {
-    height: 0;
+    //height: 0;
     width: 0;
     @include transition(width .5s ease-out);
     > div {
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 991px) { //SM
-  .button-flyout {
+  #button-flyout {
     border-left: 1px solid #a9a9a9;
     border-top: 1px solid $dell-blue;
     border-bottom: 1px solid #a9a9a9;
@@ -107,7 +107,7 @@
 }
 
 @media(min-width: 992px) { //MD
-  .button-flyout {
+  #button-flyout {
     top: 225px;
   }
 }
