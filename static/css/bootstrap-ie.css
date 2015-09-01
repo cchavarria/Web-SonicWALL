@@ -18,6 +18,11 @@
     height: 10px;
     top: -10px;
     width: 24px; }
+  .ie8 #button-flyout {
+    _position: absolute;
+    top: 225px;
+    _top: expression(eval(document.body.scrollTop));
+    left: auto; }
 
 .ie9 #searchterm {
   padding-top: 4px;
