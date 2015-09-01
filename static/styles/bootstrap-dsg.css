@@ -5763,6 +5763,13 @@
       border-radius: 0;
       width: 49%;
       padding: 0 20px; }
+    .bootstrap .caption-wrapper.caption-wrapper-v3 {
+      top: 0;
+      left: 150px;
+      bottom: 0;
+      border-radius: 0;
+      width: 78%;
+      padding: 0 20px; }
   @media screen and (min-width: 768px) {
     .bootstrap .carousel-control .glyphicon-chevron-left,
     .bootstrap .carousel-control .glyphicon-chevron-right,
