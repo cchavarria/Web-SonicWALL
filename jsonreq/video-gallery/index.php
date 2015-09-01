@@ -34,8 +34,8 @@ else if($_POST['type'] == 'video product line') {
 
 $newJSON = new stdClass;
 
-$newJSON->Response = new stdClass;
-$newJSON->Response->data = array();
+$newJSON->data = array();
+$newJSON->title = '';
 $newJSON->Errors = array();
 
 if(isset($url) && isset($map)) {
@@ -66,10 +66,10 @@ if(isset($url) && isset($map)) {
 	if(in_array($_POST['type'], array('video solution', 'video product line', 'video product'))) {
 		foreach($json->data as $n => $v) {
 			if(empty($v->ID)) {
-				$newJSON->Response->title = $v->DisplayName;
+				$newJSON->title = $v->DisplayName;
 			}
 			else {
-				$newJSON->Response->data[] = array(
+				$newJSON->data[] = array(
 					'id' => $v->ID,
 					'title' => $v->DisplayName
 				);
@@ -83,19 +83,19 @@ if(isset($url) && isset($map)) {
 	}
 }
 else if($_POST['type'] == 'video type') {
-	$newJSON->Response->title = 'Type';
+	$newJSON->title = 'Type';
 
-	$newJSON->Response->data[] = array(
+	$newJSON->data[] = array(
 		'id' => 220,
 		'title' => 'Solution'
 	);
 
-	$newJSON->Response->data[] = array(
+	$newJSON->data[] = array(
 		'id' => 212,
 		'title' => 'Case Studies'
 	);
 
-	$newJSON->Response->data[] = array(
+	$newJSON->data[] = array(
 		'id' => 211,
 		'title' => 'Events'
 	);
