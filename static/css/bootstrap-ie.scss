@@ -25,6 +25,12 @@
     top: -10px;
     width: 24px;
   }
+  #button-flyout{
+    _position: absolute;
+    top: 225px;
+    _top: expression(eval(document.body.scrollTop));
+    left: auto;
+  }
 }
 
 .ie9 {
