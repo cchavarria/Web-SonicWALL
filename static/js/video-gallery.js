@@ -1,3 +1,7 @@
+if (typeof RootPath == 'undefined') {
+	RootPath = '/';
+}
+
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
     entriesPerType = { //xs,sm - need to consult with cindy chan.
         '0': 6,
@@ -47,10 +51,6 @@ if ($.fn.multipleSelect) {
 
         init();
     });
-}
-
-if (typeof RootPath == 'undefined') {
-    RootPath = '/';
 }
 
 function init() {
