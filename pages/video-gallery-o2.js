@@ -13,11 +13,9 @@ var populateListingPending = false, //prevent populate listing to load more than
 	page = 1,
 	rowContainer = $('.listing-entries').find('.row'),
 	hashMap = {
-		content_type: '',
 		product: 'byproduct',
 		solution: 'bysolution',
-		brand: 'bybrand',
-		language: 'bylang'
+		brand: 'bybrand'
 	};
 
 if ($.fn.multipleSelect) {
@@ -133,32 +131,31 @@ function init() {
 					}
 				}
 			},
-			content_type: {
+			video_type: {
 				data: {"type": "video type"},
 				init: true,
-				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('LabelDocumentType'));
-					$(this).parent().removeClass('hidden');
-					$(this).multipleSelect({
-						placeholder: getLocalizedContent('LabelDocumentType'),
-						minimumCountSelected: 0,
-						countSelected: getLocalizedContent('LabelDocumentType') + '&nbsp;(#)',
-						selectAllText: getLocalizedContent('LabelAllDocumentTypes'),
-						allSelected: getLocalizedContent('LabelAllDocumentTypes'),
-						onClose: function () {
-							// minimum one event should be selected
-							if (!$("#content_type").multipleSelect("getSelects").length) {
-								$("#content_type").multipleSelect("setSelects", [$('#content_type').find('option:eq(0)').attr('value')]);
+				callback: function (title, prevValue) {
+					if (typeof $(this).data('multipleSelect') == 'object') {
+						$(this).next().find('ul').remove();
+						$(this).multipleSelect('refresh');
+						$(this).multipleSelect('setSelects', [prevValue]);
+					}
+					else {
+						$(this).prev().text(title);
+						$(this).parent().removeClass('hidden');
+						$(this).multipleSelect({
+							placeholder: title,
+							multiple: true,
+							selectAll: true,
+							single: false,
+							onClick: function (view) {
+
 							}
-							else {
-								caseStudyFilter();
-							}
-						}
-					});
-					$(this).multipleSelect("checkAll");
+						});
+						$(this).multipleSelect("checkAll");
+					}
 				}
 			}
-
 		},
 		allDropdownLabel = {};
 
@@ -235,15 +232,7 @@ function init() {
 			// multiselect uncheckall
 			filterElem.find('select').each(function () {
 				if ($(this).next().is(':visible')) {
-					if ($(this).attr('id') == 'content_type') {
-						$(this).multipleSelect('checkAll');
-					}
-					else if ($(this).attr('id') == 'language') {
-						$(this).multipleSelect("setSelects", [getLanguageCode()]);
-					}
-					else {
-						$(this).multipleSelect('uncheckAll');
-					}
+					$(this).multipleSelect('uncheckAll');
 				}
 				else {
 					$(this).parent().show();
@@ -588,18 +577,6 @@ function getDataSet(incrementPage) {
 	});
 
 	return hasError ? false : dataset;
-}
-
-function caseStudyFilter() {
-	if ($.inArray('167', $('#content_type').multipleSelect('getSelects')) > -1) {
-		//One of the value is for case study
-		$('#country').parent().show();
-		$('#industry').parent().show();
-	}
-	else {
-		$('#country').parent().hide();
-		$('#industry').parent().hide();
-	}
 }
 
 function setFilterNum() {
