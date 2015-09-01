@@ -180,7 +180,8 @@
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%; }
+    -webkit-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar; }
   .bootstrap body {
     margin: 0; }
   .bootstrap article,
@@ -4603,6 +4604,10 @@
     margin: 0 auto;
     height: 21px;
     width: 21px; }
+  .bootstrap .icon-small-mail:before {
+    content: "\e632"; }
+  .bootstrap .icon-small-chat:before {
+    content: "\e610"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -6013,6 +6018,8 @@
     border-top: 1px solid #ccc; }
   .bootstrap .border-b-gray {
     border-bottom: 1px solid #aaa; }
+  .bootstrap .border-t-gray {
+    border-top: 1px solid #aaa; }
   .bootstrap .border-tb-grey {
     border-top: 1px solid #cdcdcd;
     border-bottom: 1px solid #cdcdcd; }

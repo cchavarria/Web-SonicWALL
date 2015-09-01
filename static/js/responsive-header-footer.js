@@ -4,7 +4,19 @@
 var pageType = pageTypeLabel = '', pageWidth = getPageProperties(), resizeFn = [], localizedContent = [], resizeInterval = null;
 
 $(document).ready(function () {
-  resizeGlobal();
+  addResize(function() {
+		/*var w = (pageWidth >= 768) ? '300':'auto';
+
+		 //Increase width of UL if its child doesn't have sublinks
+		 $('.main-nav-section').find('ul:gt(0)').each(function() {
+		 if(!$(this).find('> li.subLinks').length) {
+		 $(this).css('width', w);
+		 }
+		 });*/
+
+		$('.open').removeClass('open');
+		$('#country-popup').css('display', '');
+	}, true);
 
 	//Prevent anchor tag from firing when href is set to #
   $('.main-nav-section').find('ul.tier2').on('click', 'a[href=#]', function (e) {
@@ -146,8 +158,6 @@ $(window).load(function() {
 	}
 });
 
-addResize('resizeGlobal');
-
 $(window).resize(function() {
 	//Prevent resizing from firing when modifying dom structure.
 
@@ -220,20 +230,6 @@ function addResize(fn, runImmediately, type) {
 	}
 
   resizeFn.push({fn: fn, type: type});
-}
-
-function resizeGlobal() {
-	/*var w = (pageWidth >= 768) ? '300':'auto';
-
-  //Increase width of UL if its child doesn't have sublinks
-  $('.main-nav-section').find('ul:gt(0)').each(function() {
-    if(!$(this).find('> li.subLinks').length) {
-      $(this).css('width', w);
-    }
-  });*/
-
-  $('.open').removeClass('open');
-  $('#country-popup').css('display', '');
 }
 
 //This is used to make a not responsive page responsive. This will be removed when all pages converts to be responsive.

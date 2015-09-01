@@ -293,6 +293,11 @@ $(document).ready(function () {
 	if ($('#affix-nav').length) {
 		addResize('resizeAffix', true);
 	}
+
+	//Button Flyout
+	if($('#button-flyout').length) {
+		$.getScript('/static/js/button-flyout.min.js');
+	}
 });
 
 //Off canvas resize

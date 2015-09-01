@@ -84,6 +84,13 @@
   width: 21px;
 }
 
+.icon-small-mail:before {
+  content: "\e632";
+}
+
+.icon-small-chat:before {
+  content: "\e610";
+}
 .icon-small-video-gallery {
   display: block;
   background: url("/images/shared/icon-video-gallery.png") no-repeat center;
