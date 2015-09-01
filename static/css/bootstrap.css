@@ -50,7 +50,8 @@
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar; }
 
 body {
   margin: 0; }
@@ -8325,7 +8326,7 @@ a:hover .has-overlay h4 {
 #button-flyout {
   display: block;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   background-color: white;
   width: 255px;
   -webkit-transition: all 0.5s ease-out;
@@ -8409,6 +8410,7 @@ a:hover .has-overlay h4 {
       -moz-transform: rotate(-90deg);
       -webkit-transform: rotate(-90deg);
       transform: rotate(-90deg);
+      -ms-transform-origin: 0 0;
       transform-origin: 0 0;
       -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
       -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
@@ -8417,7 +8419,10 @@ a:hover .has-overlay h4 {
       #button-flyout > a:hover, #button-flyout > a:focus {
         text-decoration: none; }
     #button-flyout > div {
-      border-left: 3px solid #007db8; } }
+      border-left: 3px solid #007db8; }
+
+  .ie8 #button-flyout > a {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); } }
 .modal-open {
   overflow: hidden; }
 

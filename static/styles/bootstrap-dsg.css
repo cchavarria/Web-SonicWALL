@@ -180,7 +180,8 @@
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%; }
+    -webkit-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar; }
   .bootstrap body {
     margin: 0; }
   .bootstrap article,
