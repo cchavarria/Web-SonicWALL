@@ -8313,6 +8313,12 @@ a:hover .has-overlay h4 {
 @media (max-width: 991px) and (min-width: 768px) {
   .ms-drop {
     width: auto; } }
+.search-item {
+  border-bottom: 1px solid #ccc; }
+
+.search-item.last {
+  border-bottom: none; }
+
 .pager {
   margin: 0; }
   .pager li {
