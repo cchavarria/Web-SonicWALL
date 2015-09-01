@@ -328,10 +328,21 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick {
   .img-crop {
-    height: 166px;
+    height: 247px;
     display: block;
     overflow: hidden;
     position: relative;
+  }
+  &.slick-initialized {
+    .img-crop {
+      height: 187px;
+    }
+    &.col-sm-9, &.col-md-9, &.col-lg-9 {
+      //3 column filmstrip carousel.
+      .img-crop {
+        height: 166px;
+      }
+    }
   }
   .img-crop-border {
     display: block;
@@ -342,10 +353,38 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) { //MD
+@media (min-width: 768px) and (max-width: 991px) { //SM
   .slick {
     .img-crop {
-      height: 161px;
+      height: 164px;
+    }
+    &.slick-initialized {
+      .img-crop {
+        height: 145px;
+      }
+      &.next-step {
+        .img-crop {
+          //height: 141px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) { //MD
+  .slick {
+    .img-crop {
+      height: 159px;
+    }
+    &.slick-initialized {
+      .img-crop {
+        height: 144px;
+      }
+      &.next-step {
+        .img-crop {
+          //height: 141px;
+        }
+      }
     }
   }
 }
@@ -353,7 +392,31 @@ $slick-opacity-not-active: 0.25 !default;
 @media (min-width: 1200px) { //LG
   .slick {
     .img-crop {
-      height: 197px;
+      height: 202px;
+    }
+    &.slick-initialized {
+      .img-crop {
+        height: 187px;
+      }
+      &.next-step {
+        .img-crop {
+          //height: 168px;
+        }
+      }
     }
   }
 }
+
+/*
+    - Without Arrows (w/o border)
+      - XS : 328x247
+      - SM : 218x164
+      - MD : 211x159
+      - LG : 268x202
+
+    - With Arrows (w/o border)
+      - XS : 248x187
+      - SM : 192x145
+      - MD : 191x144
+      - LG : 248x187
+*/

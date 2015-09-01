@@ -33,7 +33,7 @@ $(document).ready(function () {
         target.hide();
       }
 
-			target.css({position: '', top: ''});
+			target.css({top: ''});
     }
     else {
       if (target.hasClass('hidden')) {
@@ -45,15 +45,15 @@ $(document).ready(function () {
       }
 
       //adjust triangle position based on source element
-      if($('.triangle-top').length){
-        if($(this).data('toggle') == 'show-offcanvas'){
-          $(target).css('marginTop', 0)//reset margin
-            .css({
-							'top': -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11),
-							'position': 'relative'
-						})
-            .find('.triangle-top').css('left',$(this).offset().left + $(this).width()/ 2 + 8);
-        }
+      if($(target).find('.triangle-top').length){
+				var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
+
+				$(target)
+					.css({
+						'top': top,
+						'marginBottom': top
+					})
+					.find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
       }
 
 			processEllipsis(target);
@@ -269,7 +269,7 @@ $(document).ready(function () {
 					cfg.slidesToShow = 1;
 				}
 				else if(pageType == 1) {
-					cfg.slidesToShow = 2;
+					cfg.slidesToShow = 3;
 				}
 				else if(pageType == 2) {
 					cfg.slidesToShow = $(this).data('slide-md') || 4;

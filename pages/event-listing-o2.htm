@@ -10,14 +10,15 @@
 <div class="container text-md">
 	<span class="icon-large-calendar text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;"></span>
 
-	<p>Find the information you need on the subjects important to you.<br>Use the filters to browse our global in person,
-		online and on-demand webcasts covering a wide range of product and industry related topics.</p>
+	<p>Use the filters below to discover live and online presentations to solve complex IT challenges and network with our
+		experts.</p>
 </div>
 <div id="mainer">
 	<div class="container visible-xs">
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
 				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
+
 				<div class="nowrap pull-right">
 					<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
 					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
@@ -146,7 +147,8 @@
 				<a href="../documents/"><h5 class="text-md">{{LabelDocumentLibrary}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
-					<p>Find the information that you need on the subjects important to you.</p>
+					<p>Explore the benefits of our technologies through white papers, e-books, case studies, datasheets and
+						more.</p>
 				</div>
 			</div>
 		</div>
@@ -163,24 +165,24 @@
 				<a href="/video-gallery/"><h5 class="text-md">{{LabelVideoGallery}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
-					<p>Access unique insights.</p>
+					<p>Watch how we solve complex IT challenges for customers like you.</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-4 col-xs-12">
-			<a href="../customer-success/">
+			<a href="../customer-stories/">
 				<div class="img-crop img-border">
 					<div class="full-height vertical-center horizontal-center">
-						<img src="/images/shared/icon-people.png" alt="Customer Success">
+						<img src="/images/shared/icon-library.png" alt="Customer Stories">
 					</div>
 				</div>
 			</a>
 
 			<div class="mt-30 text-md">
-				<a href="../customer-success/"><h5 class="text-md">{{LabelCustomerSuccess}}</h5></a>
+				<a href="../customer-stories/"><h5 class="text-md">{{LabelCustomerSuccess}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
-					<p>Customers share their experience with Dell Software and how they brought value to their company.</p>
+					<p>Learn how customers like you have achieved tangible benefits and solved complex IT challenges.</p>
 				</div>
 			</div>
 		</div>
@@ -197,7 +199,7 @@
 				<a href="../trials/"><h5 class="text-md">{{LabelFreeTrialDownloads}}</h5></a>
 
 				<div class="description dotdotdot" data-max-line="3">
-					<p>Get freeware and trials.</p>
+					<p>Discover live and online presentations to solve complex IT challenges. </p>
 				</div>
 			</div>
 		</div>
@@ -212,6 +214,7 @@
 				<img class="img-responsive" src="[[image]]" alt="">
 			</div>
 			<h4 class="text-blue dotdotdot" data-max-line="3">[[title]]</h4>
+
 			<p class="teaser dotdotdot" data-max-line="5">[[description]]</p>
 			[[if date]]<p class="dates">{{EventLabelDate}}: [[date]]</p>[[/if]]
 			[[if recordeddate]]<p>{{EventLabelRecordedDate}}: [[recordeddate]]</p>[[/if]]
