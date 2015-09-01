@@ -55,8 +55,8 @@ class Widget {
     }
 
     function loadDependencies($widgetName, $filename) {
-        if(file_exists('../widgets/' . $widgetName . '/config.json')) {
-            $tmpJSON = json_decode(file_get_contents('../widgets/' . $widgetName . '/config.json'), true);
+        if(file_exists('../pages/' . $widgetName . '/config.json')) {
+            $tmpJSON = json_decode(file_get_contents('../pages/' . $widgetName . '/config.json'), true);
 
             if(isset($tmpJSON['css'])) {
                 $this->css = array_merge($tmpJSON['css'], $this->css);
@@ -67,12 +67,12 @@ class Widget {
             }
         }
 
-        if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.css')) {
-            $this->css[] = '../../widgets/' . $widgetName . '/' . $filename . '.css';
+        if(file_exists('../pages/' . $widgetName . '/' . $filename . '.css')) {
+            $this->css[] = '../../pages/' . $widgetName . '/' . $filename . '.css';
         }
 
-        if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.js')) {
-            $this->js[] = '../../widgets/' . $widgetName . '/' . $filename . '.js';
+        if(file_exists('../pages/' . $widgetName . '/' . $filename . '.js')) {
+            $this->js[] = '../../pages/' . $widgetName . '/' . $filename . '.js';
         }
     }
 
