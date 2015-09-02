@@ -164,7 +164,7 @@ function init() {
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['DocumentLabelUpdated', 'EventLabelAllDates', 'LabelAllIndustries', 'LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelAllLanguages', 'LabelAllCountries', 'LabelDocumentType', 'LabelAllDocumentTypes']).done(function () {
+		getLocalizedContent(['LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoType', 'LabelAllVideoTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -172,20 +172,16 @@ function init() {
 			});
 
 			allDropdownLabel = {
-				event_date: getLocalizedContent('EventLabelAllDates'),
 				product: getLocalizedContent('LabelAllProducts'),
 				brand: getLocalizedContent('LabelAllProductLines'),
-				solution: getLocalizedContent('LabelAllSolutions'),
-				language: getLocalizedContent('LabelAllLanguages'),
-				country: getLocalizedContent('LabelAllCountries'),
-				industry: getLocalizedContent('LabelAllIndustries')
+				solution: getLocalizedContent('LabelAllSolutions')
 			};
 
 			//When filters are loaded, execute function 'hashchange'
 			$.when.apply(this, ajaxArr).done(function () {
-				if (location.hash.length) {
-					parseHashTag();
-				}
+				//if (location.hash.length) {
+				//	parseHashTag();
+				//}
 
 				filterElem.data('continue', true).on('change', 'select', function () {
 					if (filterElem.data('continue') && filterInterval === null) {
@@ -319,7 +315,7 @@ function init() {
 			dataType: 'JSON',
 			data: data
 		}).done(function (dataopt) {
-			if(dropdown != 'content_type') {
+			if(dropdown != 'video_type') {
 				dataopt.title = allDropdownLabel[dropdown];
 				elem.append('<option value="">' + dataopt.title + '</option>');
 			}
@@ -358,7 +354,7 @@ function populateListing(clear) {
 		return false;
 	}
 
-	buildAHashTag();
+	//buildAHashTag();
 
 	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');;
 
@@ -393,16 +389,16 @@ function populateListing(clear) {
 			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
 				'<a href="' + val.url + '">' +
 				'  <div class="border-grey img-crop">' +
-				'    <img class="img-responsive center-block" src="' + val.imageurl + '" alt=""> ' +
+				'    <img class="img-responsive center-block" src="' + val.ImageURL2 + '" alt=""> ' +
 				'  </div> ' +
-				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.documenttype + ': ' + val.title + ' </h4> ';
+				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
 
-			if (val.description != null) {
-				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
+			if (val.Desc != null) {
+				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.Desc + ' </p>';
 			}
 
-			if (val.date != '') {
-				htmlFragment += '<p>' + getLocalizedContent('DocumentLabelUpdated') + ': ' + val.date + '</p>';
+			if (val.Duration != '') {
+				htmlFragment += '<p>' + getLocalizedContent('DocumentLabelUpdated') + ': ' + val.Duration + '</p>';
 			}
 
 			htmlFragment += '</a></div>';
@@ -544,26 +540,22 @@ function getDataSet(incrementPage) {
 	page = incrementPage ? ++page : 1;
 
 	var dataset = {
-			"type": "document list",
+			"type": "video list",
 			"page": page,
 			"pagesize": entriesPerType[pageType]
 		},
 		mapping = {
-			documenttypes: 'content_type',
+			videotypes: 'video_type',
 			product: 'product',
 			solution: 'solution',
-			brand: 'brand',
-			language: 'language',
-			country: 'country',
-			state: 'state_province',
-			industry: 'industry'
+			brand: 'brand'
 		},
 		hasError = false;
 
 	$.each(mapping, function (key, id) {
 		var val = $('#' + id).val();
 
-		if (id == 'content_type') {
+		if (id == 'video_type') {
 			if (val === null || val === undefined) {
 				hasError = true;
 				return false;
