@@ -3,7 +3,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 if($_POST['type'] == 'video list') {
-	$url = 'http://software.dell.com/jsonrequest/videolistget';
+	$url = 'http://stage.software.dell.com/jsonrequest/videolistget';
 	$map = array(
 		'prod' => 'product',
 		'sol' => 'solution',
@@ -13,19 +13,19 @@ if($_POST['type'] == 'video list') {
 	);
 }
 else if($_POST['type'] == 'video product') {
-	$url = 'http://software.dell.com/jsonrequest/videoproductlistget/';
+	$url = 'http://stage.software.dell.com/jsonrequest/videoproductlistget/';
 	$map = array(
 		'brand' => 'brand'
 	);
 }
 else if($_POST['type'] == 'video solution') {
-	$url = 'http://software.dell.com/jsonrequest/videosolutionlistget/';
+	$url = 'http://stage.software.dell.com/jsonrequest/videosolutionlistget/';
 	$map = array(
 		'brand' => 'brand'
 	);
 }
 else if($_POST['type'] == 'video product line') {
-	$url = 'http://software.dell.com/jsonrequest/videobrandlistget';
+	$url = 'http://stage.software.dell.com/jsonrequest/videobrandlistget';
 	$map = array(
 		'brand' => 'brand'
 	);
