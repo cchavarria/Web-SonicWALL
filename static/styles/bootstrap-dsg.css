@@ -180,7 +180,8 @@
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%; }
+    -webkit-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar; }
   .bootstrap body {
     margin: 0; }
   .bootstrap article,
@@ -4603,6 +4604,10 @@
     margin: 0 auto;
     height: 21px;
     width: 21px; }
+  .bootstrap .icon-small-mail:before {
+    content: "\e632"; }
+  .bootstrap .icon-small-chat:before {
+    content: "\e610"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -5808,9 +5813,12 @@
         .bootstrap .caption-wrapper span:hover {
           background-color: transparent;
           color: #007db8; }
-      .bootstrap .caption-wrapper.caption-wrapper-v2 {
+      .bootstrap .caption-wrapper.caption-wrapper-v2, .bootstrap .caption-wrapper.caption-wrapper-v3 {
         width: 100%;
-        height: auto; } }
+        height: auto; }
+      .bootstrap .caption-wrapper.caption-wrapper-v3 {
+        left: 0;
+        background: transparent; } }
   @media (min-width: 768px) {
     .bootstrap #hero-banner {
       width: 100%; } }
@@ -6020,6 +6028,8 @@
     border-top: 1px solid #ccc; }
   .bootstrap .border-b-gray {
     border-bottom: 1px solid #aaa; }
+  .bootstrap .border-t-gray {
+    border-top: 1px solid #aaa; }
   .bootstrap .border-tb-grey {
     border-top: 1px solid #cdcdcd;
     border-bottom: 1px solid #cdcdcd; }
@@ -6156,6 +6166,8 @@
     padding-top: 5px !important; }
   .bootstrap .pt-10 {
     padding-top: 10px !important; }
+  .bootstrap .pt-15 {
+    padding-top: 15px !important; }
   .bootstrap .pt-20 {
     padding-top: 20px !important; }
   .bootstrap .pt-25 {
@@ -6294,6 +6306,8 @@
       padding-top: 0 !important; }
     .bootstrap .pt-10-xs {
       padding-top: 10px !important; }
+    .bootstrap .pt-20-xs {
+      padding-top: 20px !important; }
     .bootstrap .pl-0-xs {
       padding-left: 0 !important; }
     .bootstrap .pr-0-xs {
