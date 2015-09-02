@@ -4967,6 +4967,9 @@ iframe {
 .pt-10 {
   padding-top: 10px !important; }
 
+.pt-15 {
+  padding-top: 15px !important; }
+
 .pt-20 {
   padding-top: 20px !important; }
 
@@ -5171,6 +5174,9 @@ iframe {
 
   .pt-10-xs {
     padding-top: 10px !important; }
+
+  .pt-20-xs {
+    padding-top: 20px !important; }
 
   .pl-0-xs {
     padding-left: 0 !important; }
@@ -6519,6 +6525,9 @@ i.menu-indicator {
 .color-inherit {
   color: inherit; }
 
+.text-dark-gray {
+  color: #444444; }
+
 .bg-blue {
   background-color: #007db8 !important; }
 
@@ -7372,9 +7381,12 @@ table th[class*="col-"] {
       .caption-wrapper span:hover {
         background-color: transparent;
         color: #007db8; }
-    .caption-wrapper.caption-wrapper-v2 {
+    .caption-wrapper.caption-wrapper-v2, .caption-wrapper.caption-wrapper-v3 {
       width: 100%;
-      height: auto; } }
+      height: auto; }
+    .caption-wrapper.caption-wrapper-v3 {
+      left: 0;
+      background: transparent; } }
 @media (min-width: 768px) {
   #hero-banner {
     width: 100%; } }
