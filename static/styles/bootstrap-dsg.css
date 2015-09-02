@@ -4608,7 +4608,7 @@
     content: "\e632"; }
   .bootstrap .icon-small-chat:before {
     content: "\e610"; }
-  .bootstrap .icon-large-video-gallery {
+  .bootstrap .icon-large-video {
     display: block;
     background: url("/images/shared/icon-video.png") no-repeat center;
     margin: 0 auto;
@@ -6064,6 +6064,8 @@
     width: 100% !important; }
   .bootstrap .full-height {
     height: 100%; }
+  .bootstrap .pos-relative {
+    position: relative; }
   .bootstrap iframe {
     border: 0; }
   .bootstrap .block {
@@ -6502,7 +6504,8 @@
   z-index: 4052; }
 
 .img-border {
-  border: 1px solid #737373; }
+  border: 1px solid #737373;
+  position: relative; }
 
 /* http://software.dell.com/kace/ */
 .img-border-grey {

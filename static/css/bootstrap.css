@@ -5329,6 +5329,9 @@ li {
 .full-height {
   height: 100%; }
 
+.pos-relative {
+  position: relative; }
+
 /* iframe */
 iframe {
   border: 0; }
@@ -5899,7 +5902,7 @@ iframe {
 .icon-small-chat:before {
   content: "\e610"; }
 
-.icon-large-video-gallery {
+.icon-large-video {
   display: block;
   background: url("/images/shared/icon-video.png") no-repeat center;
   margin: 0 auto;
@@ -6803,7 +6806,8 @@ i.menu-indicator {
   margin-bottom: 15px; }
 
 .img-border {
-  border: 1px solid #737373; }
+  border: 1px solid #737373;
+  position: relative; }
 
 /* http://software.dell.com/kace/ */
 .img-border-grey {
@@ -7709,6 +7713,15 @@ i.menu-indicator {
   .video-thumb-m > a:last-child {
     width: 539px;
     display: block; } }
+/* Video Gallery Listing Page */
+.icon-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAuCAYAAAC8jpA0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Mzk3NUJBNUU5MEQyMTFFMTgyMzdFOUNDMjE2RjI5RTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Mzk3NUJBNUY5MEQyMTFFMTgyMzdFOUNDMjE2RjI5RTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozOTc1QkE1QzkwRDIxMUUxODIzN0U5Q0MyMTZGMjlFNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozOTc1QkE1RDkwRDIxMUUxODIzN0U5Q0MyMTZGMjlFNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1w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") 50% 50% no-repeat; }
+
 *:focus {
   outline: 0 !important; }
 

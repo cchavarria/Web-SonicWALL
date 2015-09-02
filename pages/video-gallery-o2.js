@@ -388,9 +388,10 @@ function populateListing(clear) {
 		$.each(dataopt.data, function (key, val) {
 			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
 				'<a href="' + val.url + '">' +
-				'  <div class="border-grey img-crop">' +
-				'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL3 + '" alt=""> ' +
-				'  </div> ' +
+				'  <div class="img-border">' +
+				'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt=""> ' +
+				'		 <span class="icon-play-overlay"></span>' +
+				'  </div>' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
 
 			if (val.Desc != null) {
