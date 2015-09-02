@@ -164,7 +164,7 @@ function init() {
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoType', 'LabelAllVideoTypes']).done(function () {
+		getLocalizedContent(['LabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoType', 'LabelAllVideoTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -398,7 +398,7 @@ function populateListing(clear) {
 			}
 
 			if (val.Duration != '') {
-				htmlFragment += '<p>' + getLocalizedContent('DocumentLabelUpdated') + ': ' + val.Duration + '</p>';
+				htmlFragment += '<p>' + getLocalizedContent('LabelDuration') + ': ' + val.Duration + '</p>';
 			}
 
 			htmlFragment += '</a></div>';
