@@ -20,6 +20,10 @@
   padding: 25px !important;
 }
 
+.pt-0 {
+  padding-top: 0 !important;
+}
+
 .pt-5 {
   padding-top: 5px !important;
 }
@@ -27,6 +31,7 @@
 .pt-10 {
   padding-top: 10px !important;
 }
+
 .pt-15 {
   padding-top: 15px !important;
 }
@@ -50,9 +55,11 @@
 .pb-10 {
   padding-bottom: 10px !important;
 }
+
 .pb-13 {
   padding-bottom: 13px !important;
 }
+
 .pb-20 {
   padding-bottom: 20px !important;
 }
@@ -76,10 +83,6 @@
 .ph-15 {
   padding-left: 15px !important;
   padding-right: 15px !important;
-}
-.ph-23{
-  padding-left:23px;
-  padding-right: 23px;
 }
 
 /* Margin */

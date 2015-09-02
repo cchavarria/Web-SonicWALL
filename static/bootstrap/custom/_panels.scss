@@ -1,7 +1,93 @@
+/*
+  Description: collapsible panels
+  Author: Elnaz Doostdar
+  Modification: replicate Dell design
+  Example URL: http://software.dell.com/kace/ (off canvas solutions)
+  Example HTML:
+    <div id="accordion-independent-panels">
+      <div class="panel-group" id="accordion-independant">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-independant" href="#bags-1" aria-expanded="false" class="collapsed">
+              Headline title goes here
+            </a>
+          </h4>
+        </div>
+        <div id="bags-1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <div class="top-offset-10">
+              <div class="bottom-offset-5">
+                <a href="javascript:;" class="collapsed" data-toggle="collapse" data-target="#show-hide-bags-1">
+                  <span class="show-collapsed"><i aria-hidden="true" class="icon-ui-triangleright"></i>Show more</span>
+                  <span class="hide-expanded"><i aria-hidden="true" class="icon-ui-triangledown"></i>Show less</span>
+                </a>
+              </div>
+              <div id="show-hide-bags-1" class="collapse">
+                Etiam odio velit, eleifend id vehicula non, vulputate quis metus. Ut sit amet justo nec urna tincidunt porttitor. Phasellus massa nisl, fringilla ac ligula vitae, ultrices vulputate turpis.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-independant" href="#tax-1" class="collapsed" aria-expanded="false">
+              Headline title goes here
+            </a>
+          </h4>
+        </div>
+        <div id="tax-1" class="panel-collapse collapse" aria-expanded="false">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <div class="top-offset-10">
+              <div class="bottom-offset-5">
+                <a href="javascript:;" class="collapsed" data-toggle="collapse" data-target="#show-hide-tax-1">
+                  <span class="show-collapsed"><i aria-hidden="true" class="icon-ui-triangleright"></i>Show more</span>
+                  <span class="hide-expanded"><i aria-hidden="true" class="icon-ui-triangledown"></i>Show less</span>
+                </a>
+              </div>
+              <div id="show-hide-tax-1" class="collapse">
+                Etiam odio velit, eleifend id vehicula non, vulputate quis metus. Ut sit amet justo nec urna tincidunt porttitor. Phasellus massa nisl, fringilla ac ligula vitae, ultrices vulputate turpis.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-independant" href="#home-1" class="collapsed" aria-expanded="false">
+              Headline title goes here
+            </a>
+          </h4>
+        </div>
+        <div id="home-1" class="panel-collapse collapse" aria-expanded="false">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <div class="top-offset-10">
+              <div class="bottom-offset-5">
+                <a href="javascript:;" class="collapsed" data-toggle="collapse" data-target="#show-hide-solutions-1">
+                  <span class="show-collapsed"><i aria-hidden="true" class="icon-ui-triangleright"></i>Show more</span>
+                  <span class="hide-expanded"><i aria-hidden="true" class="icon-ui-triangledown"></i>Show less</span>
+                </a>
+              </div>
+              <div id="show-hide-solutions-1" class="collapse">
+                Etiam odio velit, eleifend id vehicula non, vulputate quis metus. Ut sit amet justo nec urna tincidunt porttitor. Phasellus massa nisl, fringilla ac ligula vitae, ultrices vulputate turpis.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+*/
+
 // Base class
 .panel {
   margin-bottom: $line-height-computed;
   background-color: $panel-bg;
+  border: 1px solid transparent;
+  border-radius: $panel-border-radius;
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, .05));
 }
 
 // Panel contents
@@ -13,7 +99,8 @@
 // Optional heading
 .panel-heading {
   padding: $panel-heading-padding;
-  border-top: 1px solid $dell-gray;
+  border-bottom: 1px solid transparent;
+  @include border-top-radius(($panel-border-radius - 1));
 
   > .dropdown .dropdown-toggle {
     color: inherit;
@@ -103,10 +190,6 @@
       padding-right: $panel-body-padding;
     }
   }
-  > .table-responsive{
-    padding-left:23px;
-    padding-right:23px;
-  }
   // Add border top radius for first one
   > .table:first-child,
   > .table-responsive:first-child > .table:first-child {
@@ -150,6 +233,12 @@
         }
       }
     }
+  }
+  > .panel-body + .table,
+  > .panel-body + .table-responsive,
+  > .table + .panel-body,
+  > .table-responsive + .panel-body {
+    border-top: 1px solid $table-border-color;
   }
   > .table > tbody:first-child > tr:first-child th,
   > .table > tbody:first-child > tr:first-child td {
@@ -204,36 +293,24 @@
 
 .panel-group {
   margin-bottom: $line-height-computed;
-  border-bottom: 1px solid $dell-gray;
-
-  //arrows
-  .panel-title a {
-    &.collapsed:before {
-      font-family: 'Glyphicons Halflings';
-      content: "\e080";
-      vertical-align: -2px;
-    }
-    &:before {
-      font-family: 'Glyphicons Halflings';
-      font-size: 14px;
-      -webkit-font-smoothing: antialiased;
-      content: "\e114";
-      vertical-align: -2px;
-      padding-right: 2px;
-    }
-    &:hover, &:focus {
-      text-decoration: none;
-    }
-  }
 
   // Tighten up margin so it's only between panels
   .panel {
     margin-bottom: 0;
     border-radius: $panel-border-radius;
+
+    + .panel {
+      margin-top: 5px;
+    }
   }
 
   .panel-heading {
     border-bottom: 0;
+
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
+      border-top: 1px solid $panel-inner-border;
+    }
   }
 
   .panel-footer {
@@ -242,7 +319,6 @@
       border-bottom: 1px solid $panel-inner-border;
     }
   }
-
 }
 
 // Contextual variations
@@ -268,4 +344,45 @@
 
 .panel-danger {
   @include panel-variant($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
+}
+
+//this panel follows Dell design library pattern
+//must not be mixed with other types of panels
+.panel-group-collapsible {
+  border-bottom: 1px solid $dell-gray;
+  > .panel {
+    margin-bottom: 0;
+    border: none;
+    border-top: 1px solid $dell-gray;
+    box-shadow: none;
+    .panel-heading{
+      padding:10px;
+      color: $dell-blue;
+    }
+    //arrows
+    .panel-title a {
+      &.collapsed:before {
+        font-family: 'Glyphicons Halflings';
+        content: "\e080";
+        vertical-align: -2px;
+      }
+      &:before {
+        font-family: 'Glyphicons Halflings';
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        content: "\e114";
+        vertical-align: -2px;
+        padding-right: 2px;
+      }
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+    .panel-body {
+      padding: 0 30px 10px 30px;
+    }
+    .table-responsive .panel-body{
+      padding: 0 23px 13px 23px;
+    }
+  }
 }
