@@ -36,10 +36,31 @@ if ($.fn.multipleSelect) {
 }
 
 function init() {
-	$('#content_type').multipleSelect({
-		placeholder: "testing This",
+	$('#search_all_sites').multipleSelect({
+		placeholder: "Search all sites",
+		multiple: true,
+		selectAll: true,
+		single: false
+	});
+
+	$('#solution').multipleSelect({
+		placeholder: "Solution",
 		multiple: false,
 		selectAll: false,
 		single: true
-	})
+	});
+
+	$('#product').multipleSelect({
+		placeholder: "Product",
+		multiple: false,
+		selectAll: false,
+		single: true
+	});
+	$('#content-type').multipleSelect({
+		placeholder: "Content Type",
+		multiple: false,
+		selectAll: false,
+		single: true
+	});
+
 }
