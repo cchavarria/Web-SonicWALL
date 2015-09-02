@@ -13,11 +13,10 @@ var populateListingPending = false, //prevent populate listing to load more than
     page = 1,
     rowContainer = $('.listing-entries').find('.row'),
     hashMap = {
-        content_type: '',
+        video_type: '',
         product: 'byproduct',
         solution: 'bysolution',
-        brand: 'bybrand',
-        language: 'bylang'
+        brand: 'bybrand'
     };
 
 if ($.fn.multipleSelect) {
@@ -133,18 +132,18 @@ function init() {
                     }
                 }
             },
-            content_type: {
+            video_type: {
                 data: {"type": "video type"},
                 init: true,
                 callback: function (title) {
-                    $(this).prev().text(getLocalizedContent('LabelDocumentType'));
+                    $(this).prev().text(getLocalizedContent('LabelVideoType'));
                     $(this).parent().removeClass('hidden');
                     $(this).multipleSelect({
-                        placeholder: getLocalizedContent('LabelDocumentType'),
+                        placeholder: getLocalizedContent('LabelVideoType'),
                         minimumCountSelected: 0,
-                        countSelected: getLocalizedContent('LabelDocumentType') + '&nbsp;(#)',
-                        selectAllText: getLocalizedContent('LabelAllDocumentTypes'),
-                        allSelected: getLocalizedContent('LabelAllDocumentTypes'),
+                        countSelected: getLocalizedContent('LabelVideoType') + '&nbsp;(#)',
+                        selectAllText: getLocalizedContent('LabelAllVideoTypes'),
+                        allSelected: getLocalizedContent('LabelAllVideoTypes'),
                         onClose: function () {
                             // minimum one event should be selected
                             if (!$("#content_type").multipleSelect("getSelects").length) {
@@ -167,7 +166,7 @@ function init() {
         var filterInterval = null, filterElem = $('.filters');
 
         //Populate all "filter by" dropdowns
-        getLocalizedContent(['DocumentLabelUpdated', 'EventLabelAllDates', 'LabelAllIndustries', 'LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelAllLanguages', 'LabelAllCountries', 'LabelDocumentType', 'LabelAllDocumentTypes']).done(function () {
+        getLocalizedContent(['LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoType', 'LabelAllVideoTypes']).done(function () {
             $.each(filterMap, function (id, entry) {
                 if (entry.init) {
                     ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -175,13 +174,9 @@ function init() {
             });
 
             allDropdownLabel = {
-                event_date: getLocalizedContent('EventLabelAllDates'),
                 product: getLocalizedContent('LabelAllProducts'),
                 brand: getLocalizedContent('LabelAllProductLines'),
-                solution: getLocalizedContent('LabelAllSolutions'),
-                language: getLocalizedContent('LabelAllLanguages'),
-                country: getLocalizedContent('LabelAllCountries'),
-                industry: getLocalizedContent('LabelAllIndustries')
+                solution: getLocalizedContent('LabelAllSolutions')
             };
 
             //When filters are loaded, execute function 'hashchange'
