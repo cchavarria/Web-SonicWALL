@@ -40,7 +40,8 @@ function init() {
 		placeholder: "Search all sites",
 		multiple: true,
 		selectAll: true,
-		single: false
+		single: false,
+		multipleWidth: 155
 	});
 
 	$('#solution').multipleSelect({

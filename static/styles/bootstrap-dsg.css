@@ -3866,27 +3866,82 @@
         font-size: 15px; }
     .bootstrap .breadcrumb > .active {
       font-size: 15px; } }
-  .bootstrap .component-code {
-    margin: 0 0 20px; }
-  .bootstrap .pagination .pager {
-    margin: 0; }
-    .bootstrap .pagination .pager li {
-      vertical-align: 0; }
-      .bootstrap .pagination .pager li > a, .bootstrap .pagination .pager li > span {
+  .bootstrap .pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 1px; }
+    .bootstrap .pagination > li {
+      display: inline; }
+      .bootstrap .pagination > li > a,
+      .bootstrap .pagination > li > span {
+        position: relative;
+        float: left;
         padding: 6px 12px;
-        background-color: #eee;
-        border: 1px solid #ccc;
-        border-radius: 1px; }
-  .bootstrap .pager li > a .icon-ui-arrowleft:before,
-  .bootstrap .pager li > a .icon-ui-arrowright:before,
-  .bootstrap .pager li > span .icon-ui-arrowleft:before,
-  .bootstrap .pager li > span .icon-ui-arrowright:before {
-    position: relative;
-    top: 2px; }
-  .bootstrap .pager .icon-ui-arrowleft:before,
-  .bootstrap .pager .icon-ui-arrowright:before {
-    position: relative;
-    top: -1px !important; }
+        line-height: 1.42857;
+        text-decoration: none;
+        color: #007db8;
+        background-color: white;
+        border: 1px solid #dddddd;
+        margin-left: -1px; }
+      .bootstrap .pagination > li:first-child > a,
+      .bootstrap .pagination > li:first-child > span {
+        margin-left: 0;
+        border-bottom-left-radius: 1px;
+        border-top-left-radius: 1px; }
+      .bootstrap .pagination > li:last-child > a,
+      .bootstrap .pagination > li:last-child > span {
+        border-bottom-right-radius: 1px;
+        border-top-right-radius: 1px; }
+    .bootstrap .pagination > li > a:hover, .bootstrap .pagination > li > a:focus,
+    .bootstrap .pagination > li > span:hover,
+    .bootstrap .pagination > li > span:focus {
+      color: #00496c;
+      background-color: #eeeeee;
+      border-color: #dddddd; }
+    .bootstrap .pagination > .active > a, .bootstrap .pagination > .active > a:hover, .bootstrap .pagination > .active > a:focus,
+    .bootstrap .pagination > .active > span,
+    .bootstrap .pagination > .active > span:hover,
+    .bootstrap .pagination > .active > span:focus {
+      z-index: 2;
+      color: white;
+      background-color: #007db8;
+      border-color: #007db8;
+      cursor: default; }
+    .bootstrap .pagination > .disabled > span,
+    .bootstrap .pagination > .disabled > span:hover,
+    .bootstrap .pagination > .disabled > span:focus,
+    .bootstrap .pagination > .disabled > a,
+    .bootstrap .pagination > .disabled > a:hover,
+    .bootstrap .pagination > .disabled > a:focus {
+      color: #777777;
+      background-color: white;
+      border-color: #dddddd;
+      cursor: not-allowed; }
+  .bootstrap .pagination-lg > li > a,
+  .bootstrap .pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px; }
+  .bootstrap .pagination-lg > li:first-child > a,
+  .bootstrap .pagination-lg > li:first-child > span {
+    border-bottom-left-radius: 1px;
+    border-top-left-radius: 1px; }
+  .bootstrap .pagination-lg > li:last-child > a,
+  .bootstrap .pagination-lg > li:last-child > span {
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px; }
+  .bootstrap .pagination-sm > li > a,
+  .bootstrap .pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px; }
+  .bootstrap .pagination-sm > li:first-child > a,
+  .bootstrap .pagination-sm > li:first-child > span {
+    border-bottom-left-radius: 1px;
+    border-top-left-radius: 1px; }
+  .bootstrap .pagination-sm > li:last-child > a,
+  .bootstrap .pagination-sm > li:last-child > span {
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px; }
   .bootstrap .pager {
     padding-left: 0;
     margin: 20px 0;
@@ -4548,6 +4603,12 @@
     margin: 0 auto;
     height: 21px;
     width: 21px; }
+  .bootstrap .icon-large-video {
+    display: block;
+    background: url("/images/shared/icon-video.png") no-repeat center;
+    margin: 0 auto;
+    height: 60px;
+    width: 65px; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
