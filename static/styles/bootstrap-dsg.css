@@ -4608,9 +4608,9 @@
     content: "\e632"; }
   .bootstrap .icon-small-chat:before {
     content: "\e610"; }
-  .bootstrap .icon-small-video-gallery {
+  .bootstrap .icon-large-video-gallery {
     display: block;
-    background: url("/images/shared/icon-video-gallery.png") no-repeat center;
+    background: url("/images/shared/icon-video.png") no-repeat center;
     margin: 0 auto;
     height: 60px;
     width: 65px; }
