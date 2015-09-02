@@ -71,14 +71,14 @@ if(isset($url) && isset($map)) {
 			else if(in_array($_POST['type'], array('video solution'))) {
 				$newJSON->data[] = array(
 					'id' => $v->ID,
-					'title' => $v->DisplayName,
+					'value' => $v->DisplayName,
 					'englishvalue' => $v->DisplayName
 				);
 			}
 			else {
 				$newJSON->data[] = array(
 					'id' => $v->ID,
-					'title' => $v->DisplayName
+					'value' => $v->DisplayName
 				);
 			}
 		}
@@ -94,19 +94,19 @@ else if($_POST['type'] == 'video type') {
 
 	$newJSON->data[] = array(
 		'id' => 220,
-		'title' => 'Solution',
+		'value' => 'Solution',
 		'englishvalue' => 'Solution'
 	);
 
 	$newJSON->data[] = array(
 		'id' => 212,
-		'title' => 'Case Studies',
+		'value' => 'Case Studies',
 		'englishvalue' => 'Case Studies'
 	);
 
 	$newJSON->data[] = array(
 		'id' => 211,
-		'title' => 'Events',
+		'value' => 'Events',
 		'englishvalue' => 'Events'
 	);
 
