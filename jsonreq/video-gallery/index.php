@@ -9,8 +9,8 @@ if($_POST['type'] == 'video list') {
 		'sol' => 'sol',
 		'plat' => 'plat',
 		'brand' => 'brand',
-		'typeID' => 'typeID',
-		'pg' => 'pg'
+		'typeID' => 'videotypes',
+		'pg' => 'page'
 	);
 }
 else if($_POST['type'] == 'video product') {
@@ -40,7 +40,14 @@ $newJSON->Errors = array();
 
 if(isset($url) && isset($map)) {
 	foreach($map as $key => $value) {
-		$fields_string .= $key . '=' . $_POST[$value] . '&';
+		if($key == 'typeID') {
+			$value = explode(',', $_POST['value']);
+
+			$fields_string .= $key . '=' . $value[0] . '&';
+		}
+		else {
+			$fields_string .= $key . '=' . $_POST[$value] . '&';
+		}
 	}
 
 	rtrim($fields_string, '&');
