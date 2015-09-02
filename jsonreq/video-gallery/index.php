@@ -68,6 +68,13 @@ if(isset($url) && isset($map)) {
 			if(empty($v->ID)) {
 				$newJSON->title = $v->DisplayName;
 			}
+			else if(in_array($_POST['type'], array('video solution'))) {
+				$newJSON->data[] = array(
+					'id' => $v->ID,
+					'title' => $v->DisplayName,
+					'englishvalue' => $v->DisplayName
+				);
+			}
 			else {
 				$newJSON->data[] = array(
 					'id' => $v->ID,
@@ -87,17 +94,20 @@ else if($_POST['type'] == 'video type') {
 
 	$newJSON->data[] = array(
 		'id' => 220,
-		'title' => 'Solution'
+		'title' => 'Solution',
+		'englishvalue' => 'Solution'
 	);
 
 	$newJSON->data[] = array(
 		'id' => 212,
-		'title' => 'Case Studies'
+		'title' => 'Case Studies',
+		'englishvalue' => 'Case Studies'
 	);
 
 	$newJSON->data[] = array(
 		'id' => 211,
-		'title' => 'Events'
+		'title' => 'Events',
+		'englishvalue' => 'Events'
 	);
 
 	echo json_encode($newJSON);
