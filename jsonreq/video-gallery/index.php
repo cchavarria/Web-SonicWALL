@@ -3,11 +3,10 @@
 header('Content-Type: application/json; charset=utf-8');
 
 if($_POST['type'] == 'video list') {
-	$url = 'http://software.dell.com/jsonrequest/videolistgetdefault';
+	$url = 'http://software.dell.com/jsonrequest/videolistget';
 	$map = array(
-		'prod' => 'prod',
-		'sol' => 'sol',
-		'plat' => 'plat',
+		'prod' => 'product',
+		'sol' => 'solution',
 		'brand' => 'brand',
 		'typeID' => 'videotypes',
 		'pg' => 'page'
