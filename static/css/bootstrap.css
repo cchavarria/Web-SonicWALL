@@ -5899,12 +5899,18 @@ iframe {
 .icon-small-chat:before {
   content: "\e610"; }
 
-.icon-large-video-gallery {
+.icon-large-video {
   display: block;
   background: url("/images/shared/icon-video.png") no-repeat center;
   margin: 0 auto;
   height: 60px;
   width: 65px; }
+
+.icon-ui-triangleright:before {
+  content: "\e610"; }
+
+.icon-ui-triangledown:before {
+  content: "\e60e"; }
 
 .site-wrapper {
   overflow: hidden;
@@ -8430,6 +8436,14 @@ a:hover .has-overlay h4 {
 
   .ie8 #button-flyout > a {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); } }
+.show-collapsed {
+  display: none; }
+
+.collapsed .show-collapsed {
+  display: unset; }
+.collapsed .hide-expanded {
+  display: none; }
+
 .modal-open {
   overflow: hidden; }
 

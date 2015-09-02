@@ -4608,12 +4608,16 @@
     content: "\e632"; }
   .bootstrap .icon-small-chat:before {
     content: "\e610"; }
-  .bootstrap .icon-large-video-gallery {
+  .bootstrap .icon-large-video {
     display: block;
     background: url("/images/shared/icon-video.png") no-repeat center;
     margin: 0 auto;
     height: 60px;
     width: 65px; }
+  .bootstrap .icon-ui-triangleright:before {
+    content: "\e610"; }
+  .bootstrap .icon-ui-triangledown:before {
+    content: "\e60e"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
