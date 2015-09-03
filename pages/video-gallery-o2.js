@@ -376,7 +376,7 @@ function populateListing(clear) {
 				'<a href="' + val.url + '">' +
 				'  <div class="img-border">' +
 				'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt=""> ' +
-				'		 <span class="icon-play-overlay"></span>' +
+				'		 <div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>' +
 				'  </div>' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
 
