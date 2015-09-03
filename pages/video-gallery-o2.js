@@ -67,7 +67,7 @@ function init() {
 					else {
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
-							placeholder: title,
+							placeholder: getLocalizedContent('LabelAllSolutions'),
 							multiple: false,
 							selectAll: false,
 							single: true,
@@ -87,7 +87,7 @@ function init() {
 				callback: function (title) {
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
-						placeholder: title,
+						placeholder: getLocalizedContent('LabelAllProductLines'),
 						multiple: false,
 						selectAll: false,
 						single: true,
@@ -114,7 +114,7 @@ function init() {
 					else {
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
-							placeholder: title,
+							placeholder: getLocalizedContent('LabelAllProducts'),
 							multiple: false,
 							selectAll: false,
 							single: true,
@@ -141,19 +141,16 @@ function init() {
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
-							multiple: true,
-							selectAll: true,
-							single: false,
-							onClick: function (view) {
-
-							}
+							minimumCountSelected: 0,
+							countSelected: getLocalizedContent('LabelVideoType') + '&nbsp;(#)',
+							selectAllText: getLocalizedContent('LabelAllVideoTypes'),
+							allSelected: getLocalizedContent('LabelAllVideoTypes')
 						});
 						$(this).multipleSelect("checkAll");
 					}
 				}
 			}
-		},
-		allDropdownLabel = {};
+		};
 
 	$(document).ready(function () {
 		// filters event handler
@@ -166,12 +163,6 @@ function init() {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
 				}
 			});
-
-			allDropdownLabel = {
-				product: getLocalizedContent('LabelAllProducts'),
-				brand: getLocalizedContent('LabelAllProductLines'),
-				solution: getLocalizedContent('LabelAllSolutions')
-			};
 
 			//When filters are loaded, execute function 'hashchange'
 			$.when.apply(this, ajaxArr).done(function () {
@@ -312,7 +303,6 @@ function init() {
 			data: data
 		}).done(function (dataopt) {
 			if(dropdown != 'video_type') {
-				dataopt.title = allDropdownLabel[dropdown];
 				elem.append('<option value="">' + dataopt.title + '</option>');
 			}
 
