@@ -318,31 +318,38 @@ addResize(function() {
 //Flex box degradation
 addResize(function() {
 	if(document.readyState == 'complete') {
-		init();
+		processFlex();
 	}
 	else {
 		$(window).load(function() {
-			init();
+			processFlex();
 		});
-	}
-
-	function init() {
-		if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
-			$('.vertical-center').each(function() {
-				var height = $(this).height(), width = $(this).width(), child = $(this).children();
-
-				//Should only have 1 children. Multiple children might not work.
-				child.each(function() {
-					$(this).css({
-						paddingTop: Math.floor((height - $(this).height()) / 2),
-						paddingLeft: Math.floor((width - $(this).width()) / 2)
-					});
-				});
-			});
-		}
 	}
 }, true);
 
+function processFlex() {
+	if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
+		$('.vertical-center').each(function() {
+			if(!$(this).data('flex-processed')) {
+				var height = $(this).height(), width = $(this).outerWidth(), child = $(this).children();
+
+				//Should only have 1 children. Multiple children might not work.
+				child.each(function() {
+					if($(this).css('display') == 'block') {
+						$(this).css('display', 'inline-block');
+					}
+
+					$(this).css({
+						paddingTop: Math.floor((height - $(this).height()) / 2),
+						paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
+					});
+				});
+
+				$(this).data('flex-processed', true);
+			}
+		});
+	}
+}
 function processEllipsis(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
 		parentSelector = 'body';

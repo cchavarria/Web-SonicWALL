@@ -5355,11 +5355,13 @@ iframe {
   display: flex !important;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center; }
   .vertical-center > div {
     overflow: hidden; }
 
 .horizontal-center {
+  -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center; }
 

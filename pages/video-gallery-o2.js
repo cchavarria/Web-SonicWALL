@@ -397,6 +397,10 @@ function populateListing(clear) {
 			}
 		});
 
+		setTimeout(function() {
+			processFlex();
+		}, 500);
+
 		//TODO: total record counts < pages x 16 or 12 hide View More button
 
 		dataopt.total = 20; //testing purpose.

@@ -6088,10 +6088,12 @@
     display: flex !important;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
     -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center; }
     .bootstrap .vertical-center > div {
       overflow: hidden; }
   .bootstrap .horizontal-center {
+    -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center; }
   @media (max-width: 767px) {
