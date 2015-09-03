@@ -5356,6 +5356,8 @@ iframe {
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-align-items: center;
   align-items: center; }
+  .vertical-center > div {
+    overflow: hidden; }
 
 .horizontal-center {
   -webkit-justify-content: center;

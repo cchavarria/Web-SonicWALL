@@ -123,6 +123,10 @@ iframe {
   display: flex !important;  /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-align-items: center;
   align-items: center;
+
+  > div {
+    overflow: hidden;
+  }
 }
 
 .horizontal-center {
