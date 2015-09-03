@@ -2,7 +2,6 @@
 <div class="container">
 	<h1>Search results for 'Toad for oracle'</h1>
 </div><!-- /* h1 heading -->
-<div id="mainer">
 	<div class="container visible-xs">
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
@@ -72,21 +71,21 @@
 		<div class="mt-15 hidden-xs"><a class="resetfilter" href="#">Clear All</a></div>
 
 		<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
-			<p class="pull-left mt-7 mb-0"><span class="total_results">0 &nbsp;</span> {{LabelResults}}</p>
+			<p class="pull-left mt-7 mb-0"><span class="total_results">0 &nbsp;</span> Results</p>
 
 			<div class="text-right">
 				<a href="#" class="resetfilter mr-10">Clear All</a>
-				<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
+				<a href="#" class="btn btn-primary off-canvas-back">Close</a>
 			</div>
 		</div>
-	</div>
-	<div class="container mt-40">
+	</div><!-- /* filters -->
+	<div class="mt-40">
 		<section class="listing-entries">
 			[[widget:search-results]]
 			[[widget:simple-pagination]]
 		</section>
 		<button class="btn btn-default btn-block hidden mt-20" id="view-more">Load More Results</button>
-	</div>
+	</div><!-- /* Search listing and pagination-->
 	<div class="container">
 		<div class="row">
 			<div class="alert hidden" id="no-results">
@@ -97,8 +96,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div><!-- /* end of filtering section -->
+	</div> <!-- /* no results warning-->
+
 
 
 
