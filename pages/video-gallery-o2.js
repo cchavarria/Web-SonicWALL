@@ -65,7 +65,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -86,7 +85,6 @@ function init() {
 				data: {"type": "video product line"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -114,7 +112,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -141,7 +138,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
