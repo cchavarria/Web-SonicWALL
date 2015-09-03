@@ -355,8 +355,8 @@
     border: none;
     border-top: 1px solid $dell-gray;
     box-shadow: none;
-    .panel-heading{
-      padding:10px;
+    .panel-heading {
+      padding: 10px;
       color: $dell-blue;
     }
     //arrows
@@ -379,10 +379,15 @@
       }
     }
     .panel-body {
-      padding: 0 30px 10px 30px;
+      padding: 0 30px;
+      margin-bottom: 10px;
     }
-    .table-responsive .panel-body{
-      padding: 0 23px 13px 23px;
+    .table-responsive {
+      margin-bottom: 13px;
+      .panel-body {
+        padding: 0 23px;
+        margin-bottom:0;
+      }
     }
   }
 }
