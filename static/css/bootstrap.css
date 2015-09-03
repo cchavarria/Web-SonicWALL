@@ -8459,6 +8459,16 @@ a:hover .has-overlay h4 {
 .collapsed .hide-expanded {
   display: none; }
 
+.p3-transcript-controller {
+  display: none !important; }
+
+.p3-transcript-container {
+  width: 100%;
+  height: 275px; }
+
+.p3-transcript-main {
+  border: 1px solid #aaaaaa; }
+
 .modal-open {
   overflow: hidden; }
 
