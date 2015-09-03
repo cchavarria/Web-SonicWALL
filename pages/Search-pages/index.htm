@@ -1,9 +1,7 @@
 [[widget:breadcrumb]]
 <div class="container">
-	<div class="row">
-		<h1>Search results for 'Toad for oracle'</h1>
-	</div>
-</div>
+	<h1>Search results for 'Toad for oracle'</h1>
+</div><!-- /* h1 heading -->
 <div id="mainer">
 	<div class="container visible-xs">
 		<div class="row">
@@ -33,7 +31,7 @@
 			<div class="row mb-15 mb-0-xs">
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">Search all sites</span><!-- add title here for now -->
 					<select class="ms mb-15-xs" id="search_all_sites" multiple="multiple" name="search_all_sites">
 					<option value="Support">Support</option>
 					<option value="Commnunities">Commnunities</option>
@@ -41,7 +39,7 @@
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">Solution</span>
 					<select class="mb-15-xs" id="solution" multiple="multiple" name="solution">
 						<option value="Database Management, Design, and Development">Database Management, Design, and Development</option>
 						<option value="Database Development and Management">Database Development and Management</option>
@@ -50,7 +48,7 @@
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">Product</span>
 					<select class="mb-15-xs" id="product" multiple="multiple" name="product">
 						<option value="Toad for Oracle">Toad for Oracle</option>
 						<option value="Toad DBA Suite for Oracle">Toad DBA Suite for Oracle</option>
@@ -60,7 +58,7 @@
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">Content Type</span>
 					<select class="mb-15-xs" id="content-type" multiple="multiple" name="content-type">
 						<option value="Case Study">Case Study</option>
 						<option value="Datasheet">Datasheet</option>
@@ -82,13 +80,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="container mt-30-xs">
+	<div class="container mt-40">
 		<section class="listing-entries">
-			<div class="row">&nbsp;</div>
+			[[widget:search-results]]
+			[[widget:simple-pagination]]
 		</section>
-		<button class="btn btn-default btn-block hidden mt-20" id="view-more">{{LabelLoadMoreResults}}</button>
+		<button class="btn btn-default btn-block hidden mt-20" id="view-more">Load More Results</button>
 	</div>
-	<div class="container mt-20 mt-0-sm-only">
+	<div class="container">
 		<div class="row">
 			<div class="alert hidden" id="no-results">
 				<div class="alert-warning mb-0">
@@ -100,6 +99,6 @@
 		</div>
 	</div>
 </div><!-- /* end of filtering section -->
-[[widget:search-results]]
-[[widget:simple-pagination]]
+
+
 

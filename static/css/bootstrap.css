@@ -8322,9 +8322,6 @@ a:hover .has-overlay h4 {
     width: auto; } }
 .search-item {
   border-bottom: 1px solid #ccc; }
-  .search-item img {
-    display: block;
-    margin: 0 auto; }
 
 .search-item.last {
   border-bottom: none;
@@ -8339,12 +8336,6 @@ a:hover .has-overlay h4 {
       background-color: #eee;
       border: 1px solid #ccc;
       border-radius: 1px; }
-    .pager li > a .icon-ui-arrowleft:before,
-    .pager li > a .icon-ui-arrowright:before,
-    .pager li > span .icon-ui-arrowleft:before,
-    .pager li > span .icon-ui-arrowright:before {
-      position: relative;
-      top: 2px !important; }
     .pager li a:active,
     .pager li a:focus {
       -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -8359,7 +8350,11 @@ a:hover .has-overlay h4 {
       content: "\e601"; }
     .pager li input[type=text] {
       margin-left: 5px;
-      margin-right: 5px; }
+      margin-right: 5px;
+      width: 30px;
+      text-align: center;
+      height: 35px;
+      padding: 5px; }
     .pager li .pager-span {
       padding-left: 5px;
       padding-right: 5px;
@@ -8367,12 +8362,6 @@ a:hover .has-overlay h4 {
       background: none;
       border: 0;
       border-radius: 0; }
-
-.pagination-input {
-  width: 30px;
-  text-align: center;
-  height: 35px;
-  padding: 5px; }
 
 .modal-open {
   overflow: hidden; }
