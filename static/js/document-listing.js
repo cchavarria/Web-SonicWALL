@@ -460,7 +460,7 @@ function populateListing(clear) {
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.documenttype + ': ' + val.title + ' </h4> ';
 
 			if (val.description != null) {
-				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
+				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + $('<div>' + val.description + '</div>').text() + ' </p>';
 			}
 
 			if (val.date != '') {

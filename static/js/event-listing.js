@@ -1,3 +1,7 @@
+if (typeof RootPath == 'undefined') {
+	RootPath = '/';
+}
+
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
 	entriesPerType = { //xs,sm - need to consult with cindy chan.
 		'0': 6,
@@ -47,10 +51,6 @@ if ($.fn.multipleSelect) {
 
 		init();
 	});
-}
-
-if (typeof RootPath == 'undefined') {
-	RootPath = '/';
 }
 
 function init() {
@@ -493,7 +493,7 @@ function populateListing(clear) {
 				'    <img class="img-responsive" src="/images/shared/listing-entries/' + event_img + '" alt=""> ' +
 				'  </div> ' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.title + ' </h4> ' +
-				'  <p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
+				'  <p class="teaser dotdotdot" data-max-line="5"> ' + $('<div>' + val.description + '</div>').text() + ' </p>';
 
 			if ($.inArray(val.typeid, [1, 2]) > -1) {
 				htmlFragment += '<p class="dates">' + getLocalizedContent('EventLabelDate') + ': ' + val.date + '</p>';
