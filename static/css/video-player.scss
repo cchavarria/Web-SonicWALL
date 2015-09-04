@@ -416,6 +416,16 @@ ul.oo-toolbar {
   margin-left: -10px;
 }
 
+.p3-transcript-container {
+  .p3-transcript-mediabar{
+    display: none !important;
+  }
+  .current_word {
+    background: #c9cacc !important;
+    color: #333 !important;
+  }
+}
+
 /*additional changes for responsive player*/
 .media-player-container {
   clear: both;

@@ -309,6 +309,12 @@ ul.oo-toolbar {
     display: block;
     background-position: 0 0; }
 
+.p3-transcript-container .p3-transcript-mediabar {
+  display: none !important; }
+.p3-transcript-container .current_word {
+  background: #c9cacc !important;
+  color: #333 !important; }
+
 /*additional changes for responsive player*/
 .media-player-container {
   clear: both;
