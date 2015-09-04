@@ -197,6 +197,10 @@ $(document).ready(function () {
 		}
 	});
 
+
+
+
+
   //Toggle
   $('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
     var target = $($(this).data('target'));
@@ -464,12 +468,13 @@ function loadOoyala(parentSelector) {
 
 	function loadJS() {
 		if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
-			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?callback=receiveOoyalaP3Event', function () {
 				init();
 			});
 		}
 		else {
-			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5&callback=receiveOoyalaP3Event',
+					function () {
 				init();
 			});
 		}
