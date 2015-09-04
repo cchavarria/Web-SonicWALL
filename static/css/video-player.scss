@@ -94,7 +94,7 @@ ul.oo-toolbar {
       cursor: pointer;
     }
   }
-  > p{
+  > p {
     margin-bottom: 0;
     color: #fff;
     box-sizing: border-box;
@@ -113,6 +113,7 @@ ul.oo-toolbar {
 .show {
   display: block !important;
 }
+
 .show-contact {
   right: 0;
   bottom: 0;
@@ -242,7 +243,7 @@ ul.oo-toolbar {
       }
     }
   }
-  .overlay{
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -284,8 +285,8 @@ ul.oo-toolbar {
       }
       input[type='text'], textarea {
         margin: 5px 0;
-        width:auto;
-        height:auto;
+        width: auto;
+        height: auto;
         color: #333;
       }
       a {
@@ -377,19 +378,29 @@ ul.oo-toolbar {
       margin-top: -50px;
       color: #fff;
       padding: 5px;
-      background-color: rgba(0,0,0,.5);
+      background-color: rgba(0, 0, 0, .5);
     }
   }
   .oo_full_controls {
     .vod {
       .oo_scrubber {
         left: 75px;
+        right: 75px !important;
       }
     }
     .oo_playhead {
       background-origin: inherit;
       top: -1px !important;
     }
+  }
+  .cc_icon {
+    cursor: pointer;
+    background: url("/images/shared/icon-oo-cc.png") 0 0 no-repeat;
+    width: 24px;
+    height: 22px;
+    position: absolute;
+    top: 9px;
+    right: 40px;
   }
 }
 
@@ -405,6 +416,16 @@ ul.oo-toolbar {
   margin-left: -10px;
 }
 
+.p3-transcript-container {
+  .p3-transcript-mediabar{
+    display: none !important;
+  }
+  .current_word {
+    background: #c9cacc !important;
+    color: #333 !important;
+  }
+}
+
 /*additional changes for responsive player*/
 .media-player-container {
   clear: both;
@@ -415,8 +436,8 @@ ul.oo-toolbar {
 }
 
 .player-wrapper {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   > div {
     width: 100%;
     height: 100%;
@@ -446,29 +467,36 @@ ul.oo-toolbar {
       height: 100%;
       background: #fff;
     }
-    .oo_spinner{/*fix for spinner not centered*/
-      margin-top:23% !important;
-      margin-left:45% !important;
+    .oo_spinner { /*fix for spinner not centered*/
+      margin-top: 23% !important;
+      margin-left: 45% !important;
     }
   }
+}
+
+.player-thumbnail {
+  position: absolute !important;
+  top: 0;
+  left: 0;
 }
 
 /*mobile*/
 /*remove toolbar until video player becomes responsive*/
 @media (max-width: 767px) {
-  .ooyalaplayer .plugins{
+  .ooyalaplayer .plugins {
     display: none !important;
   }
 }
+
 @media (min-width: 1200px) {
   /*home*/
   .container {
-    padding-left:0;
+    padding-left: 0;
     padding-right: 0;
   }
 
   .video-thumb-m {
-    > a:last-child{
+    > a:last-child {
       width: 539px;
       display: block;
     }

@@ -107,6 +107,10 @@ li {
   height: 100%;
 }
 
+.pos-relative {
+  position: relative;
+}
+
 /* iframe */
 
 iframe {
@@ -129,10 +133,16 @@ iframe {
   display: -webkit-flex; /* NEW - Chrome */
   display: flex !important; /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+
+  > div {
+    overflow: hidden;
+  }
 }
 
 .horizontal-center {
+  -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
 }

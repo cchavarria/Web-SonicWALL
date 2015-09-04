@@ -1,102 +1,134 @@
 <?php
 
 class Widget {
-    private $css, $js, $html, $content;
+	private $css, $js, $html, $content;
 
-    function __construct() {
-        $this->css = array();
-        $this->js = array();
-        $this->content = array();
+	function __construct() {
+		$this->css = array();
+		$this->js = array();
+		$this->content = array();
 
-        $this->html = file_get_contents($_GET['page']);
+		$this->html = file_get_contents($_GET['page']);
 
-        $this->parseSubWidget();
+		$this->parseSubWidget();
 
-        $info = pathinfo($_GET['page']);
+		$info = pathinfo($_GET['page']);
 
-        $this->loadDependencies($info['dirname'], $info['filename'] ? $info['filename']:'index');
-    }
+		$this->loadDependencies($info['dirname'], $info['filename'] ? $info['filename'] : 'index');
+	}
 
-    function parseSubWidget() {
-        $hasVars = false;
+	function parseSubWidget() {
+		$hasVars = false;
 
-        if(preg_match_all("/\[\[widget:(.+)\]\]/", $this->html, $m)) {
-            $hasVars = true;
+		if (preg_match_all("/\[\[widget:(.+)\]\]/", $this->html, $m)) {
+			$hasVars = true;
 
-            foreach($m[1] as $indx => $widgetName) {
-                $arr = explode('/', $widgetName);
-                $filename = 'index';
+			foreach ($m[1] as $indx => $widgetName) {
+				$arr = explode('/', $widgetName);
+				$filename = 'index';
 
-                if(count($arr) == 2) {
-                    $filename = $arr[1];
-                }
+				if (count($arr) == 2) {
+					$filename = $arr[1];
+				}
 
-                $widgetName = $arr[0];
+				$widgetName = $arr[0];
 
-                if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.htm')) {
-                    $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
-                }
-                else if(file_exists('../widgets/' . $widgetName . '/' . $filename . '.html')) {
-                    $this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.html'), $this->html);
-                }
+				if (file_exists('../widgets/' . $widgetName . '/' . $filename . '.htm')) {
+					$this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
+				} else if (file_exists('../widgets/' . $widgetName . '/' . $filename . '.html')) {
+					$this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.html'), $this->html);
+				}
 
-                $this->loadDependencies($widgetName, $filename);
-            }
-        }
+				$this->loadDependencies($widgetName, $filename);
+			}
+		}
 
-        /*if(preg_match_all("/\[\[content:(.+)\]\](.+?)\[\[\/content\]\]/", $this->html, $m)) {
-            $hasVars = true;
-            print_r($m);
-        }*/
+		/*if(preg_match_all("/\[\[content:(.+)\]\](.+?)\[\[\/content\]\]/", $this->html, $m)) {
+				$hasVars = true;
+				print_r($m);
+		}*/
 
-        if($hasVars) {
-            $this->parseSubWidget();
-        }
-    }
+		if ($hasVars) {
+			$this->parseSubWidget();
+		}
+	}
 
-    function loadDependencies($widgetName, $filename) {
-        if(file_exists('../pages/' . $widgetName . '/config.json')) {
-            $tmpJSON = json_decode(file_get_contents('../pages/' . $widgetName . '/config.json'), true);
+	function loadDependencies($widgetName, $filename) {
+		if (file_exists('../pages/' . $widgetName . '/config.json')) {
+			$tmpJSON = json_decode(file_get_contents('../pages/' . $widgetName . '/config.json'), true);
 
-            if(isset($tmpJSON['css'])) {
-                $this->css = array_merge($tmpJSON['css'], $this->css);
-            }
+			if (isset($tmpJSON['css'])) {
+				$this->css = array_merge($tmpJSON['css'], $this->css);
+			}
 
-            if(isset($tmpJSON['js'])) {
-                $this->js = array_merge($tmpJSON['js'], $this->js);
-            }
-        }
+			if (isset($tmpJSON['js'])) {
+				$this->js = array_merge($tmpJSON['js'], $this->js);
+			}
+		}
 
-        if(file_exists('../pages/' . $widgetName . '/' . $filename . '.css')) {
-            $this->css[] = '../../pages/' . $widgetName . '/' . $filename . '.css';
-        }
+		if (file_exists('../pages/' . $widgetName . '/' . $filename . '.css')) {
+			$this->css[] = '../../pages/' . $widgetName . '/' . $filename . '.css';
+		}
 
-        if(file_exists('../pages/' . $widgetName . '/' . $filename . '.js')) {
-            $this->js[] = '../../pages/' . $widgetName . '/' . $filename . '.js';
-        }
-    }
+		if (file_exists('../pages/' . $widgetName . '/' . $filename . '.js')) {
+			$this->js[] = '../../pages/' . $widgetName . '/' . $filename . '.js';
+		}
+	}
 
-    function css() {
-        $html = array();
+	function css() {
+		$html = array();
 
-        foreach($this->css as $href) {
-            $html[] = '<link rel="stylesheet" href="' . $href . '">';
-        }
+		foreach ($this->css as $href) {
+			$html[] = '<link rel="stylesheet" href="' . $href . '">';
+		}
 
-        return implode("\n", $html);
-    }
+		return implode("\n", $html);
+	}
 
-    function js() {
-        $html = array();
+	function js() {
+		$html = array();
 
-        foreach($this->js as $src) {
-            $html[] = '<script src="' . $src . '"></script>';
-        }
+		foreach ($this->js as $src) {
+			$html[] = '<script src="' . $src . '"></script>';
+		}
 
-        return implode("\n", $html);
-    }
+		return implode("\n", $html);
+	}
 
-    function content() {
-        return $this->html;
-    }
+	function localizedContent() {
+		$obj = array(
+			'type' => 'localized tags',
+			'tags' => ''
+		);
+
+		if(preg_match_all("/{{(.+)}}/", $this->html, $m)) {
+			$obj['tags'] = implode(',', $m[1]);
+
+			//open connection
+			$ch = curl_init();
+
+			//set the url, number of POST vars, POST data
+			curl_setopt($ch, CURLOPT_URL, 'http://stage.software.dell.com/jsonreq/event/');
+			curl_setopt($ch, CURLOPT_POST, count($obj));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $obj);
+
+			//execute post
+			ob_start();
+			curl_exec($ch);
+			$result = json_decode(ob_get_clean());
+
+			//close connection
+			curl_close($ch);
+
+			foreach($result->data as $indx => $data) {
+				$this->html = str_replace('{{' . $data->id . '}}', $data->value, $this->html);
+			}
+		}
+	}
+
+	function content() {
+		$this->localizedContent();
+
+		return $this->html;
+	}
 }

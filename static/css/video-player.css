@@ -285,10 +285,19 @@ ul.oo-toolbar {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.5); }
   .ooyalaplayer .oo_full_controls .vod .oo_scrubber {
-    left: 75px; }
+    left: 75px;
+    right: 75px !important; }
   .ooyalaplayer .oo_full_controls .oo_playhead {
     background-origin: inherit;
     top: -1px !important; }
+  .ooyalaplayer .cc_icon {
+    cursor: pointer;
+    background: url("/images/shared/icon-oo-cc.png") 0 0 no-repeat;
+    width: 24px;
+    height: 22px;
+    position: absolute;
+    top: 9px;
+    right: 40px; }
 
 .ie8 .play-button-wrapper {
   background-color: transparent;
@@ -299,6 +308,12 @@ ul.oo-toolbar {
     height: 55px !important;
     display: block;
     background-position: 0 0; }
+
+.p3-transcript-container .p3-transcript-mediabar {
+  display: none !important; }
+.p3-transcript-container .current_word {
+  background: #c9cacc !important;
+  color: #333 !important; }
 
 /*additional changes for responsive player*/
 .media-player-container {
@@ -340,6 +355,11 @@ ul.oo-toolbar {
       /*fix for spinner not centered*/
       margin-top: 23% !important;
       margin-left: 45% !important; }
+
+.player-thumbnail {
+  position: absolute !important;
+  top: 0;
+  left: 0; }
 
 /*mobile*/
 /*remove toolbar until video player becomes responsive*/

@@ -197,6 +197,10 @@ $(document).ready(function () {
 		}
 	});
 
+
+
+
+
   //Toggle
   $('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
     var target = $($(this).data('target'));
@@ -318,31 +322,38 @@ addResize(function() {
 //Flex box degradation
 addResize(function() {
 	if(document.readyState == 'complete') {
-		init();
+		processFlex();
 	}
 	else {
 		$(window).load(function() {
-			init();
+			processFlex();
 		});
-	}
-
-	function init() {
-		if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
-			$('.vertical-center').each(function() {
-				var height = $(this).height(), width = $(this).width(), child = $(this).children();
-
-				//Should only have 1 children. Multiple children might not work.
-				child.each(function() {
-					$(this).css({
-						paddingTop: Math.floor((height - $(this).height()) / 2),
-						paddingLeft: Math.floor((width - $(this).width()) / 2)
-					});
-				});
-			});
-		}
 	}
 }, true);
 
+function processFlex() {
+	if($('.vertical-center').length && !$('html').hasClass('flexbox')) {
+		$('.vertical-center').each(function() {
+			if(!$(this).data('flex-processed')) {
+				var height = $(this).height(), width = $(this).outerWidth(), child = $(this).children();
+
+				//Should only have 1 children. Multiple children might not work.
+				child.each(function() {
+					if($(this).css('display') == 'block') {
+						$(this).css('display', 'inline-block');
+					}
+
+					$(this).css({
+						paddingTop: Math.floor((height - $(this).height()) / 2),
+						paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
+					});
+				});
+
+				$(this).data('flex-processed', true);
+			}
+		});
+	}
+}
 function processEllipsis(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
 		parentSelector = 'body';
@@ -457,12 +468,13 @@ function loadOoyala(parentSelector) {
 
 	function loadJS() {
 		if ($('html').hasClass('ie9') || $('html').hasClass('ie8')) {
-			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a', function () {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?callback=receiveOoyalaP3Event', function () {
 				init();
 			});
 		}
 		else {
-			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5', function () {
+			$.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5&callback=receiveOoyalaP3Event',
+					function () {
 				init();
 			});
 		}
@@ -470,9 +482,14 @@ function loadOoyala(parentSelector) {
 
 	function init() {
 		OO.ready(function () {
-			$(parentSelector).find('.ooyalaplayer').each(function () {
+
+			$(parentSelector).find('.ooyalaplayer').each(function (indx) {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
+
+				//TODO: discuss with Ed how to add
+				// play3Id to OO.player.create
+				var play3Id = $(this).data('3playid');
 
 				if (id === undefined) {
 					id = getRandomString(8);
@@ -481,7 +498,7 @@ function loadOoyala(parentSelector) {
 
 				if ($(this).is(':visible')) {
 					if (!$('#' + id).data('loaded')) {
-						OO.Player.create(id, videoId, {
+						window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
 							onCreate: OOCreate,
 							autoplay: false,
 							wmode: 'transparent'
