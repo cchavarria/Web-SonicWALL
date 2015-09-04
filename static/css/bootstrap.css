@@ -8465,7 +8465,7 @@ a:hover .has-overlay h4 {
   display: none; }
 
 .collapsed .show-collapsed {
-  display: unset; }
+  display: block; }
 .collapsed .hide-expanded {
   display: none; }
 
