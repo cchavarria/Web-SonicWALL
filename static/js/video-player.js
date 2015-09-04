@@ -38,11 +38,13 @@ function OOCreate(player) {
 	});
 
 	player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'UITeam', function () {
-		var MBID = this.mb.MbId, plugins = null;
+		var MBID = this.mb.MbId, plugins = null, videoProp = null;
 
 		$.each(videoList, function (indx, obj) {
 			if (obj.MBID == MBID) {
 				plugins = $('#' + obj.target).find('.plugins');
+				videoProp = obj;
+				return false;
 			}
 		});
 
@@ -152,7 +154,7 @@ function OOCreate(player) {
 			}
 		});
 
-		processClosedCaption(plugins, player);
+		processClosedCaption(player, videoProp);
 
 		//fix for mini-controls showing instead of full-controls
 		$('.oo_controls').each(function () {
@@ -165,57 +167,6 @@ function OOCreate(player) {
 
 /*********************/
 
-function processClosedCaption(plugins, player) {
-	var elementId = player.elementId,
-		language = 'en',
-		country = 'us',
-		pntr = null;
-
-	$.each(videoList, function (i) {
-		if (this.target == elementId) {
-			pntr = i;
-			return false;
-		}
-	});
-
-	jQuery.ajax({
-		url: player.currentItem.closed_captions[0].url,
-		type: "GET",
-		dataType: "xml"
-	}).done(function (xmldata) {
-		/*issue where last video's closed captioning shows for all of the videos*/
-		allCaptions = createCaptionsCollection($(xmldata).find("div"), elementId);
-
-		if (allCaptions.length > 0) {
-			var playerRoot = $("#" + elementId);
-
-			playerRoot.find('.oo_controls').prepend('<div class="captionsContainer"><div class="caption"></div></div>');
-
-			addCCButton(elementId);
-			//languageList - spin through the language list and grab the current CC captions
-			// first try full locale
-
-			videoList[pntr].captions = findCurrentCC(language, country);
-
-			if (videoList[pntr].captions.length == 0) {
-				videoList[pntr].captions = findCurrentCC(language);
-			}
-
-			if (playerRoot.find('.off-caption').hasClass('disabled')) {
-				onCaptions(elementId);
-			}
-
-			playerRoot.find('.oo_controls').addClass('has-cc');
-		}
-
-		videoList[pntr].MB.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, "UITeam", function (eventName, currentTime, totalTime) {
-			onPlayheadTimeChanged(currentTime, playerRoot, pntr);
-		});
-	}).fail(function (xmldata) {
-		console.log("Did not get closed captions");
-	});
-}
-
 function getTime(time) {
 	var time = time.split(":"),
 		hours = parseInt(time[0], 10),
@@ -225,12 +176,12 @@ function getTime(time) {
 	return ((hours * 3600) + (minutes * 60) + seconds);
 }
 
-function onPlayheadTimeChanged(currentTime, playerRoot, pntr) {
+function onPlayheadTimeChanged(currentTime, playerRoot, videoProp) {
 	var currentCaption = '';
 
 	// determine the language
-	for (var caption in videoList[pntr].captions) {
-		var caption = videoList[pntr].captions[caption];
+	for (var caption in videoProp.captions) {
+		var caption = videoProp.captions[caption];
 
 		if (currentTime > caption["begin"] && currentTime <= caption["end"]) {
 			currentCaption = caption;
@@ -261,151 +212,6 @@ function onPlayheadTimeChanged(currentTime, playerRoot, pntr) {
 	}
 
 	lastCaption = currentCaption;
-}
-
-function changeCC(obj) {
-	var target = $(this).find('ul').data('target');
-
-	if ($(this).hasClass("ccLanguage-disabled") == false) {
-		var _langStr = obj.target.attributes.data.nodeValue;
-
-		captions = findCurrentCC(_langStr);
-
-		$("#" + target)
-			.find(".ccLanguageModal").trigger('reveal:close').end()
-			.find(".videoLanguage01").hide().end()
-			.find(".cc_icon").attr("lanHidden", "true");
-	}
-
-	$.each(videoList, function (indx, obj) {
-		if (obj.target == target) {
-			obj.MB.publish(OO.EVENTS.PLAY);
-		}
-	});
-}
-
-function offCaptions(elementId) {
-	$('#' + elementId)
-		.find(".off-caption").removeClass("disabled").end()
-		.find(".on-caption").addClass("disabled").end()
-		.find(".captionsContainer").hide().end()
-		.find(".listLanguages").hide().end()
-		.find(".ccLanguage").addClass("ccLanguage-disabled").end()
-		.find(".videoLanguage01").hide().end()
-		.find(".cc_icon").attr("lanHidden", "true");
-
-	$.each(videoList, function (indx, obj) {
-		if (obj.target == elementId) {
-			obj.mb.publish(OO.EVENTS.PLAY);
-		}
-	});
-
-}
-
-function onCaptions(elementId) {
-	$('#' + elementId)
-		.find(".on-caption").removeClass("disabled").end()
-		.find(".off-caption").addClass("disabled").end()
-		.find(".captionsContainer").show().end()
-		.find(".listLanguages").show().end()
-		.find(".ccLanguage").removeClass("ccLanguage-disabled");
-}
-
-function createCaptionsCollection(d, elementId) {
-	numCCLanguages = d.length;
-	var _allCaptions = [], _lastLanguage = "xx", _currentLanguage = "";
-
-	if (numCCLanguages > 0) {
-		$('#' + elementId).append('\
-								<div class="ccLanguageModal" style="display:none;">\
-										<p style="margin-bottom:10px;">Captions : \
-												<a href="javascript:void(0);" class="on-caption ooyala-caption" onClick="onCaptions("' + elementId + '");">On</a>\
-												<a href="javascript:void(0);" class="off-caption disabled ooyala-caption" onClick="offCaptions("' + elementId + '");">Off</a>\
-										</p>\
-										<ul class="listLanguages" data-target="' + elementId + '"></ul>\
-								</div>');
-
-	}
-
-	// create a quick array of language codes (assumes that these are in the same order)
-	for (var _z = 0; _z < numCCLanguages; _z++) {
-		var divElement = $(d[_z]);
-
-		//languages
-		var _langCode = divElement.attr("xml:lang"), _langName = mapLanguageCodes(_langCode);
-
-		languageList.push(_langCode);
-
-		// populate the language list modal
-		$('#' + elementId).find(".listLanguages").append("<li class=\"ccLanguage\" data=\"" + _langCode + "\" >" + _langName + "</li>");
-
-		//process the captions
-		var _caption = [];
-		// grab the <p> element
-		var _el = divElement.find("p");
-		// spin through the <p>
-		for (var _y = 0; _y < _el.length; _y++) {
-			// get parent language
-			_currentLanguage = _langCode;
-			if (_currentLanguage != _lastLanguage) {
-				_caption.push({
-					"begin": getTime($(_el[_y]).attr("begin")),
-					"end": getTime($(_el[_y]).attr("end")),
-					"text": $(_el[_y]).text()
-				});
-			}
-		}
-		_lastLanguage = _currentLanguage;
-		_allCaptions.push(_caption);
-	}
-
-	// add event handler
-	$('#' + elementId).find(".ccLanguage").bind("click", this, changeCC);
-
-	return _allCaptions;
-}
-
-function ccButtonHandler(elementId) {
-	console.log('ccButtonHandler');
-
-	var mb = null;
-
-	$.each(videoList, function (indx, obj) {
-		if (obj.target == elementId) {
-			mb = obj.MB;
-			return false;
-		}
-	});
-
-	if (jQuery.trim($(this).attr("lanHidden")) == "true") {
-		$("#videoLanguage01").show();
-		$("#cc_icon").attr("lanHidden", "false");
-
-		mb.publish(OO.EVENTS.PAUSE);
-	}
-	else {
-		$("#videoLanguage01").hide();
-		$("#cc_icon").attr("lanHidden", "true");
-
-		mb.publish(OO.EVENTS.PLAY);
-	}
-}
-
-function findCurrentCC(_locLanguage, _locCountry) {
-	for (var _a = 0; _a < languageList.length; _a++) {
-		var _listLang = languageList[_a].toLowerCase();
-		var _locale = (_locCountry != undefined) ? (_locLanguage + "-" + _locCountry) : _locLanguage;
-		// check for special cases
-		if (_locale.toLowerCase() == "zh-cn") {
-			_locale = "zh-hans";
-		} else if (_locale.toLowerCase() == "zh-tw") {
-			_locale = "zh-hant";
-		}
-		if (_listLang.toLowerCase() == _locale.toLowerCase()) {
-			return allCaptions[_a];
-		}
-	}
-	return [];
 }
 
 function mapLanguageCodes(localeCode) {
@@ -470,25 +276,6 @@ function mapLanguageCodes(localeCode) {
 		case "tr":
 			return "Turkish";
 	}
-}
-
-function addCCButton(elementId) {
-	$("#" + elementId)
-		.find(".vod").append("<div class=\"cc_icon\" class=\"oo_button oo_toolbar_item oo_cc\" lanHidden=\"true\"></div>").end()
-		.on("click", ".cc_icon", function () { ccButtonHandler(elementId); });
-
-	var playerId = elementId, playerObj = $("#" + playerId), vodNode = playerObj.find(".vod");
-
-	playerObj.find('.oo_controls').attr("cc", "cc");
-
-	var ccPopupHtml = '<div class="videoLanguage01"></div>';
-
-	$(vodNode).append(ccPopupHtml);
-
-	playerObj.find(".videoLanguage01").append($(".ccLanguageModal"));
-	playerObj.find(".ccLanguageModal").show();
-	playerObj.find(".videoLanguage01").hide();
-	playerObj.find(".cc_icon").attr("lanHidden", "true");
 }
 
 function appendOverlayContent(plugins, iconClass, player) {
@@ -605,4 +392,194 @@ function addPlayerControls(plugins, player) {
 		.find('.oo_volume input').on('change', function () {
 		player.setVolume($(this).val() / 100);
 	});
+}
+
+/* Closed Caption */
+
+function createCaptionsCollection(d, videoProp) {
+	numCCLanguages = d.length;
+
+	var _allCaptions = [], _lastLanguage = "xx", _currentLanguage = "", elem = $('#' + videoProp.target);
+
+	if (numCCLanguages > 0) {
+		elem.append('\
+								<div class="ccLanguageModal" style="display:none;">\
+										<p style="margin-bottom:10px;">Captions : \
+												<a href="javascript:void(0);" class="on-caption ooyala-caption" onClick="onCaptions("' + videoProp.target + '");">On</a>\
+												<a href="javascript:void(0);" class="off-caption disabled ooyala-caption" onClick="offCaptions("' + videoProp.target + '");">Off</a>\
+										</p>\
+										<ul class="listLanguages" data-target="' + videoProp.target + '"></ul>\
+								</div>');
+
+	}
+
+	// create a quick array of language codes (assumes that these are in the same order)
+	for (var _z = 0; _z < numCCLanguages; _z++) {
+		var divElement = $(d[_z]);
+
+		//languages
+		var _langCode = divElement.attr("xml:lang"), _langName = mapLanguageCodes(_langCode);
+
+		languageList.push(_langCode);
+
+		// populate the language list modal
+		elem.find(".listLanguages").append("<li class=\"ccLanguage\" data=\"" + _langCode + "\" >" + _langName + "</li>");
+
+		//process the captions
+		var _caption = [];
+		// grab the <p> element
+		var _el = divElement.find("p");
+		// spin through the <p>
+		for (var _y = 0; _y < _el.length; _y++) {
+			// get parent language
+			_currentLanguage = _langCode;
+			if (_currentLanguage != _lastLanguage) {
+				_caption.push({
+					"begin": getTime($(_el[_y]).attr("begin")),
+					"end": getTime($(_el[_y]).attr("end")),
+					"text": $(_el[_y]).text()
+				});
+			}
+		}
+		_lastLanguage = _currentLanguage;
+		_allCaptions.push(_caption);
+	}
+
+	// add event handler
+	elem.on("click", '.ccLanguage', function(e) {
+		changeCC.call(this, e, videoProp);
+	});
+
+	return _allCaptions;
+}
+
+function findCurrentCC(_locLanguage, _locCountry) {
+	for (var _a = 0; _a < languageList.length; _a++) {
+		var _listLang = languageList[_a].toLowerCase();
+		var _locale = (_locCountry != undefined) ? (_locLanguage + "-" + _locCountry) : _locLanguage;
+		// check for special cases
+		if (_locale.toLowerCase() == "zh-cn") {
+			_locale = "zh-hans";
+		} else if (_locale.toLowerCase() == "zh-tw") {
+			_locale = "zh-hant";
+		}
+		if (_listLang.toLowerCase() == _locale.toLowerCase()) {
+			return allCaptions[_a];
+		}
+	}
+	return [];
+}
+
+function processClosedCaption(player, videoProp) {
+	var elementId = player.elementId,
+		language = 'en',
+		country = 'us';
+
+	jQuery.ajax({
+		url: player.currentItem.closed_captions[0].url,
+		type: "GET",
+		dataType: "xml"
+	}).done(function (xmldata) {
+		/*issue where last video's closed captioning shows for all of the videos*/
+		allCaptions = createCaptionsCollection($(xmldata).find("div"), videoProp);
+
+		if (allCaptions.length > 0) {
+			var playerRoot = $("#" + elementId);
+
+			playerRoot.find('.oo_controls').prepend('<div class="captionsContainer"><div class="caption"></div></div>');
+
+			addCCButton(videoProp);
+			//languageList - spin through the language list and grab the current CC captions
+			// first try full locale
+
+			videoProp.captions = findCurrentCC(language, country);
+
+			if (videoProp.captions.length == 0) {
+				videoProp.captions = findCurrentCC(language);
+			}
+
+			if (playerRoot.find('.off-caption').hasClass('disabled')) {
+				onCaptions(elementId);
+			}
+
+			playerRoot.find('.oo_controls').addClass('has-cc');
+		}
+
+		videoProp.MB.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, "UITeam", function (eventName, currentTime, totalTime) {
+			onPlayheadTimeChanged(currentTime, playerRoot, videoProp);
+		});
+	}).fail(function (xmldata) {
+		console.log("Did not get closed captions");
+	});
+}
+
+function changeCC(obj, videoProp) {
+	var target = $(this).find('ul').data('target');
+
+	if ($(this).hasClass("ccLanguage-disabled") == false) {
+		var _langStr = obj.target.attributes.data.nodeValue;
+
+		captions = findCurrentCC(_langStr);
+
+		$("#" + target)
+			.find(".ccLanguageModal").trigger('reveal:close').end()
+			.find(".videoLanguage01").hide().end()
+			.find(".cc_icon").attr("lanhidden", "true");
+	}
+
+	videoProp.MB.publish(OO.EVENTS.PLAY);
+}
+
+function offCaptions(elementId) {
+	$('#' + elementId)
+		.find(".off-caption").removeClass("disabled").end()
+		.find(".on-caption").addClass("disabled").end()
+		.find(".captionsContainer").hide().end()
+		.find(".listLanguages").hide().end()
+		.find(".ccLanguage").addClass("ccLanguage-disabled").end()
+		.find(".videoLanguage01").hide().end()
+		.find(".cc_icon").attr("lanhidden", "true");
+}
+
+function onCaptions(elementId) {
+	$('#' + elementId)
+		.find(".on-caption").removeClass("disabled").end()
+		.find(".off-caption").addClass("disabled").end()
+		.find(".captionsContainer").show().end()
+		.find(".listLanguages").show().end()
+	//.find(".videoLanguage01").show().end()
+		.find(".ccLanguage").removeClass("ccLanguage-disabled").end()
+		.find(".cc_icon").attr("lanhidden", "false");
+}
+
+function addCCButton(videoProp) {
+	$("#" + videoProp.target)
+		.find(".vod").append("<div class=\"cc_icon\" class=\"oo_button oo_toolbar_item oo_cc\" lanhidden=\"true\"></div>").end()
+		.on("click", ".cc_icon", function () {
+			if ($(this).attr("lanhidden") == "true") {
+				onCaptions(videoProp.target);
+			}
+			else {
+				offCaptions(videoProp.target);
+			}
+		});
+
+	var playerObj = $("#" + videoProp.target), vodNode = playerObj.find(".vod");
+
+	playerObj.find('.oo_controls').attr("cc", "cc");
+
+	var ccPopupHtml = '<div class="videoLanguage01"></div>';
+
+	$(vodNode).append(ccPopupHtml);
+
+	playerObj
+		.find(".videoLanguage01").hide().append($(".ccLanguageModal")).end()
+		.find(".ccLanguageModal").show().end()
+		.find(".off-caption").removeClass("disabled").end()
+		.find(".on-caption").addClass("disabled").end()
+		.find(".captionsContainer").hide().end()
+		.find(".listLanguages").hide().end()
+		.find(".ccLanguage").addClass("ccLanguage-disabled").end()
+		.find(".videoLanguage01").hide().end()
+		.find(".cc_icon").attr("lanhidden", "true");
 }

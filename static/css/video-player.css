@@ -309,6 +309,12 @@ ul.oo-toolbar {
     display: block;
     background-position: 0 0; }
 
+.p3-transcript-container .p3-transcript-mediabar {
+  display: none !important; }
+.p3-transcript-container .current_word {
+  background: #c9cacc !important;
+  color: #333 !important; }
+
 /*additional changes for responsive player*/
 .media-player-container {
   clear: both;
@@ -349,6 +355,11 @@ ul.oo-toolbar {
       /*fix for spinner not centered*/
       margin-top: 23% !important;
       margin-left: 45% !important; }
+
+.player-thumbnail {
+  position: absolute !important;
+  top: 0;
+  left: 0; }
 
 /*mobile*/
 /*remove toolbar until video player becomes responsive*/

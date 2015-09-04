@@ -1,3 +1,11 @@
+/*
+ Developer: Edward Chong [9/4/2015]
+ Descripttion:
+  Removed from bootstrap.scss because we already have a separate video-player.scss that loads dynamically.
+
+  This will be removed later as it is no longer being used.
+*/
+
 .video-thumb-m {
   img {
     border: 1px solid #444;
