@@ -385,12 +385,22 @@ ul.oo-toolbar {
     .vod {
       .oo_scrubber {
         left: 75px;
+        right:70px !important;
       }
     }
     .oo_playhead {
       background-origin: inherit;
       top: -1px !important;
     }
+  }
+  .cc_icon{
+    background-image: url('/images/shared/icon-oo-cc.png');
+    width: 24px;
+    height: 22px;
+    display: block;
+    float:right;
+    margin-top:8px;
+    margin-right:39px;
   }
 }
 

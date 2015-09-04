@@ -285,10 +285,19 @@ ul.oo-toolbar {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.5); }
   .ooyalaplayer .oo_full_controls .vod .oo_scrubber {
-    left: 75px; }
+    left: 75px;
+    right: 70px !important; }
   .ooyalaplayer .oo_full_controls .oo_playhead {
     background-origin: inherit;
     top: -1px !important; }
+  .ooyalaplayer .cc_icon {
+    background-image: url("/images/shared/icon-oo-cc.png");
+    width: 24px;
+    height: 22px;
+    display: block;
+    float: right;
+    margin-top: 8px;
+    margin-right: 39px; }
 
 .ie8 .play-button-wrapper {
   background-color: transparent;
