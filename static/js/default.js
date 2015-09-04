@@ -482,7 +482,8 @@ function loadOoyala(parentSelector) {
 
 	function init() {
 		OO.ready(function () {
-			$(parentSelector).find('.ooyalaplayer').each(function () {
+
+			$(parentSelector).find('.ooyalaplayer').each(function (indx) {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
 
@@ -497,7 +498,7 @@ function loadOoyala(parentSelector) {
 
 				if ($(this).is(':visible')) {
 					if (!$('#' + id).data('loaded')) {
-						OO.Player.create(id, videoId, {
+						window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
 							onCreate: OOCreate,
 							autoplay: false,
 							wmode: 'transparent'
