@@ -222,7 +222,7 @@ ul.oo-toolbar {
 }
 
 .ooyalaplayer {
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   > div {
     position: absolute !important;
   }
@@ -432,7 +432,15 @@ ul.oo-toolbar {
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding: 53% 0 0 0;
+  //padding: 53% 0 0 0;
+
+  > .ooyalaplayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .player-wrapper {
@@ -441,9 +449,11 @@ ul.oo-toolbar {
   > div {
     width: 100%;
     height: 100%;
-    position: static;
     z-index: 900;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .innerWrapper {
     background: #000;
@@ -472,12 +482,6 @@ ul.oo-toolbar {
       margin-left: 45% !important;
     }
   }
-}
-
-.player-thumbnail {
-  position: absolute !important;
-  top: 0;
-  left: 0;
 }
 
 /*mobile*/
