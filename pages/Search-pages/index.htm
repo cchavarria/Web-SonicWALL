@@ -4,7 +4,7 @@
 </div><!-- /* h1 heading -->
 	<div class="container visible-xs">
 		<div class="row">
-			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
+			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20 mt-0-xs">
 				<p class="mt-7 mb-0 pull-left"><span class="total_results">1585</span> results</p>
 				<div class="nowrap pull-right">
 					<span class="mr-10 mb-0">Search by :</span>
@@ -29,7 +29,7 @@
 		<section class="filters">
 			<div class="row mb-15 mb-0-xs">
 
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<div class="col-sm-3 col-xs-12 pr-15-xs">
 					<span class="visible-xs pl-10">Search all sites</span><!-- add title here for now -->
 					<select class="ms mb-15-xs" id="search_all_sites" multiple="multiple" name="search_all_sites">
 					<option value="Support">Support</option>
@@ -37,7 +37,7 @@
 					</select>
 				</div>
 
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<div class="col-sm-3 col-xs-12 pr-15-xs">
 					<span class="visible-xs pl-10">Solution</span>
 					<select class="mb-15-xs" id="solution" multiple="multiple" name="solution">
 						<option value="Database Management, Design, and Development">Database Management, Design, and Development</option>
@@ -46,7 +46,7 @@
 					</select>
 				</div>
 
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<div class="col-sm-3 col-xs-12 pr-15-xs">
 					<span class="visible-xs pl-10">Product</span>
 					<select class="mb-15-xs" id="product" multiple="multiple" name="product">
 						<option value="Toad for Oracle">Toad for Oracle</option>
@@ -56,7 +56,7 @@
 
 				</div>
 
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<div class="col-sm-3 col-xs-12 pr-15-xs">
 					<span class="visible-xs pl-10">Content Type</span>
 					<select class="mb-15-xs" id="content-type" multiple="multiple" name="content-type">
 						<option value="Case Study">Case Study</option>
@@ -79,13 +79,6 @@
 			</div>
 		</div>
 	</div><!-- /* filters -->
-	<div class="mt-40 mt-20-xs">
-		<section>
-			[[widget:search-results]]
-			[[widget:simple-pagination]]
-		</section>
-		<button class="btn btn-default btn-block hidden mt-20" id="view-more">Load More Results</button>
-	</div><!-- /* Search listing and pagination-->
 	<div class="container">
 		<div class="row">
 			<div class="alert hidden" id="no-results">
