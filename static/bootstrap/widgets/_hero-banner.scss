@@ -142,6 +142,37 @@
         left: 0;
       }
     }
+
+    &.carousel-style-1 {
+      > a {
+        > div {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      &.carousel-style-1 {
+        > a {
+          display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+          display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+          display: -ms-flexbox; /* TWEENER - IE 10 */
+          display: -webkit-flex; /* NEW - Chrome */
+          display: flex !important; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          > img {
+            max-width: 35%;
+          }
+          > div {
+            overflow: hidden;
+            padding-left: 20px;
+            margin-top: 0;
+          }
+        }
+      }
+    }
   }
 
   > .active,
@@ -178,7 +209,6 @@
   > .active.right {
     left: 100%;
   }
-
 }
 
 // Left/right controls for nav

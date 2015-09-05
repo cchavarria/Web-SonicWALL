@@ -7347,6 +7347,29 @@ i.menu-indicator {
           -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
+    .carousel-inner > .item.carousel-style-1 > a > div {
+      margin-top: 20px; }
+    @media (min-width: 768px) {
+      .carousel-inner > .item.carousel-style-1 > a {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;
+        /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Chrome */
+        display: flex !important;
+        /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .carousel-inner > .item.carousel-style-1 > a > img {
+          max-width: 35%; }
+        .carousel-inner > .item.carousel-style-1 > a > div {
+          overflow: hidden;
+          padding-left: 20px;
+          margin-top: 0; } }
   .carousel-inner > .active,
   .carousel-inner > .next,
   .carousel-inner > .prev {
@@ -8493,6 +8516,49 @@ a:hover .has-overlay h4 {
 
   .ie8 #button-flyout > a {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); } }
+.search-item {
+  border-bottom: 1px solid #ccc; }
+
+.search-item.last {
+  border-bottom: none;
+  padding-bottom: 40px; }
+
+.pager {
+  margin: 0; }
+  .pager li {
+    vertical-align: 0; }
+    .pager li > a {
+      padding: 6px 12px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 1px; }
+    .pager li a:active,
+    .pager li a:focus {
+      -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+    .pager li .icon-ui-arrowleft:before,
+    .pager li .icon-ui-arrowright:before {
+      position: relative;
+      top: -1px !important; }
+    .pager li .icon-ui-arrowleft:before {
+      content: "\e600"; }
+    .pager li .icon-ui-arrowright:before {
+      content: "\e601"; }
+    .pager li input[type=text] {
+      margin-left: 5px;
+      margin-right: 5px;
+      width: 30px;
+      text-align: center;
+      height: 35px;
+      padding: 5px; }
+    .pager li .pager-span {
+      padding-left: 5px;
+      padding-right: 5px;
+      display: inline-block;
+      background: none;
+      border: 0;
+      border-radius: 0; }
+
 .show-collapsed {
   display: none; }
 

@@ -332,7 +332,10 @@ function processFlex() {
 	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
 		$('.vertical-center').each(function () {
 			if (!$(this).data('flex-processed')) {
-				var height = $(this).height(), width = $(this).outerWidth(), child = $(this).children();
+				var height = $(this).height(),
+					width = $(this).outerWidth(),
+					child = $(this).children(),
+					centerHorizontal = $(this).hasClass('horizontal-center');
 
 				//Should only have 1 children. Multiple children might not work.
 				child.each(function () {
@@ -341,9 +344,14 @@ function processFlex() {
 					}
 
 					$(this).css({
-						paddingTop: Math.floor((height - $(this).height()) / 2),
-						paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
+						paddingTop: Math.floor((height - $(this).height()) / 2)
 					});
+
+					if(centerHorizontal) {
+						$(this).css({
+							paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
+						});
+					}
 				});
 
 				$(this).data('flex-processed', true);
@@ -351,6 +359,7 @@ function processFlex() {
 		});
 	}
 }
+
 function processEllipsis(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
 		parentSelector = 'body';
