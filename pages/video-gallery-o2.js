@@ -215,11 +215,12 @@ function init() {
 			// multiselect uncheckall
 			filterElem.find('select').each(function () {
 				if ($(this).next().is(':visible')) {
-					$(this).multipleSelect('uncheckAll');
-				}
-				else {
-					$(this).parent().show();
-					$(this).multipleSelect('uncheckAll');
+					if ($(this).attr('id') == 'video_type') {
+						$(this).multipleSelect('checkAll');
+					}
+					else {
+						$(this).multipleSelect('uncheckAll');
+					}
 				}
 			});
 
