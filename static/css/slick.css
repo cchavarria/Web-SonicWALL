@@ -148,7 +148,10 @@
     left: -8px; }
 
   .slick-next {
-    right: -8px; } }
+    right: -8px; }
+
+  .slick.col-sm-9 .slick-prev, .slick.col-sm-9 .slick-next {
+    top: 22px; } }
 @media (min-width: 1200px) {
   .slick-prev, .slick-next {
     top: 69px; }
@@ -159,7 +162,10 @@
     left: -10px; }
 
   .slick-next {
-    right: -10px; } }
+    right: -10px; }
+
+  .slick.col-sm-9 .slick-prev, .slick.col-sm-9 .slick-next {
+    top: 32px; } }
 /* Dots */
 .slick-slider {
   margin-bottom: 30px; }

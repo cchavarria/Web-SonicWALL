@@ -44,6 +44,9 @@ $(document).ready(function () {
 				target.show();
 			}
 
+			//Reset
+			$(target).css('top', '').css('marginBottom', '');
+
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
 				var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
