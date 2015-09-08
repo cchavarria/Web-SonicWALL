@@ -7181,31 +7181,31 @@ i.menu-indicator {
         margin-bottom: 0; }
 
 /* Border */
-.border-0 {
+.border-0, .no-border {
   border: none !important; }
 
 .border-grey {
-  border: 1px solid #ccc; }
+  border: 1px solid #cccccc; }
 
 .border-t-grey {
-  border-top: 1px solid #ccc; }
+  border-top: 1px solid #cccccc; }
 
 .border-b-gray {
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 1px solid #cccccc; }
 
 .border-tb-grey {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc; }
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc; }
 
 @media (max-width: 767px) {
   .no-border-xs {
     border: none !important; }
 
   .border-t-gray-xs {
-    border-top: 1px solid #aaa; }
+    border-top: 1px solid #cccccc; }
 
   .border-b-gray-xs {
-    border-bottom: 1px solid #aaa; } }
+    border-bottom: 1px solid #cccccc; } }
 /*
   Description: Hero banner
   Author: Elnaz Doostdar
