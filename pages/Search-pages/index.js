@@ -33,12 +33,12 @@ else {
 }
 
 function init() {
-	$('#search_all_sites').multipleSelect({
-		placeholder: "Search all sites",
-		multiple: true,
-		selectAll: true,
-		single: false,
-		multipleWidth: 155
+	$('#sites').multipleSelect({
+		placeholder: "Sites",
+		minimumCountSelected: 0,
+		countSelected: 'Sites&nbsp;(#)',
+		selectAllText: 'Search all sites',
+		allSelected: 'Search all sites'
 	});
 
 	$('#solution').multipleSelect({
