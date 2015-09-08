@@ -142,7 +142,7 @@ function init() {
 						$(this).multipleSelect({
 							placeholder: title,
 							minimumCountSelected: 0,
-							countSelected: getLocalizedContent('LabelVideoType') + '&nbsp;(#)',
+							countSelected: getLocalizedContent('LabelVideoTypes') + '&nbsp;(#)',
 							selectAllText: getLocalizedContent('LabelAllVideoTypes'),
 							allSelected: getLocalizedContent('LabelAllVideoTypes')
 						});
@@ -157,7 +157,7 @@ function init() {
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['LabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoType', 'LabelAllVideoTypes']).done(function () {
+		getLocalizedContent(['LabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoTypes', 'LabelAllVideoTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
