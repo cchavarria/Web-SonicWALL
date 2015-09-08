@@ -5,11 +5,7 @@
 }
 
 .border-grey {
-  border: 1px solid #cbcbcb;
-}
-
-.border-grey-2 {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
 }
 
 .border-t-grey {
@@ -17,14 +13,23 @@
 }
 
 .border-b-gray {
-  border-bottom: 1px solid #aaa;
-}
-
-.border-t-gray {
-  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #ccc;
 }
 
 .border-tb-grey {
-  border-top: 1px solid #cdcdcd;
-  border-bottom: 1px solid #cdcdcd;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 767px) {
+  //Mobile - XS
+  .no-border-xs {
+    border: none !important;
+  }
+  .border-t-gray-xs {
+    border-top: 1px solid #aaa;
+  }
+  .border-b-gray-xs {
+    border-bottom: 1px solid #aaa;
+  }
 }
