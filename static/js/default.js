@@ -270,7 +270,7 @@ $(document).ready(function () {
 					cfg.slidesToShow = 1;
 				}
 				else if (pageType == 1) {
-					cfg.slidesToShow = 3;
+					cfg.slidesToShow = $(this).data('slide-sm') || 3;
 				}
 				else if (pageType == 2) {
 					cfg.slidesToShow = $(this).data('slide-md') || 4;
