@@ -8527,7 +8527,7 @@ a:hover .has-overlay h4 {
     .pager li .icon-ui-arrowleft:before,
     .pager li .icon-ui-arrowright:before {
       position: relative;
-      top: -1px !important; }
+      top: 2px !important; }
     .pager li .icon-ui-arrowleft:before {
       content: "\e600"; }
     .pager li .icon-ui-arrowright:before {
