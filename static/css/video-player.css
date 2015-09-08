@@ -316,7 +316,6 @@ ul.oo-toolbar {
 /*additional changes for responsive player*/
 .media-player-container {
   clear: both;
-  overflow: hidden;
   width: 100%;
   position: relative; }
   .media-player-container > .ooyalaplayer {
