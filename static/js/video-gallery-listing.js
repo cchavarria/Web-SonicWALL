@@ -402,10 +402,6 @@ function populateListing(clear) {
 			processFlex();
 		}, 500);
 
-		//TODO: total record counts < pages x 16 or 12 hide View More button
-
-		dataopt.total = 20; //testing purpose.
-
 		if (dataopt.total) {
 			$('#no-results').addClass('hidden');
 
