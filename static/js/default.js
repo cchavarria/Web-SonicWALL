@@ -500,7 +500,13 @@ function loadOoyala(parentSelector) {
 
 				if ($(this).is(':visible') && videoId !== undefined) {
 					if (!$('#' + id).data('loaded')) {
-						$(this).css('height', Math.floor(($(this).width() * 9) / 16));
+						var videoHeight = Math.floor(($(this).width() * 9) / 16);
+
+						$(this).css('height', videoHeight);
+
+						if($(this).parent().hasClass('media-player-container')) {
+							$(this).parent().css('height', videoHeight);
+						}
 
 						window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
 							onCreate: OOCreate,

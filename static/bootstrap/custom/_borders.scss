@@ -1,0 +1,35 @@
+/* Border */
+
+.border-0, .no-border {
+  border: none !important;
+}
+
+.border-grey {
+  border: 1px solid $dell-gray-stroke;
+}
+
+.border-t-grey {
+  border-top: 1px solid $dell-gray-stroke;
+}
+
+.border-b-gray {
+  border-bottom: 1px solid $dell-gray-stroke;
+}
+
+.border-tb-grey {
+  border-top: 1px solid $dell-gray-stroke;
+  border-bottom: 1px solid $dell-gray-stroke;
+}
+
+@media (max-width: 767px) {
+  //Mobile - XS
+  .no-border-xs {
+    border: none !important;
+  }
+  .border-t-gray-xs {
+    border-top: 1px solid $dell-gray-stroke;
+  }
+  .border-b-gray-xs {
+    border-bottom: 1px solid $dell-gray-stroke;
+  }
+}

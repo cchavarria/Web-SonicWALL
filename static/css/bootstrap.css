@@ -4973,28 +4973,6 @@ button.close {
 .bg-grey {
   background-color: #f9f9f9; }
 
-.border-0 {
-  border: none !important; }
-
-.border-grey {
-  border: 1px solid #cbcbcb; }
-
-.border-grey-2 {
-  border: 1px solid #ddd; }
-
-.border-t-grey {
-  border-top: 1px solid #ccc; }
-
-.border-b-gray {
-  border-bottom: 1px solid #aaa; }
-
-.border-t-gray {
-  border-top: 1px solid #aaa; }
-
-.border-tb-grey {
-  border-top: 1px solid #cdcdcd;
-  border-bottom: 1px solid #cdcdcd; }
-
 .anchor-blue {
   color: #007db8; }
 
@@ -5085,15 +5063,6 @@ iframe {
   #right-rail-form label {
     padding-top: 8px;
     padding-bottom: 0; }
-
-  .no-border-xs {
-    border: none !important; }
-
-  .border-t-gray-xs {
-    border-top: 1px solid #aaa; }
-
-  .border-b-gray-xs {
-    border-bottom: 1px solid #aaa; }
 
   .center-block-xs {
     display: block;
@@ -7211,6 +7180,32 @@ i.menu-indicator {
         padding: 0 23px;
         margin-bottom: 0; }
 
+/* Border */
+.border-0, .no-border {
+  border: none !important; }
+
+.border-grey {
+  border: 1px solid #cccccc; }
+
+.border-t-grey {
+  border-top: 1px solid #cccccc; }
+
+.border-b-gray {
+  border-bottom: 1px solid #cccccc; }
+
+.border-tb-grey {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc; }
+
+@media (max-width: 767px) {
+  .no-border-xs {
+    border: none !important; }
+
+  .border-t-gray-xs {
+    border-top: 1px solid #cccccc; }
+
+  .border-b-gray-xs {
+    border-bottom: 1px solid #cccccc; } }
 /*
   Description: Hero banner
   Author: Elnaz Doostdar
@@ -8516,13 +8511,6 @@ a:hover .has-overlay h4 {
 
   .ie8 #button-flyout > a {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); } }
-.search-item {
-  border-bottom: 1px solid #ccc; }
-
-.search-item.last {
-  border-bottom: none;
-  padding-bottom: 40px; }
-
 .pager {
   margin: 0; }
   .pager li {
@@ -8539,7 +8527,7 @@ a:hover .has-overlay h4 {
     .pager li .icon-ui-arrowleft:before,
     .pager li .icon-ui-arrowright:before {
       position: relative;
-      top: -1px !important; }
+      top: 2px !important; }
     .pager li .icon-ui-arrowleft:before {
       content: "\e600"; }
     .pager li .icon-ui-arrowright:before {
