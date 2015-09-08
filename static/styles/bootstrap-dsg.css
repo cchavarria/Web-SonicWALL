@@ -6053,21 +6053,6 @@
     color: #444; }
   .bootstrap .bg-grey {
     background-color: #f9f9f9; }
-  .bootstrap .border-0 {
-    border: none !important; }
-  .bootstrap .border-grey {
-    border: 1px solid #cbcbcb; }
-  .bootstrap .border-grey-2 {
-    border: 1px solid #ddd; }
-  .bootstrap .border-t-grey {
-    border-top: 1px solid #ccc; }
-  .bootstrap .border-b-gray {
-    border-bottom: 1px solid #aaa; }
-  .bootstrap .border-t-gray {
-    border-top: 1px solid #aaa; }
-  .bootstrap .border-tb-grey {
-    border-top: 1px solid #cdcdcd;
-    border-bottom: 1px solid #cdcdcd; }
   .bootstrap .anchor-blue {
     color: #007db8; }
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {

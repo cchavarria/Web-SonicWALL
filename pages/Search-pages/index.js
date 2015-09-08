@@ -1,10 +1,7 @@
-/**
-* Created by jleon on 9/1/2015.
-*/
-
 if ($.fn.multipleSelect) {
 	init();
-} else {
+}
+else {
 	// load multiple select stylesheet
 	if ($('html').hasClass('ie8')) {
 		$('<link/>', {rel: 'stylesheet', href: '/static/library/css/multiple-select.css'}).appendTo('head');
@@ -63,5 +60,4 @@ function init() {
 		selectAll: false,
 		single: true
 	});
-
 }
