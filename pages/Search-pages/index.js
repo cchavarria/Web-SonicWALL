@@ -1,10 +1,7 @@
-/**
-* Created by jleon on 9/1/2015.
-*/
-
 if ($.fn.multipleSelect) {
 	init();
-} else {
+}
+else {
 	// load multiple select stylesheet
 	if ($('html').hasClass('ie8')) {
 		$('<link/>', {rel: 'stylesheet', href: '/static/library/css/multiple-select.css'}).appendTo('head');
@@ -36,12 +33,12 @@ if ($.fn.multipleSelect) {
 }
 
 function init() {
-	$('#search_all_sites').multipleSelect({
-		placeholder: "Search all sites",
-		multiple: true,
-		selectAll: true,
-		single: false,
-		multipleWidth: 155
+	$('#sites').multipleSelect({
+		placeholder: "Sites",
+		minimumCountSelected: 0,
+		countSelected: 'Sites&nbsp;(#)',
+		selectAllText: 'Search all sites',
+		allSelected: 'Search all sites'
 	});
 
 	$('#solution').multipleSelect({
@@ -63,5 +60,4 @@ function init() {
 		selectAll: false,
 		single: true
 	});
-
 }

@@ -939,9 +939,7 @@
       color: #00496c;
       text-decoration: underline; }
     .bootstrap a:focus {
-      outline: thin dotted;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px; }
+      outline: none; }
   .bootstrap figure {
     margin: 0; }
   .bootstrap img {
@@ -2330,9 +2328,7 @@
   .bootstrap input[type="file"]:focus,
   .bootstrap input[type="radio"]:focus,
   .bootstrap input[type="checkbox"]:focus {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px; }
+    outline: none; }
   .bootstrap output {
     display: block;
     padding-top: 7px;
@@ -2790,9 +2786,7 @@
     -ms-user-select: none;
     user-select: none; }
     .bootstrap .btn:focus, .bootstrap .btn.focus, .bootstrap .btn:active:focus, .bootstrap .btn:active.focus, .bootstrap .btn.active:focus, .bootstrap .btn.active.focus {
-      outline: thin dotted;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px; }
+      outline: none; }
     .bootstrap .btn:hover, .bootstrap .btn:focus, .bootstrap .btn.focus {
       color: #007db8;
       text-decoration: none; }
@@ -6053,21 +6047,6 @@
     color: #444; }
   .bootstrap .bg-grey {
     background-color: #f9f9f9; }
-  .bootstrap .border-0 {
-    border: none !important; }
-  .bootstrap .border-grey {
-    border: 1px solid #cbcbcb; }
-  .bootstrap .border-grey-2 {
-    border: 1px solid #ddd; }
-  .bootstrap .border-t-grey {
-    border-top: 1px solid #ccc; }
-  .bootstrap .border-b-gray {
-    border-bottom: 1px solid #aaa; }
-  .bootstrap .border-t-gray {
-    border-top: 1px solid #aaa; }
-  .bootstrap .border-tb-grey {
-    border-top: 1px solid #cdcdcd;
-    border-bottom: 1px solid #cdcdcd; }
   .bootstrap .anchor-blue {
     color: #007db8; }
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {
@@ -6138,12 +6117,6 @@
     .bootstrap #right-rail-form label {
       padding-top: 8px;
       padding-bottom: 0; }
-    .bootstrap .no-border-xs {
-      border: none !important; }
-    .bootstrap .border-t-gray-xs {
-      border-top: 1px solid #aaa; }
-    .bootstrap .border-b-gray-xs {
-      border-bottom: 1px solid #aaa; }
     .bootstrap .center-block-xs {
       display: block;
       margin-left: auto;
