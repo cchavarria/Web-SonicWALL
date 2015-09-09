@@ -351,6 +351,11 @@ function init() {
 			if (elem.multipleSelect('getSelects') != elem.val() || elem.attr('id') == 'language') {
 				var value = '';
 
+				// default language override
+				if (elem.attr('id') == 'language' && val.length > 1) {
+					var digitlocal = setLanguageCode(val);
+					elem.multipleSelect('setSelects', [digitlocal]);
+				}
 				elem.find('option').each(function () {
 					if ($(this).text().replace(/[\s\W]/g, '').toLowerCase() == val) {
 						elem.multipleSelect('setSelects', [$(this).val()]);
@@ -544,90 +549,56 @@ function buildAHashTag() {
 }
 
 function getLanguageCode() {
+	var langval = 53;
 	if (typeof RootPath == 'string') {
 		switch (RootPath) {
 			case '/br-pt/':
-				initlangval = 139;
+				langval = 139;
 				break;
 			case '/mx-es/':
-				initlangval = 156;
+				langval = 156;
 				break;
 			case '/cn-zh/':
-				initlangval = 202;
+				langval = 202;
 				break;
 			case '/jp-ja/':
-				initlangval = 109;
+				langval = 109;
 				break;
 			case '/fr-fr/':
-				initlangval = 75;
+				langval = 75;
 				break;
 			case '/de-de/':
-				initlangval = 86;
+				langval = 86;
 				break;
-			default:
-				initlangval = 53;
-				break;
-		}
-
-		if (location.host == 'stage-software-dell-com') {
-			switch (RootPath) {
-				case '/br-pt/':
-					initlangval = 139;
-					break;
-				case '/mx-es/':
-					initlangval = 156;
-					break;
-				case '/cn-zh/':
-					initlangval = 202;
-					break;
-				case '/jp-ja/':
-					initlangval = 109;
-					break;
-				case '/fr-fr/':
-					initlangval = 75;
-					break;
-				case '/de-de/':
-					initlangval = 86;
-					break;
-				default:
-					initlangval = 53;
-					break;
-			}
 		}
 	}
-
-	return initlangval;
+	return langval;
 }
 
 
 function setLanguageCode(localstr) {
-	var initlangval = 53;
-
+	var langval = 53;
 	switch (localstr) {
 		case 'portuguese':
-			initlangval = 139;
+			langval = 139;
 			break;
 		case 'spanish':
-			initlangval = 156;
+			langval = 156;
 			break;
 		case 'chinese':
-			initlangval = 202;
+			langval = 202;
 			break;
 		case 'japanese':
-			initlangval = 109;
+			langval = 109;
 			break;
 		case 'french':
-			initlangval = 75;
+			langval = 75;
 			break;
 		case 'german':
-			initlangval = 86;
-			break;
-		default:
-			initlangval = 53;
+			langval = 86;
 			break;
 	}
-
-	return initlangval;
+	return langval;
 }
 
 // iterates selected filters and createsd dataset for ajax call
