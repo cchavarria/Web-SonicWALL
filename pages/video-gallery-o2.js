@@ -13,6 +13,7 @@ var populateListingPending = false, //prevent populate listing to load more than
 		page = 1,
 		rowContainer = $('.listing-entries').find('.row'),
 		hashMap = {
+			video_type: '',
 			product: 'byproduct',
 			solution: 'bysolution',
 			brand: 'bybrand'
@@ -166,9 +167,9 @@ function init() {
 
 			//When filters are loaded, execute function 'hashchange'
 			$.when.apply(this, ajaxArr).done(function () {
-				//if (location.hash.length) {
-				//	parseHashTag();
-				//}
+				if (location.hash.length) {
+					parseHashTag();
+				}
 
 				filterElem.data('continue', true).on('change', 'select', function () {
 					if (filterElem.data('continue') && filterInterval === null) {
@@ -341,7 +342,7 @@ function populateListing(clear) {
 		return false;
 	}
 
-	//buildAHashTag();
+	buildAHashTag();
 
 	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');;
 
@@ -373,7 +374,7 @@ function populateListing(clear) {
 		}
 
 		$.each(dataopt.data, function (key, val) {
-			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
+			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12 mt-30" style="display: none;"> ' +
 					'<a href="' + val.url + '">' +
 					'  <div class="img-border">' +
 					'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt=""> ' +
@@ -436,7 +437,7 @@ function buildAHashTag() {
 	$.each(hashMap, function (id, prefix) {
 		var elem = $('#' + id), val = elem.multipleSelect('getSelects');
 
-		if (id == 'content_type') {
+		if (id == 'video_type') {
 			if (val.length == 1) {
 				elem.find('option').each(function() {
 					if($(this).attr('value') == val[0]) {
@@ -447,7 +448,7 @@ function buildAHashTag() {
 				});
 			}
 		}
-		else if (id != 'language' || (id == 'language' && parseInt(val[0]) != getLanguageCode())) {
+		else {
 			elem.find('option').each(function() {
 				if($(this).attr('value') == val[0]) {
 					hashArr.push(prefix + $.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
