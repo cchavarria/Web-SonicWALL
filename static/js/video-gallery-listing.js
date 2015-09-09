@@ -157,7 +157,7 @@ function init() {
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['LabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoTypes', 'LabelAllVideoTypes']).done(function () {
+		getLocalizedContent(['EventLabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoTypes', 'LabelAllVideoTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -380,16 +380,17 @@ function populateListing(clear) {
 				'		 <div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>' +
 				'  </div>' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
+			htmlFragment += '</a>';
 
 			if (val.Desc != null) {
 				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.Desc + ' </p>';
 			}
 
 			if (val.Duration != '') {
-				htmlFragment += '<p>' + getLocalizedContent('LabelDuration') + ': ' + val.Duration + '</p>';
+				htmlFragment += '<p>' + getLocalizedContent('EventLabelDuration') + ': ' + val.Duration + '</p>';
 			}
 
-			htmlFragment += '</a></div>';
+			htmlFragment += '</div>';
 
 			rowContainer.append(htmlFragment);
 

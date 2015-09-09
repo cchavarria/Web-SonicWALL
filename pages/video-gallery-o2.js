@@ -3,20 +3,20 @@ if (typeof RootPath == 'undefined') {
 }
 
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
-	entriesPerType = { //xs,sm - need to consult with cindy chan.
-		'0': 6,
-		'1': 12,
-		'2': 16,
-		'3': 16
-	},
-	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/video-gallery/').replace('//', '/'),
-	page = 1,
-	rowContainer = $('.listing-entries').find('.row'),
-	hashMap = {
-		product: 'byproduct',
-		solution: 'bysolution',
-		brand: 'bybrand'
-	};
+		entriesPerType = { //xs,sm - need to consult with cindy chan.
+			'0': 6,
+			'1': 12,
+			'2': 16,
+			'3': 16
+		},
+		endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/video-gallery/').replace('//', '/'),
+		page = 1,
+		rowContainer = $('.listing-entries').find('.row'),
+		hashMap = {
+			product: 'byproduct',
+			solution: 'bysolution',
+			brand: 'bybrand'
+		};
 
 if ($.fn.multipleSelect) {
 	init();
@@ -54,110 +54,110 @@ if ($.fn.multipleSelect) {
 function init() {
 	// Local variable value
 	var ajaxArr = [],
-		filterMap = {
-			solution: {
-				data: {"type": "video solution"},
-				init: true,
-				callback: function (title, prevValue) {
-					if (typeof $(this).data('multipleSelect') == 'object') {
-						$(this).next().find('ul').remove();
-						$(this).multipleSelect('refresh');
-						$(this).multipleSelect('setSelects', [prevValue]);
-					}
-					else {
-						$(this).parent().removeClass('hidden');
-						$(this).multipleSelect({
-							placeholder: getLocalizedContent('LabelAllSolutions'),
-							multiple: false,
-							selectAll: false,
-							single: true,
-							onClick: function (view) {
-								if (view.value != '') {
-									$('#product').multipleSelect('setSelects', []);
-								}
-							}
-						});
-						$(this).multipleSelect("uncheckAll");
-					}
-				}
-			},
-			brand: {
-				data: {"type": "video product line"},
-				init: true,
-				callback: function (title) {
-					$(this).parent().removeClass('hidden');
-					$(this).multipleSelect({
-						placeholder: getLocalizedContent('LabelAllProductLines'),
-						multiple: false,
-						selectAll: false,
-						single: true,
-						onClick: function (view) {
-							var obj = {brand: view.value};
-
-							$.each(['product', 'solution'], function (i, j) {
-								ajaxArr.push(populateDropdowns(j, $.extend({}, filterMap[j].data, obj), filterMap[j].callback));
-							});
+			filterMap = {
+				solution: {
+					data: {"type": "video solution"},
+					init: true,
+					callback: function (title, prevValue) {
+						if (typeof $(this).data('multipleSelect') == 'object') {
+							$(this).next().find('ul').remove();
+							$(this).multipleSelect('refresh');
+							$(this).multipleSelect('setSelects', [prevValue]);
 						}
-					});
-					$(this).multipleSelect("uncheckAll");
-				}
-			},
-			product: {
-				data: {"type": "video product"},
-				init: true,
-				callback: function (title, prevValue) {
-					if (typeof $(this).data('multipleSelect') == 'object') {
-						$(this).next().find('ul').remove();
-						$(this).multipleSelect('refresh');
-						$(this).multipleSelect('setSelects', [prevValue]);
+						else {
+							$(this).parent().removeClass('hidden');
+							$(this).multipleSelect({
+								placeholder: getLocalizedContent('LabelAllSolutions'),
+								multiple: false,
+								selectAll: false,
+								single: true,
+								onClick: function (view) {
+									if (view.value != '') {
+										$('#product').multipleSelect('setSelects', []);
+									}
+								}
+							});
+							$(this).multipleSelect("uncheckAll");
+						}
 					}
-					else {
+				},
+				brand: {
+					data: {"type": "video product line"},
+					init: true,
+					callback: function (title) {
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
-							placeholder: getLocalizedContent('LabelAllProducts'),
+							placeholder: getLocalizedContent('LabelAllProductLines'),
 							multiple: false,
 							selectAll: false,
 							single: true,
 							onClick: function (view) {
-								if (view.value != '') {
-									$('#solution').multipleSelect('setSelects', []);
-								}
+								var obj = {brand: view.value};
+
+								$.each(['product', 'solution'], function (i, j) {
+									ajaxArr.push(populateDropdowns(j, $.extend({}, filterMap[j].data, obj), filterMap[j].callback));
+								});
 							}
 						});
 						$(this).multipleSelect("uncheckAll");
 					}
-				}
-			},
-			video_type: {
-				data: {"type": "video type"},
-				init: true,
-				callback: function (title, prevValue) {
-					if (typeof $(this).data('multipleSelect') == 'object') {
-						$(this).next().find('ul').remove();
-						$(this).multipleSelect('refresh');
-						$(this).multipleSelect('setSelects', [prevValue]);
+				},
+				product: {
+					data: {"type": "video product"},
+					init: true,
+					callback: function (title, prevValue) {
+						if (typeof $(this).data('multipleSelect') == 'object') {
+							$(this).next().find('ul').remove();
+							$(this).multipleSelect('refresh');
+							$(this).multipleSelect('setSelects', [prevValue]);
+						}
+						else {
+							$(this).parent().removeClass('hidden');
+							$(this).multipleSelect({
+								placeholder: getLocalizedContent('LabelAllProducts'),
+								multiple: false,
+								selectAll: false,
+								single: true,
+								onClick: function (view) {
+									if (view.value != '') {
+										$('#solution').multipleSelect('setSelects', []);
+									}
+								}
+							});
+							$(this).multipleSelect("uncheckAll");
+						}
 					}
-					else {
-						$(this).parent().removeClass('hidden');
-						$(this).multipleSelect({
-							placeholder: title,
-							minimumCountSelected: 0,
-							countSelected: getLocalizedContent('LabelVideoTypes') + '&nbsp;(#)',
-							selectAllText: getLocalizedContent('LabelAllVideoTypes'),
-							allSelected: getLocalizedContent('LabelAllVideoTypes')
-						});
-						$(this).multipleSelect("checkAll");
+				},
+				video_type: {
+					data: {"type": "video type"},
+					init: true,
+					callback: function (title, prevValue) {
+						if (typeof $(this).data('multipleSelect') == 'object') {
+							$(this).next().find('ul').remove();
+							$(this).multipleSelect('refresh');
+							$(this).multipleSelect('setSelects', [prevValue]);
+						}
+						else {
+							$(this).parent().removeClass('hidden');
+							$(this).multipleSelect({
+								placeholder: title,
+								minimumCountSelected: 0,
+								countSelected: getLocalizedContent('LabelVideoTypes') + '&nbsp;(#)',
+								selectAllText: getLocalizedContent('LabelAllVideoTypes'),
+								allSelected: getLocalizedContent('LabelAllVideoTypes')
+							});
+							$(this).multipleSelect("checkAll");
+						}
 					}
 				}
-			}
-		};
+			};
 
 	$(document).ready(function () {
 		// filters event handler
 		var filterInterval = null, filterElem = $('.filters');
 
 		//Populate all "filter by" dropdowns
-		getLocalizedContent(['LabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoTypes', 'LabelAllVideoTypes']).done(function () {
+		getLocalizedContent(['EventLabelDuration','LabelAllProducts', 'LabelAllProductLines', 'LabelAllSolutions', 'LabelVideoTypes', 'LabelAllVideoTypes']).done(function () {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
@@ -202,7 +202,7 @@ function init() {
 				setFilterNum();
 				populateListing();
 			}).fail(function () {
-				alert('Failed');
+				console.log('Failed');
 			});
 		});
 
@@ -253,7 +253,7 @@ function init() {
 	function parseHashTag() {
 		//Note: This should only be called once if hash tag exist on page load.
 		var hash = location.hash.substr(1),
-			hashArr = hash.split('_');
+				hashArr = hash.split('_');
 
 		$.each(hashMap, function (filterName, filterMapTo) {
 			var regexp = new RegExp('^' + filterMapTo, 'i');
@@ -374,22 +374,23 @@ function populateListing(clear) {
 
 		$.each(dataopt.data, function (key, val) {
 			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
-				'<a href="' + val.url + '">' +
-				'  <div class="img-border">' +
-				'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt=""> ' +
-				'		 <div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>' +
-				'  </div>' +
-				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
+					'<a href="' + val.url + '">' +
+					'  <div class="img-border">' +
+					'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt=""> ' +
+					'		 <div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>' +
+					'  </div>' +
+					'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
+			htmlFragment += '</a>';
 
 			if (val.Desc != null) {
 				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.Desc + ' </p>';
 			}
 
 			if (val.Duration != '') {
-				htmlFragment += '<p>' + getLocalizedContent('LabelDuration') + ': ' + val.Duration + '</p>';
+				htmlFragment += '<p>' + getLocalizedContent('EventLabelDuration') + ': ' + val.Duration + '</p>';
 			}
 
-			htmlFragment += '</a></div>';
+			htmlFragment += '</div>';
 
 			rowContainer.append(htmlFragment);
 
@@ -401,10 +402,6 @@ function populateListing(clear) {
 		setTimeout(function() {
 			processFlex();
 		}, 500);
-
-		//TODO: total record counts < pages x 16 or 12 hide View More button
-
-		dataopt.total = 20; //testing purpose.
 
 		if (dataopt.total) {
 			$('#no-results').addClass('hidden');
@@ -535,17 +532,17 @@ function getDataSet(incrementPage) {
 	page = incrementPage ? ++page : 1;
 
 	var dataset = {
-			"type": "video list",
-			"page": page,
-			"pagesize": entriesPerType[pageType]
-		},
-		mapping = {
-			videotypes: 'video_type',
-			product: 'product',
-			solution: 'solution',
-			brand: 'brand'
-		},
-		hasError = false;
+				"type": "video list",
+				"page": page,
+				"pagesize": entriesPerType[pageType]
+			},
+			mapping = {
+				videoType: 'video_type',
+				product: 'product',
+				solution: 'solution',
+				brand: 'brand'
+			},
+			hasError = false;
 
 	$.each(mapping, function (key, id) {
 		var val = $('#' + id).val();
