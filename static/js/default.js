@@ -289,6 +289,16 @@ $(document).ready(function () {
 
 				if ($(this).find('> div').length > cfg.slidesToShow) {
 					$(this).slick(cfg);
+          if ($(this).hasClass('slick-initialized')) {
+						var arrowsPos = 0,
+								firstImage = $('.slick').find('img:first');
+						if(firstImage.parent().hasClass('img-crop')){
+							arrowsPos = firstImage.parent().height()/2 - 30;
+						}else{
+							arrowsPos = firstImage.height()/2 - 30;
+						}
+						$(this).find('.slick-arrow').css('top', arrowsPos + 'px');
+          }
 				}
 			});
 		}
