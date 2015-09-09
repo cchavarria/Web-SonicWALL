@@ -297,7 +297,7 @@ $(document).ready(function () {
 						}else{
 							arrowsPos = firstImage.height()/2 - 30;
 						}
-						$(this).find('.slick-arrow').css('top', arrowsPos + 'px');
+						$(this).find('.slick-arrow').css('top', arrowsPos );
           }
 				}
 			});
