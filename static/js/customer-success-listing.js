@@ -260,7 +260,7 @@ function init() {
 				setFilterNum();
 				populateListing();
 			}).fail(function () {
-				alert('Failed');
+				console.log('Failed');
 			});
 		});
 
