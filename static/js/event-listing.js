@@ -209,7 +209,7 @@ function init() {
 				data: {"type": "event state"},
 				init: false,
 				callback: function (title) {
-					if($(this).find('option').length > 1) {
+					if ($(this).find('option').length > 1) {
 						$(this).parent().removeClass('hidden').show().find('.ms-parent').removeClass('hidden').show();
 
 						if (typeof $(this).data('multipleSelect') == 'object') {
@@ -316,7 +316,7 @@ function init() {
 					else {
 						$(this).multipleSelect('uncheckAll');
 
-						if($(this).attr('id') == 'state_province') {
+						if ($(this).attr('id') == 'state_province') {
 							$(this).parent().hide();
 						}
 					}
@@ -327,7 +327,7 @@ function init() {
 				ajaxArr.push(populateDropdowns(j, filterMap[j].data, filterMap[j].callback));
 			});
 
-			$.when(ajaxArr).done(function() {
+			$.when(ajaxArr).done(function () {
 				ajaxArr = [];
 				filterElem.data('continue', true);
 				populateListing(true);
@@ -374,7 +374,7 @@ function init() {
 				var value = '';
 
 				// default language override
-				if(elem.attr('id') == 'language' && val.length > 1) {
+				if (elem.attr('id') == 'language' && val.length > 1) {
 					var digitlocal = setLanguageCode(val);
 					elem.multipleSelect('setSelects', [digitlocal]);
 				}
@@ -388,7 +388,7 @@ function init() {
 					}
 				});
 
-				if(elem.attr('id') == 'brand' && value != '') {
+				if (elem.attr('id') == 'brand' && value != '') {
 					$.each(['product', 'solution'], function (i, j) {
 						populateDropdowns(j, $.extend({}, filterMap[j].data, {brand: value}), filterMap[j].callback);
 					});
@@ -409,16 +409,16 @@ function init() {
 			dataType: 'JSON',
 			data: data
 		}).done(function (dataopt) {
-			if(dropdown != 'event_type') {
+			if (dropdown != 'event_type') {
 				dataopt.title = allDropdownLabel[dropdown];
 				elem.append('<option value="">' + dataopt.title + '</option>');
 			}
 
 			$.each(dataopt.data, function (key, val) {
-				if(val.englishname) {
+				if (val.englishname) {
 					elem.append('<option value="' + val.id + '" data-name="' + val.englishname + '">' + val.value + '</option>');
 				}
-				else if(val.englishvalue) {
+				else if (val.englishvalue) {
 					elem.append('<option value="' + val.id + '" data-name="' + val.englishvalue + '">' + val.value + '</option>');
 				}
 				else {
@@ -450,7 +450,8 @@ function populateListing(clear) {
 
 	buildAHashTag();
 
-	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');;
+	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');
+	;
 
 	if (dataset === false) {
 		rowContainer.empty();
@@ -509,7 +510,7 @@ function populateListing(clear) {
 				htmlFragment += '<p>' + getLocalizedContent('EventLabelRecordedDate') + ': ' + val.recordeddate + '</p>';
 			}
 
-			if(val.location) {
+			if (val.location) {
 				htmlFragment += '<p>' + getLocalizedContent('EventLabelLocation') + ': ' + val.location + '</p>';
 			}
 
@@ -558,8 +559,8 @@ function buildAHashTag() {
 
 		if (id == 'event_type') {
 			if (val.length == 1) {
-				elem.find('option').each(function() {
-					if($(this).attr('value') == val[0]) {
+				elem.find('option').each(function () {
+					if ($(this).attr('value') == val[0]) {
 						hashArr.push($.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
 
 						return false;
@@ -568,8 +569,8 @@ function buildAHashTag() {
 			}
 		}
 		else if (id != 'language' || (id == 'language' && parseInt(val[0]) != getLanguageCode())) {
-			elem.find('option').each(function() {
-				if($(this).attr('value') == val[0]) {
+			elem.find('option').each(function () {
+				if ($(this).attr('value') == val[0]) {
 					hashArr.push(prefix + $.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
 
 					return false;
@@ -578,7 +579,7 @@ function buildAHashTag() {
 		}
 	});
 
-	if(hashArr.length) {
+	if (hashArr.length) {
 		var newHash = hashArr.join('_');
 		location.hash = (newHash == '') ? ' ' : newHash;
 	}
@@ -590,89 +591,57 @@ function buildAHashTag() {
 }
 
 function getLanguageCode() {
-	if (typeof RootPath == 'string') {
-		switch (RootPath) {
-			case '/br-pt/':
-				initlangval = 139;
-				break;
-			case '/mx-es/':
-				initlangval = 156;
-				break;
-			case '/cn-zh/':
-				initlangval = 202;
-				break;
-			case '/jp-ja/':
-				initlangval = 109;
-				break;
-			case '/fr-fr/':
-				initlangval = 75;
-				break;
-			case '/de-de/':
-				initlangval = 86;
-				break;
-			default:
-				initlangval = 53;
-				break;
-		}
+	var langval = 53;
 
-		if (location.host == 'stage-software-dell-com') {
-			switch (RootPath) {
-				case '/br-pt/':
-					initlangval = 139;
-					break;
-				case '/mx-es/':
-					initlangval = 156;
-					break;
-				case '/cn-zh/':
-					initlangval = 202;
-					break;
-				case '/jp-ja/':
-					initlangval = 109;
-					break;
-				case '/fr-fr/':
-					initlangval = 75;
-					break;
-				case '/de-de/':
-					initlangval = 86;
-					break;
-				default:
-					initlangval = 53;
-					break;
-			}
-		}
+	switch (RootPath) {
+		case '/br-pt/':
+			langval = 139;
+			break;
+		case '/mx-es/':
+			langval = 156;
+			break;
+		case '/cn-zh/':
+			langval = 202;
+			break;
+		case '/jp-ja/':
+			langval = 109;
+			break;
+		case '/fr-fr/':
+			langval = 75;
+			break;
+		case '/de-de/':
+			langval = 86;
+			break;
 	}
 
-	return initlangval;
+	return langval;
 }
 
 function setLanguageCode(localstr) {
-	var initlangval = 53;
+	var langval = 53;
 
 	switch (localstr) {
 		case 'portuguese':
-			initlangval = 139;
+			langval = 139;
 			break;
 		case 'spanish':
-			initlangval = 156;
+			langval = 156;
 			break;
 		case 'chinese':
-			initlangval = 202;
+			langval = 202;
 			break;
 		case 'japanese':
-			initlangval = 109;
+			langval = 109;
 			break;
 		case 'french':
-			initlangval = 75;
+			langval = 75;
 			break;
 		case 'german':
-			initlangval = 86;
-			break;
-		default:
-			initlangval = 53;
+			langval = 86;
 			break;
 	}
 
-	return initlangval;
+	return langval;
 }
 
 
@@ -724,12 +693,12 @@ function getDataSet(incrementPage) {
 function setFilterNum() {
 	var counter = 0;
 
-	$('.filters').find('select').each(function() {
-		if(($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
+	$('.filters').find('select').each(function () {
+		if (($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
 			var selects = $(this).multipleSelect('getSelects');
 
-			if(selects.length == 1) {
-				if(selects[0] != '') {
+			if (selects.length == 1) {
+				if (selects[0] != '') {
 					counter++;
 				}
 			}
