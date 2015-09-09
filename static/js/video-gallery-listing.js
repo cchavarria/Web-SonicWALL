@@ -9,7 +9,7 @@ var populateListingPending = false, //prevent populate listing to load more than
 		'2': 16,
 		'3': 16
 	},
-	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/video-gallery/').replace('//', '/'),
+	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/video/').replace('//', '/'),
 	page = 1,
 	rowContainer = $('.listing-entries').find('.row'),
 	hashMap = {
