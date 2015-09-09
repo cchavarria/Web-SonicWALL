@@ -536,7 +536,7 @@ function getDataSet(incrementPage) {
 			"pagesize": entriesPerType[pageType]
 		},
 		mapping = {
-			videotypes: 'video_type',
+			videoType: 'video_type',
 			product: 'product',
 			solution: 'solution',
 			brand: 'brand'
