@@ -603,6 +603,9 @@ function setLanguageCode(localstr) {
 		case 'italian':
 			langval = 106;
 			break;
+		case 'korean':
+			langval = 117;
+			break;
 	}
 	return langval;
 }
