@@ -574,6 +574,15 @@ function setLanguageCode(localstr) {
 		case 'german':
 			langval = 86;
 			break;
+		case 'dutch':
+			langval = 50;
+			break;
+		case 'italian':
+			langval = 106;
+			break;
+		case 'korean':
+			langval = 117;
+			break;
 	}
 
 	return langval;
