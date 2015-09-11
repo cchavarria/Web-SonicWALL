@@ -553,9 +553,9 @@ function getLanguageCode() {
 }
 
 function setLanguageCode(localstr) {
+	var tmp = localstr.toLowerCase();
 	var langval = 53;
-
-	switch (localstr) {
+	switch (tmp) {
 		case 'portuguese':
 			langval = 139;
 			break;
@@ -584,7 +584,6 @@ function setLanguageCode(localstr) {
 			langval = 117;
 			break;
 	}
-
 	return langval;
 }
 

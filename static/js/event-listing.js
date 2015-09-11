@@ -618,9 +618,9 @@ function getLanguageCode() {
 }
 
 function setLanguageCode(localstr) {
+	var tmp = localstr.toLowerCase();
 	var langval = 53;
-
-	switch (localstr) {
+	switch (tmp) {
 		case 'portuguese':
 			langval = 139;
 			break;
@@ -639,8 +639,16 @@ function setLanguageCode(localstr) {
 		case 'german':
 			langval = 86;
 			break;
+		case 'dutch':
+			langval = 50;
+			break;
+		case 'italian':
+			langval = 106;
+			break;
+		case 'korean':
+			langval = 117;
+			break;
 	}
-
 	return langval;
 }
 
