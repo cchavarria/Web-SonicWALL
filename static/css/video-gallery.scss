@@ -1,0 +1,23 @@
+
+/*mobile*/
+/**/
+@media (max-width: 767px) {
+  .listing-entries .img-border {
+    height: 184.5px;
+  }
+}
+
+/*tablet*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .listing-entries .img-border {
+    height: 118.5px;
+  }
+}
+
+
+/*desktop*/
+@media (min-width: 1200px) {
+  .listing-entries .img-border {
+    height: 150.75px;
+  }
+}
