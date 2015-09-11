@@ -375,13 +375,12 @@ function populateListing(clear) {
 
 		$.each(dataopt.data, function (key, val) {
 			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
-				'<a href="' + val.url + '">' +
+				'<a href="' + val.URL + '">' +
 				'  <div class="img-border">' +
 				'    <img class="img-responsive center-block" src="http://stage.software.dell.com' + val.ImageURL2 + '" alt="" onerror="this.style.display=\'none\';" /> ' +
 				'		 <div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>' +
 				'  </div>' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.DisplayName + ' </h4> ';
-			htmlFragment += '</a>';
 
 			if (val.Desc != null) {
 				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.Desc + ' </p>';
@@ -391,6 +390,7 @@ function populateListing(clear) {
 				htmlFragment += '<p>' + getLocalizedContent('EventLabelDuration') + ': ' + val.Duration + '</p>';
 			}
 
+			htmlFragment += '</a>';
 			htmlFragment += '</div>';
 
 			rowContainer.append(htmlFragment);
