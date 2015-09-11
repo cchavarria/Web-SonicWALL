@@ -273,7 +273,7 @@ function init() {
 				setFilterNum();
 				populateListing();
 			}).fail(function () {
-				alert('Failed');
+				console.log('Failed');
 			});
 		});
 
@@ -348,7 +348,7 @@ function init() {
 		});
 
 		function setFilterValue(elem, val) {
-			if (elem.multipleSelect('getSelects') != elem.val()) {
+			if (elem.multipleSelect('getSelects') != elem.val() || elem.attr('id') == 'language') {
 				var value = '';
 
 				elem.find('option').each(function () {
@@ -594,6 +594,37 @@ function getLanguageCode() {
 					break;
 			}
 		}
+	}
+
+	return initlangval;
+}
+
+
+function setLanguageCode(localstr) {
+	var initlangval = 53;
+
+	switch (localstr) {
+		case 'portuguese':
+			initlangval = 139;
+			break;
+		case 'spanish':
+			initlangval = 156;
+			break;
+		case 'chinese':
+			initlangval = 202;
+			break;
+		case 'japanese':
+			initlangval = 109;
+			break;
+		case 'french':
+			initlangval = 75;
+			break;
+		case 'german':
+			initlangval = 86;
+			break;
+		default:
+			initlangval = 53;
+			break;
 	}
 
 	return initlangval;
