@@ -1010,41 +1010,30 @@
       font-weight: normal;
       line-height: 1;
       color: #777777; }
-  .bootstrap h1, .bootstrap .h1,
-  .bootstrap h2, .bootstrap .h2,
-  .bootstrap h3, .bootstrap .h3 {
-    margin-top: 20px;
-    /*margin-bottom: ($line-height-computed / 2);*/
-    margin-bottom: 20px; }
+  .bootstrap h1, .bootstrap .h1, .bootstrap h2, .bootstrap .h2, .bootstrap h3, .bootstrap .h3 {
+    margin: 30px 0; }
     .bootstrap h1 small,
     .bootstrap h1 .small, .bootstrap .h1 small,
-    .bootstrap .h1 .small,
-    .bootstrap h2 small,
+    .bootstrap .h1 .small, .bootstrap h2 small,
     .bootstrap h2 .small, .bootstrap .h2 small,
-    .bootstrap .h2 .small,
-    .bootstrap h3 small,
+    .bootstrap .h2 .small, .bootstrap h3 small,
     .bootstrap h3 .small, .bootstrap .h3 small,
     .bootstrap .h3 .small {
       font-size: 65%; }
-  .bootstrap h4, .bootstrap .h4,
-  .bootstrap h5, .bootstrap .h5,
-  .bootstrap h6, .bootstrap .h6 {
+  .bootstrap h4, .bootstrap .h4, .bootstrap h5, .bootstrap .h5, .bootstrap h6, .bootstrap .h6 {
     font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
     margin-top: 10px;
     margin-bottom: 10px; }
     .bootstrap h4 small,
     .bootstrap h4 .small, .bootstrap .h4 small,
-    .bootstrap .h4 .small,
-    .bootstrap h5 small,
+    .bootstrap .h4 .small, .bootstrap h5 small,
     .bootstrap h5 .small, .bootstrap .h5 small,
-    .bootstrap .h5 .small,
-    .bootstrap h6 small,
+    .bootstrap .h5 .small, .bootstrap h6 small,
     .bootstrap h6 .small, .bootstrap .h6 small,
     .bootstrap .h6 .small {
       font-size: 75%; }
   .bootstrap h1, .bootstrap .h1 {
-    font-size: 24px;
-    margin-top: 0; }
+    font-size: 24px; }
   .bootstrap h2, .bootstrap .h2 {
     font-size: 20px; }
   .bootstrap h3, .bootstrap .h3 {
@@ -1073,6 +1062,13 @@
       font-size: 31.99999px; }
     .bootstrap h2, .bootstrap .h2 {
       font-size: 28px; } }
+  .bootstrap [class^="col-"] h1:first-child, .bootstrap [class^="col-"] h2:first-child, .bootstrap [class^="col-"] h3:first-child, .bootstrap [class^="col-"] h4:first-child, .bootstrap [class^="col-"] h5:first-child, .bootstrap [class^="col-"] h6:first-child, .bootstrap [class^="col-"] .h1:first-child, .bootstrap [class^="col-"] .h2:first-child, .bootstrap [class^="col-"] .h3:first-child, .bootstrap [class^="col-"] .h4:first-child, .bootstrap [class^="col-"] .h5:first-child, .bootstrap [class^="col-"] .h6:first-child {
+    margin-top: 0; }
+  .bootstrap .container h2:first-child, .bootstrap .container h3:first-child, .bootstrap .container h4:first-child, .bootstrap .container h5:first-child, .bootstrap .container h6:first-child, .bootstrap .container .h2:first-child, .bootstrap .container .h3:first-child, .bootstrap .container .h4:first-child, .bootstrap .container .h5:first-child, .bootstrap .container .h6:first-child {
+    margin-top: 0; }
+    .bootstrap .container h2:first-child.feature, .bootstrap .container h3:first-child.feature, .bootstrap .container h4:first-child.feature, .bootstrap .container h5:first-child.feature, .bootstrap .container h6:first-child.feature, .bootstrap .container .h2:first-child.feature, .bootstrap .container .h3:first-child.feature, .bootstrap .container .h4:first-child.feature, .bootstrap .container .h5:first-child.feature, .bootstrap .container .h6:first-child.feature {
+      margin: 0;
+      padding: 25px 0; }
   .bootstrap p {
     margin: 0 0 10px; }
   .bootstrap .lead {
@@ -3823,8 +3819,6 @@
         color: white; }
       .bootstrap .navbar-inverse .btn-link[disabled]:hover, .bootstrap .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:hover, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:focus {
         color: #444444; }
-  .bootstrap .breadcrumb-container {
-    margin-top: -10px; }
   .bootstrap .breadcrumb {
     padding: 0px 0px;
     margin-bottom: 0;
@@ -3833,7 +3827,8 @@
     border-radius: 1px;
     color: #737373; }
     .bootstrap .breadcrumb > li {
-      display: inline-block; }
+      display: inline-block;
+      padding: 0; }
       .bootstrap .breadcrumb > li:first-child a:before {
         font-size: 14px;
         content: "\e62b";
@@ -4625,7 +4620,7 @@
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
     margin: -10px auto 0; }
   .bootstrap .masthead {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #fff;
     background-color: #007db8; }
     .bootstrap .masthead .navbar {
@@ -6230,6 +6225,8 @@
     margin-top: 10px !important; }
   .bootstrap .mt-20 {
     margin-top: 20px !important; }
+  .bootstrap .mt-25 {
+    margin-top: 25px !important; }
   .bootstrap .mt-30 {
     margin-top: 30px !important; }
   .bootstrap .mt-40 {

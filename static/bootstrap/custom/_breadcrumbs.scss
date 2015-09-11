@@ -2,10 +2,6 @@
 // Breadcrumbs
 // --------------------------------------------------
 
-.breadcrumb-container {
-  margin-top: -10px;
-}
-
 .breadcrumb {
   padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
   //margin-bottom: $line-height-computed;
@@ -17,7 +13,7 @@
 
   > li {
     display: inline-block;
-
+    padding: 0;
     &:first-child {
       a:before {
         font-size: 14px;

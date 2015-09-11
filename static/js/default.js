@@ -314,6 +314,41 @@ $(document).ready(function () {
 	if ($('#button-flyout').length) {
 		$.getScript('/static/js/button-flyout.min.js');
 	}
+
+	//Stacking containers to expose margin. bleeding.
+	addResize(function() {
+		$('.container').each(function() {
+			var children = $(this).children(), lastChild = children.length - 1;
+
+			//Start Reset
+			$(this).css('marginTop', '');
+			$(children[0]).css('marginTop', '');
+
+			$(this).css('marginBottom', '');
+			$(children[lastChild]).css('marginBottom', '');
+			//End Reset
+
+			var marginTop = parseInt($(children[0]).css('marginTop')),
+				marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
+
+			if(marginTop) {
+				$(this).css('marginTop', marginTop + parseInt($(this).css('marginTop')));
+				$(children[0]).attr('style', 'margin-top: 0px !important;');
+			}
+
+			if(marginBottom) {
+				$(this).css('marginBottom', marginBottom + parseInt($(this).css('marginBottom')));
+
+				var style = (lastChild ? '':$(children[lastChild]).attr('style'));
+
+				if(style === undefined) {
+					style = '';
+				}
+
+				$(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
+			}
+		});
+	}, true);
 });
 
 //Off canvas resize

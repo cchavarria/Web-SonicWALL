@@ -1223,44 +1223,33 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1;
     color: #777777; }
 
-h1, .h1,
-h2, .h2,
-h3, .h3, #right-rail-form h4 {
-  margin-top: 20px;
-  /*margin-bottom: ($line-height-computed / 2);*/
-  margin-bottom: 20px; }
+h1, .h1, h2, .h2, h3, .h3, #right-rail-form h4 {
+  margin: 30px 0; }
   h1 small,
   h1 .small, .h1 small,
-  .h1 .small,
-  h2 small,
+  .h1 .small, h2 small,
   h2 .small, .h2 small,
-  .h2 .small,
-  h3 small,
+  .h2 .small, h3 small,
   h3 .small, .h3 small, #right-rail-form h4 small,
   .h3 .small,
   #right-rail-form h4 .small {
     font-size: 65%; }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
   margin-top: 10px;
   margin-bottom: 10px; }
   h4 small,
   h4 .small, .h4 small,
-  .h4 .small,
-  h5 small,
+  .h4 .small, h5 small,
   h5 .small, .h5 small,
-  .h5 .small,
-  h6 small,
+  .h5 .small, h6 small,
   h6 .small, .h6 small,
   .h6 .small {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 24px;
-  margin-top: 0; }
+  font-size: 24px; }
 
 h2, .h2 {
   font-size: 20px; }
@@ -1298,6 +1287,15 @@ h6, .h6 {
 
   h2, .h2 {
     font-size: 28px; } }
+[class^="col-"] h1:first-child, [class^="col-"] h2:first-child, [class^="col-"] h3:first-child, [class^="col-"] h4:first-child, [class^="col-"] h5:first-child, [class^="col-"] h6:first-child, [class^="col-"] .h1:first-child, [class^="col-"] .h2:first-child, [class^="col-"] .h3:first-child, [class^="col-"] #right-rail-form h4:first-child, #right-rail-form [class^="col-"] h4:first-child, [class^="col-"] .h4:first-child, [class^="col-"] .h5:first-child, [class^="col-"] .h6:first-child {
+  margin-top: 0; }
+
+.container h2:first-child, .container h3:first-child, .container h4:first-child, .container h5:first-child, .container h6:first-child, .container .h2:first-child, .container .h3:first-child, .container #right-rail-form h4:first-child, #right-rail-form .container h4:first-child, .container .h4:first-child, .container .h5:first-child, .container .h6:first-child {
+  margin-top: 0; }
+  .container h2:first-child.feature, .container h3:first-child.feature, .container h4:first-child.feature, .container h5:first-child.feature, .container h6:first-child.feature, .container .h2:first-child.feature, .container .h3:first-child.feature, .container #right-rail-form h4:first-child.feature, #right-rail-form .container h4:first-child.feature, .container .h4:first-child.feature, .container .h5:first-child.feature, .container .h6:first-child.feature {
+    margin: 0;
+    padding: 25px 0; }
+
 p {
   margin: 0 0 10px; }
 
@@ -4337,9 +4335,6 @@ tbody.collapse.in {
     .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:hover, fieldset[disabled] .navbar-inverse .btn-link:focus {
       color: #444444; }
 
-.breadcrumb-container {
-  margin-top: -10px; }
-
 .breadcrumb {
   padding: 0px 0px;
   margin-bottom: 0;
@@ -4348,7 +4343,8 @@ tbody.collapse.in {
   border-radius: 1px;
   color: #737373; }
   .breadcrumb > li {
-    display: inline-block; }
+    display: inline-block;
+    padding: 0; }
     .breadcrumb > li:first-child a:before {
       font-size: 14px;
       content: "\e62b";
@@ -5215,6 +5211,9 @@ iframe {
 .mt-20 {
   margin-top: 20px !important; }
 
+.mt-25 {
+  margin-top: 25px !important; }
+
 .mt-30 {
   margin-top: 30px !important; }
 
@@ -5622,7 +5621,7 @@ iframe {
   margin: -10px auto 0; }
 
 .masthead {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #fff;
   background-color: #007db8; }
   .masthead .navbar {

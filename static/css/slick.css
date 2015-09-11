@@ -157,9 +157,6 @@
   .slick-next {
     right: -10px; } }
 /* Dots */
-.slick-slider {
-  margin-bottom: 30px; }
-
 .slick-dots {
   position: absolute;
   bottom: -45px;
