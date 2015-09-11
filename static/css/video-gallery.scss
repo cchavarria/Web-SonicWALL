@@ -1,22 +1,23 @@
-
-/*mobile*/
-/**/
-@media (max-width: 767px) {
-  .listing-entries .img-border {
+.listing-entries {
+  .img-border {
     height: 187px;
   }
 }
 
-/*tablet*/
-@media (max-width: 991px)  and (min-width: 768px) {
+@media (min-width: 768px) { //SM - tablet
   .listing-entries .img-border {
-    height: 125px;
+    height: 123px;
   }
 }
 
-/*desktop*/
-@media (min-width: 1200px) {
+@media (min-width: 992px) { //MD - Desktop
   .listing-entries .img-border {
-    height: 153px;
+    height: 118px;
+  }
+}
+
+@media (min-width: 1200px) { //LG - Desktop
+  .listing-entries .img-border {
+    height: 151px;
   }
 }
