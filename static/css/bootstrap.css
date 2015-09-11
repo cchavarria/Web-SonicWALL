@@ -7153,11 +7153,11 @@ i.menu-indicator {
       padding: 10px;
       color: #007db8; }
     .panel-group-collapsible > .panel .panel-title a.collapsed:before {
-      font-family: 'Glyphicons Halflings';
+      font-family: "Glyphicons Halflings";
       content: "\e080";
       vertical-align: -2px; }
     .panel-group-collapsible > .panel .panel-title a:before {
-      font-family: 'Glyphicons Halflings';
+      font-family: "Glyphicons Halflings";
       font-size: 14px;
       -webkit-font-smoothing: antialiased;
       content: "\e114";
