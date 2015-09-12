@@ -1293,8 +1293,7 @@ h6, .h6 {
 .container h2:first-child, .container h3:first-child, .container h4:first-child, .container h5:first-child, .container h6:first-child, .container .h2:first-child, .container .h3:first-child, .container #right-rail-form h4:first-child, #right-rail-form .container h4:first-child, .container .h4:first-child, .container .h5:first-child, .container .h6:first-child {
   margin-top: 0; }
   .container h2:first-child.feature, .container h3:first-child.feature, .container h4:first-child.feature, .container h5:first-child.feature, .container h6:first-child.feature, .container .h2:first-child.feature, .container .h3:first-child.feature, .container #right-rail-form h4:first-child.feature, #right-rail-form .container h4:first-child.feature, .container .h4:first-child.feature, .container .h5:first-child.feature, .container .h6:first-child.feature {
-    margin: 0;
-    padding: 25px 0; }
+    margin: 25px 0; }
 
 p {
   margin: 0 0 10px; }
@@ -5610,6 +5609,9 @@ iframe {
   overflow: hidden;
   position: relative;
   width: 100%; }
+
+.site-canvas > [class^="bg-"] {
+  overflow: hidden; }
 
 .masthead-shadow-section {
   content: "";

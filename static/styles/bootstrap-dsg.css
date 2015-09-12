@@ -1067,8 +1067,7 @@
   .bootstrap .container h2:first-child, .bootstrap .container h3:first-child, .bootstrap .container h4:first-child, .bootstrap .container h5:first-child, .bootstrap .container h6:first-child, .bootstrap .container .h2:first-child, .bootstrap .container .h3:first-child, .bootstrap .container .h4:first-child, .bootstrap .container .h5:first-child, .bootstrap .container .h6:first-child {
     margin-top: 0; }
     .bootstrap .container h2:first-child.feature, .bootstrap .container h3:first-child.feature, .bootstrap .container h4:first-child.feature, .bootstrap .container h5:first-child.feature, .bootstrap .container h6:first-child.feature, .bootstrap .container .h2:first-child.feature, .bootstrap .container .h3:first-child.feature, .bootstrap .container .h4:first-child.feature, .bootstrap .container .h5:first-child.feature, .bootstrap .container .h6:first-child.feature {
-      margin: 0;
-      padding: 25px 0; }
+      margin: 25px 0; }
   .bootstrap p {
     margin: 0 0 10px; }
   .bootstrap .lead {
@@ -4611,6 +4610,8 @@
     overflow: hidden;
     position: relative;
     width: 100%; }
+  .bootstrap .site-canvas > [class^="bg-"] {
+    overflow: hidden; }
   .bootstrap .masthead-shadow-section {
     content: "";
     width: 80%;

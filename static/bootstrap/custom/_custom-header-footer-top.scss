@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+.site-canvas {
+  >[class^="bg-"] {
+    overflow: hidden;
+  }
+}
+
 .masthead-shadow-section {
   content: "";
   width: 80%;
