@@ -44,9 +44,10 @@
     &.facebook {
       background-position: -40px 0;
     }
-  }
-  .googleplusone {
-    height: 20px;
+    &.googleshare{
+      background-position: -169px -204px ;
+      margin-right:0;
+    }
   }
 }
 
