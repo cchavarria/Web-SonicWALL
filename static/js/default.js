@@ -552,9 +552,8 @@ function loadOoyala(parentSelector) {
 					if (!$('#' + id).data('loaded')) {
 						var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
-						$(this).css('height', videoHeight);
-
 						if ($(this).parent().hasClass('media-player-container')) {
+							$(this).css('height', videoHeight);
 							$(this).parent().css('height', videoHeight);
 						}
 
@@ -571,17 +570,6 @@ function loadOoyala(parentSelector) {
 					//watchList.push([id, videoId]);
 				}
 			});
-
-			/*if (watchList.length) {
-			 if ($.fn.watch) {
-			 loadWatch();
-			 }
-			 else {
-			 $.getScript('/static/library/jQuery/jquery.watch.min.js', function () {
-			 loadWatch();
-			 });
-			 }
-			 }*/
 		});
 	}
 
