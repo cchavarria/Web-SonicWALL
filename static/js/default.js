@@ -316,7 +316,7 @@ $(document).ready(function () {
 	}
 
 	//Stacking containers to expose margin. bleeding.
-	addResize(function() {
+	/*addResize(function() {
 		$('.container').each(function() {
 			var children = $(this).children(), lastChild = children.length - 1;
 
@@ -348,7 +348,7 @@ $(document).ready(function () {
 				$(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
 			}
 		});
-	}, true);
+	}, true);*/
 });
 
 //Off canvas resize
