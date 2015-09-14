@@ -56,41 +56,52 @@ class Widget {
 							$queries = array(
 								"/html/body/*[@class='container']", //Root node only contains "container" class
 								"/html/body/*[contains(@class, 'container')]", //Root node contains "container" class
-								"/html/body/*", //Root node does not contain "container" class. Assuming class container is somewhere inside.
+								"/html/body/*"
 							);
 
-							foreach($queries as $indx2 => $q) {
-								$result = $xPath->query($q);
+							$rootResult = $xPath->query("/html/body/*"); //Find all root elements.
 
-								if($result->length) {
-									if($indx2 == 0) {
-										if(!$this->isContainerClassOpen) {
-											$content .= '<div class="container" data-dynamically-added="true">';
-											$this->isContainerClassOpen = true;
+							for($counter = 0; $counter < $rootResult->length; $counter++) {
+								$dom2 = new DOMDocument();
+								$dom2->loadHTML($dom->saveHTML($rootResult->item($counter)));
+								$xPath2 = new DOMXPath($dom2);
+
+								foreach($queries as $indx2 => $q) {
+									$result = $xPath2->query($q);
+
+									if($result->length) {
+										if($indx2 == 0) {
+											if(!$this->isContainerClassOpen) {
+												$content .= '<div class="container" data-dynamically-added="true">';
+												$this->isContainerClassOpen = true;
+											}
+
+											for($c = 0; $c < $result->item(0)->childNodes->length; $c++) {
+												$content .= $dom2->saveHTML($result->item(0)->childNodes->item($c));
+												//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)->childNodes->item($c)));
+											}
+										}
+										else if($indx2 == 1) {
+											if($this->isContainerClassOpen) {
+												$content .= "</div>";
+												$this->isContainerClassOpen = false;
+											}
+
+											$content .= $dom2->saveHTML($result->item(0));
+											//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)));
+										}
+										else {
+											if($this->isContainerClassOpen) {
+												$content .= "</div>";
+												$this->isContainerClassOpen = false;
+											}
+
+											$content .= $dom2->saveHTML($result->item(0));
+											//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)));
 										}
 
-										for($c = 0; $c < $result->item(0)->childNodes->length; $c++) {
-											$content .= $dom->saveHTML($result->item(0)->childNodes->item($c));
-										}
+										break;
 									}
-									else if($indx2 == 1) {
-										if($this->isContainerClassOpen) {
-											$content .= "</div>";
-											$this->isContainerClassOpen = false;
-										}
-
-										$content .= $dom->saveHTML($result->item(0));
-									}
-									else if($indx2 == 2) {
-										if($this->isContainerClassOpen) {
-											$content .= "</div>";
-											$this->isContainerClassOpen = false;
-										}
-
-										$content .= $dom->saveHTML($result->item(0));
-									}
-
-									break;
 								}
 							}
 						}
