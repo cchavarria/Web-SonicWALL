@@ -746,10 +746,9 @@ function offCanvas() {
 //append off canvas content
 
 	function processLabel(data) {
-		var thisLabel = data.LabelBack;
-		$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>' + thisLabel + '</span></a></div><div class="off-canvas-content"></div></div>');
-
+		$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>' + data.LabelBack + '</span></a></div><div class="off-canvas-content"></div></div>');
 	}
+
 	$('#off-canvas').on('click', '.off-canvas-back', function (e) { //off canvas back button
 		e.preventDefault();
 
