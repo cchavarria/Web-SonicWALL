@@ -1287,6 +1287,10 @@ h6, .h6 {
 
   h2, .h2 {
     font-size: 28px; } }
+/*
+  Exceptions
+  Added By Edward Chong
+*/
 [class^="col-"] h1:first-child, [class^="col-"] h2:first-child, [class^="col-"] h3:first-child, [class^="col-"] h4:first-child, [class^="col-"] h5:first-child, [class^="col-"] h6:first-child, [class^="col-"] .h1:first-child, [class^="col-"] .h2:first-child, [class^="col-"] .h3:first-child, [class^="col-"] #right-rail-form h4:first-child, #right-rail-form [class^="col-"] h4:first-child, [class^="col-"] .h4:first-child, [class^="col-"] .h5:first-child, [class^="col-"] .h6:first-child {
   margin-top: 0; }
 

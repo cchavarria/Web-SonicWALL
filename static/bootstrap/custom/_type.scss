@@ -89,6 +89,11 @@ h6, .h6 { font-size: $font-size-h6; }
 
 }
 
+/*
+  Exceptions
+  Added By Edward Chong
+*/
+
 [class^="col-"] {
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     &:first-child {
@@ -104,7 +109,6 @@ h6, .h6 { font-size: $font-size-h6; }
 
       &.feature {
         margin: 25px 0;
-        //padding: 25px 0;
       }
     }
   }
