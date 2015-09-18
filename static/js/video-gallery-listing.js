@@ -342,6 +342,9 @@ function init() {
 
 addResize(function () {
     populateListing(true);
+
+    //reset filter nums
+    setFilterNum();
 });
 
 // makes ajax call, result list and index
