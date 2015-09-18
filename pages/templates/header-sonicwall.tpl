@@ -5,7 +5,7 @@
 				<!-- Logo -->
 				<div class="navbar-brand">
 					<a href="/">
-						<img src="/images/shared/logo.png">
+						<img src="/images/shared/dell-white.png">
 					</a>
 				</div>
 
