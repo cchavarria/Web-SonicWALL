@@ -1,1 +1,24 @@
-/* Placeholder */
+.masthead .main-nav-section ul.tier1 li:hover > ul {
+  display: none; }
+.masthead .main-nav-section ul.tier2 {
+  display: none !important; }
+.masthead .main-nav-section ul li.open > ul.tier2.visible-xs {
+  display: none !important; }
+.masthead .main-nav-section div.tier2 {
+  left: 0;
+  width: 100%;
+  background-color: #eee;
+  position: absolute; }
+  .masthead .main-nav-section div.tier2 .tier3 {
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    position: absolute; }
+
+/*XS*/
+@media (max-width: 767px) {
+  .masthead .main-nav-section ul.tier2.visible-xs {
+    display: block !important; } }
+/*SM*/
+/*MD*/
+/*LG*/

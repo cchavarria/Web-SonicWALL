@@ -1,1 +1,55 @@
-/* Placeholder */
+.masthead .main-nav-section {
+  ul {
+    &.tier1 {
+      li:hover > ul {
+        display: none;
+      }
+    }
+    &.tier2{
+      display: none !important;
+    }
+    li.open {
+      > ul.tier2.visible-xs {
+        display: none !important;
+      }
+    }
+  }
+  div.tier2{
+    left: 0;
+    width: 100%;
+    background-color: #eee;
+    position: absolute;
+    .tier3{
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+    }
+  }
+}
+
+/*XS*/
+@media (max-width: 767px) {
+  .masthead .main-nav-section ul.tier2.visible-xs {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) {
+
+}
+
+/*SM*/
+@media (max-width: 991px) and (min-width: 768px) {
+
+}
+
+/*MD*/
+@media (min-width: 992px) {
+
+}
+
+/*LG*/
+@media (min-width: 1200px) {
+
+}
