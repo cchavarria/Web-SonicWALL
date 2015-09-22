@@ -5,7 +5,7 @@
         display: none;
       }
     }
-    &.tier2{
+    &.tier2 {
       display: none !important;
     }
     li.open {
@@ -14,16 +14,33 @@
       }
     }
   }
-  div.tier2{
+  div.tier2 {
     left: 0;
     width: 100%;
     background-color: #eee;
     position: absolute;
-    .tier3{
+    .tier3 {
       left: 0;
       width: 100%;
       background-color: #fff;
       position: absolute;
+      .container {
+        padding: 20px 0;
+        .col-sm-3 {
+          > div {
+            float: left;
+            width: 70%;
+            a{
+              padding:0;
+            }
+          }
+          > a {
+            float: left;
+            margin-right: 10px;
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }

@@ -288,13 +288,13 @@
                     <div class="tier3">
                       <div class="container">
                         <div class="row">
-                          <div class="col-sm-3 pl-0 pr-0">
-                            <div class="col-sm-2 pl-0 pr-0">
-                              <a href="http://www.sonicwall.com/us/en/products/SuperMassive-Series.html">
-                                <img class="img-responsive" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_sm.jpg">
-                              </a>
-                            </div>
-                            <div class="col-sm-10 pl-0 pr-0">
+                          <div class="col-sm-3">
+                            <a href="http://www.sonicwall.com/us/en/products/SuperMassive-Series.html">
+                              <img class="img-responsive"
+                                   src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_sm.jpg">
+                            </a>
+
+                            <div>
                               <a href="http://www.sonicwall.com/us/en/products/network-security.html">
                                 <span class="m_title">SuperMassive Series</span>
                               </a>
@@ -313,26 +313,28 @@
                                   </li>
                                 </ul>
                               </div>
-                              <div class="m_prods_list">
-                                <ul>
-                                  <li><a
-                                      href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9800</a>
-                                    <a
-                                        href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9200</a>
-                                  </li>
-                                  <li><a
-                                      href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9600</a>
-                                  </li>
-                                  <li><a
-                                      href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9400</a>
-                                  </li>
-                                </ul>
-                              </div>
+                            </div>
+                            <div class="m_prods_list">
+                              <ul>
+                                <li><a
+                                    href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9800</a>
+                                  <a
+                                      href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9200</a>
+                                </li>
+                                <li><a
+                                    href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9600</a>
+                                </li>
+                                <li><a
+                                    href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9400</a>
+                                </li>
+                              </ul>
                             </div>
                             <div class="problock">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/TZ-Series.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_tz.jpg" alt="">
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_tz.jpg"
+                                       alt="">
                                 </a>
                               </div>
                               <div>
@@ -367,7 +369,8 @@
                             <div class="problock">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/E-Class-NSA-Series.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_e-nsa.jpg"
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_e-nsa.jpg"
                                        alt="">
                                 </a>
                               </div>
@@ -393,7 +396,8 @@
                             <div class="problock">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/WXA-Series.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_wxa.jpg"
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_wxa.jpg"
                                        alt="">
                                 </a>
                               </div>
@@ -430,7 +434,8 @@
                             <div class="problock" id="NSASeries">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/NSA-Series.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_nsa.jpg"
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_nsa.jpg"
                                        alt="">
                                 </a>
                               </div>
@@ -464,7 +469,8 @@
                             <div class="problock" id="CleanWireless">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/sonicpoint-wireless-access-point-series.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_wireless_1.jpg"
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_wireless_1.jpg"
                                        alt="">
                                 </a>
                               </div>
@@ -497,7 +503,8 @@
                             <div class="m_service_addon m_pselector">
                               <div class="m_thumnail">
                                 <a href="http://www.sonicwall.com/us/en/products/network-security-product-selector.html">
-                                  <img class="prodshot" src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_find.png"
+                                  <img class="prodshot"
+                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_find.png"
                                        alt="">
                                 </a>
                                 <a href="/network-security-selector/">
