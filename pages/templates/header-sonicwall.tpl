@@ -296,7 +296,7 @@
 
                             <div>
                               <a href="http://www.sonicwall.com/us/en/products/network-security.html">
-                                <span class="m_title">SuperMassive Series</span>
+                                SuperMassive Series
                               </a>
                               <span class="m_desc">Ultra-high performance next-generation firewall for 10-Gigabit+ networks.</span>
 

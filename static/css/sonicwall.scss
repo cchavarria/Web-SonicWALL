@@ -12,14 +12,22 @@
       > ul.tier2.visible-xs {
         display: none !important;
       }
+      div.tier2{
+        display: block;
+        .col-sm-3.active .tier3{
+          display: block;
+        }
+      }
     }
   }
   div.tier2 {
+    display: none;
     left: 0;
     width: 100%;
     background-color: #eee;
     position: absolute;
     .tier3 {
+      display: none;
       left: 0;
       width: 100%;
       background-color: #fff;
@@ -30,8 +38,10 @@
           > div {
             float: left;
             width: 70%;
-            a{
-              padding:0;
+            a {
+              padding: 0;
+              font-size: 15px;
+              font-weight: bold;
             }
           }
           > a {

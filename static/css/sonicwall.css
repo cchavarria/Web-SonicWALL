@@ -4,12 +4,18 @@
   display: none !important; }
 .masthead .main-nav-section ul li.open > ul.tier2.visible-xs {
   display: none !important; }
+.masthead .main-nav-section ul li.open div.tier2 {
+  display: block; }
+  .masthead .main-nav-section ul li.open div.tier2 .col-sm-3.active .tier3 {
+    display: block; }
 .masthead .main-nav-section div.tier2 {
+  display: none;
   left: 0;
   width: 100%;
   background-color: #eee;
   position: absolute; }
   .masthead .main-nav-section div.tier2 .tier3 {
+    display: none;
     left: 0;
     width: 100%;
     background-color: #fff;
@@ -20,7 +26,9 @@
         float: left;
         width: 70%; }
         .masthead .main-nav-section div.tier2 .tier3 .container .col-sm-3 > div a {
-          padding: 0; }
+          padding: 0;
+          font-size: 15px;
+          font-weight: bold; }
       .masthead .main-nav-section div.tier2 .tier3 .container .col-sm-3 > a {
         float: left;
         margin-right: 10px;
