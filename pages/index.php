@@ -38,7 +38,7 @@
 	<div class="site-canvas">
 		<!-- header starts here -->
 		<?php
-		echo file_get_contents('templates/header.tpl');
+		echo file_get_contents('templates/header-v2.tpl');
 		?>
 		<!-- header ends here -->
 
