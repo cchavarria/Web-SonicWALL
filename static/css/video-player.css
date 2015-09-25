@@ -35,8 +35,9 @@
       background-position: -20px 0; }
     .oo-toolbar .icon.facebook {
       background-position: -40px 0; }
-  .oo-toolbar .googleplusone {
-    height: 20px; }
+    .oo-toolbar .icon.googleshare {
+      background-position: -169px -204px;
+      margin-right: 0; }
 
 ul.oo-toolbar {
   border: 0;
