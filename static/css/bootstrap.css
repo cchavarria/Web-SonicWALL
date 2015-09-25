@@ -7758,6 +7758,10 @@ i.menu-indicator {
     display: inline-block;
     margin: 0 8px;
     padding: 0; }
+    .social-media-toolbar li:first-of-type {
+      margin-left: 0; }
+    .social-media-toolbar li:last-of-type {
+      margin-right: 0; }
   .social-media-toolbar .dsg-icon-title {
     display: none; }
   .social-media-toolbar > span {
