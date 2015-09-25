@@ -53,6 +53,12 @@
 
     @include button-variant($dell-gray, $btn-default-bg, $btn-default-border);
   }
+
+  //Added by Edward Chong
+  //If 2 buttons are side by side, add margin
+  + .btn {
+    margin-left: 10px;
+  }
 }
 
 

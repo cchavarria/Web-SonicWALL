@@ -1294,13 +1294,12 @@ h6, .h6 {
   Exceptions
   Added By Edward Chong
 */
-[class^="col-"] h1:first-child, [class^="col-"] h2:first-child, [class^="col-"] h3:first-child, [class^="col-"] h4:first-child, [class^="col-"] h5:first-child, [class^="col-"] h6:first-child, [class^="col-"] .h1:first-child, [class^="col-"] .h2:first-child, [class^="col-"] .h3:first-child, [class^="col-"] #right-rail-form h4:first-child, #right-rail-form [class^="col-"] h4:first-child, [class^="col-"] .h4:first-child, [class^="col-"] .h5:first-child, [class^="col-"] .h6:first-child {
-  margin-top: 0; }
-
 .container h2:first-child, .container h3:first-child, .container h4:first-child, .container h5:first-child, .container h6:first-child, .container .h2:first-child, .container .h3:first-child, .container #right-rail-form h4:first-child, #right-rail-form .container h4:first-child, .container .h4:first-child, .container .h5:first-child, .container .h6:first-child {
   margin-top: 0; }
   .container h2:first-child.feature, .container h3:first-child.feature, .container h4:first-child.feature, .container h5:first-child.feature, .container h6:first-child.feature, .container .h2:first-child.feature, .container .h3:first-child.feature, .container #right-rail-form h4:first-child.feature, #right-rail-form .container h4:first-child.feature, .container .h4:first-child.feature, .container .h5:first-child.feature, .container .h6:first-child.feature {
     margin: 25px 0; }
+.container [class^="col-"] h1:first-child, .container [class^="col-"] h2:first-child, .container [class^="col-"] h3:first-child, .container [class^="col-"] h4:first-child, .container [class^="col-"] h5:first-child, .container [class^="col-"] h6:first-child, .container [class^="col-"] .h1:first-child, .container [class^="col-"] .h2:first-child, .container [class^="col-"] .h3:first-child, .container [class^="col-"] #right-rail-form h4:first-child, #right-rail-form .container [class^="col-"] h4:first-child, .container [class^="col-"] .h4:first-child, .container [class^="col-"] .h5:first-child, .container [class^="col-"] .h6:first-child {
+  margin-top: 0; }
 
 p {
   margin: 0 0 10px; }
@@ -3224,6 +3223,8 @@ select[multiple].input-lg,
     .btn.disabled .badge, .btn[disabled] .badge, fieldset[disabled] .btn .badge {
       color: #eeeeee;
       background-color: #aaaaaa; }
+  .btn + .btn {
+    margin-left: 10px; }
 
 .btn-default {
   color: #007db8;
@@ -6560,7 +6561,8 @@ i.menu-indicator {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
     #affix-nav ul li {
-      padding: 0; }
+      padding: 0;
+      float: left; }
       #affix-nav ul li:first-child a {
         border-left: #cccccc solid 1px; }
       #affix-nav ul li.active {

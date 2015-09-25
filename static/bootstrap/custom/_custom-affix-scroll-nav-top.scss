@@ -22,7 +22,8 @@
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
     li {
-      padding:0;
+      padding: 0;
+      float: left;
       &:first-child {
         a{
           border-left: $pre-border-color solid 1px;

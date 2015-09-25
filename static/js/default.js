@@ -918,6 +918,10 @@ function resizeAffix() {
 		affixHeight = affixElem.height();
 
 	if (pageType > 0) {
+		if(affixElem.data('even-width')) {
+			affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
+		}
+
 		//fix for adjusting height of all tabs if we have multiple lines
 		affixElem.find('a').each(function () {
 			var parentHeight = $(this).parent().outerHeight();
