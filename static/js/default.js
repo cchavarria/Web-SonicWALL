@@ -288,7 +288,7 @@ $(document).ready(function () {
 
 				if ($(this).find('> div').length > cfg.slidesToShow) {
 					$(this).on('init', function () {
-						var arrowsPos = 0, firstImage = $('.slick').find('img:first');
+						var arrowsPos = 0, firstImage = $(this).find('img:first');
 
 						if (firstImage.parent().hasClass('img-crop')) {
 							arrowsPos = firstImage.parent().height() / 2 - 30;

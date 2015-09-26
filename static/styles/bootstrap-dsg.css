@@ -2818,8 +2818,9 @@
       .bootstrap .btn.disabled .badge, .bootstrap .btn[disabled] .badge, fieldset[disabled] .bootstrap .btn .badge {
         color: #eeeeee;
         background-color: #aaaaaa; }
+  @media (min-width: 768px) {
     .bootstrap .btn + .btn {
-      margin-left: 10px; }
+      margin-left: 10px; } }
   .bootstrap .btn-default {
     color: #007db8;
     background-color: #eeeeee;

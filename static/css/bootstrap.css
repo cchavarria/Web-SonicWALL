@@ -3223,9 +3223,10 @@ select[multiple].input-lg,
     .btn.disabled .badge, .btn[disabled] .badge, fieldset[disabled] .btn .badge {
       color: #eeeeee;
       background-color: #aaaaaa; }
-  .btn + .btn {
-    margin-left: 10px; }
 
+@media (min-width: 768px) {
+  .btn + .btn {
+    margin-left: 10px; } }
 .btn-default {
   color: #007db8;
   background-color: #eeeeee;
@@ -6777,6 +6778,9 @@ i.menu-indicator {
 
 .bg-teal {
   background-color: #42aeaf; }
+
+.bg-dark-grey {
+  background-color: #444444; }
 
 /*
   Description: collapsible panels
