@@ -502,8 +502,6 @@ function loadOoyala(parentSelector) {
 		parentSelector = 'body';
 	}
 
-	//var watchList = [];
-
 	if ($(parentSelector).find('.ooyalaplayer').length) {
 		if (typeof OO == 'object') {
 			init();
@@ -538,7 +536,6 @@ function loadOoyala(parentSelector) {
 
 	function init() {
 		OO.ready(function () {
-
 			$(parentSelector).find('.ooyalaplayer').each(function (indx) {
 				var id = $(this).attr('id'),
 					videoId = $(this).data('videoid');
@@ -548,7 +545,14 @@ function loadOoyala(parentSelector) {
 					$(this).attr('id', id);
 				}
 
-				if ($(this).is(':visible') && videoId !== undefined) {
+				console.log($(this).data('on-demand'));
+
+				if ($(this).data('on-demand')) {
+					$(this).on('click', function() {
+
+					});
+				}
+				else if ($(this).is(':visible') && videoId !== undefined) {
 					if (!$('#' + id).data('loaded')) {
 						var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
@@ -566,35 +570,9 @@ function loadOoyala(parentSelector) {
 						$('#' + id).data('loaded', true);
 					}
 				}
-				else {
-					//watchList.push([id, videoId]);
-				}
 			});
 		});
 	}
-
-	/*function loadWatch() {
-	 $.each(watchList, function (indx, arr) {
-	 var elem = prevElem = $('#' + arr[0]);
-
-	 while (!elem.is(':visible')) {
-	 prevElem = elem;
-	 elem = elem.parent();
-	 }
-
-	 prevElem.watch('display', function () {
-	 if ($(this).is(':visible') && !$('#' + arr[0]).data('loaded')) {
-	 OO.Player.create(arr[0], arr[1], {
-	 onCreate: OOCreate,
-	 autoplay: false,
-	 wmode: 'transparent'
-	 });
-
-	 $('#' + arr[0]).data('loaded', true);
-	 }
-	 });
-	 });
-	 }*/
 }
 
 function resizeFourColumnFilmstripCarousel(parentSelector) {
