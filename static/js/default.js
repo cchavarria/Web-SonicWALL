@@ -966,3 +966,8 @@ function resizeAffix() {
 		affixElem.removeClass('affix').removeClass('affix-top');
 	}
 }
+
+function replaceURL(text) {
+	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	return text.replace(exp, "<a href='$1'>$1</a>");
+}
