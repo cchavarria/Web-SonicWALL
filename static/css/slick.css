@@ -139,8 +139,10 @@
     }*/ }
 
 @media (min-width: 768px) {
-  .slick-prev:before, .slick-next:before {
-    font-size: 32px; }
+  .slick-prev, .slick-next {
+    top: 55px; }
+    .slick-prev:before, .slick-next:before {
+      font-size: 32px; }
 
   .slick-prev {
     left: -8px; }
@@ -148,8 +150,10 @@
   .slick-next {
     right: -8px; } }
 @media (min-width: 1200px) {
-  .slick-prev:before, .slick-next:before {
-    font-size: 40px; }
+  .slick-prev, .slick-next {
+    top: 69px; }
+    .slick-prev:before, .slick-next:before {
+      font-size: 40px; }
 
   .slick-prev {
     left: -10px; }

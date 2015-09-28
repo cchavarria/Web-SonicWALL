@@ -44,9 +44,6 @@ $(document).ready(function () {
 				target.show();
 			}
 
-			//Reset
-			$(target).css('top', '').css('marginBottom', '');
-
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
 				var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
@@ -263,7 +260,7 @@ $(document).ready(function () {
 
 				if ($(this).data('active') == 'xs-only' && pageType != 0) {
 					if ($(this).hasClass('slick-initialized')) {
-						$(this).slick('unslick');
+						$(this).slick('destroy');
 					}
 
 					return true;
@@ -273,7 +270,7 @@ $(document).ready(function () {
 					cfg.slidesToShow = 1;
 				}
 				else if (pageType == 1) {
-					cfg.slidesToShow = $(this).data('slide-sm') || 3;
+					cfg.slidesToShow = 3;
 				}
 				else if (pageType == 2) {
 					cfg.slidesToShow = $(this).data('slide-md') || 4;
@@ -282,24 +279,12 @@ $(document).ready(function () {
 					cfg.slidesToShow = $(this).data('slide-lg') || 4;
 				}
 
+
 				if ($(this).hasClass('slick-initialized')) {
 					$(this).slick('destroy');
 				}
 
 				if ($(this).find('> div').length > cfg.slidesToShow) {
-					$(this).on('init', function () {
-						var arrowsPos = 0, firstImage = $('.slick').find('img:first');
-
-						if (firstImage.parent().hasClass('img-crop')) {
-							arrowsPos = firstImage.parent().height() / 2 - 30;
-						}
-						else {
-							arrowsPos = firstImage.height() / 2 - 30;
-						}
-
-						$(this).find('.slick-arrow').css('top', arrowsPos);
-					});
-
 					$(this).slick(cfg);
 				}
 			});
@@ -362,7 +347,7 @@ function processFlex() {
 						paddingTop: Math.floor((height - $(this).height()) / 2)
 					});
 
-					if (centerHorizontal) {
+					if(centerHorizontal) {
 						$(this).css({
 							paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
 						});
@@ -517,8 +502,9 @@ function loadOoyala(parentSelector) {
 					if (!$('#' + id).data('loaded')) {
 						var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
-						if ($(this).parent().hasClass('media-player-container')) {
-							$(this).css('height', videoHeight);
+						$(this).css('height', videoHeight);
+
+						if($(this).parent().hasClass('media-player-container')) {
 							$(this).parent().css('height', videoHeight);
 						}
 
@@ -535,6 +521,17 @@ function loadOoyala(parentSelector) {
 					//watchList.push([id, videoId]);
 				}
 			});
+
+			/*if (watchList.length) {
+			 if ($.fn.watch) {
+			 loadWatch();
+			 }
+			 else {
+			 $.getScript('/static/library/jQuery/jquery.watch.min.js', function () {
+			 loadWatch();
+			 });
+			 }
+			 }*/
 		});
 	}
 
@@ -740,12 +737,8 @@ function socialMediaToolbar() {
 }
 
 function offCanvas() {
-
-	//append off canvas content
-	getLocalizedContent("LabelBack").done(function (data) {
-		$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>' + data.LabelBack + '</span></a></div><div class="off-canvas-content"></div></div>');
-	});
-
+//append off canvas content
+	$('.site-wrapper').after('<div id="off-canvas"><div class="bg-grey border-b-gray p-10"><a class="off-canvas-back"><i class="glyphicon glyphicon-menu-left"></i><span>Back</span></a></div><div class="off-canvas-content"></div></div>');
 
 	$('#off-canvas').on('click', '.off-canvas-back', function (e) { //off canvas back button
 		e.preventDefault();
@@ -948,4 +941,9 @@ function resizeAffix() {
 
 		affixElem.removeClass('affix').removeClass('affix-top');
 	}
+}
+
+function replaceURL(text) {
+	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	return text.replace(exp, "<a href='$1'>$1</a>");
 }

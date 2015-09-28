@@ -47,9 +47,6 @@
   src: url("/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-*:focus {
-  outline: none; }
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -7156,11 +7153,11 @@ i.menu-indicator {
       padding: 10px;
       color: #007db8; }
     .panel-group-collapsible > .panel .panel-title a.collapsed:before {
-      font-family: "Glyphicons Halflings";
+      font-family: 'Glyphicons Halflings';
       content: "\e080";
       vertical-align: -2px; }
     .panel-group-collapsible > .panel .panel-title a:before {
-      font-family: "Glyphicons Halflings";
+      font-family: 'Glyphicons Halflings';
       font-size: 14px;
       -webkit-font-smoothing: antialiased;
       content: "\e114";
@@ -7171,10 +7168,6 @@ i.menu-indicator {
     .panel-group-collapsible > .panel .panel-body {
       padding: 0 30px;
       margin-bottom: 10px; }
-      .panel-group-collapsible > .panel .panel-body ul .last {
-        padding-bottom: 0; }
-        .panel-group-collapsible > .panel .panel-body ul .last p {
-          margin-bottom: 0; }
     .panel-group-collapsible > .panel .table-responsive {
       margin-bottom: 13px; }
       .panel-group-collapsible > .panel .table-responsive .panel-body {
@@ -8100,6 +8093,25 @@ a:hover .has-overlay h4 {
     box-shadow: 1px 1px 0 #cdcdcd;
     display: block; }
 
+.has-collapsibles:before {
+  font-family: 'Glyphicons Halflings';
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  content: "\e114";
+  color: #007db8;
+  position: absolute;
+  vertical-align: -2px;
+  padding-right: 2px; }
+.has-collapsibles.collapsed:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e080";
+  vertical-align: -2px; }
+
+/*mobile*/
+@media (max-width: 767px) {
+  .off-canvas-content .panel-wrapper {
+    margin: 0 15px;
+    border-bottom: 1px solid #aaaaaa; } }
 .title-description {
   margin-bottom: 24px; }
   .title-description a, .title-description p {

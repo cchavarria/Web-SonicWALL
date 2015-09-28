@@ -177,8 +177,6 @@
   /*display*/
   /* Padding */
   /* Margin */ }
-  .bootstrap *:focus {
-    outline: none; }
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
