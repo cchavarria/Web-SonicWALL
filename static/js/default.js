@@ -545,11 +545,25 @@ function loadOoyala(parentSelector) {
 					$(this).attr('id', id);
 				}
 
-				console.log($(this).data('on-demand'));
-
 				if ($(this).data('on-demand')) {
 					$(this).on('click', function() {
+						if (!$('#' + id).data('loaded')) {
+							var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
+							if ($(this).parent().hasClass('media-player-container')) {
+								$(this).css('height', videoHeight);
+								$(this).parent().css('height', videoHeight);
+							}
+
+							window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
+								onCreate: OOCreate,
+								autoplay: true,
+								wmode: 'transparent'
+							});
+
+							$('#' + id).data('loaded', true);
+							$(this).off('click');
+						}
 					});
 				}
 				else if ($(this).is(':visible') && videoId !== undefined) {
