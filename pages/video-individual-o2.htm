@@ -5,7 +5,7 @@
 		<li class="active">ESG Lab Video: Foglight delivers clear visibility into Citrix environments</li>
 	</ul>
 </div>
-<div class="container mt-10">
+<div class="container mt-20">
 	<h1>ESG Lab Video: Foglight delivers clear visibility into Citrix environments</h1>
 
 	<div class="row">
@@ -37,14 +37,18 @@
 				var player_handle = null;
 
 				OO.ready(function () {
-					$('#player-wrapper').css('height', Math.floor($('#player-wrapper').width() * 9) / 16);
-
 					player_handle = OO.Player.create('player-wrapper', 'JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV', {
 						onCreate: OOCreate,
 						autoplay: false,
 						wmode: 'transparent'
 					});
 				});
+
+				addResize(function () {
+					// addResize is invoked as break points is hit when it is dragged
+					// height of player-wrapper is recalculated by 16 by 9 ratio
+					$('#player-wrapper').css('height', Math.floor($('#player-wrapper').width() * 9) / 16);
+				}, true);
 			</script>
 		</div>
 	</div>
