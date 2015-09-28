@@ -43,24 +43,32 @@
       -ms-transform: rotate(225deg);
       background: #fff;
       height: 16px;
-      position: absolute;
-      top: 47px;
+      position: relative;
+      top: 10px;
       width: 16px;
       left: 17%;
       box-shadow: 1px 1px 0 #cdcdcd;
       display: none;
     }
-    .row > div > a {
-      font-weight: normal;
-      padding-left: 0;
-      &:hover {
-        text-decoration: underline;
+    > .container > div {
+      width:25%;
+      float:left;
+      display: inline-block;
+      &.last-row{
+        width:100%;
+      }
+      > a {
+        font-weight: normal;
+        padding: 15px 0 0 0;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
     .tier3 {
       display: none;
       left: 0;
-      width: 100%;
+      width:100%;
       background-color: #fff;
       position: absolute;
       box-shadow: 0 8px 9px -9px #737373;
@@ -127,7 +135,7 @@
                 font-size: 15px;
               }
               a {
-                padding: 0;
+                padding: 4px 0 0 0;
                 &:hover {
                   text-decoration: underline;
                 }

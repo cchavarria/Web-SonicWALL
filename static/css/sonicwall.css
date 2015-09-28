@@ -29,17 +29,23 @@
     -ms-transform: rotate(225deg);
     background: #fff;
     height: 16px;
-    position: absolute;
-    top: 47px;
+    position: relative;
+    top: 10px;
     width: 16px;
     left: 17%;
     box-shadow: 1px 1px 0 #cdcdcd;
     display: none; }
-  .masthead .main-nav-section div.tier2 .row > div > a {
-    font-weight: normal;
-    padding-left: 0; }
-    .masthead .main-nav-section div.tier2 .row > div > a:hover {
-      text-decoration: underline; }
+  .masthead .main-nav-section div.tier2 > .container > div {
+    width: 25%;
+    float: left;
+    display: inline-block; }
+    .masthead .main-nav-section div.tier2 > .container > div.last-row {
+      width: 100%; }
+    .masthead .main-nav-section div.tier2 > .container > div > a {
+      font-weight: normal;
+      padding: 15px 0 0 0; }
+      .masthead .main-nav-section div.tier2 > .container > div > a:hover {
+        text-decoration: underline; }
   .masthead .main-nav-section div.tier2 .tier3 {
     display: none;
     left: 0;
@@ -92,7 +98,7 @@
         .masthead .main-nav-section div.tier2 .tier3 .container .row > div aside > div > a {
           font-size: 15px; }
         .masthead .main-nav-section div.tier2 .tier3 .container .row > div aside > div a {
-          padding: 0; }
+          padding: 4px 0 0 0; }
           .masthead .main-nav-section div.tier2 .tier3 .container .row > div aside > div a:hover {
             text-decoration: underline; }
 
