@@ -5,23 +5,25 @@
 		<li class="active">ESG Lab Video: Foglight delivers clear visibility into Citrix environments</li>
 	</ul>
 </div>
-<div class="container mt-10">
+<div class="container mt-20">
 	<h1>ESG Lab Video: Foglight delivers clear visibility into Citrix environments</h1>
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 			<div class="media-player-container">
 				<img src="http://ak.c.ooyala.com/JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV/promo264707190" class="img-responsive img-border">
-
 				<div id="player-wrapper" class="ooyalaplayer"></div>
-				<noscript>
-					<div>Please enable Javascript to watch this video</div>
-				</noscript>
+					<noscript>
+						<div>Please enable Javascript to watch this video</div>
+					</noscript>
+					<div id="player-button" class="img-overlay vertical-center horizontal-center">
+						<div>
+							<span class="icon-ui-play-underlay"></span>
+							<span class="icon-ui-play"></span>
+						</div>
+					</div>
+				</div>
 			</div>
-
-			<script>
-				$('head').append('<link rel="stylesheet" href="/static/css/video-player.min.css">');
-			</script>
 
 			<script src="/static/js/video-player.min.js"></script>
 
@@ -37,14 +39,20 @@
 				var player_handle = null;
 
 				OO.ready(function () {
-					$('#player-wrapper').css('height', Math.floor($('#player-wrapper').width() * 9) / 16);
-
 					player_handle = OO.Player.create('player-wrapper', 'JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV', {
 						onCreate: OOCreate,
 						autoplay: false,
 						wmode: 'transparent'
 					});
 				});
+
+				addResize(function() {
+					// addResize is invoked as break points is hit when it is dragged
+					// height of player-wrapper is recalculated by 16 by 9 ratio
+					setTimeout( function() {
+						$('#player-wrapper').css('height', Math.floor($('#player-wrapper').width() * 9) / 16);
+					}, 650);
+				}, true);
 			</script>
 		</div>
 	</div>

@@ -24,6 +24,20 @@
   }
 }
 
+#player-button .icon-ui-play {
+  color: $dell-gray-dark;
+  font-size: 80px;
+  position: relative;
+}
+
+#player-button .icon-ui-play-underlay {
+  background: #fff;
+  height: 60px;
+  margin: 10px;
+  position: absolute;
+  width: 60px;
+}
+
 /* http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd;
