@@ -107,5 +107,8 @@
   .masthead .main-nav-section ul.tier2.visible-xs {
     display: block !important; } }
 /*SM*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .masthead .main-nav-section div.tier2 .triangle-top {
+    top: 17px; } }
 /*MD*/
 /*LG*/
