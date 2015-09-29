@@ -854,18 +854,20 @@ function resizeAffix() {
 
 		//trigger affix if it hasn't been triggered already
 		if (!affixElem.data('bs.affix')) {
-			affixElem.affix({
-				offset: {
-					top: affixElem.offset().top
-				}
-			});
+			setTimeout(function() {
+				affixElem.affix({
+					offset: {
+						top: affixElem.offset().top
+					}
+				});
 
-			//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
-			affixElem.on('affixed.bs.affix', function () {
-				$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
-			}).on('affixed-top.bs.affix', function () {
-				$(this).next().remove();
-			});
+				//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
+				affixElem.on('affixed.bs.affix', function () {
+					$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
+				}).on('affixed-top.bs.affix', function () {
+					$(this).next().remove();
+				});
+			}, 250);
 		}
 	}
 	else {
@@ -881,8 +883,7 @@ function resizeAffix() {
 		//destroy affix
 		$(window).off('.affix');
 		affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
-
-		affixElem.removeClass('affix').removeClass('affix-top');
+		affixElem.removeClass('affix affix-top affix-bottom');
 	}
 }
 

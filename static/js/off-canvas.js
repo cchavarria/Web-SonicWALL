@@ -11,6 +11,9 @@ getLocalizedContent("LabelBack").done(function (data) {
 		$('.site-wrapper').show();
 
 		$('body').animate({left: 0}, 500, function () {
+			$('#off-canvas').data('appendElem').remove();
+			$('#off-canvas').removeData('appendElem');
+
 			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
 			$('body').removeClass('off-canvas-mode');
 			$(document).scrollTop($('#off-canvas').data('top'));
@@ -30,10 +33,16 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 	var target = ($(this).data('target') === undefined) ? $(this).attr('href') : $(this).data('target'), top = $(document).scrollTop();
 
+	if($(target + '_old').length) {
+		target += '_old';
+	}
+
 	$('#off-canvas').css('top', top).data('target', target).data('top', top).find('.off-canvas-content').html($(target).children());
 
 	if($(this).data('offcanvas-append')) {
-		$('#off-canvas').find('.off-canvas-content').append($($(this).data('offcanvas-append')).clone().children());
+		var appendElem = $($(this).data('offcanvas-append')).clone().children();
+		$('#off-canvas').find('.off-canvas-content').append(appendElem);
+		$('#off-canvas').data('appendElem', appendElem);
 	}
 
 	$('body').trigger('offcanvas.visible');
@@ -80,6 +89,9 @@ $('body').on('offcanvas.visible', function () {
 addResize(function () {
 	if ($('#off-canvas').is(':visible')) {
 		$('.site-wrapper').show();
+
+		$('#off-canvas').data('appendElem').remove();
+		$('#off-canvas').removeData('appendElem');
 
 		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
 		$('body').removeClass('off-canvas-mode');
