@@ -49,13 +49,13 @@
 			<div class="col-sm-6 col-xs-12">
 				<div class="media-player-container">
 					<img src="http://ak.c.ooyala.com/JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV/promo264707190" class="img-responsive img-border">
-					<div id="player-button" class="img-overlay vertical-center horizontal-center">
+					<div class="img-overlay vertical-center horizontal-center">
 						<div>
 							<span class="icon-ui-play-underlay"></span>
 							<span class="icon-ui-play"></span>
 						</div>
 					</div>
-					<div id="ooyalaplayer" class="ooyalaplayer large-video" data-on-demand="true" data-videoid="R2cjA2dDpLyvaZ29i3XwVTsdqpfUX6MA"></div>
+					<div id="ooyalaplayer" class="ooyalaplayer" data-on-demand="true" data-videoid="R2cjA2dDpLyvaZ29i3XwVTsdqpfUX6MA"></div>
 					<noscript>
 						<div>Please enable Javascript to watch this video</div>
 					</noscript>
@@ -79,24 +79,25 @@
 	</div>
 </div>
 
+<!-- Affix w/ Mobile -->
 <div class="container">
-	<div class="mt-40 mb-20 hidden-xs">
+	<div class="mt-40 mb-20">
 		<div id="affix-nav" data-even-width="true">
 			<ul class="nav">
 				<li class="active">
-					<a href="#features">Features</a>
+					<a href="#features" data-toggle="offcanvas" data-offcanvas-append="#next-step-container">Features<i class="menu-indicator pull-right visible-xs"></i></a>
 				</li>
 				<li>
-					<a href="#tour">Tour</a>
+					<a href="#tour" data-toggle="offcanvas">Tour<i class="menu-indicator pull-right visible-xs"></i></a>
 				</li>
 				<li>
-					<a href="#specifications">Specifications</a>
+					<a href="#specifications" data-toggle="offcanvas">Specifications<i class="menu-indicator pull-right visible-xs"></i></a>
 				</li>
 				<li>
-					<a href="#resources">Resources</a>
+					<a href="#resources" data-toggle="offcanvas">Resources<i class="menu-indicator pull-right visible-xs"></i></a>
 				</li>
 				<li>
-					<a href="#support">Support &amp; Services</a>
+					<a href="#support" data-toggle="offcanvas">Support &amp; Services<i class="menu-indicator pull-right visible-xs"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -104,8 +105,9 @@
 </div>
 
 <!-- Features -->
-<div class="container">
-	<div id="features">
+<div id="features" class="hidden-xs" data-no-border="true">
+	<div class="container">
+
 		<h4 class="feature">Features</h4>
 
 		<p><strong>Protect your workloads on virtual machines, physical servers, and in the cloud.</strong><br>Use a single
@@ -137,108 +139,104 @@
 		<p><strong>Verified Recovery</strong><br>Perform automated recovery testing and verification of backups to ensure
 			that the file systems, Microsoft Exchange and SQL Server instances you back up will be recovered.</p>
 
-		<a href="#" class="btn btn-default btn-block mt-30">View More Features</a>
+		<a href="#" class="btn btn-default btn-block mt-30 mb-30">View More Features</a>
 	</div>
 </div>
 
 <!-- Tour -->
-<div class="bg-grey mt-30 pt-30 pb-30">
+<div class="bg-grey mt-30 pt-30 pb-30 hidden-xs">
 	<div class="container">
 		<h4 class="feature">Tour</h4>
 
 		<div id="tour" class="row">
-			<div class="slick" data-slide-sm="1" data-slide-md="1" data-slide-lg="1">
-				<div class="col-xs-12">
-					<img
-						src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-1.jpg"
-						class="img-responsive center-block img-border">
+			<div class="slick text-md" data-slide-sm="1" data-slide-md="1" data-slide-lg="1">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
+						<img
+							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-1.jpg"
+							class="img-responsive center-block img-border">
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">AppAssure Console</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">AppAssure Console</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Manage backup, replication, and restore jobs from a central console.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Manage backup, replication, and restore jobs from a central console.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-12">
-					<a href="#">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
 						<img
-							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-2.jpg"
+							data-lazy="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-2.jpg"
 							class="img-responsive center-block img-border">
-					</a>
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">Recovery Points</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">Recovery Points</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Set 5-minute RPOs and restore data with a five-minute granularity.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Set 5-minute RPOs and restore data with a five-minute granularity.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-12">
-					<a href="#">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
 						<img
-							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-3.jpg"
+							data-lazy="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-3.jpg"
 							class="img-responsive center-block img-border">
-					</a>
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">Live Recovery</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">Live Recovery</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Enable Live Recovery to provide access to recovered data before restore is complete.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Enable Live Recovery to provide access to recovered data before restore is complete.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-12">
-					<a href="#">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
 						<img
-							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-4.jpg"
+							data-lazy="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-4.jpg"
 							class="img-responsive center-block img-border">
-					</a>
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">Integrity Checks on MS EDB</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">Integrity Checks on MS EDB</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Ensure recoverability with nightly integrity checks on Microsoft Exchange databases.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Ensure recoverability with nightly integrity checks on Microsoft Exchange databases.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-12">
-					<a href="#">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
 						<img
-							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-5.jpg"
+							data-lazy="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-5.jpg"
 							class="img-responsive center-block img-border">
-					</a>
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">Verified Recovery</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">Verified Recovery</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Verified Recovery mounts backed up data and alerts you if data can’t be mounted.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Verified Recovery mounts backed up data and alerts you if data can’t be mounted.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-12">
-					<a href="#">
+				<div class="col-xs-12 text-center">
+					<div class="inline-block">
 						<img
-							src="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-6.jpg"
+							data-lazy="http://stage.software.dell.com/image/appassure/screenshot/appassure-screenshot-6.jpg"
 							class="img-responsive center-block img-border">
-					</a>
 
-					<div class="mt-30 text-center-xs text-md">
-						<a href="#"><h5 data-max-line="3" class="dotdotdot text-md">Send Archives to the Cloud</h5>
-						</a>
+						<div class="mt-30 text-left">
+							<h5 data-max-line="3" class="h4 dotdotdot">Send Archives to the Cloud</h5>
 
-						<div data-max-line="5" class="description dotdotdot">
-							<p>Send archive data to cloud storage providers, reducing reliance on tape.</p>
+							<div data-max-line="5" class="description dotdotdot">
+								<p>Send archive data to cloud storage providers, reducing reliance on tape.</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -253,7 +251,7 @@
 </div>
 
 <!-- Specifications -->
-<div id="specifications" class="container mt-30">
+<div id="specifications" class="container mt-30 hidden-xs">
 	<h4>Specifications</h4>
 
 	<div class="row mb-30">
@@ -268,62 +266,50 @@
 						</h4>
 					</div>
 
-					<div id="One" class="collapse table-responsive" aria-expanded="false">
+					<div id="One" class="collapse" aria-expanded="false">
 						<div class="panel-body">
-							<table class="table table-striped table-hover mb-0">
-								<tbody>
-								<tr>
-									<th>CPU</th>
-									<td>
-										<ul>
-											<li>Quad Core or higher</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Memory</th>
-									<td>
-										<ul>
-											<li>8 GB RAM or higher; Dell highly recommends using Error Checking &amp; Correction (ECC) memory,
-												to ensure optimum performance of AppAssure Core Servers.
-											</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Operating System (64-Bit)</th>
-									<td>
-										<ul>
-											<li>Microsoft Windows 7 (all x64 editions)</li>
-											<li>Microsoft Windows 8* (all x64 editions)</li>
-											<li>Microsoft Windows 8.1* (all x64 editions)</li>
-											<li>Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
-											<li>Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
-											<li>Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
-											<li>Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Storage</th>
-									<td>
-										<ul>
-											<li>DAS, SAN or NAS</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Network</th>
-									<td>
-										<ul>
-											<li>1 Gbps or higher</li>
-										</ul>
-										<p>Note: Use network cables with the appropriate rating to obtain the expected bandwidth. Dell
-											recommends testing your network performance regularly and adjusting your hardware accordingly.</p>
-									</td>
-								</tr>
-								</tbody>
-							</table>
+							<dl>
+								<dt>CPU</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>Quad Core or higher</li>
+									</ul>
+								</dd>
+								<dt>Memory</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>8 GB RAM or higher; Dell highly recommends using Error Checking &amp; Correction (ECC) memory,
+											to ensure optimum performance of AppAssure Core Servers.
+										</li>
+									</ul>
+								</dd>
+								<dt>Operating System (64-Bit)</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>Microsoft Windows 7 (all x64 editions)</li>
+										<li>Microsoft Windows 8* (all x64 editions)</li>
+										<li>Microsoft Windows 8.1* (all x64 editions)</li>
+										<li>Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
+										<li>Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
+										<li>Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
+										<li>Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
+									</ul>
+								</dd>
+								<dt>Storage</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>DAS, SAN or NAS</li>
+									</ul>
+								</dd>
+								<dt>Network</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>1 Gbps or higher</li>
+									</ul>
+									<p>Note: Use network cables with the appropriate rating to obtain the expected bandwidth. Dell
+										recommends testing your network performance regularly and adjusting your hardware accordingly.</p>
+								</dd>
+							</dl>
 						</div>
 					</div>
 				</div>
@@ -335,26 +321,22 @@
 							</a>
 						</h4>
 					</div>
-					<div id="Two" class="collapse table-responsive" aria-expanded="false">
+					<div id="Two" class="collapse" aria-expanded="false">
 						<div class="panel-body">
-							<table class="table table-striped table-hover mb-0">
-								<tbody>
-								<tr>
-									<th>Operating System (64-Bit)</th>
-									<td>
-										<ul>
-											<li>Microsoft Windows 7 (all x64 editions)</li>
-											<li>Microsoft Windows 8* (all x64 editions)</li>
-											<li>Microsoft Windows 8.1* (all x64 editions)</li>
-											<li>Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
-											<li>Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
-											<li>Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
-											<li>Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
-										</ul>
-									</td>
-								</tr>
-								</tbody>
-							</table>
+							<dl>
+								<dt>Operating System (64-Bit)</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>Microsoft Windows 7 (all x64 editions)</li>
+										<li>Microsoft Windows 8* (all x64 editions)</li>
+										<li>Microsoft Windows 8.1* (all x64 editions)</li>
+										<li>Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
+										<li>Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
+										<li>Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
+										<li>Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
+									</ul>
+								</dd>
+							</dl>
 						</div>
 					</div>
 				</div>
@@ -368,95 +350,83 @@
 					</div>
 					<div id="Three" class="collapse" aria-expanded="false">
 						<div class="panel-body">
-							<table class="table table-striped table-hover mb-0">
-								<tbody>
-								<tr>
-									<th>Memory</th>
-									<td>
-										<ul>
-											<li>4GB or higher</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Operating System (32-Bit or 64-Bit)</th>
-									<td>
-										<p>NOTE: We support these Linux distributions and have tested under most of the released kernel
-											versions.</p>
-										<ul>
-											<li>Microsoft Windows XP SP3 (all editions</li>
-											<li>Microsoft Windows Vista (all editions)</li>
-											<li>Microsoft Windows 7 (all editions)</li>
-											<li>Microsoft Windows 8 (all editions)</li>
-											<li>Microsoft Windows 8.1 (all editions)</li>
-											<li>Microsoft Windows Server 2003 (all editions)</li>
-											<li>Microsoft Windows Server 2008 (all editions)</li>
-											<li>Microsoft Windows Server 2008 R2 (all editions)</li>
-											<li>Microsoft Windows Server 2008 R2 SP1 Core (all editions)</li>
-											<li>Microsoft Windows Server 2012 (all editions)</li>
-											<li>Microsoft Windows Server 2012 R2 (all editions)</li>
-											<li>Microsoft Windows Storage Server 2012 (all editions)</li>
-											<li>Microsoft Windows Storage Server 2012 R2 (all editions)</li>
-											<li>Red Hat Enterprise Linux (RHEL) 6.3</li>
-											<li>RHEL 6.4</li>
-											<li>RHEL 6.5</li>
-											<li>RHEL 6.6</li>
-											<li>RHEL 7.0</li>
-											<li>CentOS Linux 6.3</li>
-											<li>CentOS Linux 6.4</li>
-											<li>CentOS Linux 6.5</li>
-											<li>CentOS 6.6</li>
-											<li>CentOS 7.0</li>
-											<li>Ubuntu Linux 12.04 LTS</li>
-											<li>Ubuntu Linux 13.04</li>
-											<li>SUSE Linux Enterprise Server (SLES) 11 SP2</li>
-											<li>SLES 11 SP3</li>
-											<li>Microsoft Hyper-V Server 2012</li>
-										</ul>
-										<p>Note: Agents installed on the Microsoft Hyper-V Server 2012 operate in the Core edition mode of
-											Windows Server 2012.</p>
+							<dl>
+								<dt>Memory</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>4GB or higher</li>
+									</ul>
+								</dd>
+								<dt>Operating System (32-Bit or 64-Bit)</dt>
+								<dd class="border-t-grey">
+									<p>NOTE: We support these Linux distributions and have tested under most of the released kernel
+										versions.</p>
+									<ul>
+										<li>Microsoft Windows XP SP3 (all editions</li>
+										<li>Microsoft Windows Vista (all editions)</li>
+										<li>Microsoft Windows 7 (all editions)</li>
+										<li>Microsoft Windows 8 (all editions)</li>
+										<li>Microsoft Windows 8.1 (all editions)</li>
+										<li>Microsoft Windows Server 2003 (all editions)</li>
+										<li>Microsoft Windows Server 2008 (all editions)</li>
+										<li>Microsoft Windows Server 2008 R2 (all editions)</li>
+										<li>Microsoft Windows Server 2008 R2 SP1 Core (all editions)</li>
+										<li>Microsoft Windows Server 2012 (all editions)</li>
+										<li>Microsoft Windows Server 2012 R2 (all editions)</li>
+										<li>Microsoft Windows Storage Server 2012 (all editions)</li>
+										<li>Microsoft Windows Storage Server 2012 R2 (all editions)</li>
+										<li>Red Hat Enterprise Linux (RHEL) 6.3</li>
+										<li>RHEL 6.4</li>
+										<li>RHEL 6.5</li>
+										<li>RHEL 6.6</li>
+										<li>RHEL 7.0</li>
+										<li>CentOS Linux 6.3</li>
+										<li>CentOS Linux 6.4</li>
+										<li>CentOS Linux 6.5</li>
+										<li>CentOS 6.6</li>
+										<li>CentOS 7.0</li>
+										<li>Ubuntu Linux 12.04 LTS</li>
+										<li>Ubuntu Linux 13.04</li>
+										<li>SUSE Linux Enterprise Server (SLES) 11 SP2</li>
+										<li>SLES 11 SP3</li>
+										<li>Microsoft Hyper-V Server 2012</li>
+									</ul>
+									<p>Note: Agents installed on the Microsoft Hyper-V Server 2012 operate in the Core edition mode of
+										Windows Server 2012.</p>
 
-										<p>NOTE: For Linux agents, AppAssure 5 only supports the following file systems: ext3, ext4, and
-											xfs.</p>
+									<p>NOTE: For Linux agents, AppAssure 5 only supports the following file systems: ext3, ext4, and
+										xfs.</p>
 
-										<p>NOTE: Native backup of cluster shared volumes is supported on Windows 2008 R2 agents only.</p>
-									</td>
-								</tr>
-								<tr>
-									<th>Microsoft Exchange Support</th>
-									<td>
-										<ul>
-											<li>Microsoft Exchange 2007 SP1 Rollup 5 or later</li>
-											<li>Microsoft Exchange 2010</li>
-											<li>Microsoft Exchange 2013</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Microsoft SQL Support</th>
-									<td>
-										<ul>
-											<li>SQL Server 2005, 2008, 2008 R2, and 2012</li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th>Hypervisor support (Export and Virtual Standby)</th>
-									<td>
-										<ul>
-											<li><strong>VMware</strong><br>
-												Workstation 7.0, 8.0, 9.0, 10<br>
-												vSphere/ESX(i) 4.0, 4.1, 5.0, 5.1, 5.5.
-											</li>
-											<li><strong>Microsoft Hyper-V</strong> Gen 1 and Gen 2 VMS<br>
-												Windows Server 2008 R2, 2012, 2012 R2.
-											</li>
-											<li><strong>Oracle VirtualBox</strong> 4.2.18 and higher</li>
-										</ul>
-									</td>
-								</tr>
-								</tbody>
-							</table>
+									<p>NOTE: Native backup of cluster shared volumes is supported on Windows 2008 R2 agents only.</p>
+								</dd>
+								<dt>Microsoft Exchange Support</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>Microsoft Exchange 2007 SP1 Rollup 5 or later</li>
+										<li>Microsoft Exchange 2010</li>
+										<li>Microsoft Exchange 2013</li>
+									</ul>
+								</dd>
+								<dt>Microsoft SQL Support</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li>SQL Server 2005, 2008, 2008 R2, and 2012</li>
+									</ul>
+								</dd>
+								<dt>Hypervisor support (Export and Virtual Standby)</dt>
+								<dd class="border-t-grey">
+									<ul>
+										<li><strong>VMware</strong><br>
+											Workstation 7.0, 8.0, 9.0, 10<br>
+											vSphere/ESX(i) 4.0, 4.1, 5.0, 5.1, 5.5.
+										</li>
+										<li><strong>Microsoft Hyper-V</strong> Gen 1 and Gen 2 VMS<br>
+											Windows Server 2008 R2, 2012, 2012 R2.
+										</li>
+										<li><strong>Oracle VirtualBox</strong> 4.2.18 and higher</li>
+									</ul>
+								</dd>
+							</dl>
 						</div>
 					</div>
 				</div>
@@ -473,7 +443,7 @@
 </div>
 
 <!-- Resources -->
-<div class="bg-grey mt-30">
+<div class="bg-grey mt-30 hidden-xs">
 	<div id="resources" class="container mt-25">
 		<h4>Resources</h4>
 
@@ -483,9 +453,9 @@
 					<h4 class="visible-xs">Foundational Backup and Recovery</h4>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 mb-40 mb-10-xs">
-					<a href="/solutions/endpoint-management/">
-						<img class="img-responsive img-border hidden-xs" alt="image alternative text"
-								 src="../image.php?w=330&h=236&c=c0c0c0&t=">
+					<a href="#">
+						<img class="img-responsive hidden-xs" alt="image alternative text"
+								 src="http://software.dell.com/images/shared/success-stories-icons/eharmony.png">
 					</a>
 
 					<div class="mt-30 mt-0-xs text-md">
@@ -614,12 +584,14 @@
 	</div>
 </div>
 
-<div class="bg-dark-grey">
-	<div class="container mt-30 mb-30">
-		<h4 class="h2 text-white">Take the next step</h4>
+<div id="next-step-container">
+	<div class="bg-dark-grey">
+		<div class="container pt-30 pb-30">
+			<h4 class="h2 text-white">Take the next step</h4>
 
-		<a href="#" class="btn btn-primary">Download Free Trial</a>
-		<a href="#" class="btn btn-primary">Request a Demo</a>
+			<a href="#" class="btn btn-primary">Download Free Trial</a>
+			<a href="#" class="btn btn-primary">Request a Demo</a>
+		</div>
 	</div>
 </div>
 
@@ -761,16 +733,17 @@
 	</div>
 </div>
 
-<div id="support" class="bg-grey mt-30">
+<!-- Support & Services -->
+<div id="support" class="bg-grey mt-30 hidden-xs">
 	<div class="container mt-25">
 		<h4>Support and services</h4>
 
-		<section class="icon-headline">
+		<section>
 			<div class="row">
 				<div class="col-md-4 col-sm-6 col-xs-12 mb-30 mb-15-xs">
 					<div class="row">
 						<div class="col-xs-2">
-							<a href="/products/kace-k1000-systems-management-appliance/inventory-asset-management.aspx">
+							<a href="#">
 								<img class="mt-5" src="../image.php?w=32&h=32&c=c0c0c0&t=">
 							</a>
 						</div>
@@ -870,4 +843,36 @@
 			</ul>
 		</div>
 	</div>
+</div>
+
+<div class="bg-grey mt-20 pt-20 pb-20 social-media-toolbar text-center">
+	<span>Share</span>
+	<ul>
+		<li class="facebook">
+			<a href="#">
+				<span class="facebook icons-social-media"></span>
+				<span class="dsg-icon-title">Facebook</span>
+			</a>
+		</li>
+		<li class="twitter">
+			<a href="#">
+				<span class="twitter icons-social-media"></span>
+
+				<span class="dsg-icon-title">Twitter</span>
+			</a>
+		</li>
+		<li class="linkedin">
+			<a href="#">
+				<span class="linkedin icons-social-media"></span>
+				<span class="dsg-icon-title">LinkedIn</span>
+			</a>
+		</li>
+		<li class="googleshare">
+			<a href="#">
+				<span class="googleshare icons-social-media"></span>
+				<span class="dsg-icon-title">Google+</span>
+			</a>
+		</li>
+
+	</ul>
 </div>
