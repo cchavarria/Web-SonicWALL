@@ -10,7 +10,7 @@
 @import "../bootstrap/partials/glyphicons";
 
 // Core CSS
-@import "../bootstrap/partials/scaffolding";
+@import "../bootstrap/custom/scaffolding";
 @import "../bootstrap/custom/type";
 @import "../bootstrap/partials/code";
 @import "../bootstrap/partials/grid";
@@ -20,7 +20,7 @@
 @import "../bootstrap/custom/buttons";
 
 // Components
-@import "../bootstrap/partials/component-animations";
+@import "../bootstrap/custom/component-animations";
 @import "../bootstrap/custom/dropdowns";
 @import "../bootstrap/partials/button-groups";
 @import "../bootstrap/partials/input-groups";

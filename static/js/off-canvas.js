@@ -41,7 +41,8 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 	if($(this).data('offcanvas-append')) {
 		var appendElem = $($(this).data('offcanvas-append')).clone().children();
-		$('#off-canvas').find('.off-canvas-content').append(appendElem);
+		//$('#off-canvas').find('.off-canvas-content').append(appendElem);
+		appendElem.insertAfter($('#off-canvas').find('.off-canvas-content'));
 		$('#off-canvas').data('appendElem', appendElem);
 	}
 
@@ -68,6 +69,7 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 		setTimeout(function () {
 			resizeFourColumnFilmstripCarousel('#off-canvas');
+			slickPlugin('#off-canvas');
 		}, 100);
 	});
 });

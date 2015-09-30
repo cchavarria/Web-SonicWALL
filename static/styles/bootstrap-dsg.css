@@ -76,6 +76,14 @@
   select::-ms-expand {
     display: none;
   }*/
+  /*@media (min-width: 768px) {
+    .btn {
+      //If 2 buttons are side by side, add margin
+      + .btn {
+        margin-left: 10px;
+      }
+    }
+  }*/
   /*@import "bootstrap/jumbotron";*/
   /*@import "bootstrap/alerts";*/
   /*@import "bootstrap/progress-bars";*/
@@ -178,6 +186,7 @@
   /* TODO: Need to find where this is being used */
   /* Text */
   /* iframe */
+  /* Vertical Alignment */
   /*display*/
   /* Padding */
   /* Margin */ }
@@ -1015,7 +1024,7 @@
       line-height: 1;
       color: #777777; }
   .bootstrap h1, .bootstrap .h1, .bootstrap h2, .bootstrap .h2, .bootstrap h3, .bootstrap .h3 {
-    margin: 30px 0; }
+    margin: 20px 0; }
     .bootstrap h1 small,
     .bootstrap h1 .small, .bootstrap .h1 small,
     .bootstrap .h1 .small, .bootstrap h2 small,
@@ -1052,6 +1061,8 @@
   .bootstrap h6, .bootstrap .h6 {
     font-size: 12px; }
   @media (min-width: 768px) {
+    .bootstrap h1, .bootstrap .h1, .bootstrap h2, .bootstrap .h2, .bootstrap h3, .bootstrap .h3 {
+      margin: 30px 0; }
     .bootstrap h1, .bootstrap .h1 {
       font-size: 30px;
       line-height: 1.2; }
@@ -2816,9 +2827,6 @@
       .bootstrap .btn.disabled .badge, .bootstrap .btn[disabled] .badge, fieldset[disabled] .bootstrap .btn .badge {
         color: #eeeeee;
         background-color: #aaaaaa; }
-  @media (min-width: 768px) {
-    .bootstrap .btn + .btn {
-      margin-left: 10px; } }
   .bootstrap .btn-default {
     color: #007db8;
     background-color: #eeeeee;
@@ -4637,6 +4645,10 @@
     margin: 0 auto;
     height: 60px;
     width: 65px; }
+  .bootstrap .icon-large-monitor:before {
+    content: "\e61e"; }
+  .bootstrap .text-md .icon-large-monitor:before {
+    font-size: 24px; }
   .bootstrap .icon-ui-triangleright:before {
     content: "\e610"; }
   .bootstrap .icon-ui-triangledown:before {
@@ -6120,6 +6132,8 @@
     position: relative; }
   .bootstrap iframe {
     border: 0; }
+  .bootstrap .valign-top {
+    vertical-align: top; }
   .bootstrap .block {
     display: block !important; }
   .bootstrap .inline {
@@ -6329,6 +6343,8 @@
       margin-top: 5px !important; }
     .bootstrap .mt-10-xs {
       margin-top: 10px !important; }
+    .bootstrap .mt-15-xs {
+      margin-top: 15px !important; }
     .bootstrap .mt-20-xs {
       margin-top: 20px !important; }
     .bootstrap .mt-30-xs {
@@ -6485,7 +6501,7 @@
   @media (min-width: 768px) {
     .bootstrap #affix-nav {
       top: 0;
-      z-index: 99999;
+      z-index: 999;
       display: block;
       border-top: 1px solid #cccccc;
       border-bottom: 1px solid #cccccc;

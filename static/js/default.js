@@ -9,7 +9,7 @@ $(document).ready(function () {
 	}
 
 	//Off Canvas
-	if($('[data-toggle=offcanvas],[data-toggle=show-offcanvas]').length) {
+	if ($('[data-toggle=offcanvas],[data-toggle=show-offcanvas]').length) {
 		$.getScript('/static/js/off-canvas.min.js');
 	}
 
@@ -219,72 +219,7 @@ $(document).ready(function () {
 	loadOoyala();
 
 	//Slick Plugin
-	addResize(function () {
-		if ($('.slick').length) {
-			if ($.fn.slick) {
-				init();
-			}
-			else {
-				$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css">');
-				$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
-			}
-		}
-
-		function init() {
-			var defaults = {
-				arrows: true,
-				infinite: false,
-				slidesToShow: 4,
-				slidesToScroll: 1
-			};
-
-			$('.slick').each(function () {
-				var cfg = defaults;
-
-				if ($(this).data('active') == 'xs-only' && pageType != 0) {
-					if ($(this).hasClass('slick-initialized')) {
-						$(this).slick('unslick');
-					}
-
-					return true;
-				}
-
-				if (pageType == 0) {
-					cfg.slidesToShow = 1;
-				}
-				else if (pageType == 1) {
-					cfg.slidesToShow = $(this).data('slide-sm') || 3;
-				}
-				else if (pageType == 2) {
-					cfg.slidesToShow = $(this).data('slide-md') || 4;
-				}
-				else if (pageType == 3) {
-					cfg.slidesToShow = $(this).data('slide-lg') || 4;
-				}
-
-				if ($(this).hasClass('slick-initialized')) {
-					$(this).slick('destroy');
-				}
-
-				if ($(this).find('> div').length > cfg.slidesToShow) {
-					$(this).on('init', function () {
-						var arrowsPos = 0, firstImage = $(this).find('img:first');
-
-						if (firstImage.parent().hasClass('img-crop')) {
-							arrowsPos = firstImage.parent().height() / 2 - 30;
-						}
-						else {
-							arrowsPos = firstImage.height() / 2 - 30;
-						}
-
-						$(this).find('.slick-arrow').css('top', arrowsPos);
-					});
-
-					$(this).slick(cfg);
-				}
-			});
-		}
-	}, true);
+	addResize('slickPlugin', true);
 
 	if ($('#affix-nav').length) {
 		addResize('resizeAffix', true);
@@ -295,9 +230,22 @@ $(document).ready(function () {
 		$.getScript('/static/js/button-flyout.min.js');
 	}
 
-	//Stacking containers to expose margin. bleeding.
-	/*addResize(function() {
-		$('.container').each(function() {
+	//Collapse
+	$('body').on('click', '[data-toggle=collapse]', function() {
+		var elem = $(this);
+
+		setTimeout(function() {
+			if(!elem.hasClass('collapsed')) {
+				if(elem.data('hide-when-expanded')) {
+					elem.slideUp('slow');
+				}
+			}
+		}, 100);
+	});
+
+	//Bleed Margins
+	addResize(function() {
+		$('.bleed').each(function() {
 			var children = $(this).children(), lastChild = children.length - 1;
 
 			//Start Reset
@@ -308,8 +256,7 @@ $(document).ready(function () {
 			$(children[lastChild]).css('marginBottom', '');
 			//End Reset
 
-			var marginTop = parseInt($(children[0]).css('marginTop')),
-				marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
+			var marginTop = parseInt($(children[0]).css('marginTop')), marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
 
 			if(marginTop) {
 				$(this).css('marginTop', marginTop + parseInt($(this).css('marginTop')));
@@ -327,8 +274,46 @@ $(document).ready(function () {
 
 				$(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
 			}
+			else if($(children[lastChild]).css('overflow') == 'visible') {
+
+			}
 		});
-	}, true);*/
+	}, true);
+
+	//Stacking containers to expose margin. bleeding.
+	/*addResize(function() {
+	 $('.container').each(function() {
+	 var children = $(this).children(), lastChild = children.length - 1;
+
+	 //Start Reset
+	 $(this).css('marginTop', '');
+	 $(children[0]).css('marginTop', '');
+
+	 $(this).css('marginBottom', '');
+	 $(children[lastChild]).css('marginBottom', '');
+	 //End Reset
+
+	 var marginTop = parseInt($(children[0]).css('marginTop')),
+	 marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
+
+	 if(marginTop) {
+	 $(this).css('marginTop', marginTop + parseInt($(this).css('marginTop')));
+	 $(children[0]).attr('style', 'margin-top: 0px !important;');
+	 }
+
+	 if(marginBottom) {
+	 $(this).css('marginBottom', marginBottom + parseInt($(this).css('marginBottom')));
+
+	 var style = (lastChild ? '':$(children[lastChild]).attr('style'));
+
+	 if(style === undefined) {
+	 style = '';
+	 }
+
+	 $(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
+	 }
+	 });
+	 }, true);*/
 });
 
 //Flex box degradation
@@ -342,6 +327,95 @@ addResize(function () {
 		});
 	}
 }, true);
+
+function slickPlugin(parentSelector) {
+	if (typeof parentSelector == 'undefined') {
+		parentSelector = 'body';
+	}
+
+	if ($(parentSelector).find('.slick').length) {
+		if ($.fn.slick) {
+			init();
+		}
+		else {
+			$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css">');
+			$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
+		}
+	}
+
+	function init() {
+		var defaults = {
+			arrows: true,
+			infinite: false,
+			slidesToShow: 4,
+			slidesToScroll: 1
+		};
+
+		$(parentSelector).find('.slick').each(function () {
+			var cfg = defaults;
+
+			if ($(this).data('active') == 'xs-only' && pageType != 0) {
+				if ($(this).hasClass('slick-initialized')) {
+					$(this).slick('unslick');
+				}
+
+				return true;
+			}
+
+			if (pageType == 0) {
+				cfg.slidesToShow = 1;
+			}
+			else if (pageType == 1) {
+				cfg.slidesToShow = $(this).data('slide-sm') || 3;
+			}
+			else if (pageType == 2) {
+				cfg.slidesToShow = $(this).data('slide-md') || 4;
+			}
+			else if (pageType == 3) {
+				cfg.slidesToShow = $(this).data('slide-lg') || 4;
+			}
+
+			if ($(this).hasClass('slick-initialized')) {
+				$(this).slick('destroy');
+			}
+
+			if ($(this).find('> div').length > cfg.slidesToShow) {
+				$(this).on('init', function (e, slick) {
+					var arrowsPos = 0, firstImage = $(this).find('img:first');
+
+					if (firstImage.parent().hasClass('img-crop')) {
+						arrowsPos = firstImage.parent().height() / 2 - 30;
+					}
+					else {
+						arrowsPos = firstImage.height() / 2 - 30;
+					}
+
+					$(this).find('.slick-arrow').css('top', arrowsPos);
+
+					if($(slick.$list).parent().data('screenshot')) {
+						fixScreenshot(slick, 0);
+					}
+				});
+
+				$(this).slick(cfg);
+
+				if($(this).data('screenshot')) {
+					$(this).on('afterChange', function(e, slick, currentSlide) {
+						fixScreenshot(slick, currentSlide);
+					});
+				}
+			}
+		});
+	}
+
+	function fixScreenshot(slick, currentSlide) {
+		var elem = $(slick.$slides[currentSlide]);
+
+		if(elem.width() < elem.find('img').width()) {
+			elem.find('> div').css('width', elem.width());
+		}
+	}
+}
 
 function processFlex() {
 	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
@@ -511,7 +585,7 @@ function loadOoyala(parentSelector) {
 				}
 
 				if ($(this).data('on-demand')) {
-					$(this).on('click', function() {
+					$(this).on('click', function () {
 						if (!$('#' + id).data('loaded')) {
 							var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
@@ -632,7 +706,7 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 function socialMediaToolbar() {
 	var bitlyURL = url = location.href;
 
-//If protocol is https find previous page.
+	//If protocol is https find previous page.
 	if (location.protocol == 'https:') {
 		var pathnameArr = location.pathname.split('/');
 
@@ -656,8 +730,8 @@ function socialMediaToolbar() {
 		})();
 	}
 
-//Retrieve bit.ly url
-	if (window.XMLHttpRequest && !(/\-/.test(location.host))) {
+	//Retrieve bit.ly url
+	if (window.XMLHttpRequest && location.host == 'software.dell.com') {
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", "/hidden/bitly.asmx/get?URI=" + encodeURIComponent(url));
 		xhr.onreadystatechange = function () {
@@ -675,7 +749,7 @@ function socialMediaToolbar() {
 		xhr.send();
 	}
 
-//Interaction when clicking on facebook, twitter and linkedin
+	//Interaction when clicking on facebook, twitter and linkedin
 	$('.social-media-toolbar').on('click', 'a', function (e) {
 		var parent = $(this).parent(), title = document.title;
 
@@ -812,7 +886,7 @@ function resizeAffix() {
 		affixHeight = affixElem.height();
 
 	if (pageType > 0) {
-		if(affixElem.data('even-width')) {
+		if (affixElem.data('even-width')) {
 			affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
 		}
 
@@ -854,7 +928,7 @@ function resizeAffix() {
 
 		//trigger affix if it hasn't been triggered already
 		if (!affixElem.data('bs.affix')) {
-			setTimeout(function() {
+			setTimeout(function () {
 				affixElem.affix({
 					offset: {
 						top: affixElem.offset().top

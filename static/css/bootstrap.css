@@ -1135,7 +1135,7 @@ textarea {
 a {
   color: #007db8;
   text-decoration: none; }
-  a:hover, a:focus {
+  a:hover {
     color: #00496c;
     text-decoration: underline; }
   a:focus {
@@ -1224,7 +1224,7 @@ h1, h2, h3, h4, h5, h6,
     color: #777777; }
 
 h1, .h1, h2, .h2, h3, .h3, #right-rail-form h4 {
-  margin: 30px 0; }
+  margin: 20px 0; }
   h1 small,
   h1 .small, .h1 small,
   .h1 .small, h2 small,
@@ -1270,6 +1270,9 @@ h6, .h6 {
   font-size: 12px; }
 
 @media (min-width: 768px) {
+  h1, .h1, h2, .h2, h3, .h3, #right-rail-form h4 {
+    margin: 30px 0; }
+
   h1, .h1 {
     font-size: 30px;
     line-height: 1.2; }
@@ -3221,9 +3224,14 @@ select[multiple].input-lg,
       color: #eeeeee;
       background-color: #aaaaaa; }
 
-@media (min-width: 768px) {
-  .btn + .btn {
-    margin-left: 10px; } }
+/*@media (min-width: 768px) {
+  .btn {
+    //If 2 buttons are side by side, add margin
+    + .btn {
+      margin-left: 10px;
+    }
+  }
+}*/
 .btn-default {
   color: #007db8;
   background-color: #eeeeee;
@@ -3406,7 +3414,7 @@ input[type="button"].btn-block {
 .collapse {
   display: none; }
   .collapse.in {
-    display: block; }
+    display: block !important; }
 
 tr.collapse.in {
   display: table-row; }
@@ -5025,6 +5033,10 @@ li {
 iframe {
   border: 0; }
 
+/* Vertical Alignment */
+.valign-top {
+  vertical-align: top; }
+
 /*display*/
 .block {
   display: block !important; }
@@ -5315,6 +5327,9 @@ iframe {
 
   .mt-10-xs {
     margin-top: 10px !important; }
+
+  .mt-15-xs {
+    margin-top: 15px !important; }
 
   .mt-20-xs {
     margin-top: 20px !important; }
@@ -5607,6 +5622,12 @@ iframe {
   margin: 0 auto;
   height: 60px;
   width: 65px; }
+
+.icon-large-monitor:before {
+  content: "\e61e"; }
+
+.text-md .icon-large-monitor:before {
+  font-size: 24px; }
 
 .icon-ui-triangleright:before {
   content: "\e610"; }
@@ -6558,7 +6579,7 @@ i.menu-indicator {
 @media (min-width: 768px) {
   #affix-nav {
     top: 0;
-    z-index: 99999;
+    z-index: 999;
     display: block;
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
