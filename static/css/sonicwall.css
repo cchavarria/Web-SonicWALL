@@ -6,7 +6,7 @@
   display: none; }
 .masthead .main-nav-section ul.tier2 {
   display: none !important; }
-.masthead .main-nav-section ul li.open > ul.tier2.visible-xs {
+.masthead .main-nav-section ul li.open > ul.tier2 {
   display: none !important; }
 .masthead .main-nav-section ul li.open div.tier2 {
   display: block; }
@@ -56,34 +56,44 @@
     margin-top: 11px; }
     .masthead .main-nav-section div.tier2 .tier3 .container {
       padding: 20px 0; }
-      .masthead .main-nav-section div.tier2 .tier3 .container .row > div.last-row a {
-        font-size: 14px; }
-      .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div {
-        float: left; }
-        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div > a {
-          font-size: 15px; }
-        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a {
-          padding: 0;
-          font-weight: bold; }
-          .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a:hover {
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div ul {
+        display: block; }
+        .masthead .main-nav-section div.tier2 .tier3 .container .row > div ul li a {
+          padding-left: 15px;
+          font-weight: normal;
+          padding-bottom: 0; }
+          .masthead .main-nav-section div.tier2 .tier3 .container .row > div ul li a:hover {
+            text-decoration: underline; }
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div.last-row {
+        margin-left: 16px; }
+        .masthead .main-nav-section div.tier2 .tier3 .container .row > div.last-row a {
+          font-size: 14px; }
+          .masthead .main-nav-section div.tier2 .tier3 .container .row > div.last-row a:hover {
             text-decoration: none; }
-            .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a:hover span {
+            .masthead .main-nav-section div.tier2 .tier3 .container .row > div.last-row a:hover span {
               text-decoration: underline; }
-          .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a i {
-            vertical-align: middle;
-            font-size: 12px; }
-        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div small {
-          color: #666; }
-        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul {
-          display: block;
-          margin-left: -4px; }
-          .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul > li a {
-            font-size: 85%;
-            padding: 4px;
-            display: inline-block; }
-            .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul > li a:hover {
-              background-color: #d9edf6;
-              text-decoration: none; }
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div > a {
+        font-size: 15px; }
+        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div > a:hover {
+          text-decoration: underline; }
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a {
+        padding: 0;
+        font-weight: bold; }
+        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div a i {
+          vertical-align: middle;
+          font-size: 12px; }
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div small {
+        color: #666; }
+      .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul {
+        display: block;
+        margin-left: -4px; }
+        .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul > li a {
+          font-size: 85%;
+          padding: 4px;
+          display: inline-block; }
+          .masthead .main-nav-section div.tier2 .tier3 .container .row > div > div ul > li a:hover {
+            background-color: #d9edf6;
+            text-decoration: none; }
       .masthead .main-nav-section div.tier2 .tier3 .container .row > div > a {
         float: left;
         margin-right: 10px;
@@ -104,7 +114,7 @@
 
 /*XS*/
 @media (max-width: 767px) {
-  .masthead .main-nav-section ul.tier2.visible-xs {
+  .masthead .main-nav-section ul li.open > ul.tier2 {
     display: block !important; } }
 /*SM*/
 @media (max-width: 991px) and (min-width: 768px) {

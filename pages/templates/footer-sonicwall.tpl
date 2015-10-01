@@ -5,11 +5,12 @@
 				<span>About Us <i class="menu-indicator pull-right"></i></span>
 				<ul>
 					<li><a href="/company/">Company</a></li>
-					<li><a href="/company/contact-us.aspx">Contact Us</a></li>
+					<li><a href="/company/contact.aspx">Contact Us</a></li>
 					<li><a
-							href="http://www.dell.com/Learn/us/en/uscorp1/about-dell-newsroom?c=us&l=en&s=corp&ref=ff42&delphi:gr=true"
-							target="_blank">News</a></li>
-					<li><a href="/partners">Partners</a></li>
+							href="http://www.dell.com/careers/"
+							target="_blank">Careers</a></li>
+					<li><a href="http://www.sonicwall.com/us/en/company/Newsroom.html">Newsroom</a></li>
+					<li><a href="/feedback">Website Feedback</a></li>
 				</ul>
 			</li>
 			<li class="subLinks">
@@ -18,49 +19,48 @@
 					<li><a href="http://en.community.dell.com/techcenter/" target="_blank">Communities</a></li>
 					<li><a href="/documents/">Documents</a></li>
 					<li><a href="/events/">Events</a></li>
-					<li><a href="/video-gallery/">Videos</a></li>
+					<li><a href="/video-gallery/#bysolutionnetworksecurity">Videos</a></li>
 				</ul>
 			</li>
 			<li class="subLinks">
 				<span>Support <i class="menu-indicator pull-right"></i></span>
 				<ul>
-					<li><a href="https://support.software.dell.com/professional-services-product-select/"
-								 target="_blank">Professional Services</a></li>
-					<li><a href="https://support.software.dell.com/essentials/benefits-of-renewing-support"
-								 target="_blank">Renew Support</a></li>
-					<li><a href="/support/" target="_blank">Technical Support</a></li>
-					<li><a href="https://support.software.dell.com/training-product-select/" target="_blank">Training
-							& Certification</a></li>
+					<li><a href="https://support.software.dell.com/kb-product-select"
+								 target="_blank">Knowledge Base</a></li>
+					<li><a href="https://support.software.dell.com/essentials/SonicWALL-Support-Offerings"
+								 target="_blank">Support Services</a></li>
+					<li><a href="https://www.mysonicwall.com/login.aspx" target="_blank">MySonicWALL.com</a></li>
 				</ul>
 			</li>
 			<li class="subLinks">
-				<span>Social Networks <i class="menu-indicator pull-right"></i></span>
+				<span>Stay in Touch <i class="menu-indicator pull-right"></i></span>
 				<ul>
-					<li><a href="http://www.facebook.com/dellsoftware" target="_blank">Facebook</a></li>
-					<li><a href="https://plus.google.com/u/0/103474799682341904292/posts"
-								 target="_blank">Google+</a></li>
+					<li><a href="http://www.facebook.com/dellsecurity" target="_blank">Facebook</a></li>
+					<li><a href="http://www.twitter.com/dellsecurity" target="_blank">Twitter</a></li>
 					<li>
-						<a href="http://www.linkedin.com/groups/Dell-Software-4793472?gid=4793472&mostPopular=&trk=tyah"
+						<a href="http://www.linkedin.com/groups?gid=52461&mostPopular=&trk=tyah&trkInfo=tas%3Asonicwall"
 							 target="_blank">LinkedIn</a></li>
-					<li><a href="http://twitter.com/dellsoftware" target="_blank">Twitter</a></li>
+					<li><a href="http://response.quest.com/content/subscription/" target="_blank">Newsletters</a></li>
 				</ul>
 			</li>
 			<li id="country-selector" class="subLinks">
             <span>
-              <span id="current-country" class="flag-us">United States <span>&nbsp;</span></span>
+              <span id="current-country" class="flag-us">North America <span>&nbsp;</span></span>
               <i class="menu-indicator pull-right"></i>
             </span>
 				<div id="country-popup">
 					<div>
 						<div>
 							<ul>
-								<li><a href="/" class="active">United States (English)</a></li>
-								<li><a href="/br-pt/">Brazil (Português)</a></li>
-								<li><a href="/cn-zh/">China (中文)</a></li>
-								<li><a href="/fr-fr/">France (Français)</a></li>
-								<li><a href="/de-de/">Germany (Deutsch)</a></li>
-								<li><a href="/jp-ja/">Japan (日本語)</a></li>
-								<li><a href="/mx-es/">Mexico (Español)</a></li>
+								<li><a href="http://www.sonicwall.com/us/en/" class="active">United States (English)</a></li>
+								<li><a href="http://www.sonicwall.com/br/pt/">Brazil (Português)</a></li>
+								<li><a href="http://www.sonicwall.com/cn/">China (中文)</a></li>
+								<li><a href="http://www.sonicwall.com/fr/fr/">France (Français)</a></li>
+								<li><a href="http://www.sonicwall.com/de/de/">Germany (Deutsch)</a></li>
+								<li><a href="http://www.sonicwall.com/japan/">Japan (日本語)</a></li>
+								<li><a href="http://www.sonicwall.com/mx/es/">Mexico (Español)</a></li>
+								<li><a href="http://www.sonicwall.com/it/it/">Italy (Italia)</a></li>
+								<li><a href="http://www.sonicwall.com/es/es/">Spain (Español)</a></li>
 							</ul>
 						</div>
 					</div>
@@ -71,44 +71,12 @@
 
 	<div class="footer-shadow-section"></div>
 
-	<div class="bg-light-grey hidden-xs">
-		<div id="partners" class="pt-20 pb-20 text-sm container container-fluid">
-			<aside class="row">
-				<section class="col-sm-3 col-md-2">
-					<a href="http://www.boomi.com/" target="_blank">Boomi</a>
-
-					<p>Cloud-based application integration</p>
-				</section>
-				<section class="col-sm-3 col-md-2">
-					<a href="http://www.enstratius.com/home" target="_blank">Enstratius</a>
-
-					<p>Cloud infrastructure management</p>
-				</section>
-				<section class="col-sm-3 col-md-2">
-					<a href="http://www.foglight.com/" target="_blank">Foglight</a>
-
-					<p>SaaS for application performance monitoring</p>
-				</section>
-				<section class="col-sm-3 col-md-2">
-					<a href="http://www.sonicwall.com/us/en/" target="_blank">SonicWALL</a>
-
-					<p>Security for networks, mobility and email</p>
-				</section>
-				<section class="col-sm-3 col-md-2">
-					<a href="http://www.statsoft.com/" target="_blank">StatSoft</a>
-
-					<p>Advanced analytics platform</p>
-				</section>
-			</aside>
-		</div>
-	</div>
-
 	<div class="footer-copyright-section">
 		<ul class="menu-links list-inline row">
-			<li><span>©2015 Dell Inc. ALL RIGHTS RESERVED.</span></li>
-			<li><a href="/legal/">Terms of Use</a></li>
+			<li><span>©2015 Dell Inc.</span></li>
 			<li><a href="/legal/privacy.aspx">Privacy</a></li>
-			<li><a href="/feedback">Feedback</a></li>
+			<li><a href="http://www.dell.com/learn/us/en/uscorp1/terms" target="_blank">Terms & Conditions</a></li>
+			<li><a href="http://www.dell.com/learn/us/en/uscorp1/site-terms-of-use" target="_blank">Terms of Use</a></li>
 		</ul>
 	</div>
 </footer>

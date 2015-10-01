@@ -291,7 +291,7 @@
                   </a>
                 </li>
               </ul>
-              <div class="tier2 bg-grey">
+              <div class="tier2 bg-grey hidden-xs">
                 <div class="container">
                   <div>
                     <a class="text-md" href="#">Network Security</a>
@@ -664,7 +664,7 @@
                               </div>
                             </aside>
                           </div>
-                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15">
+                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15 mt-10">
                             <div class="col-sm-3">
                               <a href="http://www.sonicwall.com/us/en/products.html">
                                 <span>View all Products </span>
@@ -810,7 +810,7 @@
                               </div>
                             </aside>
                           </div>
-                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15">
+                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15 mt-10">
                             <div class="col-sm-3">
                               <a href="http://www.sonicwall.com/us/en/products.html">
                                 <span>View all Products </span>
@@ -883,7 +883,8 @@
                           </div>
                           <div class="col-sm-3">
                             <div class="col-sm-3 pl-0 pr-0">
-                              <a class="mr-0" href="http://www.sonicwall.com/us/en/products/Scrutinizer-Netflow-Analyzer.html">
+                              <a class="mr-0"
+                                 href="http://www.sonicwall.com/us/en/products/Scrutinizer-Netflow-Analyzer.html">
                                 <img class="img-responsive"
                                      src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/Dell-SonicWALL_Scrutinizer.jpg">
                               </a>
@@ -892,7 +893,9 @@
                               <a href="http://www.sonicwall.com/us/en/products/Scrutinizer-Netflow-Analyzer.html">
                                 Scrutinizer
                               </a>
-                              <small class="block">Measure and troubleshoot network performance while increasing productivity.</small>
+                              <small class="block">Measure and troubleshoot network performance while increasing
+                                productivity.
+                              </small>
                             </div>
                           </div>
                           <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15">
@@ -1012,6 +1015,130 @@
                   </ul>
                 </li>
               </ul>
+              <div class="tier2 bg-grey hidden-xs">
+                <div class="container">
+                  <div>
+                    <a class="text-md" href="#">Security Solutions</a>
+
+                    <div class="triangle-top"></div>
+                    <div class="tier3">
+                      <div class="container pt-0">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href=/solutions/network-security">Network Security</a></li>
+                              <li><a href="/solutions/mobile-security">Mobile Security</a></li>
+                              <li><a href="/solutions/secure-vpn">Secure VPN</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/email-security">Email Security</a></li>
+                              <li><a href="/solutions/pci-dss-compliance">PCI-DSS Compliance</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href=/solutions/voice-over-ip-voip">Voice Over IP (VoIP)</a></li>
+                              <li><a href="/solutions/virtual-security">Virtual Security</a></li>
+                            </ul>
+                          </div>
+                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15 mt-15">
+                            <div class="col-sm-6">
+                              <a href="/solutions/security-solutions">
+                                <span>View all Security Solutions </span>
+                                <i class="icon-ui-triangleright"></i>
+                              </a>
+                            </div>
+                            <div class="col-sm-6">
+                              <span class="close">x</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="text-md" href="#">Industries</a>
+
+                    <div class="triangle-top"></div>
+                    <div class="tier3">
+                      <div class="container pt-0">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/government">Government</a></li>
+                              <li><a href="/solutions/financial">Financial</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/healthcare">Healthcare</a></li>
+                              <li><a href="/solutions/retail-and-hospitality">Retail &amp; Hospitality</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="http://marketing.sonicwall.com/solutions/education">Education</a></li>
+                            </ul>
+                          </div>
+                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15 mt-15">
+                            <div class="col-sm-6">
+                              <a href="/solutions/industries">
+                                <span>View all Industries Solutions </span>
+                                <i class="icon-ui-triangleright"></i>
+                              </a>
+                            </div>
+                            <div class="col-sm-6">
+                              <span class="close">x</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="text-md" href="#">By Network</a>
+
+                    <div class="triangle-top"></div>
+                    <div class="tier3">
+                      <div class="container pt-0">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/enterprise-security-solutions">Enterprise</a></li>
+                              <li><a href="/solutions/small-medium-business">Small &amp; Medium Business</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/managed-security-service-provider">Managed Security Service
+                                Provider</a></li>
+                              <li><a href="/solutions/isp-security">Internet Service Provider (ISP)</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-3">
+                            <ul class="text-md">
+                              <li><a href="/solutions/distributed-network">Distributed Network</a></li>
+                            </ul>
+                          </div>
+                          <div class="last-row col-sm-12 pl-0 pr-0 border-t-grey pt-15 mt-15">
+                            <div class="col-sm-6">
+                              <a href="/solutions/by-network">
+                                <span>View all By Network Solutions</span>
+                                <i class="icon-ui-triangleright"></i>
+                              </a>
+                            </div>
+                            <div class="col-sm-6">
+                              <span class="close">x</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
               <a href="http://www.sonicwall.com/us/en/how-to-buy.html">Buy</a>
