@@ -5514,7 +5514,10 @@ iframe {
     margin-right: 20px !important; }
 
   .pad-25-md {
-    padding: 25px !important; } }
+    padding: 25px !important; }
+
+  .pr-0-md {
+    padding-right: 0; } }
 @media (min-width: 1200px) {
   .mr-20-lg {
     margin-right: 20px !important; } }
@@ -8084,17 +8087,18 @@ a:hover .has-overlay h4 {
     margin-bottom: 20px; } }
 .optional-dropdown {
   position: relative; }
-  .optional-dropdown .triangle-top {
-    content: "";
-    transform: rotate(225deg);
-    -ms-transform: rotate(225deg);
-    background: #f9f9f9;
-    height: 16px;
-    position: absolute;
-    top: -8px;
-    width: 16px;
-    box-shadow: 1px 1px 0 #cdcdcd;
-    display: block; }
+
+.triangle-top {
+  content: "";
+  transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  background: #f9f9f9;
+  height: 16px;
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  box-shadow: 1px 1px 0 #cdcdcd;
+  display: block; }
 
 .title-description {
   margin-bottom: 24px; }

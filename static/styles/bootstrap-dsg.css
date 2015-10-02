@@ -6440,7 +6440,9 @@
     .bootstrap .mr-20-md {
       margin-right: 20px !important; }
     .bootstrap .pad-25-md {
-      padding: 25px !important; } }
+      padding: 25px !important; }
+    .bootstrap .pr-0-md {
+      padding-right: 0; } }
   @media (min-width: 1200px) {
     .bootstrap .mr-20-lg {
       margin-right: 20px !important; } }

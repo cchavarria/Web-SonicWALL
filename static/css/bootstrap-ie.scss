@@ -19,11 +19,27 @@
       min-width: 280px;
     }
   }
-  .optional-dropdown .triangle-top{
+  .triangle-top{
     background: url("/images/shared/sprites.png") -134px -176px no-repeat;
     height: 10px;
     top: -10px;
     width: 24px;
+  }
+  .masthead .main-nav-section {
+    ul div.tier2 .triangle-top{
+      background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent;
+      top:1px;
+    }
+    .nav-dropshadow {
+      background: url("/images/shared/nav-dropshadow.png") 0 0 repeat-x;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      padding: 0 !important;
+      margin-top: -10px
+    }
   }
   #button-flyout{
     _position: absolute;

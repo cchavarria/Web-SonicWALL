@@ -16,7 +16,7 @@
 			<li class="subLinks">
 				<span>Resources <i class="menu-indicator pull-right"></i></span>
 				<ul>
-					<li><a href="http://en.community.dell.com/techcenter/" target="_blank">Communities</a></li>
+					<li><a href="http://en.community.dell.com/techcenter/" target="_blank">Community</a></li>
 					<li><a href="/documents/">Documents</a></li>
 					<li><a href="/events/">Events</a></li>
 					<li><a href="/video-gallery/#bysolutionnetworksecurity">Videos</a></li>
@@ -45,7 +45,7 @@
 			</li>
 			<li id="country-selector" class="subLinks">
             <span>
-              <span id="current-country" class="flag-us">North America <span>&nbsp;</span></span>
+              <span id="current-country" class="flag-us">United States <span>&nbsp;</span></span>
               <i class="menu-indicator pull-right"></i>
             </span>
 				<div id="country-popup">
