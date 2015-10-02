@@ -24,6 +24,10 @@
   }
 }
 
+.img-crop {
+  overflow: hidden;
+}
+
 .media-player-container {
   .icon-ui-play {
     color: $dell-gray-dark;
@@ -40,7 +44,62 @@
   }
 }
 
-/* http://software.dell.com/kace/ */
+/* START: */
+/* Used by [i.e.]: http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd;
+}
+/* END */
+
+/* Used by http://software.dell.com/events/ */
+.img-header-overlay-top {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+a:hover {
+  .img-header-overlay-top {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-xs-12 {
+    .img-crop {
+      height: 237px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-4 {
+    .img-crop {
+      height: 166px;
+    }
+  }
+
+  .col-sm-6 {
+    .img-crop {
+      height: 238px;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-3 {
+    .img-crop {
+      height: 153px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-md-3, .col-lg-3 {
+    .img-crop {
+      height: 197px;
+    }
+  }
 }

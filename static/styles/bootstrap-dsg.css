@@ -88,6 +88,14 @@
   /*@import "bootstrap/alerts";*/
   /*@import "bootstrap/progress-bars";*/
   /*@import "bootstrap/wells";*/
+  /* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+      - Edward Chong [10/1/2015]
+  */
+  /*.site-canvas {
+    >[class^="bg-"] {
+      overflow: hidden;
+    }
+  }*/
   /*@import "bootstrap/modals";*/
   /*@import "bootstrap/tooltip";*/
   /*@import "bootstrap/popovers";*/
@@ -1193,6 +1201,15 @@
       display: inline-block;
       padding-left: 5px;
       padding-right: 5px; }
+  @media (min-width: 768px) {
+    .bootstrap .list-inline-sm {
+      padding-left: 0;
+      list-style: none;
+      margin-left: -5px; }
+      .bootstrap .list-inline-sm > li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px; } }
   .bootstrap dl {
     margin-top: 0;
     margin-bottom: 20px; }
@@ -4645,20 +4662,32 @@
     margin: 0 auto;
     height: 60px;
     width: 65px; }
-  .bootstrap .icon-large-monitor:before {
+  .bootstrap .icon-large-wrench:before {
+    content: "\e65a"; }
+  .bootstrap .icon-small-monitor:before, .bootstrap .icon-large-monitor:before {
     content: "\e61e"; }
+  .bootstrap .icon-small-books {
+    width: 16px;
+    height: 16px;
+    background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-books {
+    width: 42px;
+    height: 42px;
+    background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+    display: inline-block; }
   .bootstrap .text-md .icon-large-monitor:before {
     font-size: 24px; }
   .bootstrap .icon-ui-triangleright:before {
     content: "\e610"; }
   .bootstrap .icon-ui-triangledown:before {
     content: "\e60e"; }
+  .bootstrap .icon-42 {
+    font-size: 42px; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
     width: 100%; }
-  .bootstrap .site-canvas > [class^="bg-"] {
-    overflow: hidden; }
   .bootstrap .masthead-shadow-section {
     content: "";
     width: 80%;
@@ -6085,6 +6114,8 @@
   @media print {
     .bootstrap .hidden-print {
       display: none !important; } }
+  .bootstrap .bg-black {
+    background-color: black; }
   .bootstrap .bg-light-grey {
     background-color: #f9f9f9;
     color: #444; }
@@ -6095,6 +6126,8 @@
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {
     text-decoration: none;
     color: #007db8; }
+  .bootstrap a.no-underline:hover {
+    text-decoration: none; }
   .bootstrap .polaris-divider {
     border-top: 1px solid #eee;
     position: relative;
@@ -6134,6 +6167,8 @@
     border: 0; }
   .bootstrap .valign-top {
     vertical-align: top; }
+  .bootstrap .valign-text-top {
+    vertical-align: text-top; }
   .bootstrap .block {
     display: block !important; }
   .bootstrap .inline {
@@ -6193,6 +6228,8 @@
       display: block;
       margin-left: auto;
       margin-right: auto; }
+    .bootstrap .text-center-sm {
+      text-align: center; }
     .bootstrap .text-right-sm {
       text-align: right; }
     .bootstrap .pull-right-sm {
@@ -6357,6 +6394,8 @@
       margin-right: 0 !important; }
     .bootstrap .ml-0-xs {
       margin-left: 0 !important; }
+    .bootstrap .ml-10-xs {
+      margin-left: 10px !important; }
     .bootstrap .mb-10-xs {
       margin-bottom: 10px !important; }
     .bootstrap .mb-15-xs {
@@ -6505,7 +6544,7 @@
       display: block;
       border-top: 1px solid #cccccc;
       border-bottom: 1px solid #cccccc;
-      font-size: 16px; }
+      font-size: 14px; }
       .bootstrap #affix-nav ul {
         background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
         /* Old browsers */
@@ -6534,22 +6573,28 @@
             border-color: #007db8;
             border-style: solid;
             border-width: 4px 0 0;
-            color: #444444; }
+            color: #444444;
+            /*&:hover {
+              a{
+                padding: 6px 10px 10px 15px;
+              }
+            }*/ }
             .bootstrap #affix-nav ul li.active a {
-              padding: 6px 15px 10px 15px; }
-            .bootstrap #affix-nav ul li.active:hover a {
-              padding: 6px 15px 10px 15px; }
+              padding: 6px 10px 10px; }
           .bootstrap #affix-nav ul li a {
             text-align: center;
             font-weight: bold;
             border-right: 1px solid #cccccc;
-            border-left: #cccccc solid 1px; }
+            border-left: #cccccc solid 1px;
+            padding: 10px; }
             .bootstrap #affix-nav ul li a:focus {
               background-color: transparent; }
             .bootstrap #affix-nav ul li a:hover {
-              padding: 10px 15px;
               background-color: #cce7f3;
               color: #007db8; } }
+  @media (min-width: 992px) {
+    .bootstrap #affix-nav {
+      font-size: 16px; } }
   .bootstrap.not-responsive {
     /*.hidden-xs, .hidden-sm, .hidden-md, .visible-xs, .visible-sm {
       display: none !important;
@@ -6608,6 +6653,9 @@
     position: absolute;
     width: 30px; }
 
+.img-crop {
+  overflow: hidden; }
+
 .media-player-container .icon-ui-play {
   color: #444444;
   font-size: 80px;
@@ -6619,10 +6667,38 @@
   position: absolute;
   width: 60px; }
 
-/* http://software.dell.com/kace/ */
+/* START: */
+/* Used by [i.e.]: http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd; }
 
+/* END */
+/* Used by http://software.dell.com/events/ */
+.img-header-overlay-top {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700; }
+
+a:hover .img-header-overlay-top {
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .col-xs-12 .img-crop {
+    height: 237px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-4 .img-crop {
+    height: 166px; }
+
+  .col-sm-6 .img-crop {
+    height: 238px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-3 .img-crop {
+    height: 153px; } }
+@media (min-width: 1200px) {
+  .col-md-3 .img-crop, .col-lg-3 .img-crop {
+    height: 197px; } }
 .flag-us {
   background: url("/images/shared/us.gif") 0 3px no-repeat;
   padding-left: 20px !important; }

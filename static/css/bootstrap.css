@@ -1451,6 +1451,15 @@ ol {
     padding-left: 5px;
     padding-right: 5px; }
 
+@media (min-width: 768px) {
+  .list-inline-sm {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px; }
+    .list-inline-sm > li {
+      display: inline-block;
+      padding-left: 5px;
+      padding-right: 5px; } }
 dl {
   margin-top: 0;
   margin-bottom: 20px; }
@@ -4969,6 +4978,9 @@ button.close {
   -webkit-appearance: none; }
 
 /* Background Color */
+.bg-black {
+  background-color: black; }
+
 .bg-light-grey {
   background-color: #f9f9f9;
   color: #444; }
@@ -4982,6 +4994,9 @@ button.close {
 a[class^="icon-"]:hover, a[class^="icon-"]:focus {
   text-decoration: none;
   color: #007db8; }
+
+a.no-underline:hover {
+  text-decoration: none; }
 
 .polaris-divider {
   border-top: 1px solid #eee;
@@ -5036,6 +5051,9 @@ iframe {
 /* Vertical Alignment */
 .valign-top {
   vertical-align: top; }
+
+.valign-text-top {
+  vertical-align: text-top; }
 
 /*display*/
 .block {
@@ -5109,6 +5127,9 @@ iframe {
     display: block;
     margin-left: auto;
     margin-right: auto; }
+
+  .text-center-sm {
+    text-align: center; }
 
   .text-right-sm {
     text-align: right; }
@@ -5348,6 +5369,9 @@ iframe {
 
   .ml-0-xs {
     margin-left: 0 !important; }
+
+  .ml-10-xs {
+    margin-left: 10px !important; }
 
   .mb-10-xs {
     margin-bottom: 10px !important; }
@@ -5623,8 +5647,23 @@ iframe {
   height: 60px;
   width: 65px; }
 
-.icon-large-monitor:before {
+.icon-large-wrench:before {
+  content: "\e65a"; }
+
+.icon-small-monitor:before, .icon-large-monitor:before {
   content: "\e61e"; }
+
+.icon-small-books {
+  width: 16px;
+  height: 16px;
+  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+  display: inline-block; }
+
+.icon-large-books {
+  width: 42px;
+  height: 42px;
+  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+  display: inline-block; }
 
 .text-md .icon-large-monitor:before {
   font-size: 24px; }
@@ -5635,14 +5674,22 @@ iframe {
 .icon-ui-triangledown:before {
   content: "\e60e"; }
 
+.icon-42 {
+  font-size: 42px; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;
   width: 100%; }
 
-.site-canvas > [class^="bg-"] {
-  overflow: hidden; }
-
+/* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+    - Edward Chong [10/1/2015]
+*/
+/*.site-canvas {
+  >[class^="bg-"] {
+    overflow: hidden;
+  }
+}*/
 .masthead-shadow-section {
   content: "";
   width: 80%;
@@ -6555,6 +6602,9 @@ i.menu-indicator {
     position: absolute;
     width: 30px; }
 
+.img-crop {
+  overflow: hidden; }
+
 .media-player-container .icon-ui-play {
   color: #444444;
   font-size: 80px;
@@ -6566,10 +6616,38 @@ i.menu-indicator {
   position: absolute;
   width: 60px; }
 
-/* http://software.dell.com/kace/ */
+/* START: */
+/* Used by [i.e.]: http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd; }
 
+/* END */
+/* Used by http://software.dell.com/events/ */
+.img-header-overlay-top {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700; }
+
+a:hover .img-header-overlay-top {
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .col-xs-12 .img-crop {
+    height: 237px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-4 .img-crop {
+    height: 166px; }
+
+  .col-sm-6 .img-crop {
+    height: 238px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-3 .img-crop {
+    height: 153px; } }
+@media (min-width: 1200px) {
+  .col-md-3 .img-crop, .col-lg-3 .img-crop {
+    height: 197px; } }
 #affix-nav i.menu-indicator:before {
   content: "\e601"; }
 #affix-nav li {
@@ -6583,7 +6661,7 @@ i.menu-indicator {
     display: block;
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
-    font-size: 16px; }
+    font-size: 14px; }
     #affix-nav ul {
       background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
       /* Old browsers */
@@ -6612,22 +6690,28 @@ i.menu-indicator {
           border-color: #007db8;
           border-style: solid;
           border-width: 4px 0 0;
-          color: #444444; }
+          color: #444444;
+          /*&:hover {
+            a{
+              padding: 6px 10px 10px 15px;
+            }
+          }*/ }
           #affix-nav ul li.active a {
-            padding: 6px 15px 10px 15px; }
-          #affix-nav ul li.active:hover a {
-            padding: 6px 15px 10px 15px; }
+            padding: 6px 10px 10px; }
         #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
           border-right: 1px solid #cccccc;
-          border-left: #cccccc solid 1px; }
+          border-left: #cccccc solid 1px;
+          padding: 10px; }
           #affix-nav ul li a:focus {
             background-color: transparent; }
           #affix-nav ul li a:hover {
-            padding: 10px 15px;
             background-color: #cce7f3;
             color: #007db8; } }
+@media (min-width: 992px) {
+  #affix-nav {
+    font-size: 16px; } }
 /*off canvas*/
 #off-canvas {
   display: none;
@@ -8215,7 +8299,13 @@ a:hover .has-overlay h4 {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
 .listing-entries {
-  color: #444; }
+  color: #444;
+  /* Already defined in _image.scss
+
+  .img-crop {
+    overflow: hidden;
+  }
+  */ }
   .listing-entries a {
     color: #444;
     text-decoration: none;
@@ -8227,8 +8317,6 @@ a:hover .has-overlay h4 {
     margin: 0;
     line-height: 30px;
     font-weight: 700; }
-  .listing-entries .img-crop {
-    overflow: hidden; }
 
 @media (max-width: 767px) {
   .listing-entries .col-xs-12 {
@@ -8238,13 +8326,13 @@ a:hover .has-overlay h4 {
   .listing-entries .img-crop {
     height: 234px; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 166px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 161px; } }
 @media (min-width: 1200px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 197px; } }
 .filters select {
   width: 100%; }

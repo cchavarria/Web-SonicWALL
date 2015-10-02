@@ -4,11 +4,14 @@
   width: 100%;
 }
 
-.site-canvas {
+/* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+    - Edward Chong [10/1/2015]
+*/
+/*.site-canvas {
   >[class^="bg-"] {
     overflow: hidden;
   }
-}
+}*/
 
 .masthead-shadow-section {
   content: "";

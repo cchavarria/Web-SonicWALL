@@ -1,5 +1,9 @@
 /* Background Color */
 
+.bg-black {
+  background-color: $black;
+}
+
 .bg-light-grey {
   background-color: #f9f9f9;
   color: #444;
@@ -16,6 +20,10 @@
 a[class^="icon-"]:hover, a[class^="icon-"]:focus {
   text-decoration: none;
   color: $dell-blue;
+}
+
+a.no-underline:hover {
+  text-decoration: none;
 }
 
 .polaris-divider {
@@ -92,6 +100,10 @@ iframe {
 
 .valign-top {
   vertical-align: top;
+}
+
+.valign-text-top {
+  vertical-align: text-top;
 }
 
 /*display*/
@@ -182,6 +194,9 @@ iframe {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+  .text-center-sm {
+    text-align: center;
   }
   .text-right-sm {
     text-align: right;

@@ -8,14 +8,14 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { //SM
   #affix-nav {
     top: 0;
     z-index: 999;
     display: block;
     border-top: 1px solid $pre-border-color;
     border-bottom: 1px solid $pre-border-color;
-    font-size: 16px;
+    font-size: 14px;
     ul {
       background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
       /* Old browsers */
@@ -47,33 +47,39 @@
           border-color: $dell-blue;
           border-style: solid;
           border-width: 4px 0 0;
-
           color: $tooltip-color;
           a{
-            padding: 6px 15px 10px 15px;
+            padding: 6px 10px 10px;
           }
-          &:hover {
+          /*&:hover {
             a{
-              padding: 6px 15px 10px 15px;
+              padding: 6px 10px 10px 15px;
             }
-          }
+          }*/
         }
         a {
           text-align: center;
           font-weight: bold;
           border-right: 1px solid $pre-border-color;
           border-left: $pre-border-color solid 1px;
+          padding: 10px;
           &:focus{
             background-color: transparent;
           }
           &:hover {
             //border-top: 4px solid #0085c3;
-            padding: 10px 15px;
+            //padding: 10px 15px;
             background-color: #cce7f3;
             color: $dell-blue;
           }
         }
       }
     }
+  }
+}
+
+@media (min-width: 992px) { //MD-LG
+  #affix-nav {
+    font-size: 16px;
   }
 }

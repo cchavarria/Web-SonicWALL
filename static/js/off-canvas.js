@@ -70,21 +70,9 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 		setTimeout(function () {
 			resizeFourColumnFilmstripCarousel('#off-canvas');
 			slickPlugin('#off-canvas');
+			loadOoyala('#off-canvas');
 		}, 100);
 	});
-});
-
-$('body').on('offcanvas.visible', function () {
-	var ooyalaplayer = $('.off-canvas-content').find('.ooyalaplayer');
-
-	if (ooyalaplayer.length && !ooyalaplayer.data('loaded')) {
-		OO.Player.create(ooyalaplayer.attr('id'), ooyalaplayer.data('videoid'), {
-			onCreate: OOCreate,
-			autoplay: false,
-			wmode: 'transparent'
-		});
-		ooyalaplayer.data('loaded', true);
-	}
 });
 
 //Off canvas resize
