@@ -229,6 +229,8 @@ function addResize(fn, runImmediately, type) {
 		}
 	}
 
+	//TODO: Account for duplication.
+
   resizeFn.push({fn: fn, type: type});
 }
 

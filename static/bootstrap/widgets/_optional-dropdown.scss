@@ -1,18 +1,17 @@
 .optional-dropdown {
   position: relative;
-
-  .triangle-top{
-    content: "";
-    transform: rotate(225deg);
-    -ms-transform: rotate(225deg);
-    background: $dell-gray-very-light;
-    height: 16px;
-    position: absolute;
-    top: -8px;
-    width: 16px;
-    box-shadow: 1px 1px 0 #cdcdcd;
-    display: block;
-  }
+}
+.triangle-top{
+  content: "";
+  transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  background: $dell-gray-very-light;
+  height: 16px;
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  box-shadow: 1px 1px 0 #cdcdcd;
+  display: block;
 }
 
 .has-collapsibles {

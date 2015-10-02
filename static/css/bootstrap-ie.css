@@ -13,11 +13,23 @@
   /* events w inline form */ }
   .ie8 .event-form .form-control {
     min-width: 280px; }
-  .ie8 .optional-dropdown .triangle-top {
+  .ie8 .triangle-top {
     background: url("/images/shared/sprites.png") -134px -176px no-repeat;
     height: 10px;
     top: -10px;
     width: 24px; }
+  .ie8 .masthead .main-nav-section ul div.tier2 .triangle-top {
+    background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent;
+    top: 1px; }
+  .ie8 .masthead .main-nav-section .nav-dropshadow {
+    background: url("/images/shared/nav-dropshadow.png") 0 0 repeat-x;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    padding: 0 !important;
+    margin-top: -10px; }
   .ie8 #button-flyout {
     _position: absolute;
     top: 225px;
