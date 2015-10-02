@@ -5,8 +5,7 @@
         <span>SonicWALL Security Products</span>
       </div>
       <div class="col-sm-6 text-right">
-        <a href="http://marketing.sonicwall.com/partners/">Partners</a>
-        | Contact Sales 1-800-509-1265
+        Contact Sales 1-800-509-1265
       </div>
     </div>
   </div>
