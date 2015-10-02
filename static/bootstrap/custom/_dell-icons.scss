@@ -100,10 +100,42 @@
   width: 65px;
 }
 
+.icon-large-wrench:before {
+  content: "\e65a";
+}
+
+.icon-small-monitor:before, .icon-large-monitor:before {
+  content: "\e61e";
+}
+
+.icon-small-books {
+  width: 16px;
+  height: 16px;
+  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+  display: inline-block;
+}
+
+.icon-large-books {
+  width: 42px;
+  height: 42px;
+  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+  display: inline-block;
+}
+
+.text-md {
+  .icon-large-monitor:before {
+    font-size: 24px;
+  }
+}
+
 .icon-ui-triangleright:before {
   content: "\e610";
 }
 
 .icon-ui-triangledown:before {
   content: "\e60e";
+}
+
+.icon-42 {
+  font-size: 42px;
 }

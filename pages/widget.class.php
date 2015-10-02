@@ -9,8 +9,13 @@ class Widget {
 		$this->content = array();
 
 		$this->html = file_get_contents($_GET['page']);
+		$this->isContainerClassOpen = false;
 
 		$this->parseSubWidget();
+
+		if($this->isContainerClassOpen) {
+			$this->html .= "</div>";
+		}
 
 		$info = pathinfo($_GET['page']);
 
@@ -33,10 +38,81 @@ class Widget {
 
 				$widgetName = $arr[0];
 
-				if (file_exists('../widgets/' . $widgetName . '/' . $filename . '.htm')) {
-					$this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.htm'), $this->html);
-				} else if (file_exists('../widgets/' . $widgetName . '/' . $filename . '.html')) {
-					$this->html = str_replace($m[0][$indx], file_get_contents('../widgets/' . $widgetName . '/' . $filename . '.html'), $this->html);
+				$files = array(
+					'../widgets/' . $widgetName . '/' . $filename . '.htm',
+					'../widgets/' . $widgetName . '/' . $filename . '.html'
+				);
+
+				foreach($files as $file) {
+					if (file_exists($file)) {
+						$widgetContent = file_get_contents($file);
+						$content = '';
+
+						if(!isset($_GET['noReduceContainer'])) {
+							$dom = new DOMDocument();
+							$dom->loadHTML($widgetContent);
+
+							$xPath = new DOMXPath($dom);
+							$queries = array(
+								"/html/body/*[@class='container']", //Root node only contains "container" class
+								"/html/body/*[contains(@class, 'container')]", //Root node contains "container" class
+								"/html/body/*"
+							);
+
+							$rootResult = $xPath->query("/html/body/*"); //Find all root elements.
+
+							for($counter = 0; $counter < $rootResult->length; $counter++) {
+								$dom2 = new DOMDocument();
+								$dom2->loadHTML($dom->saveHTML($rootResult->item($counter)));
+								$xPath2 = new DOMXPath($dom2);
+
+								foreach($queries as $indx2 => $q) {
+									$result = $xPath2->query($q);
+
+									if($result->length) {
+										if($indx2 == 0) {
+											if(!$this->isContainerClassOpen) {
+												$content .= '<div class="container" data-dynamically-added="true">';
+												$this->isContainerClassOpen = true;
+											}
+
+											for($c = 0; $c < $result->item(0)->childNodes->length; $c++) {
+												$content .= $dom2->saveHTML($result->item(0)->childNodes->item($c));
+												//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)->childNodes->item($c)));
+											}
+										}
+										else if($indx2 == 1) {
+											if($this->isContainerClassOpen) {
+												$content .= "</div>";
+												$this->isContainerClassOpen = false;
+											}
+
+											$content .= $dom2->saveHTML($result->item(0));
+											//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)));
+										}
+										else {
+											if($this->isContainerClassOpen) {
+												$content .= "</div>";
+												$this->isContainerClassOpen = false;
+											}
+
+											$content .= $dom2->saveHTML($result->item(0));
+											//$content .= $dom->saveHTML($xPath->query("/html/body/*", $result->item(0)));
+										}
+
+										break;
+									}
+								}
+							}
+						}
+						else {
+							$content = $widgetContent;
+						}
+
+						$this->html = str_replace($m[0][$indx], $content, $this->html);
+
+						break;
+					}
 				}
 
 				$this->loadDependencies($widgetName, $filename);

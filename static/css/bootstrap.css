@@ -1135,7 +1135,7 @@ textarea {
 a {
   color: #007db8;
   text-decoration: none; }
-  a:hover, a:focus {
+  a:hover {
     color: #00496c;
     text-decoration: underline; }
   a:focus {
@@ -1223,44 +1223,33 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1;
     color: #777777; }
 
-h1, .h1,
-h2, .h2,
-h3, .h3, #right-rail-form h4 {
-  margin-top: 20px;
-  /*margin-bottom: ($line-height-computed / 2);*/
-  margin-bottom: 20px; }
+h1, .h1, h2, .h2, h3, .h3, #right-rail-form h4 {
+  margin: 20px 0; }
   h1 small,
   h1 .small, .h1 small,
-  .h1 .small,
-  h2 small,
+  .h1 .small, h2 small,
   h2 .small, .h2 small,
-  .h2 .small,
-  h3 small,
+  .h2 .small, h3 small,
   h3 .small, .h3 small, #right-rail-form h4 small,
   .h3 .small,
   #right-rail-form h4 .small {
     font-size: 65%; }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
   margin-top: 10px;
   margin-bottom: 10px; }
   h4 small,
   h4 .small, .h4 small,
-  .h4 .small,
-  h5 small,
+  .h4 .small, h5 small,
   h5 .small, .h5 small,
-  .h5 .small,
-  h6 small,
+  .h5 .small, h6 small,
   h6 .small, .h6 small,
   .h6 .small {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 24px;
-  margin-top: 0; }
+  font-size: 24px; }
 
 h2, .h2 {
   font-size: 20px; }
@@ -1281,6 +1270,9 @@ h6, .h6 {
   font-size: 12px; }
 
 @media (min-width: 768px) {
+  h1, .h1, h2, .h2, h3, .h3, #right-rail-form h4 {
+    margin: 30px 0; }
+
   h1, .h1 {
     font-size: 30px;
     line-height: 1.2; }
@@ -1298,6 +1290,17 @@ h6, .h6 {
 
   h2, .h2 {
     font-size: 28px; } }
+/*
+  Exceptions
+  Added By Edward Chong
+*/
+.container h2:first-child, .container h3:first-child, .container h4:first-child, .container h5:first-child, .container h6:first-child, .container .h2:first-child, .container .h3:first-child, .container #right-rail-form h4:first-child, #right-rail-form .container h4:first-child, .container .h4:first-child, .container .h5:first-child, .container .h6:first-child {
+  margin-top: 0; }
+  .container h2:first-child.feature, .container h3:first-child.feature, .container h4:first-child.feature, .container h5:first-child.feature, .container h6:first-child.feature, .container .h2:first-child.feature, .container .h3:first-child.feature, .container #right-rail-form h4:first-child.feature, #right-rail-form .container h4:first-child.feature, .container .h4:first-child.feature, .container .h5:first-child.feature, .container .h6:first-child.feature {
+    margin: 25px 0; }
+.container [class^="col-"] h1:first-child, .container [class^="col-"] h2:first-child, .container [class^="col-"] h3:first-child, .container [class^="col-"] h4:first-child, .container [class^="col-"] h5:first-child, .container [class^="col-"] h6:first-child, .container [class^="col-"] .h1:first-child, .container [class^="col-"] .h2:first-child, .container [class^="col-"] .h3:first-child, .container [class^="col-"] #right-rail-form h4:first-child, #right-rail-form .container [class^="col-"] h4:first-child, .container [class^="col-"] .h4:first-child, .container [class^="col-"] .h5:first-child, .container [class^="col-"] .h6:first-child {
+  margin-top: 0; }
+
 p {
   margin: 0 0 10px; }
 
@@ -1448,6 +1451,15 @@ ol {
     padding-left: 5px;
     padding-right: 5px; }
 
+@media (min-width: 768px) {
+  .list-inline-sm {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px; }
+    .list-inline-sm > li {
+      display: inline-block;
+      padding-left: 5px;
+      padding-right: 5px; } }
 dl {
   margin-top: 0;
   margin-bottom: 20px; }
@@ -3221,6 +3233,14 @@ select[multiple].input-lg,
       color: #eeeeee;
       background-color: #aaaaaa; }
 
+/*@media (min-width: 768px) {
+  .btn {
+    //If 2 buttons are side by side, add margin
+    + .btn {
+      margin-left: 10px;
+    }
+  }
+}*/
 .btn-default {
   color: #007db8;
   background-color: #eeeeee;
@@ -3403,7 +3423,7 @@ input[type="button"].btn-block {
 .collapse {
   display: none; }
   .collapse.in {
-    display: block; }
+    display: block !important; }
 
 tr.collapse.in {
   display: table-row; }
@@ -4337,9 +4357,6 @@ tbody.collapse.in {
     .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:hover, fieldset[disabled] .navbar-inverse .btn-link:focus {
       color: #444444; }
 
-.breadcrumb-container {
-  margin-top: -10px; }
-
 .breadcrumb {
   padding: 0px 0px;
   margin-bottom: 0;
@@ -4348,7 +4365,8 @@ tbody.collapse.in {
   border-radius: 1px;
   color: #737373; }
   .breadcrumb > li {
-    display: inline-block; }
+    display: inline-block;
+    padding: 0; }
     .breadcrumb > li:first-child a:before {
       font-size: 14px;
       content: "\e62b";
@@ -4960,6 +4978,9 @@ button.close {
   -webkit-appearance: none; }
 
 /* Background Color */
+.bg-black {
+  background-color: black; }
+
 .bg-light-grey {
   background-color: #f9f9f9;
   color: #444; }
@@ -4973,6 +4994,9 @@ button.close {
 a[class^="icon-"]:hover, a[class^="icon-"]:focus {
   text-decoration: none;
   color: #007db8; }
+
+a.no-underline:hover {
+  text-decoration: none; }
 
 .polaris-divider {
   border-top: 1px solid #eee;
@@ -5024,12 +5048,22 @@ li {
 iframe {
   border: 0; }
 
+/* Vertical Alignment */
+.valign-top {
+  vertical-align: top; }
+
+.valign-text-top {
+  vertical-align: text-top; }
+
 /*display*/
 .block {
   display: block !important; }
 
 .inline {
   display: inline !important; }
+
+.inline-block {
+  display: inline-block !important; }
 
 .vertical-center {
   display: -webkit-box;
@@ -5093,6 +5127,9 @@ iframe {
     display: block;
     margin-left: auto;
     margin-right: auto; }
+
+  .text-center-sm {
+    text-align: center; }
 
   .text-right-sm {
     text-align: right; }
@@ -5215,6 +5252,9 @@ iframe {
 .mt-20 {
   margin-top: 20px !important; }
 
+.mt-25 {
+  margin-top: 25px !important; }
+
 .mt-30 {
   margin-top: 30px !important; }
 
@@ -5309,6 +5349,9 @@ iframe {
   .mt-10-xs {
     margin-top: 10px !important; }
 
+  .mt-15-xs {
+    margin-top: 15px !important; }
+
   .mt-20-xs {
     margin-top: 20px !important; }
 
@@ -5326,6 +5369,9 @@ iframe {
 
   .ml-0-xs {
     margin-left: 0 !important; }
+
+  .ml-10-xs {
+    margin-left: 10px !important; }
 
   .mb-10-xs {
     margin-bottom: 10px !important; }
@@ -5604,17 +5650,49 @@ iframe {
   height: 60px;
   width: 65px; }
 
+.icon-large-wrench:before {
+  content: "\e65a"; }
+
+.icon-small-monitor:before, .icon-large-monitor:before {
+  content: "\e61e"; }
+
+.icon-small-books {
+  width: 16px;
+  height: 16px;
+  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+  display: inline-block; }
+
+.icon-large-books {
+  width: 42px;
+  height: 42px;
+  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+  display: inline-block; }
+
+.text-md .icon-large-monitor:before {
+  font-size: 24px; }
+
 .icon-ui-triangleright:before {
   content: "\e610"; }
 
 .icon-ui-triangledown:before {
   content: "\e60e"; }
 
+.icon-42 {
+  font-size: 42px; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;
   width: 100%; }
 
+/* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+    - Edward Chong [10/1/2015]
+*/
+/*.site-canvas {
+  >[class^="bg-"] {
+    overflow: hidden;
+  }
+}*/
 .masthead-shadow-section {
   content: "";
   width: 80%;
@@ -5625,7 +5703,7 @@ iframe {
   margin: -10px auto 0; }
 
 .masthead {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #fff;
   background-color: #007db8; }
   .masthead .navbar {
@@ -6527,72 +6605,116 @@ i.menu-indicator {
     position: absolute;
     width: 30px; }
 
-#player-button .icon-ui-play {
+.img-crop {
+  overflow: hidden; }
+
+.media-player-container .icon-ui-play {
   color: #444444;
   font-size: 80px;
   position: relative; }
-
-#player-button .icon-ui-play-underlay {
+.media-player-container .icon-ui-play-underlay {
   background: #fff;
   height: 60px;
   margin: 10px;
   position: absolute;
   width: 60px; }
 
-/* http://software.dell.com/kace/ */
+/* START: */
+/* Used by [i.e.]: http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd; }
 
-#affix-nav {
-  top: 0;
-  z-index: 99999;
-  display: block;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  font-size: 16px; }
-  #affix-nav ul {
-    background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    /* Old browsers */
-    background: -moz-linear-gradient(top, white 8%, #efefef 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, white 8%, #efefef 100%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, white 8%, #efefef 100%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, white 8%, #efefef 100%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
-    #affix-nav ul li {
-      padding: 0; }
-      #affix-nav ul li:first-child a {
-        border-left: #cccccc solid 1px; }
-      #affix-nav ul li.active {
-        background: none repeat scroll 0 0 white;
-        border-bottom: none;
-        border-color: #007db8;
-        border-style: solid;
-        border-width: 4px 0 0;
-        color: #444444; }
-        #affix-nav ul li.active a {
-          padding: 6px 15px 10px 15px; }
-        #affix-nav ul li.active:hover a {
-          padding: 6px 15px 10px 15px; }
-      #affix-nav ul li a {
-        text-align: center;
-        font-weight: bold;
-        border-right: 1px solid #cccccc;
-        border-left: #cccccc solid 1px; }
-        #affix-nav ul li a:focus {
-          background-color: transparent; }
-        #affix-nav ul li a:hover {
-          padding: 10px 15px;
-          background-color: #cce7f3;
-          color: #007db8; }
+/* END */
+/* Used by http://software.dell.com/events/ */
+.img-header-overlay-top {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700; }
 
+a:hover .img-header-overlay-top {
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .col-xs-12 .img-crop {
+    height: 237px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-4 .img-crop {
+    height: 166px; }
+
+  .col-sm-6 .img-crop {
+    height: 238px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-3 .img-crop {
+    height: 153px; } }
+@media (min-width: 1200px) {
+  .col-md-3 .img-crop, .col-lg-3 .img-crop {
+    height: 197px; } }
+#affix-nav i.menu-indicator:before {
+  content: "\e601"; }
+#affix-nav li {
+  border-top: 1px solid #cccccc;
+  padding: 0; }
+
+@media (min-width: 768px) {
+  #affix-nav {
+    top: 0;
+    z-index: 999;
+    display: block;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    font-size: 14px; }
+    #affix-nav ul {
+      background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
+      /* Old browsers */
+      background: -moz-linear-gradient(top, white 8%, #efefef 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, white 8%, #efefef 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, white 8%, #efefef 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, white 8%, #efefef 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
+      #affix-nav ul li {
+        padding: 0;
+        float: left;
+        border: 0; }
+        #affix-nav ul li:first-child a {
+          border-left: #cccccc solid 1px; }
+        #affix-nav ul li.active {
+          background: none repeat scroll 0 0 white;
+          border-bottom: none;
+          border-color: #007db8;
+          border-style: solid;
+          border-width: 4px 0 0;
+          color: #444444;
+          /*&:hover {
+            a{
+              padding: 6px 10px 10px 15px;
+            }
+          }*/ }
+          #affix-nav ul li.active a {
+            padding: 6px 10px 10px; }
+        #affix-nav ul li a {
+          text-align: center;
+          font-weight: bold;
+          border-right: 1px solid #cccccc;
+          border-left: #cccccc solid 1px;
+          padding: 10px; }
+          #affix-nav ul li a:focus {
+            background-color: transparent; }
+          #affix-nav ul li a:hover {
+            background-color: #cce7f3;
+            color: #007db8; } }
+@media (min-width: 992px) {
+  #affix-nav {
+    font-size: 16px; } }
 /*off canvas*/
 #off-canvas {
   display: none;
@@ -6601,9 +6723,10 @@ i.menu-indicator {
   left: 100%;
   width: 100%; }
   #off-canvas .off-canvas-content {
-    padding: 15px; }
-    #off-canvas .off-canvas-content .container {
-      padding: 0; }
+    padding: 15px;
+    /*.container {
+      padding: 0;
+    }*/ }
 
 .off-canvas-mode {
   position: absolute;
@@ -6782,6 +6905,9 @@ i.menu-indicator {
 
 .bg-teal {
   background-color: #42aeaf; }
+
+.bg-dark-grey {
+  background-color: #444444; }
 
 /*
   Description: collapsible panels
@@ -8177,7 +8303,13 @@ a:hover .has-overlay h4 {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
 .listing-entries {
-  color: #444; }
+  color: #444;
+  /* Already defined in _image.scss
+
+  .img-crop {
+    overflow: hidden;
+  }
+  */ }
   .listing-entries a {
     color: #444;
     text-decoration: none;
@@ -8189,8 +8321,6 @@ a:hover .has-overlay h4 {
     margin: 0;
     line-height: 30px;
     font-weight: 700; }
-  .listing-entries .img-crop {
-    overflow: hidden; }
 
 @media (max-width: 767px) {
   .listing-entries .col-xs-12 {
@@ -8200,13 +8330,13 @@ a:hover .has-overlay h4 {
   .listing-entries .img-crop {
     height: 234px; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 166px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 161px; } }
 @media (min-width: 1200px) {
-  .img-crop {
+  .listing-entries .img-crop {
     height: 197px; } }
 .filters select {
   width: 100%; }
