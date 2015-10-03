@@ -1,8 +1,18 @@
-.top-header > div {
-  padding: 5px 0; }
-  .top-header > div .text-right {
-    font-size: 11px;
-    line-height: 18px; }
+.bootstrap.not-responsive #bottom-header > div.wrapper {
+  width: 100%; }
+  .bootstrap.not-responsive #bottom-header > div.wrapper header .top-header > .container, .bootstrap.not-responsive #bottom-header > div.wrapper header .utility-section, .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 > div.container, .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 div.tier3 > div.container {
+    width: 975px; }
+  .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 div.tier3 {
+    width: 100%; }
+
+.top-header {
+  background-color: #fff;
+  color: #444; }
+  .top-header > div {
+    padding: 5px 0; }
+    .top-header > div .text-right {
+      font-size: 11px;
+      line-height: 18px; }
 
 .masthead .main-nav-section ul li.open div.tier2 {
   display: block; }

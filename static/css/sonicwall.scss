@@ -1,8 +1,23 @@
-.top-header > div {
-  padding: 5px 0;
-  .text-right {
-    font-size: 11px;
-    line-height: 18px;
+.bootstrap.not-responsive #bottom-header > div.wrapper{
+  width:100%;
+  header{
+    .top-header > .container,.utility-section,div.tier2 > div.container ,div.tier2 div.tier3 > div.container {
+      width:975px;
+    }
+    div.tier2 div.tier3{
+      width:100%;
+    }
+  }
+}
+.top-header {
+  background-color: #fff;
+  color:#444;
+  > div {
+    padding: 5px 0;
+    .text-right {
+      font-size: 11px;
+      line-height: 18px;
+    }
   }
 }
 
