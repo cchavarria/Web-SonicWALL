@@ -1,23 +1,31 @@
-@import "../bootstrap/custom/_variables";
+/*$headings-font-family:    inherit !default;*/
 
-.ie8 {
-  .bootstrap {
-    #list-countries-popup {
-      >div:before, >div:after {
-        background-color: transparent;
-      }
+.ie8 .bootstrap {
+  #list-countries-popup > div {
+    &:before, &:after {
+      background-color: transparent;
     }
+  }
+  &.not-responsive #bottom-header > div.wrapper ul div.tier2 .triangle-top {
+    background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent !important;
+    top: 8px;
+  }
+  .masthead .main-nav-section .nav-dropshadow {
+    background: url("/images/shared/ie8/nav-dropshadow.png") 0 0 repeat-x;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    padding: 0 !important;
+    margin-top: -10px;
   }
 }
 
 @media (max-width: 767px) {
-  .ie9 {
-    &.openNav {
-      .site-canvas {
-        position: relative;
-        left: -276px;
-      }
-    }
+  .ie9.openNav .site-canvas {
+    position: relative;
+    left: -276px;
   }
 }
 

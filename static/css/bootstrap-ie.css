@@ -22,7 +22,7 @@
     background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent;
     top: 1px; }
   .ie8 .masthead .main-nav-section .nav-dropshadow {
-    background: url("/images/shared/nav-dropshadow.png") 0 0 repeat-x;
+    background: url("/images/shared/ie8/nav-dropshadow.png") 0 0 repeat-x;
     position: absolute;
     bottom: -10px;
     left: 0;
