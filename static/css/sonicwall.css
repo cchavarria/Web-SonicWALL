@@ -135,12 +135,20 @@
 @media (max-width: 767px) {
   .masthead .main-nav-section ul li.open > ul.tier2 {
     display: block !important; } }
+/*SM*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .masthead .top-header > .container {
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 15px; } }
+/*MD*/
 @media (min-width: 992px) {
   .masthead .main-nav-section div.tier2 .tier3 .container {
     padding-left: 15px;
     padding-right: 15px; }
   .masthead .main-nav-section ul.tier2, .masthead .main-nav-section ul.tier1 li:hover > ul, .masthead .main-nav-section ul li.open > ul.tier2 {
     display: none !important; } }
+/*LG*/
 @media (min-width: 1200px) {
   .masthead .main-nav-section div.tier2 .tier3 .container {
     padding-left: 0;

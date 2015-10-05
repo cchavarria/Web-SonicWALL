@@ -203,6 +203,16 @@
   }
 }
 
+/*SM*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .masthead .top-header > .container{
+    margin-left:0;
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
+/*MD*/
 @media (min-width: 992px) {
   .masthead .main-nav-section {
     div.tier2 .tier3 .container {
@@ -216,7 +226,7 @@
     }
   }
 }
-
+/*LG*/
 @media (min-width: 1200px) {
   .masthead .main-nav-section {
     div.tier2 .tier3 .container {
