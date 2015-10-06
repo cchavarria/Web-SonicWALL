@@ -296,7 +296,7 @@
                   </a>
                 </li>
               </ul>
-              <div class="tier2 bg-grey border-b-gray hidden-xs hidden-sm">
+              <div class="tier2 bg-grey border-b-grey hidden-xs hidden-sm">
                 <div class="container">
                   <div>
                     <a class="text-md" href="#">Network Security</a>
@@ -1049,7 +1049,7 @@
                   </ul>
                 </li>
               </ul>
-              <div class="tier2 bg-grey border-b-gray hidden-xs hidden-sm">
+              <div class="tier2 bg-grey border-b-grey hidden-xs hidden-sm">
                 <div class="container">
                   <div>
                     <a class="text-md" href="#">Security Solutions</a>
