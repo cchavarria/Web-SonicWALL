@@ -30,6 +30,27 @@
     height: 10px;
     padding: 0 !important;
     margin-top: -10px; }
+  .ie8 #country-selector {
+    padding-right: 0 !important;
+    padding-left: 0 !important; }
+  .ie8 #country-popup {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    box-shadow: none;
+    border-radius: 0; }
+    .ie8 #country-popup a {
+      background-color: transparent;
+      color: #fff !important; }
+      .ie8 #country-popup a.active {
+        color: #fff; }
+    .ie8 #country-popup > div:before, .ie8 #country-popup > div:after {
+      content: none;
+      background: none; }
+    .ie8 #country-popup > div > div {
+      border-radius: 0;
+      background: none;
+      padding: 0; }
   .ie8 #button-flyout {
     _position: absolute;
     top: 225px;
