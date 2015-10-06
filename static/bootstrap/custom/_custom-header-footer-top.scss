@@ -4,6 +4,15 @@
   width: 100%;
 }
 
+/* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+    - Edward Chong [10/1/2015]
+*/
+/*.site-canvas {
+  >[class^="bg-"] {
+    overflow: hidden;
+  }
+}*/
+
 .masthead-shadow-section {
   content: "";
   width: 80%;
@@ -15,7 +24,7 @@
 }
 
 .masthead {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #fff;
   background-color: #007db8;
   .navbar {

@@ -362,12 +362,12 @@
     //arrows
     .panel-title a {
       &.collapsed:before {
-        font-family: "Glyphicons Halflings";
+        font-family: 'Glyphicons Halflings';
         content: "\e080";
         vertical-align: -2px;
       }
       &:before {
-        font-family: "Glyphicons Halflings";
+        font-family: 'Glyphicons Halflings';
         font-size: 14px;
         -webkit-font-smoothing: antialiased;
         content: "\e114";
@@ -381,12 +381,6 @@
     .panel-body {
       padding: 0 30px;
       margin-bottom: 10px;
-      ul .last{
-        padding-bottom: 0;
-        p{
-          margin-bottom:0;
-        }
-      }
     }
     .table-responsive {
       margin-bottom: 13px;
@@ -394,6 +388,71 @@
         padding: 0 23px;
         margin-bottom:0;
       }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .panel-group-collapsible-xs {
+    //@extend .panel-group-collapsible;
+    border-bottom: 1px solid $dell-gray;
+    > .panel {
+      margin-bottom: 0;
+      border: none;
+      border-top: 1px solid $dell-gray;
+      box-shadow: none;
+      .panel-heading {
+        padding: 10px;
+        color: $dell-blue;
+      }
+      //arrows
+      .panel-title a {
+        &.collapsed:before {
+          font-family: 'Glyphicons Halflings';
+          content: "\e080";
+          vertical-align: -2px;
+        }
+        &:before {
+          font-family: 'Glyphicons Halflings';
+          font-size: 14px;
+          -webkit-font-smoothing: antialiased;
+          content: "\e114";
+          vertical-align: -2px;
+          padding-right: 2px;
+        }
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+      }
+      .panel-body {
+        padding: 0 30px;
+        margin-bottom: 10px;
+      }
+      .table-responsive {
+        margin-bottom: 13px;
+        .panel-body {
+          padding: 0 23px;
+          margin-bottom:0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .panel-group-collapsible-xs {
+    .panel-heading {
+      padding: 0;
+      border: 0;
+    }
+    .panel-body {
+      padding: 0;
+    }
+    /*.collapse {
+      display: block;
+    }*/
+    .panel {
+      box-shadow: none;
     }
   }
 }
