@@ -1,12 +1,16 @@
 /*non-responsive modifications*/
 .bootstrap.not-responsive #bottom-header > div.wrapper {
   width: 100%; }
-  .bootstrap.not-responsive #bottom-header > div.wrapper header .top-header > .container, .bootstrap.not-responsive #bottom-header > div.wrapper header .utility-section, .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 > div.container, .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 div.tier3 > div.container {
+  .bootstrap.not-responsive #bottom-header > div.wrapper header .top-header > .container, .bootstrap.not-responsive #bottom-header > div.wrapper header .utility-section {
     width: 975px; }
   .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 {
     display: none !important; }
+    .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 > div.container {
+      width: 975px; }
     .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 div.tier3 {
       width: 100%; }
+      .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 div.tier3 > div.container {
+        width: 975px; }
     .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 .active .triangle-top {
       display: block; }
     .bootstrap.not-responsive #bottom-header > div.wrapper header div.tier2 .triangle-top {
@@ -88,12 +92,16 @@
       .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div ul li a {
         font-weight: normal;
         padding-bottom: 10px;
-        padding-left: 0; }
+        padding-left: 0;
+        font-size: 15px; }
         .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div ul li a:hover {
           text-decoration: underline; }
-    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > a {
-      font-size: 15px; }
-      .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > a:hover {
+    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div {
+      float: left;
+      display: block; }
+      .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > a, .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > div a {
+        font-size: 15px; }
+      .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > a:hover, .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > div a:hover {
         text-decoration: underline; }
     .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div a {
       padding: 0;
@@ -103,16 +111,16 @@
         font-size: 12px; }
     .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div small {
       color: #666; }
-    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul {
+    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul, .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > div > ul {
       display: block;
       margin-left: -4px; }
-      .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul > li a {
-        font-size: 85%;
-        padding: 4px;
-        display: inline-block; }
-        .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul > li a:hover {
-          background-color: #d9edf6;
-          text-decoration: none; }
+    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul > li a, .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > div > ul > li a {
+      font-size: 85%;
+      padding: 4px;
+      display: inline-block; }
+    .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > ul > li a:hover, .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > div > div > div > ul > li a:hover {
+      background-color: #d9edf6;
+      text-decoration: none; }
     .masthead .main-nav-section ul div.tier2 .tier3 .container .row > div > a {
       float: left;
       margin-right: 10px;
