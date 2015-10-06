@@ -230,10 +230,9 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-@media (min-width: 768px) { //SM - Tablet
+@media (min-width: 768px) {
   .slick-prev, .slick-next {
-    //top: 55px;
-
+    top: 55px;
     &:before {
       font-size: 32px;
     }
@@ -244,43 +243,27 @@ $slick-opacity-not-active: 0.25 !default;
   .slick-next {
     right: -8px;
   }
-
-  .slick {
-    &.col-sm-9 {
-      .slick-prev, .slick-next {
-        //top: 22px;
-      }
-    }
-  }
 }
 
 @media (min-width: 1200px) {
   .slick-prev, .slick-next {
-    //top: 69px;
+    top: 69px;
     &:before {
       font-size: 40px;
     }
   }
   .slick-prev {
-    left: -10px;
+    left: -2px; //-10px;
   }
   .slick-next {
-    right: -10px;
-  }
-
-  .slick {
-    &.col-sm-9 {
-      .slick-prev, .slick-next {
-        //top: 32px;
-      }
-    }
+    right: -4px; //-10px;
   }
 }
 
 /* Dots */
 
 .slick-slider {
-  margin-bottom: 30px;
+  //margin-bottom: 30px;
 }
 
 .slick-dots {
@@ -352,7 +335,7 @@ $slick-opacity-not-active: 0.25 !default;
     border: 1px solid #737373;
   }
   .img-crop {
-    height: 247px;
+    height: 216px;
     display: block;
     overflow: hidden;
     position: relative;
@@ -362,12 +345,12 @@ $slick-opacity-not-active: 0.25 !default;
   }
   &.slick-initialized {
     .img-crop {
-      height: 187px;
+      height: 180px;
     }
     &.col-sm-9, &.col-md-9, &.col-lg-9 {
       //3 column filmstrip carousel.
       .img-crop {
-        height: 166px;
+        height: 180px;
       }
     }
   }
@@ -376,11 +359,17 @@ $slick-opacity-not-active: 0.25 !default;
 @media (min-width: 768px) and (max-width: 991px) { //SM
   .slick {
     .img-crop {
-      height: 164px;
+      height: 170px;
     }
     &.slick-initialized {
       .img-crop {
-        height: 145px;
+        height: 140px;
+      }
+      &.col-sm-9, &.col-md-9, &.col-lg-9 {
+        //3 column filmstrip carousel.
+        .img-crop {
+          height: 152px;
+        }
       }
       &.next-step {
         .img-crop {
@@ -394,11 +383,17 @@ $slick-opacity-not-active: 0.25 !default;
 @media (min-width: 992px) and (max-width: 1199px) { //MD
   .slick {
     .img-crop {
-      height: 159px;
+      height: 146px;
     }
     &.slick-initialized {
       .img-crop {
-        height: 144px;
+        height: 139px;
+      }
+      &.col-sm-9, &.col-md-9, &.col-lg-9 {
+        //3 column filmstrip carousel.
+        .img-crop {
+          height: 134px;
+        }
       }
       &.next-step {
         .img-crop {
@@ -412,11 +407,17 @@ $slick-opacity-not-active: 0.25 !default;
 @media (min-width: 1200px) { //LG
   .slick {
     .img-crop {
-      height: 202px;
+      height: 178px;
     }
     &.slick-initialized {
       .img-crop {
-        height: 187px;
+        height: 180px;
+      }
+      &.col-sm-9, &.col-md-9, &.col-lg-9 {
+        //3 column filmstrip carousel.
+        .img-crop {
+          height: 175px;
+        }
       }
       &.next-step {
         .img-crop {
@@ -429,14 +430,14 @@ $slick-opacity-not-active: 0.25 !default;
 
 /*
     - Without Arrows (w/o border)
-      - XS : 328x247
-      - SM : 218x164
-      - MD : 211x159
-      - LG : 268x202
+      - XS : 328x
+      - SM : 218x
+      - MD : 211x146
+      - LG : 268x187
 
     - With Arrows (w/o border)
-      - XS : 248x187
-      - SM : 192x145
-      - MD : 191x144
-      - LG : 248x187
+      - XS : 248x
+      - SM : 192x
+      - MD : 191x
+      - LG : 248x185
 */

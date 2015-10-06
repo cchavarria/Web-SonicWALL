@@ -65,6 +65,10 @@
          url(if($bootstrap-sass-asset-helper, twbs-font-path('/fonts/glyphicons-halflings-regular.ttf'), '/fonts/glyphicons-halflings-regular.ttf')) format('truetype'),
          url(if($bootstrap-sass-asset-helper, twbs-font-path('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular'), '/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
   }*/
+  /*
+    Exceptions
+    Added By Edward Chong
+  */
   /*select {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -72,10 +76,32 @@
   select::-ms-expand {
     display: none;
   }*/
+  /*@media (min-width: 768px) {
+    .btn {
+      //If 2 buttons are side by side, add margin
+      + .btn {
+        margin-left: 10px;
+      }
+    }
+  }*/
   /*@import "bootstrap/jumbotron";*/
   /*@import "bootstrap/alerts";*/
   /*@import "bootstrap/progress-bars";*/
   /*@import "bootstrap/wells";*/
+  /*.icon-large-books {
+    width: 42px;
+    height: 42px;
+    background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+    display: inline-block;
+  }*/
+  /* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
+      - Edward Chong [10/1/2015]
+  */
+  /*.site-canvas {
+    >[class^="bg-"] {
+      overflow: hidden;
+    }
+  }*/
   /*@import "bootstrap/modals";*/
   /*@import "bootstrap/tooltip";*/
   /*@import "bootstrap/popovers";*/
@@ -174,11 +200,10 @@
   /* TODO: Need to find where this is being used */
   /* Text */
   /* iframe */
+  /* Vertical Alignment */
   /*display*/
   /* Padding */
   /* Margin */ }
-  .bootstrap *:focus {
-    outline: none; }
   .bootstrap html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -1012,41 +1037,30 @@
       font-weight: normal;
       line-height: 1;
       color: #777777; }
-  .bootstrap h1, .bootstrap .h1,
-  .bootstrap h2, .bootstrap .h2,
-  .bootstrap h3, .bootstrap .h3 {
-    margin-top: 20px;
-    /*margin-bottom: ($line-height-computed / 2);*/
-    margin-bottom: 20px; }
+  .bootstrap h1, .bootstrap .h1, .bootstrap h2, .bootstrap .h2, .bootstrap h3, .bootstrap .h3 {
+    margin: 20px 0; }
     .bootstrap h1 small,
     .bootstrap h1 .small, .bootstrap .h1 small,
-    .bootstrap .h1 .small,
-    .bootstrap h2 small,
+    .bootstrap .h1 .small, .bootstrap h2 small,
     .bootstrap h2 .small, .bootstrap .h2 small,
-    .bootstrap .h2 .small,
-    .bootstrap h3 small,
+    .bootstrap .h2 .small, .bootstrap h3 small,
     .bootstrap h3 .small, .bootstrap .h3 small,
     .bootstrap .h3 .small {
       font-size: 65%; }
-  .bootstrap h4, .bootstrap .h4,
-  .bootstrap h5, .bootstrap .h5,
-  .bootstrap h6, .bootstrap .h6 {
+  .bootstrap h4, .bootstrap .h4, .bootstrap h5, .bootstrap .h5, .bootstrap h6, .bootstrap .h6 {
     font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
     margin-top: 10px;
     margin-bottom: 10px; }
     .bootstrap h4 small,
     .bootstrap h4 .small, .bootstrap .h4 small,
-    .bootstrap .h4 .small,
-    .bootstrap h5 small,
+    .bootstrap .h4 .small, .bootstrap h5 small,
     .bootstrap h5 .small, .bootstrap .h5 small,
-    .bootstrap .h5 .small,
-    .bootstrap h6 small,
+    .bootstrap .h5 .small, .bootstrap h6 small,
     .bootstrap h6 .small, .bootstrap .h6 small,
     .bootstrap .h6 .small {
       font-size: 75%; }
   .bootstrap h1, .bootstrap .h1 {
-    font-size: 24px;
-    margin-top: 0; }
+    font-size: 24px; }
   .bootstrap h2, .bootstrap .h2 {
     font-size: 20px; }
   .bootstrap h3, .bootstrap .h3 {
@@ -1061,6 +1075,8 @@
   .bootstrap h6, .bootstrap .h6 {
     font-size: 12px; }
   @media (min-width: 768px) {
+    .bootstrap h1, .bootstrap .h1, .bootstrap h2, .bootstrap .h2, .bootstrap h3, .bootstrap .h3 {
+      margin: 30px 0; }
     .bootstrap h1, .bootstrap .h1 {
       font-size: 30px;
       line-height: 1.2; }
@@ -1075,6 +1091,12 @@
       font-size: 31.99999px; }
     .bootstrap h2, .bootstrap .h2 {
       font-size: 28px; } }
+  .bootstrap .container h2:first-child, .bootstrap .container h3:first-child, .bootstrap .container h4:first-child, .bootstrap .container h5:first-child, .bootstrap .container h6:first-child, .bootstrap .container .h2:first-child, .bootstrap .container .h3:first-child, .bootstrap .container .h4:first-child, .bootstrap .container .h5:first-child, .bootstrap .container .h6:first-child {
+    margin-top: 0; }
+    .bootstrap .container h2:first-child.feature, .bootstrap .container h3:first-child.feature, .bootstrap .container h4:first-child.feature, .bootstrap .container h5:first-child.feature, .bootstrap .container h6:first-child.feature, .bootstrap .container .h2:first-child.feature, .bootstrap .container .h3:first-child.feature, .bootstrap .container .h4:first-child.feature, .bootstrap .container .h5:first-child.feature, .bootstrap .container .h6:first-child.feature {
+      margin: 25px 0; }
+  .bootstrap .container [class^="col-"] h1:first-child, .bootstrap .container [class^="col-"] h2:first-child, .bootstrap .container [class^="col-"] h3:first-child, .bootstrap .container [class^="col-"] h4:first-child, .bootstrap .container [class^="col-"] h5:first-child, .bootstrap .container [class^="col-"] h6:first-child, .bootstrap .container [class^="col-"] .h1:first-child, .bootstrap .container [class^="col-"] .h2:first-child, .bootstrap .container [class^="col-"] .h3:first-child, .bootstrap .container [class^="col-"] .h4:first-child, .bootstrap .container [class^="col-"] .h5:first-child, .bootstrap .container [class^="col-"] .h6:first-child {
+    margin-top: 0; }
   .bootstrap p {
     margin: 0 0 10px; }
   .bootstrap .lead {
@@ -1185,6 +1207,15 @@
       display: inline-block;
       padding-left: 5px;
       padding-right: 5px; }
+  @media (min-width: 768px) {
+    .bootstrap .list-inline-sm {
+      padding-left: 0;
+      list-style: none;
+      margin-left: -5px; }
+      .bootstrap .list-inline-sm > li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px; } }
   .bootstrap dl {
     margin-top: 0;
     margin-bottom: 20px; }
@@ -3825,8 +3856,6 @@
         color: white; }
       .bootstrap .navbar-inverse .btn-link[disabled]:hover, .bootstrap .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:hover, fieldset[disabled] .bootstrap .navbar-inverse .btn-link:focus {
         color: #444444; }
-  .bootstrap .breadcrumb-container {
-    margin-top: -10px; }
   .bootstrap .breadcrumb {
     padding: 0px 0px;
     margin-bottom: 0;
@@ -3835,7 +3864,8 @@
     border-radius: 1px;
     color: #737373; }
     .bootstrap .breadcrumb > li {
-      display: inline-block; }
+      display: inline-block;
+      padding: 0; }
       .bootstrap .breadcrumb > li:first-child a:before {
         font-size: 14px;
         content: "\e62b";
@@ -4540,6 +4570,34 @@
     background: transparent;
     border: 0;
     -webkit-appearance: none; }
+  .bootstrap .text-blue {
+    color: #007db8; }
+  .bootstrap .text-dark-blue {
+    color: #00447c; }
+  .bootstrap .text-light-green {
+    color: #c1d82f; }
+  .bootstrap .text-green {
+    color: #6ea204; }
+  .bootstrap .text-yellow {
+    color: #f2af00; }
+  .bootstrap .text-orange {
+    color: #ee6411; }
+  .bootstrap .text-red {
+    color: #d74324; }
+  .bootstrap .text-dark-red {
+    color: #c31126; }
+  .bootstrap .text-berry {
+    color: #b7295a; }
+  .bootstrap .text-purple {
+    color: #6e2585; }
+  .bootstrap .text-teal {
+    color: #42aeaf; }
+  .bootstrap .text-white {
+    color: white !important; }
+  .bootstrap .color-inherit {
+    color: inherit; }
+  .bootstrap .text-dark-gray {
+    color: #444444; }
   .bootstrap [class^="icon-"], .bootstrap [class*=" icon-"], .bootstrap .icon-small-360-hinge, .bootstrap .icon-small-add, .bootstrap .icon-small-alertcomplete, .bootstrap .icon-small-alerterror, .bootstrap .icon-small-alertinfo, .bootstrap .icon-small-alertnotice, .bootstrap .icon-small-audiocard, .bootstrap .icon-small-audiospeaker, .bootstrap .icon-small-award, .bootstrap .icon-small-battery, .bootstrap .icon-small-bell, .bootstrap .icon-small-cables, .bootstrap .icon-small-calculator, .bootstrap .icon-small-calendar, .bootstrap .icon-small-carryingcase, .bootstrap .icon-small-cart, .bootstrap .icon-small-chat, .bootstrap .icon-small-checkmark, .bootstrap .icon-small-chipset, .bootstrap .icon-small-clock, .bootstrap .icon-small-cloud, .bootstrap .icon-small-color, .bootstrap .icon-small-computergeneric, .bootstrap .icon-small-contact, .bootstrap .icon-small-copy, .bootstrap .icon-small-data, .bootstrap .icon-small-deals, .bootstrap .icon-small-detachable, .bootstrap .icon-small-diagnostic, .bootstrap .icon-small-dimensionsweight, .bootstrap .icon-small-display, .bootstrap .icon-small-download, .bootstrap .icon-small-drivers, .bootstrap .icon-small-edit, .bootstrap .icon-small-employee, .bootstrap .icon-small-energyefficient, .bootstrap .icon-small-enterprise, .bootstrap .icon-small-e-value, .bootstrap .icon-small-gift-card, .bootstrap .icon-small-globe, .bootstrap .icon-small-graphics-card, .bootstrap .icon-small-harddrive, .bootstrap .icon-small-help, .bootstrap .icon-small-house, .bootstrap .icon-small-infrastructure, .bootstrap .icon-small-inktoner, .bootstrap .icon-small-keyboard, .bootstrap .icon-small-lightbulb, .bootstrap .icon-small-location, .bootstrap .icon-small-magnifying-glass, .bootstrap .icon-small-mail, .bootstrap .icon-small-memory, .bootstrap .icon-small-memorycardreader, .bootstrap .icon-small-missingimage, .bootstrap .icon-small-mobile, .bootstrap .icon-small-mouse, .bootstrap .icon-small-music, .bootstrap .icon-small-network, .bootstrap .icon-small-notebook, .bootstrap .icon-small-operatingsystem, .bootstrap .icon-small-opticaldrive, .bootstrap .icon-small-package, .bootstrap .icon-small-partners, .bootstrap .icon-small-performance, .bootstrap .icon-small-phone, .bootstrap .icon-small-photos, .bootstrap .icon-small-ports, .bootstrap .icon-small-powersupply, .bootstrap .icon-small-printer, .bootstrap .icon-small-processor, .bootstrap .icon-small-projector, .bootstrap .icon-small-protection, .bootstrap .icon-small-recycle, .bootstrap .icon-small-refresh, .bootstrap .icon-small-rss, .bootstrap .icon-small-save, .bootstrap .icon-small-scale-out, .bootstrap .icon-small-searchleft, .bootstrap .icon-small-secure, .bootstrap .icon-small-securesoftware, .bootstrap .icon-small-server, .bootstrap .icon-small-serverrack, .bootstrap .icon-small-share, .bootstrap .icon-small-shipping, .bootstrap .icon-small-socialnetworking, .bootstrap .icon-small-software, .bootstrap .icon-small-solutions, .bootstrap .icon-small-speakers, .bootstrap .icon-small-star, .bootstrap .icon-small-storage, .bootstrap .icon-small-support, .bootstrap .icon-small-surgeprotection, .bootstrap .icon-small-tablet, .bootstrap .icon-small-thinclient, .bootstrap .icon-small-touch, .bootstrap .icon-small-touch-pad, .bootstrap .icon-small-towergeneric, .bootstrap .icon-small-trash, .bootstrap .icon-small-tv, .bootstrap .icon-small-useraccount, .bootstrap .icon-small-video, .bootstrap .icon-small-videocard, .bootstrap .icon-small-virtualization, .bootstrap .icon-small-warranty, .bootstrap .icon-small-webcam, .bootstrap .icon-small-whitepaper, .bootstrap .icon-small-wireless, .bootstrap .icon-small-zoomin, .bootstrap .icon-small-zoomout {
     font-family: "icon-small";
     speak: none;
@@ -4610,10 +4668,45 @@
     margin: 0 auto;
     height: 60px;
     width: 65px; }
+  .bootstrap .icon-large-wrench:before {
+    content: "\e65a"; }
+  .bootstrap .icon-small-monitor:before, .bootstrap .icon-large-monitor:before {
+    content: "\e61e"; }
+  .bootstrap .icon-small-calculator:before {
+    content: "\e60c"; }
+  .bootstrap .text-md .icon-large-monitor:before {
+    font-size: 24px; }
   .bootstrap .icon-ui-triangleright:before {
     content: "\e610"; }
   .bootstrap .icon-ui-triangledown:before {
     content: "\e60e"; }
+  .bootstrap .icon-48 {
+    font-size: 48px; }
+  .bootstrap .icon-small-books {
+    width: 16px;
+    height: 16px;
+    background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-books {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -96px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-hand-bag {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -144px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-training {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -192px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-community {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -240px no-repeat;
+    display: inline-block; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -4627,7 +4720,7 @@
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
     margin: -10px auto 0; }
   .bootstrap .masthead {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #fff;
     background-color: #007db8; }
     .bootstrap .masthead .navbar {
@@ -6044,6 +6137,8 @@
   @media print {
     .bootstrap .hidden-print {
       display: none !important; } }
+  .bootstrap .bg-black {
+    background-color: black; }
   .bootstrap .bg-light-grey {
     background-color: #f9f9f9;
     color: #444; }
@@ -6054,6 +6149,8 @@
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {
     text-decoration: none;
     color: #007db8; }
+  .bootstrap a.no-underline:hover {
+    text-decoration: none; }
   .bootstrap .polaris-divider {
     border-top: 1px solid #eee;
     position: relative;
@@ -6091,10 +6188,16 @@
     position: relative; }
   .bootstrap iframe {
     border: 0; }
+  .bootstrap .valign-top {
+    vertical-align: top; }
+  .bootstrap .valign-text-top {
+    vertical-align: text-top; }
   .bootstrap .block {
     display: block !important; }
   .bootstrap .inline {
     display: inline !important; }
+  .bootstrap .inline-block {
+    display: inline-block !important; }
   .bootstrap .vertical-center {
     display: -webkit-box;
     /* OLD - iOS 6-, Safari 3.1-6 */
@@ -6148,12 +6251,16 @@
       display: block;
       margin-left: auto;
       margin-right: auto; }
+    .bootstrap .text-center-sm {
+      text-align: center; }
     .bootstrap .text-right-sm {
       text-align: right; }
     .bootstrap .pull-right-sm {
       float: right !important; }
     .bootstrap .pull-left-sm {
-      float: left; } }
+      float: left; }
+    .bootstrap .inline-block-sm {
+      display: inline-block !important; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .bootstrap .pull-left-md-only {
       float: left; }
@@ -6232,6 +6339,8 @@
     margin-top: 10px !important; }
   .bootstrap .mt-20 {
     margin-top: 20px !important; }
+  .bootstrap .mt-25 {
+    margin-top: 25px !important; }
   .bootstrap .mt-30 {
     margin-top: 30px !important; }
   .bootstrap .mt-40 {
@@ -6296,6 +6405,8 @@
       margin-top: 5px !important; }
     .bootstrap .mt-10-xs {
       margin-top: 10px !important; }
+    .bootstrap .mt-15-xs {
+      margin-top: 15px !important; }
     .bootstrap .mt-20-xs {
       margin-top: 20px !important; }
     .bootstrap .mt-30-xs {
@@ -6308,6 +6419,8 @@
       margin-right: 0 !important; }
     .bootstrap .ml-0-xs {
       margin-left: 0 !important; }
+    .bootstrap .ml-10-xs {
+      margin-left: 10px !important; }
     .bootstrap .mb-10-xs {
       margin-bottom: 10px !important; }
     .bootstrap .mb-15-xs {
@@ -6388,10 +6501,18 @@
       margin-top: 0 !important; }
     .bootstrap .mt-20-sm {
       margin-top: 20px !important; }
+    .bootstrap .mt-40-sm {
+      margin-top: 40px !important; }
+    .bootstrap .ml-10-sm {
+      margin-left: 10px !important; }
     .bootstrap .ml-20-sm {
       margin-left: 20px !important; }
     .bootstrap .mr-20-sm {
       margin-right: 20px !important; }
+    .bootstrap .mb-0-sm {
+      margin-bottom: 0 !important; }
+    .bootstrap .mb-20-sm {
+      margin-bottom: 20px !important; }
     .bootstrap .mh-0-sm {
       margin-left: 0 !important;
       margin-right: 0 !important; }
@@ -6403,6 +6524,8 @@
       padding-right: 30px !important; }
     .bootstrap .pl-0-sm {
       padding-left: 0 !important; }
+    .bootstrap .pl-10-sm {
+      padding-left: 10px !important; }
     .bootstrap .pl-30-sm {
       padding-left: 30px !important; }
     .bootstrap .ph-0-sm {
@@ -6446,55 +6569,69 @@
   @media (min-width: 1200px) {
     .bootstrap .mr-20-lg {
       margin-right: 20px !important; } }
-  .bootstrap #affix-nav {
-    top: 0;
-    z-index: 99999;
-    display: block;
+  .bootstrap #affix-nav i.menu-indicator:before {
+    content: "\e601"; }
+  .bootstrap #affix-nav li {
     border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
-    font-size: 16px; }
-    .bootstrap #affix-nav ul {
-      background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      /* Old browsers */
-      background: -moz-linear-gradient(top, white 8%, #efefef 100%);
-      /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
-      /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
-      /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, white 8%, #efefef 100%);
-      /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, white 8%, #efefef 100%);
-      /* IE10+ */
-      background: linear-gradient(to bottom, white 8%, #efefef 100%);
-      /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
-      .bootstrap #affix-nav ul li {
-        padding: 0; }
-        .bootstrap #affix-nav ul li:first-child a {
-          border-left: #cccccc solid 1px; }
-        .bootstrap #affix-nav ul li.active {
-          background: none repeat scroll 0 0 white;
-          border-bottom: none;
-          border-color: #007db8;
-          border-style: solid;
-          border-width: 4px 0 0;
-          color: #444444; }
-          .bootstrap #affix-nav ul li.active a {
-            padding: 6px 15px 10px 15px; }
-          .bootstrap #affix-nav ul li.active:hover a {
-            padding: 6px 15px 10px 15px; }
-        .bootstrap #affix-nav ul li a {
-          text-align: center;
-          font-weight: bold;
-          border-right: 1px solid #cccccc;
-          border-left: #cccccc solid 1px; }
-          .bootstrap #affix-nav ul li a:focus {
-            background-color: transparent; }
-          .bootstrap #affix-nav ul li a:hover {
-            padding: 10px 15px;
-            background-color: #cce7f3;
-            color: #007db8; }
+    padding: 0; }
+  @media (min-width: 768px) {
+    .bootstrap #affix-nav {
+      top: 0;
+      z-index: 999;
+      display: block;
+      border-top: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc;
+      font-size: 14px; }
+      .bootstrap #affix-nav ul {
+        background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, white 8%, #efefef 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, white 8%, #efefef 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, white 8%, #efefef 100%);
+        /* IE10+ */
+        background: linear-gradient(to bottom, white 8%, #efefef 100%);
+        /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
+        .bootstrap #affix-nav ul li {
+          padding: 0;
+          float: left;
+          border: 0; }
+          .bootstrap #affix-nav ul li:first-child a {
+            border-left: #cccccc solid 1px; }
+          .bootstrap #affix-nav ul li.active {
+            background: none repeat scroll 0 0 white;
+            border-bottom: none;
+            border-color: #007db8;
+            border-style: solid;
+            border-width: 4px 0 0;
+            color: #444444;
+            /*&:hover {
+              a{
+                padding: 6px 10px 10px 15px;
+              }
+            }*/ }
+            .bootstrap #affix-nav ul li.active a {
+              padding: 6px 10px 10px; }
+          .bootstrap #affix-nav ul li a {
+            text-align: center;
+            font-weight: bold;
+            border-right: 1px solid #cccccc;
+            border-left: #cccccc solid 1px;
+            padding: 10px; }
+            .bootstrap #affix-nav ul li a:focus {
+              background-color: transparent; }
+            .bootstrap #affix-nav ul li a:hover {
+              background-color: #cce7f3;
+              color: #007db8; } }
+  @media (min-width: 992px) {
+    .bootstrap #affix-nav {
+      font-size: 16px; } }
   .bootstrap.not-responsive {
     /*.hidden-xs, .hidden-sm, .hidden-md, .visible-xs, .visible-sm {
       display: none !important;
@@ -6553,10 +6690,54 @@
     position: absolute;
     width: 30px; }
 
-/* http://software.dell.com/kace/ */
+.img-crop {
+  overflow: hidden; }
+
+.media-player-container {
+  overflow: hidden; }
+  .media-player-container .icon-ui-play {
+    color: #444444;
+    font-size: 80px;
+    position: relative; }
+  .media-player-container .icon-ui-play-underlay {
+    background: #fff;
+    height: 60px;
+    margin: 10px;
+    position: absolute;
+    width: 60px; }
+
+/* START: */
+/* Used by [i.e.]: http://software.dell.com/kace/ */
 .img-border-grey {
   border: 1px solid #ddd; }
 
+/* END */
+/* Used by http://software.dell.com/events/ */
+.img-header-overlay-top {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700; }
+
+a:hover .img-header-overlay-top {
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .col-xs-12 .img-crop {
+    height: 237px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-4 .img-crop {
+    height: 158px; }
+
+  .col-sm-6 .img-crop {
+    height: 237px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-md-3 .img-crop {
+    height: 153px; } }
+@media (min-width: 1200px) {
+  .col-md-3 .img-crop, .col-lg-3 .img-crop {
+    height: 194px; } }
 .flag-us {
   background: url("/images/shared/us.gif") 0 3px no-repeat;
   padding-left: 20px !important; }

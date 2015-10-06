@@ -7,13 +7,11 @@
   .logos ul li {
     display: block;
     float: left; }
-  .logos.home .pagination-container {
-    margin-top: 10px; }
 
-.logos.home ul li, .logos.awareness ul li {
+.logos.awareness ul li {
   margin-right: 51px; }
 
-.screenshot-carousel.logos.home .rr-pagination.pagination-large a, .screenshot-carousel.logos.awareness .rr-pagination.pagination-large a {
+.screenshot-carousel.logos.awareness .rr-pagination.pagination-large a {
   margin-top: 15px; }
 .screenshot-carousel.logos.kace .rr-pagination.pagination-large a {
   margin-top: 4px; }
@@ -25,9 +23,7 @@
   .screenshot-carousel.logos ul {
     display: inline-block; }
     .screenshot-carousel.logos ul li {
-      width: 100%; }
-  .screenshot-carousel.home .pagination-container {
-    margin-top: 6px; } }
+      width: 100%; } }
 @media (min-width: 768px) {
   .logos.kace ul li {
     padding: 0;
@@ -36,28 +32,15 @@
   .logos.sonicwall ul li {
     margin-right: 58px; }
 
-  .logos.home li, .logos.awareness li {
+  .logos.awareness li {
     width: 92px;
     padding: 0;
     margin-right: 11px; } }
 /*tablet*/
 @media (max-width: 991px) and (min-width: 768px) {
-  /*home*/
-  .logos.home ul li {
-    margin-right: 50px; }
-    .logos.home ul li:last-child {
-      margin-right: 0; }
-  .logos.home .pagination-container {
-    margin-left: 30px; }
-
   .logos.awareness ul li {
     margin-right: 12px; } }
 @media (min-width: 992px) {
-  /*home*/
-  .logos.home ul li {
-    padding: 0;
-    margin-right: 29px; }
-
   .logos.kace ul li {
     padding: 0;
     margin-right: 79px; }
@@ -70,11 +53,6 @@
     padding: 0;
     margin-right: 14px; } }
 @media (min-width: 1200px) {
-  /*home*/
-  .logos.home ul li {
-    padding: 0;
-    margin-right: 62px; }
-
   .logos.kace ul li {
     padding: 0;
     margin-right: 125px; }

@@ -100,10 +100,74 @@
   width: 65px;
 }
 
+.icon-large-wrench:before {
+  content: "\e65a";
+}
+
+.icon-small-monitor:before, .icon-large-monitor:before {
+  content: "\e61e";
+}
+
+.icon-small-calculator:before {
+  content: "\e60c";
+}
+
+.text-md {
+  .icon-large-monitor:before {
+    font-size: 24px;
+  }
+}
+
 .icon-ui-triangleright:before {
   content: "\e610";
 }
 
 .icon-ui-triangledown:before {
   content: "\e60e";
+}
+
+.icon-48 {
+  font-size: 48px;
+}
+
+.icon-small-books {
+  width: 16px;
+  height: 16px;
+  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+  display: inline-block;
+}
+
+/*.icon-large-books {
+  width: 42px;
+  height: 42px;
+  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+  display: inline-block;
+}*/
+
+.icon-large-books {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -96px no-repeat;
+  display: inline-block;
+}
+
+.icon-large-hand-bag {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -144px no-repeat;
+  display: inline-block;
+}
+
+.icon-large-training {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -192px no-repeat;
+  display: inline-block;
+}
+
+.icon-large-community {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -240px no-repeat;
+  display: inline-block;
 }

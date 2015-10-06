@@ -35,8 +35,9 @@
       background-position: -20px 0; }
     .oo-toolbar .icon.facebook {
       background-position: -40px 0; }
-  .oo-toolbar .googleplusone {
-    height: 20px; }
+    .oo-toolbar .icon.googleshare {
+      background-position: -169px -204px;
+      margin-right: 0; }
 
 ul.oo-toolbar {
   border: 0;
@@ -317,13 +318,22 @@ ul.oo-toolbar {
 .media-player-container {
   clear: both;
   width: 100%;
-  position: relative; }
+  position: relative;
+  cursor: pointer !important; }
   .media-player-container > .ooyalaplayer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%; }
+  .media-player-container .icon-ui-play {
+    font-size: 80px; }
+  .media-player-container .icon-ui-play-underlay {
+    background: #fff;
+    height: 60px;
+    margin: 10px;
+    position: absolute;
+    width: 60px; }
 
 .player-wrapper {
   width: 100%;

@@ -1,0 +1,5 @@
+Filmstrip Carousel
+- Desktop (LG)
+- Desktop (MD)
+- Tablet (SM)
+- Mobile (XS)
