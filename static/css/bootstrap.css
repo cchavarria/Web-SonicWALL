@@ -6923,6 +6923,10 @@ a:hover .img-header-overlay-top {
 .text-dark-gray {
   color: #444444; }
 
+.heading-link:hover {
+  color: #007db8;
+  text-decoration: underline; }
+
 .bg-blue {
   background-color: #007db8 !important; }
 
