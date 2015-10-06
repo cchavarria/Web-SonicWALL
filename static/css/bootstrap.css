@@ -6691,16 +6691,16 @@ a:hover .img-header-overlay-top {
     height: 237px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .col-sm-4 .img-crop {
-    height: 166px; }
+    height: 158px; }
 
   .col-sm-6 .img-crop {
-    height: 238px; } }
+    height: 237px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .col-md-3 .img-crop {
     height: 153px; } }
 @media (min-width: 1200px) {
   .col-md-3 .img-crop, .col-lg-3 .img-crop {
-    height: 197px; } }
+    height: 194px; } }
 #affix-nav i.menu-indicator:before {
   content: "\e601"; }
 #affix-nav li {

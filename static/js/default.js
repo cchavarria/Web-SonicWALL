@@ -432,6 +432,9 @@ function slickPlugin(parentSelector) {
 					if (firstImage.parent().hasClass('img-crop')) {
 						arrowsPos = firstImage.parent().height() / 2 - 30;
 					}
+					else if(firstImage.parents('.img-crop').length) {
+						arrowsPos = firstImage.parents('.img-crop').height() / 2 - 30;
+					}
 					else {
 						arrowsPos = firstImage.height() / 2 - 30;
 					}
@@ -631,9 +634,15 @@ function loadOoyala(parentSelector) {
 				}
 
 				if ($(this).data('on-demand')) {
-					$(this).on('click', function () {
+					var parentContainer = $(this).parent(), elem = $(this);
+
+					if(parentContainer.hasClass('media-player-container')) {
+						elem = parentContainer;
+					}
+
+					elem.on('click', function () {
 						if (!$('#' + id).data('loaded')) {
-							var videoHeight = Math.floor(($(this).width() * 9) / 16), parentContainer = $(this).parent();
+							var videoHeight = Math.floor(($(this).width() * 9) / 16);
 
 							if (parentContainer && parentContainer.hasClass('media-player-container')) {
 								$(this).css('height', videoHeight);
