@@ -12,7 +12,7 @@
   border-top: 1px solid $dell-gray-stroke;
 }
 
-.border-b-gray {
+.border-b-grey {
   border-bottom: 1px solid $dell-gray-stroke;
 }
 
@@ -21,15 +21,25 @@
   border-bottom: 1px solid $dell-gray-stroke;
 }
 
+.border-l-grey {
+  border-left: 1px solid $dell-gray-stroke;
+}
+
 @media (max-width: 767px) {
   //Mobile - XS
   .no-border-xs {
     border: none !important;
   }
-  .border-t-gray-xs {
+  .border-t-grey-xs {
     border-top: 1px solid $dell-gray-stroke;
   }
-  .border-b-gray-xs {
+  .border-b-grey-xs {
     border-bottom: 1px solid $dell-gray-stroke;
+  }
+}
+
+@media (min-width: 768px) {
+  .border-l-grey-sm {
+    border-left: 1px solid $dell-gray-stroke;
   }
 }

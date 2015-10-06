@@ -88,6 +88,12 @@
   /*@import "bootstrap/alerts";*/
   /*@import "bootstrap/progress-bars";*/
   /*@import "bootstrap/wells";*/
+  /*.icon-large-books {
+    width: 42px;
+    height: 42px;
+    background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+    display: inline-block;
+  }*/
   /* Disabling this as button dropdown will not overflow. Need to find out why this was in place in the first place.
       - Edward Chong [10/1/2015]
   */
@@ -4666,24 +4672,41 @@
     content: "\e65a"; }
   .bootstrap .icon-small-monitor:before, .bootstrap .icon-large-monitor:before {
     content: "\e61e"; }
-  .bootstrap .icon-small-books {
-    width: 16px;
-    height: 16px;
-    background: url("/images/shared/icon-books.png") 0 0 no-repeat;
-    display: inline-block; }
-  .bootstrap .icon-large-books {
-    width: 42px;
-    height: 42px;
-    background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
-    display: inline-block; }
+  .bootstrap .icon-small-calculator:before {
+    content: "\e60c"; }
   .bootstrap .text-md .icon-large-monitor:before {
     font-size: 24px; }
   .bootstrap .icon-ui-triangleright:before {
     content: "\e610"; }
   .bootstrap .icon-ui-triangledown:before {
     content: "\e60e"; }
-  .bootstrap .icon-42 {
-    font-size: 42px; }
+  .bootstrap .icon-48 {
+    font-size: 48px; }
+  .bootstrap .icon-small-books {
+    width: 16px;
+    height: 16px;
+    background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-books {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -96px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-hand-bag {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -144px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-training {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -192px no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-community {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icons-support-services.png") 0 -240px no-repeat;
+    display: inline-block; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -6235,7 +6258,9 @@
     .bootstrap .pull-right-sm {
       float: right !important; }
     .bootstrap .pull-left-sm {
-      float: left; } }
+      float: left; }
+    .bootstrap .inline-block-sm {
+      display: inline-block !important; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .bootstrap .pull-left-md-only {
       float: left; }
@@ -6476,10 +6501,18 @@
       margin-top: 0 !important; }
     .bootstrap .mt-20-sm {
       margin-top: 20px !important; }
+    .bootstrap .mt-40-sm {
+      margin-top: 40px !important; }
+    .bootstrap .ml-10-sm {
+      margin-left: 10px !important; }
     .bootstrap .ml-20-sm {
       margin-left: 20px !important; }
     .bootstrap .mr-20-sm {
       margin-right: 20px !important; }
+    .bootstrap .mb-0-sm {
+      margin-bottom: 0 !important; }
+    .bootstrap .mb-20-sm {
+      margin-bottom: 20px !important; }
     .bootstrap .mh-0-sm {
       margin-left: 0 !important;
       margin-right: 0 !important; }
@@ -6491,6 +6524,8 @@
       padding-right: 30px !important; }
     .bootstrap .pl-0-sm {
       padding-left: 0 !important; }
+    .bootstrap .pl-10-sm {
+      padding-left: 10px !important; }
     .bootstrap .pl-30-sm {
       padding-left: 30px !important; }
     .bootstrap .ph-0-sm {
@@ -6658,16 +6693,18 @@
 .img-crop {
   overflow: hidden; }
 
-.media-player-container .icon-ui-play {
-  color: #444444;
-  font-size: 80px;
-  position: relative; }
-.media-player-container .icon-ui-play-underlay {
-  background: #fff;
-  height: 60px;
-  margin: 10px;
-  position: absolute;
-  width: 60px; }
+.media-player-container {
+  overflow: hidden; }
+  .media-player-container .icon-ui-play {
+    color: #444444;
+    font-size: 80px;
+    position: relative; }
+  .media-player-container .icon-ui-play-underlay {
+    background: #fff;
+    height: 60px;
+    margin: 10px;
+    position: absolute;
+    width: 60px; }
 
 /* START: */
 /* Used by [i.e.]: http://software.dell.com/kace/ */

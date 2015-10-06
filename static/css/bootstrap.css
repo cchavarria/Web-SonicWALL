@@ -3442,6 +3442,9 @@ tbody.collapse.in {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease; }
 
+@media (max-width: 767px) {
+  .visible-sm.collapsing, .visible-md.collapsing, .visible-lg.collapsing {
+    display: block !important; } }
 .caret {
   display: inline-block;
   width: 0;
@@ -5138,7 +5141,10 @@ iframe {
     float: right !important; }
 
   .pull-left-sm {
-    float: left; } }
+    float: left; }
+
+  .inline-block-sm {
+    display: inline-block !important; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .pull-left-md-only {
     float: left; }
@@ -5486,11 +5492,23 @@ iframe {
   .mt-20-sm {
     margin-top: 20px !important; }
 
+  .mt-40-sm {
+    margin-top: 40px !important; }
+
+  .ml-10-sm {
+    margin-left: 10px !important; }
+
   .ml-20-sm {
     margin-left: 20px !important; }
 
   .mr-20-sm {
     margin-right: 20px !important; }
+
+  .mb-0-sm {
+    margin-bottom: 0 !important; }
+
+  .mb-20-sm {
+    margin-bottom: 20px !important; }
 
   .mh-0-sm {
     margin-left: 0 !important;
@@ -5507,6 +5525,9 @@ iframe {
 
   .pl-0-sm {
     padding-left: 0 !important; }
+
+  .pl-10-sm {
+    padding-left: 10px !important; }
 
   .pl-30-sm {
     padding-left: 30px !important; }
@@ -5656,17 +5677,8 @@ iframe {
 .icon-small-monitor:before, .icon-large-monitor:before {
   content: "\e61e"; }
 
-.icon-small-books {
-  width: 16px;
-  height: 16px;
-  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
-  display: inline-block; }
-
-.icon-large-books {
-  width: 42px;
-  height: 42px;
-  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
-  display: inline-block; }
+.icon-small-calculator:before {
+  content: "\e60c"; }
 
 .text-md .icon-large-monitor:before {
   font-size: 24px; }
@@ -5677,8 +5689,44 @@ iframe {
 .icon-ui-triangledown:before {
   content: "\e60e"; }
 
-.icon-42 {
-  font-size: 42px; }
+.icon-48 {
+  font-size: 48px; }
+
+.icon-small-books {
+  width: 16px;
+  height: 16px;
+  background: url("/images/shared/icon-books.png") 0 0 no-repeat;
+  display: inline-block; }
+
+/*.icon-large-books {
+  width: 42px;
+  height: 42px;
+  background: url("/images/shared/icon-books-42x42.png") 0 0 no-repeat;
+  display: inline-block;
+}*/
+.icon-large-books {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -96px no-repeat;
+  display: inline-block; }
+
+.icon-large-hand-bag {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -144px no-repeat;
+  display: inline-block; }
+
+.icon-large-training {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -192px no-repeat;
+  display: inline-block; }
+
+.icon-large-community {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icons-support-services.png") 0 -240px no-repeat;
+  display: inline-block; }
 
 .site-wrapper {
   overflow: hidden;
@@ -6608,16 +6656,18 @@ i.menu-indicator {
 .img-crop {
   overflow: hidden; }
 
-.media-player-container .icon-ui-play {
-  color: #444444;
-  font-size: 80px;
-  position: relative; }
-.media-player-container .icon-ui-play-underlay {
-  background: #fff;
-  height: 60px;
-  margin: 10px;
-  position: absolute;
-  width: 60px; }
+.media-player-container {
+  overflow: hidden; }
+  .media-player-container .icon-ui-play {
+    color: #444444;
+    font-size: 80px;
+    position: relative; }
+  .media-player-container .icon-ui-play-underlay {
+    background: #fff;
+    height: 60px;
+    margin: 10px;
+    position: absolute;
+    width: 60px; }
 
 /* START: */
 /* Used by [i.e.]: http://software.dell.com/kace/ */
@@ -7315,6 +7365,50 @@ a:hover .img-header-overlay-top {
         padding: 0 23px;
         margin-bottom: 0; }
 
+@media (max-width: 767px) {
+  .panel-group-collapsible-xs {
+    border-bottom: 1px solid #aaaaaa; }
+    .panel-group-collapsible-xs > .panel {
+      margin-bottom: 0;
+      border: none;
+      border-top: 1px solid #aaaaaa;
+      box-shadow: none; }
+      .panel-group-collapsible-xs > .panel .panel-heading {
+        padding: 10px;
+        color: #007db8; }
+      .panel-group-collapsible-xs > .panel .panel-title a.collapsed:before {
+        font-family: 'Glyphicons Halflings';
+        content: "\e080";
+        vertical-align: -2px; }
+      .panel-group-collapsible-xs > .panel .panel-title a:before {
+        font-family: 'Glyphicons Halflings';
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        content: "\e114";
+        vertical-align: -2px;
+        padding-right: 2px; }
+      .panel-group-collapsible-xs > .panel .panel-title a:hover, .panel-group-collapsible-xs > .panel .panel-title a:focus {
+        text-decoration: none; }
+      .panel-group-collapsible-xs > .panel .panel-body {
+        padding: 0 30px;
+        margin-bottom: 10px; }
+      .panel-group-collapsible-xs > .panel .table-responsive {
+        margin-bottom: 13px; }
+        .panel-group-collapsible-xs > .panel .table-responsive .panel-body {
+          padding: 0 23px;
+          margin-bottom: 0; } }
+@media (min-width: 768px) {
+  .panel-group-collapsible-xs {
+    /*.collapse {
+      display: block;
+    }*/ }
+    .panel-group-collapsible-xs .panel-heading {
+      padding: 0;
+      border: 0; }
+    .panel-group-collapsible-xs .panel-body {
+      padding: 0; }
+    .panel-group-collapsible-xs .panel {
+      box-shadow: none; } }
 /* Border */
 .border-0, .no-border {
   border: none !important; }
@@ -7325,22 +7419,28 @@ a:hover .img-header-overlay-top {
 .border-t-grey {
   border-top: 1px solid #cccccc; }
 
-.border-b-gray {
+.border-b-grey {
   border-bottom: 1px solid #cccccc; }
 
 .border-tb-grey {
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc; }
 
+.border-l-grey {
+  border-left: 1px solid #cccccc; }
+
 @media (max-width: 767px) {
   .no-border-xs {
     border: none !important; }
 
-  .border-t-gray-xs {
+  .border-t-grey-xs {
     border-top: 1px solid #cccccc; }
 
-  .border-b-gray-xs {
+  .border-b-grey-xs {
     border-bottom: 1px solid #cccccc; } }
+@media (min-width: 768px) {
+  .border-l-grey-sm {
+    border-left: 1px solid #cccccc; } }
 /*
   Description: Hero banner
   Author: Elnaz Doostdar

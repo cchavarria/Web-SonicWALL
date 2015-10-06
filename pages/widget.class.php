@@ -48,7 +48,7 @@ class Widget {
 						$widgetContent = file_get_contents($file);
 						$content = '';
 
-						if(!isset($_GET['noReduceContainer'])) {
+						if(isset($_GET['ReduceContainer'])) {
 							$dom = new DOMDocument();
 							$dom->loadHTML($widgetContent);
 

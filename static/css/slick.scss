@@ -253,10 +253,10 @@ $slick-opacity-not-active: 0.25 !default;
     }
   }
   .slick-prev {
-    left: -10px;
+    left: -2px; //-10px;
   }
   .slick-next {
-    right: -10px;
+    right: -4px; //-10px;
   }
 }
 

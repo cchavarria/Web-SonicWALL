@@ -67,20 +67,20 @@
 <?php
 echo $widget->js();
 
-$toolbar = '<div id="floaty" style="position: fixed; bottom: 0; right: 0; border: 1px solid #444; padding: 5px; background-color: #c0c0c0;">';
+/*$toolbar = '<div id="floaty" style="position: fixed; bottom: 0; right: 0; border: 1px solid #444; padding: 5px; background-color: #c0c0c0;">';
 
-if (isset($_GET['noReduceContainer'])) {
-	$toolbar .= '<div>- <strong>Do not reduce # of containers</strong></div>';
+if (isset($_GET['ReduceContainer'])) {
+	$toolbar .= '<div>- <strong>Reduce # of containers</strong></div>';
 	$toolbar .= '<div>- <a href="?">Normal</a></div>';
 } else {
-	$toolbar .= '<div>- <a href="?noReduceContainer">Do not reduce # of containers</a></div>';
+	$toolbar .= '<div>- <a href="?ReduceContainer">Reduce # of containers</a></div>';
 	$toolbar .= '<div>- <strong>Normal</strong></div>';
 }
 
 $toolbar .= '<div>- <a href="javascript:;" onclick="$(\'#floaty\').remove();">Hide This</a></div>';
 $toolbar .= '</div>';
 
-echo $toolbar;
+echo $toolbar;*/
 ?>
 
 </body>

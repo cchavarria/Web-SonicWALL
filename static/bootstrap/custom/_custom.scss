@@ -207,6 +207,9 @@ iframe {
   .pull-left-sm {
     float: left;
   }
+  .inline-block-sm {
+    display: inline-block !important;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

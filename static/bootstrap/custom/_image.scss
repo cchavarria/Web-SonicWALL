@@ -29,6 +29,7 @@
 }
 
 .media-player-container {
+  overflow: hidden;
   .icon-ui-play {
     color: $dell-gray-dark;
     font-size: 80px;

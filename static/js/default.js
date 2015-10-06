@@ -237,14 +237,17 @@ $(document).ready(function () {
 		setTimeout(function() {
 			if(!elem.hasClass('collapsed')) {
 				if(elem.data('hide-when-expanded')) {
-					elem.slideUp('slow');
+					elem.hide(0, function() {
+						$(elem.data('target')).children().unwrap();
+						elem.remove();
+					});
 				}
 			}
 		}, 100);
 	});
 
 	//Show more list [UL]
-	if($('ul').filter('.has-show-more')) {
+	/*if($('ul').filter('.has-show-more')) {
 		getLocalizedContent(['LabelShowMore']).done(function(data) {
 			$('ul').filter('.has-show-more').each(function() {
 				var pos = parseInt($(this).data('show-more-position'));
@@ -266,7 +269,25 @@ $(document).ready(function () {
 				}
 			});
 		});
-	}
+	}*/
+	/* i.e.
+	 <ul class="has-show-more" data-show-more-position="8">
+	 <li>Microsoft Windows 7 (all x64 editions)</li>
+	 <li>Microsoft Windows 8* (all x64 editions)</li>
+	 <li>Microsoft Windows 8.1* (all x64 editions)</li>
+	 <li>Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
+	 <li>Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
+	 <li>Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
+	 <li>Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
+	 <li>1--Microsoft Windows 7 (all x64 editions)</li>
+	 <li>2--Microsoft Windows 8* (all x64 editions)</li>
+	 <li>3--Microsoft Windows 8.1* (all x64 editions)</li>
+	 <li>4--Microsoft Windows Server 2008 (all x64 editions except Windows Server 2008 Core)</li>
+	 <li>5--Microsoft Windows Server 2008 R2 (all x64 editions except Windows Server 2008 R2 Core)</li>
+	 <li>6--Microsoft Windows Server 2012* (all x64 editions except Windows Server 2012 Core)</li>
+	 <li>7--Microsoft Windows Server 2012 R2* (all x64 editions except Windows Server 2012 R2 Core)</li>
+	 </ul>
+	 */
 
 	//Bleed Margins
 	addResize(function() {
