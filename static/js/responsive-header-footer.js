@@ -70,6 +70,9 @@ $(document).ready(function () {
 			else {
 				elem.addClass('open');
 
+				//fix for sonicwall height
+				$('body').trigger('subnav.visible');
+
 				if (pageType == 0) { //Mobile
 					//Animate background color to notify user that they have touched that element.
 					//Require: jQuery Color v2.1.2 plugin
