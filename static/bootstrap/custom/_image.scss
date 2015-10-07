@@ -78,12 +78,17 @@ a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
+    .img-crop {
+      height: 69px;
+    }
+  }
   .col-sm-4 {
     .img-crop {
       height: 158px;
     }
   }
-
   .col-sm-6 {
     .img-crop {
       height: 237px;
@@ -92,6 +97,12 @@ a:hover {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
+    .img-crop {
+      height: 95px;
+    }
+  }
   .col-md-3 {
     .img-crop {
       height: 153px;
@@ -100,6 +111,12 @@ a:hover {
 }
 
 @media (min-width: 1200px) {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
+    .img-crop {
+      height: 122px;
+    }
+  }
   .col-md-3, .col-lg-3 {
     .img-crop {
       height: 194px;
