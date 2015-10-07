@@ -1122,7 +1122,8 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #444444;
-  background-color: white; }
+  background-color: white;
+  position: relative; }
 
 input,
 button,
@@ -3277,19 +3278,19 @@ select[multiple].input-lg,
 
 .btn-success {
   color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c; }
+  background-color: #408001;
+  border-color: #336701; }
   .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     color: white;
-    background-color: #449d44;
-    border-color: #398439; }
+    background-color: #274d01;
+    border-color: #152a00; }
   .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     background-image: none; }
   .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
-    background-color: #5cb85c;
-    border-color: #4cae4c; }
+    background-color: #408001;
+    border-color: #336701; }
   .btn-success .badge {
-    color: #5cb85c;
+    color: #408001;
     background-color: white; }
 
 .btn-info {
@@ -4547,9 +4548,9 @@ a.label:hover, a.label:focus {
     background-color: #005a85; }
 
 .label-success {
-  background-color: #5cb85c; }
+  background-color: #408001; }
   .label-success[href]:hover, .label-success[href]:focus {
-    background-color: #449d44; }
+    background-color: #274d01; }
 
 .label-info {
   background-color: #5bc0de; }
@@ -5058,6 +5059,10 @@ iframe {
 .valign-text-top {
   vertical-align: text-top; }
 
+/* Overflow */
+.overflow-hidden {
+  overflow: hidden; }
+
 /*display*/
 .block {
   display: block !important; }
@@ -5500,6 +5505,9 @@ iframe {
 
   .ml-20-sm {
     margin-left: 20px !important; }
+
+  .mr-10-sm {
+    margin-right: 10px !important; }
 
   .mr-20-sm {
     margin-right: 20px !important; }
@@ -6676,31 +6684,42 @@ i.menu-indicator {
 
 /* END */
 /* Used by http://software.dell.com/events/ */
-.img-header-overlay-top {
+.img-header-overlay {
   color: #fff;
   padding: 0 0 0 10px;
   margin: 0;
   line-height: 30px;
-  font-weight: 700; }
+  font-weight: 700;
+  position: absolute;
+  width: 100%; }
 
-a:hover .img-header-overlay-top {
+a:hover .img-header-overlay {
   text-decoration: none; }
 
 @media (max-width: 767px) {
   .col-xs-12 .img-crop {
     height: 237px; } }
 @media (min-width: 768px) and (max-width: 991px) {
+  .col-sm-2 .img-crop, .col-md-2 .img-crop, .col-lg-2 .img-crop {
+    height: 69px; }
+
   .col-sm-4 .img-crop {
-    height: 166px; }
+    height: 158px; }
 
   .col-sm-6 .img-crop {
-    height: 238px; } }
+    height: 237px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .col-sm-2 .img-crop, .col-md-2 .img-crop, .col-lg-2 .img-crop {
+    height: 95px; }
+
   .col-md-3 .img-crop {
     height: 153px; } }
 @media (min-width: 1200px) {
+  .col-sm-2 .img-crop, .col-md-2 .img-crop, .col-lg-2 .img-crop {
+    height: 122px; }
+
   .col-md-3 .img-crop, .col-lg-3 .img-crop {
-    height: 197px; } }
+    height: 194px; } }
 #affix-nav i.menu-indicator:before {
   content: "\e601"; }
 #affix-nav li {
@@ -6709,11 +6728,11 @@ a:hover .img-header-overlay-top {
 
 @media (min-width: 768px) {
   #affix-nav {
+    /* Check bootstrap-ie.scss for specific rules for IE */
     top: 0;
     z-index: 999;
     display: block;
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border: 1px solid #cccccc;
     font-size: 14px; }
     #affix-nav ul {
       background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -6730,32 +6749,25 @@ a:hover .img-header-overlay-top {
       /* IE10+ */
       background: linear-gradient(to bottom, white 8%, #efefef 100%);
       /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
+      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
       #affix-nav ul li {
         padding: 0;
         float: left;
-        border: 0; }
-        #affix-nav ul li:first-child a {
-          border-left: #cccccc solid 1px; }
+        border-top: none;
+        border-left: #cccccc solid 1px; }
+        #affix-nav ul li:first-child {
+          border-left: none; }
         #affix-nav ul li.active {
           background: none repeat scroll 0 0 white;
-          border-bottom: none;
           border-color: #007db8;
-          border-style: solid;
           border-width: 4px 0 0;
-          color: #444444;
-          /*&:hover {
-            a{
-              padding: 6px 10px 10px 15px;
-            }
-          }*/ }
+          border-style: solid;
+          color: #444444; }
           #affix-nav ul li.active a {
             padding: 6px 10px 10px; }
         #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
-          border-right: 1px solid #cccccc;
-          border-left: #cccccc solid 1px;
           padding: 10px; }
           #affix-nav ul li a:focus {
             background-color: transparent; }
@@ -6922,6 +6934,10 @@ a:hover .img-header-overlay-top {
 
 .text-dark-gray {
   color: #444444; }
+
+.heading-link:hover {
+  color: #007db8;
+  text-decoration: underline; }
 
 .bg-blue {
   background-color: #007db8 !important; }
@@ -7991,7 +8007,8 @@ a:hover .img-header-overlay-top {
     list-style: none outside none;
     display: inline-block;
     margin: 0 8px;
-    padding: 0; }
+    padding: 0;
+    float: left; }
     .social-media-toolbar li:first-of-type {
       margin-left: 0; }
     .social-media-toolbar li:last-of-type {
@@ -8001,6 +8018,7 @@ a:hover .img-header-overlay-top {
   .social-media-toolbar > span {
     display: inline-block;
     margin-top: 2px;
+    margin-right: 5px;
     vertical-align: top; }
 
 /*mobile*/

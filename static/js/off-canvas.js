@@ -25,7 +25,8 @@ getLocalizedContent("LabelBack").done(function (data) {
 
 			$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
 			$('body').removeClass('off-canvas-mode');
-			$(document).scrollTop($('#off-canvas').data('top'));
+
+			$('html, body').animate({scrollTop: $('#off-canvas').data('top')});
 
 			$('body').trigger('offcanvas.hidden');
 		});

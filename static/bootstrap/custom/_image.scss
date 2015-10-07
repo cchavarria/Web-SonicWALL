@@ -53,16 +53,18 @@
 /* END */
 
 /* Used by http://software.dell.com/events/ */
-.img-header-overlay-top {
+.img-header-overlay {
   color: #fff;
   padding: 0 0 0 10px;
   margin: 0;
   line-height: 30px;
   font-weight: 700;
+  position: absolute;
+  width: 100%;
 }
 
 a:hover {
-  .img-header-overlay-top {
+  .img-header-overlay {
     text-decoration: none;
   }
 }
@@ -76,20 +78,31 @@ a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .col-sm-4 {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
     .img-crop {
-      height: 166px;
+      height: 69px;
     }
   }
-
+  .col-sm-4 {
+    .img-crop {
+      height: 158px;
+    }
+  }
   .col-sm-6 {
     .img-crop {
-      height: 238px;
+      height: 237px;
     }
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
+    .img-crop {
+      height: 95px;
+    }
+  }
   .col-md-3 {
     .img-crop {
       height: 153px;
@@ -98,9 +111,15 @@ a:hover {
 }
 
 @media (min-width: 1200px) {
+  //Added to support search page.
+  .col-sm-2, .col-md-2, .col-lg-2 {
+    .img-crop {
+      height: 122px;
+    }
+  }
   .col-md-3, .col-lg-3 {
     .img-crop {
-      height: 197px;
+      height: 194px;
     }
   }
 }

@@ -1,11 +1,13 @@
 <header>
-  <div class="container top-header hidden-xs">
-    <div class="row">
-      <div class="col-sm-6">
-        <span>SonicWALL Security Products</span>
-      </div>
-      <div class="col-sm-6 text-right">
-        Contact Sales 1-800-509-1265
+  <div class="top-header hidden-xs">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <span>SonicWALL Security Products</span>
+        </div>
+        <div class="col-sm-6 text-right">
+          Contact Sales 1-800-509-1265
+        </div>
       </div>
     </div>
   </div>
@@ -52,7 +54,7 @@
           <div class="shadow-overlay-left"></div>
           <ul class="tier1">
             <li class="subLinks">
-              <a href="#">
+              <a id="products" href="#">
                 <span>Products</span>
                 <i class="menu-indicator pull-right"></i>
               </a>
@@ -296,7 +298,7 @@
                   </a>
                 </li>
               </ul>
-              <div class="tier2 bg-grey border-b-gray hidden-xs hidden-sm">
+              <div class="tier2 bg-grey border-b-grey hidden-xs hidden-sm">
                 <div class="container">
                   <div>
                     <a class="text-md" href="#">Network Security</a>
@@ -307,48 +309,52 @@
                         <div class="row">
                           <div class="col-md-12">
                             <div class="col-md-3 pl-0">
-                              <div class="col-md-3 pl-0 pr-0">
-                                <a class="mr-0" href="http://www.sonicwall.com/us/en/products/SuperMassive-Series.html">
-                                  <img class="img-responsive"
-                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_sm.jpg">
-                                </a>
-                              </div>
-                              <div class="col-md-9 mb-30 pr-0">
-                                <a href="http://www.sonicwall.com/us/en/products/network-security.html">
-                                  SuperMassive Series
-                                </a>
-                                <small class="block">Ultra-high performance <span class="nowrap">next-generation</span>
-                                  firewall for <span class="nowrap">10-Gigabit+</span> networks.
-                                </small>
+                              <div class="first-item">
+                                <div class="col-md-3 pl-0 pr-0">
+                                  <a class="mr-0"
+                                     href="http://www.sonicwall.com/us/en/products/SuperMassive-Series.html">
+                                    <img class="img-responsive"
+                                         src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_sm.jpg">
+                                  </a>
+                                </div>
+                                <div class="col-md-9 mb-30 pr-0">
+                                  <a href="http://www.sonicwall.com/us/en/products/network-security.html">
+                                    SuperMassive Series
+                                  </a>
+                                  <small class="block">Ultra-high performance <span
+                                      class="nowrap">next-generation</span>
+                                    firewall for <span class="nowrap">10-Gigabit+</span> networks.
+                                  </small>
 
-                                <ul class="col-md-4">
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">
-                                      E10800</a>
-                                  </li>
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">E10400 </a>
-                                  </li>
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">E10200</a>
-                                  </li>
-                                </ul>
-                                <ul class="col-md-4">
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9800</a>
-                                  </li>
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9600</a>
-                                  </li>
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9400</a>
-                                  </li>
-                                </ul>
-                                <ul class="col-md-4">
-                                  <li>
-                                    <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9200</a>
-                                  </li>
-                                </ul>
+                                  <ul class="col-md-4">
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">
+                                        E10800</a>
+                                    </li>
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">E10400 </a>
+                                    </li>
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-E10000.html">E10200</a>
+                                    </li>
+                                  </ul>
+                                  <ul class="col-md-4">
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9800</a>
+                                    </li>
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9600</a>
+                                    </li>
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9400</a>
+                                    </li>
+                                  </ul>
+                                  <ul class="col-md-4">
+                                    <li>
+                                      <a href="http://www.sonicwall.com/us/en/products/SuperMassive-9000.html">9200</a>
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                               <div class="col-md-3 pl-0 pr-0">
                                 <a class="mr-0" href="http://www.sonicwall.com/us/en/products/TZ-Series.html">
@@ -375,27 +381,30 @@
                               </div>
                             </div>
                             <div class="col-md-3">
-                              <div class="col-md-3 pl-0 pr-0">
-                                <a class="mr-0" href="http://www.sonicwall.com/us/en/products/E-Class-NSA-Series.html">
-                                  <img class="img-responsive"
-                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_e-nsa.jpg">
-                                </a>
-                              </div>
-                              <div class="col-md-9 mb-30 pr-0">
-                                <a href="http://www.sonicwall.com/us/en/products/E-Class-NSA-Series.html">
-                                  E-Class NSA Series
-                                </a>
-                                <small class="block">High performance next generation firewall for large networks.
-                                </small>
+                              <div class="first-item">
+                                <div class="col-md-3 pl-0 pr-0">
+                                  <a class="mr-0"
+                                     href="http://www.sonicwall.com/us/en/products/E-Class-NSA-Series.html">
+                                    <img class="img-responsive"
+                                         src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_e-nsa.jpg">
+                                  </a>
+                                </div>
+                                <div class="col-md-9 mb-30 pr-0">
+                                  <a href="http://www.sonicwall.com/us/en/products/E-Class-NSA-Series.html">
+                                    E-Class NSA Series
+                                  </a>
+                                  <small class="block">High performance next generation firewall for large networks.
+                                  </small>
 
-                                <ul class="col-md-12">
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-E8500.html">E8500</a>
-                                  </li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-E6500.html">E6500</a>
-                                  </li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-E5500.html">E5500</a>
-                                  </li>
-                                </ul>
+                                  <ul class="col-md-12">
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-E8500.html">E8500</a>
+                                    </li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-E6500.html">E6500</a>
+                                    </li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-E5500.html">E5500</a>
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                               <div class="col-md-3 pl-0 pr-0">
                                 <a class="mr-0" href="http://www.sonicwall.com/us/en/products/WXA-Series.html">
@@ -422,29 +431,31 @@
                               </div>
                             </div>
                             <div class="col-md-3">
-                              <div class="col-md-3 pl-0 pr-0">
-                                <a class="mr-0" href="http://www.sonicwall.com/us/en/products/NSA-Series.html">
-                                  <img class="img-responsive"
-                                       src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_nsa.jpg">
-                                </a>
-                              </div>
-                              <div class="col-md-9 mb-30 pr-0">
-                                <a href="http://www.sonicwall.com/us/en/products/NSA-Series.html">
-                                  NSA Series
-                                </a>
-                                <small class="block">Enterprise-class security <br>and performance for mid-sized
-                                  networks.
-                                </small>
-                                <ul class="col-md-4">
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-6600.html">6600</a></li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-5600.html">5600</a></li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-4600.html">4600</a></li>
-                                </ul>
-                                <ul class="col-md-8">
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-3600.html">3600</a></li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-2600.html">2600</a></li>
-                                  <li><a href="http://www.sonicwall.com/us/en/products/NSA-250M.html">250M</a></li>
-                                </ul>
+                              <div class="first-item">
+                                <div class="col-md-3 pl-0 pr-0">
+                                  <a class="mr-0" href="http://www.sonicwall.com/us/en/products/NSA-Series.html">
+                                    <img class="img-responsive"
+                                         src="http://marketing.sonicwall.com/image/Sonicwall-header-footer/icon_mainnav_nsa.jpg">
+                                  </a>
+                                </div>
+                                <div class="col-md-9 mb-30 pr-0">
+                                  <a href="http://www.sonicwall.com/us/en/products/NSA-Series.html">
+                                    NSA Series
+                                  </a>
+                                  <small class="block">Enterprise-class security <br>and performance for mid-sized
+                                    networks.
+                                  </small>
+                                  <ul class="col-md-4">
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-6600.html">6600</a></li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-5600.html">5600</a></li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-4600.html">4600</a></li>
+                                  </ul>
+                                  <ul class="col-md-8">
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-3600.html">3600</a></li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-2600.html">2600</a></li>
+                                    <li><a href="http://www.sonicwall.com/us/en/products/NSA-250M.html">250M</a></li>
+                                  </ul>
+                                </div>
                               </div>
                               <div class="col-md-3 pl-0 pr-0">
                                 <a class="mr-0"
@@ -1040,7 +1051,7 @@
                   </ul>
                 </li>
               </ul>
-              <div class="tier2 bg-grey border-b-gray hidden-xs hidden-sm">
+              <div class="tier2 bg-grey border-b-grey hidden-xs hidden-sm">
                 <div class="container">
                   <div>
                     <a class="text-md" href="#">Security Solutions</a>
@@ -1183,13 +1194,6 @@
 
             <li>
               <a href="http://www.sonicwall.com/us/en/sonicwall-product-support.html">Support</a>
-            </li>
-            <li>
-              <a target="_blank"
-                 href="http://en.community.dell.com/techcenter/security/network-mobile-email/">Communities</a>
-            </li>
-            <li>
-              <a href="/partners/">Partners</a>
             </li>
           </ul>
         </div>

@@ -30,6 +30,9 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
+
+  //Added by Edward Chong
+  position: relative; //Needed for scrollspy.
 }
 
 // Reset fonts for relevant elements
