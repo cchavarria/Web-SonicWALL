@@ -3362,6 +3362,26 @@ select[multiple].input-lg,
     color: #777777;
     text-decoration: none; }
 
+@media (max-width: 767px) {
+  /* Only on mobile button will turn into a link */
+  .btn-link-xs {
+    padding: 0;
+    color: #007db8;
+    font-weight: normal;
+    border-radius: 0; }
+    .btn-link-xs, .btn-link-xs:active, .btn-link-xs.active, .btn-link-xs[disabled], fieldset[disabled] .btn-link-xs {
+      background-color: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+    .btn-link-xs, .btn-link-xs:hover, .btn-link-xs:focus, .btn-link-xs:active {
+      border-color: transparent; }
+    .btn-link-xs:hover, .btn-link-xs:focus {
+      color: #00496c;
+      text-decoration: underline;
+      background-color: transparent; }
+    .btn-link-xs[disabled]:hover, .btn-link-xs[disabled]:focus, fieldset[disabled] .btn-link-xs:hover, fieldset[disabled] .btn-link-xs:focus {
+      color: #777777;
+      text-decoration: none; } }
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 16px;
   font-size: 18px;
@@ -8806,6 +8826,30 @@ a:hover .has-overlay h4 {
       border: 0;
       border-radius: 0; }
 
+.banner .headline {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0; }
+.banner .subheadline {
+  font-size: 14px;
+  line-height: 16px;
+  color: #444444;
+  margin: 10px 0 14px; }
+
+@media (min-width: 768px) {
+  .banner .headline {
+    font-size: 26px;
+    line-height: 30px; }
+  .banner .subheadline {
+    font-size: 16px;
+    line-height: 20px; } }
+@media (min-width: 992px) {
+  .banner .headline {
+    font-size: 28px;
+    line-height: 32px; }
+  .banner .subheadline {
+    font-size: 18px;
+    line-height: 22px; } }
 .show-collapsed {
   display: none; }
 
