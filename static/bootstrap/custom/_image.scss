@@ -53,16 +53,18 @@
 /* END */
 
 /* Used by http://software.dell.com/events/ */
-.img-header-overlay-top {
+.img-header-overlay {
   color: #fff;
   padding: 0 0 0 10px;
   margin: 0;
   line-height: 30px;
   font-weight: 700;
+  position: absolute;
+  width: 100%;
 }
 
 a:hover {
-  .img-header-overlay-top {
+  .img-header-overlay {
     text-decoration: none;
   }
 }

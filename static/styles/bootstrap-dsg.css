@@ -201,6 +201,7 @@
   /* Text */
   /* iframe */
   /* Vertical Alignment */
+  /* Overflow */
   /*display*/
   /* Padding */
   /* Margin */ }
@@ -6195,6 +6196,8 @@
     vertical-align: top; }
   .bootstrap .valign-text-top {
     vertical-align: text-top; }
+  .bootstrap .overflow-hidden {
+    overflow: hidden; }
   .bootstrap .block {
     display: block !important; }
   .bootstrap .inline {
@@ -6510,6 +6513,8 @@
       margin-left: 10px !important; }
     .bootstrap .ml-20-sm {
       margin-left: 20px !important; }
+    .bootstrap .mr-10-sm {
+      margin-right: 10px !important; }
     .bootstrap .mr-20-sm {
       margin-right: 20px !important; }
     .bootstrap .mb-0-sm {
@@ -6716,14 +6721,16 @@
 
 /* END */
 /* Used by http://software.dell.com/events/ */
-.img-header-overlay-top {
+.img-header-overlay {
   color: #fff;
   padding: 0 0 0 10px;
   margin: 0;
   line-height: 30px;
-  font-weight: 700; }
+  font-weight: 700;
+  position: absolute;
+  width: 100%; }
 
-a:hover .img-header-overlay-top {
+a:hover .img-header-overlay {
   text-decoration: none; }
 
 @media (max-width: 767px) {

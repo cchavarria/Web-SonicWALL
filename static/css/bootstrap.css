@@ -1122,7 +1122,8 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #444444;
-  background-color: white; }
+  background-color: white;
+  position: relative; }
 
 input,
 button,
@@ -5058,6 +5059,10 @@ iframe {
 .valign-text-top {
   vertical-align: text-top; }
 
+/* Overflow */
+.overflow-hidden {
+  overflow: hidden; }
+
 /*display*/
 .block {
   display: block !important; }
@@ -5500,6 +5505,9 @@ iframe {
 
   .ml-20-sm {
     margin-left: 20px !important; }
+
+  .mr-10-sm {
+    margin-right: 10px !important; }
 
   .mr-20-sm {
     margin-right: 20px !important; }
@@ -6676,14 +6684,16 @@ i.menu-indicator {
 
 /* END */
 /* Used by http://software.dell.com/events/ */
-.img-header-overlay-top {
+.img-header-overlay {
   color: #fff;
   padding: 0 0 0 10px;
   margin: 0;
   line-height: 30px;
-  font-weight: 700; }
+  font-weight: 700;
+  position: absolute;
+  width: 100%; }
 
-a:hover .img-header-overlay-top {
+a:hover .img-header-overlay {
   text-decoration: none; }
 
 @media (max-width: 767px) {
