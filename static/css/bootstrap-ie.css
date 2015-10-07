@@ -1,14 +1,4 @@
 /*$headings-font-family:    inherit !default;*/
-/*.ie {
-  select.form-control {
-    &.error {
-      background-color: $state-danger-bg;
-      background-image: url("/images/shared/formError.png");
-      background-position: 95% 50%;
-      background-repeat: no-repeat;
-    }
-  }
-}*/
 .ie8 {
   /* events w inline form */ }
   .ie8 .event-form .form-control {
@@ -80,3 +70,9 @@
   .ie9.openNav .site-canvas {
     position: relative;
     left: -276px; } }
+@media (min-width: 768px) {
+  .ie8 #affix-nav ul, .ie9 #affix-nav ul {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
+    .ie8 #affix-nav ul li, .ie9 #affix-nav ul li {
+      text-align: center;
+      /* This is needed for IE8 to center the text */ } }

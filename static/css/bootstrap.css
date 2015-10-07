@@ -6728,11 +6728,11 @@ a:hover .img-header-overlay {
 
 @media (min-width: 768px) {
   #affix-nav {
+    /* Check bootstrap-ie.scss for specific rules for IE */
     top: 0;
     z-index: 999;
     display: block;
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border: 1px solid #cccccc;
     font-size: 14px; }
     #affix-nav ul {
       background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -6749,32 +6749,25 @@ a:hover .img-header-overlay {
       /* IE10+ */
       background: linear-gradient(to bottom, white 8%, #efefef 100%);
       /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0); }
+      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
       #affix-nav ul li {
         padding: 0;
         float: left;
-        border: 0; }
-        #affix-nav ul li:first-child a {
-          border-left: #cccccc solid 1px; }
+        border-top: none;
+        border-left: #cccccc solid 1px; }
+        #affix-nav ul li:first-child {
+          border-left: none; }
         #affix-nav ul li.active {
           background: none repeat scroll 0 0 white;
-          border-bottom: none;
           border-color: #007db8;
-          border-style: solid;
           border-width: 4px 0 0;
-          color: #444444;
-          /*&:hover {
-            a{
-              padding: 6px 10px 10px 15px;
-            }
-          }*/ }
+          border-style: solid;
+          color: #444444; }
           #affix-nav ul li.active a {
             padding: 6px 10px 10px; }
         #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
-          border-right: 1px solid #cccccc;
-          border-left: #cccccc solid 1px;
           padding: 10px; }
           #affix-nav ul li a:focus {
             background-color: transparent; }
@@ -8025,6 +8018,7 @@ a:hover .img-header-overlay {
   .social-media-toolbar > span {
     display: inline-block;
     margin-top: 2px;
+    margin-right: 5px;
     vertical-align: top; }
 
 /*mobile*/
