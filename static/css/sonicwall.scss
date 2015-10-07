@@ -7,16 +7,16 @@
       width: 975px;
     }
     div.tier2 {
+      display: none !important;
       > div.container {
         width: 975px;
       }
       div.tier3 {
+        width: 100%;
         > div.container {
           width: 975px;
         }
-        width: 100%;
       }
-      display: none !important;
       .active .triangle-top {
         display: block;
       }
@@ -37,7 +37,7 @@
     li.open div.tier2 {
       display: block !important;
     }
-    .border-b-gray {
+    .border-b-grey {
       border-bottom: 1px solid #ccc;
     }
     .border-t-grey {
@@ -112,14 +112,12 @@
       box-shadow: 0 8px 9px -9px #737373;
       margin-top: 1px;
       .container .row {
-        .last-row {
-          a {
-            font-size: 14px;
-            &:hover {
-              text-decoration: none;
-              span {
-                text-decoration: underline;
-              }
+        .last-row a {
+          font-size: 14px;
+          &:hover {
+            text-decoration: none;
+            span {
+              text-decoration: underline;
             }
           }
         }
@@ -130,7 +128,7 @@
               font-weight: normal;
               padding-bottom: 10px;
               padding-left: 0;
-              font-size:15px;
+              font-size: 15px;
               &:hover {
                 text-decoration: underline;
               }
@@ -138,14 +136,15 @@
           }
           > {
             div {
-              > div > a,
-              > div > div a {
-                font-size: 15px;
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
               > div {
+                > {
+                  a, div a {
+                    font-size: 15px;
+                  }
+                  a:hover, div a:hover {
+                    text-decoration: underline;
+                  }
+                }
                 float: left;
                 display: block;
               }
@@ -160,18 +159,19 @@
               small {
                 color: #666;
               }
-              > div > ul,
-              > div > div > ul {
-                display: block;
-                margin-left: -4px;
-                > li a {
+              > div > {
+                ul, div > ul {
+                  display: block;
+                  margin-left: -4px;
+                }
+                ul > li a, div > ul > li a {
                   font-size: 85%;
                   padding: 4px;
                   display: inline-block;
-                  &:hover {
-                    background-color: #d9edf6;
-                    text-decoration: none;
-                  }
+                }
+                ul > li a:hover, div > ul > li a:hover {
+                  background-color: #d9edf6;
+                  text-decoration: none;
                 }
               }
             }

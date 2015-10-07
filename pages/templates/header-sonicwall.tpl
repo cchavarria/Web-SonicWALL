@@ -1,11 +1,13 @@
 <header>
-  <div class="container top-header hidden-xs">
-    <div class="row">
-      <div class="col-sm-6">
-        <span>SonicWALL Security Products</span>
-      </div>
-      <div class="col-sm-6 text-right">
-        Contact Sales 1-800-509-1265
+  <div class="top-header hidden-xs">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <span>SonicWALL Security Products</span>
+        </div>
+        <div class="col-sm-6 text-right">
+          Contact Sales 1-800-509-1265
+        </div>
       </div>
     </div>
   </div>
