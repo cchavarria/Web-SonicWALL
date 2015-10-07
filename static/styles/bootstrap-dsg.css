@@ -2885,19 +2885,19 @@
       background-color: white; }
   .bootstrap .btn-success {
     color: white;
-    background-color: #5cb85c;
-    border-color: #4cae4c; }
+    background-color: #408001;
+    border-color: #336701; }
     .bootstrap .btn-success:hover, .bootstrap .btn-success:focus, .bootstrap .btn-success.focus, .bootstrap .btn-success:active, .bootstrap .btn-success.active, .open > .bootstrap .btn-success.dropdown-toggle {
       color: white;
-      background-color: #449d44;
-      border-color: #398439; }
+      background-color: #274d01;
+      border-color: #152a00; }
     .bootstrap .btn-success:active, .bootstrap .btn-success.active, .open > .bootstrap .btn-success.dropdown-toggle {
       background-image: none; }
     .bootstrap .btn-success.disabled, .bootstrap .btn-success.disabled:hover, .bootstrap .btn-success.disabled:focus, .bootstrap .btn-success.disabled.focus, .bootstrap .btn-success.disabled:active, .bootstrap .btn-success.disabled.active, .bootstrap .btn-success[disabled], .bootstrap .btn-success[disabled]:hover, .bootstrap .btn-success[disabled]:focus, .bootstrap .btn-success[disabled].focus, .bootstrap .btn-success[disabled]:active, .bootstrap .btn-success[disabled].active, fieldset[disabled] .bootstrap .btn-success, fieldset[disabled] .bootstrap .btn-success:hover, fieldset[disabled] .bootstrap .btn-success:focus, fieldset[disabled] .bootstrap .btn-success.focus, fieldset[disabled] .bootstrap .btn-success:active, fieldset[disabled] .bootstrap .btn-success.active {
-      background-color: #5cb85c;
-      border-color: #4cae4c; }
+      background-color: #408001;
+      border-color: #336701; }
     .bootstrap .btn-success .badge {
-      color: #5cb85c;
+      color: #408001;
       background-color: white; }
   .bootstrap .btn-info {
     color: white;
@@ -4035,9 +4035,9 @@
     .bootstrap .label-primary[href]:hover, .bootstrap .label-primary[href]:focus {
       background-color: #005a85; }
   .bootstrap .label-success {
-    background-color: #5cb85c; }
+    background-color: #408001; }
     .bootstrap .label-success[href]:hover, .bootstrap .label-success[href]:focus {
-      background-color: #449d44; }
+      background-color: #274d01; }
   .bootstrap .label-info {
     background-color: #5bc0de; }
     .bootstrap .label-info[href]:hover, .bootstrap .label-info[href]:focus {
