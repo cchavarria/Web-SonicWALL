@@ -14,7 +14,9 @@ $(document).ready(function () {
 	}
 
 	//Toggle Show/Hide
-	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function () {
+	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function (e) {
+		e.preventDefault();
+
 		var target = $($(this).data('target'));
 
 		//Do not proceed if on mobile.
