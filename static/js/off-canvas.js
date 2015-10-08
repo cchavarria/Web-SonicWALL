@@ -11,8 +11,9 @@ getLocalizedContent("LabelBack").done(function (data) {
 		$('.site-wrapper').show();
 
 		$('body').animate({left: 0}, 500, function () {
-			$('#off-canvas').data('appendElem').remove();
-			$('#off-canvas').removeData('appendElem');
+			if($('#off-canvas').data('appendElem') !== undefined) {
+				$('#off-canvas').data('appendElem').remove().removeData('appendElem');
+			}
 
 			if($('#off-canvas').find('.panel-group-collapsible-xs').length) {
 				$('#off-canvas').find('.panel-group-collapsible-xs').each(function() {
