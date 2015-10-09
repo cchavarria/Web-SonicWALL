@@ -52,7 +52,7 @@ $(document).ready(function () {
 			}
 
 			//Reset
-			$(target).css({top: '', marginBottom: ''});
+			$(target).css({top: '', marginBottom: ''}).data('parent', $(this));
 
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
@@ -222,8 +222,13 @@ $(document).ready(function () {
 	//close button in optional dropdown
 	$('body').on('click', '.close', function () {
 		var closeTarget = $(this).parents('#' + $(this).data('target'));
+
 		if (closeTarget.length && closeTarget != undefined) {
 			closeTarget.addClass('hidden');
+		}
+
+		if(closeTarget.data('parent')) {
+			closeTarget.data('parent').parents('.container').css('height', '');
 		}
 	});
 
