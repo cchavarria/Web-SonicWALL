@@ -8368,7 +8368,8 @@ a:hover .has-overlay h4 {
     margin-bottom: 20px; } }
 .optional-dropdown {
   position: absolute;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
 
 .triangle-top {
   content: "";

@@ -204,13 +204,16 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 //Off canvas resize
 addResize(function () {
-	if ($('#off-canvas').is(':visible')) {
-		$('.site-wrapper').show();
+	var offCanvas = $('#off-canvas');
 
-		$('#off-canvas').data('appendElem').remove();
-		$('#off-canvas').removeData('appendElem');
+	if (offCanvas.is(':visible')) {
+		if(offCanvas.data('appendElem') !== undefined) {
+			offCanvas.data('appendElem').remove().removeData('appendElem');
+		}
 
-		$($('#off-canvas').data('target')).html($('#off-canvas').find('.off-canvas-content').children());
+		offCanvas.removeData('appendElem');
+
+		$(offCanvas.data('target')).html(offCanvas.find('.off-canvas-content').children());
 		$('body').removeClass('off-canvas-mode');
 	}
 	else {

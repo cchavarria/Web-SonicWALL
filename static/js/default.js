@@ -14,7 +14,9 @@ $(document).ready(function () {
 	}
 
 	//Toggle Show/Hide
-	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function () {
+	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function (e) {
+		e.preventDefault();
+
 		var target = $($(this).data('target'));
 
 		//Do not proceed if on mobile.
@@ -38,6 +40,7 @@ $(document).ready(function () {
 			}
 
 			target.css({top: ''});
+			$(this).parents('.container').css('height', '');
 		}
 		else {
 			if (target.hasClass('hidden')) {
@@ -49,7 +52,7 @@ $(document).ready(function () {
 			}
 
 			//Reset
-			$(target).css('top', '').css('marginBottom', '');
+			$(target).css({top: '', marginBottom: ''});
 
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
@@ -61,6 +64,16 @@ $(document).ready(function () {
 						'top': top
 					})
 					.find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
+			}
+
+			var parentContainer = $(this).parents('.container');
+
+			if(parentContainer.length) {
+				var parentHeight = $(target).offset().top + $(target).height() - parentContainer.offset().top;
+
+				if(parentContainer.height() < parentHeight) {
+					parentContainer.css('height', parentHeight);
+				}
 			}
 
 			processEllipsis(target);
@@ -193,7 +206,7 @@ $(document).ready(function () {
 	});
 
 	//Toggle
-	$('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
+	/*$('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
 		var target = $($(this).data('target'));
 
 		if (target.is(':visible')) {
@@ -204,7 +217,7 @@ $(document).ready(function () {
 				target.hide();
 			}
 		}
-	});
+	});*/
 
 	//close button in optional dropdown
 	$('body').on('click', '.close', function () {
@@ -373,6 +386,25 @@ addResize(function () {
 		});
 	}
 }, true);
+
+//Optional Dropdown. Hide when resize.
+addResize(function() {
+	$('[data-toggle=show-offcanvas]').each(function() {
+		var target = $($(this).data('target'));
+
+		if (target.is(':visible')) {
+			if (target.data('hidden-class')) {
+				target.addClass(target.data('hidden-class'));
+			}
+			else {
+				target.hide();
+			}
+
+			target.css({top: ''});
+			$(this).parents('.container').css('height', '');
+		}
+	});
+});
 
 function slickPlugin(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
@@ -986,6 +1018,8 @@ function resizeAffix() {
 			}
 		});
 
+		siteWrapper.attr('id', 'top');
+
 		//fix to keep first affix item active when on top of the page
 		/*if (!siteWrapper.attr('id')) {
 			var id = affixElem.find('a:first-child').attr('href').substr(1);
@@ -1084,63 +1118,7 @@ function resizeAffix() {
 	}
 }
 
-function replaceURLOrig(text) {
+function replaceURL(text) {
 	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 	return text.replace(exp, "<a href='$1'>$1</a>");
-}
-
-function replaceURL(text) {
-	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, m = text.match(exp), doReplace = true, newText = text;
-
-	for(var i in m) {
-		var pos = text.indexOf(m[i]);
-
-		if(pos) {
-			if(text.substr(pos - 1, 1) != '"' && text.substr(pos - 1, 1) != '\'') {
-				doReplace = true;
-			}
-			else {
-				doReplace = false;
-			}
-		}
-
-		if(doReplace) {
-			newText = newText.replace(m[i], '<a href="' + m[i] + '">' + m[i] + '</a>');
-		}
-	}
-
-	console.log(newText);
-
-	return newText;
-}
-
-function replaceURL2(text) {
-	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-	var m = text.match(exp);
-	var doReplace = true;
-	var newText = text;
-	var replacedURL = [];
-
-	for(var i in m) {
-		var pos = text.indexOf(m[i]);
-
-		if(pos) {
-			if(text.substr(pos - 1, 1) != '"' && text.substr(pos - 1, 1) != '\'') {
-				doReplace = true;
-			}
-			else {
-				doReplace = false;
-			}
-		}
-
-		if(doReplace && $.inArray(m[i], replacedURL) == -1) {
-			replacedURL.push(m[i]);
-
-			var exp2 = new RegExp('(\\b|^\")' + m[i] + '', 'ig');
-
-			newText = newText.replace(exp2, '<a href="' + m[i] + '">' + m[i] + '</a>');
-		}
-	}
-
-	return newText;
 }
