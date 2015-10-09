@@ -53,12 +53,12 @@ $(document).ready(function () {
 
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
-				var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
+				//var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
+				var top = $(this).offset().top + $(this).outerHeight(true) + 12;
 
 				$(target)
 					.css({
-						'top': top,
-						'marginBottom': top
+						'top': top
 					})
 					.find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
 			}
@@ -1084,7 +1084,63 @@ function resizeAffix() {
 	}
 }
 
-function replaceURL(text) {
+function replaceURLOrig(text) {
 	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 	return text.replace(exp, "<a href='$1'>$1</a>");
+}
+
+function replaceURL(text) {
+	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, m = text.match(exp), doReplace = true, newText = text;
+
+	for(var i in m) {
+		var pos = text.indexOf(m[i]);
+
+		if(pos) {
+			if(text.substr(pos - 1, 1) != '"' && text.substr(pos - 1, 1) != '\'') {
+				doReplace = true;
+			}
+			else {
+				doReplace = false;
+			}
+		}
+
+		if(doReplace) {
+			newText = newText.replace(m[i], '<a href="' + m[i] + '">' + m[i] + '</a>');
+		}
+	}
+
+	console.log(newText);
+
+	return newText;
+}
+
+function replaceURL2(text) {
+	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	var m = text.match(exp);
+	var doReplace = true;
+	var newText = text;
+	var replacedURL = [];
+
+	for(var i in m) {
+		var pos = text.indexOf(m[i]);
+
+		if(pos) {
+			if(text.substr(pos - 1, 1) != '"' && text.substr(pos - 1, 1) != '\'') {
+				doReplace = true;
+			}
+			else {
+				doReplace = false;
+			}
+		}
+
+		if(doReplace && $.inArray(m[i], replacedURL) == -1) {
+			replacedURL.push(m[i]);
+
+			var exp2 = new RegExp('(\\b|^\")' + m[i] + '', 'ig');
+
+			newText = newText.replace(exp2, '<a href="' + m[i] + '">' + m[i] + '</a>');
+		}
+	}
+
+	return newText;
 }

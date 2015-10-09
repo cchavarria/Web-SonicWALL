@@ -290,3 +290,33 @@ function getLocalizedContent(tags) {
 
 	return deferred;
 }
+
+//Determines when CSS transitions end.
+function transitionEnd(e, fn) {
+	var e = $(e).get(0), listenedEvent = '';
+
+	function whichTransitionEvent(){
+		var t, el = document.createElement('fakeelement'), transitions = {
+			'transition':'transitionend',
+			'OTransition':'oTransitionEnd',
+			'MozTransition':'transitionend',
+			'WebkitTransition':'webkitTransitionEnd'
+		};
+
+		for(t in transitions){
+			if( el.style[t] !== undefined ){
+				listenedEvent = transitions[t];
+				return transitions[t];
+			}
+		}
+	}
+
+	function listenerFn() {
+		fn.call(this);
+		e.removeEventListener(listenedEvent, listenerFn);
+	}
+
+	var transitionEvent = whichTransitionEvent();
+
+	transitionEvent && e.addEventListener(transitionEvent, listenerFn);
+}
