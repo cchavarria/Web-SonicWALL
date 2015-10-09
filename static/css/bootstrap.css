@@ -6740,11 +6740,13 @@ a:hover .img-header-overlay {
 
   .col-md-3 .img-crop, .col-lg-3 .img-crop {
     height: 194px; } }
-#affix-nav i.menu-indicator:before {
-  content: "\e601"; }
-#affix-nav li {
-  border-top: 1px solid #cccccc;
-  padding: 0; }
+#affix-nav {
+  z-index: 99999; }
+  #affix-nav i.menu-indicator:before {
+    content: "\e601"; }
+  #affix-nav li {
+    border-top: 1px solid #cccccc;
+    padding: 0; }
 
 @media (min-width: 768px) {
   #affix-nav {

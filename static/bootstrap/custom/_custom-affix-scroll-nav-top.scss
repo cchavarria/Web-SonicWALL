@@ -1,4 +1,5 @@
 #affix-nav {
+  z-index: 99999;
   i.menu-indicator:before {
     content: "\e601";
   }
