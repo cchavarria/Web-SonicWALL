@@ -179,3 +179,9 @@
   background: url("/images/shared/icons-support-services.png") 0 -240px no-repeat;
   display: inline-block;
 }
+.icon-small-edit:before{
+  content:"\e621";
+}
+.icon-small-contact:before{
+  content:"\e617";
+}
