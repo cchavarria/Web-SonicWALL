@@ -8864,6 +8864,10 @@ a:hover .has-overlay h4 {
     line-height: 22px; } }
 .col-striped .row > [class^="col-"]:nth-of-type(odd) {
   background-color: #eeeeee; }
+.col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) {
+  background-color: transparent; }
+  .col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) > div {
+    background-color: #eeeeee; }
 
 .show-collapsed {
   display: none; }
