@@ -1,4 +1,50 @@
 .comparison {
+  position: relative;
+  .row {
+    position: relative;
+    .active {
+      font-weight: 700;
+      font-size: 18px;
+      background-color: $dell-gray-light;
+      padding-left: 31px;
+      position: relative;
+      margin-bottom: 15px;
+      /*> span {
+        border-color: red transparent transparent red;
+        border-style: solid;
+        border-width: 13px;
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }*/
+      &:before {
+        border-color: red transparent transparent red;
+        border-style: solid;
+        border-width: 13px;
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+      }
+    }
+    .inactive {
+      height: 26px;
+      margin-bottom: 15px;
+    }
+    &.top-row {
+      > div {
+        > div {
+          padding: 0 15px 15px;
+        }
+      }
+    }
+  }
   .panel-body {
     .row:nth-of-type(odd) {
       @extend .border-t-grey;
@@ -7,6 +53,11 @@
       > div {
 
       }
+    }
+  }
+  .btn {
+    &.inactive {
+      color: $dell-gray;
     }
   }
 }
@@ -26,3 +77,15 @@
     }
   }
 }
+
+/*
+@media (min-width: 768px) {
+  .comparison {
+    .row {
+      > div:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}
+*/

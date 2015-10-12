@@ -4618,8 +4618,12 @@
     color: white !important; }
   .bootstrap .color-inherit {
     color: inherit; }
+  .bootstrap .text-gray {
+    color: #aaaaaa; }
   .bootstrap .text-dark-gray {
     color: #444444; }
+  .bootstrap .text-light-gray {
+    color: #eeeeee; }
   .bootstrap .heading-link:hover {
     color: #007db8;
     text-decoration: underline; }
@@ -4659,6 +4663,10 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .bootstrap .icon-ui-arrowleft:before {
+    content: "\e600"; }
+  .bootstrap .icon-ui-arrowright:before {
+    content: "\e601"; }
   .bootstrap .icon-ui-dell:before {
     content: "\e663"; }
   .bootstrap .icon-ui-play:before {
@@ -5716,6 +5724,29 @@
       color: #007db8; }
   .bootstrap.not-responsive.no-touch ul.tier1 li:hover > ul {
     display: block; }
+  .bootstrap .banner .headline {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0; }
+  .bootstrap .banner .subheadline {
+    font-size: 14px;
+    line-height: 16px;
+    color: #444444;
+    margin: 10px 0 14px; }
+  @media (min-width: 768px) {
+    .bootstrap .banner .headline {
+      font-size: 26px;
+      line-height: 30px; }
+    .bootstrap .banner .subheadline {
+      font-size: 16px;
+      line-height: 20px; } }
+  @media (min-width: 992px) {
+    .bootstrap .banner .headline {
+      font-size: 28px;
+      line-height: 32px; }
+    .bootstrap .banner .subheadline {
+      font-size: 18px;
+      line-height: 22px; } }
   .bootstrap .carousel {
     position: relative; }
   .bootstrap .carousel-inner {

@@ -40,6 +40,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-ui-arrowleft:before {
+  content: "\e600";
+}
+
+.icon-ui-arrowright:before {
+  content: "\e601";
+}
+
 .icon-ui-dell:before {
   content: "\e663";
 }

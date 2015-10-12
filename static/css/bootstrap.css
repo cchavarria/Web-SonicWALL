@@ -5652,6 +5652,12 @@ iframe {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-ui-arrowleft:before {
+  content: "\e600"; }
+
+.icon-ui-arrowright:before {
+  content: "\e601"; }
+
 .icon-ui-dell:before {
   content: "\e663"; }
 
@@ -6962,8 +6968,14 @@ body {
 .color-inherit {
   color: inherit; }
 
+.text-gray {
+  color: #aaaaaa; }
+
 .text-dark-gray {
   color: #444444; }
+
+.text-light-gray {
+  color: #eeeeee; }
 
 .heading-link:hover {
   color: #007db8;
@@ -8862,6 +8874,47 @@ a:hover .has-overlay h4 {
   .banner .subheadline {
     font-size: 18px;
     line-height: 22px; } }
+.comparison {
+  position: relative; }
+  .comparison .row {
+    position: relative; }
+    .comparison .row .active {
+      font-weight: 700;
+      font-size: 18px;
+      background-color: #eeeeee;
+      padding-left: 31px;
+      position: relative;
+      margin-bottom: 15px;
+      /*> span {
+        border-color: red transparent transparent red;
+        border-style: solid;
+        border-width: 13px;
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }*/ }
+      .comparison .row .active:before {
+        border-color: red transparent transparent red;
+        border-style: solid;
+        border-width: 13px;
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: ""; }
+    .comparison .row .inactive {
+      height: 26px;
+      margin-bottom: 15px; }
+    .comparison .row.top-row > div > div {
+      padding: 0 15px 15px; }
+  .comparison .btn.inactive {
+    color: #aaaaaa; }
+
 .col-striped .row > [class^="col-"]:nth-of-type(odd) {
   background-color: #eeeeee; }
 .col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) {
@@ -8869,6 +8922,17 @@ a:hover .has-overlay h4 {
   .col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) > div {
     background-color: #eeeeee; }
 
+/*
+@media (min-width: 768px) {
+  .comparison {
+    .row {
+      > div:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}
+*/
 .show-collapsed {
   display: none; }
 

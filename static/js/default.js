@@ -383,12 +383,12 @@ $(document).ready(function () {
 	 }
 	 });
 	 }, true);*/
+
+	//Comparison
+	if($('.comparison').length) {
+		$.getScript('/static/js/comparison.min.js');
+	}
 });
-
-//Comparison
-addResize(function() {
-
-}, true);
 
 //Flex box degradation
 addResize(function () {
