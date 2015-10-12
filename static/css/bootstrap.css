@@ -7462,7 +7462,7 @@ body {
 .border-grey {
   border: 1px solid #cccccc; }
 
-.border-t-grey {
+.border-t-grey, .comparison .panel-body .row:nth-of-type(odd) {
   border-top: 1px solid #cccccc; }
 
 .border-b-grey {
@@ -8862,6 +8862,9 @@ a:hover .has-overlay h4 {
   .banner .subheadline {
     font-size: 18px;
     line-height: 22px; } }
+.col-striped .row > [class^="col-"]:nth-of-type(odd) {
+  background-color: #eeeeee; }
+
 .show-collapsed {
   display: none; }
 

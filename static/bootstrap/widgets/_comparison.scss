@@ -1,0 +1,28 @@
+.comparison {
+  .panel-body {
+    .row:nth-of-type(odd) {
+      @extend .border-t-grey;
+    }
+    .row:first-of-type {
+      > div {
+
+      }
+    }
+  }
+}
+
+.col-striped {
+  .row {
+    > [class^="col-"]:nth-of-type(odd) {
+      background-color: $table-bg-accent;
+    }
+    &:first-of-type {
+      > [class^="col-"]:nth-of-type(odd) {
+        background-color: transparent;
+        > div {
+          background-color: $table-bg-accent;
+        }
+      }
+    }
+  }
+}
