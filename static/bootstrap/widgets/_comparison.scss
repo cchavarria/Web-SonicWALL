@@ -1,32 +1,29 @@
 .comparison {
   position: relative;
+  h3 {
+    margin: 20px 0;
+  }
+  h5 {
+    font-size: 16px;
+    line-height: 15px;
+    padding-top: 10px;
+  }
   .row {
     position: relative;
     .active {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 12px;
       background-color: $dell-gray-light;
       padding-left: 31px;
       position: relative;
       margin-bottom: 15px;
-      /*> span {
-        border-color: red transparent transparent red;
-        border-style: solid;
-        border-width: 13px;
-        display: inline-block;
-        height: 26px;
-        width: 26px;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }*/
       &:before {
-        border-color: red transparent transparent red;
+        border-color: $dell-dark-red transparent transparent $dell-dark-red;
         border-style: solid;
-        border-width: 13px;
+        border-width: 9px;
         display: inline-block;
-        height: 26px;
-        width: 26px;
+        height: 17px;
+        width: 17px;
         position: absolute;
         top: 0;
         left: 0;
@@ -34,18 +31,28 @@
       }
     }
     .inactive {
-      height: 26px;
+      height: 17px;
       margin-bottom: 15px;
     }
     &.top-row {
       > div {
         > div {
-          padding: 0 15px 15px;
+          /*padding: 0 15px 15px;*/
         }
+      }
+      .btn {
+        margin: 20px 0 5px;
+      }
+    }
+    > div {
+      > div {
+        padding: 0 15px 15px;
       }
     }
   }
   .panel-body {
+    margin-bottom: 0 !important;
+    padding: 0 !important;
     .row:nth-of-type(odd) {
       @extend .border-t-grey;
     }
@@ -60,6 +67,14 @@
       color: $dell-gray;
     }
   }
+  .new {
+    background-color: $dell-orange;
+    color: $white;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px;
+    vertical-align: middle;
+  }
 }
 
 .col-striped {
@@ -67,7 +82,7 @@
     > [class^="col-"]:nth-of-type(odd) {
       background-color: $table-bg-accent;
     }
-    &:first-of-type {
+    &.top-row {
       > [class^="col-"]:nth-of-type(odd) {
         background-color: transparent;
         > div {
@@ -78,14 +93,22 @@
   }
 }
 
-/*
 @media (min-width: 768px) {
   .comparison {
     .row {
-      > div:nth-child(3) {
-        display: none;
+      .active {
+        font-size: 18px;
+        padding-left: 31px;
+        margin-bottom: 15px;
+        &:before {
+          border-width: 13px;
+          height: 26px;
+          width: 26px;
+        }
+      }
+      .inactive {
+        height: 26px;
       }
     }
   }
 }
-*/

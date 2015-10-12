@@ -8876,63 +8876,72 @@ a:hover .has-overlay h4 {
     line-height: 22px; } }
 .comparison {
   position: relative; }
+  .comparison h3 {
+    margin: 20px 0; }
+  .comparison h5 {
+    font-size: 16px;
+    line-height: 15px;
+    padding-top: 10px; }
   .comparison .row {
     position: relative; }
     .comparison .row .active {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 12px;
       background-color: #eeeeee;
       padding-left: 31px;
       position: relative;
-      margin-bottom: 15px;
-      /*> span {
-        border-color: red transparent transparent red;
-        border-style: solid;
-        border-width: 13px;
-        display: inline-block;
-        height: 26px;
-        width: 26px;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }*/ }
+      margin-bottom: 15px; }
       .comparison .row .active:before {
-        border-color: red transparent transparent red;
+        border-color: #c31126 transparent transparent #c31126;
         border-style: solid;
-        border-width: 13px;
+        border-width: 9px;
         display: inline-block;
-        height: 26px;
-        width: 26px;
+        height: 17px;
+        width: 17px;
         position: absolute;
         top: 0;
         left: 0;
         content: ""; }
     .comparison .row .inactive {
-      height: 26px;
+      height: 17px;
       margin-bottom: 15px; }
     .comparison .row.top-row > div > div {
+      /*padding: 0 15px 15px;*/ }
+    .comparison .row.top-row .btn {
+      margin: 20px 0 5px; }
+    .comparison .row > div > div {
       padding: 0 15px 15px; }
+  .comparison .panel-body {
+    margin-bottom: 0 !important;
+    padding: 0 !important; }
   .comparison .btn.inactive {
     color: #aaaaaa; }
+  .comparison .new {
+    background-color: #ee6411;
+    color: white;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px;
+    vertical-align: middle; }
 
 .col-striped .row > [class^="col-"]:nth-of-type(odd) {
   background-color: #eeeeee; }
-.col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) {
+.col-striped .row.top-row > [class^="col-"]:nth-of-type(odd) {
   background-color: transparent; }
-  .col-striped .row:first-of-type > [class^="col-"]:nth-of-type(odd) > div {
+  .col-striped .row.top-row > [class^="col-"]:nth-of-type(odd) > div {
     background-color: #eeeeee; }
 
-/*
 @media (min-width: 768px) {
-  .comparison {
-    .row {
-      > div:nth-child(3) {
-        display: none;
-      }
-    }
-  }
-}
-*/
+  .comparison .row .active {
+    font-size: 18px;
+    padding-left: 31px;
+    margin-bottom: 15px; }
+    .comparison .row .active:before {
+      border-width: 13px;
+      height: 26px;
+      width: 26px; }
+  .comparison .row .inactive {
+    height: 26px; } }
 .show-collapsed {
   display: none; }
 

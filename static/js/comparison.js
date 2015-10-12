@@ -25,8 +25,7 @@ function processComparison(parentSelector) {
 			cols.css('width', '');
 			rows.css({left: '', width: ''});
 			paginationElem
-				.off('click', '.prev', scroll)
-				.off('click', '.next', scroll)
+				.off('click', '**')
 				.find('.next').removeClass('inactive').end()
 				.find('.prev').addClass('inactive').end()
 				.find('.start').text(1).end()
@@ -43,25 +42,19 @@ function processComparison(parentSelector) {
 
 			paginationElem.find('.end').text(displayAmount);
 
-			if(pageType > 0) {
-				if(total > displayAmount) {
-					cols.css('width', width);
-					rows.css('width', width * total);
+			if(total > displayAmount) {
+				cols.css('width', width);
+				rows.css('width', width * total);
 
-					paginationElem
-						.data('page', 0)
-						.data('width', width)
-						.data('display', displayAmount)
-						.on('click', '.prev', scroll)
-						.on('click', '.next', scroll);
-				}
-			}
-			else {
-
+				paginationElem
+					.data('page', 0)
+					.data('width', width)
+					.data('display', displayAmount)
+					.on('click', '.prev', scroll)
+					.on('click', '.next', scroll);
 			}
 
 			function scroll() {
-				console.log('scroll');
 				var parent = $(this).parent(),
 					page = parent.data('page'),
 					width = parent.data('width'),
