@@ -1,5 +1,6 @@
 .comparison {
   position: relative;
+  overflow: hidden;
   h3 {
     margin: 20px 0;
   }
@@ -9,6 +10,7 @@
     padding-top: 10px;
   }
   .row {
+    margin: 0;
     position: relative;
     .active {
       font-weight: 700;
@@ -35,16 +37,12 @@
       margin-bottom: 15px;
     }
     &.top-row {
-      > div {
-        > div {
-          /*padding: 0 15px 15px;*/
-        }
-      }
       .btn {
         margin: 20px 0 5px;
       }
     }
     > div {
+      padding: 0;
       > div {
         padding: 0 15px 15px;
       }
@@ -80,15 +78,7 @@
 .col-striped {
   .row {
     > [class^="col-"]:nth-of-type(odd) {
-      background-color: $table-bg-accent;
-    }
-    &.top-row {
-      > [class^="col-"]:nth-of-type(odd) {
-        background-color: transparent;
-        > div {
-          background-color: $table-bg-accent;
-        }
-      }
+      background-color: #f9f9f9;
     }
   }
 }

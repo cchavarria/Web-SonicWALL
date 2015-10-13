@@ -8881,7 +8881,8 @@ a:hover .has-overlay h4 {
     font-size: 18px;
     line-height: 22px; } }
 .comparison {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .comparison h3 {
     margin: 20px 0; }
   .comparison h5 {
@@ -8889,6 +8890,7 @@ a:hover .has-overlay h4 {
     line-height: 15px;
     padding-top: 10px; }
   .comparison .row {
+    margin: 0;
     position: relative; }
     .comparison .row .active {
       font-weight: 700;
@@ -8911,12 +8913,12 @@ a:hover .has-overlay h4 {
     .comparison .row .inactive {
       height: 17px;
       margin-bottom: 15px; }
-    .comparison .row.top-row > div > div {
-      /*padding: 0 15px 15px;*/ }
     .comparison .row.top-row .btn {
       margin: 20px 0 5px; }
-    .comparison .row > div > div {
-      padding: 0 15px 15px; }
+    .comparison .row > div {
+      padding: 0; }
+      .comparison .row > div > div {
+        padding: 0 15px 15px; }
   .comparison .panel-body {
     margin-bottom: 0 !important;
     padding: 0 !important; }
@@ -8931,11 +8933,7 @@ a:hover .has-overlay h4 {
     vertical-align: middle; }
 
 .col-striped .row > [class^="col-"]:nth-of-type(odd) {
-  background-color: #eeeeee; }
-.col-striped .row.top-row > [class^="col-"]:nth-of-type(odd) {
-  background-color: transparent; }
-  .col-striped .row.top-row > [class^="col-"]:nth-of-type(odd) > div {
-    background-color: #eeeeee; }
+  background-color: #f9f9f9; }
 
 @media (min-width: 768px) {
   .comparison .row .active {

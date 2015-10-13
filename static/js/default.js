@@ -264,11 +264,6 @@ $(document).ready(function () {
 		}, 100);
 	});
 
-	//Comparison
-	if($('.comparison').length) {
-		initComparison();
-	}
-
 	//Show more list [UL]
 	/*if($('ul').filter('.has-show-more')) {
 		getLocalizedContent(['LabelShowMore']).done(function(data) {
@@ -420,26 +415,6 @@ addResize(function() {
 		}
 	});
 });
-
-function initComparison(parentSelector) {
-	if (typeof parentSelector == 'undefined') {
-		parentSelector = 'body';
-	}
-
-	$(parentSelector).find('.comparison').each(function() {
-		$(this).on('shown.bs.collapse', '.collapse', function() {
-			if(!$(this).data('comparison-processed')) {
-				$(this).find('.row').each(function() {
-					var rowHeight = $(this).height();
-
-					$(this).find('> div').css('height', rowHeight);
-				});
-
-				$(this).data('comparison-processed', true);
-			}
-		})
-	});
-}
 
 function slickPlugin(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
