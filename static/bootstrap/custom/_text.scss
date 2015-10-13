@@ -32,15 +32,21 @@
   color: $dell-teal;
 }
 
-.text-white{
+.text-white {
   color: $white !important;
 }
 
 .color-inherit {
   color: inherit;
 }
+.text-gray {
+  color: $dell-gray;
+}
 .text-dark-gray{
   color: $dell-gray-dark;
+}
+.text-light-gray {
+  color: $dell-gray-light;
 }
 .heading-link:hover {
   color: #007db8;

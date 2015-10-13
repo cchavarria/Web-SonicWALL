@@ -1,0 +1,7 @@
+{
+  "css": [],
+  "js": [
+    "/static/js/olark-remotescan-flyout.min.js",
+    "/static/library/olark-remotescan.min.js"
+  ]
+}

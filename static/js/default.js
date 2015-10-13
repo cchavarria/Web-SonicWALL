@@ -14,7 +14,9 @@ $(document).ready(function () {
 	}
 
 	//Toggle Show/Hide
-	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function () {
+	$('body').on('click', '[data-toggle=show],[data-toggle=show-offcanvas]', function (e) {
+		e.preventDefault();
+
 		var target = $($(this).data('target'));
 
 		//Do not proceed if on mobile.
@@ -38,6 +40,7 @@ $(document).ready(function () {
 			}
 
 			target.css({top: ''});
+			$(this).parents('.container').css('height', '');
 		}
 		else {
 			if (target.hasClass('hidden')) {
@@ -49,18 +52,28 @@ $(document).ready(function () {
 			}
 
 			//Reset
-			$(target).css('top', '').css('marginBottom', '');
+			$(target).css({top: '', marginBottom: ''}).data('parent', $(this));
 
 			//adjust triangle position based on source element
 			if ($(target).find('.triangle-top').length) {
-				var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
+				//var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
+				var top = $(this).offset().top + $(this).outerHeight(true) + 12;
 
 				$(target)
 					.css({
-						'top': top,
-						'marginBottom': top
+						'top': top
 					})
 					.find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
+			}
+
+			var parentContainer = $(this).parents('.container');
+
+			if(parentContainer.length) {
+				var parentHeight = $(target).offset().top + $(target).height() - parentContainer.offset().top;
+
+				if(parentContainer.height() < parentHeight) {
+					parentContainer.css('height', parentHeight);
+				}
 			}
 
 			processEllipsis(target);
@@ -193,7 +206,7 @@ $(document).ready(function () {
 	});
 
 	//Toggle
-	$('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
+	/*$('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
 		var target = $($(this).data('target'));
 
 		if (target.is(':visible')) {
@@ -204,13 +217,18 @@ $(document).ready(function () {
 				target.hide();
 			}
 		}
-	});
+	});*/
 
 	//close button in optional dropdown
 	$('body').on('click', '.close', function () {
 		var closeTarget = $(this).parents('#' + $(this).data('target'));
+
 		if (closeTarget.length && closeTarget != undefined) {
 			closeTarget.addClass('hidden');
+		}
+
+		if(closeTarget.data('parent')) {
+			closeTarget.data('parent').parents('.container').css('height', '');
 		}
 	});
 
@@ -289,7 +307,7 @@ $(document).ready(function () {
 	 </ul>
 	 */
 
-	//Bleed Margins
+	//Bleed Margins [Not in use]
 	addResize(function() {
 		$('.bleed').each(function() {
 			var children = $(this).children(), lastChild = children.length - 1;
@@ -360,6 +378,11 @@ $(document).ready(function () {
 	 }
 	 });
 	 }, true);*/
+
+	//Comparison
+	if($('.comparison').length) {
+		$.getScript('/static/js/comparison.min.js');
+	}
 });
 
 //Flex box degradation
@@ -373,6 +396,25 @@ addResize(function () {
 		});
 	}
 }, true);
+
+//Optional Dropdown. Hide when resize.
+addResize(function() {
+	$('[data-toggle=show-offcanvas]').each(function() {
+		var target = $($(this).data('target'));
+
+		if (target.is(':visible')) {
+			if (target.data('hidden-class')) {
+				target.addClass(target.data('hidden-class'));
+			}
+			else {
+				target.hide();
+			}
+
+			target.css({top: ''});
+			$(this).parents('.container').css('height', '');
+		}
+	});
+});
 
 function slickPlugin(parentSelector) {
 	if (typeof parentSelector == 'undefined') {
@@ -665,7 +707,7 @@ function loadOoyala(parentSelector) {
 
 							if (parentContainer && parentContainer.hasClass('media-player-container')) {
 								$(this).css('height', videoHeight);
-								$(this).parent().css('height', videoHeight);
+								//$(this).parent().css('height', videoHeight);
 
 								parentContainer.find('> img').remove().end().find('> .img-overlay').remove();
 							}
@@ -986,6 +1028,8 @@ function resizeAffix() {
 			}
 		});
 
+		siteWrapper.attr('id', 'top');
+
 		//fix to keep first affix item active when on top of the page
 		/*if (!siteWrapper.attr('id')) {
 			var id = affixElem.find('a:first-child').attr('href').substr(1);
@@ -1070,17 +1114,23 @@ function resizeAffix() {
 	function onHashChange() {
 		if(!affixElem.data('hashchange-processed')) {
 			$(window).hashchange(function() {
-				affixElem.find('a').each(function() {
-					if($(this).attr('href') == location.hash) {
-						window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
-
-						return false;
-					}
-				});
+				hashScrollFix();
 			});
+
+			hashScrollFix();
 
 			affixElem.data('hashchange-processed', true);
 		}
+	}
+
+	function hashScrollFix() {
+		affixElem.find('a').each(function() {
+			if($(this).attr('href') == location.hash) {
+				window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
+
+				return false;
+			}
+		});
 	}
 }
 
