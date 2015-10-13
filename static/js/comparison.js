@@ -28,6 +28,7 @@ function processComparison(parentSelector) {
 
 			//Find maximum height for first .row.
 			var maxHeight = 0;
+
 			columnsInFirstRow
 				.each(function() {
 				var h = $(this).height();
@@ -67,12 +68,21 @@ function processComparison(parentSelector) {
 				cols.css('width', width);
 				rows.css('width', width * total);
 
-				paginationElem
+				elem
 					.data('page', 0)
 					.data('width', width)
-					.data('display', displayAmount)
+					.data('display', displayAmount);
+
+				paginationElem
 					.on('click', '.prev', scroll)
 					.on('click', '.next', scroll);
+
+				if($.fn.swipe) {
+					initSwipe();
+				}
+				else {
+					$.getScript('/static/library/jQuery/jquery.touchSwipe.min.js').done(initSwipe);
+				}
 			}
 
 			function reset() {
@@ -95,10 +105,9 @@ function processComparison(parentSelector) {
 			}
 
 			function scroll() {
-				var parent = $(this).parent(),
-					page = parent.data('page'),
-					width = parent.data('width'),
-					displayAmount = parent.data('display');
+				var page = elem.data('page'),
+					width = elem.data('width'),
+					displayAmount = elem.data('display');
 
 				page += $(this).hasClass('prev') ? -1:1;
 
@@ -115,7 +124,7 @@ function processComparison(parentSelector) {
 				}
 
 				rows.animate({left: -page * width}, 500);
-				paginationElem.data('page', page);
+				elem.data('page', page);
 
 				$(this).parents('.comparison').find('.panel-body').find('> .row:even').each(function() {
 					$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
@@ -125,6 +134,65 @@ function processComparison(parentSelector) {
 				paginationElem
 					.find('.start').text(page + 1).end()
 					.find('.end').text(page + displayAmount).end();
+			}
+
+			function initSwipe() {
+				rows.swipe({
+					swipeStatus: function(event, phase, direction, distance, duration, fingerCount) {
+						//Here we can check the:
+						//phase : 'start', 'move', 'end', 'cancel'
+						//direction : 'left', 'right', 'up', 'down'
+						//distance : Distance finger is from initial touch point in px
+						//duration : Length of swipe in MS
+						//fingerCount : the number of fingers used
+
+						var page = elem.data('page'),
+							width = elem.data('width');
+
+						if(direction == 'left') {
+							rows.css('left', (-page * width) - distance);
+						}
+						else if(direction == 'right') {
+							rows.css('left', (-page * width) + distance);
+						}
+
+						if(phase == 'end') {
+							var newPage = Math.ceil(parseInt(rows.css('left')) / width);
+
+							if(newPage >= 0) {
+								newPage = 0;
+							}
+							else {
+								newPage = Math.abs(newPage);
+							}
+
+							paginationElem.find('button').removeClass('inactive');
+
+							if(newPage <= 0) {
+								paginationElem.find('.prev').addClass('inactive');
+								page = 0;
+							}
+
+							if (newPage + displayAmount >= total) {
+								paginationElem.find('.next').addClass('inactive');
+								newPage = total - displayAmount;
+							}
+
+							rows.animate({left: -newPage * width}, 500);
+							elem.data('page', newPage);
+
+							elem.find('.panel-body').find('> .row:even').each(function() {
+								$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
+
+							});
+
+							paginationElem
+								.find('.start').text(newPage + 1).end()
+								.find('.end').text(newPage + displayAmount).end();
+						}
+					},
+					threshold: 5
+				});
 			}
 		});
 	}

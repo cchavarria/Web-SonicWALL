@@ -6798,11 +6798,11 @@ a:hover .img-header-overlay {
           border-style: solid;
           color: #444444; }
           #affix-nav ul li.active a {
-            padding: 6px 10px 10px; }
+            padding: 6px 5px 10px; }
         #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
-          padding: 10px; }
+          padding: 10px 5px; }
           #affix-nav ul li a:focus {
             background-color: transparent; }
           #affix-nav ul li a:hover {
@@ -8931,6 +8931,12 @@ a:hover .has-overlay h4 {
     line-height: 14px;
     padding: 5px;
     vertical-align: middle; }
+  .comparison .comparison-pagination {
+    margin-bottom: 20px;
+    text-align: center; }
+    .comparison .comparison-pagination > div {
+      display: inline-block;
+      padding: 0 5px; }
 
 .col-striped .row > [class^="col-"]:nth-of-type(odd) {
   background-color: #f9f9f9; }
@@ -8945,7 +8951,9 @@ a:hover .has-overlay h4 {
       height: 26px;
       width: 26px; }
   .comparison .row .inactive {
-    height: 26px; } }
+    height: 26px; }
+  .comparison .comparison-pagination {
+    text-align: right; } }
 .show-collapsed {
   display: none; }
 
