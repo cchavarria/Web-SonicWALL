@@ -1114,17 +1114,23 @@ function resizeAffix() {
 	function onHashChange() {
 		if(!affixElem.data('hashchange-processed')) {
 			$(window).hashchange(function() {
-				affixElem.find('a').each(function() {
-					if($(this).attr('href') == location.hash) {
-						window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
-
-						return false;
-					}
-				});
+				hashScrollFix();
 			});
+
+			hashScrollFix();
 
 			affixElem.data('hashchange-processed', true);
 		}
+	}
+
+	function hashScrollFix() {
+		affixElem.find('a').each(function() {
+			if($(this).attr('href') == location.hash) {
+				window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
+
+				return false;
+			}
+		});
 	}
 }
 
