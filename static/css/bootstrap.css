@@ -8882,7 +8882,11 @@ a:hover .has-overlay h4 {
     line-height: 22px; } }
 .comparison {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .comparison h3 {
     margin: 20px 0; }
   .comparison h5 {

@@ -1,6 +1,7 @@
 .comparison {
   position: relative;
   overflow: hidden;
+  @include user-select(none);
   h3 {
     margin: 20px 0;
   }

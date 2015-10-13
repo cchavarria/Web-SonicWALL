@@ -271,7 +271,7 @@
 	* configuration properties defined in the object. See TouchSwipe
 	*
 	*/
-	$.fn.swipe = function (method) {
+	$.fn.touchSwipe = function (method) {
 		var $this = $(this),
 			plugin = $this.data(PLUGIN_NS);
 
@@ -301,12 +301,12 @@
 	 * The version of the plugin
 	 * @readonly
 	 */
-	$.fn.swipe.version = VERSION;
+	$.fn.touchSwipe.version = VERSION;
 
 
 
 	//Expose our defaults so a user could override the plugin defaults
-	$.fn.swipe.defaults = defaults;
+	$.fn.touchSwipe.defaults = defaults;
 
 	/**
 	* The phases that a touch event goes through.  The <code>phase</code> is passed to the event handlers. 
@@ -318,7 +318,7 @@
 	* @property {string} PHASE_END Constant indicating the end phase of the touch event. Value is <code>"end"</code>.
 	* @property {string} PHASE_CANCEL Constant indicating the cancel phase of the touch event. Value is <code>"cancel"</code>.
 	*/
-	$.fn.swipe.phases = {
+	$.fn.touchSwipe.phases = {
 		PHASE_START: PHASE_START,
 		PHASE_MOVE: PHASE_MOVE,
 		PHASE_END: PHASE_END,
@@ -337,7 +337,7 @@
 	* @property {string} IN Constant indicating the in direction. Value is <code>"in"</code>.
 	* @property {string} OUT Constant indicating the out direction. Value is <code>"out"</code>.
 	*/
-	$.fn.swipe.directions = {
+	$.fn.touchSwipe.directions = {
 		LEFT: LEFT,
 		RIGHT: RIGHT,
 		UP: UP,
@@ -357,7 +357,7 @@
 	* @property {string} VERTICAL Constant indicating vertical page scrolling is allowed. Value is <code>"vertical"</code>.
 	* @property {string} AUTO Constant indicating either horizontal or vertical will be allowed, depending on the swipe handlers registered. Value is <code>"auto"</code>.
 	*/
-	$.fn.swipe.pageScroll = {
+	$.fn.touchSwipe.pageScroll = {
 		NONE: NONE,
 		HORIZONTAL: HORIZONTAL,
 		VERTICAL: VERTICAL,
@@ -378,7 +378,7 @@
 	* @property {string} FIVE Constant indicating 5 finger are to be detected / were detected. Not all devices support this. Value is <code>5</code>.
 	* @property {string} ALL Constant indicating any combination of finger are to be detected.  Value is <code>"all"</code>.
 	*/
-	$.fn.swipe.fingers = {
+	$.fn.touchSwipe.fingers = {
 		ONE: 1,
 		TWO: 2,
 		THREE: 3,
@@ -410,7 +410,7 @@
 		}
 		
         //pass empty object so we dont modify the defaults
-		options = $.extend({}, $.fn.swipe.defaults, options);
+		options = $.extend({}, $.fn.touchSwipe.defaults, options);
 
 		//For each element instantiate the plugin
 		return this.each(function () {

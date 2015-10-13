@@ -77,11 +77,11 @@ function processComparison(parentSelector) {
 					.on('click', '.prev', scroll)
 					.on('click', '.next', scroll);
 
-				if($.fn.swipe) {
+				if($.fn.touchSwipe) {
 					initSwipe();
 				}
 				else {
-					$.getScript('/static/library/jQuery/jquery.touchSwipe.min.js').done(initSwipe);
+					$.getScript('/static/library/jQuery/jquery.touchSwipe.js').done(initSwipe);
 				}
 			}
 
@@ -105,39 +105,14 @@ function processComparison(parentSelector) {
 			}
 
 			function scroll() {
-				var page = elem.data('page'),
-					width = elem.data('width'),
-					displayAmount = elem.data('display');
-
-				page += $(this).hasClass('prev') ? -1:1;
-
-				paginationElem.find('button').removeClass('inactive');
-
-				if(page <= 0) {
-					paginationElem.find('.prev').addClass('inactive');
-					page = 0;
-				}
-
-				if (page + displayAmount >= total) {
-					paginationElem.find('.next').addClass('inactive');
-					page = total - displayAmount;
-				}
-
-				rows.animate({left: -page * width}, 500);
-				elem.data('page', page);
-
-				$(this).parents('.comparison').find('.panel-body').find('> .row:even').each(function() {
-					$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
-
-				});
-
-				paginationElem
-					.find('.start').text(page + 1).end()
-					.find('.end').text(page + displayAmount).end();
+				updateDisplay(elem.data('page') + ($(this).hasClass('prev') ? -1:1));
 			}
 
 			function initSwipe() {
-				rows.swipe({
+				rows.touchSwipe({
+					swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+						console.log("You swiped " + direction );
+					},
 					swipeStatus: function(event, phase, direction, distance, duration, fingerCount) {
 						//Here we can check the:
 						//phase : 'start', 'move', 'end', 'cancel'
@@ -146,8 +121,7 @@ function processComparison(parentSelector) {
 						//duration : Length of swipe in MS
 						//fingerCount : the number of fingers used
 
-						var page = elem.data('page'),
-							width = elem.data('width');
+						var page = elem.data('page');
 
 						if(direction == 'left') {
 							rows.css('left', (-page * width) - distance);
@@ -166,33 +140,36 @@ function processComparison(parentSelector) {
 								newPage = Math.abs(newPage);
 							}
 
-							paginationElem.find('button').removeClass('inactive');
-
-							if(newPage <= 0) {
-								paginationElem.find('.prev').addClass('inactive');
-								page = 0;
-							}
-
-							if (newPage + displayAmount >= total) {
-								paginationElem.find('.next').addClass('inactive');
-								newPage = total - displayAmount;
-							}
-
-							rows.animate({left: -newPage * width}, 500);
-							elem.data('page', newPage);
-
-							elem.find('.panel-body').find('> .row:even').each(function() {
-								$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
-
-							});
-
-							paginationElem
-								.find('.start').text(newPage + 1).end()
-								.find('.end').text(newPage + displayAmount).end();
+							updateDisplay(newPage);
 						}
 					},
 					threshold: 5
 				});
+			}
+
+			function updateDisplay(page) {
+				paginationElem.find('button').removeClass('inactive');
+
+				if(page <= 0) {
+					paginationElem.find('.prev').addClass('inactive');
+					page = 0;
+				}
+
+				if (page + displayAmount >= total) {
+					paginationElem.find('.next').addClass('inactive');
+					page = total - displayAmount;
+				}
+
+				rows.animate({left: -page * width}, 500);
+				elem.data('page', page);
+
+				elem.find('.panel-body').find('> .row:even').each(function() {
+					$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
+				});
+
+				paginationElem
+					.find('.start').text(page + 1).end()
+					.find('.end').text(page + displayAmount).end();
 			}
 		});
 	}

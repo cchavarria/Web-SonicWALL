@@ -158,7 +158,7 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 				//$('#off-canvas').find('.panel').find('.collapse').collapse();
 				$('#off-canvas').find('.collapse').collapse({parent: '#'+parentID}).collapse('hide');
 			}
-		}, 100);
+		}, 250);
 	}, 500);
 	//});
 
