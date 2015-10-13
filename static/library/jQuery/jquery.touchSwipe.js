@@ -190,7 +190,7 @@
 	/**
 	* The default configuration, and available options to configure touch swipe with.
 	* You can set the default values by updating any of the properties prior to instantiation.
-	* @name $.fn.swipe.defaults
+	* @name $.fn.touchSwipe.defaults
 	* @namespace
 	* @property {int} [fingers=1] The number of fingers to detect in a swipe. Any swipes that do not meet this requirement will NOT trigger swipe handlers.
 	* @property {int} [threshold=75] The number of pixels that the user must move their finger by before it is considered a swipe. 
@@ -200,22 +200,22 @@
 	* @property {int} [fingerReleaseThreshold=250] Time in milliseconds between releasing multiple fingers.  If 2 fingers are down, and are released one after the other, if they are within this threshold, it counts as a simultaneous release. 
 	* @property {int} [longTapThreshold=500] Time in milliseconds between tap and release for a long tap
 	* @property {int} [doubleTapThreshold=200] Time in milliseconds between 2 taps to count as a double tap
-	* @property {function} [swipe=null] A handler to catch all swipes. See {@link $.fn.swipe#event:swipe}
-	* @property {function} [swipeLeft=null] A handler that is triggered for "left" swipes. See {@link $.fn.swipe#event:swipeLeft}
-	* @property {function} [swipeRight=null] A handler that is triggered for "right" swipes. See {@link $.fn.swipe#event:swipeRight}
-	* @property {function} [swipeUp=null] A handler that is triggered for "up" swipes. See {@link $.fn.swipe#event:swipeUp}
-	* @property {function} [swipeDown=null] A handler that is triggered for "down" swipes. See {@link $.fn.swipe#event:swipeDown}
-	* @property {function} [swipeStatus=null] A handler triggered for every phase of the swipe. See {@link $.fn.swipe#event:swipeStatus}
-	* @property {function} [pinchIn=null] A handler triggered for pinch in events. See {@link $.fn.swipe#event:pinchIn}
-	* @property {function} [pinchOut=null] A handler triggered for pinch out events. See {@link $.fn.swipe#event:pinchOut}
-	* @property {function} [pinchStatus=null] A handler triggered for every phase of a pinch. See {@link $.fn.swipe#event:pinchStatus}
+	* @property {function} [swipe=null] A handler to catch all swipes. See {@link $.fn.touchSwipe#event:swipe}
+	* @property {function} [swipeLeft=null] A handler that is triggered for "left" swipes. See {@link $.fn.touchSwipe#event:swipeLeft}
+	* @property {function} [swipeRight=null] A handler that is triggered for "right" swipes. See {@link $.fn.touchSwipe#event:swipeRight}
+	* @property {function} [swipeUp=null] A handler that is triggered for "up" swipes. See {@link $.fn.touchSwipe#event:swipeUp}
+	* @property {function} [swipeDown=null] A handler that is triggered for "down" swipes. See {@link $.fn.touchSwipe#event:swipeDown}
+	* @property {function} [swipeStatus=null] A handler triggered for every phase of the swipe. See {@link $.fn.touchSwipe#event:swipeStatus}
+	* @property {function} [pinchIn=null] A handler triggered for pinch in events. See {@link $.fn.touchSwipe#event:pinchIn}
+	* @property {function} [pinchOut=null] A handler triggered for pinch out events. See {@link $.fn.touchSwipe#event:pinchOut}
+	* @property {function} [pinchStatus=null] A handler triggered for every phase of a pinch. See {@link $.fn.touchSwipe#event:pinchStatus}
 	* @property {function} [tap=null] A handler triggered when a user just taps on the item, rather than swipes it. If they do not move, tap is triggered, if they do move, it is not. 
-	* @property {function} [doubleTap=null] A handler triggered when a user double taps on the item. The delay between taps can be set with the doubleTapThreshold property. See {@link $.fn.swipe.defaults#doubleTapThreshold}
-	* @property {function} [longTap=null] A handler triggered when a user long taps on the item. The delay between start and end can be set with the longTapThreshold property. See {@link $.fn.swipe.defaults#longTapThreshold}
-	* @property (function) [hold=null] A handler triggered when a user reaches longTapThreshold on the item. See {@link $.fn.swipe.defaults#longTapThreshold}
+	* @property {function} [doubleTap=null] A handler triggered when a user double taps on the item. The delay between taps can be set with the doubleTapThreshold property. See {@link $.fn.touchSwipe.defaults#doubleTapThreshold}
+	* @property {function} [longTap=null] A handler triggered when a user long taps on the item. The delay between start and end can be set with the longTapThreshold property. See {@link $.fn.touchSwipe.defaults#longTapThreshold}
+	* @property (function) [hold=null] A handler triggered when a user reaches longTapThreshold on the item. See {@link $.fn.touchSwipe.defaults#longTapThreshold}
 	* @property {boolean} [triggerOnTouchEnd=true] If true, the swipe events are triggered when the touch end event is received (user releases finger).  If false, it will be triggered on reaching the threshold, and then cancel the touch event automatically. 
 	* @property {boolean} [triggerOnTouchLeave=false] If true, then when the user leaves the swipe object, the swipe will end and trigger appropriate handlers. 
-	* @property {string|undefined} [allowPageScroll='auto'] How the browser handles page scrolls when the user is swiping on a touchSwipe object. See {@link $.fn.swipe.pageScroll}.  <br/><br/>
+	* @property {string|undefined} [allowPageScroll='auto'] How the browser handles page scrolls when the user is swiping on a touchSwipe object. See {@link $.fn.touchSwipe.pageScroll}.  <br/><br/>
 										<code>"auto"</code> : all undefined swipes will cause the page to scroll in that direction. <br/>
 										<code>"none"</code> : the page will not scroll when user swipes. <br/>
 										<code>"horizontal"</code> : will force page to scroll on horizontal swipes. <br/>
@@ -351,7 +351,7 @@
 	* These properties are read only
 	* @namespace
 	* @readonly
-	* @see $.fn.swipe.defaults#allowPageScroll
+	* @see $.fn.touchSwipe.defaults#allowPageScroll
 	* @property {string} NONE Constant indicating no page scrolling is allowed. Value is <code>"none"</code>.
 	* @property {string} HORIZONTAL Constant indicating horizontal page scrolling is allowed. Value is <code>"horizontal"</code>.
 	* @property {string} VERTICAL Constant indicating vertical page scrolling is allowed. Value is <code>"vertical"</code>.
@@ -370,7 +370,7 @@
 	* These properties are read only, attempting to change them will not alter the values passed to the event handlers.
 	* @namespace
 	* @readonly
-	* @see $.fn.swipe.defaults#fingers
+	* @see $.fn.touchSwipe.defaults#fingers
 	* @property {string} ONE Constant indicating 1 finger is to be detected / was detected. Value is <code>1</code>.
 	* @property {string} TWO Constant indicating 2 fingers are to be detected / were detected. Value is <code>2</code>.
 	* @property {string} THREE Constant indicating 3 finger are to be detected / were detected. Value is <code>3</code>.
@@ -428,11 +428,11 @@
 
 	/**
 	* Main TouchSwipe Plugin Class.
-	* Do not use this to construct your TouchSwipe object, use the jQuery plugin method $.fn.swipe(); {@link $.fn.swipe}
+	* Do not use this to construct your TouchSwipe object, use the jQuery plugin method $.fn.touchSwipe(); {@link $.fn.touchSwipe}
 	* @private
 	* @name TouchSwipe
 	* @param {DOMNode} element The HTML DOM object to apply to plugin to
-	* @param {Object} options The options to configure the plugin with.  @link {$.fn.swipe.defaults}
+	* @param {Object} options The options to configure the plugin with.  @link {$.fn.touchSwipe.defaults}
 	* @see $.fh.swipe.defaults
 	* @see $.fh.swipe
     * @class
@@ -503,7 +503,7 @@
 		/**
 		* re-enables the swipe plugin with the previous configuration
 		* @function
-		* @name $.fn.swipe#enable
+		* @name $.fn.touchSwipe#enable
 		* @return {DOMNode} The Dom element that was registered with TouchSwipe 
 		* @example $("#element").swipe("enable");
 		*/
@@ -516,7 +516,7 @@
 		/**
 		* disables the swipe plugin
 		* @function
-		* @name $.fn.swipe#disable
+		* @name $.fn.touchSwipe#disable
 		* @return {DOMNode} The Dom element that is now registered with TouchSwipe
 	    * @example $("#element").swipe("disable");
 		*/
@@ -528,7 +528,7 @@
 		/**
 		* Destroy the swipe plugin completely. To use any swipe methods, you must re initialise the plugin.
 		* @function
-		* @name $.fn.swipe#destroy
+		* @name $.fn.touchSwipe#destroy
 		* @example $("#element").swipe("destroy");
 		*/
 		this.destroy = function () {
@@ -541,7 +541,7 @@
         /**
          * Allows run time updating of the swipe configuration options.
          * @function
-    	 * @name $.fn.swipe#option
+    	 * @name $.fn.touchSwipe#option
     	 * @param {String} property The option property to get or set, or a has of multiple options to set
          * @param {Object} [value] The value to set the property to
 		 * @return {Object} If only a property name is passed, then that property value is returned. If nothing is passed the current options hash is returned.
@@ -550,7 +550,7 @@
          * @example $("#element").swipe("option", {threshold:100, fingers:3} ); // set multiple properties after init
          * @example $("#element").swipe({threshold:100, fingers:3} ); // set multiple properties after init - the "option" method is optional!
          * @example $("#element").swipe("option"); // Return the current options hash
-         * @see $.fn.swipe.defaults
+         * @see $.fn.touchSwipe.defaults
          *
          */
         this.option = function (property, value) {
@@ -955,7 +955,7 @@
 		* Trigger the relevant event handler
 		* The handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, "left", "right", "up", or "down"
 		* @param {object} event the original event object
-		* @param {string} phase the phase of the swipe (start, end cancel etc) {@link $.fn.swipe.phases}
+		* @param {string} phase the phase of the swipe (start, end cancel etc) {@link $.fn.touchSwipe.phases}
 		* @inner
 		*/
 		function triggerHandler(event, phase) {
@@ -1032,8 +1032,8 @@
 		* Trigger the relevant event handler
 		* The handlers are passed the original event, the element that was swiped, and in the case of the catch all handler, the direction that was swiped, "left", "right", "up", or "down"
 		* @param {object} event the original event object
-		* @param {string} phase the phase of the swipe (start, end cancel etc) {@link $.fn.swipe.phases}
-		* @param {string} gesture the gesture to trigger a handler for : PINCH or SWIPE {@link $.fn.swipe.gestures}
+		* @param {string} phase the phase of the swipe (start, end cancel etc) {@link $.fn.touchSwipe.phases}
+		* @param {string} gesture the gesture to trigger a handler for : PINCH or SWIPE {@link $.fn.touchSwipe.gestures}
 		* @return Boolean False, to indicate that the event should stop propagation, or void.
 		* @inner
 		*/
@@ -1315,8 +1315,8 @@
 		* Checks direction of the swipe and the value allowPageScroll to see if we should allow or prevent the default behaviour from occurring.
 		* This will essentially allow page scrolling or not when the user is swiping on a touchSwipe object.
 		* @param {object} jqEvent The normalised jQuery representation of the event object.
-		* @param {string} direction The direction of the event. See {@link $.fn.swipe.directions}
-		* @see $.fn.swipe.directions
+		* @param {string} direction The direction of the event. See {@link $.fn.touchSwipe.directions}
+		* @see $.fn.touchSwipe.directions
 		* @inner
 		*/
 		function validateDefaultEvent(jqEvent, direction) {
@@ -1797,8 +1797,8 @@
 		
 		/**
 		* Returns the pinch direction, either IN or OUT for the given points
-		* @return string Either {@link $.fn.swipe.directions.IN} or {@link $.fn.swipe.directions.OUT}
-		* @see $.fn.swipe.directions
+		* @return string Either {@link $.fn.touchSwipe.directions.IN} or {@link $.fn.touchSwipe.directions.OUT}
+		* @see $.fn.touchSwipe.directions
 		* @inner
 		*/
 		function calculatePinchDirection() {
@@ -1848,8 +1848,8 @@
 		* This will also call calculateAngle to get the latest angle of swipe
 		* @param {point} startPoint A point object containing x and y co-ordinates
 	    * @param {point} endPoint A point object containing x and y co-ordinates
-	    * @return string Either {@link $.fn.swipe.directions.LEFT} / {@link $.fn.swipe.directions.RIGHT} / {@link $.fn.swipe.directions.DOWN} / {@link $.fn.swipe.directions.UP}
-		* @see $.fn.swipe.directions
+	    * @return string Either {@link $.fn.touchSwipe.directions.LEFT} / {@link $.fn.touchSwipe.directions.RIGHT} / {@link $.fn.touchSwipe.directions.DOWN} / {@link $.fn.touchSwipe.directions.UP}
+		* @see $.fn.touchSwipe.directions
 		* @inner
 		*/
 		function calculateDirection(startPoint, endPoint ) {
@@ -1923,14 +1923,14 @@
 
 /**
  * A catch all handler that is triggered for all swipe directions. 
- * @name $.fn.swipe#swipe
+ * @name $.fn.touchSwipe#swipe
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user swiped in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user swiped in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
  
@@ -1939,109 +1939,109 @@
 
 /**
  * A handler that is triggered for "left" swipes.
- * @name $.fn.swipe#swipeLeft
+ * @name $.fn.touchSwipe#swipeLeft
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user swiped in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user swiped in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
  
 /**
  * A handler that is triggered for "right" swipes.
- * @name $.fn.swipe#swipeRight
+ * @name $.fn.touchSwipe#swipeRight
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user swiped in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user swiped in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
 
 /**
  * A handler that is triggered for "up" swipes.
- * @name $.fn.swipe#swipeUp
+ * @name $.fn.touchSwipe#swipeUp
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user swiped in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user swiped in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
  
 /**
  * A handler that is triggered for "down" swipes.
- * @name $.fn.swipe#swipeDown
+ * @name $.fn.touchSwipe#swipeDown
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user swiped in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user swiped in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
  
 /**
  * A handler triggered for every phase of the swipe. This handler is constantly fired for the duration of the pinch.
  * This is triggered regardless of swipe thresholds.
- * @name $.fn.swipe#swipeStatus
+ * @name $.fn.touchSwipe#swipeStatus
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {string} phase The phase of the swipe event. See {@link $.fn.swipe.phases}
- * @param {string} direction The direction the user swiped in. This is null if the user has yet to move. See {@link $.fn.swipe.directions}
+ * @param {string} phase The phase of the swipe event. See {@link $.fn.touchSwipe.phases}
+ * @param {string} direction The direction the user swiped in. This is null if the user has yet to move. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user swiped. This is 0 if the user has yet to move.
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {object} fingerData The coordinates of fingers in event
  */
  
 /**
  * A handler triggered for pinch in events.
- * @name $.fn.swipe#pinchIn
+ * @name $.fn.touchSwipe#pinchIn
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user pinched in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user pinched in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user pinched
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {int} zoom The zoom/scale level the user pinched too, 0-1.
  * @param {object} fingerData The coordinates of fingers in event
  */
 
 /**
  * A handler triggered for pinch out events.
- * @name $.fn.swipe#pinchOut
+ * @name $.fn.touchSwipe#pinchOut
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user pinched in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user pinched in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user pinched
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {int} zoom The zoom/scale level the user pinched too, 0-1.
  * @param {object} fingerData The coordinates of fingers in event
  */ 
 
 /**
  * A handler triggered for all pinch events. This handler is constantly fired for the duration of the pinch. This is triggered regardless of thresholds.
- * @name $.fn.swipe#pinchStatus
+ * @name $.fn.touchSwipe#pinchStatus
  * @event
  * @default null
  * @param {EventObject} event The original event object
- * @param {int} direction The direction the user pinched in. See {@link $.fn.swipe.directions}
+ * @param {int} direction The direction the user pinched in. See {@link $.fn.touchSwipe.directions}
  * @param {int} distance The distance the user pinched
  * @param {int} duration The duration of the swipe in milliseconds
- * @param {int} fingerCount The number of fingers used. See {@link $.fn.swipe.fingers}
+ * @param {int} fingerCount The number of fingers used. See {@link $.fn.touchSwipe.fingers}
  * @param {int} zoom The zoom/scale level the user pinched too, 0-1.
  * @param {object} fingerData The coordinates of fingers in event
  */
@@ -2051,9 +2051,9 @@
  * This is deprecated since version 1.6.2, any assignment to click will be assigned to the tap handler.
  * You cannot use <code>on</code> to bind to this event as the default jQ <code>click</code> event will be triggered.
  * Use the <code>tap</code> event instead.
- * @name $.fn.swipe#click
+ * @name $.fn.touchSwipe#click
  * @event
- * @deprecated since version 1.6.2, please use {@link $.fn.swipe#tap} instead 
+ * @deprecated since version 1.6.2, please use {@link $.fn.touchSwipe#tap} instead 
  * @default null
  * @param {EventObject} event The original event object
  * @param {DomObject} target The element clicked on.
@@ -2061,7 +2061,7 @@
  
  /**
  * A click / tap handler triggered when a user simply clicks or taps, rather than swipes on an element.
- * @name $.fn.swipe#tap
+ * @name $.fn.touchSwipe#tap
  * @event
  * @default null
  * @param {EventObject} event The original event object
@@ -2070,11 +2070,11 @@
  
 /**
  * A double tap handler triggered when a user double clicks or taps on an element.
- * You can set the time delay for a double tap with the {@link $.fn.swipe.defaults#doubleTapThreshold} property. 
+ * You can set the time delay for a double tap with the {@link $.fn.touchSwipe.defaults#doubleTapThreshold} property. 
  * Note: If you set both <code>doubleTap</code> and <code>tap</code> handlers, the <code>tap</code> event will be delayed by the <code>doubleTapThreshold</code>
  * as the script needs to check if its a double tap.
- * @name $.fn.swipe#doubleTap
- * @see  $.fn.swipe.defaults#doubleTapThreshold
+ * @name $.fn.touchSwipe#doubleTap
+ * @see  $.fn.touchSwipe.defaults#doubleTapThreshold
  * @event
  * @default null
  * @param {EventObject} event The original event object
@@ -2083,9 +2083,9 @@
  
  /**
  * A long tap handler triggered once a tap has been release if the tap was longer than the longTapThreshold.
- * You can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property. 
- * @name $.fn.swipe#longTap
- * @see  $.fn.swipe.defaults#longTapThreshold
+ * You can set the time delay for a long tap with the {@link $.fn.touchSwipe.defaults#longTapThreshold} property. 
+ * @name $.fn.touchSwipe#longTap
+ * @see  $.fn.touchSwipe.defaults#longTapThreshold
  * @event
  * @default null
  * @param {EventObject} event The original event object
@@ -2094,9 +2094,9 @@
 
   /**
  * A hold tap handler triggered as soon as the longTapThreshold is reached
- * You can set the time delay for a long tap with the {@link $.fn.swipe.defaults#longTapThreshold} property. 
- * @name $.fn.swipe#hold
- * @see  $.fn.swipe.defaults#longTapThreshold
+ * You can set the time delay for a long tap with the {@link $.fn.touchSwipe.defaults#longTapThreshold} property. 
+ * @name $.fn.touchSwipe#hold
+ * @see  $.fn.touchSwipe.defaults#longTapThreshold
  * @event
  * @default null
  * @param {EventObject} event The original event object
