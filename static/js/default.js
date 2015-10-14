@@ -69,13 +69,15 @@ $(document).ready(function () {
 
 			var parentContainer = $(this).parents('.container');
 
-			if(parentContainer.length) {
-				var parentHeight = $(target).offset().top + $(target).height() - parentContainer.offset().top;
+			setTimeout(function() {
+				if(parentContainer.length) {
+					var parentHeight = $(target).offset().top + $(target).height() - parentContainer.offset().top;
 
-				if(parentContainer.height() < parentHeight) {
-					parentContainer.css('height', parentHeight);
+					if(parentContainer.height() < parentHeight) {
+						parentContainer.css('height', parentHeight);
+					}
 				}
-			}
+			});
 
 			processEllipsis(target);
 		}
