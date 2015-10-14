@@ -110,9 +110,6 @@ function processComparison(parentSelector) {
 
 			function initSwipe() {
 				rows.touchSwipe({
-					swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-						console.log("You swiped " + direction );
-					},
 					swipeStatus: function(event, phase, direction, distance, duration, fingerCount) {
 						//Here we can check the:
 						//phase : 'start', 'move', 'end', 'cancel'
@@ -121,29 +118,59 @@ function processComparison(parentSelector) {
 						//duration : Length of swipe in MS
 						//fingerCount : the number of fingers used
 
+						var dir = '';
+
+						if(!$(this).data('direction')) {
+							if($.inArray(direction, ['left', 'right']) > -1) {
+								dir = 'horizontal';
+							}
+							else {
+								dir = 'vertical';
+							}
+
+							$(this).data('direction', dir);
+						}
+						else {
+							dir = $(this).data('direction');
+						}
+
 						var page = elem.data('page');
 
-						if(direction == 'left') {
-							rows.css('left', (-page * width) - distance);
+						if(dir == 'horizontal') {
+							if(direction == 'left') {
+								rows.css('left', (-page * width) - distance);
+							}
+							else if(direction == 'right') {
+								rows.css('left', (-page * width) + distance);
+							}
 						}
-						else if(direction == 'right') {
-							rows.css('left', (-page * width) + distance);
+						else {
+							if(direction == 'up') {
+								window.scrollTo(0, window.scrollY + distance);
+							}
+							else if(direction == 'down') {
+								window.scrollTo(0, window.scrollY - distance);
+							}
 						}
 
 						if(phase == 'end') {
-							var newPage = Math.ceil(parseInt(rows.css('left')) / width);
+							$(this).removeData('direction');
 
-							if(newPage >= 0) {
-								newPage = 0;
-							}
-							else {
-								newPage = Math.abs(newPage);
-							}
+							if($.inArray(direction, ['left', 'right']) > -1) {
+								var newPage = Math.ceil(parseInt(rows.css('left')) / width);
 
-							updateDisplay(newPage);
+								if(newPage >= 0) {
+									newPage = 0;
+								}
+								else {
+									newPage = Math.abs(newPage);
+								}
+
+								updateDisplay(newPage);
+							}
 						}
 					},
-					threshold: 5
+					threshold: 10
 				});
 			}
 
