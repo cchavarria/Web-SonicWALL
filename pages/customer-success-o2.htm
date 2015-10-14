@@ -33,7 +33,7 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/27399/"><img class="img-responsive" src="/images/shared/success-stories-icons/shutterfly.png"
-																			alt="Shutterfly Success Story"></a>
+				                              alt="Shutterfly Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -49,8 +49,8 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/29818/"><img class="img-responsive"
-																			src="/images/shared/success-stories-icons/us-cellular.png"
-																			alt="US Cellular Success Story"></a>
+				                              src="/images/shared/success-stories-icons/us-cellular.png"
+				                              alt="US Cellular Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -67,8 +67,8 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/29139/"><img class="img-responsive"
-																			src="/images/shared/success-stories-icons/eharmony.png"
-																			alt="eHarmony Success Story"></a>
+				                              src="/images/shared/success-stories-icons/eharmony.png"
+				                              alt="eHarmony Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -87,8 +87,8 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/21211/"><img class="img-responsive"
-																			src="/images/shared/success-stories-icons/coca-cola.png"
-																			alt="Coca Cola Success Story"></a>
+				                              src="/images/shared/success-stories-icons/coca-cola.png"
+				                              alt="Coca Cola Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -105,8 +105,8 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/27738/"><img class="img-responsive"
-																			src="/images/shared/success-stories-icons/message-envy.png"
-																			alt="Message Envy Success Story"></a>
+				                              src="/images/shared/success-stories-icons/message-envy.png"
+				                              alt="Message Envy Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -124,8 +124,8 @@
 		<div class="col-sm-4">
 			<div class="img-frame mb-20">
 				<a href="/assets/79261/"><img class="img-responsive"
-																			src="/images/shared/success-stories-icons/kelly-moore.png"
-																			alt="Kelly Moore Success Story"></a>
+				                              src="/images/shared/success-stories-icons/kelly-moore.png"
+				                              alt="Kelly Moore Success Story"></a>
 			</div>
 
 			<blockquote class="text-inherit no-quote">
@@ -160,6 +160,7 @@
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
 				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
+
 				<div class="nowrap pull-right">
 					<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
 					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
@@ -182,7 +183,7 @@
 		<p class="text-md hidden-xs"><span class="total_results">0</span> {{LabelResults}}:</p>
 
 		<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hide">
-			<span class="visible-xs pl-10"></span>
+			<span class="visible-xs pl-10">{{LabelDocumentType}}</span>
 			<select class="ms mb-15-xs hide" id="content_type" multiple="multiple" name="content_type"></select>
 		</div>
 
@@ -190,22 +191,22 @@
 			<div class="row mb-15 mb-0-xs">
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
-					<select class="mb-15-xs" id="product" name="product"> </select>
-				</div>
-
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
-					<select class="mb-15-xs" id="brand" name="brand"></select>
-				</div>
-
-				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelSolution}}</span>
 					<select class="mb-15-xs" id="solution" name="solution"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelProductLine}}</span>
+					<select class="mb-15-xs" id="brand" name="brand"></select>
+				</div>
+
+				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
+					<span class="visible-xs pl-10">{{LabelProduct}}</span>
+					<select class="mb-15-xs" id="product" name="product"> </select>
+				</div>
+
+				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
+					<span class="visible-xs pl-10">{{LabelLanguage}}</span>
 					<select class="mb-15-xs" id="language" name="language"></select>
 				</div>
 
@@ -213,12 +214,12 @@
 
 			<div class="row">
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelCountry}}</span>
 					<select class="mb-15-xs" id="country" name="country"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelIndustry}}</span>
 					<select class="mb-15-xs" id="industry" name="industry"></select>
 				</div>
 			</div>

@@ -22,6 +22,7 @@
 		<div class="row">
 			<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
 				<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
+
 				<div class="nowrap pull-right">
 					<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
 					<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
@@ -47,39 +48,40 @@
 		<section class="filters">
 			<div class="row mb-15 mb-0-xs">
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelDocumentType}}</span>
 					<select class="ms mb-15-xs" id="content_type" multiple="multiple" name="content_type"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
-					<select class="mb-15-xs" id="product" name="product"> </select>
+					<span class="visible-xs pl-10">{{LabelSolution}}</span>
+					<select class="mb-15-xs" id="solution" name="solution"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelProductLine}}</span>
 					<select class="mb-15-xs" id="brand" name="brand"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
-					<select class="mb-15-xs" id="solution" name="solution"></select>
+					<span class="visible-xs pl-10">{{LabelProduct}}</span>
+					<select class="mb-15-xs" id="product" name="product"> </select>
 				</div>
+
 			</div>
 
 			<div class="row">
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelLanguage}}</span>
 					<select class="mb-15-xs" id="language" name="language"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelCountry}}</span>
 					<select class="mb-15-xs" id="country" name="country"></select>
 				</div>
 
 				<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs hidden">
-					<span class="visible-xs pl-10"></span>
+					<span class="visible-xs pl-10">{{LabelIndustry}}</span>
 					<select class="mb-15-xs" id="industry" name="industry"></select>
 				</div>
 			</div>

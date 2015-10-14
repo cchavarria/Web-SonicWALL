@@ -514,24 +514,34 @@ function slickPlugin(parentSelector) {
 function processFlex() {
 	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
 		$('.vertical-center').each(function () {
-			var child = $(this).children();
+			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center');
 
 			//Reset
 			if($(this).data('flex-processed')) {
-				child.each(function () {
+				/*child.each(function () {
 					$(this).get(0).style.textAlign = '';
 					$(this).get(0).style.display = '';
 					$(this).get(0).style.width = '';
 					$(this).get(0).style.paddingLeft = '';
+				});*/
+
+				//New Implementation
+
+				child.each(function () {
+					$(this).get(0).style.position = '';
+					$(this).get(0).style.left = '';
+					$(this).get(0).style.top = '';
+					$(this).get(0).style.marginLeft = '';
+					$(this).get(0).style.marginTop = '';
 				});
 			}
 
-			var height = $(this).height(),
+			/*var height = $(this).height(),
 				width = $(this).outerWidth(),
-				centerHorizontal = $(this).hasClass('horizontal-center');
+				centerHorizontal = $(this).hasClass('horizontal-center');*/
 
 			//Should only have 1 children. Multiple children might not work.
-			child.each(function () {
+			/*child.each(function () {
 				if ($(this).css('display') == 'block') {
 					$(this).css({
 						display: 'inline-block',
@@ -554,6 +564,29 @@ function processFlex() {
 							paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
 						});
 					}
+				}
+			});*/
+
+			//New Implementation
+
+			child.each(function() {
+				if ($(this).css('display') == 'block') {
+					$(this).css({
+						display: 'inline-block'
+					});
+				}
+
+				$(this).css({
+					position: 'absolute',
+					left: '50%',
+					marginLeft: -1 * $(this).width()/2
+				});
+
+				if (centerHorizontal) {
+					$(this).css({
+						top: '50%',
+						marginTop: -1 * $(this).height()/2
+					});
 				}
 			});
 

@@ -61,7 +61,6 @@ function init() {
 				data: {"type": "event country"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -81,7 +80,6 @@ function init() {
 				data: {"type": "event type"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('EventLabelEventType'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: getLocalizedContent('EventLabelEventType'),
@@ -103,7 +101,6 @@ function init() {
 				data: {"type": "event dates"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('EventLabelDate'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -118,7 +115,6 @@ function init() {
 				data: {"type": "event product line"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -146,7 +142,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -173,7 +168,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -194,7 +188,6 @@ function init() {
 				data: {"type": "event language"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -218,7 +211,6 @@ function init() {
 							//$(this).multipleSelect('setSelects', [prevValue]);
 						}
 						else {
-							$(this).prev().text(title);
 							$(this).multipleSelect({
 								placeholder: title,
 								multiple: false,

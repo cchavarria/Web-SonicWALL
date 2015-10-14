@@ -12,7 +12,7 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-			<div class="media-player-container">
+			<div class="media-player-container bg-black">
 				<img src="http://ak.c.ooyala.com/JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV/promo264707190" class="img-responsive img-border">
 				<div class="img-overlay vertical-center horizontal-center">
 					<div>
@@ -39,10 +39,11 @@
 
 		<script>
 			var player_handle = null;
+			var html_class = $("html");
 
-			$('#player-wrapper').on('click', function () {
+			$('.media-player-container').on('click', function () {
 				OO.ready(function () {
-					player_handle = OO.Player.create('player-wrapper', 'JrcDM1dzpLcWbnRj8MejkXYRvUUKBSSV', {
+					player_handle = OO.Player.create('player-wrapper', '@Model.PageContent.Embed_Code', {
 						onCreate: OOCreate,
 						autoplay: true,
 						wmode: 'transparent'
@@ -55,9 +56,15 @@
 			addResize(function () {
 				// addResize is invoked as break points is hit when it is dragged
 				// height of player-wrapper is recalculated by 16 by 9 ratio
-				setTimeout(function () {
-					$('#player-wrapper').css('height', Math.floor($('#player-wrapper').width() * 9) / 16);
+				setTimeout( function() {
+					var h = Math.floor($('#player-wrapper').width() * 9) / 16;
+
+					$('#player-wrapper').css('height', h);
+					$('.media-player-container').css('height', h);
+					$('.media-player-container').find('.img-responsive').css('height', h);
 				}, 650);
+
+
 			}, true);
 		</script>
 	</div>
