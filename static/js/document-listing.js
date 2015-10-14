@@ -61,7 +61,6 @@ function init() {
 				data: {"type": "document country"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -76,7 +75,6 @@ function init() {
 				data: {"type": "document type"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('LabelDocumentType'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: getLocalizedContent('LabelDocumentType'),
@@ -101,7 +99,6 @@ function init() {
 				data: {"type": "document product line"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -129,7 +126,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -156,7 +152,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -177,7 +172,6 @@ function init() {
 				data: {"type": "document language"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -198,7 +192,6 @@ function init() {
 						//$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
