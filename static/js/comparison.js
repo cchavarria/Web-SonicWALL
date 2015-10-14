@@ -123,11 +123,9 @@ function processComparison(parentSelector) {
 						if(!$(this).data('direction')) {
 							if($.inArray(direction, ['left', 'right']) > -1) {
 								dir = 'horizontal';
-								console.log('set direction: horizontal');
 							}
 							else {
 								dir = 'vertical';
-								console.log('set direction: vertical');
 							}
 
 							$(this).data('direction', dir);
