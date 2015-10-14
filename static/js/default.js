@@ -29,6 +29,7 @@ $(document).ready(function () {
 			if ($(this).is(':visible') && !target.is(':visible')) {
 				$(this).hide().data('hidden-class', 'hidden');
 			}
+      $(this).prev().css('height', '');//reset height of parent container
 		});
 
 		if (target.is(':visible')) {
@@ -45,7 +46,7 @@ $(document).ready(function () {
 		else {
 			if (target.hasClass('hidden')) {
 				target.data('hidden-class', 'hidden');
-				target.removeClass('hidden');
+				target.removeClass('hidden').show();
 			}
 			else {
 				target.show();
@@ -401,6 +402,8 @@ addResize(function () {
 addResize(function() {
 	$('[data-toggle=show-offcanvas]').each(function() {
 		var target = $($(this).data('target'));
+    //reset height of the parent container
+    $(this).parents('.container').css('height','');
 
 		if (target.is(':visible')) {
 			if (target.data('hidden-class')) {
