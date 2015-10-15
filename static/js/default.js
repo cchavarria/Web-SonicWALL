@@ -516,7 +516,7 @@ function slickPlugin(parentSelector) {
 function processFlex() {
 	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
 		$('.vertical-center').each(function () {
-			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center');
+			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width();
 
 			//Reset
 			if($(this).data('flex-processed')) {
@@ -573,9 +573,11 @@ function processFlex() {
 
 			child.each(function() {
 				if ($(this).css('display') == 'block') {
-					$(this).css({
-						display: 'inline-block'
-					});
+					$(this).css({display: 'inline-block'});
+
+					if(width < $(this).width()) {
+						$(this).css({width: width});
+					}
 				}
 
 				$(this).css({
