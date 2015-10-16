@@ -472,26 +472,36 @@ function slickPlugin(parentSelector) {
 				$(this).slick('destroy');
 			}
 
+			if($(this).parents('.banner')) {
+				cfg.dots = true;
+				cfg.autoplaySpeed = 6000;
+				cfg.arrows = false;
+				cfg.slidesToShow = 1;
+				cfg.autoplay = false;
+			}
+
 			if ($(this).find('> div').length > cfg.slidesToShow) {
-				$(this).on('init', function (e, slick) {
-					var arrowsPos = 0, firstImage = $(this).find('img:first');
+				if(!$(this).parents('.banner')) {
+					$(this).on('init', function (e, slick) {
+						var arrowsPos = 0, firstImage = $(this).find('img:first');
 
-					if (firstImage.parent().hasClass('img-crop')) {
-						arrowsPos = firstImage.parent().height() / 2 - 30;
-					}
-					else if(firstImage.parents('.img-crop').length) {
-						arrowsPos = firstImage.parents('.img-crop').height() / 2 - 30;
-					}
-					else {
-						arrowsPos = firstImage.height() / 2 - 30;
-					}
+						if (firstImage.parent().hasClass('img-crop')) {
+							arrowsPos = firstImage.parent().height() / 2 - 30;
+						}
+						else if(firstImage.parents('.img-crop').length) {
+							arrowsPos = firstImage.parents('.img-crop').height() / 2 - 30;
+						}
+						else {
+							arrowsPos = firstImage.height() / 2 - 30;
+						}
 
-					$(this).find('.slick-arrow').css('top', arrowsPos);
+						$(this).find('.slick-arrow').css('top', arrowsPos);
 
-					if($(slick.$list).parent().data('screenshot')) {
-						fixScreenshot(slick, 0);
-					}
-				});
+						if($(slick.$list).parent().data('screenshot')) {
+							fixScreenshot(slick, 0);
+						}
+					});
+				}
 
 				$(this).slick(cfg);
 
