@@ -93,6 +93,13 @@
     display: inline-block;
     margin: 0 8px;
     padding: 0;
+    float: left;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
   .dsg-icon-title {
     display: none;
@@ -100,6 +107,7 @@
   > span {
     display: inline-block;
     margin-top: 2px;
+    margin-right: 5px;
     vertical-align: top;
   }
 }

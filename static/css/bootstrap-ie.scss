@@ -1,16 +1,5 @@
 @import "../bootstrap/custom/_variables";
 
-/*.ie {
-  select.form-control {
-    &.error {
-      background-color: $state-danger-bg;
-      background-image: url("/images/shared/formError.png");
-      background-position: 95% 50%;
-      background-repeat: no-repeat;
-    }
-  }
-}*/
-
 .ie8 {
   /* events w inline form */
   .event-form {
@@ -19,13 +8,58 @@
       min-width: 280px;
     }
   }
-  .optional-dropdown .triangle-top{
+  .triangle-top {
     background: url("/images/shared/sprites.png") -134px -176px no-repeat;
     height: 10px;
     top: -10px;
     width: 24px;
   }
-  #button-flyout{
+  .masthead .main-nav-section {
+    ul div.tier2 .triangle-top {
+      background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent;
+      top: 1px;
+    }
+    .nav-dropshadow {
+      background: url("/images/shared/ie8/nav-dropshadow.png") 0 0 repeat-x;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      padding: 0 !important;
+      margin-top: -10px
+    }
+  }
+  #country-selector{
+    padding-right:0 !important;
+    padding-left:0 !important;
+  }
+  #country-popup {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+    a {
+      background-color: transparent;
+      color: #fff !important;
+      &.active {
+        color: #fff;
+      }
+    }
+    > div {
+      &:before, &:after {
+        content: none;
+        background: none;
+      }
+      > div {
+        border-radius: 0;
+        background: none;
+        padding: 0;
+      }
+    }
+  }
+  #button-flyout {
     _position: absolute;
     top: 225px;
     _top: expression(eval(document.body.scrollTop));
@@ -67,6 +101,19 @@
       .site-canvas {
         position: relative;
         left: -276px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) { //SM
+  .ie8, .ie9 {
+    #affix-nav {
+      ul {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
+        li {
+          text-align: center; /* This is needed for IE8 to center the text */
+        }
       }
     }
   }

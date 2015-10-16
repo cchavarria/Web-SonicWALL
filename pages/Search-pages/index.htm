@@ -1,0 +1,99 @@
+[[widget:breadcrumb]]
+
+<div class="container">
+	<h1>Search results for 'Toad for oracle'</h1>
+</div><!-- /* h1 heading -->
+
+<div class="container visible-xs">
+	<div class="row">
+		<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20 mt-0-xs">
+			<p class="mt-7 mb-0 pull-left"><span class="total_results">1585</span> results</p>
+
+			<div class="nowrap pull-right">
+				<span class="mr-10 mb-0">Search by :</span>
+				<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">Filters (<span
+					class="filter-num">0</span>)</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="view-filters" class="container mb-40 hidden-xs">
+	<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
+		<p class="pull-left mt-7 mb-0"><span class="total_results">1585</span>results:</p>
+
+		<div class="text-right">
+			<a href="#" class="resetfilter mr-10">Clear all</a>
+			<a href="#" class="btn btn-primary off-canvas-back">Close </a>
+		</div>
+	</div>
+
+	<p class="text-md hidden-xs"><span class="total_results">1584</span> results :</p>
+
+	<section class="filters">
+		<div class="row mb-15 mb-0-xs">
+
+			<div class="col-sm-3 col-xs-12 pr-15-xs">
+				<span class="visible-xs pl-10">Sites</span><!-- add title here for now -->
+				<select class="ms mb-15-xs" id="sites" multiple="multiple" name="sites">
+					<option value="Support">Support</option>
+					<option value="Commnunities">Commnunities</option>
+				</select>
+			</div>
+
+			<div class="col-sm-3 col-xs-12 pr-15-xs">
+				<span class="visible-xs pl-10">Solution</span>
+				<select class="mb-15-xs" id="solution" multiple="multiple" name="solution">
+					<option value="Database Management, Design, and Development">Database Management, Design, and Development
+					</option>
+					<option value="Database Development and Management">Database Development and Management</option>
+					<option value="Database Management, Design, and Development">Business Intelligence</option>
+				</select>
+			</div>
+
+			<div class="col-sm-3 col-xs-12 pr-15-xs">
+				<span class="visible-xs pl-10">Product</span>
+				<select class="mb-15-xs" id="product" multiple="multiple" name="product">
+					<option value="Toad for Oracle">Toad for Oracle</option>
+					<option value="Toad DBA Suite for Oracle">Toad DBA Suite for Oracle</option>
+					<option value="Toad Development Suite for Oracle">Toad Development Suite for Oracle</option>
+				</select>
+
+			</div>
+
+			<div class="col-sm-3 col-xs-12 pr-15-xs">
+				<span class="visible-xs pl-10">Content Type</span>
+				<select class="mb-15-xs" id="content-type" multiple="multiple" name="content-type">
+					<option value="Case Study">Case Study</option>
+					<option value="Datasheet">Datasheet</option>
+					<option value="Case Study">Technical Briefs</option>
+					<option value="Datasheet">eBook</option>
+				</select>
+			</div>
+		</div>
+	</section>
+
+	<div class="mt-15 hidden-xs"><a class="resetfilter" href="#">Clear All</a></div>
+
+	<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
+		<p class="pull-left mt-7 mb-0"><span class="total_results">0 &nbsp;</span> Results</p>
+
+		<div class="text-right">
+			<a href="#" class="resetfilter mr-10">Clear All</a>
+			<a href="#" class="btn btn-primary off-canvas-back">Close</a>
+		</div>
+	</div>
+</div><!-- /* filters -->
+<div class="container">
+	<div class="row">
+		<div class="alert hidden" id="no-results">
+			<div class="alert-warning mb-0">
+				<h4>{{LabelListingNoResult}}</h4>
+
+				<div class="label-error-wrapper">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+</div> <!-- /* no results warning-->
+
+[[widget:search-results]]
+[[widget:simple-pagination]]

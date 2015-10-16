@@ -1,5 +1,9 @@
 /* Background Color */
 
+.bg-black {
+  background-color: $black;
+}
+
 .bg-light-grey {
   background-color: #f9f9f9;
   color: #444;
@@ -9,34 +13,19 @@
   background-color: #f9f9f9;
 }
 
-.border-grey {
-  border: 1px solid #cbcbcb;
-}
-
-.border-grey-2{
-  border: 1px solid #ddd;
-}
-
-.border-t-grey {
-  border-top: 1px solid #ccc;
-}
-
-.border-b-gray {
-  border-bottom: 1px solid #aaa;
-}
-
-.border-t-gray{
-  border-top: 1px solid #aaa;
-}
-
-.border-tb-grey {
-  border-top: 1px solid #cdcdcd;
-  border-bottom: 1px solid #cdcdcd;
-}
-
-.anchor-blue{
+.anchor-blue {
   color: #007db8;
 }
+
+a[class^="icon-"]:hover, a[class^="icon-"]:focus {
+  text-decoration: none;
+  color: $dell-blue;
+}
+
+a.no-underline:hover {
+  text-decoration: none;
+}
+
 .polaris-divider {
   border-top: 1px solid #eee;
   position: relative;
@@ -92,14 +81,35 @@ li {
 .full-width {
   width: 100% !important;
 }
+
 .full-height {
   height: 100%;
+}
+
+.pos-relative {
+  position: relative;
 }
 
 /* iframe */
 
 iframe {
   border: 0;
+}
+
+/* Vertical Alignment */
+
+.valign-top {
+  vertical-align: top;
+}
+
+.valign-text-top {
+  vertical-align: text-top;
+}
+
+/* Overflow */
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 /*display*/
@@ -111,37 +121,38 @@ iframe {
   display: inline !important;
 }
 
+.inline-block {
+  display: inline-block !important;
+}
+
 .vertical-center {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex !important;  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex !important; /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+
+  > div {
+    overflow: hidden;
+  }
 }
 
 .horizontal-center {
+  -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
 }
 
-@media (max-width: 767px) { //Mobile - XS
-  //XS
+@media (max-width: 767px) {
+  //Mobile - XS
   #right-rail-form {
     label {
       padding-top: 8px;
       padding-bottom: 0;
     }
-  }
-  .no-border-xs {
-    border: none !important;
-  }
-  .border-t-gray-xs {
-    border-top: 1px solid #aaa;
-  }
-  .border-b-gray-xs {
-    border-bottom: 1px solid #aaa;
   }
   .center-block-xs {
     display: block;
@@ -151,12 +162,13 @@ iframe {
   .text-center-xs {
     text-align: center;
   }
-  .bg-white-xs{
+  .bg-white-xs {
     background-color: #fff;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) { //Tablet - SM
+@media (min-width: 768px) and (max-width: 991px) {
+  //Tablet - SM
   .center-block-sm-only {
     display: block;
     margin-left: auto;
@@ -173,7 +185,8 @@ iframe {
   }
 }
 
-@media (min-width: 768px) { //Tablet - SM
+@media (min-width: 768px) {
+  //Tablet - SM
   #right-rail-form {
     label {
       padding-top: 8px;
@@ -188,6 +201,9 @@ iframe {
     margin-left: auto;
     margin-right: auto;
   }
+  .text-center-sm {
+    text-align: center;
+  }
   .text-right-sm {
     text-align: right;
   }
@@ -197,9 +213,13 @@ iframe {
   .pull-left-sm {
     float: left;
   }
+  .inline-block-sm {
+    display: inline-block !important;
+  }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) { //Desktop - MD
+@media (min-width: 992px) and (max-width: 1199px) {
+  //Desktop - MD
   .pull-left-md-only {
     float: left;
   }
@@ -208,7 +228,8 @@ iframe {
   }
 }
 
-@media (min-width: 992px) { //Desktop - MD
+@media (min-width: 992px) {
+  //Desktop - MD
   #right-rail-form {
     label {
       padding-top: 8px;

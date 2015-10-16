@@ -61,7 +61,6 @@ function init() {
 				data: {"type": "document country"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -76,7 +75,6 @@ function init() {
 				data: {"type": "document type"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('LabelDocumentType'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: getLocalizedContent('LabelDocumentType'),
@@ -101,7 +99,6 @@ function init() {
 				data: {"type": "document product line"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -129,7 +126,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -156,7 +152,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -177,7 +172,6 @@ function init() {
 				data: {"type": "document language"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -198,7 +192,6 @@ function init() {
 						//$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -273,7 +266,7 @@ function init() {
 				setFilterNum();
 				populateListing();
 			}).fail(function () {
-				alert('Failed');
+				console.log('Failed');
 			});
 		});
 
@@ -348,9 +341,14 @@ function init() {
 		});
 
 		function setFilterValue(elem, val) {
-			if (elem.multipleSelect('getSelects') != elem.val()) {
+			if (elem.multipleSelect('getSelects') != elem.val() || elem.attr('id') == 'language') {
 				var value = '';
 
+				// default language override
+				if (elem.attr('id') == 'language' && val.length > 1) {
+					var digitlocal = setLanguageCode(val);
+					elem.multipleSelect('setSelects', [digitlocal]);
+				}
 				elem.find('option').each(function () {
 					if ($(this).text().replace(/[\s\W]/g, '').toLowerCase() == val) {
 						elem.multipleSelect('setSelects', [$(this).val()]);
@@ -407,6 +405,9 @@ function init() {
 
 addResize(function () {
 	populateListing(true);
+
+	//reset filter nums
+	setFilterNum();
 });
 
 // makes ajax call, result list and index
@@ -460,7 +461,7 @@ function populateListing(clear) {
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.documenttype + ': ' + val.title + ' </h4> ';
 
 			if (val.description != null) {
-				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
+				htmlFragment += '<p class="teaser dotdotdot" data-max-line="5"> ' + $('<div>' + val.description + '</div>').text() + ' </p>';
 			}
 
 			if (val.date != '') {
@@ -544,59 +545,66 @@ function buildAHashTag() {
 }
 
 function getLanguageCode() {
+	var langval = 53;
 	if (typeof RootPath == 'string') {
 		switch (RootPath) {
 			case '/br-pt/':
-				initlangval = 139;
+				langval = 139;
 				break;
 			case '/mx-es/':
-				initlangval = 156;
+				langval = 156;
 				break;
 			case '/cn-zh/':
-				initlangval = 202;
+				langval = 202;
 				break;
 			case '/jp-ja/':
-				initlangval = 109;
+				langval = 109;
 				break;
 			case '/fr-fr/':
-				initlangval = 75;
+				langval = 75;
 				break;
 			case '/de-de/':
-				initlangval = 86;
+				langval = 86;
 				break;
-			default:
-				initlangval = 53;
-				break;
-		}
-
-		if (location.host == 'stage-software-dell-com') {
-			switch (RootPath) {
-				case '/br-pt/':
-					initlangval = 139;
-					break;
-				case '/mx-es/':
-					initlangval = 156;
-					break;
-				case '/cn-zh/':
-					initlangval = 202;
-					break;
-				case '/jp-ja/':
-					initlangval = 109;
-					break;
-				case '/fr-fr/':
-					initlangval = 75;
-					break;
-				case '/de-de/':
-					initlangval = 86;
-					break;
-				default:
-					initlangval = 53;
-					break;
-			}
 		}
 	}
+	return langval;
+}
 
-	return initlangval;
+
+function setLanguageCode(localstr) {
+	var tmp = localstr.toLowerCase();
+	var langval = 53;
+	switch (tmp) {
+		case 'portuguese':
+			langval = 139;
+			break;
+		case 'spanish':
+			langval = 156;
+			break;
+		case 'chinese':
+			langval = 202;
+			break;
+		case 'japanese':
+			langval = 109;
+			break;
+		case 'french':
+			langval = 75;
+			break;
+		case 'german':
+			langval = 86;
+			break;
+		case 'dutch':
+			langval = 50;
+			break;
+		case 'italian':
+			langval = 106;
+			break;
+		case 'korean':
+			langval = 117;
+			break;
+	}
+	return langval;
 }
 
 // iterates selected filters and createsd dataset for ajax call

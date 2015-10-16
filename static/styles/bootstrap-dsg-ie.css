@@ -1,6 +1,18 @@
 /*$headings-font-family:    inherit !default;*/
 .ie8 .bootstrap #list-countries-popup > div:before, .ie8 .bootstrap #list-countries-popup > div:after {
   background-color: transparent; }
+.ie8 .bootstrap.not-responsive #bottom-header > div.wrapper ul div.tier2 .triangle-top {
+  background: url("/images/shared/navigation-caret-tier2.png") 0 0 no-repeat transparent !important;
+  top: 8px; }
+.ie8 .bootstrap .masthead .main-nav-section .nav-dropshadow {
+  background: url("/images/shared/ie8/nav-dropshadow.png") 0 0 repeat-x;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  padding: 0 !important;
+  margin-top: -10px; }
 
 @media (max-width: 767px) {
   .ie9.openNav .site-canvas {
@@ -39,5 +51,35 @@
     .ie8 .contact-drawer .contact-drawer-tab.change-btn-position {
       top: -1px;
       left: -30px; }
+.ie8 .not-responsive.bootstrap #country-selector {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+.ie8 .not-responsive.bootstrap #country-popup {
+  display: none;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  box-shadow: none;
+  border-radius: 0; }
+  .ie8 .not-responsive.bootstrap #country-popup a {
+    background-color: transparent;
+    color: #fff !important; }
+    .ie8 .not-responsive.bootstrap #country-popup a.active {
+      color: #fff; }
+  .ie8 .not-responsive.bootstrap #country-popup > div:before, .ie8 .not-responsive.bootstrap #country-popup > div:after {
+    content: none;
+    background: none; }
+  .ie8 .not-responsive.bootstrap #country-popup > div > div {
+    border-radius: 0;
+    background: none;
+    padding: 0; }
+.ie8 .not-responsive.bootstrap #current-country > span {
+  background: url("/images/shared/sprites.png") -104px -128px no-repeat;
+  display: inline-block;
+  width: 12px;
+  height: 6px;
+  vertical-align: bottom;
+  padding-top: 8px !important;
+  margin-left: 5px; }
 
 /*Elnaz adding fixes for DSG DP/Windows Soltuion Template vs. Dell STP Template A/B Test end*/

@@ -10,7 +10,7 @@
 @import "../bootstrap/partials/glyphicons";
 
 // Core CSS
-@import "../bootstrap/partials/scaffolding";
+@import "../bootstrap/custom/scaffolding";
 @import "../bootstrap/custom/type";
 @import "../bootstrap/partials/code";
 @import "../bootstrap/partials/grid";
@@ -20,7 +20,7 @@
 @import "../bootstrap/custom/buttons";
 
 // Components
-@import "../bootstrap/partials/component-animations";
+@import "../bootstrap/custom/component-animations";
 @import "../bootstrap/custom/dropdowns";
 @import "../bootstrap/partials/button-groups";
 @import "../bootstrap/partials/input-groups";
@@ -37,7 +37,6 @@
 /*@import "bootstrap/progress-bars";*/
 @import "../bootstrap/partials/media";
 @import "../bootstrap/partials/list-group";
-@import "../bootstrap/custom/panels";
 @import "../bootstrap/partials/responsive-embed";
 /*@import "bootstrap/wells";*/
 @import "../bootstrap/partials/close";
@@ -53,15 +52,16 @@
 
 @import "../bootstrap/custom/off-canvas";
 @import "../bootstrap/widgets/date";
-@import "../bootstrap/custom/_text";
+@import "../bootstrap/custom/text";
 @import "../bootstrap/custom/dell-background-color";
+@import "../bootstrap/custom/panels";
+@import "../bootstrap/custom/borders";
 
 @import "../bootstrap/widgets/hero-banner";
 @import "../bootstrap/widgets/screenshot-carousel";
 @import "../bootstrap/widgets/social-sharing";
 @import "../bootstrap/widgets/slide";
 @import "../bootstrap/widgets/events";
-@import "../bootstrap/widgets/video";
 @import "../bootstrap/widgets/fat-tabs";
 @import "../bootstrap/widgets/4-column-non-carousel";
 @import "../bootstrap/widgets/content-teaser";
@@ -72,6 +72,12 @@
 @import "../bootstrap/widgets/filters";
 @import "../bootstrap/widgets/multiple-select";
 @import "../bootstrap/widgets/button-flyout";
+@import "../bootstrap/widgets/simple-pagination";
+@import "../bootstrap/widgets/banner";
+@import "../bootstrap/widgets/comparison";
+
+@import "../bootstrap/custom/collapsed";
+@import "../bootstrap/custom/3playmedia";
 
 // Components w/ JavaScript
 @import "../bootstrap/partials/modals";

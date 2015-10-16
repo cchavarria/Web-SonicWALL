@@ -70,6 +70,9 @@ $(document).ready(function () {
 			else {
 				elem.addClass('open');
 
+				//fix for sonicwall height
+				$('body').trigger('subnav.visible');
+
 				if (pageType == 0) { //Mobile
 					//Animate background color to notify user that they have touched that element.
 					//Require: jQuery Color v2.1.2 plugin
@@ -229,6 +232,8 @@ function addResize(fn, runImmediately, type) {
 		}
 	}
 
+	//TODO: Account for duplication.
+
   resizeFn.push({fn: fn, type: type});
 }
 
@@ -284,4 +289,34 @@ function getLocalizedContent(tags) {
 	}
 
 	return deferred;
+}
+
+//Determines when CSS transitions end.
+function transitionEnd(e, fn) {
+	var e = $(e).get(0), listenedEvent = '';
+
+	function whichTransitionEvent(){
+		var t, el = document.createElement('fakeelement'), transitions = {
+			'transition':'transitionend',
+			'OTransition':'oTransitionEnd',
+			'MozTransition':'transitionend',
+			'WebkitTransition':'webkitTransitionEnd'
+		};
+
+		for(t in transitions){
+			if( el.style[t] !== undefined ){
+				listenedEvent = transitions[t];
+				return transitions[t];
+			}
+		}
+	}
+
+	function listenerFn() {
+		fn.call(this);
+		e.removeEventListener(listenedEvent, listenerFn);
+	}
+
+	var transitionEvent = whichTransitionEvent();
+
+	transitionEvent && e.addEventListener(transitionEvent, listenerFn);
 }

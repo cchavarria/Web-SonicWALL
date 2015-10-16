@@ -1,3 +1,7 @@
+if (typeof RootPath == 'undefined') {
+	RootPath = '/';
+}
+
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
 	entriesPerType = { //xs,sm - need to consult with cindy chan.
 		'0': 6,
@@ -49,10 +53,6 @@ if ($.fn.multipleSelect) {
 	});
 }
 
-if (typeof RootPath == 'undefined') {
-	RootPath = '/';
-}
-
 function init() {
 	// Local variable value
 	var ajaxArr = [],
@@ -61,7 +61,6 @@ function init() {
 				data: {"type": "event country"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -81,7 +80,6 @@ function init() {
 				data: {"type": "event type"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('EventLabelEventType'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: getLocalizedContent('EventLabelEventType'),
@@ -103,7 +101,6 @@ function init() {
 				data: {"type": "event dates"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(getLocalizedContent('EventLabelDate'));
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -118,7 +115,6 @@ function init() {
 				data: {"type": "event product line"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -146,7 +142,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -173,7 +168,6 @@ function init() {
 						$(this).multipleSelect('setSelects', [prevValue]);
 					}
 					else {
-						$(this).prev().text(title);
 						$(this).parent().removeClass('hidden');
 						$(this).multipleSelect({
 							placeholder: title,
@@ -194,7 +188,6 @@ function init() {
 				data: {"type": "event language"},
 				init: true,
 				callback: function (title) {
-					$(this).prev().text(title);
 					$(this).parent().removeClass('hidden');
 					$(this).multipleSelect({
 						placeholder: title,
@@ -209,7 +202,7 @@ function init() {
 				data: {"type": "event state"},
 				init: false,
 				callback: function (title) {
-					if($(this).find('option').length > 1) {
+					if ($(this).find('option').length > 1) {
 						$(this).parent().removeClass('hidden').show().find('.ms-parent').removeClass('hidden').show();
 
 						if (typeof $(this).data('multipleSelect') == 'object') {
@@ -218,7 +211,6 @@ function init() {
 							//$(this).multipleSelect('setSelects', [prevValue]);
 						}
 						else {
-							$(this).prev().text(title);
 							$(this).multipleSelect({
 								placeholder: title,
 								multiple: false,
@@ -294,7 +286,7 @@ function init() {
 				setFilterNum();
 				populateListing();
 			}).fail(function () {
-				alert('Failed');
+				console.log('Failed');
 			});
 		});
 
@@ -316,7 +308,7 @@ function init() {
 					else {
 						$(this).multipleSelect('uncheckAll');
 
-						if($(this).attr('id') == 'state_province') {
+						if ($(this).attr('id') == 'state_province') {
 							$(this).parent().hide();
 						}
 					}
@@ -327,7 +319,7 @@ function init() {
 				ajaxArr.push(populateDropdowns(j, filterMap[j].data, filterMap[j].callback));
 			});
 
-			$.when(ajaxArr).done(function() {
+			$.when(ajaxArr).done(function () {
 				ajaxArr = [];
 				filterElem.data('continue', true);
 				populateListing(true);
@@ -369,8 +361,15 @@ function init() {
 		});
 
 		function setFilterValue(elem, val) {
-			if (elem.multipleSelect('getSelects') != elem.val()) {
+			// support language hash tag other than default locality
+			if (elem.multipleSelect('getSelects') != elem.val() || elem.attr('id') == 'language') {
 				var value = '';
+
+				// default language override
+				if (elem.attr('id') == 'language' && val.length > 1) {
+					var digitlocal = setLanguageCode(val);
+					elem.multipleSelect('setSelects', [digitlocal]);
+				}
 
 				elem.find('option').each(function () {
 					if ($(this).text().replace(/[\s\W]/g, '').toLowerCase() == val) {
@@ -381,7 +380,7 @@ function init() {
 					}
 				});
 
-				if(elem.attr('id') == 'brand' && value != '') {
+				if (elem.attr('id') == 'brand' && value != '') {
 					$.each(['product', 'solution'], function (i, j) {
 						populateDropdowns(j, $.extend({}, filterMap[j].data, {brand: value}), filterMap[j].callback);
 					});
@@ -402,16 +401,16 @@ function init() {
 			dataType: 'JSON',
 			data: data
 		}).done(function (dataopt) {
-			if(dropdown != 'event_type') {
+			if (dropdown != 'event_type') {
 				dataopt.title = allDropdownLabel[dropdown];
 				elem.append('<option value="">' + dataopt.title + '</option>');
 			}
 
 			$.each(dataopt.data, function (key, val) {
-				if(val.englishname) {
+				if (val.englishname) {
 					elem.append('<option value="' + val.id + '" data-name="' + val.englishname + '">' + val.value + '</option>');
 				}
-				else if(val.englishvalue) {
+				else if (val.englishvalue) {
 					elem.append('<option value="' + val.id + '" data-name="' + val.englishvalue + '">' + val.value + '</option>');
 				}
 				else {
@@ -428,6 +427,9 @@ function init() {
 
 addResize(function () {
 	populateListing(true);
+
+	//reset filter nums
+	setFilterNum();
 });
 
 // makes ajax call, result list and index
@@ -443,7 +445,8 @@ function populateListing(clear) {
 
 	buildAHashTag();
 
-	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');;
+	var dataset = getDataSet(!clear), viewMoreButton = $('#view-more');
+	;
 
 	if (dataset === false) {
 		rowContainer.empty();
@@ -493,7 +496,7 @@ function populateListing(clear) {
 				'    <img class="img-responsive" src="/images/shared/listing-entries/' + event_img + '" alt=""> ' +
 				'  </div> ' +
 				'  <h4 class="text-blue dotdotdot" data-max-line="3">' + val.title + ' </h4> ' +
-				'  <p class="teaser dotdotdot" data-max-line="5"> ' + val.description + ' </p>';
+				'  <p class="teaser dotdotdot" data-max-line="5"> ' + $('<div>' + val.description + '</div>').text() + ' </p>';
 
 			if ($.inArray(val.typeid, [1, 2]) > -1) {
 				htmlFragment += '<p class="dates">' + getLocalizedContent('EventLabelDate') + ': ' + val.date + '</p>';
@@ -502,7 +505,7 @@ function populateListing(clear) {
 				htmlFragment += '<p>' + getLocalizedContent('EventLabelRecordedDate') + ': ' + val.recordeddate + '</p>';
 			}
 
-			if(val.location) {
+			if (val.location) {
 				htmlFragment += '<p>' + getLocalizedContent('EventLabelLocation') + ': ' + val.location + '</p>';
 			}
 
@@ -551,8 +554,8 @@ function buildAHashTag() {
 
 		if (id == 'event_type') {
 			if (val.length == 1) {
-				elem.find('option').each(function() {
-					if($(this).attr('value') == val[0]) {
+				elem.find('option').each(function () {
+					if ($(this).attr('value') == val[0]) {
 						hashArr.push($.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
 
 						return false;
@@ -561,8 +564,8 @@ function buildAHashTag() {
 			}
 		}
 		else if (id != 'language' || (id == 'language' && parseInt(val[0]) != getLanguageCode())) {
-			elem.find('option').each(function() {
-				if($(this).attr('value') == val[0]) {
+			elem.find('option').each(function () {
+				if ($(this).attr('value') == val[0]) {
 					hashArr.push(prefix + $.trim($(this).data('name') || $(this).text()).toLowerCase().replace(/[\s\W]/g, ''));
 
 					return false;
@@ -571,7 +574,7 @@ function buildAHashTag() {
 		}
 	});
 
-	if(hashArr.length) {
+	if (hashArr.length) {
 		var newHash = hashArr.join('_');
 		location.hash = (newHash == '') ? ' ' : newHash;
 	}
@@ -583,60 +586,67 @@ function buildAHashTag() {
 }
 
 function getLanguageCode() {
-	if (typeof RootPath == 'string') {
-		switch (RootPath) {
-			case '/br-pt/':
-				initlangval = 139;
-				break;
-			case '/mx-es/':
-				initlangval = 156;
-				break;
-			case '/cn-zh/':
-				initlangval = 202;
-				break;
-			case '/jp-ja/':
-				initlangval = 109;
-				break;
-			case '/fr-fr/':
-				initlangval = 75;
-				break;
-			case '/de-de/':
-				initlangval = 86;
-				break;
-			default:
-				initlangval = 53;
-				break;
-		}
+	var langval = 53;
 
-		if (location.host == 'stage-software-dell-com') {
-			switch (RootPath) {
-				case '/br-pt/':
-					initlangval = 139;
-					break;
-				case '/mx-es/':
-					initlangval = 156;
-					break;
-				case '/cn-zh/':
-					initlangval = 202;
-					break;
-				case '/jp-ja/':
-					initlangval = 109;
-					break;
-				case '/fr-fr/':
-					initlangval = 75;
-					break;
-				case '/de-de/':
-					initlangval = 86;
-					break;
-				default:
-					initlangval = 53;
-					break;
-			}
-		}
+	switch (RootPath) {
+		case '/br-pt/':
+			langval = 139;
+			break;
+		case '/mx-es/':
+			langval = 156;
+			break;
+		case '/cn-zh/':
+			langval = 202;
+			break;
+		case '/jp-ja/':
+			langval = 109;
+			break;
+		case '/fr-fr/':
+			langval = 75;
+			break;
+		case '/de-de/':
+			langval = 86;
+			break;
 	}
 
-	return initlangval;
+	return langval;
 }
+
+function setLanguageCode(localstr) {
+	var tmp = localstr.toLowerCase();
+	var langval = 53;
+	switch (tmp) {
+		case 'portuguese':
+			langval = 139;
+			break;
+		case 'spanish':
+			langval = 156;
+			break;
+		case 'chinese':
+			langval = 202;
+			break;
+		case 'japanese':
+			langval = 109;
+			break;
+		case 'french':
+			langval = 75;
+			break;
+		case 'german':
+			langval = 86;
+			break;
+		case 'dutch':
+			langval = 50;
+			break;
+		case 'italian':
+			langval = 106;
+			break;
+		case 'korean':
+			langval = 117;
+			break;
+	}
+	return langval;
+}
+
 
 // iterates selected filters and createsd dataset for ajax call
 function getDataSet(incrementPage) {
@@ -686,12 +696,12 @@ function getDataSet(incrementPage) {
 function setFilterNum() {
 	var counter = 0;
 
-	$('.filters').find('select').each(function() {
-		if(($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
+	$('.filters').find('select').each(function () {
+		if (($(this).is(':visible') || pageType == 0) && $(this).data('multipleSelect') !== undefined) {
 			var selects = $(this).multipleSelect('getSelects');
 
-			if(selects.length == 1) {
-				if(selects[0] != '') {
+			if (selects.length == 1) {
+				if (selects[0] != '') {
 					counter++;
 				}
 			}

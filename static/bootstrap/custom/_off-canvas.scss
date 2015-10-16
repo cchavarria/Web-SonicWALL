@@ -1,27 +1,28 @@
 /*off canvas*/
 
 #off-canvas {
-  display: none;
+  @include opacity(0);
+  @include transition(opacity .5s ease 0s);
   position: absolute;
   top: 0;
   left: 100%;
   width: 100%;
-
   .off-canvas-content {
     padding: 15px;
-
-    .container {
-      padding: 0;
-    }
   }
 }
 
+body {
+  @include transition(left .5s ease 0s);
+  left: 0;
+}
+
 .off-canvas-mode {
-  position: absolute;
-  width: 100%;
+  left: -100%;
 
   #off-canvas {
-    display: block;
+    @include opacity(1);
+    left: 100%;
   }
 }
 

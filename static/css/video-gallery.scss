@@ -1,0 +1,23 @@
+.listing-entries {
+   .img-border {
+     height: 186.40px;
+   }
+ }
+
+@media (min-width: 768px) { //SM - tablet
+  .listing-entries .img-border {
+    height: 124.45px;
+  }
+}
+
+@media (min-width: 992px) { //MD - Desktop
+  .listing-entries .img-border {
+    height: 120.25px;
+  }
+}
+
+@media (min-width: 1200px) { //LG - Desktop
+  .listing-entries .img-border {
+    height: 152.65px;
+  }
+}
