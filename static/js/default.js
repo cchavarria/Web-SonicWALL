@@ -582,14 +582,14 @@ function processFlex() {
 
 				$(this).css({
 					position: 'absolute',
-					left: '50%',
-					marginLeft: -1 * $(this).width()/2
+					top: '50%',
+					marginTop: -1 * $(this).height()/2
 				});
 
 				if (centerHorizontal) {
 					$(this).css({
-						top: '50%',
-						marginTop: -1 * $(this).height()/2
+						left: '50%',
+						marginLeft: -1 * $(this).width()/2
 					});
 				}
 			});
