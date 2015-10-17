@@ -710,7 +710,7 @@ function loadOoyala(parentSelector) {
 				loadJS();
 			}
 			else {
-				$('head').append('<link rel="stylesheet" href="/static/css/video-player.min.css">');
+				$('head').append('<link rel="stylesheet" href="/static/css/video-player.min.css?' + new Date().getTime() + '">');
 
 				$.getScript('/static/js/video-player.min.js', function () {
 					loadJS();
