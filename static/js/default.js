@@ -431,7 +431,7 @@ function slickPlugin(parentSelector) {
 			init();
 		}
 		else {
-			$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css">');
+			$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
 			$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
 		}
 	}
@@ -472,7 +472,7 @@ function slickPlugin(parentSelector) {
 				$(this).slick('destroy');
 			}
 
-			if($(this).parents('.banner')) {
+			if($(this).parents('.banner').length) {
 				cfg.dots = true;
 				cfg.autoplaySpeed = 6000;
 				cfg.arrows = false;
@@ -481,7 +481,7 @@ function slickPlugin(parentSelector) {
 			}
 
 			if ($(this).find('> div').length > cfg.slidesToShow) {
-				if(!$(this).parents('.banner')) {
+				if(!$(this).parents('.banner').length) {
 					$(this).on('init', function (e, slick) {
 						var arrowsPos = 0, firstImage = $(this).find('img:first');
 
