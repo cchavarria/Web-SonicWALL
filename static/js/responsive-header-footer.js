@@ -136,8 +136,12 @@ $(document).ready(function () {
 	$('footer').on('click', 'a', function(e) {
 		e.preventDefault();
 		e.stopImmediatePropagation();
-
-		location.href = $(this).attr('href');
+		//added this condition to open links in a new tab when needed
+		if($(this).attr('target')!= undefined && $(this).attr('target') == '_blank'){
+			window.open($(this).attr('href'));
+		}else{
+			location.href = $(this).attr('href');
+		}
 	});
 });
 
