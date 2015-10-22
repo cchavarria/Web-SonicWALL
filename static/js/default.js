@@ -79,6 +79,10 @@ $(document).ready(function () {
 				}
 			});
 
+			setTimeout(function() {
+				processFlex(target);
+			}, 250);
+
 			processEllipsis(target);
 		}
 	});
@@ -523,10 +527,18 @@ function slickPlugin(parentSelector) {
 	}
 }
 
-function processFlex() {
-	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
-		$('.vertical-center').each(function () {
-			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width();
+function processFlex(parentSelector) {
+	if (typeof parentSelector == 'undefined') {
+		parentSelector = 'body';
+	}
+
+	if ($(parentSelector).find('.vertical-center').length && !$('html').hasClass('flexbox')) {
+		$(parentSelector).find('.vertical-center').each(function () {
+			if(!$(this).is(':visible')) {
+				return true;
+			}
+
+			var child = $(this).children();
 
 			//Reset
 			if($(this).data('flex-processed')) {
@@ -545,8 +557,11 @@ function processFlex() {
 					$(this).get(0).style.top = '';
 					$(this).get(0).style.marginLeft = '';
 					$(this).get(0).style.marginTop = '';
+					$(this).get(0).width = '';
 				});
 			}
+
+			var centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width(), height = $(this).height();
 
 			/*var height = $(this).height(),
 				width = $(this).outerWidth(),
@@ -584,23 +599,30 @@ function processFlex() {
 			child.each(function() {
 				if ($(this).css('display') == 'block') {
 					$(this).css({display: 'inline-block'});
-
-					if(width < $(this).width()) {
-						$(this).css({width: width});
-					}
 				}
 
-				$(this).css({
-					position: 'absolute',
-					top: '50%',
-					marginTop: -1 * $(this).height()/2
-				});
+				//If the centered width is greater than the parent element, set the width of the inner element.
+				if(width < $(this).width()) {
+					console.log(width);
+					$(this).css({width: width});
+				}
 
-				if (centerHorizontal) {
+				if(height > $(this).height()) {
 					$(this).css({
-						left: '50%',
-						marginLeft: -1 * $(this).width()/2
+						position: 'absolute',
+						top: '50%',
+						marginTop: -1 * $(this).height() / 2
 					});
+				}
+
+				if(width > $(this).width()) {
+					if (centerHorizontal) {
+						$(this).css({
+							position: 'absolute',
+							left: '50%',
+							marginLeft: -1 * $(this).width()/2
+						});
+					}
 				}
 			});
 

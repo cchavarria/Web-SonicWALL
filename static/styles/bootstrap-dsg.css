@@ -6749,7 +6749,8 @@
     width: 30px; }
 
 .img-crop {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .media-player-container {
   overflow: hidden; }
