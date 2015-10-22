@@ -78,7 +78,9 @@ $(document).ready(function () {
 					}
 				}
 			});
-
+			if($('html').hasClass('ie9')){
+				processFlex();
+			}
 			processEllipsis(target);
 		}
 	});
