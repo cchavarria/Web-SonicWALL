@@ -528,7 +528,7 @@ function slickPlugin(parentSelector) {
 function processFlex() {
 	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
 		$('.vertical-center').each(function () {
-			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width();
+			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width(), height = $(this).height();
 
 			//Reset
 			if($(this).data('flex-processed')) {
@@ -586,23 +586,29 @@ function processFlex() {
 			child.each(function() {
 				if ($(this).css('display') == 'block') {
 					$(this).css({display: 'inline-block'});
-
-					if(width < $(this).width()) {
-						$(this).css({width: width});
-					}
 				}
 
-				$(this).css({
-					position: 'absolute',
-					top: '50%',
-					marginTop: -1 * $(this).height()/2
-				});
+				//If the centered width is greater than the parent element, set the width of the inner element.
+				if(width < $(this).width()) {
+					$(this).css({width: width});
+				}
 
-				if (centerHorizontal) {
+				if(height > $(this).height()) {
 					$(this).css({
-						left: '50%',
-						marginLeft: -1 * $(this).width()/2
+						position: 'absolute',
+						top: '50%',
+						marginTop: -1 * $(this).height() / 2
 					});
+				}
+
+				if(width > $(this).width()) {
+					if (centerHorizontal) {
+						$(this).css({
+							position: 'absolute',
+							left: '50%',
+							marginLeft: -1 * $(this).width()/2
+						});
+					}
 				}
 			});
 
