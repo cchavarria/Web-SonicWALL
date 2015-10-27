@@ -1,15 +1,19 @@
 $(function () {
   if ($('.set-height').length) {
     addResize('heightFix', true);
-    setMaxHeight();
+    if(pageType != 0){
+      setMaxHeight();
+    }
   }
 });
 
 function heightFix() {
   if (pageType != 0) {
+    $('.collapse-xs').removeClass('collapse');
     setMaxHeight();
   } else {
     $('.set-height').find(' > div > div > div').css('height', 'auto');
+    $('.collapse-xs').addClass('collapse');
   }
 }
 
@@ -20,6 +24,16 @@ function setMaxHeight() {
     columns.each(function () {
       maxHeight = $(this).height() > maxHeight ? $(this).height() : maxHeight;
     });
-    columns.find('> div').css('height', maxHeight);
+
+    if(pageType == 1){
+      columns.find('> div').each(function(){
+        if(!$(this).hasClass('height-auto-sm')){
+          $(this).css('height',maxHeight);
+        }
+      });
+    }else{
+      columns.find('> div').css('height',maxHeight);
+    }
+
   });
 }
