@@ -6379,6 +6379,9 @@
     padding-left: 10px !important; }
   .bootstrap .pr-0 {
     padding-right: 0 !important; }
+  .bootstrap .ph-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
   .bootstrap .ph-15 {
     padding-left: 15px !important;
     padding-right: 15px !important; }
@@ -6535,6 +6538,8 @@
       margin-right: 20px !important; }
     .bootstrap .mb-20-sm-only {
       margin-bottom: 20px !important; }
+    .bootstrap .mb-30-sm-only {
+      margin-bottom: 30px !important; }
     .bootstrap .mh-0-sm-only {
       margin-left: 0 !important;
       margin-right: 0 !important; }

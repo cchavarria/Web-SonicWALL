@@ -5250,6 +5250,10 @@ iframe {
 .pr-0 {
   padding-right: 0 !important; }
 
+.ph-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
 .ph-15 {
   padding-left: 15px !important;
   padding-right: 15px !important; }
@@ -5478,6 +5482,9 @@ iframe {
 
   .mb-20-sm-only {
     margin-bottom: 20px !important; }
+
+  .mb-30-sm-only {
+    margin-bottom: 30px !important; }
 
   .mh-0-sm-only {
     margin-left: 0 !important;
@@ -7022,6 +7029,9 @@ body {
 
 .bg-dark-grey {
   background-color: #444444; }
+
+.bg-white {
+  background-color: white; }
 
 /*
   Description: collapsible panels
