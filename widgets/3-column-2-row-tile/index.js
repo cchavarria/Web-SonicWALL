@@ -9,11 +9,9 @@ $(function () {
 
 function heightFix() {
   if (pageType != 0) {
-    $('.collapse-xs').removeClass('collapse').css('height','');
     setMaxHeight();
   } else {
     $('.set-height').find(' > div > div > div').css('height', 'auto');
-    $('.collapse-xs').addClass('collapse');
   }
 }
 

@@ -135,7 +135,12 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 			slickPlugin('#off-canvas');
 			loadOoyala('#off-canvas');
 			if($('.comparison').length){
-				processComparison('#off-canvas');
+        if(typeof processComparison == 'function') {
+          processComparison('#off-canvas');
+        }
+        else {
+          $.getScript('/static/js/comparison.min.js');
+        }
 			}
 
 			if($('#off-canvas').find('.panel-group-collapsible-xs').length) {
