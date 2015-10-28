@@ -134,7 +134,9 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 			resizeFourColumnFilmstripCarousel('#off-canvas');
 			slickPlugin('#off-canvas');
 			loadOoyala('#off-canvas');
-			processComparison('#off-canvas');
+			if($('.comparison').length){
+				processComparison('#off-canvas');
+			}
 
 			if($('#off-canvas').find('.panel-group-collapsible-xs').length) {
 				var parentID = getRandomString(8);
