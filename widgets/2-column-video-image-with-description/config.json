@@ -1,8 +1,0 @@
-{
-  "css": [
-    "/static/library/css/video-player.css"
-  ],
-  "js": [
-    "/static/library/jQuery/video-player.js"
-  ]
-}
