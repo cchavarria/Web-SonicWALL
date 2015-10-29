@@ -5001,6 +5001,9 @@ button.close {
   -webkit-appearance: none; }
 
 /* Background Color */
+.bg-white {
+  background-color: white; }
+
 .bg-black {
   background-color: black; }
 
