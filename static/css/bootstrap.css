@@ -1332,10 +1332,10 @@ mark,
   line-height: 1.42857; }
 
 .text-left {
-  text-align: left; }
+  text-align: left !important; }
 
 .text-right {
-  text-align: right; }
+  text-align: right !important; }
 
 .text-center {
   text-align: center; }
@@ -5066,6 +5066,10 @@ li {
 
 .pos-relative {
   position: relative; }
+
+/* Border */
+.border-b-0 {
+  border-bottom: 0 !important; }
 
 /* iframe */
 iframe {

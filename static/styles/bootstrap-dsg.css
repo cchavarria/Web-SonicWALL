@@ -199,6 +199,7 @@
   /* Background Color */
   /* TODO: Need to find where this is being used */
   /* Text */
+  /* Border */
   /* iframe */
   /* Vertical Alignment */
   /* Overflow */
@@ -1122,9 +1123,9 @@
     font-size: 14px;
     line-height: 1.42857; }
   .bootstrap .text-left {
-    text-align: left; }
+    text-align: left !important; }
   .bootstrap .text-right {
-    text-align: right; }
+    text-align: right !important; }
   .bootstrap .text-center {
     text-align: center; }
   .bootstrap .text-justify {
@@ -6245,6 +6246,8 @@
     height: 100%; }
   .bootstrap .pos-relative {
     position: relative; }
+  .bootstrap .border-b-0 {
+    border-bottom: 0 !important; }
   .bootstrap iframe {
     border: 0; }
   .bootstrap .valign-top {
