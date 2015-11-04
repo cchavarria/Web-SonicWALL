@@ -390,6 +390,13 @@ $(document).ready(function () {
 	if($('.comparison').length) {
 		$.getScript('/static/js/comparison.min.js');
 	}
+
+	//match columns height
+	if($('.match-height').length){
+		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function(){
+			$('.match-height').find('.row > div > div').matchHeight();
+		});
+	}
 });
 
 //Flex box degradation
