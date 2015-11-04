@@ -392,9 +392,9 @@ $(document).ready(function () {
 	}
 
 	//match columns height
-	if($('.match-height').length){
+	if($('div[data-target ="match-height"]').length){
 		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function(){
-			$('.match-height').find('.row > div > div').matchHeight();
+			$('div[data-target ="match-height"]').matchHeight();
 		});
 	}
 });
