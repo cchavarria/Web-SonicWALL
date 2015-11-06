@@ -8321,19 +8321,19 @@ body {
 .resources {
   float: left;
   padding: 7px 0 5px 0; }
-  .resources .row > div {
+  .resources > div {
     margin-bottom: 14px; }
-    .resources .row > div > a {
+    .resources > div > a {
       display: inline-block;
       margin-right: 0;
       float: left; }
-    .resources .row > div > div {
+    .resources > div > div {
       display: inline-block;
       width: 80%;
       float: left;
       margin-left: 10px;
       margin-top: 5px; }
-      .resources .row > div > div > a h4 {
+      .resources > div > div > a h4 {
         margin-top: 0; }
 
 a:hover .has-overlay h4 {
