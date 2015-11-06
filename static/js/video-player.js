@@ -411,7 +411,7 @@ function createCaptionsCollection(d, videoProp) {
 
   var _allCaptions = [], _lastLanguage = "xx", _currentLanguage = "", elem = $('#' + videoProp.target);
 
-  if (numCCLanguages > 0) {
+  if (numCCLanguages > 0 && false) {
     elem.append('\
 								<div class="ccLanguageModal" style="display:none;">\
 										<p style="margin-bottom:10px;">Captions : \
@@ -532,8 +532,8 @@ function changeCC(obj, videoProp) {
     captions = findCurrentCC(_langStr);
 
     $("#" + target)
-        .find(".ccLanguageModal").trigger('reveal:close').end()
-        .find(".videoLanguage01").hide().end()
+        //.find(".ccLanguageModal").trigger('reveal:close').end()
+        //.find(".videoLanguage01").hide().end()
         .find(".cc_icon").attr("lanhidden", "true");
   }
 
@@ -578,18 +578,18 @@ function addCCButton(videoProp) {
 
   playerObj.find('.oo_controls').attr("cc", "cc");
 
-  var ccPopupHtml = '<div class="videoLanguage01"></div>';
+  //var ccPopupHtml = '<div class="videoLanguage01"></div>';
 
-  $(vodNode).append(ccPopupHtml);
+  //$(vodNode).append(ccPopupHtml);
 
   playerObj
-      .find(".videoLanguage01").hide().append($(".ccLanguageModal")).end()
-      .find(".ccLanguageModal").show().end()
+      //.find(".videoLanguage01").hide().append($(".ccLanguageModal")).end()
+      //.find(".ccLanguageModal").show().end()
       .find(".off-caption").removeClass("disabled").end()
       .find(".on-caption").addClass("disabled").end()
       .find(".captionsContainer").hide().end()
       .find(".listLanguages").hide().end()
       .find(".ccLanguage").addClass("ccLanguage-disabled").end()
-      .find(".videoLanguage01").hide().end()
+      //.find(".videoLanguage01").hide().end()
       .find(".cc_icon").attr("lanhidden", "true");
 }
