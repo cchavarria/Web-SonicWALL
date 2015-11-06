@@ -782,17 +782,50 @@ function loadOoyala(parentSelector) {
 
 					elem.on('click', function () {
 						if (!$('#' + id).data('loaded')) {
-							var videoHeight = Math.floor(($(this).width() * 9) / 16);
+							var videoHeight = Math.floor(($(this).width() * 9) / 16), imgURL = '';
 
 							if (parentContainer && parentContainer.hasClass('media-player-container')) {
 								$(this).css('height', videoHeight);
 								//$(this).parent().css('height', videoHeight);
 
+								imgURL = parentContainer.find('> img').attr('src');
+
 								parentContainer.find('> img').remove().end().find('> .img-overlay').remove();
 							}
 
 							window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
-								onCreate: OOCreate,
+								onCreate: function(player) {
+									//Autoplay workaround for mobile devices. Does not work because of security issue on mobile phone.
+									/*player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'UITeam', function () {
+										player.play();
+
+										var playButton = $('#' + id).find('.oo_play');
+
+										var i = setInterval(function() {
+											if(playButton.is(':visible') && $('#' + id).find('.oo_tap_panel').length) {
+												$('#' + id).find('.oo_tap_panel').trigger('click');
+												playButton.trigger('click');
+												clearInterval(i);
+											}
+										}, 10);
+									});*/
+
+									OOCreate(player);
+
+									//Instead of loading Ooyala still image, use DSG still image. Don't need to download the same image again.
+									//Ooyala image might still be downloaded in the background but at least DSG image will show immediately.
+									var i = setInterval(function() {
+										var elem = $('#' + id).find('.oo_promo');
+
+										if(elem.length && elem.css('backgroundImage') != 'none') {
+											if(imgURL != '') {
+												elem.css('backgroundImage', 'url("' + imgURL + '")');
+											}
+
+											clearInterval(i);
+										}
+									}, 10);
+								},
 								autoplay: true,
 								wmode: 'transparent'
 							});
