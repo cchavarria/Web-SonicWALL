@@ -8485,7 +8485,7 @@ a:hover .has-overlay h4 {
   -webkit-font-smoothing: antialiased;
   content: "\e114";
   color: #007db8;
-  position: absolute;
+  position: relative;
   vertical-align: -2px;
   padding-right: 2px; }
 .has-collapsibles.collapsed:before {
