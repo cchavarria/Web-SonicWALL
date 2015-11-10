@@ -8229,10 +8229,10 @@ body {
       height: 103px; }
     .fat-tabs > ul > li.IM img, .fat-buttons > ul > li.IM img {
       height: 47px; }
-    .fat-tabs > ul > li.PM, .fat-tabs > ul > li.ui-tabs-active.PM, .fat-buttons > ul > li.PM, .fat-buttons > ul > li.ui-tabs-active.PM {
+    .fat-tabs > ul > li.PM img, .fat-tabs > ul > li.ui-tabs-active.PM img, .fat-buttons > ul > li.PM img, .fat-buttons > ul > li.ui-tabs-active.PM img {
+      height: 35px; }
+    .fat-tabs > ul > li.last-child, .fat-tabs > ul > li.ui-tabs-active.last-child, .fat-buttons > ul > li.last-child, .fat-buttons > ul > li.ui-tabs-active.last-child {
       border-right: 1px solid #ccc; }
-      .fat-tabs > ul > li.PM img, .fat-tabs > ul > li.ui-tabs-active.PM img, .fat-buttons > ul > li.PM img, .fat-buttons > ul > li.ui-tabs-active.PM img {
-        height: 35px; }
     .fat-tabs > ul > li a, .fat-buttons > ul > li a {
       display: block;
       padding: 25px 15px 15px 15px !important; }
