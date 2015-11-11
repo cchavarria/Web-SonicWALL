@@ -66,6 +66,7 @@ getLocalizedContent("LabelBack").done(function (data) {
 
 			body.trigger('offcanvas.hidden');
 		}, 500);
+		$('.site-wrapper').css('height','');
 		//});
 	});
 });
@@ -87,10 +88,10 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 	$('#off-canvas')
 		//.css('top', top)
-			.data('target', target)
-			.data('top', top)
-			.find('.off-canvas-content')
-			.html($(target).children());
+		.data('target', target)
+		.data('top', top)
+		.find('.off-canvas-content')
+		.html($(target).children());
 
 	if($(this).data('offcanvas-append')) {
 		var appendElem = $($(this).data('offcanvas-append')).clone().children();
@@ -128,6 +129,40 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 	setTimeout(function() {
 		$('#off-canvas').css({top: 0, height: ''});
 		window.scrollTo(0, 0);
+
+		if($('.off-canvas-content > .panel-group-collapsible-xs').length > 0) {
+			var ifCollapsible = setInterval(function () {
+				isCollapsible()
+			}, 100);
+
+			function isCollapsible() {
+				if ($('.collapsed').length > 6) {
+					setOffCanvasHeight()
+					clearInterval(ifCollapsible);
+				}
+			}
+
+		}else if ($('.off-canvas-content .slick-slider').length > 0)	{
+			var ifSlick = setInterval(function () {
+				isSlick()
+			}, 100);
+
+			function isSlick() {
+				if ($('.slick-arrow').length === 4) {
+					setOffCanvasHeight()
+					clearInterval(ifSlick);
+				}
+			}
+
+		}else {
+			setOffCanvasHeight()
+		}
+
+		function setOffCanvasHeight() {
+			offCanvasHeight = $('.off-canvas-content').height() + $('.off-canvas-content').next().height();
+			$('.site-wrapper').css('height', offCanvasHeight);
+		}
+
 		$(target).trigger('offcanvas-show');
 
 		setTimeout(function () {
@@ -165,7 +200,7 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 				//$('#off-canvas').find('.panel').find('.collapse').collapse();
 				$('#off-canvas').find('.collapse').collapse({parent: '#'+parentID}).collapse('hide');
 			}
-		}, 250);
+		}, 450);
 	}, 500);
 	//});
 
