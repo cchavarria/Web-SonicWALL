@@ -4744,6 +4744,8 @@
     content: "\e621"; }
   .bootstrap .icon-small-contact:before {
     content: "\e617"; }
+  .bootstrap .icon-small-socialnetworking:before {
+    content: "\e654"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -5792,8 +5794,6 @@
     width: 51% !important; }
   .bootstrap .width-52 {
     width: 52% !important; }
-  .bootstrap .width-47 {
-    width: 47% !important; }
   .bootstrap .carousel {
     position: relative; }
   .bootstrap .carousel-inner {
