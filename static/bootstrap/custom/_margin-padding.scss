@@ -76,7 +76,16 @@
   padding-left: 10px !important;
 }
 
+.pl-15 {
+  padding-left: 15px !important;
+}
+
 .pr-0 {
+  padding-right: 0 !important;
+}
+
+.ph-0{
+  padding-left:0 !important;
   padding-right: 0 !important;
 }
 
@@ -350,6 +359,9 @@
   }
   .mb-20-sm-only {
     margin-bottom: 20px !important;
+  }
+  .mb-30-sm-only {
+    margin-bottom: 30px !important;
   }
   .mh-0-sm-only {
     margin-left: 0 !important;

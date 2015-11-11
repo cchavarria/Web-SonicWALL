@@ -4745,6 +4745,8 @@
     content: "\e621"; }
   .bootstrap .icon-small-contact:before {
     content: "\e617"; }
+  .bootstrap .icon-small-socialnetworking:before {
+    content: "\e654"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -5751,6 +5753,48 @@
     .bootstrap .banner .subheadline {
       font-size: 18px;
       line-height: 22px; } }
+  .bootstrap .width-32 {
+    width: 32% !important; }
+  .bootstrap .width-33 {
+    width: 33% !important; }
+  .bootstrap .width-34 {
+    width: 34% !important; }
+  .bootstrap .width-35 {
+    width: 35% !important; }
+  .bootstrap .width-36 {
+    width: 36% !important; }
+  .bootstrap .width-37 {
+    width: 37% !important; }
+  .bootstrap .width-38 {
+    width: 38% !important; }
+  .bootstrap .width-39 {
+    width: 39% !important; }
+  .bootstrap .width-40 {
+    width: 40% !important; }
+  .bootstrap .width-41 {
+    width: 41% !important; }
+  .bootstrap .width-42 {
+    width: 42% !important; }
+  .bootstrap .width-43 {
+    width: 43% !important; }
+  .bootstrap .width-44 {
+    width: 44% !important; }
+  .bootstrap .width-45 {
+    width: 45% !important; }
+  .bootstrap .width-46 {
+    width: 46% !important; }
+  .bootstrap .width-47 {
+    width: 47% !important; }
+  .bootstrap .width-48 {
+    width: 48% !important; }
+  .bootstrap .width-49 {
+    width: 49% !important; }
+  .bootstrap .width-50 {
+    width: 50% !important; }
+  .bootstrap .width-51 {
+    width: 51% !important; }
+  .bootstrap .width-52 {
+    width: 52% !important; }
   .bootstrap .carousel {
     position: relative; }
   .bootstrap .carousel-inner {
@@ -6197,6 +6241,8 @@
   @media print {
     .bootstrap .hidden-print {
       display: none !important; } }
+  .bootstrap .bg-white {
+    background-color: white; }
   .bootstrap .bg-black {
     background-color: black; }
   .bootstrap .bg-light-grey {
@@ -6380,7 +6426,12 @@
     padding-left: 0 !important; }
   .bootstrap .pl-10 {
     padding-left: 10px !important; }
+  .bootstrap .pl-15 {
+    padding-left: 15px !important; }
   .bootstrap .pr-0 {
+    padding-right: 0 !important; }
+  .bootstrap .ph-0 {
+    padding-left: 0 !important;
     padding-right: 0 !important; }
   .bootstrap .ph-15 {
     padding-left: 15px !important;
@@ -6538,6 +6589,8 @@
       margin-right: 20px !important; }
     .bootstrap .mb-20-sm-only {
       margin-bottom: 20px !important; }
+    .bootstrap .mb-30-sm-only {
+      margin-bottom: 30px !important; }
     .bootstrap .mh-0-sm-only {
       margin-left: 0 !important;
       margin-right: 0 !important; }
@@ -6752,7 +6805,8 @@
     width: 30px; }
 
 .img-crop {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .media-player-container {
   overflow: hidden; }

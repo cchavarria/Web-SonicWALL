@@ -5001,6 +5001,9 @@ button.close {
   -webkit-appearance: none; }
 
 /* Background Color */
+.bg-white {
+  background-color: white; }
+
 .bg-black {
   background-color: black; }
 
@@ -5251,7 +5254,14 @@ iframe {
 .pl-10 {
   padding-left: 10px !important; }
 
+.pl-15 {
+  padding-left: 15px !important; }
+
 .pr-0 {
+  padding-right: 0 !important; }
+
+.ph-0 {
+  padding-left: 0 !important;
   padding-right: 0 !important; }
 
 .ph-15 {
@@ -5482,6 +5492,9 @@ iframe {
 
   .mb-20-sm-only {
     margin-bottom: 20px !important; }
+
+  .mb-30-sm-only {
+    margin-bottom: 30px !important; }
 
   .mh-0-sm-only {
     margin-left: 0 !important;
@@ -5770,6 +5783,9 @@ iframe {
 
 .icon-small-contact:before {
   content: "\e617"; }
+
+.icon-small-socialnetworking:before {
+  content: "\e654"; }
 
 .site-wrapper {
   overflow: hidden;
@@ -6697,7 +6713,8 @@ i.menu-indicator {
     width: 30px; }
 
 .img-crop {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .media-player-container {
   overflow: hidden; }
@@ -7595,6 +7612,69 @@ body {
       </div>
     </div>
 */
+.width-32 {
+  width: 32% !important; }
+
+.width-33 {
+  width: 33% !important; }
+
+.width-34 {
+  width: 34% !important; }
+
+.width-35 {
+  width: 35% !important; }
+
+.width-36 {
+  width: 36% !important; }
+
+.width-37 {
+  width: 37% !important; }
+
+.width-38 {
+  width: 38% !important; }
+
+.width-39 {
+  width: 39% !important; }
+
+.width-40 {
+  width: 40% !important; }
+
+.width-41 {
+  width: 41% !important; }
+
+.width-42 {
+  width: 42% !important; }
+
+.width-43 {
+  width: 43% !important; }
+
+.width-44 {
+  width: 44% !important; }
+
+.width-45 {
+  width: 45% !important; }
+
+.width-46 {
+  width: 46% !important; }
+
+.width-47 {
+  width: 47% !important; }
+
+.width-48 {
+  width: 48% !important; }
+
+.width-49 {
+  width: 49% !important; }
+
+.width-50 {
+  width: 50% !important; }
+
+.width-51 {
+  width: 51% !important; }
+
+.width-52 {
+  width: 52% !important; }
+
 .carousel {
   position: relative; }
 
@@ -8156,10 +8236,10 @@ body {
       height: 103px; }
     .fat-tabs > ul > li.IM img, .fat-buttons > ul > li.IM img {
       height: 47px; }
-    .fat-tabs > ul > li.PM, .fat-tabs > ul > li.ui-tabs-active.PM, .fat-buttons > ul > li.PM, .fat-buttons > ul > li.ui-tabs-active.PM {
+    .fat-tabs > ul > li.PM img, .fat-tabs > ul > li.ui-tabs-active.PM img, .fat-buttons > ul > li.PM img, .fat-buttons > ul > li.ui-tabs-active.PM img {
+      height: 35px; }
+    .fat-tabs > ul > li.last-child, .fat-tabs > ul > li.ui-tabs-active.last-child, .fat-buttons > ul > li.last-child, .fat-buttons > ul > li.ui-tabs-active.last-child {
       border-right: 1px solid #ccc; }
-      .fat-tabs > ul > li.PM img, .fat-tabs > ul > li.ui-tabs-active.PM img, .fat-buttons > ul > li.PM img, .fat-buttons > ul > li.ui-tabs-active.PM img {
-        height: 35px; }
     .fat-tabs > ul > li a, .fat-buttons > ul > li a {
       display: block;
       padding: 25px 15px 15px 15px !important; }
@@ -8311,19 +8391,19 @@ body {
 .resources {
   float: left;
   padding: 7px 0 5px 0; }
-  .resources .row > div {
+  .resources > div {
     margin-bottom: 14px; }
-    .resources .row > div > a {
+    .resources > div > a {
       display: inline-block;
       margin-right: 0;
       float: left; }
-    .resources .row > div > div {
+    .resources > div > div {
       display: inline-block;
       width: 80%;
       float: left;
       margin-left: 10px;
       margin-top: 5px; }
-      .resources .row > div > div > a h4 {
+      .resources > div > div > a h4 {
         margin-top: 0; }
 
 a:hover .has-overlay h4 {
@@ -8412,7 +8492,7 @@ a:hover .has-overlay h4 {
   -webkit-font-smoothing: antialiased;
   content: "\e114";
   color: #007db8;
-  position: absolute;
+  position: relative;
   vertical-align: -2px;
   padding-right: 2px; }
 .has-collapsibles.collapsed:before {
@@ -8440,16 +8520,16 @@ a:hover .has-overlay h4 {
   display: inline-block; }
   .grey-box h3 {
     font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
-    font-weight: 400; }
+    font-weight: 400;
+    margin: 0; }
   .grey-box p {
     font-family: 'Museo Sans 300', 'Trebuchet MS', Arial;
     font-size: 16px; }
+    .grey-box p:last-child {
+      margin-bottom: 0; }
 
 /*mobile*/
 @media (max-width: 767px) {
-  .border-right-grey-xs {
-    border-right: 1px solid #e2e2e2; }
-
   .grey-box {
     padding: 17px 15px;
     margin-bottom: 20px; } }

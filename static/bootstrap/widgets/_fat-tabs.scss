@@ -84,6 +84,8 @@
         img {
           height: 35px;
         }
+      }
+      &.last-child, &.ui-tabs-active.last-child{
         border-right: 1px solid #ccc;
       }
       a {

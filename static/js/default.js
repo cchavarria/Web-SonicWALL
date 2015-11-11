@@ -79,6 +79,10 @@ $(document).ready(function () {
 				}
 			});
 
+			setTimeout(function() {
+				processFlex(target);
+			}, 250);
+
 			processEllipsis(target);
 		}
 	});
@@ -386,6 +390,13 @@ $(document).ready(function () {
 	if($('.comparison').length) {
 		$.getScript('/static/js/comparison.min.js');
 	}
+
+	//match columns height
+	if($('div[data-target ="match-height"]').length){
+		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function(){
+			$('div[data-target ="match-height"]').matchHeight();
+		});
+	}
 });
 
 //Flex box degradation
@@ -523,10 +534,18 @@ function slickPlugin(parentSelector) {
 	}
 }
 
-function processFlex() {
-	if ($('.vertical-center').length && !$('html').hasClass('flexbox')) {
-		$('.vertical-center').each(function () {
-			var child = $(this).children(), centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width();
+function processFlex(parentSelector) {
+	if (typeof parentSelector == 'undefined') {
+		parentSelector = 'body';
+	}
+
+	if ($(parentSelector).find('.vertical-center').length && !$('html').hasClass('flexbox')) {
+		$(parentSelector).find('.vertical-center').each(function () {
+			if(!$(this).is(':visible')) {
+				return true;
+			}
+
+			var child = $(this).children();
 
 			//Reset
 			if($(this).data('flex-processed')) {
@@ -545,8 +564,11 @@ function processFlex() {
 					$(this).get(0).style.top = '';
 					$(this).get(0).style.marginLeft = '';
 					$(this).get(0).style.marginTop = '';
+					$(this).get(0).width = '';
 				});
 			}
+
+			var centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width(), height = $(this).height();
 
 			/*var height = $(this).height(),
 				width = $(this).outerWidth(),
@@ -584,23 +606,30 @@ function processFlex() {
 			child.each(function() {
 				if ($(this).css('display') == 'block') {
 					$(this).css({display: 'inline-block'});
-
-					if(width < $(this).width()) {
-						$(this).css({width: width});
-					}
 				}
 
-				$(this).css({
-					position: 'absolute',
-					top: '50%',
-					marginTop: -1 * $(this).height()/2
-				});
+				//If the centered width is greater than the parent element, set the width of the inner element.
+				if(width < $(this).width()) {
+					console.log(width);
+					$(this).css({width: width});
+				}
 
-				if (centerHorizontal) {
+				if(height > $(this).height()) {
 					$(this).css({
-						left: '50%',
-						marginLeft: -1 * $(this).width()/2
+						position: 'absolute',
+						top: '50%',
+						marginTop: -1 * $(this).height() / 2
 					});
+				}
+
+				if(width > $(this).width()) {
+					if (centerHorizontal) {
+						$(this).css({
+							position: 'absolute',
+							left: '50%',
+							marginLeft: -1 * $(this).width()/2
+						});
+					}
 				}
 			});
 
@@ -753,17 +782,50 @@ function loadOoyala(parentSelector) {
 
 					elem.on('click', function () {
 						if (!$('#' + id).data('loaded')) {
-							var videoHeight = Math.floor(($(this).width() * 9) / 16);
+							var videoHeight = Math.floor(($(this).width() * 9) / 16), imgURL = '';
 
 							if (parentContainer && parentContainer.hasClass('media-player-container')) {
 								$(this).css('height', videoHeight);
 								//$(this).parent().css('height', videoHeight);
 
+								imgURL = parentContainer.find('> img').attr('src');
+
 								parentContainer.find('> img').remove().end().find('> .img-overlay').remove();
 							}
 
 							window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
-								onCreate: OOCreate,
+								onCreate: function(player) {
+									//Autoplay workaround for mobile devices. Does not work because of security issue on mobile phone.
+									/*player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'UITeam', function () {
+										player.play();
+
+										var playButton = $('#' + id).find('.oo_play');
+
+										var i = setInterval(function() {
+											if(playButton.is(':visible') && $('#' + id).find('.oo_tap_panel').length) {
+												$('#' + id).find('.oo_tap_panel').trigger('click');
+												playButton.trigger('click');
+												clearInterval(i);
+											}
+										}, 10);
+									});*/
+
+									OOCreate(player);
+
+									//Instead of loading Ooyala still image, use DSG still image. Don't need to download the same image again.
+									//Ooyala image might still be downloaded in the background but at least DSG image will show immediately.
+									var i = setInterval(function() {
+										var elem = $('#' + id).find('.oo_promo');
+
+										if(elem.length && elem.css('backgroundImage') != 'none') {
+											if(imgURL != '') {
+												elem.css('backgroundImage', 'url("' + imgURL + '")');
+											}
+
+											clearInterval(i);
+										}
+									}, 10);
+								},
 								autoplay: true,
 								wmode: 'transparent'
 							});
