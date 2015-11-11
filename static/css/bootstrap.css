@@ -5767,6 +5767,9 @@ iframe {
 .icon-small-contact:before {
   content: "\e617"; }
 
+.icon-small-socialnetworking:before {
+  content: "\e654"; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;

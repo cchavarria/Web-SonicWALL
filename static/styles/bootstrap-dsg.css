@@ -4744,6 +4744,8 @@
     content: "\e621"; }
   .bootstrap .icon-small-contact:before {
     content: "\e617"; }
+  .bootstrap .icon-small-socialnetworking:before {
+    content: "\e654"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
