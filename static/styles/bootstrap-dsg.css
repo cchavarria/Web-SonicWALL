@@ -6217,6 +6217,8 @@
     background-color: #f9f9f9; }
   .bootstrap .anchor-blue {
     color: #007db8; }
+  .bootstrap .bg-white {
+    background-color: #fff; }
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {
     text-decoration: none;
     color: #007db8; }
