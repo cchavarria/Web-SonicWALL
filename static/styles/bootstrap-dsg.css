@@ -4747,6 +4747,16 @@
     content: "\e617"; }
   .bootstrap .icon-small-socialnetworking:before {
     content: "\e654"; }
+  .bootstrap .icon-large-offering {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icon-product-offerings-48.png") 0 0 no-repeat;
+    display: inline-block; }
+  .bootstrap .icon-large-product-support {
+    width: 48px;
+    height: 48px;
+    background: url("/images/shared/icon-product-support-48.png") 0 0 no-repeat;
+    display: inline-block; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
@@ -6252,6 +6262,8 @@
     background-color: #f9f9f9; }
   .bootstrap .anchor-blue {
     color: #007db8; }
+  .bootstrap .bg-white {
+    background-color: #fff; }
   .bootstrap a[class^="icon-"]:hover, .bootstrap a[class^="icon-"]:focus {
     text-decoration: none;
     color: #007db8; }
