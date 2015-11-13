@@ -8525,8 +8525,7 @@ a:hover .has-overlay h4 {
   .title-description a, .title-description p {
     font-size: 16px; }
   .title-description h1 {
-    margin-bottom: 7px;
-    width: 86%; }
+    margin-bottom: 7px; }
 
 /*claim box*/
 .grey-box {
@@ -8548,6 +8547,11 @@ a:hover .has-overlay h4 {
   .grey-box {
     padding: 17px 15px;
     margin-bottom: 20px; } }
+/*large*/
+@media (min-width: 1200px) {
+  /*home page - to make End-to-End IT solution in one line using responsive template*/
+  .title-description h1 {
+    width: 86%; } }
 .featured-products li .product-text-wrapper {
   height: 83px; }
 .featured-products li .btn {

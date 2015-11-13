@@ -5,7 +5,6 @@
   }
   h1 {
     margin-bottom: 7px;
-    width: 86%;
   }
 }
 /*claim box*/
@@ -32,5 +31,13 @@
   .grey-box {
     padding: 17px 15px;
     margin-bottom: 20px;
+  }
+}
+
+/*large*/
+@media (min-width: 1200px) {
+  /*home page - to make End-to-End IT solution in one line using responsive template*/
+  .title-description h1 {
+    width: 86%;
   }
 }
