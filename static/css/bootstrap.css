@@ -5787,6 +5787,18 @@ iframe {
 .icon-small-socialnetworking:before {
   content: "\e654"; }
 
+.icon-large-offering {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icon-product-offerings-48.png") 0 0 no-repeat;
+  display: inline-block; }
+
+.icon-large-product-support {
+  width: 48px;
+  height: 48px;
+  background: url("/images/shared/icon-product-support-48.png") 0 0 no-repeat;
+  display: inline-block; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;
