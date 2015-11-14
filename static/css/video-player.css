@@ -246,7 +246,8 @@ ul.oo-toolbar {
   margin-left: 3px; }
 .ooyalaplayer .innerWrapper {
   border: 1px solid #444;
-  z-index: 0; }
+  z-index: 0;
+  top: 0; }
 .ooyalaplayer .oo_promo div.oo_start_button, .ooyalaplayer .oo_replay {
   width: 60px !important;
   height: 60px !important;
