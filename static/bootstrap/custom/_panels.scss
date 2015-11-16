@@ -391,6 +391,18 @@
     }
   }
 }
+.col-titles {
+    padding-top: 10px;
+    color: #444;
+    font-weight: bold;
+
+    > div {
+      padding-left: 0;
+    }
+    > div:first-child {
+      padding-left: 40px;
+    }
+}
 
 @media (max-width: 767px) {
   .panel-group-collapsible-xs {
