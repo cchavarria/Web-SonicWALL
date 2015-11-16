@@ -1,7 +1,3 @@
-@charset "UTF-8";
-
-@import '../bootstrap/custom/variables';
-
 // Default Variables
 
 $slick-font-path: "./fonts/" !default;
@@ -131,6 +127,12 @@ $slick-opacity-not-active: 0.25 !default;
     a {
       &:hover {
         text-decoration: none;
+      }
+    }
+    > div {
+      display: none;
+      &:first-of-type {
+        display: inherit;
       }
     }
   }
