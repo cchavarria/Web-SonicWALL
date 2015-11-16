@@ -444,7 +444,7 @@ function slickPlugin(parentSelector) {
 			init();
 		}
 		else {
-			$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
+			//$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
 			$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
 		}
 	}
@@ -492,10 +492,15 @@ function slickPlugin(parentSelector) {
 				cfg.arrows = false;
 				cfg.slidesToShow = 1;
 				cfg.autoplay = false;
+
+				$(this).find('> div').css('display', 'block');
 			}
 
 			if ($(this).find('> div').length > cfg.slidesToShow) {
-				if (!$(this).parents('.banner').length) {
+				if ($(this).hasClass('banner')) {
+					//$(this).find('.caption-wrapper').matchHeight();
+				}
+				else {
 					$(this).on('init', function (e, slick) {
 						var arrowsPos = 0, firstImage = $(this).find('img:first');
 						if (firstImage.parent().hasClass('img-crop')) {
@@ -523,6 +528,13 @@ function slickPlugin(parentSelector) {
 						fixScreenshot(slick, currentSlide);
 					});
 				}
+			}
+			else {
+				$(this).find('img').each(function() {
+					if($(this).data('lazy')) {
+						$(this).attr('src', $(this).data('lazy'));
+					}
+				});
 			}
 		});
 	}
