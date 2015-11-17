@@ -9330,7 +9330,7 @@ a:hover .has-overlay h4 {
     margin-left: -15px;
     margin-right: -15px; }
     .col-xs-12 .slick .content-teaser > * {
-      padding: 12px;
+      padding: 12px 27px;
       height: 100%; }
     .col-xs-12 .slick a {
       display: block; } }
@@ -9350,7 +9350,10 @@ a:hover .has-overlay h4 {
       padding: 14px;
       height: 100%; }
     .col-xs-12 .slick a, .col-sm-12 .slick a {
-      display: block; } }
+      display: block; }
+
+  .slick.slick-1170x200 {
+    height: 123px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .slick .img-crop {
     height: 146px; }
@@ -9382,7 +9385,10 @@ a:hover .has-overlay h4 {
       padding: 0; }
       .col-sm-7 .slick .caption-wrapper span:hover, .col-md-7 .slick .caption-wrapper span:hover {
         background-color: transparent;
-        color: #007db8; } }
+        color: #007db8; }
+
+  .slick.slick-1170x200 {
+    height: 161px; } }
 @media (min-width: 1200px) {
   .slick .img-crop {
     height: 178px; }
@@ -9399,7 +9405,10 @@ a:hover .has-overlay h4 {
       padding: 13px;
       height: 100%; }
     .col-md-7 .slick a, .col-lg-7 .slick a {
-      display: block; } }
+      display: block; }
+
+  .slick.slick-1170x200 {
+    height: 200px; } }
 /*
     - Without Arrows (w/o border)
       - XS : 328x
