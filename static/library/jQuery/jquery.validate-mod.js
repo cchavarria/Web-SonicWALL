@@ -418,7 +418,7 @@
 				var t = this;
 
 				if ( !this.valid() ) {
-					//Modified by Edward Chong - added delay so that demandbase has a chance to perfor its action.
+					//Modified by Edward Chong - added delay so that demandbase has a chance to perform its action.
 					setTimeout(function() {
 						$( t.currentForm ).triggerHandler( "invalid-form", [ t ]);
 					}, 100);
