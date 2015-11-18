@@ -395,6 +395,13 @@
  padding: 0 23px;
 }
 
+//Product page edits: Nested panels
+.panel{
+  .panel-group-collapsible {
+    border-bottom: 0;
+  }
+}
+
 @media (max-width: 767px) {
   .panel-group-collapsible-xs {
     //@extend .panel-group-collapsible;
