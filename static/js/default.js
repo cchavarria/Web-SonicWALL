@@ -458,7 +458,7 @@ function slickPlugin(parentSelector) {
 		};
 
 		$(parentSelector).find('.slick').each(function () {
-			var cfg = defaults;
+			var cfg = jQuery.extend(true, {}, defaults);
 
 			//Destroy slick
 			if ($(this).data('active') == 'xs-only' && pageType != 0) {
