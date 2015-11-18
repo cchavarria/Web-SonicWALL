@@ -491,7 +491,7 @@ function slickPlugin(parentSelector) {
 				cfg.autoplaySpeed = 6000;
 				cfg.arrows = false;
 				cfg.slidesToShow = 1;
-				cfg.autoplay = false;
+				cfg.autoplay = true;
 
 				$(this).find('> div').css('display', 'block');
 			}
