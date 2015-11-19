@@ -5192,39 +5192,41 @@
       -moz-transition: -moz-transform 500ms ease;
       -o-transition: -o-transform 500ms ease;
       transition: transform 500ms ease; }
-    .bootstrap.is-responsive .masthead .navbar {
-      z-index: 1049; }
-    .bootstrap.is-responsive .masthead .navbar-inverse, .bootstrap.is-responsive .masthead .navbar-toggle {
-      border-color: transparent;
-      background-color: transparent; }
-    .bootstrap.is-responsive .masthead .input-group {
-      width: 100%; }
-      .bootstrap.is-responsive .masthead .input-group form {
-        position: relative;
-        display: table;
-        border-collapse: separate;
+    .bootstrap.is-responsive .masthead {
+      margin-bottom: 0; }
+      .bootstrap.is-responsive .masthead .navbar {
+        z-index: 1049; }
+      .bootstrap.is-responsive .masthead .navbar-inverse, .bootstrap.is-responsive .masthead .navbar-toggle {
+        border-color: transparent;
+        background-color: transparent; }
+      .bootstrap.is-responsive .masthead .input-group {
         width: 100%; }
-    .bootstrap.is-responsive .masthead .form-control {
-      display: table-cell;
-      padding: 6px 5px;
-      /*border-radius: 0;*/ }
-    .bootstrap.is-responsive .masthead .input-group form div {
-      padding: 0; }
-    .bootstrap.is-responsive .masthead .input-group form button {
-      padding: 5px 11px;
-      background-color: #007db8;
-      border-color: #007db8;
-      background-image: none; }
-      .bootstrap.is-responsive .masthead .input-group form button i {
-        color: #fff !important; }
-    .bootstrap.is-responsive .masthead .utility {
-      width: auto; }
-      .bootstrap.is-responsive .masthead .utility li {
-        position: inherit; }
-    .bootstrap.is-responsive .masthead ul.tier1 li {
-      position: relative; }
-    .bootstrap.is-responsive .masthead ul.tier3 {
-      height: auto !important; }
+        .bootstrap.is-responsive .masthead .input-group form {
+          position: relative;
+          display: table;
+          border-collapse: separate;
+          width: 100%; }
+      .bootstrap.is-responsive .masthead .form-control {
+        display: table-cell;
+        padding: 6px 5px;
+        /*border-radius: 0;*/ }
+      .bootstrap.is-responsive .masthead .input-group form div {
+        padding: 0; }
+      .bootstrap.is-responsive .masthead .input-group form button {
+        padding: 5px 11px;
+        background-color: #007db8;
+        border-color: #007db8;
+        background-image: none; }
+        .bootstrap.is-responsive .masthead .input-group form button i {
+          color: #fff !important; }
+      .bootstrap.is-responsive .masthead .utility {
+        width: auto; }
+        .bootstrap.is-responsive .masthead .utility li {
+          position: inherit; }
+      .bootstrap.is-responsive .masthead ul.tier1 li {
+        position: relative; }
+      .bootstrap.is-responsive .masthead ul.tier3 {
+        height: auto !important; }
     .bootstrap.is-responsive i.menu-indicator {
       position: relative; }
     .bootstrap.is-responsive #footer {
@@ -6093,7 +6095,13 @@
       padding: 0; }
     .bootstrap .slick.slick-770x240, .bootstrap .slick.slick-1170x240 {
       margin-left: -15px;
-      margin-right: -15px; } }
+      margin-right: -15px; }
+      .bootstrap .slick.slick-770x240 .content-teaser .row, .bootstrap .slick.slick-1170x240 .content-teaser .row {
+        padding-left: 30px;
+        padding-right: 30px; }
+      .bootstrap .slick.slick-770x240 .caption-wrapper, .bootstrap .slick.slick-1170x240 .caption-wrapper {
+        padding-left: 30px;
+        padding-right: 30px; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .bootstrap .slick .img-crop {
       height: 170px; }
