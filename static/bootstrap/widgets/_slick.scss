@@ -411,6 +411,16 @@ $slick-opacity-not-active: 0.25 !default;
     &.slick-770x240, &.slick-1170x240 {
       margin-left: -15px;
       margin-right: -15px;
+      .content-teaser {
+        .row {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+      .caption-wrapper {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
     }
   }
 }
