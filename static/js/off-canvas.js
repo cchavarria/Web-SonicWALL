@@ -136,7 +136,7 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 			}, 100);
 
 			function isCollapsible() {
-				if ($('.collapsed').length > 6) {
+				if ($('#off-canvas .panel-heading a[aria-expanded=false]').length > 1) {
 					setOffCanvasHeight()
 					clearInterval(ifCollapsible);
 				}
