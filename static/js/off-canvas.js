@@ -4,7 +4,7 @@ getLocalizedContent("LabelBack").done(function (data) {
 
 	$('#off-canvas').on('click', '.off-canvas-back', function (e) { //off canvas back button
 		e.preventDefault();
-
+		$('.site-wrapper').removeClass('hidden');
 		var body = $('body'), offCanvas = $('#off-canvas'), top = offCanvas.data('top');
 
 		/*body.css('left', -1 * pageWidth);
@@ -115,11 +115,15 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 
 	var offCanvasHeight = $('#off-canvas').removeClass('hidden').height(), siteWrapperHeight = $('.site-wrapper').height();
 
-	if(offCanvasHeight < siteWrapperHeight) {
-		$('#off-canvas').css('height', siteWrapperHeight);
-	}
+	/*	if(offCanvasHeight < siteWrapperHeight) {
+	 $('#off-canvas').css('height', siteWrapperHeight);
+	 }*/
+
+
 
 	$('#off-canvas').removeClass('hidden');
+	$('.site-wrapper').addClass('hidden'); // Fix to prevent white space at the bottom of off-canvas sections
+
 	//$('#off-canvas').css({top: top});
 	//window.scrollTo(0, top);
 
@@ -129,39 +133,6 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 	setTimeout(function() {
 		$('#off-canvas').css({top: 0, height: ''});
 		window.scrollTo(0, 0);
-
-		if($('.off-canvas-content > .panel-group-collapsible-xs').length > 0) {
-			var ifCollapsible = setInterval(function () {
-				isCollapsible()
-			}, 100);
-
-			function isCollapsible() {
-				if ($('#off-canvas .panel-heading a[aria-expanded=false]').length > 1) {
-					setOffCanvasHeight()
-					clearInterval(ifCollapsible);
-				}
-			}
-
-		}else if ($('.off-canvas-content .slick-slider').length > 0)	{
-			var ifSlick = setInterval(function () {
-				isSlick()
-			}, 100);
-
-			function isSlick() {
-				if ($('.slick-arrow').length === 4) {
-					setOffCanvasHeight()
-					clearInterval(ifSlick);
-				}
-			}
-
-		}else {
-			setOffCanvasHeight()
-		}
-
-		function setOffCanvasHeight() {
-			offCanvasHeight = $('.off-canvas-content').height() + $('.off-canvas-content').next().height();
-			$('.site-wrapper').css('height', offCanvasHeight);
-		}
 
 		$(target).trigger('offcanvas-show');
 
