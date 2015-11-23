@@ -1,4 +1,7 @@
 /* Background Color */
+.bg-white{
+  background-color: $white;
+}
 
 .bg-black {
   background-color: $black;
@@ -92,6 +95,12 @@ li {
 
 .pos-relative {
   position: relative;
+}
+
+/* Border */
+
+.border-b-0 {
+  border-bottom: 0 !important;
 }
 
 /* iframe */

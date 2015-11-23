@@ -5,7 +5,6 @@
   }
   h1 {
     margin-bottom: 7px;
-    width: 86%;
   }
 }
 /*claim box*/
@@ -16,20 +15,29 @@
   h3 {
     font-family: 'Museo Sans 700', 'Trebuchet MS', Arial;
     font-weight: 400;
+    margin:0;
   }
   p {
     font-family: 'Museo Sans 300', 'Trebuchet MS', Arial;
     font-size: 16px;
+    &:last-child{
+      margin-bottom:0;
+    }
   }
 }
 
 /*mobile*/
 @media (max-width: 767px) {
-  .border-right-grey-xs {
-    border-right: 1px solid #e2e2e2;
-  }
   .grey-box {
     padding: 17px 15px;
     margin-bottom: 20px;
+  }
+}
+
+/*large*/
+@media (min-width: 1200px) {
+  /*home page - to make End-to-End IT solution in one line using responsive template*/
+  .title-description h1 {
+    width: 86%;
   }
 }

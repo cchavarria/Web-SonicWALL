@@ -29,7 +29,7 @@ $(document).ready(function () {
 			if ($(this).is(':visible') && !target.is(':visible')) {
 				$(this).hide().data('hidden-class', 'hidden');
 			}
-      $(this).prev().css('height', '');//reset height of parent container
+			$(this).prev().css('height', '');//reset height of parent container
 		});
 
 		if (target.is(':visible')) {
@@ -69,17 +69,17 @@ $(document).ready(function () {
 
 			var parentContainer = $(this).parents('.container');
 
-			setTimeout(function() {
-				if(parentContainer.length) {
+			setTimeout(function () {
+				if (parentContainer.length) {
 					var parentHeight = $(target).offset().top + $(target).height() - parentContainer.offset().top;
 
-					if(parentContainer.height() < parentHeight) {
+					if (parentContainer.height() < parentHeight) {
 						parentContainer.css('height', parentHeight);
 					}
 				}
 			});
 
-			setTimeout(function() {
+			setTimeout(function () {
 				processFlex(target);
 			}, 250);
 
@@ -148,6 +148,8 @@ $(document).ready(function () {
 					ui.oldPanel.trigger('tab.hidden');
 
 					resizeFourColumnFilmstripCarousel(ui.newPanel);
+					//fix for slick not being initialized when tab activated
+					slickPlugin(ui.newPanel);
 					loadOoyala(ui.newPanel);
 				}
 			});
@@ -214,17 +216,17 @@ $(document).ready(function () {
 
 	//Toggle
 	/*$('body').find('[data-toggle=show],[data-toggle=show-offcanvas]').each(function () {
-		var target = $($(this).data('target'));
+	 var target = $($(this).data('target'));
 
-		if (target.is(':visible')) {
-			if (target.data('hidden-class')) {
-				target.addClass(target.data('hidden-class'));
-			}
-			else {
-				target.hide();
-			}
-		}
-	});*/
+	 if (target.is(':visible')) {
+	 if (target.data('hidden-class')) {
+	 target.addClass(target.data('hidden-class'));
+	 }
+	 else {
+	 target.hide();
+	 }
+	 }
+	 });*/
 
 	//close button in optional dropdown
 	$('body').on('click', '.close', function () {
@@ -234,7 +236,7 @@ $(document).ready(function () {
 			closeTarget.addClass('hidden');
 		}
 
-		if(closeTarget.data('parent')) {
+		if (closeTarget.data('parent')) {
 			closeTarget.data('parent').parents('.container').css('height', '');
 		}
 	});
@@ -256,13 +258,13 @@ $(document).ready(function () {
 	}
 
 	//Collapse
-	$('body').on('click', '[data-toggle=collapse]', function() {
+	$('body').on('click', '[data-toggle=collapse]', function () {
 		var elem = $(this);
 
-		setTimeout(function() {
-			if(!elem.hasClass('collapsed')) {
-				if(elem.data('hide-when-expanded')) {
-					elem.hide(0, function() {
+		setTimeout(function () {
+			if (!elem.hasClass('collapsed')) {
+				if (elem.data('hide-when-expanded')) {
+					elem.hide(0, function () {
 						$(elem.data('target')).children().unwrap();
 						elem.remove();
 					});
@@ -273,28 +275,28 @@ $(document).ready(function () {
 
 	//Show more list [UL]
 	/*if($('ul').filter('.has-show-more')) {
-		getLocalizedContent(['LabelShowMore']).done(function(data) {
-			$('ul').filter('.has-show-more').each(function() {
-				var pos = parseInt($(this).data('show-more-position'));
+	 getLocalizedContent(['LabelShowMore']).done(function(data) {
+	 $('ul').filter('.has-show-more').each(function() {
+	 var pos = parseInt($(this).data('show-more-position'));
 
-				if($(this).find('> li').length > pos) {
-					var elem = $('<li><a href="#"><i aria-hidden="true" class="icon-ui-triangleright"></i>' + data.LabelShowMore + '</a></li>');
+	 if($(this).find('> li').length > pos) {
+	 var elem = $('<li><a href="#"><i aria-hidden="true" class="icon-ui-triangleright"></i>' + data.LabelShowMore + '</a></li>');
 
-					elem.find('a').on('click', function(e) {
-						e.preventDefault();
+	 elem.find('a').on('click', function(e) {
+	 e.preventDefault();
 
-						$(this).parents('ul').find('> li').show();
-						$(this).parent().remove();
-					});
+	 $(this).parents('ul').find('> li').show();
+	 $(this).parent().remove();
+	 });
 
-					elem.insertAfter($(this).find('> li:eq(' + (pos-2) + ')'));
+	 elem.insertAfter($(this).find('> li:eq(' + (pos-2) + ')'));
 
-					$(this).find('> li:gt(' + (pos-1) + ')').hide();
+	 $(this).find('> li:gt(' + (pos-1) + ')').hide();
 
-				}
-			});
-		});
-	}*/
+	 }
+	 });
+	 });
+	 }*/
 	/* i.e.
 	 <ul class="has-show-more" data-show-more-position="8">
 	 <li>Microsoft Windows 7 (all x64 editions)</li>
@@ -315,8 +317,8 @@ $(document).ready(function () {
 	 */
 
 	//Bleed Margins [Not in use]
-	addResize(function() {
-		$('.bleed').each(function() {
+	addResize(function () {
+		$('.bleed').each(function () {
 			var children = $(this).children(), lastChild = children.length - 1;
 
 			//Start Reset
@@ -329,23 +331,23 @@ $(document).ready(function () {
 
 			var marginTop = parseInt($(children[0]).css('marginTop')), marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
 
-			if(marginTop) {
+			if (marginTop) {
 				$(this).css('marginTop', marginTop + parseInt($(this).css('marginTop')));
 				$(children[0]).attr('style', 'margin-top: 0px !important;');
 			}
 
-			if(marginBottom) {
+			if (marginBottom) {
 				$(this).css('marginBottom', marginBottom + parseInt($(this).css('marginBottom')));
 
-				var style = (lastChild ? '':$(children[lastChild]).attr('style'));
+				var style = (lastChild ? '' : $(children[lastChild]).attr('style'));
 
-				if(style === undefined) {
+				if (style === undefined) {
 					style = '';
 				}
 
 				$(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
 			}
-			else if($(children[lastChild]).css('overflow') == 'visible') {
+			else if ($(children[lastChild]).css('overflow') == 'visible') {
 
 			}
 		});
@@ -387,8 +389,15 @@ $(document).ready(function () {
 	 }, true);*/
 
 	//Comparison
-	if($('.comparison').length) {
+	if ($('.comparison').length) {
 		$.getScript('/static/js/comparison.min.js');
+	}
+
+	//match columns height
+	if ($('div[data-target="match-height"]').length) {
+		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+			$('div[data-target="match-height"]').matchHeight();
+		});
 	}
 });
 
@@ -405,11 +414,11 @@ addResize(function () {
 }, true);
 
 //Optional Dropdown. Hide when resize.
-addResize(function() {
-	$('[data-toggle=show-offcanvas]').each(function() {
+addResize(function () {
+	$('[data-toggle=show-offcanvas]').each(function () {
 		var target = $($(this).data('target'));
-    //reset height of the parent container
-    $(this).parents('.container').css('height','');
+		//reset height of the parent container
+		$(this).parents('.container').css('height', '');
 
 		if (target.is(':visible')) {
 			if (target.data('hidden-class')) {
@@ -435,7 +444,7 @@ function slickPlugin(parentSelector) {
 			init();
 		}
 		else {
-			$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
+			//$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
 			$.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
 		}
 	}
@@ -449,8 +458,9 @@ function slickPlugin(parentSelector) {
 		};
 
 		$(parentSelector).find('.slick').each(function () {
-			var cfg = defaults;
+			var cfg = jQuery.extend(true, {}, defaults);
 
+			//Destroy slick
 			if ($(this).data('active') == 'xs-only' && pageType != 0) {
 				if ($(this).hasClass('slick-initialized')) {
 					$(this).slick('unslick');
@@ -476,23 +486,27 @@ function slickPlugin(parentSelector) {
 				$(this).slick('destroy');
 			}
 
-			if($(this).parents('.banner').length) {
+			if ($(this).hasClass('banner')) {
 				cfg.dots = true;
 				cfg.autoplaySpeed = 6000;
 				cfg.arrows = false;
 				cfg.slidesToShow = 1;
-				cfg.autoplay = false;
+				cfg.autoplay = true;
+
+				$(this).find('> div').css('display', 'block');
 			}
 
 			if ($(this).find('> div').length > cfg.slidesToShow) {
-				if(!$(this).parents('.banner').length) {
+				if ($(this).hasClass('banner')) {
+					//$(this).find('.caption-wrapper').matchHeight();
+				}
+				else {
 					$(this).on('init', function (e, slick) {
 						var arrowsPos = 0, firstImage = $(this).find('img:first');
-
 						if (firstImage.parent().hasClass('img-crop')) {
 							arrowsPos = firstImage.parent().height() / 2 - 30;
 						}
-						else if(firstImage.parents('.img-crop').length) {
+						else if (firstImage.parents('.img-crop').length) {
 							arrowsPos = firstImage.parents('.img-crop').height() / 2 - 30;
 						}
 						else {
@@ -501,7 +515,7 @@ function slickPlugin(parentSelector) {
 
 						$(this).find('.slick-arrow').css('top', arrowsPos);
 
-						if($(slick.$list).parent().data('screenshot')) {
+						if ($(slick.$list).parent().data('screenshot')) {
 							fixScreenshot(slick, 0);
 						}
 					});
@@ -509,11 +523,18 @@ function slickPlugin(parentSelector) {
 
 				$(this).slick(cfg);
 
-				if($(this).data('screenshot')) {
-					$(this).on('afterChange', function(e, slick, currentSlide) {
+				if ($(this).data('screenshot')) {
+					$(this).on('afterChange', function (e, slick, currentSlide) {
 						fixScreenshot(slick, currentSlide);
 					});
 				}
+			}
+			else {
+				$(this).find('img').each(function() {
+					if($(this).data('lazy')) {
+						$(this).attr('src', $(this).data('lazy'));
+					}
+				});
 			}
 		});
 	}
@@ -521,7 +542,7 @@ function slickPlugin(parentSelector) {
 	function fixScreenshot(slick, currentSlide) {
 		var elem = $(slick.$slides[currentSlide]);
 
-		if(elem.width() < elem.find('img').width()) {
+		if (elem.width() < elem.find('img').width()) {
 			elem.find('> div').css('width', elem.width());
 		}
 	}
@@ -534,20 +555,20 @@ function processFlex(parentSelector) {
 
 	if ($(parentSelector).find('.vertical-center').length && !$('html').hasClass('flexbox')) {
 		$(parentSelector).find('.vertical-center').each(function () {
-			if(!$(this).is(':visible')) {
+			if (!$(this).is(':visible')) {
 				return true;
 			}
 
 			var child = $(this).children();
 
 			//Reset
-			if($(this).data('flex-processed')) {
+			if ($(this).data('flex-processed')) {
 				/*child.each(function () {
-					$(this).get(0).style.textAlign = '';
-					$(this).get(0).style.display = '';
-					$(this).get(0).style.width = '';
-					$(this).get(0).style.paddingLeft = '';
-				});*/
+				 $(this).get(0).style.textAlign = '';
+				 $(this).get(0).style.display = '';
+				 $(this).get(0).style.width = '';
+				 $(this).get(0).style.paddingLeft = '';
+				 });*/
 
 				//New Implementation
 
@@ -564,50 +585,50 @@ function processFlex(parentSelector) {
 			var centerHorizontal = $(this).hasClass('horizontal-center'), width = $(this).width(), height = $(this).height();
 
 			/*var height = $(this).height(),
-				width = $(this).outerWidth(),
-				centerHorizontal = $(this).hasClass('horizontal-center');*/
+			 width = $(this).outerWidth(),
+			 centerHorizontal = $(this).hasClass('horizontal-center');*/
 
 			//Should only have 1 children. Multiple children might not work.
 			/*child.each(function () {
-				if ($(this).css('display') == 'block') {
-					$(this).css({
-						display: 'inline-block',
-						width: $(this).parent().width()
-					});
-				}
+			 if ($(this).css('display') == 'block') {
+			 $(this).css({
+			 display: 'inline-block',
+			 width: $(this).parent().width()
+			 });
+			 }
 
-				$(this).css({
-					paddingTop: Math.floor((height - $(this).height()) / 2)
-				});
+			 $(this).css({
+			 paddingTop: Math.floor((height - $(this).height()) / 2)
+			 });
 
-				if (centerHorizontal) {
-					if(width == $(this).outerWidth()) {
-						$(this).css({
-							textAlign: 'center'
-						});
-					}
-					else {
-						$(this).css({
-							paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
-						});
-					}
-				}
-			});*/
+			 if (centerHorizontal) {
+			 if(width == $(this).outerWidth()) {
+			 $(this).css({
+			 textAlign: 'center'
+			 });
+			 }
+			 else {
+			 $(this).css({
+			 paddingLeft: Math.floor((width - $(this).outerWidth()) / 2)
+			 });
+			 }
+			 }
+			 });*/
 
 			//New Implementation
 
-			child.each(function() {
+			child.each(function () {
 				if ($(this).css('display') == 'block') {
 					$(this).css({display: 'inline-block'});
 				}
 
 				//If the centered width is greater than the parent element, set the width of the inner element.
-				if(width < $(this).width()) {
+				if (width < $(this).width()) {
 					console.log(width);
 					$(this).css({width: width});
 				}
 
-				if(height > $(this).height()) {
+				if (height > $(this).height()) {
 					$(this).css({
 						position: 'absolute',
 						top: '50%',
@@ -615,12 +636,12 @@ function processFlex(parentSelector) {
 					});
 				}
 
-				if(width > $(this).width()) {
+				if (width > $(this).width()) {
 					if (centerHorizontal) {
 						$(this).css({
 							position: 'absolute',
 							left: '50%',
-							marginLeft: -1 * $(this).width()/2
+							marginLeft: -1 * $(this).width() / 2
 						});
 					}
 				}
@@ -769,7 +790,7 @@ function loadOoyala(parentSelector) {
 				if ($(this).data('on-demand')) {
 					var parentContainer = $(this).parent(), elem = $(this);
 
-					if(parentContainer.hasClass('media-player-container')) {
+					if (parentContainer.hasClass('media-player-container')) {
 						elem = parentContainer;
 					}
 
@@ -787,31 +808,31 @@ function loadOoyala(parentSelector) {
 							}
 
 							window['ooyala_player_handle_' + indx] = OO.Player.create(id, videoId, {
-								onCreate: function(player) {
+								onCreate: function (player) {
 									//Autoplay workaround for mobile devices. Does not work because of security issue on mobile phone.
 									/*player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'UITeam', function () {
-										player.play();
+									 player.play();
 
-										var playButton = $('#' + id).find('.oo_play');
+									 var playButton = $('#' + id).find('.oo_play');
 
-										var i = setInterval(function() {
-											if(playButton.is(':visible') && $('#' + id).find('.oo_tap_panel').length) {
-												$('#' + id).find('.oo_tap_panel').trigger('click');
-												playButton.trigger('click');
-												clearInterval(i);
-											}
-										}, 10);
-									});*/
+									 var i = setInterval(function() {
+									 if(playButton.is(':visible') && $('#' + id).find('.oo_tap_panel').length) {
+									 $('#' + id).find('.oo_tap_panel').trigger('click');
+									 playButton.trigger('click');
+									 clearInterval(i);
+									 }
+									 }, 10);
+									 });*/
 
 									OOCreate(player);
 
 									//Instead of loading Ooyala still image, use DSG still image. Don't need to download the same image again.
 									//Ooyala image might still be downloaded in the background but at least DSG image will show immediately.
-									var i = setInterval(function() {
+									var i = setInterval(function () {
 										var elem = $('#' + id).find('.oo_promo');
 
-										if(elem.length && elem.css('backgroundImage') != 'none') {
-											if(imgURL != '') {
+										if (elem.length && elem.css('backgroundImage') != 'none') {
+											if (imgURL != '') {
 												elem.css('backgroundImage', 'url("' + imgURL + '")');
 											}
 
@@ -1113,7 +1134,7 @@ function resizeAffix() {
 	var affixHeight = affixElem.height();
 
 	if (pageType > 0) {
-		if(!$.fn.hashchange) {
+		if (!$.fn.hashchange) {
 			$.getScript('/static/library/jQuery/jquery.hashchange-mod.min.js').done(onHashChange);
 		}
 		else {
@@ -1137,32 +1158,32 @@ function resizeAffix() {
 
 		//fix to keep first affix item active when on top of the page
 		/*if (!siteWrapper.attr('id')) {
-			var id = affixElem.find('a:first-child').attr('href').substr(1);
+		 var id = affixElem.find('a:first-child').attr('href').substr(1);
 
-			$('#' + id).attr('id', id + '_old');
+		 $('#' + id).attr('id', id + '_old');
 
-			siteWrapper.attr('id', affixElem.find('a:first-child').attr('href').substr(1));
-		}*/
+		 siteWrapper.attr('id', affixElem.find('a:first-child').attr('href').substr(1));
+		 }*/
 
 		//fix for affix width changing when floating on the page
 		affixElem.css("width", affixElem.parents('.container').width());
 
 		//prepend div to fix affix position on bookmarked section
 		/*if (!$('.affix-fix').length) {
-			affixElem.find('a:gt(0)').each(function () {
-				body.find($(this).attr('href'))
-					.prepend('<div class="affix-fix" style="padding-top:' + (affixElem.height() + 10) + 'px; margin-top:'
-						+ -(affixElem.height() + 10) + 'px">')
-					.css('overflow', 'hidden');
-			});
-		}*/
+		 affixElem.find('a:gt(0)').each(function () {
+		 body.find($(this).attr('href'))
+		 .prepend('<div class="affix-fix" style="padding-top:' + (affixElem.height() + 10) + 'px; margin-top:'
+		 + -(affixElem.height() + 10) + 'px">')
+		 .css('overflow', 'hidden');
+		 });
+		 }*/
 
 		/*affixElem.find('a:gt(0)').each(function () {
-			body.find($(this).attr('href')).css({
-				paddingTop: (affixElem.height() + 10),
-				marginTop: -(affixElem.height() + 10)
-			});
-		});*/
+		 body.find($(this).attr('href')).css({
+		 paddingTop: (affixElem.height() + 10),
+		 marginTop: -(affixElem.height() + 10)
+		 });
+		 });*/
 
 		//trigger scrollspy if it hasn't been triggered already
 		if (!body.data('bs.scrollspy')) {
@@ -1217,8 +1238,8 @@ function resizeAffix() {
 	}
 
 	function onHashChange() {
-		if(!affixElem.data('hashchange-processed')) {
-			$(window).hashchange(function() {
+		if (!affixElem.data('hashchange-processed')) {
+			$(window).hashchange(function () {
 				hashScrollFix();
 			});
 
@@ -1229,8 +1250,8 @@ function resizeAffix() {
 	}
 
 	function hashScrollFix() {
-		affixElem.find('a').each(function() {
-			if($(this).attr('href') == location.hash) {
+		affixElem.find('a').each(function () {
+			if ($(this).attr('href') == location.hash) {
 				window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
 
 				return false;

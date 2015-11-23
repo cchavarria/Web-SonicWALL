@@ -124,17 +124,17 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .banner {
-  .slick {
+  &.slick {
     .slick-slide {
       position: relative;
-      a {
-        &:hover {
-          text-decoration: none;
-        }
+    }
+    a {
+      &:hover {
+        text-decoration: none;
       }
     }
   }
-  .slick-slider {
+  &.slick-slider {
     padding: 0 !important;
     margin-bottom: 45px;
   }
@@ -384,10 +384,27 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { //XS
   .banner {
     &.container {
       padding: 0;
+    }
+  }
+
+  //Content teaser on product page. 770x240
+  .col-xs-12 {
+    .slick {
+      margin-left: -15px;
+      margin-right: -15px;
+      .content-teaser {
+        > * {
+          padding: 12px;
+          height: 100%;
+        }
+      }
+      a {
+        display: block;
+      }
     }
   }
 }
@@ -411,6 +428,25 @@ $slick-opacity-not-active: 0.25 !default;
         .img-crop {
           //height: 141px;
         }
+      }
+    }
+  }
+
+  //Content teaser on product page. 770x240
+  .col-xs-12, .col-sm-12 {
+    .slick {
+      height: 221px;
+      .full-height {
+        height: 221px - (14px * 2) !important;
+      }
+      .content-teaser {
+        > * {
+          padding: 14px;
+          height: 100%;
+        }
+      }
+      a {
+        display: block;
       }
     }
   }
@@ -438,6 +474,43 @@ $slick-opacity-not-active: 0.25 !default;
       }
     }
   }
+
+  //Content teaser on product page. 770x240
+  .col-sm-7, .col-md-7 {
+    .slick {
+      .content-teaser {
+        height: 165px;
+        > * {
+          padding: 12px;
+          height: 100%;
+        }
+        .full-height {
+          height: 165px - (12px * 2) !important;
+        }
+      }
+      a {
+        display: block;
+      }
+      .caption-wrapper {
+        position: relative;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+        background: #f5f5f5;
+        width: 100% !important;
+        span {
+          color: #007db8;
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          &:hover {
+            background-color: transparent;
+            color: #007db8;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 1200px) { //LG
@@ -459,6 +532,25 @@ $slick-opacity-not-active: 0.25 !default;
         .img-crop {
           //height: 168px;
         }
+      }
+    }
+  }
+
+  //Content teaser on product page. 770x240
+  .col-md-7, .col-lg-7 {
+    .slick {
+      height: 206px;
+      .full-height {
+        height: 206px - (13px * 2) !important;
+      }
+      .content-teaser {
+        > * {
+          padding: 13px;
+          height: 100%;
+        }
+      }
+      a {
+        display: block;
       }
     }
   }
