@@ -1,6 +1,15 @@
-/*updated send button #433*/
+/*
+ * Created by: Edward Chong, Elnaz Doostdar
+ * Description:
+ * This file handles all the features for the video player, including:
+ * - Interactions for custom toolbar appearing at the top of the player on hover (video title and info, share , email, embed code icons)
+ * - Close caption
+ * Notes:
+ *- multiple player handling enhancements have been added during DSG responsive project
+ * */
 var languageList = [], videoList = [];
 
+/*store required info of each video player*/
 function OOCreate(player) {
   videoList.push({
     target: player.elementId,
@@ -12,8 +21,8 @@ function OOCreate(player) {
   //Unsure if this variable is being used elsewhere.
   //window['messageBus'] = player.mb;
 
+  /*fix full screen mode cut off in IE for non-responsive pages*/
   player.mb.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'UITeam', function () {
-    //fix full screen mode cut off in IE
     if ($('.oo_fullscreen').hasClass('oo_fullscreen_off')) {
       $('.wrapper').css({'width': '100%', 'height': '100%'});
       $('.round-corners').css('overflow', 'visible');
@@ -37,6 +46,7 @@ function OOCreate(player) {
     });
   });
 
+  /*Once player loaded fully this event will be triggered*/
   player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'UITeam', function () {
     var MBID = this.mb.MbId, plugins = null, videoProp = null;
 
@@ -52,7 +62,7 @@ function OOCreate(player) {
 
     addPlayerControls(plugins, player);
 
-    //add top bar
+    /*append player toolbar*/
     plugins.css('display', '').append('<div class="player-toolbar">' +
     '<p>' + title + '</p>' +
     '<ul>' +
@@ -65,7 +75,7 @@ function OOCreate(player) {
 
     enableHoverToggle(plugins);
 
-    //show player-toolbar when player loads for one second
+    /*show player-toolbar when player loads for one second*/
     plugins.show().delay(1000).fadeOut();
 
     /*issue where plugin is only applied to the first tab's video title and not the rest of the tabs*/
@@ -73,7 +83,7 @@ function OOCreate(player) {
     /* TODO: Need to find a way to do this for unsupported browsers */
     //plugins.find('.player-toolbar > p').dotdotdot({height: 20});
 
-    //click event handler for icons
+    /*player toolbar icons click handler*/
     plugins.find('.player-toolbar ul li').on('click', function () {
       disableHoverToggle(plugins);
 
@@ -108,8 +118,9 @@ function OOCreate(player) {
       appendOverlayContent(plugins, iconClass, player);
     });
 
+    /*social media click handler*/
     $('body').on('click', '.oo-toolbar a', function (e) {
-      var parent = $(this).parent(), classname = parent.attr('class'), u = '', t = $('h1').text().trim() + ' | Dell Software';
+      var parent = $(this).parent(), u = '', t = $('h1').text().trim() + ' | Dell Software';
 
       if (parent.hasClass('facebook')) {
         if (typeof s == 'object') {
@@ -166,7 +177,7 @@ function OOCreate(player) {
 
     processClosedCaption(player, videoProp);
 
-    //fix for mini-controls showing instead of full-controls
+    /*fix for mini-controls showing instead of full-controls*/
     $('.oo_controls').each(function () {
       if ($(this).hasClass('oo_mini_controls')) {
         $(this).removeClass('oo_mini_controls').addClass('oo_full_controls')
@@ -288,6 +299,7 @@ function mapLanguageCodes(localeCode) {
   }
 }
 
+/*handle player overlay content interactions*/
 function appendOverlayContent(plugins, iconClass, player) {
   if (plugins.parents('.innerWrapper').find('.overlay > div').is(':empty')) {
     plugins.parents('.innerWrapper').find('.overlay > div').append('<div class="info"><p>' + player.getTitle() + '</p><p>' + player.getCurrentItemDescription() + '</p><a href="#" class="remove-overlay">Close</a></div><div class="email"><h2>Email to a friend</h2><form class="sendemail"><label>Email to</label><span class="required">*</span><input class="emailfield" type="text" size="37"/><label>Message</label><textarea rows="3" cols="35"></textarea><input type="button" value="Send" class="sendbutton btn btn-primary mt-7 mr-10" /><a href="#" class="remove-overlay">Close</a></form><p class="errormessage">Please enter correct email addresses.<p></div><div class="share"><h2>Share this video</h2><div class="sharebuttons"><p>Share via social media</p><ul class="oo-toolbar"><li class="googleshare"><a href="#"><span class="icon googleshare"></span></a></li><li class="twitter"><a href="#"><span class="icon twitter"></span></a></li><li class="linkedin"><a href="#"><span class="icon linkedin"></span></a></li><li class="facebook"><a href="#"><span class="icon facebook"></span></a></li></ul><label>Copy and paste this url to share</label><input type="text" size="37"></div><a href="#" class="cancelbtn remove-overlay">Close</a></div><div class="embed"><h2>Add to website or blog</h2><label>Embed code</label><textarea rows="5" cols="35"><script height="384px" width="570px" src="http://player.ooyala.com/iframe.js#pbid=9eba220ad98c47cda9fdf6ba82ce607a&ec=' + player.embedCode + '"></script></textarea><a href="#" class="remove-overlay">Close</a></div>');
@@ -333,8 +345,8 @@ function appendOverlayContent(plugins, iconClass, player) {
 
 }
 
+/*toggle player toolbar on hover*/
 function enableHoverToggle(plugins) {
-  //show player-toolbar
   plugins.parents('.ooyalaplayer').on({
     mouseover: function () {
       //disable hover event if user clicks on any icon
@@ -350,11 +362,13 @@ function enableHoverToggle(plugins) {
   });
 }
 
+/*disable toggle player on hover when user clicks on any of toolbar icons*/
 function disableHoverToggle(plugins) {
   plugins.parents('.ooyalaplayer').off('mouseover mouseout');
   plugins.removeClass('show');
 }
 
+/*validate email form in overlay*/
 function validateForm(plugins, title) {
   var isValid = true, str = '', email = plugins.parents('.innerWrapper').find('.sendemail .emailfield'), emailBody = '';
 
@@ -379,6 +393,7 @@ function validateForm(plugins, title) {
   }
 }
 
+/*add volume control to the player*/
 function addPlayerControls(plugins, player) {
   var VOLUME_CONTROL = '<div class="volume-wrapper"><div class="oo_toolbar_item oo_button oo_volume oo_volume_high oo_customUI">'
       + '<div class="volume_slider"><input type="range" min="0" max="100" value="100"></div></div></div>';
@@ -532,8 +547,8 @@ function changeCC(obj, videoProp) {
     captions = findCurrentCC(_langStr);
 
     $("#" + target)
-        //.find(".ccLanguageModal").trigger('reveal:close').end()
-        //.find(".videoLanguage01").hide().end()
+      //.find(".ccLanguageModal").trigger('reveal:close').end()
+      //.find(".videoLanguage01").hide().end()
         .find(".cc_icon").attr("lanhidden", "true");
   }
 
@@ -583,13 +598,13 @@ function addCCButton(videoProp) {
   //$(vodNode).append(ccPopupHtml);
 
   playerObj
-      //.find(".videoLanguage01").hide().append($(".ccLanguageModal")).end()
-      //.find(".ccLanguageModal").show().end()
+    //.find(".videoLanguage01").hide().append($(".ccLanguageModal")).end()
+    //.find(".ccLanguageModal").show().end()
       .find(".off-caption").removeClass("disabled").end()
       .find(".on-caption").addClass("disabled").end()
       .find(".captionsContainer").hide().end()
       .find(".listLanguages").hide().end()
       .find(".ccLanguage").addClass("ccLanguage-disabled").end()
-      //.find(".videoLanguage01").hide().end()
+    //.find(".videoLanguage01").hide().end()
       .find(".cc_icon").attr("lanhidden", "true");
 }
