@@ -399,6 +399,28 @@ $(document).ready(function () {
 			$('div[data-target="match-height"]').matchHeight();
 		});
 	}
+
+	// product page responsive: custom repositioning after collapse interactions
+	$('.panel-title a').on('click', function (e) {
+		e.preventDefault();
+		$('.panel-body a[aria-expanded=true]').trigger('click');
+		var position = $('a[aria-expanded="true"]').offset(),
+				sectionTop = $('#specifications').offset(),
+				thisPosition = $(this).offset();
+		if (position.top < thisPosition.top) {
+			window.scrollTo(sectionTop.left, sectionTop.top - 40);
+		}
+	});
+
+	// product page responsive: Dynamic width of text container for tour when no slick functionality
+	if($('#tour .inline-block').length === 1){
+		var videoWidget = $('#tour .media-player-container img'),
+				textWidget = $('#tour .inline-block > div:last-child');
+		if(textWidget.width() !== videoWidget.width()) {
+			textWidget.width(videoWidget.width());
+		}
+	}
+
 });
 
 //Flex box degradation
