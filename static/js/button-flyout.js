@@ -1,3 +1,10 @@
+/*
+ * Created by: Edward Chong
+ * Description:
+ * This file will handle all the interactions for button-flyout widget(off-canvas toggle on button click)
+ * Notes:
+ * In mobile button will appear at the bottom of the page instead of top right corner
+*/
 (function () {
 	//Cannot dynamically load CSS because of IE 8 issue along with Respond.js.
 	//$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/button-flyout.min.css">');
