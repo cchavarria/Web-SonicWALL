@@ -401,13 +401,15 @@ $(document).ready(function () {
 	}
 
 	// product page responsive: custom repositioning after collapse interactions
+	// i.e. /pages/product/change-auditor-active-directory.htm
 	$('body').on('click', '.panel-title a', function (e) {
 		e.preventDefault();
 		//close child panels when closing parent
+		//Question: What if there are 2 distinct sets of accordion?
 		$('.panel-body a[aria-expanded=true]').trigger('click');
 		var $this = $(this);
 		//check if there is a panel open
-		if ($('a[aria-expanded=true]' ).length > 0) {
+		if ($('a[aria-expanded=true]').length > 0) { //Question: Are you searching this selector on the whole page?
 			// second parameter sets any custom extra padding top
 			// like in the case of product pages the 40 is used to avoid
 			// the target text being behind the affix menu
