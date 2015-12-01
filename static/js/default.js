@@ -405,17 +405,13 @@ $(document).ready(function () {
 		e.preventDefault();
 		//close child panels when closing parent
 		$('.panel-body a[aria-expanded=true]').trigger('click');
-
+		var $this = $(this);
 		//check if there is a panel open
-		if ($('a[aria-expanded=true]').length > 0) {
-			//check if clicked panel is below an open one
-			var position = $('a[aria-expanded=true]').offset(),
-					sectionTop = $('[data-accordion=top]').offset(),
-					thisPosition = $(this).offset();
-			if (position.top < thisPosition.top) {
-				//scroll to "data-accordion=top"
-				window.scrollTo(sectionTop.left, sectionTop.top - 40);
-			}
+		if ($('a[aria-expanded=true]' ).length > 0) {
+			// second parameter sets any custom extra padding top
+			// like in the case of product pages the 40 is used to avoid
+			// the target text being behind the affix menu
+			collapseScrollerUp($this, 40);
 		}
 	});
 
@@ -559,6 +555,7 @@ function slickPlugin(parentSelector) {
 				// when single element image - no slick slide
 				// sets the width of text underneath to be the same as the image
 				//check for data(screenshot) --> should only run when true
+				//TODO: if approved need to add data-text to text container that needs to be rezised
 				if($(this).data('screenshot')){
 					var elem = $(this);
 					if (elem.find('img').width() < elem.find('[data-text=true]').width()) {
@@ -1293,4 +1290,16 @@ function resizeAffix() {
 function replaceURL(text) {
 	var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 	return text.replace(exp, "<a href='$1'>$1</a>");
+}
+
+function collapseScrollerUp($this, customTop) {
+  var $this = $($this);
+	//check if clicked panel is below an open one
+	var position = $('a[aria-expanded=true]').offset(),
+			sectionTop = $('[data-accordion=top]').offset(),
+			thisPosition = $this.offset();
+	if (position.top < thisPosition.top) {
+		//scroll to "data-accordion=top"
+		window.scrollTo(sectionTop.left, sectionTop.top - customTop);
+	}
 }
