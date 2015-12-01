@@ -411,7 +411,7 @@ $(document).ready(function () {
 			// second parameter sets any custom extra padding top
 			// like in the case of product pages the 40 is used to avoid
 			// the target text being behind the affix menu
-			collapseScrollerUp($this, 40);
+			collapseScrollerUp($this, 50);
 		}
 	});
 
@@ -1293,11 +1293,10 @@ function replaceURL(text) {
 }
 
 function collapseScrollerUp($this, customTop) {
-  var $this = $($this);
 	//check if clicked panel is below an open one
 	var position = $('a[aria-expanded=true]').offset(),
 			sectionTop = $('[data-accordion=top]').offset(),
-			thisPosition = $this.offset();
+			thisPosition = $($this).offset();
 	if (position.top < thisPosition.top) {
 		//scroll to "data-accordion=top"
 		window.scrollTo(sectionTop.left, sectionTop.top - customTop);
