@@ -401,25 +401,23 @@ $(document).ready(function () {
 	}
 
 	// product page responsive: custom repositioning after collapse interactions
-	$('.panel-title a').on('click', function (e) {
+	$('body').on('click', '.panel-title a', function (e) {
 		e.preventDefault();
+		//close child panels when closing parent
 		$('.panel-body a[aria-expanded=true]').trigger('click');
-		var position = $('a[aria-expanded="true"]').offset(),
-				sectionTop = $('#specifications').offset(),
-				thisPosition = $(this).offset();
-		if (position.top < thisPosition.top) {
-			window.scrollTo(sectionTop.left, sectionTop.top - 40);
+
+		//check if there is a panel open
+		if ($('a[aria-expanded=true]').length > 0) {
+			//check if clicked panel is below an open one
+			var position = $('a[aria-expanded=true]').offset(),
+					sectionTop = $('[data-accordion=top]').offset(),
+					thisPosition = $(this).offset();
+			if (position.top < thisPosition.top) {
+				//scroll to "data-accordion=top"
+				window.scrollTo(sectionTop.left, sectionTop.top - 40);
+			}
 		}
 	});
-
-	// product page responsive: Dynamic width of text container for tour when no slick functionality
-	if($('#tour .inline-block').length === 1){
-		var videoWidget = $('#tour .media-player-container img'),
-				textWidget = $('#tour .inline-block > div:last-child');
-		if(textWidget.width() !== videoWidget.width()) {
-			textWidget.width(videoWidget.width());
-		}
-	}
 
 });
 
@@ -557,6 +555,16 @@ function slickPlugin(parentSelector) {
 						$(this).attr('src', $(this).data('lazy'));
 					}
 				});
+
+				// when single element image - no slick slide
+				// sets the width of text underneath to be the same as the image
+				//check for data(screenshot) --> should only run when true
+				if($(this).data('screenshot')){
+					var elem = $(this);
+					if (elem.find('img').width() < elem.find('[data-text=true]').width()) {
+						elem.find('[data-text=true]').css('width', elem.find('img').width());
+					}
+				}
 			}
 		});
 	}
@@ -1011,7 +1019,7 @@ function socialMediaToolbar() {
 					}
 				}
 			}
-		}
+		};
 		xhr.send();
 	}
 
