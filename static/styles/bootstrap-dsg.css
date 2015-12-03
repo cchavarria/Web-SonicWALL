@@ -4780,6 +4780,8 @@
     height: 48px;
     background: url("/images/shared/icon-product-support-48.png") 0 0 no-repeat;
     display: inline-block; }
+  .bootstrap .icon-large-computergeneric:before {
+    content: "\e616"; }
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;

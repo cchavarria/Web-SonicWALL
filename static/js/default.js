@@ -394,9 +394,12 @@ $(document).ready(function () {
 	}
 
 	//match columns height
-	if ($('div[data-target="match-height"]').length) {
+	if ($('*[data-target="match-height"]').length) {
 		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
-			$('div[data-target="match-height"]').matchHeight();
+			if(pageType > 0){
+				//ignore rows if applying match height to elements within a box
+				$('*[data-ignore-row="1"]').length ?  $('*[data-target="match-height"]').matchHeight({byRow:false}) : $('*[data-target="match-height"]').matchHeight();
+			}
 		});
 	}
 });

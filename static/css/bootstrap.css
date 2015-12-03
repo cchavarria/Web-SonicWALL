@@ -5805,6 +5805,9 @@ iframe {
   background: url("/images/shared/icon-product-support-48.png") 0 0 no-repeat;
   display: inline-block; }
 
+.icon-large-computergeneric:before {
+  content: "\e616"; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;
@@ -8603,6 +8606,11 @@ a:hover .has-overlay h4 {
     margin: 0;
     line-height: 30px;
     font-weight: 700; }
+  .listing-entries > h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 20px; }
 
 @media (max-width: 767px) {
   .listing-entries .col-xs-12 {
