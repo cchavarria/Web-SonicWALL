@@ -6796,61 +6796,72 @@ a:hover .img-header-overlay {
   .col-md-3 .img-crop, .col-lg-3 .img-crop {
     height: 194px; } }
 #affix-nav {
-  z-index: 99999; }
-  #affix-nav i.menu-indicator:before {
-    content: "\e601"; }
-  #affix-nav li {
-    border-top: 1px solid #cccccc;
-    padding: 0; }
+  /* Check bootstrap-ie.scss for specific rules for IE */
+  top: 0;
+  z-index: 99999;
+  display: block;
+  border: 1px solid #cccccc;
+  font-size: 14px; }
+  #affix-nav ul {
+    background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, white 8%, #efefef 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, white 8%, #efefef 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, white 8%, #efefef 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, white 8%, #efefef 100%);
+    /* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
+    #affix-nav ul li {
+      padding: 0;
+      float: left;
+      border-top: none;
+      border-left: #cccccc solid 1px; }
+      #affix-nav ul li:first-child {
+        border-left: none; }
+      #affix-nav ul li.active {
+        background: none repeat scroll 0 0 white;
+        border-color: #007db8;
+        border-width: 4px 0 0;
+        border-style: solid;
+        color: #444444; }
+        #affix-nav ul li.active a {
+          padding: 6px 5px 10px; }
+      #affix-nav ul li a {
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 5px; }
+        #affix-nav ul li a:focus {
+          background-color: transparent; }
+        #affix-nav ul li a:hover {
+          background-color: #cce7f3;
+          color: #007db8; }
 
-@media (min-width: 768px) {
-  #affix-nav {
-    /* Check bootstrap-ie.scss for specific rules for IE */
-    top: 0;
-    z-index: 999;
-    display: block;
-    border: 1px solid #cccccc;
-    font-size: 14px; }
-    #affix-nav ul {
-      background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      /* Old browsers */
-      background: -moz-linear-gradient(top, white 8%, #efefef 100%);
-      /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
-      /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
-      /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, white 8%, #efefef 100%);
-      /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, white 8%, #efefef 100%);
-      /* IE10+ */
-      background: linear-gradient(to bottom, white 8%, #efefef 100%);
-      /* W3C */
-      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
-      #affix-nav ul li {
+@media (max-width: 767px) {
+  #affix-nav.affix-list-xs {
+    border: 0; }
+    #affix-nav.affix-list-xs i.menu-indicator:before {
+      content: "\e601"; }
+    #affix-nav.affix-list-xs ul {
+      background: none repeat scroll 0 0 white; }
+      #affix-nav.affix-list-xs ul li {
+        border-top: 1px solid #cccccc;
         padding: 0;
-        float: left;
-        border-top: none;
-        border-left: #cccccc solid 1px; }
-        #affix-nav ul li:first-child {
-          border-left: none; }
-        #affix-nav ul li.active {
-          background: none repeat scroll 0 0 white;
-          border-color: #007db8;
-          border-width: 4px 0 0;
-          border-style: solid;
-          color: #444444; }
-          #affix-nav ul li.active a {
-            padding: 6px 5px 10px; }
-        #affix-nav ul li a {
-          text-align: center;
-          font-weight: bold;
-          padding: 10px 5px; }
-          #affix-nav ul li a:focus {
-            background-color: transparent; }
-          #affix-nav ul li a:hover {
-            background-color: #cce7f3;
-            color: #007db8; } }
+        width: 100%; }
+        #affix-nav.affix-list-xs ul li.active a:hover, #affix-nav.affix-list-xs ul li.active a:focus {
+          background: none repeat scroll 0 0 white; }
+        #affix-nav.affix-list-xs ul li a {
+          text-align: left;
+          font-weight: normal;
+          padding: 10px 15px; }
+          #affix-nav.affix-list-xs ul li a:hover {
+            background-color: #eeeeee; } }
 @media (min-width: 992px) {
   #affix-nav {
     font-size: 16px; } }

@@ -7120,60 +7120,71 @@
     .bootstrap .mr-20-lg {
       margin-right: 20px !important; } }
   .bootstrap #affix-nav {
-    z-index: 99999; }
-    .bootstrap #affix-nav i.menu-indicator:before {
-      content: "\e601"; }
-    .bootstrap #affix-nav li {
-      border-top: 1px solid #cccccc;
-      padding: 0; }
-  @media (min-width: 768px) {
-    .bootstrap #affix-nav {
-      /* Check bootstrap-ie.scss for specific rules for IE */
-      top: 0;
-      z-index: 999;
-      display: block;
-      border: 1px solid #cccccc;
-      font-size: 14px; }
-      .bootstrap #affix-nav ul {
-        background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-        /* Old browsers */
-        background: -moz-linear-gradient(top, white 8%, #efefef 100%);
-        /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
-        /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
-        /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, white 8%, #efefef 100%);
-        /* Opera 11.10+ */
-        background: -ms-linear-gradient(top, white 8%, #efefef 100%);
-        /* IE10+ */
-        background: linear-gradient(to bottom, white 8%, #efefef 100%);
-        /* W3C */
-        /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
-        .bootstrap #affix-nav ul li {
+    /* Check bootstrap-ie.scss for specific rules for IE */
+    top: 0;
+    z-index: 99999;
+    display: block;
+    border: 1px solid #cccccc;
+    font-size: 14px; }
+    .bootstrap #affix-nav ul {
+      background: linear-gradient(white, #efefef) repeat scroll 0 0 rgba(0, 0, 0, 0);
+      /* Old browsers */
+      background: -moz-linear-gradient(top, white 8%, #efefef 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, white), color-stop(100%, #efefef));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, white 8%, #efefef 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, white 8%, #efefef 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, white 8%, #efefef 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, white 8%, #efefef 100%);
+      /* W3C */
+      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);*/ }
+      .bootstrap #affix-nav ul li {
+        padding: 0;
+        float: left;
+        border-top: none;
+        border-left: #cccccc solid 1px; }
+        .bootstrap #affix-nav ul li:first-child {
+          border-left: none; }
+        .bootstrap #affix-nav ul li.active {
+          background: none repeat scroll 0 0 white;
+          border-color: #007db8;
+          border-width: 4px 0 0;
+          border-style: solid;
+          color: #444444; }
+          .bootstrap #affix-nav ul li.active a {
+            padding: 6px 5px 10px; }
+        .bootstrap #affix-nav ul li a {
+          text-align: center;
+          font-weight: bold;
+          padding: 10px 5px; }
+          .bootstrap #affix-nav ul li a:focus {
+            background-color: transparent; }
+          .bootstrap #affix-nav ul li a:hover {
+            background-color: #cce7f3;
+            color: #007db8; }
+  @media (max-width: 767px) {
+    .bootstrap #affix-nav.affix-list-xs {
+      border: 0; }
+      .bootstrap #affix-nav.affix-list-xs i.menu-indicator:before {
+        content: "\e601"; }
+      .bootstrap #affix-nav.affix-list-xs ul {
+        background: none repeat scroll 0 0 white; }
+        .bootstrap #affix-nav.affix-list-xs ul li {
+          border-top: 1px solid #cccccc;
           padding: 0;
-          float: left;
-          border-top: none;
-          border-left: #cccccc solid 1px; }
-          .bootstrap #affix-nav ul li:first-child {
-            border-left: none; }
-          .bootstrap #affix-nav ul li.active {
-            background: none repeat scroll 0 0 white;
-            border-color: #007db8;
-            border-width: 4px 0 0;
-            border-style: solid;
-            color: #444444; }
-            .bootstrap #affix-nav ul li.active a {
-              padding: 6px 5px 10px; }
-          .bootstrap #affix-nav ul li a {
-            text-align: center;
-            font-weight: bold;
-            padding: 10px 5px; }
-            .bootstrap #affix-nav ul li a:focus {
-              background-color: transparent; }
-            .bootstrap #affix-nav ul li a:hover {
-              background-color: #cce7f3;
-              color: #007db8; } }
+          width: 100%; }
+          .bootstrap #affix-nav.affix-list-xs ul li.active a:hover, .bootstrap #affix-nav.affix-list-xs ul li.active a:focus {
+            background: none repeat scroll 0 0 white; }
+          .bootstrap #affix-nav.affix-list-xs ul li a {
+            text-align: left;
+            font-weight: normal;
+            padding: 10px 15px; }
+            .bootstrap #affix-nav.affix-list-xs ul li a:hover {
+              background-color: #eeeeee; } }
   @media (min-width: 992px) {
     .bootstrap #affix-nav {
       font-size: 16px; } }
