@@ -393,15 +393,32 @@ $(document).ready(function () {
     $.getScript('/static/js/comparison.min.js');
   }
 
-  //match columns height
-  if ($('*[data-target="match-height"]').length) {
-    $.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
-      if (pageType > 0) {
-        //ignore rows if applying match height to elements within a box (this is for product listing page)
-        $('*[data-ignore-row="1"]').length ? $('*[data-target="match-height"]').matchHeight({byRow: false}) : $('*[data-target="match-height"]').matchHeight();
-      }
-    });
-  }
+	//match columns height
+	if ($('*[data-target="match-height"]').length) {
+		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+			if (pageType > 0) {
+				//ignore rows if applying match height to elements within a box (this is for product listing page)
+				$('*[data-ignore-row="1"]').length ? $('*[data-target="match-height"]').matchHeight({byRow: false}) : $('*[data-target="match-height"]').matchHeight();
+			}
+		});
+	}
+
+	// product page responsive: custom repositioning after collapse interactions
+	// i.e. /pages/product/change-auditor-active-directory.htm
+	$('body').on('click', '.panel-title a', function (e) {
+		e.preventDefault();
+		//close child panels when closing parent
+		//Question: What if there are 2 distinct sets of accordion?
+		$('.panel-body a[aria-expanded=true]').trigger('click');
+		var $this = $(this);
+		//check if there is a panel open
+		if ($('a[aria-expanded=true]').length > 0) { //Question: Are you searching this selector on the whole page?
+			// second parameter sets any custom extra padding top
+			// like in the case of product pages the 40 is used to avoid
+			// the target text being behind the affix menu
+			collapseScrollerUp($this, 50);
+		}
+	});
 });
 
 //Flex box degradation
@@ -526,21 +543,30 @@ function slickPlugin(parentSelector) {
 
         $(this).slick(cfg);
 
-        if ($(this).data('screenshot')) {
-          $(this).on('afterChange', function (e, slick, currentSlide) {
-            fixScreenshot(slick, currentSlide);
-          });
-        }
-      }
-      else {
-        $(this).find('img').each(function () {
-          if ($(this).data('lazy')) {
-            $(this).attr('src', $(this).data('lazy'));
-          }
-        });
-      }
-    });
-  }
+				if ($(this).data('screenshot')) {
+					$(this).on('afterChange', function (e, slick, currentSlide) {
+						fixScreenshot(slick, currentSlide);
+					});
+				}
+			}
+			else {
+				$(this).find('img').each(function() {
+					if($(this).data('lazy')) {
+						$(this).attr('src', $(this).data('lazy'));
+					}
+				});
+
+				// when single element image - no slick slide
+				// sets the width of text underneath to be the same as the image
+				if($(this).data('screenshot')){
+					$(this).find('.inline-block:first').css({
+						width: 640,
+						margin: '0 auto'
+					});
+				}
+			}
+		});
+	}
 
   function fixScreenshot(slick, currentSlide) {
     var elem = $(slick.$slides[currentSlide]);
@@ -1271,4 +1297,15 @@ function resizeAffix() {
 function replaceURL(text) {
   var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
   return text.replace(exp, "<a href='$1'>$1</a>");
+}
+
+function collapseScrollerUp($this, customTop) {
+	//check if clicked panel is below an open one
+	var position = $('a[aria-expanded=true]').offset(),
+			sectionTop = $('[data-accordion=top]').offset(),
+			thisPosition = $($this).offset();
+	if (position.top < thisPosition.top) {
+		//scroll to "data-accordion=top"
+		window.scrollTo(sectionTop.left, sectionTop.top - customTop);
+	}
 }
