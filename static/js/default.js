@@ -556,13 +556,11 @@ function slickPlugin(parentSelector) {
 
 				// when single element image - no slick slide
 				// sets the width of text underneath to be the same as the image
-				//check for data(screenshot) --> should only run when true
-				//TODO: if approved need to add data-text to text container that needs to be rezised
 				if($(this).data('screenshot')){
-					var elem = $(this);
-					if (elem.find('img').width() < elem.find('[data-text=true]').width()) {
-						elem.find('[data-text=true]').css('width', elem.find('img').width());
-					}
+					$(this).find('.inline-block:first').css({
+						width: 640,
+						margin: '0 auto'
+					});
 				}
 			}
 		});
