@@ -353,41 +353,6 @@ $(document).ready(function () {
     });
   }, true);
 
-  //Stacking containers to expose margin. bleeding.
-  /*addResize(function() {
-   $('.container').each(function() {
-   var children = $(this).children(), lastChild = children.length - 1;
-
-   //Start Reset
-   $(this).css('marginTop', '');
-   $(children[0]).css('marginTop', '');
-
-   $(this).css('marginBottom', '');
-   $(children[lastChild]).css('marginBottom', '');
-   //End Reset
-
-   var marginTop = parseInt($(children[0]).css('marginTop')),
-   marginBottom = parseInt($(children[lastChild]).css('marginBottom'));
-
-   if(marginTop) {
-   $(this).css('marginTop', marginTop + parseInt($(this).css('marginTop')));
-   $(children[0]).attr('style', 'margin-top: 0px !important;');
-   }
-
-   if(marginBottom) {
-   $(this).css('marginBottom', marginBottom + parseInt($(this).css('marginBottom')));
-
-   var style = (lastChild ? '':$(children[lastChild]).attr('style'));
-
-   if(style === undefined) {
-   style = '';
-   }
-
-   $(children[lastChild]).attr('style', style + 'margin-bottom: 0px !important;');
-   }
-   });
-   }, true);*/
-
   //Comparison
   if ($('.comparison').length) {
     $.getScript('/static/js/comparison.min.js');
@@ -396,9 +361,15 @@ $(document).ready(function () {
 	//match columns height
 	if ($('*[data-target="match-height"]').length) {
 		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+			var config = {};
+
 			if (pageType > 0) {
 				//ignore rows if applying match height to elements within a box (this is for product listing page)
-				$('*[data-ignore-row="1"]').length ? $('*[data-target="match-height"]').matchHeight({byRow: false}) : $('*[data-target="match-height"]').matchHeight();
+				if($('*[data-ignore-row="1"]').length) {
+					config.byRow = false;
+				}
+
+				$('*[data-target="match-height"]').matchHeight(config);
 			}
 		});
 	}
@@ -535,7 +506,7 @@ function slickPlugin(parentSelector) {
 
             $(this).find('.slick-arrow').css('top', arrowsPos);
 
-            if ($(slick.$list).parent().data('screenshot')) {
+            if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
               fixScreenshot(slick, 0);
             }
           });
@@ -543,7 +514,7 @@ function slickPlugin(parentSelector) {
 
         $(this).slick(cfg);
 
-				if ($(this).data('screenshot')) {
+				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
 					$(this).on('afterChange', function (e, slick, currentSlide) {
 						fixScreenshot(slick, currentSlide);
 					});
@@ -555,15 +526,6 @@ function slickPlugin(parentSelector) {
 						$(this).attr('src', $(this).data('lazy'));
 					}
 				});
-
-				// when single element image - no slick slide
-				// sets the width of text underneath to be the same as the image
-				if($(this).data('screenshot')){
-					$(this).find('.inline-block:first').css({
-						width: 640,
-						margin: '0 auto'
-					});
-				}
 			}
 		});
 	}
@@ -682,6 +644,8 @@ function processFlex(parentSelector) {
 }
 
 function processEllipsis(parentSelector) {
+	var deferred = $.Deferred();
+
   if (typeof parentSelector == 'undefined') {
     parentSelector = 'body';
   }
@@ -764,8 +728,12 @@ function processEllipsis(parentSelector) {
           $(this).find('.dotdotdot-read-more').remove();
         }
       }
+
+			deferred.resolve();
     });
   }
+
+	return deferred;
 }
 
 function loadOoyala(parentSelector) {
@@ -821,6 +789,13 @@ function loadOoyala(parentSelector) {
 
           if (parentContainer.hasClass('media-player-container')) {
             elem = parentContainer;
+
+						//Check if play button overlay is present, if not create it.
+						/*if($(!parentContainer.find('.img-overlay').length)) {
+							var buttonOverlay = '<div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>';
+
+							$(buttonOverlay).insertAfter(parentContainer.find('img:first'));
+						}*/
           }
 
           elem.on('click', function () {
