@@ -2428,7 +2428,8 @@
     .bootstrap .form-control[disabled], fieldset[disabled] .bootstrap .form-control {
       cursor: not-allowed; }
   .bootstrap textarea.form-control {
-    height: auto; }
+    height: auto;
+    margin-bottom: 15px; }
   .bootstrap select.form-control {
     padding: 6px 8px; }
   .bootstrap input[type="search"] {
