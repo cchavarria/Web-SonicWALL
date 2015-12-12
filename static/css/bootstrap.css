@@ -2752,7 +2752,8 @@ output {
     cursor: not-allowed; }
 
 textarea.form-control {
-  height: auto; }
+  height: auto;
+  margin-bottom: 15px; }
 
 select.form-control {
   padding: 6px 8px; }

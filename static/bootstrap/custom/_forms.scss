@@ -165,6 +165,7 @@ output {
 // Reset height for `textarea`s
 textarea.form-control {
   height: auto;
+  margin-bottom: 15px;
 }
 
 select.form-control {
