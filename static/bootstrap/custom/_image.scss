@@ -60,7 +60,13 @@
   line-height: 30px;
   font-weight: 700;
   position: absolute;
+	top: 0;
   width: 100%;
+	z-index: 2;
+	+ img {
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 a:hover {

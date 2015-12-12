@@ -374,20 +374,16 @@ $(document).ready(function () {
 		});
 	}
 
-	// product page responsive: custom repositioning after collapse interactions
-	// i.e. /pages/product/change-auditor-active-directory.htm
-	$('body').on('click', '.panel-title a', function (e) {
-		e.preventDefault();
-		//close child panels when closing parent
-		//Question: What if there are 2 distinct sets of accordion?
-		$('.panel-body a[aria-expanded=true]').trigger('click');
-		var $this = $(this);
-		//check if there is a panel open
-		if ($('a[aria-expanded=true]').length > 0) { //Question: Are you searching this selector on the whole page?
-			// second parameter sets any custom extra padding top
-			// like in the case of product pages the 40 is used to avoid
-			// the target text being behind the affix menu
-			collapseScrollerUp($this, 50);
+	//Scroll up on accordion, if and only if a previous accordion is open and is above the new opened accordion.
+	$(document).on('show.bs.collapse', function(e) {
+		//check if clicked panel is below an open one
+
+		var targetOpenElem = $(e.target).parent(),
+			containerElem = $(targetOpenElem).parents('.container'),
+			previousOpenElem = containerElem.find('a[aria-expanded="true"]');
+
+		if(previousOpenElem.length && previousOpenElem.offset().top < targetOpenElem.offset().top) {
+			window.scrollTo(0, containerElem.offset().top - 50);
 		}
 	});
 });
@@ -445,7 +441,8 @@ function slickPlugin(parentSelector) {
       arrows: true,
       infinite: false,
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+			lazyLoad: 'ondemand'
     };
 
     $(parentSelector).find('.slick').each(function () {
@@ -494,6 +491,7 @@ function slickPlugin(parentSelector) {
         else {
           $(this).on('init', function (e, slick) {
             var arrowsPos = 0, firstImage = $(this).find('img:first');
+
             if (firstImage.parent().hasClass('img-crop')) {
               arrowsPos = firstImage.parent().height() / 2 - 30;
             }
@@ -504,19 +502,35 @@ function slickPlugin(parentSelector) {
               arrowsPos = firstImage.height() / 2 - 30;
             }
 
-            $(this).find('.slick-arrow').css('top', arrowsPos);
+						if(arrowsPos <= 0) {
+							firstImage.on('load', function() {
+								$(this).parents('.slick').find('.slick-arrow').css('top', $(this).height() / 2 - 30);
 
-            if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
-              fixScreenshot(slick, 0);
-            }
+								if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
+									fixScreenshot(slick, 0);
+								}
+							});
+
+						}
+						else {
+							$(this).find('.slick-arrow').css('top', arrowsPos);
+
+							if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
+								fixScreenshot(slick, 0);
+							}
+						}
           });
         }
 
         $(this).slick(cfg);
 
 				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
-					$(this).on('afterChange', function (e, slick, currentSlide) {
+					/*$(this).on('afterChange', function (e, slick, currentSlide) {
 						fixScreenshot(slick, currentSlide);
+					});*/
+
+					$(this).on('beforeChange', function (e, slick, currentSlide, nextSlide) {
+						fixScreenshot(slick, nextSlide);
 					});
 				}
 			}
@@ -531,11 +545,33 @@ function slickPlugin(parentSelector) {
 	}
 
   function fixScreenshot(slick, currentSlide) {
-    var elem = $(slick.$slides[currentSlide]);
+    var elem = $(slick.$slides[currentSlide]),
+				slideWidth = elem.width(),
+				imgWidth = elem.find('img').width(),
+				innerDiv = elem.find('> div');
 
-    if (elem.width() < elem.find('img').width()) {
-      elem.find('> div').css('width', elem.width());
+		innerDiv.css('width', '');
+
+		//in case image didn't load in time.
+		$(elem).find('img').on('load', function() {
+			innerDiv.css('width', '');
+
+			var imgWidth = $(this).width();
+
+			if (slideWidth < imgWidth) {
+				innerDiv.css('width', slideWidth);
+			}
+			else {
+				innerDiv.css('width', imgWidth);
+			}
+		});
+
+    if (slideWidth < imgWidth) {
+			innerDiv.css('width', slideWidth);
     }
+		else {
+			innerDiv.css('width', imgWidth);
+		}
   }
 }
 
@@ -1002,7 +1038,7 @@ function socialMediaToolbar() {
     var parent = $(this).parent(), title = document.title;
 
     if (parent.hasClass('facebook')) {
-      if (typeof s == 'object') {
+      if (typeof s == 'object' && false) {
         //s.tl(this, 'o', 'Share-Facebook');
         s.events = "event13";
         s.eVar18 = "Facebook";
@@ -1017,7 +1053,7 @@ function socialMediaToolbar() {
       window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(title), 'facebook', 'width=480,height=240,toolbar=0,status=0,resizable=1');
     }
     else if (parent.hasClass('twitter')) {
-      if (typeof s == 'object') {
+      if (typeof s == 'object' && false) {
         //s.tl(this, 'o', 'Share-Twitter');
         s.events = "event13";
         s.eVar18 = "Twitter";
@@ -1033,7 +1069,7 @@ function socialMediaToolbar() {
       window.open('http://twitter.com/share?via=DellSoftware&url=' + encodeURIComponent(bitlyURL) + '&text=' + encodeURIComponent(title) + ',%20&counturl=' + encodeURIComponent(url), 'twitter', 'width=480,height=380,toolbar=0,status=0,resizable=1');
     }
     else if (parent.hasClass('linkedin')) {
-      if (typeof s == 'object') {
+      if (typeof s == 'object' && false) {
         //s.tl(this, 'o', 'Share-LinkedIn');
         s.events = "event13";
         s.eVar18 = "LinkedIn";
@@ -1045,7 +1081,8 @@ function socialMediaToolbar() {
 
       e.preventDefault();
       window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
-    } else if (parent.hasClass('googleshare')) {
+    }
+		else if (parent.hasClass('googleshare')) {
       e.preventDefault();
       window.open('https://plus.google.com/share?url=' + encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
       return false;
@@ -1135,7 +1172,7 @@ function resizeAffix() {
   //Reset
   affixElem.find('a').css('padding-bottom', '');
 
-  if (pageType > 0) {
+  if (pageType > 0 || !$(affixID).hasClass('affix-list-xs')) {
     if (!$.fn.hashchange) {
       $.getScript('/static/library/jQuery/jquery.hashchange-mod.min.js').done(onHashChange);
     }
@@ -1272,15 +1309,4 @@ function resizeAffix() {
 function replaceURL(text) {
   var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
   return text.replace(exp, "<a href='$1'>$1</a>");
-}
-
-function collapseScrollerUp($this, customTop) {
-	//check if clicked panel is below an open one
-	var position = $('a[aria-expanded=true]').offset(),
-			sectionTop = $('[data-accordion=top]').offset(),
-			thisPosition = $($this).offset();
-	if (position.top < thisPosition.top) {
-		//scroll to "data-accordion=top"
-		window.scrollTo(sectionTop.left, sectionTop.top - customTop);
-	}
 }

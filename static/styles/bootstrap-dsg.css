@@ -5175,85 +5175,87 @@
   .bootstrap .ie-mobile-7 .icon-small-searchleft:before {
     content: "Search"; }
   @media (max-width: 767px) {
-    .bootstrap.is-responsive .shadow-overlay-left {
-      width: 10px;
-      height: 100%;
-      position: absolute;
-      z-index: 5;
-      pointer-events: none;
-      -webkit-box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3);
-      -moz-box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3);
-      box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3); }
-    .bootstrap.is-responsive .site-canvas {
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-      -o-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -webkit-transition: -webkit-transform 500ms ease;
-      -moz-transition: -moz-transform 500ms ease;
-      -o-transition: -o-transform 500ms ease;
-      transition: transform 500ms ease; }
-    .bootstrap.is-responsive .masthead {
-      margin-bottom: 0; }
-      .bootstrap.is-responsive .masthead .navbar {
-        z-index: 1049; }
-      .bootstrap.is-responsive .masthead .navbar-inverse, .bootstrap.is-responsive .masthead .navbar-toggle {
-        border-color: transparent;
-        background-color: transparent; }
-      .bootstrap.is-responsive .masthead .input-group {
-        width: 100%; }
-        .bootstrap.is-responsive .masthead .input-group form {
-          position: relative;
-          display: table;
-          border-collapse: separate;
+    .bootstrap.is-responsive {
+      /*.site-canvas {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-transition: -webkit-transform 500ms ease;
+        -moz-transition: -moz-transform 500ms ease;
+        -o-transition: -o-transform 500ms ease;
+        transition: transform 500ms ease;
+      }*/ }
+      .bootstrap.is-responsive .shadow-overlay-left {
+        width: 10px;
+        height: 100%;
+        position: absolute;
+        z-index: 5;
+        pointer-events: none;
+        -webkit-box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3);
+        -moz-box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3);
+        box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3); }
+      .bootstrap.is-responsive .masthead {
+        margin-bottom: 0; }
+        .bootstrap.is-responsive .masthead .navbar {
+          z-index: 1049; }
+        .bootstrap.is-responsive .masthead .navbar-inverse, .bootstrap.is-responsive .masthead .navbar-toggle {
+          border-color: transparent;
+          background-color: transparent; }
+        .bootstrap.is-responsive .masthead .input-group {
           width: 100%; }
-      .bootstrap.is-responsive .masthead .form-control {
-        display: table-cell;
-        padding: 6px 5px;
-        /*border-radius: 0;*/ }
-      .bootstrap.is-responsive .masthead .input-group form div {
-        padding: 0; }
-      .bootstrap.is-responsive .masthead .input-group form button {
-        padding: 5px 11px;
-        background-color: #007db8;
-        border-color: #007db8;
-        background-image: none; }
-        .bootstrap.is-responsive .masthead .input-group form button i {
-          color: #fff !important; }
-      .bootstrap.is-responsive .masthead .utility {
-        width: auto; }
-        .bootstrap.is-responsive .masthead .utility li {
-          position: inherit; }
-      .bootstrap.is-responsive .masthead ul.tier1 li {
+          .bootstrap.is-responsive .masthead .input-group form {
+            position: relative;
+            display: table;
+            border-collapse: separate;
+            width: 100%; }
+        .bootstrap.is-responsive .masthead .form-control {
+          display: table-cell;
+          padding: 6px 5px;
+          /*border-radius: 0;*/ }
+        .bootstrap.is-responsive .masthead .input-group form div {
+          padding: 0; }
+        .bootstrap.is-responsive .masthead .input-group form button {
+          padding: 5px 11px;
+          background-color: #007db8;
+          border-color: #007db8;
+          background-image: none; }
+          .bootstrap.is-responsive .masthead .input-group form button i {
+            color: #fff !important; }
+        .bootstrap.is-responsive .masthead .utility {
+          width: auto; }
+          .bootstrap.is-responsive .masthead .utility li {
+            position: inherit; }
+        .bootstrap.is-responsive .masthead ul.tier1 li {
+          position: relative; }
+        .bootstrap.is-responsive .masthead ul.tier3 {
+          height: auto !important; }
+      .bootstrap.is-responsive i.menu-indicator {
         position: relative; }
-      .bootstrap.is-responsive .masthead ul.tier3 {
-        height: auto !important; }
-    .bootstrap.is-responsive i.menu-indicator {
-      position: relative; }
-    .bootstrap.is-responsive #footer {
-      margin-top: 30px; }
-      .bootstrap.is-responsive #footer .footer-top-section li {
-        padding: 0;
-        border-bottom: 1px solid #aaa; }
-      .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li {
-        border-bottom: 1px solid #5eb0d7; }
-        .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li:last-child {
-          border-bottom: 1px solid transparent; }
-      .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links.list-inline li {
-        display: block; }
-    .bootstrap.is-responsive .openNav .site-canvas {
-      -webkit-transform: translate3d(-276px, 0, 0);
-      -moz-transform: translate3d(-276px, 0, 0);
-      -ms-transform: translate3d(-276px, 0, 0);
-      -o-transform: translate3d(-276px, 0, 0);
-      transform: translate3d(-276px, 0, 0);
-      -webkit-transition: -webkit-transform 500ms ease;
-      -moz-transition: -moz-transform 500ms ease;
-      -o-transition: -o-transform 500ms ease;
-      transition: transform 500ms ease; }
-    .bootstrap.is-responsive .openNav .main-nav-section {
-      display: block; } }
+      .bootstrap.is-responsive #footer {
+        margin-top: 30px; }
+        .bootstrap.is-responsive #footer .footer-top-section li {
+          padding: 0;
+          border-bottom: 1px solid #aaa; }
+        .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li {
+          border-bottom: 1px solid #5eb0d7; }
+          .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links li:last-child {
+            border-bottom: 1px solid transparent; }
+        .bootstrap.is-responsive #footer .footer-bottom-section ul.menu-links.list-inline li {
+          display: block; }
+      .bootstrap.is-responsive .openNav .site-canvas {
+        -webkit-transform: translate3d(-276px, 0, 0);
+        -moz-transform: translate3d(-276px, 0, 0);
+        -ms-transform: translate3d(-276px, 0, 0);
+        -o-transform: translate3d(-276px, 0, 0);
+        transform: translate3d(-276px, 0, 0);
+        -webkit-transition: -webkit-transform 500ms ease;
+        -moz-transition: -moz-transform 500ms ease;
+        -o-transition: -o-transform 500ms ease;
+        transition: transform 500ms ease; }
+      .bootstrap.is-responsive .openNav .main-nav-section {
+        display: block; } }
   @media (min-width: 768px) {
     .bootstrap.is-responsive .masthead .container {
       margin-left: 0;
@@ -5811,7 +5813,12 @@
     line-height: 30px;
     font-weight: 700;
     position: absolute;
-    width: 100%; }
+    top: 0;
+    width: 100%;
+    z-index: 2; }
+    .bootstrap .img-header-overlay + img {
+      position: absolute;
+      bottom: 0; }
   .bootstrap a:hover .img-header-overlay {
     text-decoration: none; }
   @media (max-width: 767px) {
@@ -6075,6 +6082,9 @@
             opacity: 0.75; }
       .bootstrap .slick-dots li.slick-active button {
         background-color: #444; }
+  .bootstrap .slick .media-player-container {
+    display: inline-block;
+    width: auto; }
   .bootstrap .slick .img-crop-border {
     display: block;
     position: absolute;
@@ -7170,6 +7180,10 @@
           .bootstrap #affix-nav ul li a:hover {
             background-color: #cce7f3;
             color: #007db8; }
+    .bootstrap #affix-nav.no-style ul {
+      background: white; }
+      .bootstrap #affix-nav.no-style ul li.disabled.active {
+        border-color: white; }
   @media (max-width: 767px) {
     .bootstrap #affix-nav.affix-list-xs {
       border: 0; }
@@ -7281,7 +7295,12 @@
   line-height: 30px;
   font-weight: 700;
   position: absolute;
-  width: 100%; }
+  top: 0;
+  width: 100%;
+  z-index: 2; }
+  .img-header-overlay + img {
+    position: absolute;
+    bottom: 0; }
 
 a:hover .img-header-overlay {
   text-decoration: none; }

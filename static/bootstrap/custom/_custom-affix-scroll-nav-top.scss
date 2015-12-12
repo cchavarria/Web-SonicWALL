@@ -53,6 +53,18 @@
       }
     }
   }
+	&.no-style {
+		ul {
+			background: $white;
+			li {
+				&.disabled {
+					&.active {
+						border-color: $white;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 767px) {

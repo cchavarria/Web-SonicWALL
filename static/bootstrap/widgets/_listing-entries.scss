@@ -1,4 +1,12 @@
+#ui-loader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -10px 0 0 -10px;
+}
+
 .listing-entries {
+	@include transition(opacity .5s ease);
   color: #444;
   a {
     color: #444;

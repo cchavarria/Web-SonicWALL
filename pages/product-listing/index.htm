@@ -1,178 +1,201 @@
+<style>
+	.listing-entries {
+		display: none;
+	}
+
+	.filters {
+		opacity: 0;
+	}
+</style>
 <div class="container breadcrumb-container hidden-xs">
-  <ul class="breadcrumb">
-    <li><a href="{{RootPath}}"></a><span class="divider"></span></li>
-    <li class="active">{{CDELabelProductsAtoZ}}</li>
-  </ul>
+	<ul class="breadcrumb">
+		<li><a href="{{RootPath}}"></a><span class="divider"></span></li>
+		<li class="active">{{CDELabelProductsAtoZ}}</li>
+	</ul>
 </div>
 <div class="container">
-  <h1>{{CDELabelProductsAtoZ}}</h1>
+	<h1>{{CDELabelProductsAtoZ}}</h1>
 </div>
 <div class="container text-md">
-  <span class="icon-large-computergeneric text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;  =="></span>
+	<span class="icon-large-computergeneric text-blue pull-left mr-20 hidden-xs" style="font-size: 60px;  =="></span>
 
-  <p class="mt-7"><strong>Find a product that solves your complex IT Management needs</strong><br>
-    Use the A-Z list to browse our products or refine your search by solutions or brand</p>
+	<p class="mt-7"><strong>Find a product that solves your complex IT Management needs</strong><br>
+		Use the A-Z list to browse our products or refine your search by solutions or brand</p>
 </div>
-<div id="mainer">
-  <div class="container visible-xs">
-    <div class="row">
-      <div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
-        <p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
 
-        <div class="nowrap pull-right">
-          <span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
-          <a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
-              class="filter-num"></span>)</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container visible-xs">
+	<div class="row">
+		<div class="col-xs-12 bg-grey pt-10 pb-10 mt-20">
+			<p class="mt-7 mb-0 pull-left"><span class="total_results">0</span> {{LabelResults}}</p>
 
-  <div id="view-filters" class="container mt-20 hidden-xs">
-    <div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
-      <p class="pull-left mt-7 mb-0">
-        <span class="total_results">0</span> {{LabelResults}}:
-      </p>
+			<div class="nowrap pull-right">
+				<span class="mr-10 mb-0">{{LabelSearchBy}}:</span>
+				<a class="btn btn-primary" data-toggle="offcanvas" href="#view-filters">{{LabelFilters}} (<span
+					class="filter-num"></span>)</a>
+			</div>
+		</div>
+	</div>
+</div>
 
-      <div class="text-right">
-        <a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
-        <a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
-      </div>
-    </div>
-    <p class="text-md hidden-xs">
-      <span class="total_results">0</span> {{LabelResults}}:
-    </p>
+<div id="view-filters" class="container mt-20 hidden-xs">
+	<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
+		<p class="pull-left mt-7 mb-0">
+			<span class="total_results">0</span> {{LabelResults}}:
+		</p>
 
-    <section class="filters">
-      <div class="row mb-15 mb-0-xs">
-        <div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-          <span class="visible-xs pl-10">{{LabelSolution}}</span>
-          <select id="solution" name="solution" class="ms mb-15-xs" multiple="multiple"></select>
-        </div>
-        <div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
-          <span class="visible-xs pl-10">{{LabelProductLine}}</span>
-          <select id="brand" name="brand" class="ms mb-15-xs" multiple="multiple"></select>
-        </div>
-      </div>
-    </section>
+		<div class="text-right">
+			<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+			<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
+		</div>
+	</div>
+	<p class="text-md hidden-xs">
+		<span class="total_results">0</span> {{LabelResults}}:
+	</p>
 
-    <div class="mt-15 hidden-xs">
-      <a href="#" class="resetfilter">{{LabelClearAll}}</a>
-    </div>
-    <div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
-      <p class="pull-left mt-7 mb-0">
-        <span class="total_results">0 &nbsp;</span> {{LabelResults}}
-      </p>
+	<section class="filters">
+		<div class="row mb-15 mb-0-xs">
+			<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<span class="visible-xs pl-10">{{LabelSolution}}</span>
+				<select id="solution" name="solution" class="ms mb-15-xs" multiple="multiple"></select>
+			</div>
+			<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
+				<span class="visible-xs pl-10">{{LabelProductLine}}</span>
+				<select id="brand" name="brand" class="ms mb-15-xs" multiple="multiple"></select>
+			</div>
+		</div>
+	</section>
 
-      <div class="text-right">
-        <a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
-        <a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
-      </div>
-    </div>
+	<div class="mt-15 hidden-xs">
+		<a href="#" class="resetfilter">{{LabelClearAll}}</a>
+	</div>
+	<div class="col-xs-12 bg-grey borderv-grey pt-10 pb-10 pl-15 pr-15 mb-15-xs visible-xs">
+		<p class="pull-left mt-7 mb-0">
+			<span class="total_results">0 &nbsp;</span> {{LabelResults}}
+		</p>
 
-  </div>
+		<div class="text-right">
+			<a href="#" class="resetfilter mr-10">{{LabelClearAll}}</a>
+			<a href="#" class="btn btn-primary off-canvas-back">{{LabelClose}}</a>
+		</div>
+	</div>
 
-  <div class="container">
-    <div class="mt-20 mb-20">
-      <div id="affix-nav" data-even-width="true">
-        <ul class="nav">
-          <li class="active">
-            <a href="#A-B">A-B</a>
-          </li>
-          <li>
-            <a href="#C-D">C-D</a>
-          </li>
-          <li>
-            <a href="#E-F">E-F</a>
-          </li>
-          <li>
-            <a href="#G-M">G-M</a>
-          </li>
-          <li>
-            <a href="#N-R">N-R</a>
-          </li>
-          <li>
-            <a href="#S">S</a>
-          </li>
-          <li>
-            <a href="#T-X">T-X</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <section class="listing-entries mt-30-xs">
-      <h4 id="A-B">A-B</h4>
+</div>
 
-      <div class="row">
-        <div class="col-md-6 col-xs-12"></div>
-        <div class="col-md-6 col-xs-12"></div>
-      </div>
+<div class="container mt-20 mb-20">
+	<div id="affix-nav" class="no-style" data-even-width="true">
+		<ul class="nav">
+			<li class="active">
+				<a href="#A-B">A-B</a>
+			</li>
+			<li>
+				<a href="#C-D">C-D</a>
+			</li>
+			<li>
+				<a href="#E-F">E-F</a>
+			</li>
+			<li>
+				<a href="#G-M">G-M</a>
+			</li>
+			<li>
+				<a href="#N-R">N-R</a>
+			</li>
+			<li>
+				<a href="#S">S</a>
+			</li>
+			<li>
+				<a href="#T-X">T-X</a>
+			</li>
+		</ul>
+	</div>
+</div>
 
-      <h4 id="C-D">C-D</h4>
+<div class="container">
+	<section class="listing-entries mt-30-xs">
+		<div id="A-B">
+			<h4 class="mt-20 mb-20 h3"><strong>A-B</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-	    <h4 id="E-F">E-F</h4>
+		<div id="C-D">
+			<h4 class="mt-20 mb-20 h3"><strong>C-D</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-	    <h4 id="G-M">G-M</h4>
+		<div id="E-F">
+			<h4 class="mt-20 mb-20 h3"><strong>E-F</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-	    <h4 id="N-R">N-R</h4>
+		<div id="G-M">
+			<h4 class="mt-20 mb-20 h3"><strong>G-M</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-	    <h4 id="S">S</h4>
+		<div id="N-R">
+			<h4 class="mt-20 mb-20 h3"><strong>N-R</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-	    <h4 id="T-X">T-X</h4>
+		<div id="S">
+			<h4 class="mt-20 mb-20 h3"><strong>S</strong></h4>
 
-	    <div class="row">
-		    <div class="col-md-6 col-xs-12"></div>
-		    <div class="col-md-6 col-xs-12"></div>
-	    </div>
-    </section>
-  </div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
 
-  <div class="container">
-    <div class="row">
+		<div id="T-X">
+			<h4 class="mt-20 mb-20 h3"><strong>T-X</strong></h4>
 
-      <div id="no-results" class="alert hidden">
-        <div class="alert-warning mb-0">
-          <h4>{{LabelListingNoResult}}</h4>
+			<div class="row">
+				<div class="col-md-6 col-xs-12"></div>
+				<div class="col-md-6 col-xs-12"></div>
+			</div>
+		</div>
+	</section>
+</div>
 
-          <div class="label-error-wrapper"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+	<div class="row">
+
+		<div id="no-results" class="alert hidden">
+			<div class="alert-warning mb-0">
+				<h4 class="mt-20 mb-20 h3"><strong>{{LabelListingNoResult}}</strong></h4>
+
+				<div class="label-error-wrapper"></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <i id="ui-loader" class="icon-ui-loading"></i>
 
 <script id="listing-template" type="text/template">
-<a class="border-b-grey pb-10 mb-20" href="[[url]]" data-target="match-height" data-ignore-row="1" style="display: none;">
-	<h4 class="text-blue dotdotdot" data-max-line="2">[[title]]</h4>
-	<div class="dotdotdot" data-max-line="3">[[description]]</div>
-</a>
+	<a class="border-b-grey mb-10" href="[[url]]" data-target="match-height" data-ignore-row="1">
+		<h4 class="text-blue dotdotdot" data-max-line="1">[[title]]</strong></h4>
+		<div class="dotdotdot mb-10" data-max-line="2">[[description]]</div>
+	</a>
 </script>
 
 <div class="bg-grey mt-20 pt-20 pb-20 social-media-toolbar text-center">

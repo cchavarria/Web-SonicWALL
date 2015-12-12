@@ -12,6 +12,7 @@ var languageList = [], videoList = [];
 /*store required info of each video player*/
 function OOCreate(player) {
   videoList.push({
+		player: player,
     target: player.elementId,
     MBID: player.mb.MbId,
     MB: player.mb,
@@ -184,6 +185,15 @@ function OOCreate(player) {
       }
     });
   });
+
+	player.mb.subscribe(OO.EVENTS.PLAY, 'UITeam', function() {
+		//Pause other ooyala player.
+		$.each(videoList, function() {
+			if(this.MBID != player.mb.MbId) {
+				this.player.pause();
+			}
+		});
+	});
 }
 
 /*********************/

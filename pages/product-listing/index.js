@@ -4,7 +4,8 @@ if (typeof RootPath == 'undefined') {
 
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
 	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/product/').replace('//', '/'),
-	rowContainer = $('.listing-entries').find('.col-xs-12'),
+	listingContainer = $('.listing-entries'),
+	entryContainer = listingContainer.find('.col-xs-12'),
 	hashMap = {
 		solution: 'bysolution',
 		brand: 'bybrand'
@@ -39,6 +40,10 @@ var populateListingPending = false, //prevent populate listing to load more than
 			id: 'T-X'
 		}
 	];
+
+$('#affix-nav').on('click', '.disabled a', function(e) {
+	e.stopImmediatePropagation();
+});
 
 if($.fn.matchHeight) {
 
@@ -156,6 +161,8 @@ function init() {
 
 			//When filters are loaded, execute function 'hashchange'
 			$.when.apply(this, ajaxArr).done(function () {
+				$('.filters').css('opacity', 1);
+
 				if (location.hash.length) {
 					parseHashTag();
 				}
@@ -214,6 +221,33 @@ function init() {
 				ajaxArr = [];
 				filterElem.data('continue', true);
 				populateListing();
+			});
+		});
+
+		$('body').on('offcanvas.hidden', function() {
+			processEllipsis('.listing-entries').done(function() {
+				setTimeout(function() {
+					if(pageType > 0) {
+						if(location.search == '?v2') {
+							listingContainer.find('.row').each(function() {
+								var columns = $(this).find('> div'),
+									firstColumn = $(columns.get(0)),
+									lastColumn = $(columns.get(1));
+
+								firstColumn.find('a').each(function(index) {
+									var h = Math.max($(this).height(), lastColumn.find('a:eq(' + index + ')').height());
+
+									columns.find('a:eq(' + index + ')').css('height', h);
+								});
+							});
+						}
+						else {
+							entryContainer.find('> a').matchHeight({byRow: false});
+						}
+					}
+
+					listingContainer.css('opacity', 1);
+				}, 100);
 			});
 		});
 	});
@@ -312,7 +346,7 @@ function populateListing() {
 	var dataset = getDataSet();
 
 	if (dataset === false) {
-		rowContainer.empty();
+		entryContainer.empty();
 		$('#no-results').removeClass('hidden');
 
 		return false;
@@ -326,6 +360,7 @@ function populateListing() {
 		dataType: 'JSON',
 		data: dataset,
 		beforeSend: function () {
+			listingContainer.css({opacity: 0}).hide();
 			$('#ui-loader').show();
 		}
 	}).done(function (dataopt) {
@@ -333,7 +368,7 @@ function populateListing() {
 
 		$('#ui-loader').hide();
 
-		rowContainer.empty();
+		entryContainer.empty();
 
 		$.each(range, function(k, v) {
 			range[k] = $.extend({}, v, {data: [[], []]});
@@ -358,12 +393,16 @@ function populateListing() {
 				var midpoint = Math.ceil(v.data[0].length / 2);
 
 				range[k].data[1] = range[k].data[0].splice(midpoint, v.data[0].length - midpoint);
-
+				
+				//Enable navigation for specified range.
 				$('#affix-nav').find('li:eq(' + k + ')').removeClass('disabled');
 
-				$('#' + v.id).next().find('> div:eq(0)').html(range[k].data[0].join('')).end().find('> div:eq(1)').html(range[k].data[1].join(''));
+				$('#' + v.id).show().find('.row').find('> div:eq(0)').html(range[k].data[0].join('')).end().find('> div:eq(1)').html(range[k].data[1].join(''));
 			}
 			else {
+				$('#' + v.id).hide();
+
+				//Disable navigation for specified range.
 				$('#affix-nav').find('li:eq(' + k + ')').addClass('disabled');
 			}
 		});
@@ -379,13 +418,35 @@ function populateListing() {
 		// add total results number
 		$('.total_results').html(dataopt.total);
 
+		window.scrollTo(0, 1);
+		window.scrollTo(0, 0);
+
 		setTimeout(function () {
-			rowContainer.find('> a').filter(':not(:visible)').show().css('opacity', 0).animate({'opacity': 1}, 500).promise().done(function() {
-				processEllipsis('.listing-entries').done(function() {
-					setTimeout(function() {
-						rowContainer.find('> a').matchHeight({byRow: false});
-					}, 100);
-				});
+			listingContainer.show();
+
+			processEllipsis('.listing-entries').done(function() {
+				setTimeout(function() {
+					if(pageType > 0) {
+						if(location.search == '?v2') {
+							listingContainer.find('.row').each(function() {
+								var columns = $(this).find('> div'),
+									firstColumn = $(columns.get(0)),
+									lastColumn = $(columns.get(1));
+
+								firstColumn.find('a').each(function(index) {
+									var h = Math.max($(this).height(), lastColumn.find('a:eq(' + index + ')').height());
+
+									columns.find('a:eq(' + index + ')').css('height', h);
+								});
+							});
+						}
+						else {
+							entryContainer.find('> a').matchHeight({byRow: false});
+						}
+					}
+
+					listingContainer.css('opacity', 1);
+				}, 100);
 			});
 		}, 100);
 	});

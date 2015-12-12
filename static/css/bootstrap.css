@@ -6331,7 +6331,7 @@ i.menu-indicator {
     -moz-box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3);
     box-shadow: inset 3px -2px 5px 0 rgba(50, 50, 50, 0.3); }
 
-  .site-canvas {
+  /*.site-canvas {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -6340,8 +6340,8 @@ i.menu-indicator {
     -webkit-transition: -webkit-transform 500ms ease;
     -moz-transition: -moz-transform 500ms ease;
     -o-transition: -o-transform 500ms ease;
-    transition: transform 500ms ease; }
-
+    transition: transform 500ms ease;
+  }*/
   .masthead {
     margin-bottom: 0; }
     .masthead .navbar {
@@ -6766,7 +6766,12 @@ i.menu-indicator {
   line-height: 30px;
   font-weight: 700;
   position: absolute;
-  width: 100%; }
+  top: 0;
+  width: 100%;
+  z-index: 2; }
+  .img-header-overlay + img {
+    position: absolute;
+    bottom: 0; }
 
 a:hover .img-header-overlay {
   text-decoration: none; }
@@ -6842,6 +6847,10 @@ a:hover .img-header-overlay {
         #affix-nav ul li a:hover {
           background-color: #cce7f3;
           color: #007db8; }
+  #affix-nav.no-style ul {
+    background: white; }
+    #affix-nav.no-style ul li.disabled.active {
+      border-color: white; }
 
 @media (max-width: 767px) {
   #affix-nav.affix-list-xs {
@@ -7564,7 +7573,13 @@ body {
     border-bottom: 1px solid #cccccc; } }
 @media (min-width: 768px) {
   .border-l-grey-sm {
-    border-left: 1px solid #cccccc; } }
+    border-left: 1px solid #cccccc; }
+
+  .border-r-grey-sm {
+    border-right: 1px solid #cccccc; } }
+@media (min-width: 992px) {
+  .border-r-grey-md {
+    border-right: 1px solid #cccccc; } }
 /*
   Description: Hero banner
   Author: Elnaz Doostdar
@@ -8598,7 +8613,16 @@ a:hover .has-overlay h4 {
 @media (min-width: 768px) {
   .featured-products .pagination-container {
     margin: 0 -15px; } }
+#ui-loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -10px 0 0 -10px; }
+
 .listing-entries {
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   color: #444;
   /* Already defined in _image.scss
 
@@ -9331,6 +9355,9 @@ a:hover .has-overlay h4 {
       background-color: #444; }
 
 /* Image Cropping */
+.slick .media-player-container {
+  display: inline-block;
+  width: auto; }
 .slick .img-crop-border {
   display: block;
   position: absolute;
