@@ -1172,17 +1172,18 @@ function resizeAffix() {
   //Reset
   affixElem.find('a').css('padding-bottom', '');
 
-  if (pageType > 0 || !$(affixID).hasClass('affix-list-xs')) {
-    if (!$.fn.hashchange) {
+	if (affixElem.data('even-width') && ((pageType == 0 && !affixElem.hasClass('affix-list-xs')) || pageType > 0)) {
+		affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
+	}
+
+  if (pageType > 0 || !affixElem.hasClass('affix-list-xs')) {
+    /*if (!$.fn.hashchange) {
       $.getScript('/static/library/jQuery/jquery.hashchange-mod.min.js').done(onHashChange);
     }
     else {
       onHashChange();
-    }
+    }*/
 
-    if (affixElem.data('even-width')) {
-      affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
-    }
     //fix for adjusting height of all tabs if we have multiple lines
     affixElem.find('a').each(function () {
       var parentHeight = $(this).parent().outerHeight();
@@ -1192,36 +1193,20 @@ function resizeAffix() {
       }
     });
 
+		//Navigate to bookmark.
+		affixElem.on('click', 'a', function(e) {
+			e.preventDefault();
+
+			$('html, body').animate({scrollTop: Math.ceil($($(this).attr('href')).offset().top - affixElem.height())}, 500);
+
+			//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
+			$(this).parent().addClass('active');
+		});
+
     siteWrapper.attr('id', 'top');
-
-    //fix to keep first affix item active when on top of the page
-    /*if (!siteWrapper.attr('id')) {
-     var id = affixElem.find('a:first-child').attr('href').substr(1);
-
-     $('#' + id).attr('id', id + '_old');
-
-     siteWrapper.attr('id', affixElem.find('a:first-child').attr('href').substr(1));
-     }*/
 
     //fix for affix width changing when floating on the page
     affixElem.css("width", affixElem.parents('.container').width());
-
-    //prepend div to fix affix position on bookmarked section
-    /*if (!$('.affix-fix').length) {
-     affixElem.find('a:gt(0)').each(function () {
-     body.find($(this).attr('href'))
-     .prepend('<div class="affix-fix" style="padding-top:' + (affixElem.height() + 10) + 'px; margin-top:'
-     + -(affixElem.height() + 10) + 'px">')
-     .css('overflow', 'hidden');
-     });
-     }*/
-
-    /*affixElem.find('a:gt(0)').each(function () {
-     body.find($(this).attr('href')).css({
-     paddingTop: (affixElem.height() + 10),
-     marginTop: -(affixElem.height() + 10)
-     });
-     });*/
 
     //trigger scrollspy if it hasn't been triggered already
     if (!body.data('bs.scrollspy')) {
@@ -1252,21 +1237,6 @@ function resizeAffix() {
     }
   }
   else {
-    //$('.affix-fix').parent().css('overflow', '');
-    //$('.affix-fix').remove();
-
-    //commenting out this portion (not needed)
-    /*affixElem.find('a:gt(0)').each(function () {
-     body.find($(this).attr('href')).css({
-     paddingTop: '',
-     marginTop: ''
-     });
-     });*/
-
-    if (affixElem.data('even-width') && !affixElem.hasClass('affix-list-xs')) {
-      affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
-    }
-
     if (affixElem.hasClass('affix-list-xs')) {
       affixElem.find('li').css('width', '');
       $('#affix-nav').css('width', '');

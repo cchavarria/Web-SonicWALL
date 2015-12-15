@@ -6083,26 +6083,28 @@
             opacity: 0.75; }
       .bootstrap .slick-dots li.slick-active button {
         background-color: #444; }
-  .bootstrap .slick .media-player-container {
-    display: inline-block;
-    width: auto; }
-  .bootstrap .slick .img-crop-border {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #737373; }
-  .bootstrap .slick .img-crop {
-    height: 216px;
-    display: block;
-    overflow: hidden;
-    position: relative; }
-    .bootstrap .slick .img-crop.img-border {
+  .bootstrap .slick {
+    /*.media-player-container {
+    	display: inline-block;
+    	width: auto;
+    }*/ }
+    .bootstrap .slick .img-crop-border {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
       border: 1px solid #737373; }
-  .bootstrap .slick.slick-initialized .img-crop {
-    height: 180px; }
-  .bootstrap .slick.slick-initialized.col-sm-9 .img-crop, .bootstrap .slick.slick-initialized.col-md-9 .img-crop, .bootstrap .slick.slick-initialized.col-lg-9 .img-crop {
-    height: 180px; }
+    .bootstrap .slick .img-crop {
+      height: 216px;
+      display: block;
+      overflow: hidden;
+      position: relative; }
+      .bootstrap .slick .img-crop.img-border {
+        border: 1px solid #737373; }
+    .bootstrap .slick.slick-initialized .img-crop {
+      height: 180px; }
+    .bootstrap .slick.slick-initialized.col-sm-9 .img-crop, .bootstrap .slick.slick-initialized.col-md-9 .img-crop, .bootstrap .slick.slick-initialized.col-lg-9 .img-crop {
+      height: 180px; }
   @media (max-width: 767px) {
     .bootstrap .banner.container {
       padding: 0; }
@@ -7183,6 +7185,10 @@
             color: #007db8; }
     .bootstrap #affix-nav.no-style ul {
       background: white; }
+      .bootstrap #affix-nav.no-style ul li.active {
+        border-left: 1px solid #ccc; }
+        .bootstrap #affix-nav.no-style ul li.active:first-of-type {
+          border-left: 0; }
       .bootstrap #affix-nav.no-style ul li.disabled.active {
         border-color: white; }
   @media (max-width: 767px) {

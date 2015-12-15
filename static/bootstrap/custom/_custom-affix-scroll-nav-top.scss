@@ -57,6 +57,12 @@
 		ul {
 			background: $white;
 			li {
+				&.active {
+					border-left: 1px solid #ccc;
+					&:first-of-type {
+						border-left: 0;
+					}
+				}
 				&.disabled {
 					&.active {
 						border-color: $white;

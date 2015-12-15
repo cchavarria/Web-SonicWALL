@@ -6,7 +6,7 @@
 }
 
 .listing-entries {
-	@include transition(opacity .5s ease);
+	@include transition(opacity .1s ease);
   color: #444;
   a {
     color: #444;
