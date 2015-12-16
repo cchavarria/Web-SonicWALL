@@ -3,9 +3,9 @@ if (typeof RootPath == 'undefined') {
 }
 
 var populateListingPending = false, //prevent populate listing to load more than 1 at a time.
-	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/product/').replace('//', '/'),
+	endPointURL = (((RootPath == '/') ? '' : RootPath) + '/jsonreq/trial/').replace('//', '/'),
 	listingContainer = $('.listing-entries'),
-	entryContainer = listingContainer.find('.col-xs-12'),
+	entryContainer = listingContainer.find('.row'),
 	hashMap = {
 		solution: 'bysolution',
 		brand: 'bybrand'
@@ -49,9 +49,12 @@ if($.fn.matchHeight) {
 
 }
 else {
-	$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+	$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {});
+}
 
-	});
+if ($.fn.dotdotdot) {}
+else {
+	$.getScript('/static/library/jQuery/jquery.dotdotdot.min.js', function () {});
 }
 
 if ($.fn.multipleSelect) {
@@ -92,6 +95,17 @@ function init() {
 	// Local variable value
 	var ajaxArr = [],
 		filterMap = {
+			trialsfreeware: {
+				callback: function() {
+					$(this).multipleSelect({
+						multiple: false,
+						selectAll: false,
+						single: true,
+						onClose: function () {}
+					});
+					$(this).multipleSelect("checkAll");
+				}
+			},
 			brand: {
 				data: {"type": "product line"},
 				init: true,
@@ -151,6 +165,9 @@ function init() {
 			$.each(filterMap, function (id, entry) {
 				if (entry.init) {
 					ajaxArr.push(populateDropdowns(id, entry.data, entry.callback));
+				}
+				else {
+					entry.callback.call($('#' + id).get(0));
 				}
 			});
 
@@ -354,6 +371,10 @@ function populateListing() {
 
 	populateListingPending = true;
 
+	$.each(range, function(i, obj) {
+		range[i].set = false;
+	});
+
 	return $.ajax({
 		url: endPointURL,
 		type: 'POST',
@@ -364,49 +385,96 @@ function populateListing() {
 			$('#ui-loader').show();
 		}
 	}).done(function (dataopt) {
-		populateListingPending = false;
+		var starttime = new Date().getTime();
 
+		populateListingPending = false;
 		entryContainer.empty();
 
-		$.each(range, function(k, v) {
-			range[k] = $.extend({}, v, {data: [[], []]});
-		});
-
-		var template = $('#listing-template').html();
+		var template = $('#listing-template').html(), type = $('#trialsfreeware').val(), offsetTotal = 0;
 
 		$.each(dataopt.data, function (key, val) {
-			htmlFragment = populateTemplate(val, template);
+			if((type == 'Virtual Trials' && val.url.virt == '') || (type == 'Freeware' && val.url.freeware == '') || (type == 'Trials' && val.url.trial == '')) {
+				offsetTotal++;
+				return true;
+			}
 
-			$.each(range, function(k, v) {
-				if(v.range.test(val.title)) {
-					range[k].data[0].push(htmlFragment);
+			val.tooltip = val.tooltip.replace(/(<([^>]+)>)/ig,"");
 
-					return false;
+			entryContainer.append(populateTemplate(val, template));
+
+			var elem = entryContainer.find('> div:last'), buyCount = 0, tryCount = 0;
+
+			$.each([val.url.trial, val.url.virt, val.url.freeware], function(i, v) {
+				if(v != '') {
+					tryCount++;
+				}
+			});
+
+			$.each([val.url.buy, val.url.contact], function(i, v) {
+				if(v != '') {
+					buyCount++;
+				}
+			});
+
+			if(tryCount > 1) {
+				elem.find('.try-single').remove();
+
+				elem.find('.try-group').find('a').each(function() {
+					if($(this).attr('href') == '') {
+						$(this).parent().remove();
+					}
+				});
+			}
+			else {
+				elem.find('.try-group').remove();
+
+				elem.find('.try-single').each(function() {
+					if($(this).attr('href') == '') {
+						$(this).remove();
+					}
+				});
+			}
+
+			if(buyCount > 1) {
+				elem.find('.buy-single').remove();
+
+				elem.find('.buy-group').find('a').each(function() {
+					if($(this).attr('href') == '') {
+						$(this).parent().remove();
+					}
+				});
+			}
+			else {
+				elem.find('.buy-group').remove();
+
+				elem.find('.buy-single').each(function() {
+					if($(this).attr('href') == '') {
+						$(this).remove();
+					}
+				});
+			}
+
+			$.each(range, function(i, obj) {
+				if(!obj.set) {
+					if(obj.range.test(val.title)) {
+						elem.attr('id', obj.id);
+						range[i].set = true;
+					}
 				}
 			});
 		});
 
-		$.each(range, function(k, v) {
-			if(v.data[0].length) {
-				var midpoint = Math.ceil(v.data[0].length / 2);
-
-				range[k].data[1] = range[k].data[0].splice(midpoint, v.data[0].length - midpoint);
-
-				//Enable navigation for specified range.
-				$('#affix-nav').find('li:eq(' + k + ')').removeClass('disabled');
-
-				$('#' + v.id).show().find('.row').find('> div:eq(0)').html(range[k].data[0].join('')).end().find('> div:eq(1)').html(range[k].data[1].join(''));
+		$.each(range, function(i, obj) {
+			if(obj.set) {
+				$('#affix-nav').find('li:eq(' + i + ')').removeClass('disabled');
 			}
 			else {
-				$('#' + v.id).hide();
-
-				//Disable navigation for specified range.
-				$('#affix-nav').find('li:eq(' + k + ')').addClass('disabled');
+				$('#affix-nav').find('li:eq(' + i + ')').addClass('disabled');
 			}
 		});
 
 		//TODO: total record counts < pages x 16 or 12 hide View More button
-		if (dataopt.total) {
+		if (dataopt.total - offsetTotal) {
 			$('#no-results').addClass('hidden');
 		}
 		else {
@@ -414,7 +482,11 @@ function populateListing() {
 		}
 
 		// add total results number
-		$('.total_results').html(dataopt.total);
+		$('.total_results').html(dataopt.total - offsetTotal);
+
+		var endtime = new Date().getTime();
+
+		console.log('processing time in seconds: ' + (endtime - starttime)/60);
 
 		setTimeout(function () {
 			listingContainer.show();
@@ -422,22 +494,7 @@ function populateListing() {
 			processEllipsis('.listing-entries').done(function() {
 				setTimeout(function() {
 					if(pageType > 0) {
-						if(location.search == '?v2') {
-							listingContainer.find('.row').each(function() {
-								var columns = $(this).find('> div'),
-									firstColumn = $(columns.get(0)),
-									lastColumn = $(columns.get(1));
-
-								firstColumn.find('a').each(function(index) {
-									var h = Math.max($(this).height(), lastColumn.find('a:eq(' + index + ')').height());
-
-									columns.find('a:eq(' + index + ')').css('height', h);
-								});
-							});
-						}
-						else {
-							entryContainer.find('> a').matchHeight({byRow: false});
-						}
+						entryContainer.find('> div').matchHeight({byRow: false});
 					}
 
 					listingContainer.css('opacity', 1);
@@ -449,9 +506,9 @@ function populateListing() {
 							return false;
 						}
 					});
-				}, 100);
+				}, 10);
 			});
-		}, 100);
+		}, 10);
 	});
 }
 
@@ -485,9 +542,10 @@ function buildAHashTag() {
 // iterates selected filters and createsd dataset for ajax call
 function getDataSet() {
 	var dataset = {
-			"type": "product list"
+			"type": "trial list"
 		},
 		mapping = {
+			productType: 'trialsfreeware',
 			solution: 'solution',
 			brand: 'brand'
 		},
@@ -533,14 +591,16 @@ function populateTemplate(obj, tpl, prefix) {
 	$.each(obj, function (n, v) {
 		if (typeof v == 'object') {
 			if ($.isEmptyObject(v)) {
-				tpl = tpl.replace('[[' + prefix + n + ']]', '');
+				var regExp = new RegExp("\\[\\[" + prefix + n + "\\]\\]", "g");
+				tpl = tpl.replace(regExp, '');
 			}
 			else {
 				tpl = populateTemplate(v, tpl, prefix + n + '.');
 			}
 		}
 		else {
-			tpl = tpl.replace('[[' + prefix + n + ']]', v);
+			var regExp = new RegExp("\\[\\[" + prefix + n + "\\]\\]", "g");
+			tpl = tpl.replace(regExp, v);
 		}
 	});
 

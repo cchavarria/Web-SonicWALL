@@ -432,7 +432,7 @@ function slickPlugin(parentSelector) {
     }
     else {
       //$('head').append('<link rel="stylesheet" type="text/css" href="/static/css/slick.min.css?' + new Date().getTime() + '">');
-      $.getScript('/static/library/jQuery/slick-1.5.7/slick.min.js').done(init);
+      $.getScript('/static/library/jQuery/slick-1.5.9/slick.min.js').done(init);
     }
   }
 
@@ -480,6 +480,11 @@ function slickPlugin(parentSelector) {
         cfg.arrows = false;
         cfg.slidesToShow = 1;
         cfg.autoplay = true;
+				cfg.infinite = true;
+
+				if($(this).data('random')) {
+					cfg.initialSlide = Math.floor(Math.random() * $(this).find('> div').length);
+				}
 
         $(this).find('> div').css('display', 'block');
       }
@@ -490,7 +495,7 @@ function slickPlugin(parentSelector) {
         }
         else {
           $(this).on('init', function (e, slick) {
-            var arrowsPos = 0, firstImage = $(this).find('img:first');
+            var arrowsPos = 0, elem = $(this), firstImage = elem.find('img:first');
 
             if (firstImage.parent().hasClass('img-crop')) {
               arrowsPos = firstImage.parent().height() / 2 - 30;
@@ -503,20 +508,24 @@ function slickPlugin(parentSelector) {
             }
 
 						if(arrowsPos <= 0) {
-							firstImage.on('load', function() {
-								$(this).parents('.slick').find('.slick-arrow').css('top', $(this).height() / 2 - 30);
+							var firstImageInterval = setInterval(function() {
+								var imgHeight = elem.find('.slick-active').find('img:first').height();
 
-								if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
-									fixScreenshot(slick, 0);
+								if(imgHeight > 0) {
+									clearInterval(firstImageInterval);
+									elem.find('.slick-arrow').css('top', imgHeight / 2 - 30);
+
+									if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
+										fixScreenshot.call(elem, e, slick, 0, 0);
+									}
 								}
-							});
-
+							}, 100);
 						}
 						else {
-							$(this).find('.slick-arrow').css('top', arrowsPos);
+							elem.find('.slick-arrow').css('top', arrowsPos);
 
 							if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
-								fixScreenshot(slick, 0);
+								fixScreenshot.call(elem, e, slick, 0, 0);
 							}
 						}
           });
@@ -525,13 +534,7 @@ function slickPlugin(parentSelector) {
         $(this).slick(cfg);
 
 				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
-					/*$(this).on('afterChange', function (e, slick, currentSlide) {
-						fixScreenshot(slick, currentSlide);
-					});*/
-
-					$(this).on('beforeChange', function (e, slick, currentSlide, nextSlide) {
-						fixScreenshot(slick, nextSlide);
-					});
+					$(this).on('beforeChange', fixScreenshot);
 				}
 			}
 			else {
@@ -544,17 +547,19 @@ function slickPlugin(parentSelector) {
 		});
 	}
 
-  function fixScreenshot(slick, currentSlide) {
-    var elem = $(slick.$slides[currentSlide]),
+  function fixScreenshot(e, slick, currentSlide, nextSlide) {
+    var elem = $(slick.$slides[nextSlide]),
 				slideWidth = elem.width(),
 				imgWidth = elem.find('img').width(),
 				innerDiv = elem.find('> div');
+
+		elem.css('opacity', 0);
 
 		innerDiv.css('width', '');
 
 		//in case image didn't load in time.
 		$(elem).find('img').on('load', function() {
-			innerDiv.css('width', '');
+			innerDiv.css('width', '').addClass('inline-block');
 
 			var imgWidth = $(this).width();
 
@@ -564,13 +569,20 @@ function slickPlugin(parentSelector) {
 			else {
 				innerDiv.css('width', imgWidth);
 			}
+
+			elem.css('opacity', 1);
 		});
 
-    if (slideWidth < imgWidth) {
-			innerDiv.css('width', slideWidth);
-    }
-		else {
-			innerDiv.css('width', imgWidth);
+		if(imgWidth > 0) {
+			if (slideWidth < imgWidth) {
+				innerDiv.css('width', slideWidth);
+			}
+			else {
+				innerDiv.css('width', imgWidth);
+			}
+
+			innerDiv.addClass('inline-block');
+			elem.css('opacity', 1);
 		}
   }
 }
