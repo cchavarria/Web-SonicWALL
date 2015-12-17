@@ -385,7 +385,7 @@ function populateListing() {
 			$('#ui-loader').show();
 		}
 	}).done(function (dataopt) {
-		var starttime = new Date().getTime();
+		//var starttime = new Date().getTime();
 
 		populateListingPending = false;
 		entryContainer.empty();
@@ -484,9 +484,9 @@ function populateListing() {
 		// add total results number
 		$('.total_results').html(dataopt.total - offsetTotal);
 
-		var endtime = new Date().getTime();
+		//var endtime = new Date().getTime();
 
-		console.log('processing time in seconds: ' + (endtime - starttime)/60);
+		//console.log('processing time in seconds: ' + (endtime - starttime)/60);
 
 		setTimeout(function () {
 			listingContainer.show();

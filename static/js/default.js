@@ -1182,7 +1182,7 @@ function resizeAffix() {
       body = $('body');
 
   //Reset
-  affixElem.find('a').css('padding-bottom', '');
+  affixElem.find('a').css('padding-bottom', '').end().find('li').css('width', '');
 
 	if (affixElem.data('even-width') && ((pageType == 0 && !affixElem.hasClass('affix-list-xs')) || pageType > 0)) {
 		affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
@@ -1209,7 +1209,9 @@ function resizeAffix() {
 		affixElem.on('click', 'a', function(e) {
 			e.preventDefault();
 
-			$('html, body').animate({scrollTop: Math.ceil($($(this).attr('href')).offset().top - affixElem.height())}, 500);
+			var target = $($(this).attr('href'));
+
+			$('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
 
 			//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
 			$(this).parent().addClass('active');
@@ -1226,7 +1228,7 @@ function resizeAffix() {
 
       body.scrollspy({
         target: affixID,
-        offset: affixElem.outerHeight(true) + 10
+        offset: affixElem.outerHeight(true) + 20
       });
     }
 
