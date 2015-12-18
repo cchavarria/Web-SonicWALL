@@ -7,6 +7,7 @@
 		opacity: 0;
 	}
 </style>
+
 <div class="container breadcrumb-container hidden-xs">
 	<ul class="breadcrumb">
 		<li><a href="{{RootPath}}"></a><span class="divider"></span></li>
@@ -17,7 +18,8 @@
 	<h1>{{CDELabelProductsAtoZ}}</h1>
 </div>
 <div class="container text-md">
-	<span class="icon-large-computergeneric text-blue inline-block mr-20 hidden-xs pull-left" style="font-size: 60px;"></span>
+	<span class="icon-large-computergeneric text-blue inline-block mr-20 hidden-xs pull-left"
+	      style="font-size: 60px;"></span>
 
 	<p class="mt-7"><strong>Find a product that solves your complex IT Management needs</strong><br>
 		Use the A-Z list to browse our products or refine your search by solutions or brand</p>
@@ -57,10 +59,10 @@
 			<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
 				<span class="visible-xs pl-10">{{LabelTrialsAndFreeware}}</span>
 				<select id="trialsfreeware" name="trialsfreeware" class="ms mb-15-xs">
-					<option value="All">All Trials and Freeware</option>
-					<option value="Trials">All Trials</option>
-					<option value="Freeware">All Freeware</option>
-					<option value="Virtual Trials">All Virtual Trials</option>
+					<option value="All" selected="selected">{{LabelAllTrialsAndFreeware}}</option>
+					<option value="Trials">{{LabelAllTrials}}</option>
+					<option value="Freeware">{{LabelAllFreeware}}</option>
+					<option value="Virtual Trials">{{LabelAllVirtualTrials}}</option>
 				</select>
 			</div>
 			<div class="col-sm-3 col-xs-12 pr-0 pr-15-xs">
@@ -120,19 +122,56 @@
 
 <div class="container">
 	<section class="listing-entries mt-30-xs">
-		<div class="row"></div>
+		<div id="A-B">
+			<h4 class="pt-20 mb-20 h3"><strong>A-B</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="C-D">
+			<h4 class="pt-20 mb-20 h3"><strong>C-D</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="E-F">
+			<h4 class="pt-20 mb-20 h3"><strong>E-F</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="G-M">
+			<h4 class="pt-20 mb-20 h3"><strong>G-M</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="N-R">
+			<h4 class="pt-20 mb-20 h3"><strong>N-R</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="S">
+			<h4 class="pt-20 mb-20 h3"><strong>S</strong></h4>
+
+			<div class="row"></div>
+		</div>
+
+		<div id="T-X">
+			<h4 class="pt-20 mb-20 h3"><strong>T-X</strong></h4>
+
+			<div class="row"></div>
+		</div>
 	</section>
 </div>
 
 <div class="container">
-	<div class="row">
+	<div id="no-results" class="alert hidden">
+		<div class="alert-warning mb-0">
+			<h4 class="pt-0 mb-20 h3"><strong>{{LabelListingNoResult}}</strong></h4>
 
-		<div id="no-results" class="alert hidden">
-			<div class="alert-warning mb-0">
-				<h4 class="pt-20 mb-20 h3"><strong>{{LabelListingNoResult}}</strong></h4>
-
-				<div class="label-error-wrapper"></div>
-			</div>
+			<div class="label-error-wrapper"></div>
 		</div>
 	</div>
 </div>
@@ -140,44 +179,52 @@
 <i id="ui-loader" class="icon-ui-loading"></i>
 
 <script id="listing-template" type="text/template">
-	<div class="col-xs-12 col-sm-4 col-md-3 mt-20 mb-20" data-target="match-height">
-		<a class="mb-10" href="[[url.product]]" target="[[url.producttarget]]">
-			<h4 class="text-blue dotdotdot" data-max-line="2">[[title]]</strong></h4>
-		</a>
-		<div class="dotdotdot mb-10" data-max-line="3">[[tooltip]]</div>
+	<div class="col-xs-12 col-sm-4 col-md-3 mt-15 mb-15" data-target="match-height">
+		<div class="bg-grey clearfix p-15 full-height">
+			<a class="mb-10" href="[[url.product]]" target="[[url.producttarget]]">
+				<h4 class="text-blue dotdotdot" data-max-line="2">[[title]]</strong></h4>
+			</a>
+			<div class="dotdotdot mb-10" data-max-line="3">[[tooltip]]</div>
 
-		<div class="btn-group btn-block-xs mb-10 buy-group inline-block mr-10 pull-left-sm">
-			<a aria-expanded="false" class="btn btn-primary btn-block dropdown-toggle m-0 text-white" data-toggle="dropdown"> {{LabelTry}}<i class="caret ml-10"></i></a>
-			<ul class="dropdown-menu">
-				<li>
-					<a href="[[url.trial]]" target="[[url.trialtarget]]" class="m-0">{{BtnDownloadFreeTrial}}</a>
-				</li>
-				<li>
-					<a href="[[url.virt]]" target="[[url.virttarget]]" class="m-0">{{LabelVirtualTrial}}</a>
-				</li>
-				<li>
-					<a href="[[url.freeware]]" target="[[url.freewaretarget]]" class="m-0">{{LabelDownloadFreeware}}</a>
-				</li>
-			</ul>
+			<a href="[[url.trial]]" target="[[url.trialtarget]]"
+			   class="btn btn-block btn-primary mb-10 text-white try-single">{{BtnDownloadFreeTrial}}</a>
+			<a href="[[url.freeware]]" target="[[url.freewaretarget]]"
+			   class="btn btn-block btn-primary mb-10 text-white try-single">{{BtnDownloadFreeware}}</a>
+			<a href="[[url.virt]]" target="[[url.virttarget]]" class="btn btn-block btn-primary mb-10 text-white try-single">{{LabelVirtualTrial}}</a>
+
+			<div class="btn-group btn-block mb-10 try-group">
+				<a aria-expanded="false" class="btn btn-primary btn-block dropdown-toggle m-0 text-white"
+				   data-toggle="dropdown"> {{LabelTry}}<i class="caret ml-10"></i></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="[[url.trial]]" target="[[url.trialtarget]]" class="m-0">{{BtnDownloadFreeTrial}}</a>
+					</li>
+					<li>
+						<a href="[[url.virt]]" target="[[url.virttarget]]" class="m-0">{{LabelVirtualTrial}}</a>
+					</li>
+					<li>
+						<a href="[[url.freeware]]" target="[[url.freewaretarget]]" class="m-0">{{BtnDownloadFreeware}}</a>
+					</li>
+				</ul>
+			</div>
+
+			<a href="[[url.buy]]" target="[[url.buytarget]]" class="btn btn-block btn-success mb-10 text-white buy-single">{{ProductBuyCTABuyOnline}}</a>
+			<a href="[[url.contact]]" target="[[url.contacttarget]]"
+			   class="btn btn-block btn-success mb-0 text-white buy-single">{{ProductBuyCTARequestPricing}}</a>
+
+			<div class="btn-group btn-block mb-10 buy-group">
+				<a aria-expanded="false" class="btn btn-success btn-block dropdown-toggle m-0 text-white"
+				   data-toggle="dropdown"> {{LabelBuy}}<i class="caret ml-10"></i></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="[[url.buy]]" target="[[url.buytarget]]" class="m-0">{{ProductBuyCTABuyOnline}}</a>
+					</li>
+					<li>
+						<a href="[[url.contact]]" target="[[url.contacttarget]]" class="m-0">{{ProductBuyCTARequestPricing}}</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-
-		<div class="btn-group btn-block-xs mb-10 try-group inline-block mr-10 pull-left-sm">
-			<a aria-expanded="false" class="btn btn-success btn-block dropdown-toggle m-0 text-white" data-toggle="dropdown"> {{LabelBuy}}<i class="caret ml-10"></i></a>
-			<ul class="dropdown-menu">
-				<li>
-					<a href="[[url.buy]]" target="[[url.buytarget]]" class="m-0">{{ProductBuyCTABuyOnline}}</a>
-				</li>
-				<li>
-					<a href="[[url.contact]]" target="[[url.contacttarget]]" class="m-0">{{ProductBuyCTARequestPricing}}</a>
-				</li>
-			</ul>
-		</div>
-
-		<a href="[[url.buy]]" target="[[url.buytarget]]" class="btn btn-block-xs btn-success mb-10 inline-block mr-10 pull-left-sm text-white buy-single">{{ProductBuyCTABuyOnline}}</a>
-		<a href="[[url.trial]]" target="[[url.trialtarget]]" class="btn btn-block-xs btn-success mb-10 inline-block mr-10 pull-left-sm text-white try-single">{{BtnDownloadFreeTrial}}</a>
-		<a href="[[url.freeware]]" target="[[url.freewaretarget]]" class="btn btn-block-xs btn-success mb-10 inline-block mr-10 pull-left-sm text-white try-single">{{LabelDownloadFreeware}}</a>
-		<a href="[[url.virt]]" target="[[url.virttarget]]" class="btn btn-block-xs btn-success mb-10 inline-block mr-10 pull-left-sm text-white try-single">{{LabelVirtualTrial}}</a>
-		<a href="[[url.contact]]" target="[[url.contacttarget]]" class="btn btn-block-xs btn-success mb-0 inline-block mr-10 pull-left-sm text-white buy-single">{{ProductBuyCTARequestPricing}}</a>
 	</div>
 </script>
 

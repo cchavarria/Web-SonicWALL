@@ -39,7 +39,8 @@ var populateListingPending = false, //prevent populate listing to load more than
 			range: /^[t-x]/i,
 			id: 'T-X'
 		}
-	];
+	],
+	navList = $('#affix-nav').find('li');
 
 $('#affix-nav').on('click', '.disabled a', function(e) {
 	e.stopImmediatePropagation();
@@ -103,7 +104,6 @@ function init() {
 						single: true,
 						onClose: function () {}
 					});
-					$(this).multipleSelect("checkAll");
 				}
 			},
 			brand: {
@@ -371,8 +371,10 @@ function populateListing() {
 
 	populateListingPending = true;
 
-	$.each(range, function(i, obj) {
-		range[i].set = false;
+	navList.addClass('disabled');
+
+	$.each(range, function(k, v) {
+		range[k].total = 0;
 	});
 
 	return $.ajax({
@@ -400,9 +402,62 @@ function populateListing() {
 
 			val.tooltip = val.tooltip.replace(/(<([^>]+)>)/ig,"");
 
-			entryContainer.append(populateTemplate(val, template));
+			$.each(range, function(k, v) {
+				if(v.range.test(val.title)) {
+					range[k].total++;
 
-			var elem = entryContainer.find('> div:last'), buyCount = 0, tryCount = 0;
+					var target = $('#' + v.id).find('.row').append(populateTemplate(val, template)),
+							elem = target.find('> div:last'), buyCount = 0, tryCount = 0;
+
+					$.each([val.url.trial, val.url.virt, val.url.freeware], function(i, v) {
+						if(v != '') {
+							tryCount++;
+						}
+					});
+
+					$.each([val.url.buy, val.url.contact], function(i, v) {
+						if(v != '') {
+							buyCount++;
+						}
+					});
+
+					if(tryCount > 1) {
+						elem.find('.try-single').remove().end().find('.try-group').find('a').each(function() {
+							if($(this).attr('href') == '') {
+								$(this).parent().remove();
+							}
+						});
+					}
+					else {
+						elem.find('.try-group').remove().end().find('.try-single').each(function() {
+							if($(this).attr('href') == '') {
+								$(this).remove();
+							}
+						});
+					}
+
+					if(buyCount > 1) {
+						elem.find('.buy-single').remove().end().find('.buy-group').find('a').each(function() {
+							if($(this).attr('href') == '') {
+								$(this).parent().remove();
+							}
+						});
+					}
+					else {
+						elem.find('.buy-group').remove().end().find('.buy-single').each(function() {
+							if($(this).attr('href') == '') {
+								$(this).remove();
+							}
+						});
+					}
+
+					return false;
+				}
+			});
+
+			//entryContainer.append(populateTemplate(val, template));
+
+			/*var elem = entryContainer.find('> div:last'), buyCount = 0, tryCount = 0;
 
 			$.each([val.url.trial, val.url.virt, val.url.freeware], function(i, v) {
 				if(v != '') {
@@ -452,24 +507,25 @@ function populateListing() {
 						$(this).remove();
 					}
 				});
-			}
-
-			$.each(range, function(i, obj) {
-				if(!obj.set) {
-					if(obj.range.test(val.title)) {
-						elem.attr('id', obj.id);
-						range[i].set = true;
-					}
-				}
-			});
+			}*/
 		});
 
-		$.each(range, function(i, obj) {
+		/*$.each(range, function(i, obj) {
 			if(obj.set) {
 				$('#affix-nav').find('li:eq(' + i + ')').removeClass('disabled');
 			}
 			else {
 				$('#affix-nav').find('li:eq(' + i + ')').addClass('disabled');
+			}
+		});*/
+
+		$.each(range, function(k, v) {
+			if(v.total) {
+				$('#' + v.id).show();
+				navList.filter(':eq(' + k + ')').removeClass('disabled');
+			}
+			else {
+				$('#' + v.id).hide();
 			}
 		});
 
@@ -479,6 +535,7 @@ function populateListing() {
 		}
 		else {
 			$('#no-results').removeClass('hidden');
+			$('#ui-loader').hide();
 		}
 
 		// add total results number
@@ -500,7 +557,7 @@ function populateListing() {
 					listingContainer.css('opacity', 1);
 
 					$('#ui-loader').hide();
-					$('#affix-nav').find('.active').removeClass('active').end().find('li').each(function() {
+					$('#affix-nav').find('li').removeClass('active').each(function() {
 						if(!$(this).hasClass('disabled')) {
 							$(this).addClass('active');
 							return false;
