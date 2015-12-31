@@ -6174,11 +6174,11 @@
           background-color: transparent;
           color: #007db8; }
     .bootstrap .slick.slick-1170x240 {
-      height: 193px; }
+      height: 199px; }
       .bootstrap .slick.slick-1170x240 .content-teaser {
-        height: 193px; }
+        height: 199px; }
         .bootstrap .slick.slick-1170x240 .content-teaser .full-height {
-          height: 163px; } }
+          height: 169px; } }
   @media (min-width: 1200px) {
     .bootstrap .slick .img-crop {
       height: 178px; }
@@ -7200,6 +7200,7 @@
         background: none repeat scroll 0 0 white; }
         .bootstrap #affix-nav.affix-list-xs ul li {
           border-top: 1px solid #cccccc;
+          border-left: 0;
           padding: 0;
           width: 100%; }
           .bootstrap #affix-nav.affix-list-xs ul li.active a:hover, .bootstrap #affix-nav.affix-list-xs ul li.active a:focus {
