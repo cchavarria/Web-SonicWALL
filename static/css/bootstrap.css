@@ -6863,7 +6863,8 @@ a:hover .img-header-overlay {
     #affix-nav.affix-list-xs i.menu-indicator:before {
       content: "\e601"; }
     #affix-nav.affix-list-xs ul {
-      background: none repeat scroll 0 0 white; }
+      background: none repeat scroll 0 0 white;
+      border-bottom: 1px solid #ccc; }
       #affix-nav.affix-list-xs ul li {
         border-top: 1px solid #cccccc;
         border-left: 0;
@@ -8450,23 +8451,18 @@ body {
   .container {
     padding-left: 0;
     padding-right: 0; } }
-.resources {
+.resources > a {
+  display: inline-block;
+  margin-right: 0;
+  float: left; }
+.resources > div {
+  display: inline-block;
+  width: 80%;
   float: left;
-  padding: 7px 0 5px 0; }
-  .resources > div {
-    margin-bottom: 14px; }
-    .resources > div > a {
-      display: inline-block;
-      margin-right: 0;
-      float: left; }
-    .resources > div > div {
-      display: inline-block;
-      width: 80%;
-      float: left;
-      margin-left: 10px;
-      margin-top: 5px; }
-      .resources > div > div > a h4 {
-        margin-top: 0; }
+  margin-left: 10px;
+  margin-top: 5px; }
+  .resources > div > a h4 {
+    margin-top: 0; }
 
 a:hover .has-overlay h4 {
   text-decoration: none;

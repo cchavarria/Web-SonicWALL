@@ -1,24 +1,19 @@
 .resources {
-  float: left;
-  padding: 7px 0 5px 0;
-  > div {
-    margin-bottom: 14px;
-    > {
-      a {
-        display: inline-block;
-        margin-right: 0;
-        float: left;
-      }
-      div {
-        display: inline-block;
-        width: 80%;
-        float: left;
-        margin-left:10px;
-        margin-top:5px;
-        > a h4 {
-          margin-top: 0;
-        }
-      }
-    }
-  }
+	> {
+		a {
+			display: inline-block;
+			margin-right: 0;
+			float: left;
+		}
+		div {
+			display: inline-block;
+			width: 80%;
+			float: left;
+			margin-left: 10px;
+			margin-top: 5px;
+			> a h4 {
+				margin-top: 0;
+			}
+		}
+	}
 }

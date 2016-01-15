@@ -7197,7 +7197,8 @@
       .bootstrap #affix-nav.affix-list-xs i.menu-indicator:before {
         content: "\e601"; }
       .bootstrap #affix-nav.affix-list-xs ul {
-        background: none repeat scroll 0 0 white; }
+        background: none repeat scroll 0 0 white;
+        border-bottom: 1px solid #ccc; }
         .bootstrap #affix-nav.affix-list-xs ul li {
           border-top: 1px solid #cccccc;
           border-left: 0;

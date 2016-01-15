@@ -179,20 +179,19 @@
 <i id="ui-loader" class="icon-ui-loading"></i>
 
 <script id="listing-template" type="text/template">
-	<div class="col-xs-12 col-sm-4 col-md-3 mt-15 mb-15" data-target="match-height">
-		<div class="bg-grey clearfix p-15 full-height">
+	<div class="col-xs-12 col-sm-6 mt-15 mb-15" data-target="match-height">
+		<div class="border-b-grey clearfix full-height">
 			<a class="mb-10" href="[[url.product]]" target="[[url.producttarget]]">
 				<h4 class="text-blue dotdotdot" data-max-line="2">[[title]]</strong></h4>
 			</a>
-			<div class="dotdotdot mb-10" data-max-line="3">[[tooltip]]</div>
 
-			<a href="[[url.trial]]" target="[[url.trialtarget]]"
-			   class="btn btn-block btn-primary mb-10 text-white try-single">{{BtnDownloadFreeTrial}}</a>
-			<a href="[[url.freeware]]" target="[[url.freewaretarget]]"
-			   class="btn btn-block btn-primary mb-10 text-white try-single">{{BtnDownloadFreeware}}</a>
-			<a href="[[url.virt]]" target="[[url.virttarget]]" class="btn btn-block btn-primary mb-10 text-white try-single">{{LabelVirtualTrial}}</a>
+			<div class="dotdotdot mb-10" data-max-line="2">[[tooltip]]</div>
 
-			<div class="btn-group btn-block mb-10 try-group">
+			<a href="[[url.trial]]" target="[[url.trialtarget]]" class="inline-block btn btn-primary mb-10 text-white try-single">{{BtnDownloadFreeTrial}}</a>
+			<a href="[[url.freeware]]" target="[[url.freewaretarget]]" class="inline-block btn btn-primary mb-10 text-white try-single">{{BtnDownloadFreeware}}</a>
+			<a href="[[url.virt]]" target="[[url.virttarget]]" class="inline-block btn btn-primary mb-10 text-white try-single">{{LabelVirtualTrial}}</a>
+
+			<div class="btn-group try-group mb-10">
 				<a aria-expanded="false" class="btn btn-primary btn-block dropdown-toggle m-0 text-white"
 				   data-toggle="dropdown"> {{LabelTry}}<i class="caret ml-10"></i></a>
 				<ul class="dropdown-menu">
@@ -208,11 +207,10 @@
 				</ul>
 			</div>
 
-			<a href="[[url.buy]]" target="[[url.buytarget]]" class="btn btn-block btn-success mb-10 text-white buy-single">{{ProductBuyCTABuyOnline}}</a>
-			<a href="[[url.contact]]" target="[[url.contacttarget]]"
-			   class="btn btn-block btn-success mb-0 text-white buy-single">{{ProductBuyCTARequestPricing}}</a>
+			<a href="[[url.buy]]" target="[[url.buytarget]]" class="inline-block btn btn-success mb-10 text-white buy-single">{{ProductBuyCTABuyOnline}}</a>
+			<a href="[[url.contact]]" target="[[url.contacttarget]]" class="inline-block btn btn-success mb-10 text-white buy-single">{{ProductBuyCTARequestPricing}}</a>
 
-			<div class="btn-group btn-block mb-10 buy-group">
+			<div class="btn-group buy-group mb-10">
 				<a aria-expanded="false" class="btn btn-success btn-block dropdown-toggle m-0 text-white"
 				   data-toggle="dropdown"> {{LabelBuy}}<i class="caret ml-10"></i></a>
 				<ul class="dropdown-menu">
