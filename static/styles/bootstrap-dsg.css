@@ -6105,6 +6105,8 @@
       height: 180px; }
     .bootstrap .slick.slick-initialized.col-sm-9 .img-crop, .bootstrap .slick.slick-initialized.col-md-9 .img-crop, .bootstrap .slick.slick-initialized.col-lg-9 .img-crop {
       height: 180px; }
+    .bootstrap .slick .full-height > div {
+      width: 100%; }
   @media (max-width: 767px) {
     .bootstrap .banner.container {
       padding: 0; }

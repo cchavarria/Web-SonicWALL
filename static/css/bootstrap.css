@@ -9379,6 +9379,8 @@ a:hover .has-overlay h4 {
     height: 180px; }
   .slick.slick-initialized.col-sm-9 .img-crop, .slick.slick-initialized.col-md-9 .img-crop, .slick.slick-initialized.col-lg-9 .img-crop {
     height: 180px; }
+  .slick .full-height > div {
+    width: 100%; }
 
 @media (max-width: 767px) {
   .banner.container {
