@@ -1284,7 +1284,7 @@
       position: absolute;
       font-size: 40px;
       top: 14px;
-      margin-left: -15px; }
+      left: 0; }
     .bootstrap blockquote.no-quote {
       padding: 0; }
       .bootstrap blockquote.no-quote::before {
