@@ -359,8 +359,19 @@ $(document).ready(function () {
   }
 
 	//match columns height
-	if ($('*[data-target="match-height"]').length) {
-		$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+	(function() {
+		if ($('*[data-target="match-height"]').length) {
+			if($.fn.matchHeight) {
+				init();
+			}
+			else {
+				$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+					init();
+				});
+			}
+		}
+
+		function init() {
 			var config = {};
 
 			if (pageType > 0) {
@@ -371,8 +382,8 @@ $(document).ready(function () {
 
 				$('*[data-target="match-height"]').matchHeight(config);
 			}
-		});
-	}
+		}
+	})();
 
 	//Scroll up on accordion, if and only if a previous accordion is open and is above the new opened accordion.
 	$(document).on('show.bs.collapse', function(e) {

@@ -1,4 +1,4 @@
-addResize(function() {
+addResize(function () {
 	processComparison();
 }, true);
 
@@ -9,10 +9,10 @@ function processComparison(parentSelector) {
 
 	var elem = $(parentSelector).find('.comparison');
 
-	if(elem.length) {
-		elem.each(function() {
+	if (elem.length) {
+		elem.each(function () {
 			//Only process if visible.
-			if(!$(this).is(':visible')) {
+			if (!$(this).is(':visible')) {
 				return true;
 			}
 
@@ -27,34 +27,39 @@ function processComparison(parentSelector) {
 			reset();
 
 			//Find maximum height for first .row.
+			/*
 			var maxHeight = 0;
 
 			columnsInFirstRow
-				.each(function() {
-				var h = $(this).height();
+				.each(function () {
+					var h = $(this).height();
 
-				if(h > maxHeight) {
-					maxHeight = h;
-				}
-			})
+					if (h > maxHeight) {
+						maxHeight = h;
+					}
+				})
 				.css('height', maxHeight);
+			*/
 
 			var width = columnsInFirstRow.outerWidth();
 
 			//Define how many entries should be shown.
-			if(pageType >= 2) {
-				displayAmount = 4;
+			if (pageType == 3) { //Large Desktop
+				displayAmount = $(this).data('display-lg') == undefined ? 4 : $(this).data('display-lg');
 			}
-			else if(pageType == 1) {
-				displayAmount = 3;
+			else if (pageType == 2) { //Medium Desktop
+				displayAmount = $(this).data('display-md') == undefined ? 4 : $(this).data('display-md');
+			}
+			else if (pageType == 1) { //Tablet
+				displayAmount = $(this).data('display-sm') == undefined ? 3 : $(this).data('display-sm');
 			}
 
 			paginationElem.find('.end').text(displayAmount);
 
 			//Set all expanded collapsible columns the same height.
-			$(this).on('shown.bs.collapse', '.collapse', function() {
-				if(!$(this).data('comparison-processed')) {
-					$(this).find('.row').each(function() {
+			$(this).on('shown.bs.collapse', '.collapse', function () {
+				if (!$(this).data('comparison-processed')) {
+					$(this).find('.row').each(function () {
 						var rowHeight = $(this).height();
 
 						$(this).find('> div').css('height', rowHeight);
@@ -64,7 +69,7 @@ function processComparison(parentSelector) {
 				}
 			});
 
-			if(total > displayAmount) {
+			if (total > displayAmount) {
 				cols.css('width', width);
 				rows.css('width', width * total);
 
@@ -77,12 +82,15 @@ function processComparison(parentSelector) {
 					.on('click', '.prev', scroll)
 					.on('click', '.next', scroll);
 
-				if($.fn.touchSwipe) {
+				if ($.fn.touchSwipe) {
 					initSwipe();
 				}
 				else {
 					$.getScript('/static/library/jQuery/jquery.touchSwipe.js').done(initSwipe);
 				}
+			}
+			else {
+				paginationElem.hide();
 			}
 
 			function reset() {
@@ -98,19 +106,19 @@ function processComparison(parentSelector) {
 				$(rows.get(0)).find('> div').css('height', '');
 
 				//Copy title for each collapsible row and place it in each column.
-				elem.find('.panel-body').find('> .row:even').each(function() {
+				elem.find('.panel-body').find('> .row:even').each(function () {
 					$(this).find('> div').html($(this).find('> div:eq(0)').html());
 					$(this).find('> div:gt(0)').find('> div').css('visibility', 'hidden');
 				});
 			}
 
 			function scroll() {
-				updateDisplay(elem.data('page') + ($(this).hasClass('prev') ? -1:1));
+				updateDisplay(elem.data('page') + ($(this).hasClass('prev') ? -1 : 1));
 			}
 
 			function initSwipe() {
 				rows.touchSwipe({
-					swipeStatus: function(event, phase, direction, distance, duration, fingerCount) {
+					swipeStatus: function (event, phase, direction, distance, duration, fingerCount) {
 						//Here we can check the:
 						//phase : 'start', 'move', 'end', 'cancel'
 						//direction : 'left', 'right', 'up', 'down'
@@ -120,8 +128,8 @@ function processComparison(parentSelector) {
 
 						var dir = '';
 
-						if(!$(this).data('direction')) {
-							if($.inArray(direction, ['left', 'right']) > -1) {
+						if (!$(this).data('direction')) {
+							if ($.inArray(direction, ['left', 'right']) > -1) {
 								dir = 'horizontal';
 							}
 							else {
@@ -136,30 +144,30 @@ function processComparison(parentSelector) {
 
 						var page = elem.data('page');
 
-						if(dir == 'horizontal') {
-							if(direction == 'left') {
+						if (dir == 'horizontal') {
+							if (direction == 'left') {
 								rows.css('left', (-page * width) - distance);
 							}
-							else if(direction == 'right') {
+							else if (direction == 'right') {
 								rows.css('left', (-page * width) + distance);
 							}
 						}
 						else {
-							if(direction == 'up') {
+							if (direction == 'up') {
 								window.scrollTo(0, window.scrollY + distance);
 							}
-							else if(direction == 'down') {
+							else if (direction == 'down') {
 								window.scrollTo(0, window.scrollY - distance);
 							}
 						}
 
-						if(phase == 'end') {
+						if (phase == 'end') {
 							$(this).removeData('direction');
 
-							if($.inArray(direction, ['left', 'right']) > -1) {
+							if ($.inArray(direction, ['left', 'right']) > -1) {
 								var newPage = Math.ceil(parseInt(rows.css('left')) / width);
 
-								if(newPage >= 0) {
+								if (newPage >= 0) {
 									newPage = 0;
 								}
 								else {
@@ -177,7 +185,7 @@ function processComparison(parentSelector) {
 			function updateDisplay(page) {
 				paginationElem.find('button').removeClass('inactive');
 
-				if(page <= 0) {
+				if (page <= 0) {
 					paginationElem.find('.prev').addClass('inactive');
 					page = 0;
 				}
@@ -190,7 +198,7 @@ function processComparison(parentSelector) {
 				rows.animate({left: -page * width}, 500);
 				elem.data('page', page);
 
-				elem.find('.panel-body').find('> .row:even').each(function() {
+				elem.find('.panel-body').find('> .row:even').each(function () {
 					$(this).find('> div').find('> div').css('visibility', 'hidden').end().filter(':eq(' + page + ')').find('> div').css('visibility', 'visible');
 				});
 
