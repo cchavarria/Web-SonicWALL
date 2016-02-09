@@ -109,10 +109,10 @@
 #vwo-frame-wrapper .minimized-survey {
   /* To edit styling of minimized survey container */
   height: 30px;
-  border: 2px solid;
+  border: 1px solid #cccccc;
   border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   position: absolute;
   bottom: -32px;
   cursor: pointer;
@@ -120,9 +120,10 @@
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
-#vwo-frame-wrapper .minimized-survey #vwo-logo {
-  /* To edit styling of 'vwo-logo' in minimized state */
+  transition: all 0.2s ease;
+  box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.26);}
+/*#vwo-frame-wrapper .minimized-survey #vwo-logo {
+  /!* To edit styling of 'vwo-logo' in minimized state *!/
   height: 13px;
   width: 36px;
   position: absolute;
@@ -132,22 +133,26 @@
   left: 10px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center center; }
-#vwo-frame-wrapper .minimized-survey:after {
-  /* To edit content displayed with the logo */
+  background-position: center center; }*/
+/*#vwo-frame-wrapper .minimized-survey:after {
+  /!* To edit content displayed with the logo *!/
   padding: 0 30px 0 56px;
   line-height: 30px;
   content: 'SURVEYS';
-  font-family: Lato, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-family: "Trebuchet MS","Roboto","Segoe UI","Helvetica Neue","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic",Gulim,Tahoma,"Arial Unicode",sans-serif;
   font-size: 11px;
-  text-shadow: none; }
+  text-shadow: none; }*/
 #vwo-frame-wrapper .minimized-survey:before {
   /* To edit restore button styling if survey is in minimized state */
-  content: '';
+  content: 'Submit Page Feedback';
   position: absolute;
   right: 10px;
-  top: 12px;
-  background-repeat: no-repeat;
+  top: 8px;
+  padding: 0 9px 0 13px;
+  font-family: "Trebuchet MS","Roboto","Segoe UI","Helvetica Neue","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic",Gulim,Tahoma,"Arial Unicode",sans-serif;
+  font-size: 14px;
+  color: #444444;
+  /*background-repeat: no-repeat;
   background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
   background-color: transparent;
   -webkit-background-size: 12px 6px;
@@ -163,7 +168,7 @@
   -o-transform: scaleY(-1);
   transform: scaleY(-1);
   filter: FlipV;
-  -ms-filter: "FlipV"; }
+  -ms-filter: "FlipV";*/}
 #vwo-frame-wrapper.custom-logo {
   /* To edit custom logo in minimized state */ }
 #vwo-frame-wrapper.custom-logo .minimized-survey:after {
@@ -177,7 +182,7 @@
 #vwo-frame-wrapper.hide-logo {
   /* To edit hidden logo in minimized state */ }
 #vwo-frame-wrapper.hide-logo .minimized-survey {
-  width: 32px; }
+  width: 179px; }
 #vwo-frame-wrapper.hide-logo .minimized-survey:after {
   content: ''; }
 #vwo-frame-wrapper.hide-logo .minimized-survey #vwo-logo {
@@ -188,16 +193,16 @@
  */
 #vwo-frame-wrapper iframe, #vwo-frame-wrapper .minimized-survey {
   /* To edit styling of survey container and its minimized state */
-  border-color: #c3cad3;
-  background-color: #393939; }
+  border-color: #cccccc;
+  background-color: #f9f9f9; }
 #vwo-frame-wrapper .minimized-survey {
   /* To edit styling of minimized survey container */ }
-#vwo-frame-wrapper .minimized-survey:before {
+/*#vwo-frame-wrapper .minimized-survey:before {
   -webkit-filter: brightness(250%);
   -moz-filter: brightness(250%);
   -ms-filter: brightness(250%);
   -o-filter: brightness(250%);
-  filter: brightness(250%); }
+  filter: brightness(250%); }*/
 #vwo-frame-wrapper .minimized-survey:after {
   color: #eeeeee; }
 #vwo-frame-wrapper .survey-action-bar .close-img, #vwo-frame-wrapper .survey-action-bar .minimize-img {
