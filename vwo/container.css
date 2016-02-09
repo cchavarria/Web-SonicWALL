@@ -1,0 +1,214 @@
+/* =============================================
+   THEME: Dark
+   ============================================= */
+/**
+ * General Styling for Survey Container Frame
+ */
+/* To edit styling of survey wrapper */
+#vwo-frame-wrapper {
+  position: fixed;
+  width: 350px;
+  z-index: 2147483647;
+  height: 215px; }
+#vwo-frame-wrapper.bottom-right {
+  /* To edit positioning of survey, if it is in right */
+  bottom: 0;
+  right: 50px; }
+#vwo-frame-wrapper.bottom-right .minimized-survey {
+  right: 0; }
+#vwo-frame-wrapper.bottom-left {
+  /* To edit positioning of survey, if it is in left */
+  bottom: 0;
+  left: 50px; }
+#vwo-frame-wrapper.bottom-left .minimized-survey {
+  left: 0; }
+#vwo-frame-wrapper.minimized {
+  /* To edit styling of minimized survey wrapper */
+  height: auto; }
+#vwo-frame-wrapper.minimized iframe {
+  bottom: -202px; }
+#vwo-frame-wrapper.minimized .survey-action-bar {
+  top: 217px; }
+#vwo-frame-wrapper.minimized .minimized-survey {
+  -webkit-transition: all 0.2s ease 0.2s;
+  -moz-transition: all 0.2s ease 0.2s;
+  -ms-transition: all 0.2s ease 0.2s;
+  -o-transition: all 0.2s ease 0.2s;
+  transition: all 0.2s ease 0.2s;
+  bottom: 0; }
+#vwo-frame-wrapper iframe {
+  /* To edit styling of survey container frame */
+  height: inherit;
+  border: 2px solid;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+#vwo-frame-wrapper .survey-action-bar {
+  /* To edit position of survey action buttons */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+#vwo-frame-wrapper .survey-action-bar button {
+  /* To edit styling of survey action buttons */
+  background-color: transparent;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 0 7px;
+  min-width: 0;
+  min-height: 0;
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+  /* This is for solving a bug of overriding button css at a user's website */
+  display: inline-block;
+  position: static;
+  border-radius: 0; }
+#vwo-frame-wrapper .survey-action-bar button:after, #vwo-frame-wrapper .survey-action-bar button:before {
+  /* This is for solving a bug of overriding button:after pseudo css at a user's website */
+  content: none; }
+#vwo-frame-wrapper .survey-action-bar .close-img, #vwo-frame-wrapper .survey-action-bar .minimize-img {
+  /* To edit styling of survey action button image */
+  width: 14px;
+  height: 14px;
+  margin: auto;
+  background-position: center; }
+#vwo-frame-wrapper .survey-action-bar .close-img {
+  /* To edit styling of 'close' button image */
+  background-repeat: no-repeat;
+  background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/cross.svg');
+  background-color: transparent; }
+#vwo-frame-wrapper .survey-action-bar .minimize-img {
+  /* To edit styling of 'minimize' button image */
+  background-repeat: no-repeat;
+  background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
+  background-color: transparent;
+  position: relative;
+  top: 1px; }
+#vwo-frame-wrapper .minimized-survey {
+  /* To edit styling of minimized survey container */
+  height: 30px;
+  border: 2px solid;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  bottom: -32px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+#vwo-frame-wrapper .minimized-survey #vwo-logo {
+  /* To edit styling of 'vwo-logo' in minimized state */
+  height: 13px;
+  width: 36px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center; }
+#vwo-frame-wrapper .minimized-survey:after {
+  /* To edit content displayed with the logo */
+  padding: 0 30px 0 56px;
+  line-height: 30px;
+  content: 'SURVEYS';
+  font-family: Lato, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-shadow: none; }
+#vwo-frame-wrapper .minimized-survey:before {
+  /* To edit restore button styling if survey is in minimized state */
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  background-repeat: no-repeat;
+  background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
+  background-color: transparent;
+  -webkit-background-size: 12px 6px;
+  -moz-background-size: 12px 6px;
+  -ms-background-size: 12px 6px;
+  -o-background-size: 12px 6px;
+  background-size: 12px 6px;
+  width: 12px;
+  height: 6px;
+  -webkit-transform: scaleY(-1);
+  -moz-transform: scaleY(-1);
+  -ms-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV"; }
+#vwo-frame-wrapper.custom-logo {
+  /* To edit custom logo in minimized state */ }
+#vwo-frame-wrapper.custom-logo .minimized-survey:after {
+  content: ''; }
+#vwo-frame-wrapper.custom-logo .minimized-survey:before {
+  right: 8px; }
+#vwo-frame-wrapper.custom-logo .minimized-survey #vwo-logo {
+  height: 22px;
+  width: 60px;
+  left: 3px; }
+#vwo-frame-wrapper.hide-logo {
+  /* To edit hidden logo in minimized state */ }
+#vwo-frame-wrapper.hide-logo .minimized-survey {
+  width: 32px; }
+#vwo-frame-wrapper.hide-logo .minimized-survey:after {
+  content: ''; }
+#vwo-frame-wrapper.hide-logo .minimized-survey #vwo-logo {
+  display: none; }
+
+/**
+ *  Theme-Specific Styling for Survey Container Frame
+ */
+#vwo-frame-wrapper iframe, #vwo-frame-wrapper .minimized-survey {
+  /* To edit styling of survey container and its minimized state */
+  border-color: #c3cad3;
+  background-color: #393939; }
+#vwo-frame-wrapper .minimized-survey {
+  /* To edit styling of minimized survey container */ }
+#vwo-frame-wrapper .minimized-survey:before {
+  -webkit-filter: brightness(250%);
+  -moz-filter: brightness(250%);
+  -ms-filter: brightness(250%);
+  -o-filter: brightness(250%);
+  filter: brightness(250%); }
+#vwo-frame-wrapper .minimized-survey:after {
+  color: #eeeeee; }
+#vwo-frame-wrapper .survey-action-bar .close-img, #vwo-frame-wrapper .survey-action-bar .minimize-img {
+  /* To edit styling of survey action button images */
+  -webkit-filter: brightness(250%);
+  -moz-filter: brightness(250%);
+  -ms-filter: brightness(250%);
+  -o-filter: brightness(250%);
+  filter: brightness(250%); }
+#vwo-frame-wrapper:not(.custom-logo) {
+  /* To edit styling of 'vwo-logo' */ }
+#vwo-frame-wrapper:not(.custom-logo) #vwo-logo {
+  /* !important is used for the backward compatibility of the code, Do not remove it */
+  background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/vwo@2x-6592a1fd051b3a7b65defc8b59de348f.png') !important; }
