@@ -70,6 +70,8 @@ function processComparison(parentSelector) {
 			});
 
 			if (total > displayAmount) {
+				paginationElem.show();
+
 				cols.css('width', width);
 				rows.css('width', width * total);
 
