@@ -125,6 +125,14 @@ iframe {
   overflow: hidden;
 }
 
+/* Row */
+
+.row-striped {
+	> .row:nth-of-type(odd) {
+		background-color: $table-bg-accent;
+	}
+}
+
 /*display*/
 .block {
   display: block !important;
