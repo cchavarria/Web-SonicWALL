@@ -39,14 +39,18 @@
 #vwo-frame-wrapper iframe {
   /* To edit styling of survey container frame */
   height: inherit;
-  border: 2px solid;
+  border: 1px solid;
   border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /*width: 100%;*/
   position: absolute;
   bottom: 0;
+  right: 0;
   display: block;
+  box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
@@ -121,7 +125,9 @@
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.26);}
+  box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);}
 /*#vwo-frame-wrapper .minimized-survey #vwo-logo {
   /!* To edit styling of 'vwo-logo' in minimized state *!/
   height: 13px;
@@ -151,6 +157,7 @@
   padding: 0 9px 0 13px;
   font-family: "Trebuchet MS","Roboto","Segoe UI","Helvetica Neue","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic",Gulim,Tahoma,"Arial Unicode",sans-serif;
   font-size: 14px;
+  font-weight: bold;
   color: #444444;
   /*background-repeat: no-repeat;
   background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
