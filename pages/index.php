@@ -64,7 +64,7 @@
 <script src="/static/js/responsive-header-footer.js"></script>
 <script src="/static/js/default.js"></script>
 
-<script data-main="/static/js/config" src="/static/library/requireJS/requirejs.min.js"></script>
+<!--<script data-main="/static/js/config" src="/static/library/requireJS/requirejs.min.js"></script>-->
 
 <?php
 echo $widget->js();

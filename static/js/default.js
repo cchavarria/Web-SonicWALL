@@ -1192,8 +1192,7 @@ function resizeAffix() {
       siteWrapper = $('.site-wrapper'),
       body = $('body');
 
-  //Reset
-  affixElem.find('a').css('padding-bottom', '').end().find('li').css('width', '');
+  reset();
 
 	if (affixElem.data('even-width') && ((pageType == 0 && !affixElem.hasClass('affix-list-xs')) || pageType > 0)) {
 		affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
@@ -1207,26 +1206,12 @@ function resizeAffix() {
       onHashChange();
     }*/
 
-    //fix for adjusting height of all tabs if we have multiple lines
-    affixElem.find('a').each(function () {
-      var parentHeight = $(this).parent().outerHeight();
-
-      if (parentHeight < affixElem.height()) {
-        $(this).css('padding-bottom', (affixElem.height() - parentHeight + parseInt($(this).css('padding-top'))));
-      }
-    });
+		setTimeout(function() {
+			affixElem.find('li').css('height', affixElem.height());
+		});
 
 		//Navigate to bookmark.
-		affixElem.on('click', 'a', function(e) {
-			e.preventDefault();
-
-			var target = $($(this).attr('href'));
-
-			$('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
-
-			//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
-			$(this).parent().addClass('active');
-		});
+		affixElem.on('click', 'a', affixAnchorClick);
 
     siteWrapper.attr('id', 'top');
 
@@ -1244,40 +1229,49 @@ function resizeAffix() {
     }
 
     //trigger affix if it hasn't been triggered already
-    if (!affixElem.data('bs.affix')) {
-      setTimeout(function () {
-        affixElem.affix({
-          offset: {
-            top: affixElem.offset().top
-          }
-        });
+		setTimeout(function () {
+			affixElem.affix({
+				offset: {
+					top: affixElem.offset().top
+				}
+			});
 
-        //Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
-        affixElem.on('affixed.bs.affix', function () {
-          $('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
-        }).on('affixed-top.bs.affix', function () {
-          $(this).next().remove();
-        });
-      }, 250);
-    }
-  }
-  else {
-    if (affixElem.hasClass('affix-list-xs')) {
-      affixElem.find('li').css('width', '');
-      $('#affix-nav').css('width', '');
-
-      //destroy scrollspy
-      body.scrollspy({target: ''});
-      affixElem.removeData('bs.scrollspy');
-
-      //destroy affix
-      $(window).off('.affix');
-      affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
-      affixElem.removeClass('affix affix-top affix-bottom');
-    }
+			//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
+			affixElem.on('affixed.bs.affix', function () {
+				$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
+			}).on('affixed-top.bs.affix', function () {
+				$(this).next().remove();
+			});
+		}, 250);
   }
 
+	function reset() {
+		//Reset
+		affixElem.css('width', '').find('li').css({height: 'auto', width: ''});
+		affixElem.off('click', 'a', affixAnchorClick);
 
+		//destroy scrollspy
+		body.scrollspy({target: ''});
+		affixElem.removeData('bs.scrollspy');
+
+		//destroy affix
+		$(window).off('.affix');
+		affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
+		affixElem.removeClass('affix affix-top affix-bottom');
+	}
+
+	function affixAnchorClick(e) {
+		e.preventDefault();
+
+		var target = $($(this).attr('href'));
+
+		$('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
+
+		//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
+		$(this).parent().addClass('active');
+	}
+
+	/*
   function onHashChange() {
     if (!affixElem.data('hashchange-processed')) {
       $(window).hashchange(function () {
@@ -1299,6 +1293,7 @@ function resizeAffix() {
       }
     });
   }
+  */
 }
 
 function replaceURL(text) {

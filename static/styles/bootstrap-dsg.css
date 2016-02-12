@@ -7182,7 +7182,8 @@
         .bootstrap #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
-          padding: 10px 5px; }
+          padding: 10px 5px;
+          height: 100%; }
           .bootstrap #affix-nav ul li a:focus {
             background-color: transparent; }
           .bootstrap #affix-nav ul li a:hover {
