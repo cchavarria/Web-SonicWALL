@@ -5093,6 +5093,10 @@ iframe {
 .overflow-hidden {
   overflow: hidden; }
 
+/* Row */
+.row-striped > .row:nth-of-type(odd) {
+  background-color: #eeeeee; }
+
 /*display*/
 .block {
   display: block !important; }
@@ -6842,7 +6846,8 @@ a:hover .img-header-overlay {
       #affix-nav ul li a {
         text-align: center;
         font-weight: bold;
-        padding: 10px 5px; }
+        padding: 10px 5px;
+        height: 100%; }
         #affix-nav ul li a:focus {
           background-color: transparent; }
         #affix-nav ul li a:hover {

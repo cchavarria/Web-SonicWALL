@@ -454,7 +454,7 @@ function populateListing(clear) {
 
 		$.each(dataopt.data, function (key, val) {
 			var htmlFragment = '<div class="col-md-3 col-sm-4 col-xs-12" style="display: none;"> ' +
-				'<a href="' + val.url + '">' +
+				'<a href="' + val.url + '" target="'+ val.target +'">' +
 				'  <div class="border-grey img-crop">' +
 				'    <img class="img-responsive center-block" src="' + val.imageurl + '" alt=""> ' +
 				'  </div> ' +

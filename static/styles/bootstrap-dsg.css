@@ -226,6 +226,7 @@
   /* iframe */
   /* Vertical Alignment */
   /* Overflow */
+  /* Row */
   /*display*/
   /* Padding */
   /* Margin */ }
@@ -6750,6 +6751,8 @@
     vertical-align: text-top; }
   .bootstrap .overflow-hidden {
     overflow: hidden; }
+  .bootstrap .row-striped > .row:nth-of-type(odd) {
+    background-color: #eeeeee; }
   .bootstrap .block {
     display: block !important; }
   .bootstrap .inline {
@@ -7179,7 +7182,8 @@
         .bootstrap #affix-nav ul li a {
           text-align: center;
           font-weight: bold;
-          padding: 10px 5px; }
+          padding: 10px 5px;
+          height: 100%; }
           .bootstrap #affix-nav ul li a:focus {
             background-color: transparent; }
           .bootstrap #affix-nav ul li a:hover {
