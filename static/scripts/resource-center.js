@@ -189,6 +189,7 @@
 		defaults = {
 			templateMap: {
 				'Whitepaper': 'generic-template',
+				'eBook': 'generic-template',
 				'Case Study': 'case-study-template',
 				'Datasheet': 'generic-template',
 				'Technical Briefs': 'generic-template',
@@ -326,9 +327,8 @@
 		renderItems();
 		displayFilters();
 		bindFilter();
-		//console.log('about to call dotdotdot'); - Ed
+
 		opt.target.find('.description').dotdotdot();
-		//console.log('finish calling dotdotdot'); - Ed
 
 		opt.target.isotope({
 			itemSelector: 'li'
@@ -434,6 +434,7 @@
 		for (var i = 0; i < resources.length; i++) {
 			complete.push(false);
 		}
+
 		//Go through each resource item and arrange items by listTypeOrder
 		while (true) {
 			var classes = [],
@@ -487,7 +488,6 @@
 								opt.filter[indx].data[dataIndx].show = true;
 							}
 						}
-						;
 					}
 				});
 			}
@@ -554,6 +554,9 @@
 				}
 				else if (entry.type == 'Datasheet') {
 					templateMap.descriptionHover = 'Read the Datasheet &#155;';
+				}
+				else if (entry.type == 'eBook') {
+					templateMap.descriptionHover = 'Read the eBook &#155;';
 				}
 			}
 

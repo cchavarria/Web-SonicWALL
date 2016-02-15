@@ -120,7 +120,7 @@ var populateContacts = {
       });
     }
 
-		$(options.target).append(code);
+		$(options.target).append(code).find('a[href=""]').remove();
   }
 };
 

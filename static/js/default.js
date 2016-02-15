@@ -107,7 +107,7 @@ $(document).ready(function () {
   }
 
   //Dotdotdot
-  processEllipsis();
+  //processEllipsis();
 
   //LazyLoad
   if ($.fn.lazyload) {
@@ -397,6 +397,12 @@ $(document).ready(function () {
 			window.scrollTo(0, containerElem.offset().top - 50);
 		}
 	});
+});
+
+$(window).load(function() {
+	//Dotdotdot
+	/* Had to move from document ready to window load because we had an issue where data-max-line didn't work as expected. */
+	processEllipsis();
 });
 
 //Flex box degradation
@@ -779,7 +785,7 @@ function processEllipsis(parentSelector) {
           $(this).on('click', '.dotdotdot-read-more', function (e) {
             var p = $(this).parents('.dotdotdot');
             e.preventDefault();
-            p.dotdotdot('destroy');
+            p.trigger('destroy');
             p.find('.dotdotdot-read-more').remove();
           });
         }
@@ -1190,7 +1196,7 @@ function resizeAffix() {
   var affixID = '#affix-nav',
       affixElem = $(affixID),
       siteWrapper = $('.site-wrapper'),
-      body = $('body');
+      body = $('body').css('position', 'relative');
 
   reset();
 
@@ -1206,6 +1212,7 @@ function resizeAffix() {
       onHashChange();
     }*/
 
+		//Need to break out of the sequential flow in order to retrieve the true height.
 		setTimeout(function() {
 			affixElem.find('li').css('height', affixElem.height());
 		});
@@ -1219,14 +1226,11 @@ function resizeAffix() {
     affixElem.css("width", affixElem.parents('.container').width());
 
     //trigger scrollspy if it hasn't been triggered already
-    if (!body.data('bs.scrollspy')) {
-      /*set offset to activate tab based on position*/
-
-      body.scrollspy({
-        target: affixID,
-        offset: affixElem.outerHeight(true) + 20
-      });
-    }
+		/*set offset to activate tab based on position*/
+		body.scrollspy({
+			target: affixID,
+			offset: affixElem.outerHeight(true) + 20
+		});
 
     //trigger affix if it hasn't been triggered already
 		setTimeout(function () {
@@ -1237,11 +1241,13 @@ function resizeAffix() {
 			});
 
 			//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
-			affixElem.on('affixed.bs.affix', function () {
-				$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
-			}).on('affixed-top.bs.affix', function () {
-				$(this).next().remove();
-			});
+			affixElem
+				.on('affixed.bs.affix', function () {
+					$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
+				})
+				.on('affixed-top.bs.affix', function () {
+					$(this).next().remove();
+				});
 		}, 250);
   }
 
@@ -1268,7 +1274,7 @@ function resizeAffix() {
 		$('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
 
 		//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
-		$(this).parent().addClass('active');
+		//$(this).parent().addClass('active');
 	}
 
 	/*
