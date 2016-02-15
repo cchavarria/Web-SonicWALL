@@ -167,7 +167,7 @@
       content: 'Submit Page Feedback';
       position: absolute;
       right: 10px;
-      top: 8px;
+      top: 6px;
       padding: 0 9px 0 13px;
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
       font-size: 14px;
@@ -211,7 +211,7 @@
   &.hide-logo {
     /* To edit hidden logo in minimized state */
     .minimized-survey {
-      width: 179px;
+      width: 182px;
       &:after {
         content: '';
       }

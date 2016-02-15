@@ -177,11 +177,11 @@ body {
       display: inline-block;
       width: 22px;
       height: 22px;
-      background: url("//dev.visualwebsiteoptimizer.com/static/0.2/survey/images/blankstar-c5eb369f3dabf5cb9ba451a32e789134.png") center no-repeat; }
+      background: url("//software.dell.com/images/icons/16/icon-small-favorite-0.png") center no-repeat; }
       #main .rating > span.selected, #main .rating > span:hover {
-        background-image: url("//dev.visualwebsiteoptimizer.com/static/0.2/survey/images/filledstar-eb277ac60abd394a67b9a04ad767ec6d.png"); }
+        background-image: url("//software.dell.com/images/icons/16/icon-small-favorite-100.png"); }
         #main .rating > span.selected ~ span, #main .rating > span:hover ~ span {
-          background-image: url("//dev.visualwebsiteoptimizer.com/static/0.2/survey/images/filledstar-eb277ac60abd394a67b9a04ad767ec6d.png"); }
+          background-image: url("//software.dell.com/images/icons/16/icon-small-favorite-100.png"); }
   #main li.nps-choice {
     /* To edit styling of nps-based question options */
     float: left;
