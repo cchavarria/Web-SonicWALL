@@ -106,9 +106,6 @@ $(document).ready(function () {
     $.getScript('/static/js/events.min.js');
   }
 
-  //Dotdotdot
-  //processEllipsis();
-
   //LazyLoad
   if ($.fn.lazyload) {
     $('img.lazy').lazyload();
