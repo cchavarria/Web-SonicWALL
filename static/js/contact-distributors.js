@@ -81,6 +81,11 @@ var populateContacts = {
               if (variables[x] == '[[imageurl]]' && value != '') {
                 value = '<img src="' + value + '" width="34" height="18" class="pull-left">';
               }
+							if (variables[x] == '[[contactemail]]' && value != '') {
+								if(value.match(/@/) !== null) {
+									value = 'mailto:' + value;
+								}
+							}
               html = html.replace(variables[x], value);
             }
             else {
@@ -120,7 +125,7 @@ var populateContacts = {
       });
     }
 
-		$(options.target).append(code);
+		$(options.target).append(code).find('a[href=""]').remove();
   }
 };
 
