@@ -188,7 +188,7 @@
 		methods = {},
 		defaults = {
 			templateMap: {
-				'Whitepaper': 'generic-template',
+				'White Papers': 'generic-template',
 				'eBook': 'generic-template',
 				'Case Study': 'case-study-template',
 				'Datasheet': 'generic-template',
@@ -549,7 +549,7 @@
 				if (entry.type == 'Technical Briefs') {
 					templateMap.descriptionHover = 'Read the Technical Brief &#155;';
 				}
-				else if (entry.type == 'Whitepaper') {
+				else if (entry.type == 'White Papers') {
 					templateMap.descriptionHover = 'Read the White Paper &#155;';
 				}
 				else if (entry.type == 'Datasheet') {

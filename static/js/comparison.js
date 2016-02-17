@@ -26,21 +26,6 @@ function processComparison(parentSelector) {
 			//Reset
 			reset();
 
-			//Find maximum height for first .row.
-			/*
-			var maxHeight = 0;
-
-			columnsInFirstRow
-				.each(function () {
-					var h = $(this).height();
-
-					if (h > maxHeight) {
-						maxHeight = h;
-					}
-				})
-				.css('height', maxHeight);
-			*/
-
 			var width = columnsInFirstRow.outerWidth();
 
 			//Define how many entries should be shown.
@@ -93,6 +78,27 @@ function processComparison(parentSelector) {
 			}
 			else {
 				paginationElem.hide();
+			}
+
+			//Add background color on active column
+			var selectedColumn = 0;
+
+			columnsInFirstRow.each(function(indx) {
+				if($(this).find('> div').find('> div:eq(0)').hasClass('active')) {
+					selectedColumn = indx;
+					rows.find('> div:eq(' + indx + ')').addClass('bg-grey');
+				}
+			});
+
+			//Slide through to show selected column in view.
+			if(selectedColumn > displayAmount - 1) {
+				var elem2 = $(this);
+
+				for(var i = 0; i < selectedColumn; i++) {
+					setTimeout(function() {
+						elem2.find('.next').trigger('click');
+					}, 10);
+				}
 			}
 
 			function reset() {
