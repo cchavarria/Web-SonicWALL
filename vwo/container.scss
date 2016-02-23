@@ -1,0 +1,288 @@
+/* =============================================
+   THEME: Dark
+   ============================================= */
+/**
+ * General Styling for Survey Container Frame
+ */
+/* To edit styling of survey wrapper */
+
+#vwo-frame-wrapper {
+  position: fixed;
+  width: 235px;
+  z-index: 2147483647;
+  height: 225px;
+  &.bottom-right {
+    /* To edit positioning of survey, if it is in right */
+    bottom: 0;
+    right: 50px;
+    .minimized-survey {
+      right: 0;
+    }
+  }
+  &.bottom-left {
+    /* To edit positioning of survey, if it is in left */
+    bottom: 0;
+    left: 50px;
+    .minimized-survey {
+      left: 0;
+    }
+  }
+  &.minimized {
+    /* To edit styling of minimized survey wrapper */
+    height: auto;
+    iframe {
+      bottom: -202px;
+    }
+    .survey-action-bar {
+      top: 217px;
+    }
+    .minimized-survey {
+      -webkit-transition: all 0.2s ease 0.2s;
+      -moz-transition: all 0.2s ease 0.2s;
+      -ms-transition: all 0.2s ease 0.2s;
+      -o-transition: all 0.2s ease 0.2s;
+      transition: all 0.2s ease 0.2s;
+      bottom: 0;
+    }
+  }
+  iframe {
+    /* To edit styling of survey container frame */
+    height: inherit;
+    border: 1px solid;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  .survey-action-bar {
+    /* To edit position of survey action buttons */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    &:before {
+      content: 'Submit Page Feedback';
+      color: #444;
+      margin-right: 17px;
+      font-weight: bold;
+      font-size: 14px;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    }
+    button {
+      /* To edit styling of survey action buttons */
+      background-color: transparent;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      -ms-box-sizing: content-box;
+      -o-box-sizing: content-box;
+      box-sizing: content-box;
+      border: none;
+      width: 16px;
+      height: 18px;
+      cursor: pointer;
+      padding: 0;
+      margin: 0 0 0 7px;
+      min-width: 0;
+      min-height: 0;
+      outline: 0;
+      outline-style: none;
+      outline-width: 0;
+      /* This is for solving a bug of overriding button css at a user's website */
+      display: inline-block;
+      position: static;
+      border-radius: 0;
+      &.close{
+        opacity: 1;
+        &:hover,&:focus{
+          opacity:1;
+        }
+      }
+      &:after, &:before {
+        /* This is for solving a bug of overriding button:after pseudo css at a user's website */
+        content: none;
+      }
+    }
+    .close-img, .minimize-img {
+      /* To edit styling of survey action button image */
+      width: 14px;
+      height: 21px;
+      margin: auto;
+      background-position: center;
+      position: absolute;
+    }
+    .close-img {
+      /* To edit styling of 'close' button image */
+      background-repeat: no-repeat;
+      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/cross.svg');
+      background-color: transparent;
+      top: 2px;
+      right: 4px;
+    }
+    .minimize-img {
+      /* To edit styling of 'minimize' button image */
+      background-repeat: no-repeat;
+      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
+      background-color: transparent;
+      /*position: relative;*/
+      top: 2px;
+      right: 25px;
+    }
+  }
+  .minimized-survey {
+    /* To edit styling of minimized survey container */
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    bottom: -32px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: -1px -1px 4px 0 rgba(0, 0, 0, 0.26);
+    &:before {
+      /* To edit restore button styling if survey is in minimized state */
+      content: 'Submit Page Feedback';
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      padding: 0 9px 0 13px;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: #444444;
+      /*background-repeat: no-repeat;
+      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
+      background-color: transparent;
+      -webkit-background-size: 12px 6px;
+      -moz-background-size: 12px 6px;
+      -ms-background-size: 12px 6px;
+      -o-background-size: 12px 6px;
+      background-size: 12px 6px;
+      width: 12px;
+      height: 6px;
+      -webkit-transform: scaleY(-1);
+      -moz-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+      -o-transform: scaleY(-1);
+      transform: scaleY(-1);
+      filter: FlipV;
+      -ms-filter: "FlipV";*/
+    }
+  }
+  &.custom-logo {
+    /* To edit custom logo in minimized state */
+    .minimized-survey {
+      &:after {
+        content: '';
+      }
+      &:before {
+        right: 8px;
+      }
+      #vwo-logo {
+        height: 22px;
+        width: 60px;
+        left: 3px;
+      }
+    }
+  }
+  &.hide-logo {
+    /* To edit hidden logo in minimized state */
+    .minimized-survey {
+      width: 182px;
+      &:after {
+        content: '';
+      }
+      #vwo-logo {
+        display: none;
+      }
+    }
+  }
+  iframe {
+    /* To edit styling of survey container and its minimized state */
+    border-color: #cccccc;
+    background-color: #f9f9f9;
+  }
+  .minimized-survey {
+    /* To edit styling of survey container and its minimized state */
+    border-color: #cccccc;
+    background-color: #f9f9f9;
+    /* To edit styling of minimized survey container */
+    &:after {
+      color: #eeeeee;
+    }
+  }
+  &:not(.custom-logo) {
+    /* To edit styling of 'vwo-logo' */
+    #vwo-logo {
+      /* !important is used for the backward compatibility of the code, Do not remove it */
+      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/vwo@2x-6592a1fd051b3a7b65defc8b59de348f.png') !important;
+    }
+  }
+}
+
+#vwo-frame-wrapper.bottom-right{
+  right: 60px;
+}
+
+/*#vwo-frame-wrapper .minimized-survey #vwo-logo {
+  /!* To edit styling of 'vwo-logo' in minimized state *!/
+  height: 13px;
+  width: 36px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center; }*/
+/*#vwo-frame-wrapper .minimized-survey:after {
+  /!* To edit content displayed with the logo *!/
+  padding: 0 30px 0 56px;
+  line-height: 30px;
+  content: 'SURVEYS';
+  font-family: "Trebuchet MS", Arial,  Helvetica, sans-serif;
+  font-size: 11px;
+  text-shadow: none; }*/
+
+/**
+ *  Theme-Specific Styling for Survey Container Frame
+ */
+
+/*#vwo-frame-wrapper .minimized-survey:before {
+  -webkit-filter: brightness(250%);
+  -moz-filter: brightness(250%);
+  -ms-filter: brightness(250%);
+  -o-filter: brightness(250%);
+  filter: brightness(250%); }*/
+
+/*#vwo-frame-wrapper .survey-action-bar .close-img, #vwo-frame-wrapper .survey-action-bar .minimize-img {
+  /!* To edit styling of survey action button images *!/
+  -webkit-filter: brightness(250%);
+  -moz-filter: brightness(250%);
+  -ms-filter: brightness(250%);
+  -o-filter: brightness(250%);
+  filter: brightness(250%); }*/
