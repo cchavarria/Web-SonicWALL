@@ -13,34 +13,34 @@
   .row {
     margin: 0;
     position: relative;
+	  &:last-of-type {
+		  .selected {
+			  border-bottom: 1px solid $dell-blue;
+		  }
+	  }
+	  .selected {
+		  border-right: 1px solid $dell-blue;
+		  border-left: 1px solid $dell-blue;
+	  }
     .active {
-      font-weight: 700;
-      font-size: 12px;
-      background-color: $dell-gray-light;
-      padding-left: 31px;
-      position: relative;
-      margin-bottom: 15px;
-      &:before {
-        border-color: $dell-dark-red transparent transparent $dell-dark-red;
-        border-style: solid;
-        border-width: 9px;
-        display: inline-block;
-        height: 17px;
-        width: 17px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "";
-      }
+	    background-color: $dell-blue;
+	    color: $white;
+	    padding: 6px 15px;
+	    margin: 0 -15px 15px;
     }
     .inactive {
-      height: 17px;
-      margin-bottom: 15px;
+	    padding: 6px 15px;
+	    margin: 0 -15px 15px;
     }
     &.top-row {
       .btn {
         margin: 20px 0 5px;
       }
+	    .selected {
+		    border-top: 1px solid $dell-blue;
+		    border-right: 1px solid $dell-blue;
+		    border-left: 1px solid $dell-blue;
+	    }
     }
     > div {
       padding: 0;
@@ -84,31 +84,8 @@
   }
 }
 
-.col-striped {
-  .row {
-    > [class^="col-"]:nth-of-type(odd) {
-      background-color: #f9f9f9;
-    }
-  }
-}
-
 @media (min-width: 768px) {
   .comparison {
-    .row {
-      .active {
-        font-size: 18px;
-        padding-left: 31px;
-        margin-bottom: 15px;
-        &:before {
-          border-width: 13px;
-          height: 26px;
-          width: 26px;
-        }
-      }
-      .inactive {
-        height: 26px;
-      }
-    }
     .comparison-pagination {
       text-align: right;
     }

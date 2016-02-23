@@ -57,8 +57,19 @@ $(document).ready(function () {
 
       //adjust triangle position based on source element
       if ($(target).find('.triangle-top').length) {
-        //var top = -1 * ($(target).offset().top - $(this).offset().top - $(this).outerHeight(true) - 11);
         var top = $(this).offset().top + $(this).outerHeight(true) + 12;
+
+				//Find offset if parents of target element has relative positioning.
+				var tmpParent = $(target).parent();
+
+				while(tmpParent.get(0).nodeName != 'BODY') {
+					if(tmpParent.css('position') == 'relative') {
+						top -= tmpParent.offset().top;
+						break;
+					}
+
+					tmpParent = tmpParent.parent();
+				}
 
         $(target)
             .css({
@@ -227,15 +238,25 @@ $(document).ready(function () {
 
   //close button in optional dropdown
   $('body').on('click', '.close', function () {
-    var closeTarget = $(this).parents('#' + $(this).data('target'));
+		if($(this).data('target') == undefined) {
+			//Check if this is inside an optional dropdown
+			if($(this).parents('.optional-dropdown').length) {
+				$(this).parents('.optional-dropdown').addClass('hidden');
+				$(this).parents('.optional-dropdown').data('parent').parents('.container').css('height', '');
+			}
+		}
+		else {
+			var closeTarget = $(this).parents('#' + $(this).data('target'));
 
-    if (closeTarget.length && closeTarget != undefined) {
-      closeTarget.addClass('hidden');
-    }
+			if (closeTarget.length && closeTarget != undefined) {
+				closeTarget.addClass('hidden');
+			}
 
-    if (closeTarget.data('parent')) {
-      closeTarget.data('parent').parents('.container').css('height', '');
-    }
+			if (closeTarget.data('parent')) {
+				closeTarget.data('parent').parents('.container').css('height', '');
+			}
+		}
+
   });
 
   addResize('resizeFourColumnFilmstripCarousel', true);
@@ -355,33 +376,6 @@ $(document).ready(function () {
     $.getScript('/static/js/comparison.min.js');
   }
 
-	//match columns height
-	(function() {
-		if ($('*[data-target="match-height"]').length) {
-			if($.fn.matchHeight) {
-				init();
-			}
-			else {
-				$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
-					init();
-				});
-			}
-		}
-
-		function init() {
-			var config = {};
-
-			if (pageType > 0) {
-				//ignore rows if applying match height to elements within a box (this is for product listing page)
-				if($('*[data-ignore-row="1"]').length) {
-					config.byRow = false;
-				}
-
-				$('*[data-target="match-height"]').matchHeight(config);
-			}
-		}
-	})();
-
 	//Scroll up on accordion, if and only if a previous accordion is open and is above the new opened accordion.
 	$(document).on('show.bs.collapse', function(e) {
 		//check if clicked panel is below an open one
@@ -400,6 +394,9 @@ $(window).load(function() {
 	//Dotdotdot
 	/* Had to move from document ready to window load because we had an issue where data-max-line didn't work as expected. */
 	processEllipsis();
+
+	//match columns height
+	addResize('matchHeight', true);
 });
 
 //Flex box degradation
@@ -1297,6 +1294,32 @@ function resizeAffix() {
     });
   }
   */
+}
+
+function matchHeight() {
+	if ($('*[data-target="match-height"]').filter(':visible').length) {
+		if ($.fn.matchHeight) {
+			init();
+		}
+		else {
+			$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+				init();
+			});
+		}
+	}
+
+	function init() {
+		var config = {};
+
+		//if (pageType > 0) {
+			//ignore rows if applying match height to elements within a box (this is for product listing page)
+			if ($('*[data-ignore-row="1"]').length) {
+				config.byRow = false;
+			}
+
+			$('*[data-target="match-height"]').filter(':visible').matchHeight(config);
+		//}
+	}
 }
 
 function replaceURL(text) {

@@ -125,7 +125,15 @@ iframe {
   overflow: hidden;
 }
 
-/* Row */
+/* Column/Row */
+
+.col-striped {
+	.row {
+		> [class^="col-"]:nth-of-type(odd) {
+			background-color: #f9f9f9;
+		}
+	}
+}
 
 .row-striped {
 	> .row:nth-of-type(odd) {

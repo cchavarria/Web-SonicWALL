@@ -5093,7 +5093,10 @@ iframe {
 .overflow-hidden {
   overflow: hidden; }
 
-/* Row */
+/* Column/Row */
+.col-striped .row > [class^="col-"]:nth-of-type(odd) {
+  background-color: #f9f9f9; }
+
 .row-striped > .row:nth-of-type(odd) {
   background-color: #eeeeee; }
 
@@ -9059,29 +9062,25 @@ a:hover .has-overlay h4 {
   .comparison .row {
     margin: 0;
     position: relative; }
+    .comparison .row:last-of-type .selected {
+      border-bottom: 1px solid #007db8; }
+    .comparison .row .selected {
+      border-right: 1px solid #007db8;
+      border-left: 1px solid #007db8; }
     .comparison .row .active {
-      font-weight: 700;
-      font-size: 12px;
-      background-color: #eeeeee;
-      padding-left: 31px;
-      position: relative;
-      margin-bottom: 15px; }
-      .comparison .row .active:before {
-        border-color: #c31126 transparent transparent #c31126;
-        border-style: solid;
-        border-width: 9px;
-        display: inline-block;
-        height: 17px;
-        width: 17px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: ""; }
+      background-color: #007db8;
+      color: white;
+      padding: 6px 15px;
+      margin: 0 -15px 15px; }
     .comparison .row .inactive {
-      height: 17px;
-      margin-bottom: 15px; }
+      padding: 6px 15px;
+      margin: 0 -15px 15px; }
     .comparison .row.top-row .btn {
       margin: 20px 0 5px; }
+    .comparison .row.top-row .selected {
+      border-top: 1px solid #007db8;
+      border-right: 1px solid #007db8;
+      border-left: 1px solid #007db8; }
     .comparison .row > div {
       padding: 0; }
       .comparison .row > div > div {
@@ -9105,20 +9104,7 @@ a:hover .has-overlay h4 {
       display: inline-block;
       padding: 0 5px; }
 
-.col-striped .row > [class^="col-"]:nth-of-type(odd) {
-  background-color: #f9f9f9; }
-
 @media (min-width: 768px) {
-  .comparison .row .active {
-    font-size: 18px;
-    padding-left: 31px;
-    margin-bottom: 15px; }
-    .comparison .row .active:before {
-      border-width: 13px;
-      height: 26px;
-      width: 26px; }
-  .comparison .row .inactive {
-    height: 26px; }
   .comparison .comparison-pagination {
     text-align: right; } }
 /* Slider */

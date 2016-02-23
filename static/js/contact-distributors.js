@@ -111,10 +111,8 @@ var populateContacts = {
               if (variables[x] == '[[fax]]' && value != '') {
                 value = '<strong>F</strong> ' + value;
               }
-              if (variables[x] == '[[imageurl]]' && value != '') {
-                value = '<img src="' + value + '" class="img-responsive center-block">';
-              }
-              html = html.replace(variables[x], value);
+
+							html = html.replace(variables[x], value);
             }
             else {
               html = html.replace(variables[x], matchValue[1]);

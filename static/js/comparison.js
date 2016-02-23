@@ -41,6 +41,8 @@ function processComparison(parentSelector) {
 
 			paginationElem.find('.end').text(displayAmount);
 
+			rows.find('.inactive').html('&nbsp;');
+
 			//Set all expanded collapsible columns the same height.
 			$(this).on('shown.bs.collapse', '.collapse', function () {
 				if (!$(this).data('comparison-processed')) {
@@ -86,19 +88,49 @@ function processComparison(parentSelector) {
 			columnsInFirstRow.each(function(indx) {
 				if($(this).find('> div').find('> div:eq(0)').hasClass('active')) {
 					selectedColumn = indx;
-					rows.find('> div:eq(' + indx + ')').addClass('bg-grey');
+
+					if($(this).parents('.comparison-container').hasClass('col-striped')) {
+						rows.find('> div:eq(' + indx + ')').addClass('selected');
+					}
+					else {
+						rows.find('> div:eq(' + indx + ')').addClass('bg-grey selected');
+					}
 				}
 			});
 
-			//Slide through to show selected column in view.
-			if(selectedColumn > displayAmount - 1) {
-				var elem2 = $(this);
+			//If there is only 1 panel group show panels
+			var panelGroup = $(this).find('.panel-group-collapsible');
 
-				for(var i = 0; i < selectedColumn; i++) {
-					setTimeout(function() {
-						elem2.find('.next').trigger('click');
-					}, 10);
+			if(panelGroup.find('> div').length == 1) {
+				 panelGroup.find('.panel-heading').hide().next().removeClass('collapse');
+			}
+
+			//Slide through to show selected column in view.
+			var tweenAmount = 0;
+
+			if(displayAmount == 2) {
+				tweenAmount = selectedColumn;
+			}
+			else if(displayAmount == 3) {
+				tweenAmount = selectedColumn - 1;
+			}
+			else if(displayAmount == 4) {
+				if(total - selectedColumn <= 3) {
+					tweenAmount = 4 - (total - selectedColumn);
 				}
+			}
+
+			if(tweenAmount > (total - displayAmount)) {
+				tweenAmount = total - displayAmount;
+			}
+
+			var elem2 = $(this);
+
+			for(var i = 0; i < tweenAmount; i++) {
+				setTimeout(function() {
+					console.log('next');
+					elem2.find('.next').trigger('click');
+				}, 10);
 			}
 
 			function reset() {

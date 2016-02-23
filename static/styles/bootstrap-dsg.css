@@ -226,7 +226,7 @@
   /* iframe */
   /* Vertical Alignment */
   /* Overflow */
-  /* Row */
+  /* Column/Row */
   /*display*/
   /* Padding */
   /* Margin */ }
@@ -6751,6 +6751,8 @@
     vertical-align: text-top; }
   .bootstrap .overflow-hidden {
     overflow: hidden; }
+  .bootstrap .col-striped .row > [class^="col-"]:nth-of-type(odd) {
+    background-color: #f9f9f9; }
   .bootstrap .row-striped > .row:nth-of-type(odd) {
     background-color: #eeeeee; }
   .bootstrap .block {

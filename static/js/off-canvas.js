@@ -85,8 +85,6 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 	 $('#off-canvas').css('height', siteWrapperHeight);
 	 }*/
 
-
-
 	$('#off-canvas').removeClass('hidden');
 	$('.site-wrapper').addClass('hidden'); // Fix to prevent white space at the bottom of off-canvas sections
 
@@ -137,6 +135,8 @@ $('body').on('click', '[data-toggle=offcanvas],[data-toggle=show-offcanvas]', fu
 				//$('#off-canvas').find('.panel').find('.collapse').collapse();
 				$('#off-canvas').find('.collapse').collapse({parent: '#'+parentID}).collapse('hide');
 			}
+
+			matchHeight();
 		}, 450);
 	}, 500);
 	//});
