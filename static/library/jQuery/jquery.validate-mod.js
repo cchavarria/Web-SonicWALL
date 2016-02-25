@@ -424,7 +424,7 @@
 					}, 100);
 					//Original - $( this.currentForm ).triggerHandler( "invalid-form", [ this ]);
 				}
-
+				
 				//Modified by Edward Chong - added delay so that demandbase has a chance to perfor its action.
 				setTimeout(function() {
 					t.showErrors();
@@ -656,9 +656,9 @@
 						return i;
 					}).length,
 					dependencyMismatch = false,
-					val = this.elementValue( element ),
+					val = $.trim(this.elementValue( element )),
 					result, method, rule;
-
+				
 				for ( method in rules ) {
 					rule = { method: method, parameters: rules[ method ] };
 					try {

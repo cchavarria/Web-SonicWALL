@@ -1199,13 +1199,6 @@ function resizeAffix() {
 	}
 
   if (pageType > 0 || !affixElem.hasClass('affix-list-xs')) {
-    /*if (!$.fn.hashchange) {
-      $.getScript('/static/library/jQuery/jquery.hashchange-mod.min.js').done(onHashChange);
-    }
-    else {
-      onHashChange();
-    }*/
-
 		//Need to break out of the sequential flow in order to retrieve the true height.
 		setTimeout(function() {
 			affixElem.find('li').css('height', affixElem.height());
@@ -1251,7 +1244,7 @@ function resizeAffix() {
 		affixElem.off('click', 'a', affixAnchorClick);
 
 		//destroy scrollspy
-		body.scrollspy({target: ''});
+		//body.scrollspy({target: ''});
 		affixElem.removeData('bs.scrollspy');
 
 		//destroy affix
@@ -1270,30 +1263,6 @@ function resizeAffix() {
 		//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
 		//$(this).parent().addClass('active');
 	}
-
-	/*
-  function onHashChange() {
-    if (!affixElem.data('hashchange-processed')) {
-      $(window).hashchange(function () {
-        hashScrollFix();
-      });
-
-      hashScrollFix();
-
-      affixElem.data('hashchange-processed', true);
-    }
-  }
-
-  function hashScrollFix() {
-    affixElem.find('a').each(function () {
-      if ($(this).attr('href') == location.hash) {
-        window.scrollTo(0, $(location.hash).offset().top - affixElem.height());
-
-        return false;
-      }
-    });
-  }
-  */
 }
 
 function matchHeight() {
