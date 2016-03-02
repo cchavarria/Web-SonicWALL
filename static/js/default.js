@@ -522,7 +522,7 @@ function slickPlugin(parentSelector) {
 							var firstImageInterval = setInterval(function() {
 								var imgHeight = elem.find('.slick-active').find('img:first').height();
 
-								if(imgHeight > 0) {
+								if(imgHeight > 100) {
 									clearInterval(firstImageInterval);
 									elem.find('.slick-arrow').css('top', imgHeight / 2 - 30);
 
