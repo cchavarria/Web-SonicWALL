@@ -608,7 +608,7 @@ function processFlex(parentSelector) {
       if (!$(this).is(':visible')) {
         return true;
       }
-
+			
       var child = $(this).children();
 
       //Reset
@@ -674,7 +674,6 @@ function processFlex(parentSelector) {
 
         //If the centered width is greater than the parent element, set the width of the inner element.
         if (width < $(this).width()) {
-          console.log(width);
           $(this).css({width: width});
         }
 
