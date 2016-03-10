@@ -7513,6 +7513,9 @@ body {
 .panel .panel-group-collapsible {
   border-bottom: 0; }
 
+img ~ .panel > .panel-body:after {
+  clear: none; }
+
 @media (max-width: 767px) {
   .panel-group-collapsible-xs {
     border-bottom: 1px solid #aaaaaa; }
