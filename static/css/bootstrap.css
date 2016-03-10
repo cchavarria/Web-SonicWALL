@@ -8899,20 +8899,34 @@ a:hover .has-overlay h4 {
   #button-flyout > div {
     border: 1px solid #a9a9a9;
     padding: 25px 20px 20px 20px; }
-    #button-flyout > div > div i {
-      font-size: 19px;
-      margin-right: 10px;
-      vertical-align: sub; }
-    #button-flyout > div > div > a {
-      display: block;
-      margin-bottom: 15px; }
-      #button-flyout > div > div > a:last-child {
-        margin-bottom: 20px; }
-      #button-flyout > div > div > a:hover, #button-flyout > div > div > a:focus {
-        text-decoration: none;
-        color: #007db8; }
-        #button-flyout > div > div > a:hover span, #button-flyout > div > div > a:focus span {
-          text-decoration: underline; }
+    #button-flyout > div > div {
+      /*Added because IS is using an extra div tag around chat*/ }
+      #button-flyout > div > div i {
+        font-size: 19px;
+        margin-right: 10px;
+        vertical-align: sub; }
+      #button-flyout > div > div > a {
+        display: block;
+        margin-bottom: 15px; }
+        #button-flyout > div > div > a:last-child {
+          margin-bottom: 20px; }
+        #button-flyout > div > div > a:hover, #button-flyout > div > div > a:focus {
+          text-decoration: none;
+          color: #007db8; }
+          #button-flyout > div > div > a:hover span, #button-flyout > div > div > a:focus span {
+            text-decoration: underline; }
+      #button-flyout > div > div > div i {
+        margin-right: 15px; }
+      #button-flyout > div > div > div > a {
+        display: block;
+        margin-bottom: 15px; }
+        #button-flyout > div > div > div > a:last-child {
+          margin-bottom: 20px; }
+        #button-flyout > div > div > div > a:hover, #button-flyout > div > div > div > a:focus {
+          text-decoration: none;
+          color: #007db8; }
+          #button-flyout > div > div > div > a:hover span, #button-flyout > div > div > div > a:focus span {
+            text-decoration: underline; }
   #button-flyout.open > div {
     -webkit-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: -2px -1px 4px 0 rgba(0, 0, 0, 0.26);

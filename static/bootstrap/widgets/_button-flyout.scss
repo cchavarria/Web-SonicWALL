@@ -29,6 +29,26 @@
           }
         }
       }
+      /*Added because IS is using an extra div tag around chat*/
+      > div{
+        i{
+          margin-right: 15px;
+        }
+        > a {
+          display: block;
+          margin-bottom: 15px;
+          &:last-child {
+            margin-bottom: 20px;
+          }
+          &:hover, &:focus {
+            text-decoration: none;
+            color: $dell-blue;
+            span {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
     }
   }
   &.open {
