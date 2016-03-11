@@ -279,11 +279,20 @@ ul.oo-toolbar {
   zIndex: 99999; }
 .ooyalaplayer .oo_controls .volume-wrapper {
   width: 25px; }
-.ooyalaplayer .oo_controls .captionsContainer {
-  margin-top: -50px;
-  color: #fff;
-  padding: 5px;
-  background-color: rgba(0, 0, 0, 0.5); }
+.ooyalaplayer .oo_controls .top-control-container {
+  position: absolute;
+  width: 100%;
+  bottom: 45px;
+  color: #fff; }
+  .ooyalaplayer .oo_controls .top-control-container .cta-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    margin-top: 5px; }
+  .ooyalaplayer .oo_controls .top-control-container .captionsContainer {
+    /*margin-top: -50px;*/
+    /*color: #fff;*/
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5); }
 .ooyalaplayer .oo_full_controls .vod .oo_scrubber {
   left: 75px;
   right: 75px !important; }

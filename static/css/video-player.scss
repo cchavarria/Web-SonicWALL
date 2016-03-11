@@ -376,12 +376,24 @@ ul.oo-toolbar {
     .volume-wrapper {
       width: 25px;
     }
-    .captionsContainer {
-      margin-top: -50px;
-      color: #fff;
-      padding: 5px;
-      background-color: rgba(0, 0, 0, .5);
-    }
+	  .top-control-container {
+		  position: absolute;
+		  width: 100%;
+		  bottom: 45px;
+		  color: #fff;
+		  .cta-container {
+			  background-color: rgba(0, 0, 0, 0.5);
+			  padding: 5px;
+			  margin-top: 5px;
+		  }
+		  .captionsContainer {
+			  /*margin-top: -50px;*/
+			  /*color: #fff;*/
+			  padding: 5px;
+			  background-color: rgba(0, 0, 0, .5);
+		  }
+	  }
+
   }
   .oo_full_controls {
     .vod {

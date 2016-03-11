@@ -539,14 +539,22 @@ function slickPlugin(parentSelector) {
 								fixScreenshot.call(elem, e, slick, 0, 0);
 							}
 						}
+
+						if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
+							$(this).find('img').each(function() {
+								if($(this).data('lazy')) {
+									$(this).attr('src', $(this).data('lazy')).removeData('lazy');
+								}
+							});
+						}
           });
         }
 
         $(this).slick(cfg);
 
-				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
+				/*if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
 					$(this).on('beforeChange', fixScreenshot);
-				}
+				}*/
 			}
 			else {
 				$(this).find('img').each(function() {

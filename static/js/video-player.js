@@ -184,6 +184,9 @@ function OOCreate(player) {
         $(this).removeClass('oo_mini_controls').addClass('oo_full_controls')
       }
     });
+
+		var target = $('#' + player.elementId);
+		target.find('.oo_controls').prepend('<div class="top-control-container"><div class="captionsContainer" style="display: none;"><div class="caption"></div></div><div class="cta-container" style="display: none;"></div></div>');
   });
 
 	player.mb.subscribe(OO.EVENTS.PLAY, 'UITeam', function() {
@@ -194,6 +197,52 @@ function OOCreate(player) {
 			}
 		});
 	});
+
+	if(location.search == '?videotest') {
+		player.mb.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, "UITeam", function (eventName, currentTime, totalTime) {
+			var percentPlayed = (currentTime / totalTime) * 100;
+			var target = $('#' + player.elementId);
+			var ctaContainer = target.find('.cta-container');
+
+			if(percentPlayed > 25) {
+				ctaContainer.show();
+
+				if(!ctaContainer.data('processed')) {
+					var html = 'Jibberish text <a href="#" class="btn btn-primary btn-sm">CTA Text</a>';
+
+					ctaContainer.html(html).data('processed', true);
+				}
+			}
+			else {
+				ctaContainer.hide();
+			}
+		});
+
+		player.mb.subscribe(OO.EVENTS.PLAYED, 'UITeam', function() {
+			var target = $('#' + player.elementId);
+			var html = '<div style="width: 100%; height: 100%; z-index: 1; background-color: #000; opacity: .8;"></div>';
+			var description = $.trim(player.getCurrentItemDescription());
+			var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+			var urlMatch = description.match(exp);
+
+			if(urlMatch !== null) {
+				description = $.trim(description.replace(exp, ''));
+			}
+
+			html += '<div style="position: absolute; z-index: 2; top: 40px; left: 0; padding: 20px; color: #fff; text-align: left;">';
+			html += '<p>' + description + '</p>';
+
+			if(urlMatch !== null) {
+				html += '<a href="' + urlMatch[0] + '" class="btn btn-primary mr-20">CTA Text</a>';
+			}
+
+			html += '<a href="#replay" onclick="$(this).parents(\'.oo_end_screen\').find(\'.oo_replay\').trigger(\'click\');" class="btn btn-primary">Replay Video</a>';
+			html += '</div>';
+
+			target.find('.oo_replay').hide();
+			target.find('.oo_end_screen').append(html);
+		});
+	}
 }
 
 /*********************/
@@ -521,7 +570,8 @@ function processClosedCaption(player, videoProp) {
     if (allCaptions.length > 0) {
       var playerRoot = $("#" + elementId);
 
-      playerRoot.find('.oo_controls').prepend('<div class="captionsContainer"><div class="caption"></div></div>');
+			//var topControlContainer = playerRoot.find('.top-control-container');
+			//topControlContainer.prepend('<div class="captionsContainer"><div class="caption"></div></div>');
 
       addCCButton(videoProp);
       //languageList - spin through the language list and grab the current CC captions
