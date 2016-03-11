@@ -9118,6 +9118,11 @@ a:hover .has-overlay h4 {
   .comparison .comparison-pagination {
     text-align: right; } }
 /* Slider */
+.slick {
+  visibility: hidden; }
+  .slick.slick-initialized {
+    visibility: visible; }
+
 .slick-slider {
   position: relative;
   display: block;

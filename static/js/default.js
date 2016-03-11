@@ -459,10 +459,16 @@ function slickPlugin(parentSelector) {
     $(parentSelector).find('.slick').each(function () {
       var cfg = jQuery.extend(true, {}, defaults);
 
+			$(this).find('img').each(function() {
+				if($(this).data('lazy')) {
+					$(this).attr('src', $(this).data('lazy')).removeData('lazy');
+				}
+			});
+			
       //Destroy slick
       if ($(this).data('active') == 'xs-only' && pageType != 0) {
         if ($(this).hasClass('slick-initialized')) {
-          $(this).slick('unslick');
+          $(this).slick('destroy');
         }
 
         return true;
@@ -501,10 +507,7 @@ function slickPlugin(parentSelector) {
       }
 
       if ($(this).find('> div').length > cfg.slidesToShow) {
-        if ($(this).hasClass('banner')) {
-          //$(this).find('.caption-wrapper').matchHeight();
-        }
-        else {
+        if (!$(this).hasClass('banner')) {
           $(this).on('init', function (e, slick) {
             var arrowsPos = 0, elem = $(this), firstImage = elem.find('img:first');
 
@@ -539,14 +542,6 @@ function slickPlugin(parentSelector) {
 								fixScreenshot.call(elem, e, slick, 0, 0);
 							}
 						}
-
-						if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
-							$(this).find('img').each(function() {
-								if($(this).data('lazy')) {
-									$(this).attr('src', $(this).data('lazy')).removeData('lazy');
-								}
-							});
-						}
           });
         }
 
@@ -557,11 +552,7 @@ function slickPlugin(parentSelector) {
 				}*/
 			}
 			else {
-				$(this).find('img').each(function() {
-					if($(this).data('lazy')) {
-						$(this).attr('src', $(this).data('lazy'));
-					}
-				});
+				$(this).css('visibility', 'visible');
 			}
 		});
 	}

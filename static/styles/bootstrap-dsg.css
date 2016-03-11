@@ -5865,6 +5865,10 @@
     .bootstrap .banner .subheadline {
       font-size: 18px;
       line-height: 22px; } }
+  .bootstrap .slick {
+    visibility: hidden; }
+    .bootstrap .slick.slick-initialized {
+      visibility: visible; }
   .bootstrap .slick-slider {
     position: relative;
     display: block;
