@@ -1,0 +1,12 @@
+@{var json = Json.Encode(Model);}
+<div id="test" class="hidden">
+<textarea>
+@json
+</textarea>
+</div>
+
+<script>
+	if(location.search == '?debug') {
+		$('#test').removeClass('hidden');
+	}
+</script>

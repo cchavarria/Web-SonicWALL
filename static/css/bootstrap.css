@@ -7525,7 +7525,7 @@ img ~ .panel > .panel-body:after {
       border-top: 1px solid #aaaaaa;
       box-shadow: none; }
       .panel-group-collapsible-xs > .panel .panel-heading {
-        padding: 10px;
+        padding: 10px 0;
         color: #007db8; }
       .panel-group-collapsible-xs > .panel .panel-title a.collapsed:before {
         font-family: 'Glyphicons Halflings';
@@ -7541,7 +7541,7 @@ img ~ .panel > .panel-body:after {
       .panel-group-collapsible-xs > .panel .panel-title a:hover, .panel-group-collapsible-xs > .panel .panel-title a:focus {
         text-decoration: none; }
       .panel-group-collapsible-xs > .panel .panel-body {
-        padding: 0 30px;
+        padding: 0 15px;
         margin-bottom: 10px; }
       .panel-group-collapsible-xs > .panel .table-responsive {
         margin-bottom: 13px; }
@@ -7554,7 +7554,7 @@ img ~ .panel > .panel-body:after {
       display: block;
     }*/ }
     .panel-group-collapsible-xs .panel-heading {
-      padding: 0;
+      padding: 10px 0;
       border: 0; }
     .panel-group-collapsible-xs .panel-body {
       padding: 0; }
@@ -9069,6 +9069,8 @@ a:hover .has-overlay h4 {
     font-size: 16px;
     line-height: 15px;
     padding-top: 10px; }
+  .comparison ul {
+    padding-left: 1em; }
   .comparison .row {
     margin: 0;
     position: relative; }

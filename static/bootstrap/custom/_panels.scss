@@ -416,7 +416,7 @@ img ~ .panel > .panel-body:after {
       border-top: 1px solid $dell-gray;
       box-shadow: none;
       .panel-heading {
-        padding: 10px;
+        padding: 10px 0;
         color: $dell-blue;
       }
       //arrows
@@ -439,7 +439,7 @@ img ~ .panel > .panel-body:after {
         }
       }
       .panel-body {
-        padding: 0 30px;
+        padding: 0 15px;
         margin-bottom: 10px;
       }
       .table-responsive {
@@ -456,7 +456,7 @@ img ~ .panel > .panel-body:after {
 @media (min-width: 768px) {
   .panel-group-collapsible-xs {
     .panel-heading {
-      padding: 0;
+      padding: 10px 0;
       border: 0;
     }
     .panel-body {

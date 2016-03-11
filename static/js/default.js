@@ -1238,6 +1238,7 @@ function resizeAffix() {
 
 	function reset() {
 		//Reset
+		$('.affix-dummy').remove();
 		affixElem.css('width', '').find('li').css({height: 'auto', width: ''});
 		affixElem.off('click', 'a', affixAnchorClick);
 
