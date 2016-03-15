@@ -4,6 +4,9 @@
     border: 0;
     a {
       color: #007db8;
+      &.btn-primary, &.btn-success{
+        color: #fff;
+      }
     }
   }
   .ui-tabs-nav {
