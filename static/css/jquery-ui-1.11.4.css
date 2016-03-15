@@ -751,9 +751,10 @@ body .ui-tooltip {
 
 .ui-widget-content {
   background: white;
-  color: #222222; }
-  .ui-widget-content a {
-    color: #222222; }
+  color: #222222;
+  /*a {
+    color: #222222;
+  }*/ }
 
 .ui-widget-header {
   border: 1px solid #4297d7;

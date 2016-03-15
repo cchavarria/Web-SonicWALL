@@ -8255,10 +8255,6 @@ img ~ .panel > .panel-body:after {
 .fat-tabs.ui-widget-content, .fat-buttons.ui-widget-content {
   background: none;
   border: 0; }
-  .fat-tabs.ui-widget-content a, .fat-buttons.ui-widget-content a {
-    color: #007db8; }
-    .fat-tabs.ui-widget-content a.btn-primary, .fat-tabs.ui-widget-content a.btn-success, .fat-buttons.ui-widget-content a.btn-primary, .fat-buttons.ui-widget-content a.btn-success {
-      color: #fff; }
 .fat-tabs .ui-tabs-nav .ui-tabs-anchor, .fat-buttons .ui-tabs-nav .ui-tabs-anchor {
   float: none !important; }
 .fat-tabs .ui-tabs-nav li, .fat-tabs .ui-tabs-nav .ui-state-active, .fat-buttons .ui-tabs-nav li, .fat-buttons .ui-tabs-nav .ui-state-active {
