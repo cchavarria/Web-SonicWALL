@@ -740,15 +740,17 @@ body .ui-tooltip {
  */
 /* Component containers
 ----------------------------------*/
-.ui-widget {
+/*.ui-widget {
   font-family: museo-sans-for-dell-300,Lucida Grande,Lucida Sans,Arial,sans-serif;
-  font-size: 1em; }
-  .ui-widget .ui-widget {
-    font-size: 1em; }
-  .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-size: 1em; //Original - 1.1em
+  .ui-widget {
+    font-size: 1em;
+  }
+  input, select, textarea, button {
     font-family: museo-sans-for-dell-300,Lucida Grande,Lucida Sans,Arial,sans-serif;
-    font-size: 1em; }
-
+    font-size: 1em;
+  }
+}*/
 .ui-widget-content {
   background: white;
   color: #222222;
