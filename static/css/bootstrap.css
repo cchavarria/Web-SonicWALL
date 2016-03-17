@@ -7976,15 +7976,6 @@ img ~ .panel > .panel-body:after {
     margin-right: -15px; } }
 /*mobile*/
 @media (max-width: 767px) {
-  #masthead + .hero-banner {
-    margin-top: -20px; }
-
-  .hero-banner .carousel h4 {
-    font-size: 14px; }
-  .hero-banner .carousel h2 {
-    font-size: 20px;
-    line-height: 24px; }
-
   .caption-wrapper {
     position: relative;
     left: 0;
@@ -8007,21 +7998,76 @@ img ~ .panel > .panel-body:after {
     .caption-wrapper.caption-wrapper-v3 {
       left: 0;
       background: transparent; } }
-@media (min-width: 768px) {
-  #hero-banner {
-    width: 100%; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .hero-banner h2 {
-    font-size: 26px;
-    line-height: 30px; }
-  .hero-banner h4 {
-    font-size: 16px;
-    line-height: 20px; }
+  .width-32 {
+    width: 41% !important; }
 
-  .caption-wrapper {
-    width: 46%; }
-    .caption-wrapper.caption-wrapper-v2 {
-      width: 45%; } }
+  .width-33 {
+    width: 42% !important; }
+
+  .width-34 {
+    width: 43% !important; }
+
+  .width-35 {
+    width: 44% !important; }
+
+  .width-36 {
+    width: 45% !important; }
+
+  .width-37 {
+    width: 46% !important; }
+
+  .width-38 {
+    width: 47% !important; }
+
+  .width-39 {
+    width: 48% !important; }
+
+  .width-40 {
+    width: 49% !important; }
+
+  .width-41 {
+    width: 50% !important; }
+
+  .width-42 {
+    width: 51% !important; }
+
+  .width-43 {
+    width: 52% !important; }
+
+  .width-44 {
+    width: 52% !important; }
+
+  .width-45 {
+    width: 52% !important; }
+
+  .width-46 {
+    width: 52% !important; }
+
+  .width-47 {
+    width: 52% !important; }
+
+  .width-48 {
+    width: 52% !important; }
+
+  .width-49 {
+    width: 52% !important; }
+
+  .width-50 {
+    width: 52% !important; }
+
+  .width-51 {
+    width: 52% !important; }
+
+  .width-52 {
+    width: 52% !important; }
+
+  /*.caption-wrapper {
+    width: 46%;
+    &.caption-wrapper-v2 {
+      width: 45%;
+    }
+  }*/ }
 .screenshot-carousel {
   overflow: hidden; }
   .screenshot-carousel.next-step li .image-crop {
@@ -9412,7 +9458,6 @@ a:hover .has-overlay h4 {
     height: 140px; }
   .slick.slick-initialized.col-sm-9 .img-crop, .slick.slick-initialized.col-md-9 .img-crop, .slick.slick-initialized.col-lg-9 .img-crop {
     height: 152px; }
-
   .slick.slick-770x240 {
     height: 224px; }
     .slick.slick-770x240 .full-height {
@@ -9472,7 +9517,6 @@ a:hover .has-overlay h4 {
     height: 180px; }
   .slick.slick-initialized.col-sm-9 .img-crop, .slick.slick-initialized.col-md-9 .img-crop, .slick.slick-initialized.col-lg-9 .img-crop {
     height: 175px; }
-
   .slick.slick-770x240 {
     height: 206px; }
     .slick.slick-770x240 .full-height {

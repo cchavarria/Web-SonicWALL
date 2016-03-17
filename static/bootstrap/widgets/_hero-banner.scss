@@ -472,73 +472,106 @@
 
 //Adding DSG style
 /*mobile*/
+
 @media (max-width: 767px) {
-  // Add margin top if hero banner is next to #masthead.
-  #masthead + .hero-banner {
-    margin-top: -20px;
-  }
-
-  .hero-banner {
-    .carousel {
-      h4 {
-        font-size: 14px;
-      }
-      h2 {
-        font-size: 20px;
-        line-height: 24px;
-      }
-    }
-  }
-  .caption-wrapper {
-    position: relative;
-    left: 0;
-    top: 0;
-    border-radius: 0;
-    background: #f5f5f5;
-    width: 100% !important;
-    padding: 15px (15px + 15px);
-    span {
-      color: #007db8;
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      &:hover {
-        background-color: transparent;
-        color: #007db8;
-      }
-    }
-    &.caption-wrapper-v2, &.caption-wrapper-v3 {
-      width: 100%;
-      height: auto;
-    }
-    &.caption-wrapper-v3 {
-      left: 0;
-      background: transparent;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  #hero-banner {
-    width: 100%;
-  }
+	.caption-wrapper {
+		position: relative;
+		left: 0;
+		top: 0;
+		border-radius: 0;
+		background: #f5f5f5;
+		width: 100% !important;
+		padding: 15px (15px + 15px);
+		span {
+			color: #007db8;
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			&:hover {
+				background-color: transparent;
+				color: #007db8;
+			}
+		}
+		&.caption-wrapper-v2, &.caption-wrapper-v3 {
+			width: 100%;
+			height: auto;
+		}
+		&.caption-wrapper-v3 {
+			left: 0;
+			background: transparent;
+		}
+	}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .hero-banner {
-    h2 {
-      font-size: 26px;
-      line-height: 30px;
-    }
-    h4 {
-      font-size: 16px;
-      line-height: 20px;
-    }
-  }
-  .caption-wrapper {
+	.width-32 {
+		width: 41% !important;
+	}
+	.width-33 {
+		width: 42% !important;
+	}
+	.width-34 {
+		width: 43% !important;
+	}
+	.width-35 {
+		width: 44% !important;
+	}
+	.width-36 {
+		width: 45% !important;
+	}
+	.width-37 {
+		width: 46% !important;
+	}
+	.width-38 {
+		width: 47% !important;
+	}
+	.width-39 {
+		width: 48% !important;
+	}
+	.width-40 {
+		width: 49% !important;
+	}
+	.width-41 {
+		width: 50% !important;
+	}
+	.width-42 {
+		width: 51% !important;
+	}
+	.width-43 {
+		width: 52% !important;
+	}
+	.width-44 {
+		width: 52% !important;
+	}
+	.width-45 {
+		width: 52% !important;
+	}
+	.width-46 {
+		width: 52% !important;
+	}
+	.width-47 {
+		width: 52% !important;
+	}
+	.width-48 {
+		width: 52% !important;
+	}
+	.width-49 {
+		width: 52% !important;
+	}
+	.width-50 {
+		width: 52% !important;
+	}
+	.width-51 {
+		width: 52% !important;
+	}
+	.width-52 {
+		width: 52% !important;
+	}
+
+  /*.caption-wrapper {
     width: 46%;
     &.caption-wrapper-v2 {
       width: 45%;
     }
-  }
+  }*/
 }

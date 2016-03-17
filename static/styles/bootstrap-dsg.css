@@ -6467,13 +6467,6 @@
     .bootstrap .carousel-control .icon-next {
       margin-right: -15px; } }
   @media (max-width: 767px) {
-    .bootstrap #masthead + .hero-banner {
-      margin-top: -20px; }
-    .bootstrap .hero-banner .carousel h4 {
-      font-size: 14px; }
-    .bootstrap .hero-banner .carousel h2 {
-      font-size: 20px;
-      line-height: 24px; }
     .bootstrap .caption-wrapper {
       position: relative;
       left: 0;
@@ -6496,20 +6489,56 @@
       .bootstrap .caption-wrapper.caption-wrapper-v3 {
         left: 0;
         background: transparent; } }
-  @media (min-width: 768px) {
-    .bootstrap #hero-banner {
-      width: 100%; } }
   @media (min-width: 768px) and (max-width: 991px) {
-    .bootstrap .hero-banner h2 {
-      font-size: 26px;
-      line-height: 30px; }
-    .bootstrap .hero-banner h4 {
-      font-size: 16px;
-      line-height: 20px; }
-    .bootstrap .caption-wrapper {
-      width: 46%; }
-      .bootstrap .caption-wrapper.caption-wrapper-v2 {
-        width: 45%; } }
+    .bootstrap {
+      /*.caption-wrapper {
+        width: 46%;
+        &.caption-wrapper-v2 {
+          width: 45%;
+        }
+      }*/ }
+      .bootstrap .width-32 {
+        width: 41% !important; }
+      .bootstrap .width-33 {
+        width: 42% !important; }
+      .bootstrap .width-34 {
+        width: 43% !important; }
+      .bootstrap .width-35 {
+        width: 44% !important; }
+      .bootstrap .width-36 {
+        width: 45% !important; }
+      .bootstrap .width-37 {
+        width: 46% !important; }
+      .bootstrap .width-38 {
+        width: 47% !important; }
+      .bootstrap .width-39 {
+        width: 48% !important; }
+      .bootstrap .width-40 {
+        width: 49% !important; }
+      .bootstrap .width-41 {
+        width: 50% !important; }
+      .bootstrap .width-42 {
+        width: 51% !important; }
+      .bootstrap .width-43 {
+        width: 52% !important; }
+      .bootstrap .width-44 {
+        width: 52% !important; }
+      .bootstrap .width-45 {
+        width: 52% !important; }
+      .bootstrap .width-46 {
+        width: 52% !important; }
+      .bootstrap .width-47 {
+        width: 52% !important; }
+      .bootstrap .width-48 {
+        width: 52% !important; }
+      .bootstrap .width-49 {
+        width: 52% !important; }
+      .bootstrap .width-50 {
+        width: 52% !important; }
+      .bootstrap .width-51 {
+        width: 52% !important; }
+      .bootstrap .width-52 {
+        width: 52% !important; } }
   .bootstrap .clearfix:before, .bootstrap .clearfix:after {
     content: " ";
     display: table; }

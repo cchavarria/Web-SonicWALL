@@ -471,6 +471,8 @@ function slickPlugin(parentSelector) {
           $(this).slick('destroy');
         }
 
+				$(this).css('visibility', 'visible');
+				
         return true;
       }
 
