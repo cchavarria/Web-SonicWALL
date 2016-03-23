@@ -7184,7 +7184,7 @@ body {
     </div>
 */
 .panel {
-  margin-bottom: 20px;
+  /*margin-bottom: $line-height-computed;*/
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 1px;
