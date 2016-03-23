@@ -442,7 +442,6 @@ function populateListing() {
 
 					listingContainer.css('opacity', 1);
 
-					$('#ui-loader').hide();
 					$('#affix-nav').find('.active').removeClass('active').end().find('li').each(function() {
 						if(!$(this).hasClass('disabled')) {
 							$(this).addClass('active');
@@ -451,6 +450,8 @@ function populateListing() {
 					});
 				}, 100);
 			});
+
+			$('#ui-loader').hide();
 		}, 100);
 	});
 }

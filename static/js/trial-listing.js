@@ -535,7 +535,6 @@ function populateListing() {
 		}
 		else {
 			$('#no-results').removeClass('hidden');
-			$('#ui-loader').hide();
 		}
 
 		// add total results number
@@ -556,7 +555,6 @@ function populateListing() {
 
 					listingContainer.css('opacity', 1);
 
-					$('#ui-loader').hide();
 					$('#affix-nav').find('li').removeClass('active').each(function() {
 						if(!$(this).hasClass('disabled')) {
 							$(this).addClass('active');
@@ -565,6 +563,8 @@ function populateListing() {
 					});
 				}, 10);
 			});
+
+			$('#ui-loader').hide();
 		}, 10);
 	});
 }
