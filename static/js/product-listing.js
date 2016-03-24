@@ -39,7 +39,8 @@ var populateListingPending = false, //prevent populate listing to load more than
 			range: /^[t-x]/i,
 			id: 'T-X'
 		}
-	];
+	],
+	previous = {dataset: null, response: null};
 
 $('#affix-nav').on('click', '.disabled a', function(e) {
 	e.stopImmediatePropagation();
@@ -354,106 +355,117 @@ function populateListing() {
 
 	populateListingPending = true;
 
-	return $.ajax({
-		url: endPointURL,
-		type: 'POST',
-		dataType: 'JSON',
-		data: dataset,
-		beforeSend: function () {
-			listingContainer.css({opacity: 0}).hide();
-			$('#ui-loader').show();
-		}
-	}).done(function (dataopt) {
-		populateListingPending = false;
+	if(objectEquals(dataset, previous.dataset)) {
+		processListing(previous.response);
+	}
+	else {
+		previous.dataset = dataset;
 
-		entryContainer.empty();
-
-		$.each(range, function(k, v) {
-			range[k] = $.extend({}, v, {data: [[], []]});
-		});
-
-		var template = $('#listing-template').html();
-
-		$.each(dataopt.data, function (key, val) {
-			htmlFragment = populateTemplate(val, template);
-
-			$.each(range, function(k, v) {
-				if(v.range.test(val.title)) {
-					range[k].data[0].push(htmlFragment);
-
-					return false;
-				}
-			});
-		});
-
-		$.each(range, function(k, v) {
-			if(v.data[0].length) {
-				var midpoint = Math.ceil(v.data[0].length / 2);
-
-				range[k].data[1] = range[k].data[0].splice(midpoint, v.data[0].length - midpoint);
-
-				//Enable navigation for specified range.
-				$('#affix-nav').find('li:eq(' + k + ')').removeClass('disabled');
-
-				$('#' + v.id).show().find('.row').find('> div:eq(0)').html(range[k].data[0].join('')).end().find('> div:eq(1)').html(range[k].data[1].join(''));
+		$.ajax({
+			url: endPointURL,
+			type: 'POST',
+			dataType: 'JSON',
+			data: dataset,
+			beforeSend: function () {
+				listingContainer.css({opacity: 0}).hide();
+				$('#ui-loader').show();
 			}
-			else {
-				$('#' + v.id).hide();
+		}).done(processListing);
+	}
+}
 
-				//Disable navigation for specified range.
-				$('#affix-nav').find('li:eq(' + k + ')').addClass('disabled');
+function processListing(dataopt) {
+	previous.response = dataopt;
+	
+	populateListingPending = false;
+
+	entryContainer.empty();
+
+	$.each(range, function (k, v) {
+		range[k] = $.extend({}, v, {data: [[], []]});
+	});
+
+	var template = $('#listing-template').html();
+
+	$.each(dataopt.data, function (key, val) {
+		htmlFragment = populateTemplate(val, template);
+
+		$.each(range, function (k, v) {
+			if (v.range.test(val.title)) {
+				range[k].data[0].push(htmlFragment);
+
+				return false;
 			}
 		});
+	});
 
-		//TODO: total record counts < pages x 16 or 12 hide View More button
-		if (dataopt.total) {
-			$('#no-results').addClass('hidden');
+	$.each(range, function (k, v) {
+		if (v.data[0].length) {
+			var midpoint = Math.ceil(v.data[0].length / 2);
+
+			range[k].data[1] = range[k].data[0].splice(midpoint, v.data[0].length - midpoint);
+
+			//Enable navigation for specified range.
+			$('#affix-nav').find('li:eq(' + k + ')').removeClass('disabled');
+
+			$('#' + v.id).show().find('.row').find('> div:eq(0)').html(range[k].data[0].join('')).end().find('> div:eq(1)').html(range[k].data[1].join(''));
 		}
 		else {
-			$('#no-results').removeClass('hidden');
+			$('#' + v.id).hide();
+
+			//Disable navigation for specified range.
+			$('#affix-nav').find('li:eq(' + k + ')').addClass('disabled');
 		}
-
-		// add total results number
-		$('.total_results').html(dataopt.total);
-
-		setTimeout(function () {
-			listingContainer.show();
-
-			processEllipsis('.listing-entries').done(function() {
-				setTimeout(function() {
-					if(pageType > 0) {
-						if(location.search == '?v2') {
-							listingContainer.find('.row').each(function() {
-								var columns = $(this).find('> div'),
-									firstColumn = $(columns.get(0)),
-									lastColumn = $(columns.get(1));
-
-								firstColumn.find('a').each(function(index) {
-									var h = Math.max($(this).height(), lastColumn.find('a:eq(' + index + ')').height());
-
-									columns.find('a:eq(' + index + ')').css('height', h);
-								});
-							});
-						}
-						else {
-							entryContainer.find('> a').matchHeight({byRow: false});
-						}
-					}
-
-					listingContainer.css('opacity', 1);
-
-					$('#affix-nav').find('.active').removeClass('active').end().find('li').each(function() {
-						if(!$(this).hasClass('disabled')) {
-							$(this).addClass('active');
-							return false;
-						}
-					});
-				}, 100);
-			});
-
-			$('#ui-loader').hide();
-		}, 100);
 	});
+
+	//TODO: total record counts < pages x 16 or 12 hide View More button
+	if (dataopt.total) {
+		$('#no-results').addClass('hidden');
+	}
+	else {
+		$('#no-results').removeClass('hidden');
+	}
+
+	// add total results number
+	$('.total_results').html(dataopt.total);
+
+	setTimeout(function () {
+		listingContainer.show();
+
+		processEllipsis('.listing-entries').done(function () {
+			setTimeout(function () {
+				if (pageType > 0) {
+					if (location.search == '?v2') {
+						listingContainer.find('.row').each(function () {
+							var columns = $(this).find('> div'),
+								firstColumn = $(columns.get(0)),
+								lastColumn = $(columns.get(1));
+
+							firstColumn.find('a').each(function (index) {
+								var h = Math.max($(this).height(), lastColumn.find('a:eq(' + index + ')').height());
+
+								columns.find('a:eq(' + index + ')').css('height', h);
+							});
+						});
+					}
+					else {
+						entryContainer.find('> a').matchHeight({byRow: false});
+					}
+				}
+
+				listingContainer.css('opacity', 1);
+
+				$('#affix-nav').find('.active').removeClass('active').end().find('li').each(function () {
+					if (!$(this).hasClass('disabled')) {
+						$(this).addClass('active');
+						return false;
+					}
+				});
+			}, 100);
+		});
+
+		$('#ui-loader').hide();
+	}, 100);
 }
 
 // Generates hash from selected filters and tabs
