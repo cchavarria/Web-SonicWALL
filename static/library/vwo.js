@@ -1,5 +1,13 @@
 if(document.getElementsByTagName('html')[0].className.indexOf('ie8') == -1) {
-	window.VWO = window.VWO || [];
+	$( document ).ajaxSuccess(function( event, xhr, settings ) {
+		if (settings.url.match(/Registerv2\/ProspectProcess/)) {
+			window.VWO = window.VWO || [];
+
+			VWO.push(['nls.formAnalysis.markSuccess', document.getElementById('frmRegister'), true]);
+		}
+	});
+
+	/*window.VWO = window.VWO || [];
 
 	var forms = document.getElementsByTagName('form'), i = 0;
 
@@ -7,7 +15,7 @@ if(document.getElementsByTagName('html')[0].className.indexOf('ie8') == -1) {
 		if(forms[i].id != 'search-form') {
 			VWO.push(['nls.formAnalysis.markSuccess', forms[i], true]);
 		}
-	}
+	}*/
 
 	_vwo_clicks=100;
 	_vwo_code=(function(){
