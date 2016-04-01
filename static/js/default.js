@@ -388,11 +388,14 @@ $(document).ready(function () {
 			window.scrollTo(0, containerElem.offset().top - 50);
 		}
 	});
+
+	processEllipsis();
 });
 
 $(window).load(function() {
 	//Dotdotdot
 	/* Had to move from document ready to window load because we had an issue where data-max-line didn't work as expected. */
+	/* Re-process ellipsis to ensure that we don't have an issue with data-max-line */
 	processEllipsis();
 
 	//match columns height
@@ -723,6 +726,11 @@ function processEllipsis(parentSelector) {
 
   function init() {
     $(parentSelector).find('.dotdotdot').filter(':visible').each(function () {
+			if ($(this).triggerHandler('isTruncated')) {
+				//console.log('truncated', this);
+				$(this).trigger('destroy');
+			}
+
       var oneLineHeight = 0, options = {}, content = '', proceed = false;
 
       //Remove empty paragraph tags.
@@ -1011,7 +1019,8 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 }
 
 function socialMediaToolbar() {
-  var bitlyURL = url = location.href;
+  //var bitlyURL = url = location.href;
+	var bitlyURL = url = location.protocol + '//' + location.hostname + location.pathname;
 
   //If protocol is https find previous page.
   if (location.protocol == 'https:') {
@@ -1052,7 +1061,7 @@ function socialMediaToolbar() {
           }
         }
       }
-    }
+    };
     xhr.send();
   }
 
