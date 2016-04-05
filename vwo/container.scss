@@ -1,5 +1,5 @@
 /* =============================================
-   THEME: Dark
+   THEME: DSG(300px height)
    ============================================= */
 /**
  * General Styling for Survey Container Frame
@@ -8,7 +8,7 @@
 
 #vwo-frame-wrapper {
   position: fixed;
-  width: 235px;
+  width: 275px;
   z-index: 2147483647;
   height: 225px;
   &.bottom-right {
@@ -79,7 +79,7 @@
     &:before {
       content: 'Submit Page Feedback';
       color: #444;
-      margin-right: 17px;
+      margin-right: 56px;
       font-weight: bold;
       font-size: 14px;
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -107,10 +107,10 @@
       display: inline-block;
       position: static;
       border-radius: 0;
-      &.close{
+      &.close {
         opacity: 1;
-        &:hover,&:focus{
-          opacity:1;
+        &:hover, &:focus {
+          opacity: 1;
         }
       }
       &:after, &:before {
@@ -129,7 +129,7 @@
     .close-img {
       /* To edit styling of 'close' button image */
       background-repeat: no-repeat;
-      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/cross.svg');
+      background-image: url("//dev.visualwebsiteoptimizer.com/static/0.2/images/cross.svg");
       background-color: transparent;
       top: 2px;
       right: 4px;
@@ -137,7 +137,7 @@
     .minimize-img {
       /* To edit styling of 'minimize' button image */
       background-repeat: no-repeat;
-      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg');
+      background-image: url("//dev.visualwebsiteoptimizer.com/static/0.2/images/minimize.svg");
       background-color: transparent;
       /*position: relative;*/
       top: 2px;
@@ -238,13 +238,12 @@
     /* To edit styling of 'vwo-logo' */
     #vwo-logo {
       /* !important is used for the backward compatibility of the code, Do not remove it */
-      background-image: url('//dev.visualwebsiteoptimizer.com/static/0.2/images/vwo@2x-6592a1fd051b3a7b65defc8b59de348f.png') !important;
+      background-image: url("//dev.visualwebsiteoptimizer.com/static/0.2/images/vwo@2x-6592a1fd051b3a7b65defc8b59de348f.png") !important;
     }
   }
-}
-
-#vwo-frame-wrapper.bottom-right{
-  right: 60px;
+  &.bottom-right {
+    right: 60px;
+  }
 }
 
 /*#vwo-frame-wrapper .minimized-survey #vwo-logo {
@@ -267,18 +266,15 @@
   font-family: "Trebuchet MS", Arial,  Helvetica, sans-serif;
   font-size: 11px;
   text-shadow: none; }*/
-
 /**
  *  Theme-Specific Styling for Survey Container Frame
  */
-
 /*#vwo-frame-wrapper .minimized-survey:before {
   -webkit-filter: brightness(250%);
   -moz-filter: brightness(250%);
   -ms-filter: brightness(250%);
   -o-filter: brightness(250%);
   filter: brightness(250%); }*/
-
 /*#vwo-frame-wrapper .survey-action-bar .close-img, #vwo-frame-wrapper .survey-action-bar .minimize-img {
   /!* To edit styling of survey action button images *!/
   -webkit-filter: brightness(250%);
