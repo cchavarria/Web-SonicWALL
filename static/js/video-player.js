@@ -198,7 +198,7 @@ function OOCreate(player) {
 		});
 	});
 
-	if(location.search == '?videotest') {
+	/*if(/^\/video\//.test(location.pathname)) {
 		player.mb.subscribe(OO.EVENTS.PLAYHEAD_TIME_CHANGED, "UITeam", function (eventName, currentTime, totalTime) {
 			var percentPlayed = (currentTime / totalTime) * 100;
 			var target = $('#' + player.elementId);
@@ -242,7 +242,7 @@ function OOCreate(player) {
 			target.find('.oo_replay').hide();
 			target.find('.oo_end_screen').append(html);
 		});
-	}
+	}*/
 }
 
 /*********************/
