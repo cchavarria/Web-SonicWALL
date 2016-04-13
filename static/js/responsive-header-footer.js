@@ -42,23 +42,18 @@ $(document).ready(function () {
 			eventValue: $(this).data('gaval') === undefined ? 0:parseInt($(this).data('gaval'))
 		};
 
-		var targetURLHost = parseUri($(this).attr('href'))['host'];
+		var targetURLHost = parseUri($(this).attr('href'))['host'].toLowerCase();
 
-		if(targetURLHost != '' && location.host != targetURLHost) {
+		if(targetURLHost != '' && location.host != targetURLHost && targetURLHost != 'www.dellsoftware.com') {
 			obj.transport = 'beacon';
 			obj.eventCategory = 'Outbound Link';
 			obj.eventAction = 'click';
 			obj.eventLabel = $(this).attr('href');
 		}
 
-		if(typeof ga != 'function') {
-			_gaq.push(['_trackEvent', obj.eventCategory, obj.eventAction, obj.eventLabel, obj.eventValue]);
-		}
-		else {
-			ga('send', obj);
-		}
+		ga('send', obj);
 	});
-	
+
 	//Prevent anchor tag from firing when href is set to # on mobile
 	$('.footer-top-section').on('click', 'a[href=#]', function (e) {
 		if ($('html').width() < 768) {
