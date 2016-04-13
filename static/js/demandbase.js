@@ -1,29 +1,6 @@
 function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
-	//Reset form
-	$(frm).find(':visible:input').each(function () {
-		if ($.inArray($(this).attr('type'), ['button', 'submit', 'checkbox']) == -1) {
-			$(this).val('');
-		}
-	});
-
-	//Test for DemandBase
-	//Waits for user input in the company field - JL
-	$('#' + companyID).on($('html').hasClass('ie8') ? 'propertychange' : 'input', function () {
-		if ($(frm).data('isFrmOpen') == undefined) {
-			if ($(this).val().length >= 2) {
-				testAutocompleteWidget(frm, companyID);
-			}
-		}
-		;
-	});
-
-	/* Initialize demandbase */
-	window.dbAsyncInit = function () {
-		if (typeof connectObj == 'undefined') {
-			connectObj = {};
-		}
-
-		var dbfDefault = {
+	var isAfterParseInit = false,
+		dbfDefault = {
 			emailID: "dumbEmail",
 			companyID: companyID,
 			key: '96b804f998aaf4409cf333efdb2a3b3c',
@@ -40,8 +17,8 @@ function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
 			fieldMap: {
 				'company_name': 'HiddenCompany', //custom hidden field for Demandbase-provided company
 				'demandbase_sid': '', //Unique ID for a company
-				'industry': 'Industry',
-				'sub_industry': 'SubIndustry',
+				// 'industry': 'Industry',
+				// 'sub_industry': 'SubIndustry',
 				'revenue_range': '', //blank means this will map to 'db_revenue_range'
 				'employee_range': 'NumberOfEmployees',
 				'street_address': 'Address1',
@@ -59,6 +36,28 @@ function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
 				'sub_industry': 'DB_SubIndustry'
 			}
 		};
+	//Reset form
+	$(frm).find(':visible:input').each(function () {
+		if ($.inArray($(this).attr('type'), ['button', 'submit', 'checkbox']) == -1) {
+			$(this).val('');
+		}
+	});
+
+	//Test for DemandBase
+	//Waits for user input in the company field - JL
+	$('#' + companyID).on($('html').hasClass('ie8') ? 'propertychange' : 'input', function () {
+		if ($(frm).data('isFrmOpen') == undefined) {
+			if ($(this).val().length >= 2) {
+				testAutocompleteWidget(frm, companyID);
+			}
+		};
+	});
+
+	/* Initialize demandbase */
+	window.dbAsyncInit = function () {
+		if (typeof connectObj == 'undefined') {
+			connectObj = {};
+		}
 
 		Demandbase.Connectors.WebForm.connect($.extend({}, dbfDefault, connectObj));
 
@@ -129,16 +128,51 @@ function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
 			}
 		}, 10);
 	};
+
 	db_hook_after_parse = function (data, source) {
-		PopulateDBFieldsWebFormConnector(data, frm, source);
+		isAfterParseInit = true;
+		PopulateDBFieldsWebFormConnector(data, frm, source, enableSubmitButton);
 	};
+
 	db_hook_before_parse = function (data, source) {
 		if (source == "ip" || source == "domain") {
 			Demandbase.Connectors.WebForm.CompanyProfile = null;
 			return false;
 		}
+		if (!isAfterParseInit) { // check if db_hooks get initialized onload
+			populateRegFrmDbFields(data); // if db_hooks are not initialized then function will help to populate reg form
+			PopulateDBFieldsWebFormConnector(data, frm, source, enableSubmitButton);
+			$('form').find("div[firstscreen=0]").show();
+		}
 	};
+
+	// When there is an error with demandbase
+	// ip.json we need to call this function to utilize
+	// db data to populate reg form (called on db_hook_before_parse)
+	function populateRegFrmDbFields(data) {
+		var fieldMap = dbfDefault.fieldMap,
+			$Fields = ['country', 'street_address', 'city', 'state', 'zip', 'latitude', 'longitude', 'industry', 'sub_industry'];
+
+		if (!$.isEmptyObject(data)) {
+			$Fields.forEach(function (field) {
+				$val = data[field];
+				$id = fieldMap[field];
+				$('#' + $id).val($val);
+			})
+		}
+	}
+
+	function enableSubmitButton() {
+		//Enable submit button if address fields are visible.
+		$.each(ltg, function (indx, id) {
+			if ($('#' + id).is(':visible')) {
+				toggleSubmitButton(btn, true);
+				return false;
+			}
+		});
+	}
 }
+
 function DemandBaseOnComplete(frm, btn, id, ltg) {
 	/* This script creates a wrapper around the dropdown */
 
@@ -365,6 +399,7 @@ function startAjaxCallTracker(frm, id) {
 		}, 1800);
 	}
 }
+
 
 // for IE8  we need to use 'propertychange' to bind company field to test for Demandbase connection, this function is called right after
 // The full form is shown. to prevent unnecessary calls.
