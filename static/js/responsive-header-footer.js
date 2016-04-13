@@ -33,6 +33,32 @@ $(document).ready(function () {
 		$('.utility').find('> li').removeClass('open');
 	});
 
+	$('body').on('click', '.ga', function() {
+		var obj = {
+			hitType: 'event',
+			eventCategory: $(this).data('gacat'),
+			eventAction: $(this).data('gaaction'),
+			eventLabel: $(this).data('galabel') === undefined ? '':$(this).data('galabel'),
+			eventValue: $(this).data('gaval') === undefined ? 0:parseInt($(this).data('gaval'))
+		};
+
+		var targetURLHost = parseUri($(this).attr('href'))['host'];
+
+		if(targetURLHost != '' && location.host != targetURLHost) {
+			obj.transport = 'beacon';
+			obj.eventCategory = 'Outbound Link';
+			obj.eventAction = 'click';
+			obj.eventLabel = $(this).attr('href');
+		}
+
+		if(typeof ga != 'function') {
+			_gaq.push(['_trackEvent', obj.eventCategory, obj.eventAction, obj.eventLabel, obj.eventValue]);
+		}
+		else {
+			ga('send', obj);
+		}
+	});
+	
 	//Prevent anchor tag from firing when href is set to # on mobile
 	$('.footer-top-section').on('click', 'a[href=#]', function (e) {
 		if ($('html').width() < 768) {
