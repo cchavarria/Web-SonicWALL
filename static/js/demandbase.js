@@ -132,9 +132,7 @@ function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
 
   db_hook_after_parse = function (data, source) {
     isAfterParseInit = true;
-    PopulateDBFieldsWebFormConnector(data, frm, source, function(){
-      enableSubmitButton();
-    });
+    PopulateDBFieldsWebFormConnector(data, frm, source, enableSubmitButton);
   };
 
   db_hook_before_parse = function (data, source) {
@@ -144,9 +142,7 @@ function DemandBaseInitialize(frm, btn, companyID, ltg, connectObj, callback) {
     }
     if(!isAfterParseInit){ // check if db_hooks get initialized onload
       populateRegFrmDbFields(data); // if db_hooks are not initialized then function will help to populate reg form
-      PopulateDBFieldsWebFormConnector(data, frm, source, function(){
-        enableSubmitButton();
-      });
+      PopulateDBFieldsWebFormConnector(data, frm, source, enableSubmitButton);
       $('form').find("div[firstscreen=0]").show();
     }
   };
