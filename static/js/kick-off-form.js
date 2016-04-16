@@ -28,7 +28,13 @@ if(/^\/register\/95427/.test(location.pathname)) {
 			var inputElem = $(this).find(':input');
 
 			if(inputElem.is(':visible')) {
-				var html = $('<div class="form-group col-md-6"><label class="control-label col-md-4">' + $(this).find('span:eq(0)').text() + '</label><div class="col-md-8"></div></div>');
+				var label = $(this).find('span:eq(0)').text();
+
+				if($(this).find(':input').attr('id') == 'Email') {
+					label = 'Email Address (Work)';
+				}
+
+				var html = $('<div class="form-group col-md-6"><label class="control-label col-md-4">' + label + '</label><div class="col-md-8"></div></div>');
 
 				$(this).find(':input').addClass('form-control required').prop('required', true).appendTo(html.find('label').next());
 
@@ -75,7 +81,7 @@ if(/^\/register\/95427/.test(location.pathname)) {
 			initFormValidate('#frmRegister', {
 				errorClass: 'error',
 				submitHandler: function() {
-					$('#EmailAddress').val($('#EmailAddress').val().toLowerCase());
+					$('#Email').val($('#Email').val().toLowerCase());
 					$('#ManagerEmail').val($('#ManagerEmail').val().toLowerCase());
 
 					ProspectProcess();
@@ -85,7 +91,7 @@ if(/^\/register\/95427/.test(location.pathname)) {
 					EmployeeBadgeNumber: {
 						positiveinteger: true
 					},
-					EmailAddress: {
+					Email: {
 						dsgemail: true
 					},
 					ManagerEmail: {
@@ -189,7 +195,7 @@ if(/^\/register\/95427/.test(location.pathname)) {
 					}
 				});
 
-				errorMessages['EmailAddress'] += '. Enter a valid DSG email address.';
+				errorMessages['Email'] += '. Enter a valid DSG email address.';
 				errorMessages['ManagerEmail'] += '. Enter a valid DSG email address.';
 
 				return errorMessages;
