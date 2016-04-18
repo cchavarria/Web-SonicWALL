@@ -83,7 +83,7 @@ $(document).ready(function() {
 							}
 						});
 
-						player.mb.subscribe(OO.EVENTS.PLAYED, 'UITeam', function () {alert('e');
+						player.mb.subscribe(OO.EVENTS.PLAYED, 'UITeam', function () {
 							if(!playthrough[4]) {
 								ga('send', {
 									hitType: 'event',
