@@ -72,7 +72,7 @@ if(/^\/register\/95427/.test(location.pathname)) {
 
 		$.getScript('/static/library/jquery/jquery.validate-mod.min.js', function () {
 			$.validator.addMethod("dsgemail", function(value, element) {
-				return this.optional( element ) || /^[a-zA-Z0-9\,\!\#\$%&amp;'\*\+/=\?\^_`\{\|}~-]+(\.[a-zA-Z0-9,!#\$%&amp;'\*\+/=\?\^_`\{\|}~-]+)*@software\.dell\.com$/.test( value );
+				return this.optional( element ) || /^[a-zA-Z0-9\,\!\#\$%&amp;'\*\+/=\?\^_`\{\|}~-]+(\.[a-zA-Z0-9,!#\$%&amp;'\*\+/=\?\^_`\{\|}~-]+)*@(software\.)?dell\.com$/.test( value );
 			}, "Please enter a valid DSG email.");
 			$.validator.addMethod("positiveinteger", function(value, element) {
 				return this.optional(element) || /^\d+$/.test(value);
