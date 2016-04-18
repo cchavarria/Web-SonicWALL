@@ -104,6 +104,10 @@ $(document).ready(function() {
 						var buttonWidth = 0;
 
 						videoCTA.show().find('> a').each(function () {
+              // check if learn more cta has link if not will hide it
+              if($(this).attr('href') == '' && $(this).hasClass('btn')){
+                $(this).hide();
+              };
 							if ($.inArray($(this).css('display'), ['block', 'inline-block']) > -1) {
 								buttonWidth += parseInt($(this).outerWidth(true)) + parseInt($(this).css('marginLeft'));
 							}
