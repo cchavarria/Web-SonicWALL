@@ -8676,6 +8676,13 @@ a:hover .has-overlay h4 {
   top: 50%;
   margin: -10px 0 0 -10px; }
 
+.listing-header {
+  color: #fff;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height: 30px;
+  font-weight: 700; }
+
 .listing-entries {
   -webkit-transition: opacity 0.1s ease;
   -o-transition: opacity 0.1s ease;
@@ -8692,12 +8699,6 @@ a:hover .has-overlay h4 {
     text-decoration: none;
     display: block;
     margin: 0 0 40px 0; }
-  .listing-entries .listing-header {
-    color: #fff;
-    padding: 0 0 0 10px;
-    margin: 0;
-    line-height: 30px;
-    font-weight: 700; }
   .listing-entries > h4 {
     font-size: 24px;
     font-weight: bold;
