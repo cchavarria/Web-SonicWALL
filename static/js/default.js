@@ -552,7 +552,8 @@ function slickPlugin(parentSelector) {
 
         $(this).slick(cfg);
 
-				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
+        /*un-commented to fix headline-description alignment issue with image*/
+        if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
 					$(this).on('beforeChange', fixScreenshot);
 				}
 			}
