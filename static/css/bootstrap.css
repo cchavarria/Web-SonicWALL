@@ -9169,6 +9169,8 @@ a:hover .has-overlay h4 {
   visibility: hidden; }
   .slick.slick-initialized {
     visibility: visible; }
+  .slick > div > a:hover {
+    text-decoration: none; }
 
 .slick-slider {
   position: relative;

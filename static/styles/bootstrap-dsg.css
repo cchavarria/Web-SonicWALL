@@ -5923,6 +5923,8 @@
     visibility: hidden; }
     .bootstrap .slick.slick-initialized {
       visibility: visible; }
+    .bootstrap .slick > div > a:hover {
+      text-decoration: none; }
   .bootstrap .slick-slider {
     position: relative;
     display: block;
