@@ -552,9 +552,9 @@ function slickPlugin(parentSelector) {
 
         $(this).slick(cfg);
 
-				/*if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
+				if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
 					$(this).on('beforeChange', fixScreenshot);
-				}*/
+				}
 			}
 			else {
 				$(this).css('visibility', 'visible');
