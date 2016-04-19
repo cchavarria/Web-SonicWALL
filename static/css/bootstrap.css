@@ -9227,6 +9227,8 @@ a:hover .has-overlay h4 {
     float: right;
   }*/
   display: none; }
+  .slick-slide > a:hover {
+    text-decoration: none; }
   .slick-slide.slick-active {
     outline: none; }
   .slick-slide img {

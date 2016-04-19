@@ -5976,6 +5976,8 @@
       float: right;
     }*/
     display: none; }
+    .bootstrap .slick-slide > a:hover {
+      text-decoration: none; }
     .bootstrap .slick-slide.slick-active {
       outline: none; }
     .bootstrap .slick-slide img {
