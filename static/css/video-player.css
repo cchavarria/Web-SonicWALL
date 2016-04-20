@@ -329,7 +329,9 @@ ul.oo-toolbar {
   clear: both;
   width: 100%;
   position: relative;
-  cursor: pointer !important; }
+  cursor: pointer !important;
+  /*fix video overlapping top navigation when playing the video */
+  z-index: 1; }
   .media-player-container > .ooyalaplayer {
     position: absolute;
     top: 0;

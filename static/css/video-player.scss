@@ -448,6 +448,8 @@ ul.oo-toolbar {
   position: relative;
   //padding: 53% 0 0 0;
   cursor: pointer !important;
+  /*fix video overlapping top navigation when playing the video */
+  z-index: 1;
 
   > .ooyalaplayer {
     position: absolute;
