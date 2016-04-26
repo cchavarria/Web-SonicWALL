@@ -151,7 +151,21 @@ $(document).ready(function () {
     }
     else {
       $('.fat-tabs').tabs({
+        create: function(event, ui) {
+          // Adjust hashes to not affect URL when clicked
+          var widget = $('.fat-tabs').data("uiTabs");
+          widget.panels.each(function(i){
+            this.id = "uiTab_" + this.id; // Prepend a custom string to tab id
+            widget.anchors[i].hash = "#" + this.id;
+            $(widget.tabs[i]).attr("aria-controls", this.id);
+          });
+          //added this fix for FF
+          window.scrollTo(0,0);
+        },
         activate: function (event, ui) {
+          // Add the original tab id to the URL hash
+          window.location.hash = ui.newPanel.attr("id").replace("uiTab_", "");
+
           ui.newPanel.trigger('tab.visible');
           ui.oldPanel.trigger('tab.hidden');
 
