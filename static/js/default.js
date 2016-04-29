@@ -1062,7 +1062,7 @@ function socialMediaToolbar() {
   }
 
   //Retrieve bit.ly url
-  if (window.XMLHttpRequest && location.host == 'software.dell.com') {
+  if (window.XMLHttpRequest && location.host == 'software.dell.com' && !/^\/emailcl\//.test(location.pathname)) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/hidden/bitly.asmx/get?URI=" + encodeURIComponent(url));
     xhr.onreadystatechange = function () {

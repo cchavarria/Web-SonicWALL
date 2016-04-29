@@ -395,6 +395,8 @@ function appendOverlayContent(plugins, iconClass, player) {
     plugins.parents('.innerWrapper').find('.oo_promo div.oo_start_button').show();
 
     plugins.removeAttr('style');
+
+		plugins.trigger('remove-overlay');
   });
 
   /*send email*/
