@@ -103,7 +103,10 @@ function init() {
 						multiple: false,
 						selectAll: false,
 						single: true,
-						onClose: function () {}
+						onClose: function () {},
+						onUncheckAll : function(){
+							$('#trialsfreeware').multipleSelect('setSelects', ['All']);
+						}
 					});
 				}
 			},
