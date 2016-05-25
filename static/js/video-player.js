@@ -401,7 +401,7 @@ function appendOverlayContent(plugins, iconClass, player) {
 
   /*send email*/
   plugins.parents('.innerWrapper').find('.sendbutton').on('click', function () {
-    validateForm(plugins, player.getTitle());
+    validateOOEmailForm(plugins, player.getTitle());
   });
 
 }
@@ -430,7 +430,7 @@ function disableHoverToggle(plugins) {
 }
 
 /*validate email form in overlay*/
-function validateForm(plugins, title) {
+function validateOOEmailForm(plugins, title) {
   var isValid = true, str = '', email = plugins.parents('.innerWrapper').find('.sendemail .emailfield'), emailBody = '';
 
   if (email.attr('type') != 'button') {
