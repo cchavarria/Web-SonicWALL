@@ -1111,7 +1111,10 @@ function socialMediaToolbar() {
       //_gaq.push(['_trackSocial', 'Twitter', 'Tweet']);
       //console.log(bitlyURL);
       //console.log(url);
-
+      //Override twitter title for security (adding #)
+      if(window.location.href == 'https://security.dell.com/'){
+        title = 'Dell Security Solutions: Be the #DeptofYes';
+      }
       e.preventDefault();
       window.open('http://twitter.com/share?via=DellSoftware&url=' + encodeURIComponent(bitlyURL) + '&text=' + encodeURIComponent(title) + ',%20&counturl=' + encodeURIComponent(url), 'twitter', 'width=480,height=380,toolbar=0,status=0,resizable=1');
     }
