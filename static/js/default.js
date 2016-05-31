@@ -1112,7 +1112,7 @@ function socialMediaToolbar() {
       //console.log(bitlyURL);
       //console.log(url);
       //Override twitter title for security (adding #)
-      if(window.location.href == 'https://security.dell.com/'){
+      if(location.host == 'security.dell.com'){
         title = 'Dell Security Solutions: Be the #DeptofYes';
       }
       e.preventDefault();
