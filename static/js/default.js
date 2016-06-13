@@ -3,6 +3,7 @@
 var burl = location.href;
 
 $(document).ready(function () {
+
   //Social media toolbar
   if ($('.social-media-toolbar').length) {
     socialMediaToolbar();
@@ -150,31 +151,46 @@ $(document).ready(function () {
       }
     }
     else {
-      $('.fat-tabs').tabs({
-        create: function(event, ui) {
-          // Adjust hashes to not affect URL when clicked
-          var widget = $('.fat-tabs').data("uiTabs");
-          widget.panels.each(function(i){
-            this.id = "uiTab_" + this.id; // Prepend a custom string to tab id
-            widget.anchors[i].hash = "#" + this.id;
-            $(widget.tabs[i]).attr("aria-controls", this.id);
+      $.when(function () {
+        $('.fat-tabs > div').each(function () {
+          var $id = $(this).attr('id');
+          $(this).attr('id', escapeHtml($id));
+        });
+        $('.fat-tabs > ul > li a').each(function () {
+          var $id = $(this).attr('href');
+          $id = '#' + escapeHtml($id);
+          $(this).attr('id', $id);
+        });
+        console.log('when');
+      }()).then(function () {
+        console.log('then');
+        $('.fat-tabs').tabs({
+          create: function (event, ui) {
+            console.log('create');
+            var widget = $('.fat-tabs').data("uiTabs");
+            widget.panels.each(function (i) {
+              this.id = "uiTab_" + this.id; // Prepend a custom string to tab id
+              widget.anchors[i].hash = "#" + this.id;
+              $(widget.tabs[i]).attr("aria-controls", this.id);
+              //added this fix for FF
+              window.scrollTo(0, 0);
+            });
+            console.log('after');
+          },
+          activate: function (event, ui) {
+            // Add the original tab id to the URL hash
+            window.location.hash = ui.newPanel.attr("id").replace("uiTab_", "");
+
+            ui.newPanel.trigger('tab.visible');
+            ui.oldPanel.trigger('tab.hidden');
+
+            resizeFourColumnFilmstripCarousel(ui.newPanel);
+            //fix for slick not being initialized when tab activated
+            slickPlugin(ui.newPanel);
+            loadOoyala(ui.newPanel);
+          }
           });
-          //added this fix for FF
-          window.scrollTo(0,0);
-        },
-        activate: function (event, ui) {
-          // Add the original tab id to the URL hash
-          window.location.hash = ui.newPanel.attr("id").replace("uiTab_", "");
-
-          ui.newPanel.trigger('tab.visible');
-          ui.oldPanel.trigger('tab.hidden');
-
-          resizeFourColumnFilmstripCarousel(ui.newPanel);
-          //fix for slick not being initialized when tab activated
-          slickPlugin(ui.newPanel);
-          loadOoyala(ui.newPanel);
-        }
-      });
+      })
     }
 
     $(window).load(function () {
@@ -481,7 +497,7 @@ function slickPlugin(parentSelector) {
 					$(this).attr('src', $(this).data('lazy')).removeData('lazy');
 				}
 			});
-			
+
       //Destroy slick
       if ($(this).data('active') == 'xs-only' && pageType != 0) {
         if ($(this).hasClass('slick-initialized')) {
@@ -489,7 +505,7 @@ function slickPlugin(parentSelector) {
         }
 
 				$(this).css('visibility', 'visible');
-				
+
         return true;
       }
 
@@ -627,7 +643,7 @@ function processFlex(parentSelector) {
       if (!$(this).is(':visible')) {
         return true;
       }
-			
+
       var child = $(this).children();
 
       //Reset
@@ -1317,6 +1333,20 @@ function matchHeight() {
 			$('*[data-target="match-height"]').filter(':visible').matchHeight(config);
 		//}
 	}
+}
+
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  var modtext = text.replace(/[&<>"']/g, function (m) {
+    return map[m];
+  });
+  return modtext.replace(/[^a-z0-9]/gi, '');
 }
 
 function replaceURL(text) {
