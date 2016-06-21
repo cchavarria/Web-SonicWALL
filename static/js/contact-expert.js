@@ -193,11 +193,13 @@ function init() {
 
 							if (ajaxArr.length) {
 								$.when(ajaxArr).done(function () {
+									listingContainer.find('>div').hide(); // hide parent divs
 									populateListing();
 									ajaxArr = [];
 								});
 							}
 							else {
+								listingContainer.find('>div').hide();
 								populateListing();
 							}
 						}, 100);
@@ -419,7 +421,6 @@ function populateListing() {
 			if (listingContainer.css('display') == 'none') {
 				listingContainer.show();
 				listingContainer.css('opacity', 1);
-				$('#ui-loader').hide();
 			}
 			setTimeout(function () {
 				if (range[rangeIndex].total) {
@@ -434,6 +435,7 @@ function populateListing() {
 					range[rangeIndex].row.hide();
 				}
 			}, 10);
+			$('#ui-loader').hide();
 		}
 
 		//TODO: total record counts < pages x 16 or 12 hide View More button
