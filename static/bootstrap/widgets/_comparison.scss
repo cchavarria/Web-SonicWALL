@@ -112,7 +112,10 @@
       }
       .comparison {
         .comparison-pagination .btn {
-          padding: 5px;
+          padding: 3px;
+          > div{
+            font-size:14px;
+          }
         }
         .row > div {
           > div {

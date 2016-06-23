@@ -9173,7 +9173,9 @@ a:hover .has-overlay h4 {
     .comparison-table[data-xs-carousel="true"] .fixed-column tr th {
       vertical-align: top; }
   .comparison-table[data-xs-carousel="true"] .comparison .comparison-pagination .btn {
-    padding: 5px; }
+    padding: 3px; }
+    .comparison-table[data-xs-carousel="true"] .comparison .comparison-pagination .btn > div {
+      font-size: 14px; }
   .comparison-table[data-xs-carousel="true"] .comparison .row > div > div {
     padding: 0; }
     .comparison-table[data-xs-carousel="true"] .comparison .row > div > div table thead tr th {

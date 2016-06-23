@@ -1329,7 +1329,7 @@ function replaceURL(text) {
 }
 
 function processComparisonTable() {
-  if (pageWidth < 768) {
+  if (pageWidth < 768 && $('.comparison-table').data('xs-collapsibles') != undefined) {
     var compTable = $('.comparison-table'),
       index = 1,
       htmlFragment = '';
