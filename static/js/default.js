@@ -3,7 +3,6 @@
 var burl = location.href;
 
 $(document).ready(function () {
-
   //Social media toolbar
   if ($('.social-media-toolbar').length) {
     socialMediaToolbar();
@@ -60,23 +59,23 @@ $(document).ready(function () {
       if ($(target).find('.triangle-top').length) {
         var top = $(this).offset().top + $(this).outerHeight(true) + 12;
 
-				//Find offset if parents of target element has relative positioning.
-				var tmpParent = $(target).parent();
+        //Find offset if parents of target element has relative positioning.
+        var tmpParent = $(target).parent();
 
-				while(tmpParent.get(0).nodeName != 'BODY') {
-					if(tmpParent.css('position') == 'relative') {
-						top -= tmpParent.offset().top;
-						break;
-					}
+        while (tmpParent.get(0).nodeName != 'BODY') {
+          if (tmpParent.css('position') == 'relative') {
+            top -= tmpParent.offset().top;
+            break;
+          }
 
-					tmpParent = tmpParent.parent();
-				}
+          tmpParent = tmpParent.parent();
+        }
 
         $(target)
-            .css({
-              'top': top
-            })
-            .find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
+          .css({
+            'top': top
+          })
+          .find('.triangle-top').css('left', $(this).offset().left + $(this).width() / 2 + 8);
       }
 
       var parentContainer = $(this).parents('.container');
@@ -151,46 +150,31 @@ $(document).ready(function () {
       }
     }
     else {
-      $.when(function () {
-        $('.fat-tabs > div').each(function () {
-          var $id = $(this).attr('id');
-          $(this).attr('id', escapeHtml($id));
-        });
-        $('.fat-tabs > ul > li a').each(function () {
-          var $id = $(this).attr('href');
-          $id = '#' + escapeHtml($id);
-          $(this).attr('id', $id);
-        });
-        console.log('when');
-      }()).then(function () {
-        console.log('then');
-        $('.fat-tabs').tabs({
-          create: function (event, ui) {
-            console.log('create');
-            var widget = $('.fat-tabs').data("uiTabs");
-            widget.panels.each(function (i) {
-              this.id = "uiTab_" + this.id; // Prepend a custom string to tab id
-              widget.anchors[i].hash = "#" + this.id;
-              $(widget.tabs[i]).attr("aria-controls", this.id);
-              //added this fix for FF
-              window.scrollTo(0, 0);
-            });
-            console.log('after');
-          },
-          activate: function (event, ui) {
-            // Add the original tab id to the URL hash
-            window.location.hash = ui.newPanel.attr("id").replace("uiTab_", "");
-
-            ui.newPanel.trigger('tab.visible');
-            ui.oldPanel.trigger('tab.hidden');
-
-            resizeFourColumnFilmstripCarousel(ui.newPanel);
-            //fix for slick not being initialized when tab activated
-            slickPlugin(ui.newPanel);
-            loadOoyala(ui.newPanel);
-          }
+      $('.fat-tabs').tabs({
+        create: function (event, ui) {
+          // Adjust hashes to not affect URL when clicked
+          var widget = $('.fat-tabs').data("uiTabs");
+          widget.panels.each(function (i) {
+            this.id = "uiTab_" + this.id; // Prepend a custom string to tab id
+            widget.anchors[i].hash = "#" + this.id;
+            $(widget.tabs[i]).attr("aria-controls", this.id);
           });
-      })
+          //added this fix for FF
+          window.scrollTo(0, 0);
+        },
+        activate: function (event, ui) {
+          // Add the original tab id to the URL hash
+          window.location.hash = ui.newPanel.attr("id").replace("uiTab_", "");
+
+          ui.newPanel.trigger('tab.visible');
+          ui.oldPanel.trigger('tab.hidden');
+
+          resizeFourColumnFilmstripCarousel(ui.newPanel);
+          //fix for slick not being initialized when tab activated
+          slickPlugin(ui.newPanel);
+          loadOoyala(ui.newPanel);
+        }
+      });
     }
 
     $(window).load(function () {
@@ -206,9 +190,9 @@ $(document).ready(function () {
     e.preventDefault();
 
     var width = 642,
-        title = '',
-        config = $.parseJSON($(this).data('config').replace(/'/g, '"')),
-        content = '';
+      title = '',
+      config = $.parseJSON($(this).data('config').replace(/'/g, '"')),
+      content = '';
 
     if (typeof config.title != 'undefined') {
       title = config.title;
@@ -234,18 +218,18 @@ $(document).ready(function () {
 
     if ($('body').data('modal-appended') == false || $('body').data('modal-appended') == undefined) {
       var modalContent =
-          '<div class="modal fade" id="oomodal" tabindex="-1" role="dialog">' +
-          '<div class="modal-dialog" role="document">' +
-          '<div class="modal-content">' +
-          '<div class="modal-header">' +
-          '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-          '<div>' +
-          '<div class="modal-body">' +
-          content +
-          '</div>' +
-          '</div>' +
-          '</div>' +
-          '</div>';
+        '<div class="modal fade" id="oomodal" tabindex="-1" role="dialog">' +
+        '<div class="modal-dialog" role="document">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+        '<div>' +
+        '<div class="modal-body">' +
+        content +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
       $('body').append(modalContent);
       $('body').data('modal-appended', 'true');
     }
@@ -268,24 +252,24 @@ $(document).ready(function () {
 
   //close button in optional dropdown
   $('body').on('click', '.close', function () {
-		if($(this).data('target') == undefined) {
-			//Check if this is inside an optional dropdown
-			if($(this).parents('.optional-dropdown').length) {
-				$(this).parents('.optional-dropdown').addClass('hidden');
-				$(this).parents('.optional-dropdown').data('parent').parents('.container').css('height', '');
-			}
-		}
-		else {
-			var closeTarget = $(this).parents('#' + $(this).data('target'));
+    if ($(this).data('target') == undefined) {
+      //Check if this is inside an optional dropdown
+      if ($(this).parents('.optional-dropdown').length) {
+        $(this).parents('.optional-dropdown').addClass('hidden');
+        $(this).parents('.optional-dropdown').data('parent').parents('.container').css('height', '');
+      }
+    }
+    else {
+      var closeTarget = $(this).parents('#' + $(this).data('target'));
 
-			if (closeTarget.length && closeTarget != undefined) {
-				closeTarget.addClass('hidden');
-			}
+      if (closeTarget.length && closeTarget != undefined) {
+        closeTarget.addClass('hidden');
+      }
 
-			if (closeTarget.data('parent')) {
-				closeTarget.data('parent').parents('.container').css('height', '');
-			}
-		}
+      if (closeTarget.data('parent')) {
+        closeTarget.data('parent').parents('.container').css('height', '');
+      }
+    }
 
   });
 
@@ -406,30 +390,34 @@ $(document).ready(function () {
     $.getScript('/static/js/comparison.min.js');
   }
 
-	//Scroll up on accordion, if and only if a previous accordion is open and is above the new opened accordion.
-	$(document).on('show.bs.collapse', function(e) {
-		//check if clicked panel is below an open one
+  //Scroll up on accordion, if and only if a previous accordion is open and is above the new opened accordion.
+  $(document).on('show.bs.collapse', function (e) {
+    //check if clicked panel is below an open one
 
-		var targetOpenElem = $(e.target).parent(),
-			containerElem = $(targetOpenElem).parents('.container'),
-			previousOpenElem = containerElem.find('a[aria-expanded="true"]');
+    var targetOpenElem = $(e.target).parent(),
+      containerElem = $(targetOpenElem).parents('.container'),
+      previousOpenElem = containerElem.find('a[aria-expanded="true"]');
 
-		if(previousOpenElem.length && previousOpenElem.offset().top < targetOpenElem.offset().top) {
-			window.scrollTo(0, containerElem.offset().top - 50);
-		}
-	});
+    if (previousOpenElem.length && previousOpenElem.offset().top < targetOpenElem.offset().top) {
+      window.scrollTo(0, containerElem.offset().top - 50);
+    }
+  });
 
-	processEllipsis();
+  processEllipsis();
+
+  if ($('.comparison-table').data('xs-collapsibles')) {
+    addResize('processComparisonTable', true);
+  }
 });
 
-$(window).load(function() {
-	//Dotdotdot
-	/* Had to move from document ready to window load because we had an issue where data-max-line didn't work as expected. */
-	/* Re-process ellipsis to ensure that we don't have an issue with data-max-line */
-	processEllipsis();
+$(window).load(function () {
+  //Dotdotdot
+  /* Had to move from document ready to window load because we had an issue where data-max-line didn't work as expected. */
+  /* Re-process ellipsis to ensure that we don't have an issue with data-max-line */
+  processEllipsis();
 
-	//match columns height
-	addResize('matchHeight', true);
+  //match columns height
+  addResize('matchHeight', true);
 });
 
 //Flex box degradation
@@ -486,17 +474,17 @@ function slickPlugin(parentSelector) {
       infinite: false,
       slidesToShow: 4,
       slidesToScroll: 1,
-			lazyLoad: 'ondemand'
+      lazyLoad: 'ondemand'
     };
 
     $(parentSelector).find('.slick').each(function () {
       var cfg = jQuery.extend(true, {}, defaults);
 
-			$(this).find('img').each(function() {
-				if($(this).data('lazy')) {
-					$(this).attr('src', $(this).data('lazy')).removeData('lazy');
-				}
-			});
+      $(this).find('img').each(function () {
+        if ($(this).data('lazy')) {
+          $(this).attr('src', $(this).data('lazy')).removeData('lazy');
+        }
+      });
 
       //Destroy slick
       if ($(this).data('active') == 'xs-only' && pageType != 0) {
@@ -504,7 +492,7 @@ function slickPlugin(parentSelector) {
           $(this).slick('destroy');
         }
 
-				$(this).css('visibility', 'visible');
+        $(this).css('visibility', 'visible');
 
         return true;
       }
@@ -532,11 +520,11 @@ function slickPlugin(parentSelector) {
         cfg.arrows = false;
         cfg.slidesToShow = 1;
         cfg.autoplay = true;
-				cfg.infinite = true;
+        cfg.infinite = true;
 
-				if($(this).data('random')) {
-					cfg.initialSlide = Math.floor(Math.random() * $(this).find('> div').length);
-				}
+        if ($(this).data('random')) {
+          cfg.initialSlide = Math.floor(Math.random() * $(this).find('> div').length);
+        }
 
         $(this).find('> div').css('display', 'block');
       }
@@ -556,27 +544,27 @@ function slickPlugin(parentSelector) {
               arrowsPos = firstImage.height() / 2 - 30;
             }
 
-						if(arrowsPos <= 0) {
-							var firstImageInterval = setInterval(function() {
-								var imgHeight = elem.find('.slick-active').find('img:first').height();
+            if (arrowsPos <= 0) {
+              var firstImageInterval = setInterval(function () {
+                var imgHeight = elem.find('.slick-active').find('img:first').height();
 
-								if(imgHeight > 100) {
-									clearInterval(firstImageInterval);
-									elem.find('.slick-arrow').css('top', imgHeight / 2 - 30);
+                if (imgHeight > 100) {
+                  clearInterval(firstImageInterval);
+                  elem.find('.slick-arrow').css('top', imgHeight / 2 - 30);
 
-									if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
-										fixScreenshot.call(elem, e, slick, 0, 0);
-									}
-								}
-							}, 100);
-						}
-						else {
-							elem.find('.slick-arrow').css('top', arrowsPos);
+                  if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
+                    fixScreenshot.call(elem, e, slick, 0, 0);
+                  }
+                }
+              }, 100);
+            }
+            else {
+              elem.find('.slick-arrow').css('top', arrowsPos);
 
-							if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
-								fixScreenshot.call(elem, e, slick, 0, 0);
-							}
-						}
+              if ($(slick.$list).parent().data('screenshot') || $(slick.$list).parent().hasClass('slick-screenshot')) {
+                fixScreenshot.call(elem, e, slick, 0, 0);
+              }
+            }
           });
         }
 
@@ -584,52 +572,52 @@ function slickPlugin(parentSelector) {
 
         /*un-commented to fix headline-description alignment issue with image*/
         if ($(this).data('screenshot') || $(this).hasClass('slick-screenshot')) {
-					$(this).on('beforeChange', fixScreenshot);
-				}
-			}
-			else {
-				$(this).css('visibility', 'visible');
-			}
-		});
-	}
+          $(this).on('beforeChange', fixScreenshot);
+        }
+      }
+      else {
+        $(this).css('visibility', 'visible');
+      }
+    });
+  }
 
   function fixScreenshot(e, slick, currentSlide, nextSlide) {
     var elem = $(slick.$slides[nextSlide]),
-				slideWidth = elem.width(),
-				imgWidth = elem.find('img').width(),
-				innerDiv = elem.find('> div');
+      slideWidth = elem.width(),
+      imgWidth = elem.find('img').width(),
+      innerDiv = elem.find('> div');
 
-		elem.css('opacity', 0);
+    elem.css('opacity', 0);
 
-		innerDiv.css('width', '');
+    innerDiv.css('width', '');
 
-		//in case image didn't load in time.
-		$(elem).find('img').on('load', function() {
-			innerDiv.css('width', '').addClass('inline-block');
+    //in case image didn't load in time.
+    $(elem).find('img').on('load', function () {
+      innerDiv.css('width', '').addClass('inline-block');
 
-			var imgWidth = $(this).width();
+      var imgWidth = $(this).width();
 
-			if (slideWidth < imgWidth) {
-				innerDiv.css('width', slideWidth);
-			}
-			else {
-				innerDiv.css('width', imgWidth);
-			}
+      if (slideWidth < imgWidth) {
+        innerDiv.css('width', slideWidth);
+      }
+      else {
+        innerDiv.css('width', imgWidth);
+      }
 
-			elem.css('opacity', 1);
-		});
+      elem.css('opacity', 1);
+    });
 
-		if(imgWidth > 0) {
-			if (slideWidth < imgWidth) {
-				innerDiv.css('width', slideWidth);
-			}
-			else {
-				innerDiv.css('width', imgWidth);
-			}
+    if (imgWidth > 0) {
+      if (slideWidth < imgWidth) {
+        innerDiv.css('width', slideWidth);
+      }
+      else {
+        innerDiv.css('width', imgWidth);
+      }
 
-			innerDiv.addClass('inline-block');
-			elem.css('opacity', 1);
-		}
+      innerDiv.addClass('inline-block');
+      elem.css('opacity', 1);
+    }
   }
 }
 
@@ -737,7 +725,7 @@ function processFlex(parentSelector) {
 }
 
 function processEllipsis(parentSelector) {
-	var deferred = $.Deferred();
+  var deferred = $.Deferred();
 
   if (typeof parentSelector == 'undefined') {
     parentSelector = 'body';
@@ -757,10 +745,10 @@ function processEllipsis(parentSelector) {
 
   function init() {
     $(parentSelector).find('.dotdotdot').filter(':visible').each(function () {
-			if ($(this).triggerHandler('isTruncated')) {
-				//console.log('truncated', this);
-				$(this).trigger('destroy');
-			}
+      if ($(this).triggerHandler('isTruncated')) {
+        //console.log('truncated', this);
+        $(this).trigger('destroy');
+      }
 
       var oneLineHeight = 0, options = {}, content = '', proceed = false;
 
@@ -827,11 +815,11 @@ function processEllipsis(parentSelector) {
         }
       }
 
-			deferred.resolve();
+      deferred.resolve();
     });
   }
 
-	return deferred;
+  return deferred;
 }
 
 function loadOoyala(parentSelector) {
@@ -865,9 +853,9 @@ function loadOoyala(parentSelector) {
     }
     else {
       $.getScript('//player.ooyala.com/v3/9eba220ad98c47cda9fdf6ba82ce607a?platform=html5&callback=receiveOoyalaP3Event',
-          function () {
-            init();
-          });
+        function () {
+          init();
+        });
     }
   }
 
@@ -875,7 +863,7 @@ function loadOoyala(parentSelector) {
     OO.ready(function () {
       $(parentSelector).find('.ooyalaplayer').each(function (indx) {
         var id = $(this).attr('id'),
-            videoId = $(this).data('videoid');
+          videoId = $(this).data('videoid');
 
         if (id === undefined) {
           id = 'op-' + getRandomString(8);
@@ -888,12 +876,12 @@ function loadOoyala(parentSelector) {
           if (parentContainer.hasClass('media-player-container')) {
             elem = parentContainer;
 
-						//Check if play button overlay is present, if not create it.
-						/*if($(!parentContainer.find('.img-overlay').length)) {
-							var buttonOverlay = '<div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>';
+            //Check if play button overlay is present, if not create it.
+            /*if($(!parentContainer.find('.img-overlay').length)) {
+             var buttonOverlay = '<div class="img-overlay vertical-center horizontal-center"><div><span class="icon-ui-play-underlay"></span><span class="icon-ui-play"></span></div></div>';
 
-							$(buttonOverlay).insertAfter(parentContainer.find('img:first'));
-						}*/
+             $(buttonOverlay).insertAfter(parentContainer.find('img:first'));
+             }*/
           }
 
           elem.on('click', function () {
@@ -1051,7 +1039,7 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
 
 function socialMediaToolbar() {
   //var bitlyURL = url = location.href;
-	var bitlyURL = url = location.protocol + '//' + location.hostname + location.pathname;
+  var bitlyURL = url = location.protocol + '//' + location.hostname + location.pathname;
 
   //If protocol is https find previous page.
   if (location.protocol == 'https:') {
@@ -1128,7 +1116,7 @@ function socialMediaToolbar() {
       //console.log(bitlyURL);
       //console.log(url);
       //Override twitter title for security (adding #)
-      if(location.host == 'security.dell.com'){
+      if (location.host == 'security.dell.com') {
         title = 'Dell Security Solutions: Be the #DeptofYes';
       }
       e.preventDefault();
@@ -1148,7 +1136,7 @@ function socialMediaToolbar() {
       e.preventDefault();
       window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 'linkedin', 'width=480,height=360,toolbar=0,status=0,resizable=1');
     }
-		else if (parent.hasClass('googleshare')) {
+    else if (parent.hasClass('googleshare')) {
       e.preventDefault();
       window.open('https://plus.google.com/share?url=' + encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
       return false;
@@ -1204,10 +1192,10 @@ function grayscaleImage() {
 
 function getRandomString(len) {
   var ranString = '',
-      alphaLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-      alphaUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-      digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      r, n, ranString;
+    alphaLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+    alphaUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    r, n, ranString;
 
   for (i = 0; i < len; i++) {
     r = Math.random() * 8;
@@ -1231,24 +1219,24 @@ function getRandomString(len) {
 
 function resizeAffix() {
   var affixID = '#affix-nav',
-      affixElem = $(affixID),
-      siteWrapper = $('.site-wrapper'),
-      body = $('body').css('position', 'relative');
+    affixElem = $(affixID),
+    siteWrapper = $('.site-wrapper'),
+    body = $('body').css('position', 'relative');
 
   reset();
 
-	if (affixElem.data('even-width') && ((pageType == 0 && !affixElem.hasClass('affix-list-xs')) || pageType > 0)) {
-		affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
-	}
+  if (affixElem.data('even-width') && ((pageType == 0 && !affixElem.hasClass('affix-list-xs')) || pageType > 0)) {
+    affixElem.find('li').css('width', (100 / affixElem.find('li').length) + '%');
+  }
 
   if (pageType > 0 || !affixElem.hasClass('affix-list-xs')) {
-		//Need to break out of the sequential flow in order to retrieve the true height.
-		setTimeout(function() {
-			affixElem.find('li').css('height', affixElem.height());
-		});
+    //Need to break out of the sequential flow in order to retrieve the true height.
+    setTimeout(function () {
+      affixElem.find('li').css('height', affixElem.height());
+    });
 
-		//Navigate to bookmark.
-		affixElem.on('click', 'a', affixAnchorClick);
+    //Navigate to bookmark.
+    affixElem.on('click', 'a', affixAnchorClick);
 
     siteWrapper.attr('id', 'top');
 
@@ -1256,100 +1244,132 @@ function resizeAffix() {
     affixElem.css("width", affixElem.parents('.container').width());
 
     //trigger scrollspy if it hasn't been triggered already
-		/*set offset to activate tab based on position*/
-		body.scrollspy({
-			target: affixID,
-			offset: affixElem.outerHeight(true) + 20
-		});
+    /*set offset to activate tab based on position*/
+    body.scrollspy({
+      target: affixID,
+      offset: affixElem.outerHeight(true) + 20
+    });
 
     //trigger affix if it hasn't been triggered already
-		setTimeout(function () {
-			affixElem.affix({
-				offset: {
-					top: affixElem.offset().top
-				}
-			});
+    setTimeout(function () {
+      affixElem.affix({
+        offset: {
+          top: affixElem.offset().top
+        }
+      });
 
-			//Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
-			affixElem
-				.on('affixed.bs.affix', function () {
-					$('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
-				})
-				.on('affixed-top.bs.affix', function () {
-					$(this).next().remove();
-				});
-		}, 250);
+      //Prevent page jumpiness when using the scrollbar when passing the first bookmark area.
+      affixElem
+        .on('affixed.bs.affix', function () {
+          $('<div class="affix-dummy">').css('height', $(this).outerHeight(true)).insertAfter(this);
+        })
+        .on('affixed-top.bs.affix', function () {
+          $(this).next().remove();
+        });
+    }, 250);
   }
 
-	function reset() {
-		//Reset
-		$('.affix-dummy').remove();
-		affixElem.css('width', '').find('li').css({height: 'auto', width: ''});
-		affixElem.off('click', 'a', affixAnchorClick);
+  function reset() {
+    //Reset
+    $('.affix-dummy').remove();
+    affixElem.css('width', '').find('li').css({height: 'auto', width: ''});
+    affixElem.off('click', 'a', affixAnchorClick);
 
-		//destroy scrollspy
-		//body.scrollspy({target: ''});
-		affixElem.removeData('bs.scrollspy');
+    //destroy scrollspy
+    //body.scrollspy({target: ''});
+    affixElem.removeData('bs.scrollspy');
 
-		//destroy affix
-		$(window).off('.affix');
-		affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
-		affixElem.removeClass('affix affix-top affix-bottom');
-	}
+    //destroy affix
+    $(window).off('.affix');
+    affixElem.removeData('bs.affix').off('affixed.bs.affix').off('affixed-top.bs.affix');
+    affixElem.removeClass('affix affix-top affix-bottom');
+  }
 
-	function affixAnchorClick(e) {
-		e.preventDefault();
+  function affixAnchorClick(e) {
+    e.preventDefault();
 
-		var target = $($(this).attr('href'));
+    var target = $($(this).attr('href'));
 
-		$('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
+    $('html, body').animate({scrollTop: Math.ceil(target.offset().top - affixElem.height() - parseInt(target.css('marginTop')))}, 500);
 
-		//Workaround where the first tab doesn't have the "active" class when clicked for the first time.
-		//$(this).parent().addClass('active');
-	}
+    //Workaround where the first tab doesn't have the "active" class when clicked for the first time.
+    //$(this).parent().addClass('active');
+  }
 }
 
 function matchHeight() {
-	if ($('*[data-target="match-height"]').filter(':visible').length) {
-		if ($.fn.matchHeight) {
-			init();
-		}
-		else {
-			$.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
-				init();
-			});
-		}
-	}
+  if ($('*[data-target="match-height"]').filter(':visible').length) {
+    if ($.fn.matchHeight) {
+      init();
+    }
+    else {
+      $.getScript('/static/library/jQuery/jquery.matchheight.min.js').done(function () {
+        init();
+      });
+    }
+  }
 
-	function init() {
-		var config = {};
+  function init() {
+    var config = {};
 
-		//if (pageType > 0) {
-			//ignore rows if applying match height to elements within a box (this is for product listing page)
-			if ($('*[data-ignore-row="1"]').length) {
-				config.byRow = false;
-			}
+    //if (pageType > 0) {
+    //ignore rows if applying match height to elements within a box (this is for product listing page)
+    if ($('*[data-ignore-row="1"]').length) {
+      config.byRow = false;
+    }
 
-			$('*[data-target="match-height"]').filter(':visible').matchHeight(config);
-		//}
-	}
-}
-
-function escapeHtml(text) {
-  var map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-  };
-  var modtext = text.replace(/[&<>"']/g, function (m) {
-    return map[m];
-  });
-  return modtext.replace(/[^a-z0-9]/gi, '');
+    $('*[data-target="match-height"]').filter(':visible').matchHeight(config);
+    //}
+  }
 }
 
 function replaceURL(text) {
   var exp = /(\bhttps?:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
   return text.replace(exp, "<a href='$1'>$1</a>");
+}
+
+function processComparisonTable() {
+  if (pageWidth < 768 && $('.comparison-table').data('xs-collapsibles') != undefined) {
+    var compTable = $('.comparison-table'),
+      index = 1,
+      htmlFragment = '';
+
+    $(compTable.find('tbody tr')).each(function () {
+      htmlFragment +=
+        '<div class="panel">' +
+        '<div class="panel-heading">' +
+        '<h4 class="panel-title">' +
+        '<a data-toggle="collapse" data-parent="#accordion" href="#panel' + index + '" aria-expanded="false" class="collapsed">'
+        + $(this).find('>td:first-child').text() +
+        '</a>' +
+        '</h4>' +
+        '</div>' +
+        '<div id="panel' + index + '" class="collapse table-responsive" aria-expanded="false">' +
+        '<div class="panel-body"> ' +
+        getBodyContent($(this)) +
+        '</div>' +
+        '</div>' +
+        '</div>';
+      index++;
+    });
+
+    function getBodyContent(row) {
+      var panelContentHtml = '';
+      row.find('td:gt(0)').each(function () {
+        panelContentHtml +=
+          '<div class="row">' +
+          '<div class="col-xs-10">' +
+          '<p>' + $('.comparison-table').find('th').eq($(this).index()).text() + '</p>' +
+          '</div>' +
+          '<div class="col-xs-2">' +
+          $(this).html() +
+          '</div>' +
+          '</div>';
+      });
+
+      return panelContentHtml;
+    }
+
+    $('.panel-group-collapsible').append(htmlFragment);
+  }
 }

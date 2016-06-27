@@ -9219,6 +9219,29 @@ a:hover .has-overlay h4 {
 @media (min-width: 768px) {
   .comparison .comparison-pagination {
     text-align: right; } }
+@media (max-width: 767px) {
+  /*comparison table*/
+  .comparison-table[data-xs-carousel="true"] tr th, .comparison-table[data-xs-carousel="true"] tr td {
+    padding: 6px !important; }
+  .comparison-table[data-xs-carousel="true"] .fixed-column tr {
+    border-right: 1px solid #ccc; }
+    .comparison-table[data-xs-carousel="true"] .fixed-column tr th {
+      vertical-align: top; }
+  .comparison-table[data-xs-carousel="true"] .comparison .comparison-pagination .btn {
+    padding: 3px; }
+    .comparison-table[data-xs-carousel="true"] .comparison .comparison-pagination .btn > div {
+      font-size: 14px; }
+  .comparison-table[data-xs-carousel="true"] .comparison .row > div > div {
+    padding: 0; }
+    .comparison-table[data-xs-carousel="true"] .comparison .row > div > div table thead tr th {
+      vertical-align: top; }
+    .comparison-table[data-xs-carousel="true"] .comparison .row > div > div table tbody td {
+      vertical-align: middle; }
+  .comparison-table .panel:nth-child(odd) .panel-body {
+    background-color: #eeeeee;
+    padding: 15px; }
+    .comparison-table .panel:nth-child(odd) .panel-body .row:last-child p {
+      margin-bottom: 0; } }
 /* Slider */
 .slick {
   visibility: hidden; }
