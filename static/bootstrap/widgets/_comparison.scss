@@ -98,23 +98,23 @@
 @media (max-width: 767px) {
   /*comparison table*/
   .comparison-table {
-    &[data-xs-carousel ="true"]{
-      tr{
-        th,td{
+    &[data-xs-carousel ="true"] {
+      tr {
+        th, td {
           padding: 6px !important;
         }
       }
       .fixed-column tr {
-        border-right:1px solid #ccc;
+        border-right: 1px solid #ccc;
         th {
           vertical-align: top;
         }
       }
       .comparison {
-        .comparison-pagination .btn {
-          padding: 3px;
-          > div{
-            font-size:14px;
+        .comparison-pagination {
+          font-size: 14px;
+          .btn {
+            padding: 3px;
           }
         }
         .row > div {
