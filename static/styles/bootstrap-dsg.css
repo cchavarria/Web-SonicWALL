@@ -4838,6 +4838,10 @@
     display: inline-block; }
   .bootstrap .icon-large-computergeneric:before {
     content: "\e616"; }
+
+.bootstrap .icon-small-alertinfo:before {
+	content: "\e604";
+}
   .bootstrap .site-wrapper {
     overflow: hidden;
     position: relative;
