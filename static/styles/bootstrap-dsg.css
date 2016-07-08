@@ -4840,7 +4840,7 @@
     content: "\e616"; }
 
 .bootstrap .icon-small-alertinfo:before {
-	content: "\e604";
+  content: "\e604";
 }
   .bootstrap .site-wrapper {
     overflow: hidden;
