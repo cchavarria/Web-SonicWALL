@@ -129,12 +129,17 @@ $(document).ready(function() {
               // check if learn more cta has link if not will hide it
               if($(this).attr('href') === '' && $(this).hasClass('btn')){
                 $(this).hide();
-              };
+              }
 
 							if ($.inArray($(this).css('display'), ['block', 'inline-block']) > -1) {
 								buttonWidth += parseInt($(this).outerWidth(true)) + parseInt($(this).css('marginLeft'));
 							}
 						}).end().find('> div').css('marginLeft', buttonWidth + 10);
+
+						//If there are no buttons visible, hide CTA.
+						if (!videoCTA.find('> a:visible').length) {
+							videoCTA.hide();
+						}
 					}
 				},
 				autoplay: true,
