@@ -9,7 +9,7 @@ $(document).ready(function() {
 				onCreate: function (player) {
 					OOCreate(player);
 
-					var videoCTA = null, playthrough = [false, false, false, false, false], target = $('#' + player.elementId);;
+					var videoCTA = null, playthrough = [false, false, false, false, false], target = $('#' + player.elementId);
 
 					if(pageType != 0) {
 						player.mb.subscribe(OO.EVENTS.PLAYBACK_READY, 'LearnMoreCTA', function () {
@@ -154,11 +154,10 @@ $(document).ready(function() {
 		// addResize is invoked as break points is hit when it is dragged
 		// height of player-wrapper is recalculated by 16 by 9 ratio
 		setTimeout(function () {
-			var h = Math.floor($('#player-wrapper').width() * 9) / 16;
+			var player = $('#player-wrapper'), h = Math.floor(player.width() * 9) / 16;
 
-			$('#player-wrapper').css('height', h);
-			$('.media-player-container').css('height', h);
-			$('.media-player-container').find('.img-responsive').css('height', h);
+			player.css('height', h);
+			$('.media-player-container').css('height', h).find('.img-responsive').css('height', h);
 		}, 650);
 	}, true);
 });
