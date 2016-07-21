@@ -967,7 +967,7 @@ function resizeFourColumnFilmstripCarousel(parentSelector) {
     parentSelector = 'body';
   }
 
-  if ($(parentSelector).find('.screenshot-carousel').length && !$('html').hasClass('home')) {
+	if ($(parentSelector).find('.screenshot-carousel').length && location.pathname != '/') {
     if ($.fn.slidePagination2) {
       init();
     }
