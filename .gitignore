@@ -8,3 +8,4 @@
 out
 gen
 
+/static/js/*.min.js
