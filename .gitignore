@@ -9,4 +9,6 @@ out
 gen
 
 /static/js/**/*.min.js
-/static/css/**/*.min.css
+/static/scripts/**/*.min.js
+/static/css/**/*.css
+/static/styles/**/*.css
