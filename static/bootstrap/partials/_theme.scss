@@ -70,7 +70,11 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.btn-default {
+	@include btn-styles($btn-default-bg);
+	text-shadow: 0 1px 0 $white;
+	border-color: #ccc;
+}
 .btn-primary { @include btn-styles($btn-primary-bg); }
 .btn-success { @include btn-styles($btn-success-bg); }
 .btn-info    { @include btn-styles($btn-info-bg); }
@@ -158,7 +162,7 @@
     &,
     &:hover,
     &:focus {
-      color: #fff;
+	    color: $white;
       @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
     }
   }

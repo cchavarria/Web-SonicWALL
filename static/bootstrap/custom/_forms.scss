@@ -424,7 +424,7 @@ input[type="checkbox"] {
 .form-control {
   &.error {
     background-color: $state-danger-bg;
-    border: 1px solid #ce1126;
+	  border: 1px solid $color-danger;
 
     //background-image: url("/images/shared/formError.png");
     //background-position: 100% 50%;

@@ -16,16 +16,16 @@ $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
 //Dell UI
 // Grays
-$dell-gray-dark: #444444;
-$dell-gray: #aaaaaa;
-$dell-gray-stroke: #cccccc;
+$dell-gray-dark: #444;
+$dell-gray: #aaa;
+$dell-gray-stroke: #ccc;
 $dell-gray-light-stroke: #e4e4e4;
 $dell-gray-medium: #737373;
-$dell-gray-light: #eeeeee;
+$dell-gray-light: #eee;
 $dell-gray-very-light: #f9f9f9;
 $dell-gray-hover: #F3F3F3;
-$black: #000000;
-$white: #ffffff;
+$black: #000;
+$white: #fff;
 
 $dell-blue: #007db8;
 $dell-dark-blue: #00447c;
@@ -40,12 +40,24 @@ $dell-purple: #6e2585;
 $dell-teal: #42aeaf;
 
 $color-heading-links-hover: #007db8;
+$color-image-border: #737373;
+$color-danger: #ce1126;
+
+/* DemandBase Colors */
+
+$color-demandbase-dropdown-background: #c0c0c0;
+$color-demandbase-dropdown-border: #c0c0c0;
 
 $brand-primary: #007db8 !default; //darken(#428bca, 6.5%) !default; // #337ab7
 $brand-success: #408001 !default;
 $brand-info: #5bc0de !default;
 $brand-warning: #f0ad4e !default;
 $brand-danger: #d9534f !default;
+
+/* Header Colors */
+$header-background-color: #007db8;
+$header-link-color: #007db8;
+$color-header-link-hover: #cce7f3;
 
 //== Scaffolding
 //
@@ -540,6 +552,9 @@ $tooltip-arrow-width: 5px !default;
 $tooltip-arrow-height: 10px !default;
 //** Tooltip arrow color
 $tooltip-arrow-color: $tooltip-bg !default;
+
+$tooltip-border-color: #aaa;
+$tooltip-alert-icon-color: #d74324;
 
 //== Popovers
 //
