@@ -21,7 +21,7 @@
 }
 
 .bg-white{
-  background-color: #fff;
+	background-color: $white;
 }
 
 a[class^="icon-"]:hover, a[class^="icon-"]:focus {
@@ -204,7 +204,7 @@ iframe {
     text-align: center;
   }
   .bg-white-xs {
-    background-color: #fff;
+	  background-color: $white;
   }
 }
 

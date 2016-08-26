@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.icon-ui-play-underlay {
+	background: $white;
+}
+
 .img-overlay {
   position: absolute;
   top: 0;
@@ -16,7 +20,6 @@
     position: relative;
   }
   .icon-ui-play-underlay {
-    background: #fff;
     height: 30px;
     margin: 5px;
     position: absolute;
@@ -37,7 +40,6 @@
     position: relative;
   }
   .icon-ui-play-underlay {
-    background: #fff;
     height: 60px;
     margin: 10px;
     position: absolute;

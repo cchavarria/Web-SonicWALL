@@ -25,7 +25,7 @@
 
 .masthead {
   margin-bottom: 10px;
-  color: #fff;
+	color: $white;
   background-color: #007db8;
   .navbar {
     margin-bottom: 0;
@@ -48,7 +48,7 @@
     margin-right: 20px;
     margin-left: 8px;
     a {
-      color: #fff;
+	    color: $white;
       &:hover {
         text-decoration: none;
       }
@@ -61,7 +61,7 @@
   .svg-icon-dell {
     margin-left: 10px;
     font-size: 40px;
-    color: #fff;
+	  color: $white;
     display: inline-block;
     vertical-align: middle;
   }
@@ -76,7 +76,7 @@
       position: relative;
       padding: 0;
       &.open {
-        background: #fff;
+	      background: $white;
         i, a {
           color: #007db8;
         }
@@ -87,7 +87,7 @@
       padding: 22px 10px;
       border-right: 1px solid transparent;
       border-left: 1px solid transparent;
-      color: #fff;
+	    color: $white;
       display: block;
       cursor: pointer;
       position: relative;
@@ -96,7 +96,7 @@
         padding: 22px 10px;
         border-right: 1px solid transparent;
         border-left: 1px solid transparent;
-        color: #fff;
+	      color: $white;
         display: block;
       }
       &:hover, &:focus {
@@ -112,7 +112,7 @@
     }
     .badge [class^=icon] {
       font-size: 6px;
-      color: #fff;
+	    color: $white;
     }
     .icon-ui-menucollapsed {
       font-size: 16px;
@@ -128,7 +128,7 @@
       padding: 4px 4px 4px 3px;
       font-size: 6px;
       font-weight: 700;
-      color: #fff;
+	    color: $white;
       line-height: 0;
       white-space: nowrap;
       text-align: left;
@@ -211,7 +211,7 @@
     }
     .autocomplete-suggestions {
       width: 100%;
-      background-color: #fff;
+	    background-color: $white;
       -webkit-box-shadow: 2px 2px 5px #000000;
       -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       -ms-box-shadow: 2px 2px 5px #000000;
@@ -267,7 +267,7 @@
         padding: 0;
 
         li {
-          background-color: #fff;
+	        background-color: $white;
           border-bottom: none;
           overflow: hidden;
         }
@@ -366,13 +366,13 @@ li {
 
 #footer {
   background-color: #0085c3;
-  color: #fff;
+	color: $white;
   margin-top: 20px;
   font-size: 11px;
   a {
-    color: #fff;
+	  color: $white;
     &:hover, &:focus {
-      color: #fff;
+	    color: $white;
     }
   }
   li {
@@ -392,7 +392,7 @@ li {
     &.open {
       > ul {
         border-top: 1px solid #aaa;
-        background-color: #fff;
+	      background-color: $white;
       }
     }
   }
@@ -494,7 +494,7 @@ li {
     list-style: none;
   }
   .footer-copyright-section {
-    background-color: #fff;
+	  background-color: $white;
     color: #444;
 
     a, span {
