@@ -49,8 +49,8 @@
       }
       button {
         padding: 5px 11px;
-        background-color: #007db8;
-        border-color: #007db8;
+	      background-color: $header-background-color;
+	      border-color: $header-background-color;
         background-image: none;
         i {
           color: #fff !important;
@@ -114,9 +114,7 @@
   }
 }
 
-@media (min-width: 768px) { //SM
-  @import 'custom-header-footer-sm';
-}
+@import 'custom-header-footer-sm';
 
 @media (min-width: 768px) and (orientation: portrait) {
   .masthead {

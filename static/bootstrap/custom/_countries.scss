@@ -46,7 +46,7 @@
     }
   }
   #country-popup {
-    background-color: #fff;
+	  background-color: $white;
     a {
       color: $dell-blue !important;
     }
@@ -76,9 +76,9 @@
     bottom: 26px;
     padding: 0;
     overflow: visible;
-    -moz-box-shadow: 1px 1px 5px #000;
-    -webkit-box-shadow: 1px 1px 5px #000;
-    box-shadow: 1px 1px 5px #000;
+	  -moz-box-shadow: 1px 1px 5px $black;
+	  -webkit-box-shadow: 1px 1px 5px $black;
+	  box-shadow: 1px 1px 5px $black;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -94,15 +94,15 @@
       -ms-transform: rotate(45deg);
       width: 20px;
       height: 20px;
-      background: #fff;
+	    background: $white;
       z-index: 1;
     }
     >div:after {
-      box-shadow: 1px 1px 5px #000;
+	    box-shadow: 1px 1px 5px $black;
     }
     >div>div {
       position: relative;
-      background: #fff;
+	    background: $white;
       border-radius: 10px;
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;

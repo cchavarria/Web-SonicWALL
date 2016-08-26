@@ -8,16 +8,16 @@
 }
 
 .bg-light-grey {
-  background-color: #f9f9f9;
-  color: #444;
+	background-color: $dell-gray-very-light;
+	color: $dell-gray-dark;
 }
 
 .bg-grey {
-  background-color: #f9f9f9;
+	background-color: $dell-gray-very-light;
 }
 
 .anchor-blue {
-  color: #007db8;
+	color: $link-color;
 }
 
 .bg-white{
@@ -142,7 +142,7 @@ iframe {
 .col-striped {
 	.row {
 		> [class^="col-"]:nth-of-type(odd) {
-			background-color: #f9f9f9;
+			background-color: $dell-gray-very-light;
 		}
 	}
 }

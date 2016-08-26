@@ -27,10 +27,10 @@
       &.tier1 {
         li {
           &:hover {
-            background: #fff;
-            color: #007db8;
+	          background: $white;
+	          color: $link-color;
             a {
-              color: #007db8;
+	            color: $link-color;
             }
           }
           &:hover > ul {
