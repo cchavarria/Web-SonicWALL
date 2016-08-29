@@ -12,4 +12,5 @@ gen
 /static/scripts/**/*.min.js
 
 /static/css/**/*.css
+/static/css/**/*.css.map
 /static/styles/**/*.css
