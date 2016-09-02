@@ -27,7 +27,7 @@ $(document).ready(function () {
 	 V2LayoutHeaderAjaxNav contains the navigation html content.
 	 */
 	(function () {
-		var specialTag = 'V2LayoutHeaderAjaxNav';
+		var specialTag = 'V2LayoutHeaderAjaxNav', sessionName = 'nav-' + RootPath.replace(/\//g, '');
 
 		if (headerNavElem.data('ajax')) {
 			//If session storage is available, populate navigation. Note: if navigation has been updated when nav is already stored, it'll be one page view behind.
@@ -43,14 +43,14 @@ $(document).ready(function () {
 				}
 
 				//Store latest navigation.
-				sessionStorage.nav = data[specialTag];
+				sessionStorage.setItem(sessionName, data[specialTag]);
 			});
 		}
 		else {
 			//Get navigation and store
 			getLocalizedContent(specialTag).done(function (data) {
 				//Store latest navigation.
-				sessionStorage.nav = data[specialTag];
+				sessionStorage.setItem(sessionName, data[specialTag]);
 			});
 		}
 	})();
