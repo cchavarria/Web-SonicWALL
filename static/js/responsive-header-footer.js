@@ -18,8 +18,45 @@ $(document).ready(function () {
 		$('#country-popup').css('display', '');
 	}, true);
 
+	var headerNavElem = $('.main-nav-section');
+
+	/*
+	 Get navigation via ajax. Should only be executed on non home page.
+
+	 Note: All non home page (responsive) will use the special tag V2LayoutHeaderAjax which has a data-ajax="true" attribute.
+	 V2LayoutHeaderAjaxNav contains the navigation html content.
+	 */
+	(function () {
+		var specialTag = 'V2LayoutHeaderAjaxNav', sessionName = 'nav-' + RootPath.replace(/\//g, '');
+
+		if (headerNavElem.data('ajax')) {
+			//If session storage is available, populate navigation. Note: if navigation has been updated when nav is already stored, it'll be one page view behind.
+			if (sessionStorage.nav) {
+				headerNavElem.append(sessionStorage.nav);
+			}
+
+			//Get navigation and store
+			getLocalizedContent(specialTag).done(function (data) {
+				//Populate navigation only if sessionStorage.nav is not present because if it is present, it would have already been populated on line 32.
+				if (!sessionStorage.nav) {
+					headerNavElem.append(data[specialTag]);
+				}
+
+				//Store latest navigation.
+				sessionStorage.setItem(sessionName, data[specialTag]);
+			});
+		}
+		else {
+			//Get navigation and store
+			getLocalizedContent(specialTag).done(function (data) {
+				//Store latest navigation.
+				sessionStorage.setItem(sessionName, data[specialTag]);
+			});
+		}
+	})();
+
 	//Prevent anchor tag from firing when href is set to #
-	$('.main-nav-section').find('ul.tier2').on('click', 'a[href=#]', function (e) {
+	headerNavElem.on('click', 'ul.tier2 a[href=#]', function (e) {
 		if ($('html').width() >= 768) {
 			e.preventDefault();
 		}
@@ -32,27 +69,6 @@ $(document).ready(function () {
 		$('#masthead-search').toggleClass('open');
 		$('.utility').find('> li').removeClass('open');
 	});
-
-	/*$('body').on('click', '.ga', function() {
-		var obj = {
-			hitType: 'event',
-			eventCategory: $(this).data('gacat'),
-			eventAction: $(this).data('gaaction'),
-			eventLabel: $(this).data('galabel') === undefined ? '':$(this).data('galabel'),
-			eventValue: $(this).data('gaval') === undefined ? 0:parseInt($(this).data('gaval'))
-		};
-
-		var targetURLHost = parseUri($(this).attr('href'))['host'].toLowerCase();
-
-		if(targetURLHost != '' && location.host != targetURLHost && targetURLHost != 'www.dellsoftware.com') {
-			obj.transport = 'beacon';
-			obj.eventCategory = 'Outbound Link';
-			obj.eventAction = 'click';
-			obj.eventLabel = $(this).attr('href');
-		}
-
-		ga('send', obj);
-	 }); */
 
 	//GA event tracking - naveen
 	//Class "ga" should only be applied on to anchor tag.
@@ -95,6 +111,39 @@ $(document).ready(function () {
 		ga('send', obj);
 	});
 
+	//Site Catalyst Custom Event Tracking for Buy Online
+	//TODO: Might want to generalize this so that this can be used for other custom events.
+	$('body').on('click', '.btn-buy', function (e) {
+		var URL = $(this).attr('href'), URLTarget = $(this).attr('target');
+
+		//Only track links pointing to shop.software.dell.com
+		if (typeof s != "undefined" && /^https\:\/\/shop\.software\.dell\.com/.test(URL)) {
+			e.preventDefault();
+
+			var newWin = null;
+
+			//Determine if destination URL needs to open in a new window/tab.
+			if (URLTarget !== undefined && URLTarget != '_self' && URLTarget != '') {
+				//Need to open immediately or else chrome/firefox popup block will block it.
+				newWin = window.open('', URLTarget);
+			}
+
+			s.linkTrackEvents = "event10";
+			s.events = "event10";
+			s.pageName = sc_GetPageName("");
+			sc_CookieSet("SCBuy", s.events, 20);
+
+			//Submit tracking link to site catalyst. Once done, redirect user to desired destination.
+			s.tl(this, 'o', $(this).text(), null, function () {
+				if (newWin) {
+					newWin.location = URL;
+				}
+				else {
+					location.href = URL;
+				}
+			});
+		}
+	});
 
 	//Prevent anchor tag from firing when href is set to # on mobile
 	$('.footer-top-section').on('click', 'a[href=#]', function (e) {

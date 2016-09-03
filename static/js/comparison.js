@@ -38,8 +38,12 @@ function processComparison(parentSelector) {
 			else if (pageType == 1) { //Tablet
 				displayAmount = $(this).data('display-sm') == undefined ? 3 : $(this).data('display-sm');
 			}
+			else if (pageType == 0) { //mobile
+				displayAmount = $(this).data('display-xs') == undefined ? 2 : $(this).data('display-xs');
+			}
 
 			paginationElem.find('.end').text(displayAmount);
+
 
 			rows.find('.inactive').html('&nbsp;');
 
@@ -55,6 +59,25 @@ function processComparison(parentSelector) {
 					$(this).data('comparison-processed', true);
 				}
 			});
+
+			/*comparison table http://software.dell.com/remotescan/comparison-review.aspx */
+			if ($('.comparison-table').data('xs-carousel')) {
+				var compTable = $('.comparison-table'),
+					offsetTop = compTable.find('.comparison .row > div:first-child').offset().top;
+
+				$(this).data('comparison-processed', true);
+
+				/*move fixed column to the same position as carousel*/
+				compTable.find('.fixed-column').offset({top: offsetTop});
+
+				/*match height of each fixed-column table cell with corresponding carousel table cell*/
+				compTable.find('.fixed-column tr').each(function () {
+					var elem = $(this);
+					compTable.find('.comparison table').each(function () {
+						$(this).find('tbody tr').eq(elem.index()).find('td').outerHeight(elem.find('td').outerHeight());
+					});
+				});
+			}
 
 			if (total > displayAmount) {
 				paginationElem.show();
@@ -85,11 +108,11 @@ function processComparison(parentSelector) {
 			//Add background color on active column
 			var selectedColumn = 0;
 
-			columnsInFirstRow.each(function(indx) {
-				if($(this).find('> div').find('> div:eq(0)').hasClass('active')) {
+			columnsInFirstRow.each(function (indx) {
+				if ($(this).find('> div').find('> div:eq(0)').hasClass('active')) {
 					selectedColumn = indx;
 
-					if($(this).parents('.comparison-container').hasClass('col-striped')) {
+					if ($(this).parents('.comparison-container').hasClass('col-striped')) {
 						rows.find('> div:eq(' + indx + ')').addClass('selected');
 					}
 					else {
@@ -101,33 +124,33 @@ function processComparison(parentSelector) {
 			//If there is only 1 panel group show panels
 			var panelGroup = $(this).find('.panel-group-collapsible');
 
-			if(panelGroup.find('> div').length == 1) {
-				 panelGroup.find('.panel-heading').hide().next().removeClass('collapse');
+			if (panelGroup.find('> div').length == 1) {
+				panelGroup.find('.panel-heading').hide().next().removeClass('collapse');
 			}
 
 			//Slide through to show selected column in view.
 			var tweenAmount = 0;
 
-			if(displayAmount == 2) {
+			if (displayAmount == 2) {
 				tweenAmount = selectedColumn;
 			}
-			else if(displayAmount == 3) {
+			else if (displayAmount == 3) {
 				tweenAmount = selectedColumn - 1;
 			}
-			else if(displayAmount == 4) {
-				if(total - selectedColumn <= 3) {
+			else if (displayAmount == 4) {
+				if (total - selectedColumn <= 3) {
 					tweenAmount = 4 - (total - selectedColumn);
 				}
 			}
 
-			if(tweenAmount > (total - displayAmount)) {
+			if (tweenAmount > (total - displayAmount)) {
 				tweenAmount = total - displayAmount;
 			}
 
 			var elem2 = $(this);
 
-			for(var i = 0; i < tweenAmount; i++) {
-				setTimeout(function() {
+			for (var i = 0; i < tweenAmount; i++) {
+				setTimeout(function () {
 					console.log('next');
 					elem2.find('.next').trigger('click');
 				}, 10);

@@ -9,7 +9,7 @@ var populateListingPending = false, //prevent populate listing to load more than
 	hashMap = {
 		solution: 'bysolution',
 		brand: 'bybrand'
-	},
+		},
 	range = [
 		{
 			range: /^[ab]/i,
@@ -118,8 +118,8 @@ function init() {
 				data: {"type": "solution"},
 				init: true,
 				callback: solutionCallback
-			}
-		},
+				}
+			},
 		allDropdownLabel = {};
 
 	function brandCallback(title) {
@@ -156,6 +156,8 @@ function init() {
 		// filters event handler
 		var filterInterval = null, filterElem = $('.filters');
 
+		listingContainer.find('>div').hide();
+
 		//Populate all "filter by" dropdowns
 		getLocalizedContent(['LabelAllProductLines', 'LabelAllSolutions']).done(function () {
 			$.each(filterMap, function (id, entry) {
@@ -191,11 +193,13 @@ function init() {
 
 							if (ajaxArr.length) {
 								$.when(ajaxArr).done(function () {
+									listingContainer.find('>div').hide(); // hide parent divs
 									populateListing();
 									ajaxArr = [];
 								});
 							}
 							else {
+								listingContainer.find('>div').hide();
 								populateListing();
 							}
 						}, 100);
@@ -382,7 +386,7 @@ function populateListing() {
 		dataType: 'JSON',
 		data: dataset,
 		beforeSend: function () {
-			listingContainer.css({opacity: 0}).hide();
+			//listingContainer.css({opacity: 0}).hide();
 			$('#ui-loader').show();
 		}
 	}).done(function (dataopt) {
@@ -412,15 +416,26 @@ function populateListing() {
 		finalizeRangeDisplay(rangeIndex);
 
 		function finalizeRangeDisplay(rangeIndex) {
+
+			// Css changes only one for parent container
+			if (listingContainer.css('display') == 'none') {
+				listingContainer.show();
+				listingContainer.css('opacity', 1);
+			}
 			setTimeout(function () {
 				if (range[rangeIndex].total) {
 					range[rangeIndex].row.append(range[rangeIndex].html).show();
 					navList.filter(':eq(' + rangeIndex + ')').removeClass('disabled');
+
+					processEllipsis('#' + range[rangeIndex].id).done(function () {
+					});
+					$('#' + range[rangeIndex].id).show();
 				}
 				else {
 					range[rangeIndex].row.hide();
 				}
 			}, 10);
+			$('#ui-loader').hide();
 		}
 
 		//TODO: total record counts < pages x 16 or 12 hide View More button
@@ -436,25 +451,18 @@ function populateListing() {
 		$('.total_results').html(dataopt.total - offsetTotal);
 
 		setTimeout(function () {
-			listingContainer.show();
 
-			processEllipsis('.listing-entries').done(function () {
-				setTimeout(function () {
-					if (pageType > 0) {
-						entryContainer.find('> div').matchHeight({byRow: false});
-					}
+			if (pageType > 0) {
+				entryContainer.find('> div').matchHeight({byRow: false});
+			}
 
-					listingContainer.css('opacity', 1);
-
-					$('#ui-loader').hide();
-					affixNav.find('li').removeClass('active').each(function () {
-						if (!$(this).hasClass('disabled')) {
-							$(this).addClass('active');
-							return false;
-						}
-					});
-				}, 10);
+			affixNav.find('li').removeClass('active').each(function () {
+				if (!$(this).hasClass('disabled')) {
+					$(this).addClass('active');
+					return false;
+				}
 			});
+
 		}, 10);
 	});
 }
