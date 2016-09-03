@@ -348,20 +348,20 @@ function getLocalizedContent(tags) {
 
 	if (newTags.length) {
 		/*$.ajax({
-			url: (((typeof RootPath == 'undefined' || RootPath == '/') ? '' : RootPath) + '/jsonreq/event/').replace('//', '/'),
-			type: 'POST',
-			dataType: 'JSON',
-			data: {
-				type: 'localized tags',
-				tags: newTags.join(',')
-			}
-		}).done(function (data) {
-			$.each(data.data, function (i, obj) {
-				returnValue[obj.id] = obj.value;
-				localizedContent[obj.id] = obj.value;
-			});
+		 url: (((typeof RootPath == 'undefined' || RootPath == '/') ? '' : RootPath) + '/jsonreq/event/').replace('//', '/'),
+		 type: 'POST',
+		 dataType: 'JSON',
+		 data: {
+		 type: 'localized tags',
+		 tags: newTags.join(',')
+		 }
+		 }).done(function (data) {
+		 $.each(data.data, function (i, obj) {
+		 returnValue[obj.id] = obj.value;
+		 localizedContent[obj.id] = obj.value;
+		 });
 
-			deferred.resolve(returnValue);
+		 deferred.resolve(returnValue);
 		 });*/
 
 		$.each(tags, function (indx, val) {
