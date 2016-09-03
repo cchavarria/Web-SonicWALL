@@ -9,7 +9,7 @@ var populateListingPending = false, //prevent populate listing to load more than
 	hashMap = {
 		solution: 'bysolution',
 		brand: 'bybrand'
-		},
+	},
 	range = [
 		{
 			range: /^[ab]/i,
@@ -118,8 +118,8 @@ function init() {
 				data: {"type": "solution"},
 				init: true,
 				callback: solutionCallback
-				}
-			},
+			}
+		},
 		allDropdownLabel = {};
 
 	function brandCallback(title) {
