@@ -8,6 +8,8 @@
 out
 gen
 
+.env
+
 /static/js/**/*.min.js
 /static/scripts/**/*.min.js
 

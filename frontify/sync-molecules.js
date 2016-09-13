@@ -1,9 +1,13 @@
+require('dotenv').config({
+	path: '../.env'
+});
+
 var frontifyApi = require('@frontify/frontify-api');
 
 frontifyApi
 	.syncPatterns({
-		access_token: '0400bc2ed9a5ea9783ba6045ccbef6e37ccf4a19',
-		project: 94987
+		access_token: process.env.FRONTIFY_ACCESS_TOKEN,
+		project: process.env.FRONTIFY_ACCESS_TOKEN
 	}, ['../widgets/molecules/**/*-frontify.json'])
 	.catch(function (err) {
 		console.error(err);
