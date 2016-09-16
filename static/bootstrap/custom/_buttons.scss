@@ -60,6 +60,22 @@
 	+ .btn, + .btn-group {
 		margin-left: 10px;
 	}
+
+	&.btn-block {
+		+ .btn, + .btn-group {
+			margin-left: 0;
+		}
+	}
+}
+
+@media (max-width: $screen-xs-max) {
+	.btn, .btn-group {
+		&.btn-block-xs {
+			+ .btn, + .btn-group {
+				margin-left: 0;
+			}
+		}
+	}
 }
 
 //Added by Edward Chong
