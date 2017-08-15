@@ -1,1 +1,1 @@
-# Web DSG
+# Legacy SonicWall Website
